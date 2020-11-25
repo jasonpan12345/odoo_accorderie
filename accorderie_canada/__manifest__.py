@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'accorderie_quebec',
+    'name': 'accorderie_canada',
     'author': 'TechnoLibre',
     'application': 'True',
     'data': [
