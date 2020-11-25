@@ -1,0 +1,42 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="accorderie_treeview">
+    <field name="name">accorderie_tree</field>
+    <field name="model">accorderie</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="adresseaccorderie"/>
+        <field name="codepostalaccorderie"/>
+        <field name="courrielaccorderie"/>
+        <field name="datemaj_accorderie"/>
+        <field name="grpachat_accordeur"/>
+        <field name="grpachat_admin"/>
+        <field name="messageaccueil"/>
+        <field name="messagegrpachat"/>
+        <field name="noaccorderie"/>
+        <field name="noarrondissement"/>
+        <field name="nocartier"/>
+        <field name="nom"/>
+        <field name="nomcomplet"/>
+        <field name="nonvisible"/>
+        <field name="noregion"/>
+        <field name="noville"/>
+        <field name="telaccorderie"/>
+        <field name="telecopieuraccorderie"/>
+        <field name="url_logoaccorderie"/>
+        <field name="url_public_accorderie"/>
+        <field name="url_transac_accorderie"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="accorderie_accorderie_action_view_actionwindow">
+    <field name="name">accorderie_action_view</field>
+    <field name="res_model">accorderie</field>
+    <field name="view_id" ref="accorderie_treeview"/>
+    <field name="domain">False</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+</odoo>

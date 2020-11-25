@@ -1,0 +1,29 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <menuitem id="root_accorderie"
+            name="root_accorderie"
+            sequence="20"
+  />
+
+  <menuitem id="models"
+            name="Models"
+            sequence="1"
+            parent="root_accorderie"
+  />
+
+  <menuitem id="accorderie"
+            name="accorderie"
+            action="accorderie_accorderie_action_view_actionwindow"
+            sequence="1"
+            parent="models"
+  />
+
+  <menuitem id="achat_ponctuel"
+            name="achat_ponctuel"
+            action="achat_ponctuel_achat_ponctuel_action_view_actionwindow"
+            sequence="2"
+            parent="models"
+  />
+
+</odoo>

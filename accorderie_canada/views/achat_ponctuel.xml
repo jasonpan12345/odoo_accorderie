@@ -1,0 +1,30 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="achat_ponctuel_treeview">
+    <field name="name">achat_ponctuel_tree</field>
+    <field name="model">achat.ponctuel</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="achatponcfacturer"/>
+        <field name="dateachatponctuel"/>
+        <field name="datemaj_achantponct"/>
+        <field name="majoration_achatponct"/>
+        <field name="montantpaiementachatponct"/>
+        <field name="noachatponctuel"/>
+        <field name="nomembre"/>
+        <field name="taxef_achatponct"/>
+        <field name="taxep_achatponct"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="achat_ponctuel_achat_ponctuel_action_view_actionwindow">
+    <field name="name">achat_ponctuel_action_view</field>
+    <field name="res_model">achat.ponctuel</field>
+    <field name="view_id" ref="achat_ponctuel_treeview"/>
+    <field name="domain">False</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+</odoo>

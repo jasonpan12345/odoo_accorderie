@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+accorderie_access_types_d'utilisateur_/_utilisateur_interne,accorderie Access Types d'utilisateur / Utilisateur interne,model_accorderie,base.group_user,1,1,1,1
+achat_ponctuel_access_types_d'utilisateur_/_utilisateur_interne,achat_ponctuel Access Types d'utilisateur / Utilisateur interne,model_achat_ponctuel,base.group_user,1,1,1,1
