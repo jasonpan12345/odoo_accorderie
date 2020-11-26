@@ -1,0 +1,29 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="commande_treeview">
+    <field name="name">commande_tree</field>
+    <field name="model">commande</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="commandetermine"/>
+        <field name="datecmddebut"/>
+        <field name="datecmdfin"/>
+        <field name="datecueillette"/>
+        <field name="datemaj_cmd"/>
+        <field name="majoration"/>
+        <field name="nocommande"/>
+        <field name="nopointservice"/>
+        <field name="norefcommande"/>
+        <field name="taxefcommande"/>
+        <field name="taxepcommande"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="commande_commande_action_view_actionwindow">
+    <field name="name">commande_action_view</field>
+    <field name="res_model">commande</field>
+  </record>
+
+</odoo>

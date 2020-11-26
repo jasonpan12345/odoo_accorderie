@@ -1,0 +1,21 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="cartier_treeview">
+    <field name="name">cartier_tree</field>
+    <field name="model">cartier</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="cartier"/>
+        <field name="noarrondissement"/>
+        <field name="nocartier"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="cartier_cartier_action_view_actionwindow">
+    <field name="name">cartier_action_view</field>
+    <field name="res_model">cartier</field>
+  </record>
+
+</odoo>

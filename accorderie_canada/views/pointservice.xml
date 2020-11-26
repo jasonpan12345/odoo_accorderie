@@ -1,0 +1,25 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="pointservice_treeview">
+    <field name="name">pointservice_tree</field>
+    <field name="model">pointservice</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datemaj_pointservice"/>
+        <field name="noaccorderie"/>
+        <field name="nomembre"/>
+        <field name="nompointservice"/>
+        <field name="nopointservice"/>
+        <field name="notegrpachatpageclient"/>
+        <field name="ordrepointservice"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="pointservice_pointservice_action_view_actionwindow">
+    <field name="name">pointservice_action_view</field>
+    <field name="res_model">pointservice</field>
+  </record>
+
+</odoo>

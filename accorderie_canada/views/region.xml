@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="region_treeview">
+    <field name="name">region_tree</field>
+    <field name="model">region</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="noregion"/>
+        <field name="region"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="region_region_action_view_actionwindow">
+    <field name="name">region_action_view</field>
+    <field name="res_model">region</field>
+  </record>
+
+</odoo>

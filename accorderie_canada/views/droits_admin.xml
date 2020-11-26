@@ -1,0 +1,30 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="droits_admin_treeview">
+    <field name="name">droits_admin_tree</field>
+    <field name="model">droits.admin</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="consulteretatcompte"/>
+        <field name="consulterprofil"/>
+        <field name="gestioncatsouscat"/>
+        <field name="gestiondmd"/>
+        <field name="gestionfichier"/>
+        <field name="gestionoffre"/>
+        <field name="gestionoffremembre"/>
+        <field name="gestionprofil"/>
+        <field name="groupeachat"/>
+        <field name="nomembre"/>
+        <field name="saisieechange"/>
+        <field name="validation"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="droits_admin_droits_admin_action_view_actionwindow">
+    <field name="name">droits_admin_action_view</field>
+    <field name="res_model">droits.admin</field>
+  </record>
+
+</odoo>

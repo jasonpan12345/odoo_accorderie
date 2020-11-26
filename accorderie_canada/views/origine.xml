@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="origine_treeview">
+    <field name="name">origine_tree</field>
+    <field name="model">origine</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="noorigine"/>
+        <field name="origine"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="origine_origine_action_view_actionwindow">
+    <field name="name">origine_action_view</field>
+    <field name="res_model">origine</field>
+  </record>
+
+</odoo>

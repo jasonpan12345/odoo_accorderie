@@ -1,0 +1,21 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="ville_treeview">
+    <field name="name">ville_tree</field>
+    <field name="model">ville</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="noregion"/>
+        <field name="noville"/>
+        <field name="ville"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="ville_ville_action_view_actionwindow">
+    <field name="name">ville_action_view</field>
+    <field name="res_model">ville</field>
+  </record>
+
+</odoo>

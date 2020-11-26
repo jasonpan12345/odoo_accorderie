@@ -1,0 +1,35 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="pret_treeview">
+    <field name="name">pret_tree</field>
+    <field name="model">pret</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datecomitepret"/>
+        <field name="datedemandepret"/>
+        <field name="datemaj_pret"/>
+        <field name="datepret"/>
+        <field name="id_pret"/>
+        <field name="montantaccorder"/>
+        <field name="montantdemande"/>
+        <field name="nbremois"/>
+        <field name="nbrepaiement"/>
+        <field name="nomembre"/>
+        <field name="nomembre_intermediaire"/>
+        <field name="nomembre_responsable"/>
+        <field name="note"/>
+        <field name="raisonemprunt"/>
+        <field name="recommandation"/>
+        <field name="si_pretaccorder"/>
+        <field name="tautinteretannuel"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="pret_pret_action_view_actionwindow">
+    <field name="name">pret_action_view</field>
+    <field name="res_model">pret</field>
+  </record>
+
+</odoo>

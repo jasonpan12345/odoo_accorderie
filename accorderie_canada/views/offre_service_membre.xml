@@ -1,0 +1,37 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="offre_service_membre_treeview">
+    <field name="name">offre_service_membre_tree</field>
+    <field name="model">offre.service.membre</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="approuve"/>
+        <field name="conditionoffre"/>
+        <field name="conditionx"/>
+        <field name="dateaffichage"/>
+        <field name="datedebut"/>
+        <field name="datefin"/>
+        <field name="datemaj_servicemembre"/>
+        <field name="description"/>
+        <field name="disponibilite"/>
+        <field name="fait"/>
+        <field name="nbfoisconsulteroffremembre"/>
+        <field name="noaccorderie"/>
+        <field name="nocategoriesouscategorie"/>
+        <field name="nomembre"/>
+        <field name="nooffreservicemembre"/>
+        <field name="offrespecial"/>
+        <field name="supprimer"/>
+        <field name="tarif"/>
+        <field name="titreoffrespecial"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="offre_service_membre_offre_service_membre_action_view_actionwindow">
+    <field name="name">offre_service_membre_action_view</field>
+    <field name="res_model">offre.service.membre</field>
+  </record>
+
+</odoo>

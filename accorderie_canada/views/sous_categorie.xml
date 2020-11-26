@@ -1,0 +1,23 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="sous_categorie_treeview">
+    <field name="name">sous_categorie_tree</field>
+    <field name="model">sous.categorie</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="approuver"/>
+        <field name="nocategorie"/>
+        <field name="nosouscategorie"/>
+        <field name="supprimer"/>
+        <field name="titresouscategorie"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="sous_categorie_sous_categorie_action_view_actionwindow">
+    <field name="name">sous_categorie_action_view</field>
+    <field name="res_model">sous.categorie</field>
+  </record>
+
+</odoo>

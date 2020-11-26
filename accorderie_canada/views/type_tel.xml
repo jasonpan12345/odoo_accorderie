@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="type_tel_treeview">
+    <field name="name">type_tel_tree</field>
+    <field name="model">type.tel</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="notypetel"/>
+        <field name="typetel"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="type_tel_type_tel_action_view_actionwindow">
+    <field name="name">type_tel_action_view</field>
+    <field name="res_model">type.tel</field>
+  </record>
+
+</odoo>

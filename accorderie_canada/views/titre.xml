@@ -1,0 +1,22 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="titre_treeview">
+    <field name="name">titre_tree</field>
+    <field name="model">titre</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datemaj_titre"/>
+        <field name="notitre"/>
+        <field name="titre"/>
+        <field name="visible_titre"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="titre_titre_action_view_actionwindow">
+    <field name="name">titre_action_view</field>
+    <field name="res_model">titre</field>
+  </record>
+
+</odoo>

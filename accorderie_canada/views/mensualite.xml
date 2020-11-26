@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="mensualite_treeview">
+    <field name="name">mensualite_tree</field>
+    <field name="model">mensualite</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="id_mensualite"/>
+        <field name="id_pret"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="mensualite_mensualite_action_view_actionwindow">
+    <field name="name">mensualite_action_view</field>
+    <field name="res_model">mensualite</field>
+  </record>
+
+</odoo>

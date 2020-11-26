@@ -1,0 +1,29 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="commande_membre_produit_treeview">
+    <field name="name">commande_membre_produit_tree</field>
+    <field name="model">commande.membre.produit</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="ajustement"/>
+        <field name="coutunitaire_facture"/>
+        <field name="datemaj_cmdmembreprod"/>
+        <field name="nocmdmbproduit"/>
+        <field name="nocommandemembre"/>
+        <field name="nofournisseurproduitcommande"/>
+        <field name="prixfacturer_manuel"/>
+        <field name="qte"/>
+        <field name="qtedeplus"/>
+        <field name="sitaxablef_facture"/>
+        <field name="sitaxablep_facture"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="commande_membre_produit_commande_membre_produit_actio_actionwindow">
+    <field name="name">commande_membre_produit_action_view</field>
+    <field name="res_model">commande.membre.produit</field>
+  </record>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="versement_treeview">
+    <field name="name">versement_tree</field>
+    <field name="model">versement</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datemaj_versement"/>
+        <field name="id_mensualite"/>
+        <field name="id_versement"/>
+        <field name="montantversement"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="versement_versement_action_view_actionwindow">
+    <field name="name">versement_action_view</field>
+    <field name="res_model">versement</field>
+  </record>
+
+</odoo>

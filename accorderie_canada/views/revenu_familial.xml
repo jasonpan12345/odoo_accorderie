@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="revenu_familial_treeview">
+    <field name="name">revenu_familial_tree</field>
+    <field name="model">revenu.familial</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="norevenufamilial"/>
+        <field name="revenu"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="revenu_familial_revenu_familial_action_view_actionwindow">
+    <field name="name">revenu_familial_action_view</field>
+    <field name="res_model">revenu.familial</field>
+  </record>
+
+</odoo>

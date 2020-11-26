@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="provenance_treeview">
+    <field name="name">provenance_tree</field>
+    <field name="model">provenance</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="noprovenance"/>
+        <field name="provenance"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="provenance_provenance_action_view_actionwindow">
+    <field name="name">provenance_action_view</field>
+    <field name="res_model">provenance</field>
+  </record>
+
+</odoo>

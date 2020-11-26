@@ -34,14 +34,6 @@
   <record model="ir.actions.act_window" id="accorderie_accorderie_action_view_actionwindow">
     <field name="name">accorderie_action_view</field>
     <field name="res_model">accorderie</field>
-    <field name="name" type="html">
-      <p class="o_view_nocontent_empty_folder">
-        Add a new accorderie
-      </p>
-      <p>
-        Databases whose tables could be imported to ERPLibre and then be exported into code
-      </p>
-    </field>
   </record>
 
 </odoo>

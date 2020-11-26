@@ -1,0 +1,33 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="commande_membre_treeview">
+    <field name="name">commande_membre_tree</field>
+    <field name="model">commande.membre</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="archivesoustotal"/>
+        <field name="archivetotmajoration"/>
+        <field name="archivetottxfed"/>
+        <field name="archivetottxprov"/>
+        <field name="cmdconfirmer"/>
+        <field name="coutunitaireajour"/>
+        <field name="datecmdmb"/>
+        <field name="datefacture"/>
+        <field name="datemaj_cmdmembre"/>
+        <field name="facturer"/>
+        <field name="montantpaiement"/>
+        <field name="nocommande"/>
+        <field name="nocommandemembre"/>
+        <field name="nomembre"/>
+        <field name="numrefmembre"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="commande_membre_commande_membre_action_view_actionwindow">
+    <field name="name">commande_membre_action_view</field>
+    <field name="res_model">commande.membre</field>
+  </record>
+
+</odoo>

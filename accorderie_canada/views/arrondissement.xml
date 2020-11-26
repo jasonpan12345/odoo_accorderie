@@ -1,0 +1,21 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="arrondissement_treeview">
+    <field name="name">arrondissement_tree</field>
+    <field name="model">arrondissement</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="arrondissement"/>
+        <field name="noarrondissement"/>
+        <field name="noville"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="arrondissement_arrondissement_action_view_actionwindow">
+    <field name="name">arrondissement_action_view</field>
+    <field name="res_model">arrondissement</field>
+  </record>
+
+</odoo>

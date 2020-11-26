@@ -1,0 +1,28 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="demande_service_treeview">
+    <field name="name">demande_service_tree</field>
+    <field name="model">demande.service</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="approuve"/>
+        <field name="datedebut"/>
+        <field name="datefin"/>
+        <field name="description"/>
+        <field name="noaccorderie"/>
+        <field name="nodemandeservice"/>
+        <field name="nomembre"/>
+        <field name="supprimer"/>
+        <field name="titredemande"/>
+        <field name="transmit"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="demande_service_demande_service_action_view_actionwindow">
+    <field name="name">demande_service_action_view</field>
+    <field name="res_model">demande.service</field>
+  </record>
+
+</odoo>

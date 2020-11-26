@@ -1,0 +1,29 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="echange_service_treeview">
+    <field name="name">echange_service_tree</field>
+    <field name="model">echange.service</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="commentaire"/>
+        <field name="dateechange"/>
+        <field name="nbheure"/>
+        <field name="nodemandeservice"/>
+        <field name="noechangeservice"/>
+        <field name="nomembreacheteur"/>
+        <field name="nomembrevendeur"/>
+        <field name="nooffreservicemembre"/>
+        <field name="nopointservice"/>
+        <field name="remarque"/>
+        <field name="typeechange"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="echange_service_echange_service_action_view_actionwindow">
+    <field name="name">echange_service_action_view</field>
+    <field name="res_model">echange.service</field>
+  </record>
+
+</odoo>

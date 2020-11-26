@@ -1,0 +1,27 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="fichier_treeview">
+    <field name="name">fichier_tree</field>
+    <field name="model">fichier</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datemaj_fichier"/>
+        <field name="id_fichier"/>
+        <field name="id_typefichier"/>
+        <field name="noaccorderie"/>
+        <field name="nomfichieroriginal"/>
+        <field name="nomfichierstokage"/>
+        <field name="si_accorderielocalseulement"/>
+        <field name="si_admin"/>
+        <field name="si_disponible"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="fichier_fichier_action_view_actionwindow">
+    <field name="name">fichier_action_view</field>
+    <field name="res_model">fichier</field>
+  </record>
+
+</odoo>

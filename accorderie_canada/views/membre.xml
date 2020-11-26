@@ -1,0 +1,72 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="membre_treeview">
+    <field name="name">membre_tree</field>
+    <field name="model">membre</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="achatregrouper"/>
+        <field name="adresse"/>
+        <field name="anneenaissance"/>
+        <field name="bottincourriel"/>
+        <field name="bottintel"/>
+        <field name="codepostal"/>
+        <field name="courriel"/>
+        <field name="date_maj_membre"/>
+        <field name="dateadhesion"/>
+        <field name="descriptionaccordeur"/>
+        <field name="etatcomptecourriel"/>
+        <field name="membreactif"/>
+        <field name="membreca"/>
+        <field name="membreconjoint"/>
+        <field name="membreprinc"/>
+        <field name="memo"/>
+        <field name="motdepasse"/>
+        <field name="noaccorderie"/>
+        <field name="noarrondissement"/>
+        <field name="nocartier"/>
+        <field name="nom"/>
+        <field name="nomaccorderie"/>
+        <field name="nomembre"/>
+        <field name="nomembreconjoint"/>
+        <field name="nomutilisateur"/>
+        <field name="nooccupation"/>
+        <field name="noorigine"/>
+        <field name="nopointservice"/>
+        <field name="noprovenance"/>
+        <field name="noregion"/>
+        <field name="norevenufamilial"/>
+        <field name="nosituationmaison"/>
+        <field name="notypecommunication"/>
+        <field name="notypetel1"/>
+        <field name="notypetel2"/>
+        <field name="notypetel3"/>
+        <field name="noville"/>
+        <field name="partsocialpaye"/>
+        <field name="pascommunication"/>
+        <field name="postetel1"/>
+        <field name="postetel2"/>
+        <field name="postetel3"/>
+        <field name="precisezorigine"/>
+        <field name="prenom"/>
+        <field name="pretactif"/>
+        <field name="pretpayer"/>
+        <field name="pretradier"/>
+        <field name="profilapprouver"/>
+        <field name="recevoircourrielgrp"/>
+        <field name="sexe"/>
+        <field name="telephone1"/>
+        <field name="telephone2"/>
+        <field name="telephone3"/>
+        <field name="transferede"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="membre_membre_action_view_actionwindow">
+    <field name="name">membre_action_view</field>
+    <field name="res_model">membre</field>
+  </record>
+
+</odoo>

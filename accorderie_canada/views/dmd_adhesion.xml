@@ -1,0 +1,29 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="dmd_adhesion_treeview">
+    <field name="name">dmd_adhesion_tree</field>
+    <field name="model">dmd.adhesion</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="courriel"/>
+        <field name="datemaj"/>
+        <field name="enattente"/>
+        <field name="noaccorderie"/>
+        <field name="nodmdadhesion"/>
+        <field name="nom"/>
+        <field name="poste"/>
+        <field name="prenom"/>
+        <field name="supprimer"/>
+        <field name="telephone"/>
+        <field name="transferer"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="dmd_adhesion_dmd_adhesion_action_view_actionwindow">
+    <field name="name">dmd_adhesion_action_view</field>
+    <field name="res_model">dmd.adhesion</field>
+  </record>
+
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="situation_maison_treeview">
+    <field name="name">situation_maison_tree</field>
+    <field name="model">situation.maison</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="nosituationmaison"/>
+        <field name="situation"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="situation_maison_situation_maison_action_view_actionwindow">
+    <field name="name">situation_maison_action_view</field>
+    <field name="res_model">situation.maison</field>
+  </record>
+
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="taxe_treeview">
+    <field name="name">taxe_tree</field>
+    <field name="model">taxe</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="notaxe"/>
+        <field name="notaxefed"/>
+        <field name="notaxepro"/>
+        <field name="tauxmajoration"/>
+        <field name="tauxtaxefed"/>
+        <field name="tauxtaxepro"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="taxe_taxe_action_view_actionwindow">
+    <field name="name">taxe_action_view</field>
+    <field name="res_model">taxe</field>
+  </record>
+
+</odoo>

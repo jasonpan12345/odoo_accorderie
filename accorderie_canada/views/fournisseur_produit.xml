@@ -1,0 +1,26 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="fournisseur_produit_treeview">
+    <field name="name">fournisseur_produit_tree</field>
+    <field name="model">fournisseur.produit</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="codeproduit"/>
+        <field name="datemaj_fournproduit"/>
+        <field name="nofournisseur"/>
+        <field name="nofournisseurproduit"/>
+        <field name="noproduit"/>
+        <field name="visible_fournisseurproduit"/>
+        <field name="zcoutunitaire"/>
+        <field name="zqtestokeacc"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="fournisseur_produit_fournisseur_produit_action_view_actionwindow">
+    <field name="name">fournisseur_produit_action_view</field>
+    <field name="res_model">fournisseur.produit</field>
+  </record>
+
+</odoo>

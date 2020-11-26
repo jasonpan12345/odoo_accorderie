@@ -1,0 +1,34 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="fournisseur_treeview">
+    <field name="name">fournisseur_tree</field>
+    <field name="model">fournisseur</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="adresse"/>
+        <field name="codepostalfournisseur"/>
+        <field name="courrielcontact"/>
+        <field name="courrielfournisseur"/>
+        <field name="datemaj_fournisseur"/>
+        <field name="faxfounisseur"/>
+        <field name="noaccorderie"/>
+        <field name="nofournisseur"/>
+        <field name="nomcontact"/>
+        <field name="nomfournisseur"/>
+        <field name="noregion"/>
+        <field name="notefournisseur"/>
+        <field name="noville"/>
+        <field name="postecontact"/>
+        <field name="telfournisseur"/>
+        <field name="visible_fournisseur"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="fournisseur_fournisseur_action_view_actionwindow">
+    <field name="name">fournisseur_action_view</field>
+    <field name="res_model">fournisseur</field>
+  </record>
+
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="type_compte_treeview">
+    <field name="name">type_compte_tree</field>
+    <field name="model">type.compte</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="accodeursimple"/>
+        <field name="admin"/>
+        <field name="adminchef"/>
+        <field name="adminordpointservice"/>
+        <field name="adminpointservice"/>
+        <field name="nomembre"/>
+        <field name="reseau"/>
+        <field name="spip"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="type_compte_type_compte_action_view_actionwindow">
+    <field name="name">type_compte_action_view</field>
+    <field name="res_model">type.compte</field>
+  </record>
+
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="info_logiciel_bd_treeview">
+    <field name="name">info_logiciel_bd_tree</field>
+    <field name="model">info.logiciel.bd</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datecreation"/>
+        <field name="derniereversionlogiciel"/>
+        <field name="lienweb"/>
+        <field name="majoblig"/>
+        <field name="noinfologicielbd"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="info_logiciel_bd_info_logiciel_bd_action_view_actionwindow">
+    <field name="name">info_logiciel_bd_action_view</field>
+    <field name="res_model">info.logiciel.bd</field>
+  </record>
+
+</odoo>

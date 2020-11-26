@@ -1,0 +1,21 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="type_fichier_treeview">
+    <field name="name">type_fichier_tree</field>
+    <field name="model">type.fichier</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="datemaj_typefichier"/>
+        <field name="id_typefichier"/>
+        <field name="typefichier"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="type_fichier_type_fichier_action_view_actionwindow">
+    <field name="name">type_fichier_action_view</field>
+    <field name="res_model">type.fichier</field>
+  </record>
+
+</odoo>

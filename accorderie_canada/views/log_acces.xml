@@ -1,0 +1,29 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="log_acces_treeview">
+    <field name="name">log_acces_tree</field>
+    <field name="model">log.acces</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="dateheure_deconnexion"/>
+        <field name="dateheureconnexion"/>
+        <field name="id_log_acces"/>
+        <field name="ip_client_v4"/>
+        <field name="navigateur"/>
+        <field name="nomembre"/>
+        <field name="nomusageressayer"/>
+        <field name="referer"/>
+        <field name="resolution_h"/>
+        <field name="resolution_w"/>
+        <field name="statut"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="log_acces_log_acces_action_view_actionwindow">
+    <field name="name">log_acces_action_view</field>
+    <field name="res_model">log.acces</field>
+  </record>
+
+</odoo>

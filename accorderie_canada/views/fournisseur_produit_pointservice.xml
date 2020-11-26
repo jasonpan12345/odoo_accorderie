@@ -1,0 +1,24 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="fournisseur_produit_pointservice_treeview">
+    <field name="name">fournisseur_produit_pointservice_tree</field>
+    <field name="model">fournisseur.produit.pointservice</field>
+    <field name="arch" type="xml">
+      <tree editable="top">
+        <field name="coutunitaire"/>
+        <field name="datemaj_fournprodptserv"/>
+        <field name="nofournisseurproduit"/>
+        <field name="nofournisseurproduitpointservice"/>
+        <field name="nopointservice"/>
+        <field name="qtestokeacc"/>
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="fournisseur_produit_pointservice_fournisseur_produit__actionwindow">
+    <field name="name">fournisseur_produit_pointservice_action_view</field>
+    <field name="res_model">fournisseur.produit.pointservice</field>
+  </record>
+
+</odoo>
