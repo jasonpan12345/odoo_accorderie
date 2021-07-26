@@ -4,67 +4,67 @@ from odoo import api, models, fields
 
 
 class Commande(models.Model):
-    _name = 'commande'
-    _description = 'Model Commande belonging to Module Tbl'
+    _name = "commande"
+    _description = "Model Commande belonging to Module Tbl"
 
     commandetermine = fields.Integer(
-        string='Field Commandetermine',
+        string="Field Commandetermine",
         copy=False,
     )
 
     datecmddebut = fields.Date(
-        string='Field Datecmddebut',
+        string="Field Datecmddebut",
         copy=False,
     )
 
     datecmdfin = fields.Date(
-        string='Field Datecmdfin',
+        string="Field Datecmdfin",
         copy=False,
     )
 
     datecueillette = fields.Date(
-        string='Field Datecueillette',
+        string="Field Datecueillette",
         copy=False,
     )
 
     datemaj_cmd = fields.Datetime(
-        string='Field Datemaj_cmd',
+        string="Field Datemaj_cmd",
         copy=False,
     )
 
     majoration = fields.Float(
-        string='Field Majoration',
+        string="Field Majoration",
         copy=False,
     )
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     nocommande = fields.Integer(
-        string='Field Nocommande',
+        string="Field Nocommande",
         required=True,
         copy=False,
     )
 
     nopointservice = fields.Integer(
-        string='Field Nopointservice',
+        string="Field Nopointservice",
         required=True,
         copy=False,
     )
 
     norefcommande = fields.Integer(
-        string='Field Norefcommande',
+        string="Field Norefcommande",
         copy=False,
     )
 
     taxefcommande = fields.Float(
-        string='Field Taxefcommande',
+        string="Field Taxefcommande",
         copy=False,
     )
 
     taxepcommande = fields.Float(
-        string='Field Taxepcommande',
+        string="Field Taxepcommande",
         copy=False,
     )

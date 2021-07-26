@@ -4,67 +4,67 @@ from odoo import api, models, fields
 
 
 class DmdAdhesion(models.Model):
-    _name = 'dmd.adhesion'
-    _description = 'Model Dmd_adhesion belonging to Module Tbl'
+    _name = "dmd.adhesion"
+    _description = "Model Dmd_adhesion belonging to Module Tbl"
 
     courriel = fields.Char(
-        string='Field Courriel',
+        string="Field Courriel",
         copy=False,
     )
 
     datemaj = fields.Datetime(
-        string='Field Datemaj',
+        string="Field Datemaj",
         copy=False,
     )
 
     enattente = fields.Integer(
-        string='Field Enattente',
+        string="Field Enattente",
         copy=False,
     )
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     noaccorderie = fields.Integer(
-        string='Field Noaccorderie',
+        string="Field Noaccorderie",
         required=True,
         copy=False,
     )
 
     nodmdadhesion = fields.Integer(
-        string='Field Nodmdadhesion',
+        string="Field Nodmdadhesion",
         required=True,
         copy=False,
     )
 
     nom = fields.Char(
-        string='Field Nom',
+        string="Field Nom",
         copy=False,
     )
 
     poste = fields.Char(
-        string='Field Poste',
+        string="Field Poste",
         copy=False,
     )
 
     prenom = fields.Char(
-        string='Field Prenom',
+        string="Field Prenom",
         copy=False,
     )
 
     supprimer = fields.Integer(
-        string='Field Supprimer',
+        string="Field Supprimer",
         copy=False,
     )
 
     telephone = fields.Char(
-        string='Field Telephone',
+        string="Field Telephone",
         copy=False,
     )
 
     transferer = fields.Integer(
-        string='Field Transferer',
+        string="Field Transferer",
         copy=False,
     )

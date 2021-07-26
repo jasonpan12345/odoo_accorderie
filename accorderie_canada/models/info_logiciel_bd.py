@@ -4,36 +4,36 @@ from odoo import api, models, fields
 
 
 class InfoLogicielBd(models.Model):
-    _name = 'info.logiciel.bd'
-    _description = 'Model Info_logiciel_bd belonging to Module Tbl'
+    _name = "info.logiciel.bd"
+    _description = "Model Info_logiciel_bd belonging to Module Tbl"
 
     datecreation = fields.Datetime(
-        string='Field Datecreation',
+        string="Field Datecreation",
         copy=False,
     )
 
     derniereversionlogiciel = fields.Integer(
-        string='Field Derniereversionlogiciel',
+        string="Field Derniereversionlogiciel",
         copy=False,
     )
 
     lienweb = fields.Char(
-        string='Field Lienweb',
+        string="Field Lienweb",
         copy=False,
     )
 
     majoblig = fields.Integer(
-        string='Field Majoblig',
+        string="Field Majoblig",
         copy=False,
     )
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     noinfologicielbd = fields.Integer(
-        string='Field Noinfologicielbd',
+        string="Field Noinfologicielbd",
         required=True,
         copy=False,
     )

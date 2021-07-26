@@ -4,47 +4,47 @@ from odoo import api, models, fields
 
 
 class Pointservice(models.Model):
-    _name = 'pointservice'
-    _description = 'Model Pointservice belonging to Module Tbl'
+    _name = "pointservice"
+    _description = "Model Pointservice belonging to Module Tbl"
 
     datemaj_pointservice = fields.Datetime(
-        string='Field Datemaj_pointservice',
+        string="Field Datemaj_pointservice",
         copy=False,
     )
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     noaccorderie = fields.Integer(
-        string='Field Noaccorderie',
+        string="Field Noaccorderie",
         required=True,
         copy=False,
     )
 
     nomembre = fields.Integer(
-        string='Field Nomembre',
+        string="Field Nomembre",
         copy=False,
     )
 
     nompointservice = fields.Char(
-        string='Field Nompointservice',
+        string="Field Nompointservice",
         copy=False,
     )
 
     nopointservice = fields.Integer(
-        string='Field Nopointservice',
+        string="Field Nopointservice",
         required=True,
         copy=False,
     )
 
     notegrpachatpageclient = fields.Text(
-        string='Field Notegrpachatpageclient',
+        string="Field Notegrpachatpageclient",
         copy=False,
     )
 
     ordrepointservice = fields.Integer(
-        string='Field Ordrepointservice',
+        string="Field Ordrepointservice",
         copy=False,
     )

@@ -4,21 +4,21 @@ from odoo import api, models, fields
 
 
 class TypeCommunication(models.Model):
-    _name = 'type.communication'
-    _description = 'Model Type_communication belonging to Module Tbl'
+    _name = "type.communication"
+    _description = "Model Type_communication belonging to Module Tbl"
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     notypecommunication = fields.Integer(
-        string='Field Notypecommunication',
+        string="Field Notypecommunication",
         required=True,
         copy=False,
     )
 
     typecommunication = fields.Char(
-        string='Field Typecommunication',
+        string="Field Typecommunication",
         copy=False,
     )

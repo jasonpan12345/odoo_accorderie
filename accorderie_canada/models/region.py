@@ -4,21 +4,21 @@ from odoo import api, models, fields
 
 
 class Region(models.Model):
-    _name = 'region'
-    _description = 'Model Region belonging to Module Tbl'
+    _name = "region"
+    _description = "Model Region belonging to Module Tbl"
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     noregion = fields.Integer(
-        string='Field Noregion',
+        string="Field Noregion",
         required=True,
         copy=False,
     )
 
     region = fields.Char(
-        string='Field Region',
+        string="Field Region",
         copy=False,
     )

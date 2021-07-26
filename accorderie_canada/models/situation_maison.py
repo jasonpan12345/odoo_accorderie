@@ -4,21 +4,21 @@ from odoo import api, models, fields
 
 
 class SituationMaison(models.Model):
-    _name = 'situation.maison'
-    _description = 'Model Situation_maison belonging to Module Tbl'
+    _name = "situation.maison"
+    _description = "Model Situation_maison belonging to Module Tbl"
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     nosituationmaison = fields.Integer(
-        string='Field Nosituationmaison',
+        string="Field Nosituationmaison",
         required=True,
         copy=False,
     )
 
     situation = fields.Char(
-        string='Field Situation',
+        string="Field Situation",
         copy=False,
     )

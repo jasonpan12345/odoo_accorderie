@@ -4,26 +4,26 @@ from odoo import api, models, fields
 
 
 class Ville(models.Model):
-    _name = 'ville'
-    _description = 'Model Ville belonging to Module Tbl'
+    _name = "ville"
+    _description = "Model Ville belonging to Module Tbl"
 
     name = fields.Char(
-        string='Field Name',
+        string="Field Name",
         copy=False,
     )
 
     noregion = fields.Integer(
-        string='Field Noregion',
+        string="Field Noregion",
         copy=False,
     )
 
     noville = fields.Integer(
-        string='Field Noville',
+        string="Field Noville",
         required=True,
         copy=False,
     )
 
     ville = fields.Char(
-        string='Field Ville',
+        string="Field Ville",
         copy=False,
     )
