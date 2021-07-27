@@ -1,110 +1,56 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class OffreServiceMembre(models.Model):
     _name = "offre.service.membre"
     _description = "Model Offre_service_membre belonging to Module Tbl"
 
-    approuve = fields.Integer(
-        string="Field Approuve",
-        copy=False,
-    )
+    approuve = fields.Integer(string="Field Approuve")
 
-    conditionoffre = fields.Char(
-        string="Field Conditionoffre",
-        copy=False,
-    )
+    conditionoffre = fields.Char(string="Field Conditionoffre")
 
-    conditionx = fields.Char(
-        string="Field Conditionx",
-        copy=False,
-    )
+    conditionx = fields.Char(string="Field Conditionx")
 
-    dateaffichage = fields.Date(
-        string="Field Dateaffichage",
-        copy=False,
-    )
+    dateaffichage = fields.Date(string="Field Dateaffichage")
 
-    datedebut = fields.Date(
-        string="Field Datedebut",
-        copy=False,
-    )
+    datedebut = fields.Date(string="Field Datedebut")
 
-    datefin = fields.Date(
-        string="Field Datefin",
-        copy=False,
-    )
+    datefin = fields.Date(string="Field Datefin")
 
     datemaj_servicemembre = fields.Datetime(
         string="Field Datemaj_servicemembre",
         required=True,
-        copy=False,
     )
 
-    description = fields.Char(
-        string="Field Description",
-        copy=False,
-    )
+    description = fields.Char(string="Field Description")
 
-    disponibilite = fields.Char(
-        string="Field Disponibilite",
-        copy=False,
-    )
+    disponibilite = fields.Char(string="Field Disponibilite")
 
-    fait = fields.Integer(
-        string="Field Fait",
-        copy=False,
-    )
+    fait = fields.Integer(string="Field Fait")
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     nbfoisconsulteroffremembre = fields.Integer(
-        string="Field Nbfoisconsulteroffremembre",
-        copy=False,
+        string="Field Nbfoisconsulteroffremembre"
     )
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        copy=False,
-    )
+    noaccorderie = fields.Integer(string="Field Noaccorderie")
 
     nocategoriesouscategorie = fields.Integer(
-        string="Field Nocategoriesouscategorie",
-        copy=False,
+        string="Field Nocategoriesouscategorie"
     )
 
-    nomembre = fields.Integer(
-        string="Field Nomembre",
-        copy=False,
-    )
+    nomembre = fields.Integer(string="Field Nomembre")
 
     nooffreservicemembre = fields.Integer(
         string="Field Nooffreservicemembre",
         required=True,
-        copy=False,
     )
 
-    offrespecial = fields.Integer(
-        string="Field Offrespecial",
-        copy=False,
-    )
+    offrespecial = fields.Integer(string="Field Offrespecial")
 
-    supprimer = fields.Integer(
-        string="Field Supprimer",
-        copy=False,
-    )
+    supprimer = fields.Integer(string="Field Supprimer")
 
-    tarif = fields.Char(
-        string="Field Tarif",
-        copy=False,
-    )
+    tarif = fields.Char(string="Field Tarif")
 
-    titreoffrespecial = fields.Char(
-        string="Field Titreoffrespecial",
-        copy=False,
-    )
+    titreoffrespecial = fields.Char(string="Field Titreoffrespecial")

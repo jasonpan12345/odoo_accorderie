@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class AchatPonctuelProduit(models.Model):
@@ -8,54 +6,40 @@ class AchatPonctuelProduit(models.Model):
     _description = "Model Achat_ponctuel_produit belonging to Module Tbl"
 
     coutunit_achatponctprod = fields.Float(
-        string="Field Coutunit_achatponctprod",
-        copy=False,
+        string="Field Coutunit_achatponctprod"
     )
 
     datemaj_achatponcproduit = fields.Datetime(
-        string="Field Datemaj_achatponcproduit",
-        copy=False,
+        string="Field Datemaj_achatponcproduit"
     )
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     noachatponctuel = fields.Integer(
         string="Field Noachatponctuel",
         required=True,
-        copy=False,
     )
 
     noachatponctuelproduit = fields.Integer(
         string="Field Noachatponctuelproduit",
         required=True,
-        copy=False,
     )
 
     nofournisseurproduit = fields.Integer(
         string="Field Nofournisseurproduit",
         required=True,
-        copy=False,
     )
 
     prixfacturer_achatponctprod = fields.Float(
-        string="Field Prixfacturer_achatponctprod",
-        copy=False,
+        string="Field Prixfacturer_achatponctprod"
     )
 
-    qteacheter = fields.Float(
-        string="Field Qteacheter",
-        copy=False,
-    )
+    qteacheter = fields.Float(string="Field Qteacheter")
 
     sitaxablef_achatponctprod = fields.Integer(
-        string="Field Sitaxablef_achatponctprod",
-        copy=False,
+        string="Field Sitaxablef_achatponctprod"
     )
 
     sitaxablep_achatponctprod = fields.Integer(
-        string="Field Sitaxablep_achatponctprod",
-        copy=False,
+        string="Field Sitaxablep_achatponctprod"
     )

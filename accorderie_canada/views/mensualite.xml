@@ -1,20 +1,41 @@
-<?xml version= "1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="mensualite_view_form" model="ir.ui.view">
+        <field name="name">mensualite_form</field>
+        <field name="model">mensualite</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="id_mensualite" />
+                    </group>
+                    <group>
+                        <field name="id_pret" />
+                    </group>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-  <record model="ir.ui.view" id="mensualite_treeview">
-    <field name="name">mensualite_tree</field>
-    <field name="model">mensualite</field>
-    <field name="arch" type="xml">
-      <tree editable="top">
-        <field name="id_mensualite"/>
-        <field name="id_pret"/>
-      </tree>
-    </field>
-  </record>
+    <record id="mensualite_view_tree" model="ir.ui.view">
+        <field name="name">mensualite_tree</field>
+        <field name="model">mensualite</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id_mensualite" />
+                <field name="id_pret" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
 
-  <record model="ir.actions.act_window" id="mensualite_mensualite_action_view_actionwindow">
-    <field name="name">mensualite_action_view</field>
-    <field name="res_model">mensualite</field>
-  </record>
-
+    <act_window
+        id="mensualite_mensualite_action_view_action_window"
+        name="mensualite_action_view"
+        res_model="mensualite"
+        view_mode="list,form"
+    />
 </odoo>

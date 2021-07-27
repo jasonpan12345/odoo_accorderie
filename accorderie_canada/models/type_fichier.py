@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class TypeFichier(models.Model):
@@ -10,21 +8,13 @@ class TypeFichier(models.Model):
     datemaj_typefichier = fields.Datetime(
         string="Field Datemaj_typefichier",
         required=True,
-        copy=False,
     )
 
     id_typefichier = fields.Integer(
         string="Field Id_typefichier",
         required=True,
-        copy=False,
     )
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
-    typefichier = fields.Char(
-        string="Field Typefichier",
-        copy=False,
-    )
+    typefichier = fields.Char(string="Field Typefichier")

@@ -1,40 +1,24 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class SousCategorie(models.Model):
     _name = "sous.categorie"
     _description = "Model Sous_categorie belonging to Module Tbl"
 
-    approuver = fields.Integer(
-        string="Field Approuver",
-        copy=False,
-    )
+    approuver = fields.Integer(string="Field Approuver")
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     nocategorie = fields.Integer(
         string="Field Nocategorie",
         required=True,
-        copy=False,
     )
 
     nosouscategorie = fields.Char(
         string="Field Nosouscategorie",
         required=True,
-        copy=False,
     )
 
-    supprimer = fields.Integer(
-        string="Field Supprimer",
-        copy=False,
-    )
+    supprimer = fields.Integer(string="Field Supprimer")
 
-    titresouscategorie = fields.Char(
-        string="Field Titresouscategorie",
-        copy=False,
-    )
+    titresouscategorie = fields.Char(string="Field Titresouscategorie")

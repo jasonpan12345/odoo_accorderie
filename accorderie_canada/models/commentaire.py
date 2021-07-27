@@ -1,131 +1,65 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class Commentaire(models.Model):
     _name = "commentaire"
     _description = "Model Commentaire belonging to Module Tbl"
 
-    autrecommentaire = fields.Text(
-        string="Field Autrecommentaire",
-        copy=False,
-    )
+    autrecommentaire = fields.Text(string="Field Autrecommentaire")
 
-    autresituation = fields.Char(
-        string="Field Autresituation",
-        copy=False,
-    )
+    autresituation = fields.Char(string="Field Autresituation")
 
-    consulteraccorderie = fields.Integer(
-        string="Field Consulteraccorderie",
-        copy=False,
-    )
+    consulteraccorderie = fields.Integer(string="Field Consulteraccorderie")
 
-    consulterreseau = fields.Integer(
-        string="Field Consulterreseau",
-        copy=False,
-    )
+    consulterreseau = fields.Integer(string="Field Consulterreseau")
 
-    dateheureajout = fields.Datetime(
-        string="Field Dateheureajout",
-        copy=False,
-    )
+    dateheureajout = fields.Datetime(string="Field Dateheureajout")
 
-    dateincident = fields.Date(
-        string="Field Dateincident",
-        copy=False,
-    )
+    dateincident = fields.Date(string="Field Dateincident")
 
-    datemaj_commentaire = fields.Datetime(
-        string="Field Datemaj_commentaire",
-        copy=False,
-    )
+    datemaj_commentaire = fields.Datetime(string="Field Datemaj_commentaire")
 
-    demarche = fields.Text(
-        string="Field Demarche",
-        copy=False,
-    )
+    demarche = fields.Text(string="Field Demarche")
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     nocommentaire = fields.Integer(
         string="Field Nocommentaire",
         required=True,
-        copy=False,
     )
 
-    nodemandeservice = fields.Integer(
-        string="Field Nodemandeservice",
-        copy=False,
-    )
+    nodemandeservice = fields.Integer(string="Field Nodemandeservice")
 
-    nomcomite = fields.Char(
-        string="Field Nomcomite",
-        copy=False,
-    )
+    nomcomite = fields.Char(string="Field Nomcomite")
 
     nomembresource = fields.Integer(
         string="Field Nomembresource",
         required=True,
-        copy=False,
     )
 
-    nomembreviser = fields.Integer(
-        string="Field Nomembreviser",
-        copy=False,
-    )
+    nomembreviser = fields.Integer(string="Field Nomembreviser")
 
-    nomemployer = fields.Char(
-        string="Field Nomemployer",
-        copy=False,
-    )
+    nomemployer = fields.Char(string="Field Nomemployer")
 
-    nooffreservicemembre = fields.Integer(
-        string="Field Nooffreservicemembre",
-        copy=False,
-    )
+    nooffreservicemembre = fields.Integer(string="Field Nooffreservicemembre")
 
     nopointservice = fields.Integer(
         string="Field Nopointservice",
         required=True,
-        copy=False,
     )
 
-    noteadministrative = fields.Text(
-        string="Field Noteadministrative",
-        copy=False,
-    )
+    noteadministrative = fields.Text(string="Field Noteadministrative")
 
-    resumersituation = fields.Text(
-        string="Field Resumersituation",
-        copy=False,
-    )
+    resumersituation = fields.Text(string="Field Resumersituation")
 
     satisfactioninsatisfaction = fields.Integer(
-        string="Field Satisfactioninsatisfaction",
-        copy=False,
+        string="Field Satisfactioninsatisfaction"
     )
 
-    siconfidentiel = fields.Integer(
-        string="Field Siconfidentiel",
-        copy=False,
-    )
+    siconfidentiel = fields.Integer(string="Field Siconfidentiel")
 
-    situation_impliquant = fields.Integer(
-        string="Field Situation_impliquant",
-        copy=False,
-    )
+    situation_impliquant = fields.Integer(string="Field Situation_impliquant")
 
-    solutionpourregler = fields.Text(
-        string="Field Solutionpourregler",
-        copy=False,
-    )
+    solutionpourregler = fields.Text(string="Field Solutionpourregler")
 
-    typeoffre = fields.Integer(
-        string="Field Typeoffre",
-        copy=False,
-    )
+    typeoffre = fields.Integer(string="Field Typeoffre")

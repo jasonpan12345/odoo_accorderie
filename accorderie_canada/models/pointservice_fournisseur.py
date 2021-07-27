@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class PointserviceFournisseur(models.Model):
@@ -8,29 +6,22 @@ class PointserviceFournisseur(models.Model):
     _description = "Model Pointservice_fournisseur belonging to Module Tbl"
 
     datemaj_pointservicefournisseur = fields.Datetime(
-        string="Field Datemaj_pointservicefournisseur",
-        copy=False,
+        string="Field Datemaj_pointservicefournisseur"
     )
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     nofournisseur = fields.Integer(
         string="Field Nofournisseur",
         required=True,
-        copy=False,
     )
 
     nopointservice = fields.Integer(
         string="Field Nopointservice",
         required=True,
-        copy=False,
     )
 
     nopointservicefournisseur = fields.Integer(
         string="Field Nopointservicefournisseur",
         required=True,
-        copy=False,
     )

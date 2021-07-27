@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
-
 {
     "name": "accorderie_canada",
-    "application": "True",
+    "category": "Uncategorized",
+    "version": "12.0.1.0",
+    "author": "TechnoLibre",
+    "license": "AGPL-3",
+    "application": True,
     "data": [
         "security/ir.model.access.csv",
         "views/accorderie.xml",
@@ -49,7 +51,7 @@
         "views/type_tel.xml",
         "views/versement.xml",
         "views/ville.xml",
-        "views/menues.xml",
+        "views/menu.xml",
     ],
     "installable": True,
 }

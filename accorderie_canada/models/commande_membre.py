@@ -1,91 +1,47 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class CommandeMembre(models.Model):
     _name = "commande.membre"
     _description = "Model Commande_membre belonging to Module Tbl"
 
-    archivesoustotal = fields.Float(
-        string="Field Archivesoustotal",
-        copy=False,
-    )
+    archivesoustotal = fields.Float(string="Field Archivesoustotal")
 
-    archivetotmajoration = fields.Float(
-        string="Field Archivetotmajoration",
-        copy=False,
-    )
+    archivetotmajoration = fields.Float(string="Field Archivetotmajoration")
 
-    archivetottxfed = fields.Float(
-        string="Field Archivetottxfed",
-        copy=False,
-    )
+    archivetottxfed = fields.Float(string="Field Archivetottxfed")
 
-    archivetottxprov = fields.Float(
-        string="Field Archivetottxprov",
-        copy=False,
-    )
+    archivetottxprov = fields.Float(string="Field Archivetottxprov")
 
-    cmdconfirmer = fields.Integer(
-        string="Field Cmdconfirmer",
-        copy=False,
-    )
+    cmdconfirmer = fields.Integer(string="Field Cmdconfirmer")
 
-    coutunitaireajour = fields.Integer(
-        string="Field Coutunitaireajour",
-        copy=False,
-    )
+    coutunitaireajour = fields.Integer(string="Field Coutunitaireajour")
 
-    datecmdmb = fields.Datetime(
-        string="Field Datecmdmb",
-        copy=False,
-    )
+    datecmdmb = fields.Datetime(string="Field Datecmdmb")
 
-    datefacture = fields.Date(
-        string="Field Datefacture",
-        copy=False,
-    )
+    datefacture = fields.Date(string="Field Datefacture")
 
-    datemaj_cmdmembre = fields.Datetime(
-        string="Field Datemaj_cmdmembre",
-        copy=False,
-    )
+    datemaj_cmdmembre = fields.Datetime(string="Field Datemaj_cmdmembre")
 
-    facturer = fields.Integer(
-        string="Field Facturer",
-        copy=False,
-    )
+    facturer = fields.Integer(string="Field Facturer")
 
-    montantpaiement = fields.Float(
-        string="Field Montantpaiement",
-        copy=False,
-    )
+    montantpaiement = fields.Float(string="Field Montantpaiement")
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     nocommande = fields.Integer(
         string="Field Nocommande",
         required=True,
-        copy=False,
     )
 
     nocommandemembre = fields.Integer(
         string="Field Nocommandemembre",
         required=True,
-        copy=False,
     )
 
     nomembre = fields.Integer(
         string="Field Nomembre",
         required=True,
-        copy=False,
     )
 
-    numrefmembre = fields.Integer(
-        string="Field Numrefmembre",
-        copy=False,
-    )
+    numrefmembre = fields.Integer(string="Field Numrefmembre")

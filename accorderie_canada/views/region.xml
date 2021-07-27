@@ -1,20 +1,41 @@
-<?xml version= "1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="region_view_form" model="ir.ui.view">
+        <field name="name">region_form</field>
+        <field name="model">region</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="noregion" />
+                    </group>
+                    <group>
+                        <field name="region" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-  <record model="ir.ui.view" id="region_treeview">
-    <field name="name">region_tree</field>
-    <field name="model">region</field>
-    <field name="arch" type="xml">
-      <tree editable="top">
-        <field name="noregion"/>
-        <field name="region"/>
-      </tree>
-    </field>
-  </record>
+    <record id="region_view_tree" model="ir.ui.view">
+        <field name="name">region_tree</field>
+        <field name="model">region</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="noregion" />
+                <field name="region" />
+            </tree>
+        </field>
+    </record>
 
-  <record model="ir.actions.act_window" id="region_region_action_view_actionwindow">
-    <field name="name">region_action_view</field>
-    <field name="res_model">region</field>
-  </record>
-
+    <act_window
+        id="region_region_action_view_action_window"
+        name="region_action_view"
+        res_model="region"
+        view_mode="list,form"
+    />
 </odoo>

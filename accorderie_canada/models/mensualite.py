@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class Mensualite(models.Model):
@@ -10,16 +8,11 @@ class Mensualite(models.Model):
     id_mensualite = fields.Integer(
         string="Field Id_mensualite",
         required=True,
-        copy=False,
     )
 
     id_pret = fields.Integer(
         string="Field Id_pret",
         required=True,
-        copy=False,
     )
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")

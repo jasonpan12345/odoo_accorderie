@@ -1,70 +1,36 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class DmdAdhesion(models.Model):
     _name = "dmd.adhesion"
     _description = "Model Dmd_adhesion belonging to Module Tbl"
 
-    courriel = fields.Char(
-        string="Field Courriel",
-        copy=False,
-    )
+    courriel = fields.Char(string="Field Courriel")
 
-    datemaj = fields.Datetime(
-        string="Field Datemaj",
-        copy=False,
-    )
+    datemaj = fields.Datetime(string="Field Datemaj")
 
-    enattente = fields.Integer(
-        string="Field Enattente",
-        copy=False,
-    )
+    enattente = fields.Integer(string="Field Enattente")
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     noaccorderie = fields.Integer(
         string="Field Noaccorderie",
         required=True,
-        copy=False,
     )
 
     nodmdadhesion = fields.Integer(
         string="Field Nodmdadhesion",
         required=True,
-        copy=False,
     )
 
-    nom = fields.Char(
-        string="Field Nom",
-        copy=False,
-    )
+    nom = fields.Char(string="Field Nom")
 
-    poste = fields.Char(
-        string="Field Poste",
-        copy=False,
-    )
+    poste = fields.Char(string="Field Poste")
 
-    prenom = fields.Char(
-        string="Field Prenom",
-        copy=False,
-    )
+    prenom = fields.Char(string="Field Prenom")
 
-    supprimer = fields.Integer(
-        string="Field Supprimer",
-        copy=False,
-    )
+    supprimer = fields.Integer(string="Field Supprimer")
 
-    telephone = fields.Char(
-        string="Field Telephone",
-        copy=False,
-    )
+    telephone = fields.Char(string="Field Telephone")
 
-    transferer = fields.Integer(
-        string="Field Transferer",
-        copy=False,
-    )
+    transferer = fields.Integer(string="Field Transferer")

@@ -1,70 +1,36 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class Commande(models.Model):
     _name = "commande"
     _description = "Model Commande belonging to Module Tbl"
 
-    commandetermine = fields.Integer(
-        string="Field Commandetermine",
-        copy=False,
-    )
+    commandetermine = fields.Integer(string="Field Commandetermine")
 
-    datecmddebut = fields.Date(
-        string="Field Datecmddebut",
-        copy=False,
-    )
+    datecmddebut = fields.Date(string="Field Datecmddebut")
 
-    datecmdfin = fields.Date(
-        string="Field Datecmdfin",
-        copy=False,
-    )
+    datecmdfin = fields.Date(string="Field Datecmdfin")
 
-    datecueillette = fields.Date(
-        string="Field Datecueillette",
-        copy=False,
-    )
+    datecueillette = fields.Date(string="Field Datecueillette")
 
-    datemaj_cmd = fields.Datetime(
-        string="Field Datemaj_cmd",
-        copy=False,
-    )
+    datemaj_cmd = fields.Datetime(string="Field Datemaj_cmd")
 
-    majoration = fields.Float(
-        string="Field Majoration",
-        copy=False,
-    )
+    majoration = fields.Float(string="Field Majoration")
 
-    name = fields.Char(
-        string="Field Name",
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     nocommande = fields.Integer(
         string="Field Nocommande",
         required=True,
-        copy=False,
     )
 
     nopointservice = fields.Integer(
         string="Field Nopointservice",
         required=True,
-        copy=False,
     )
 
-    norefcommande = fields.Integer(
-        string="Field Norefcommande",
-        copy=False,
-    )
+    norefcommande = fields.Integer(string="Field Norefcommande")
 
-    taxefcommande = fields.Float(
-        string="Field Taxefcommande",
-        copy=False,
-    )
+    taxefcommande = fields.Float(string="Field Taxefcommande")
 
-    taxepcommande = fields.Float(
-        string="Field Taxepcommande",
-        copy=False,
-    )
+    taxepcommande = fields.Float(string="Field Taxepcommande")
