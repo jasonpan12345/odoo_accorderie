@@ -4,7 +4,7 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-MODULE_NAME = "accorderie_canada"
+MODULE_NAME = "accorderie_canada_ddb"
 
 
 def post_init_hook(cr, e):
@@ -23,7 +23,7 @@ def post_init_hook(cr, e):
             [("name", "=", "Uncategorized")]
         )
         value = {
-            "shortdesc": "accorderie_canada",
+            "shortdesc": "accorderie_canada_ddb",
             "name": MODULE_NAME,
             "license": "AGPL-3",
             "category_id": categ_id.id,
@@ -135,7 +135,7 @@ def post_init_hook(cr, e):
 
         code_generator_id = env["code.generator.module"].browse(1)
 
-        code_generator_id.shortdesc = "accorderie_canada"
+        code_generator_id.shortdesc = "accorderie_canada_ddb"
         code_generator_id.name = MODULE_NAME
         code_generator_id.license = "AGPL-3"
         code_generator_id.category_id = categ_id.id
