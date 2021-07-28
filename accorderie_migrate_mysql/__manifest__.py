@@ -21,6 +21,7 @@ Be sure .cache is deleted before installed.
         "crm",
         "project",
         "sale",
+        "stock",
         "hr",
         "partner_fax",
         "website",

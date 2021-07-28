@@ -713,10 +713,11 @@ class MigrationAccorderie:
                         produit.NoAccorderie
                     )
                     name = produit.NomProduit
+                    active = produit.Visible_Produit == 1
                     value = {
                         "name": name,
                         "categ_id": titre_id.id,
-                        "active": produit.Visible_Produit == 1,
+                        "active": active,
                         "company_id": accorderie_obj.id,
                         "create_date": produit.DateMAJ_Produit,
                     }
@@ -724,8 +725,9 @@ class MigrationAccorderie:
                     product_id = env["product.template"].create(value)
                     dct_produit[produit.NoProduit] = product_id
                     print(
-                        f"{pos_id} - product.category - tbl_produit - ADDED"
-                        f" '{name}' id {produit.NoProduit}"
+                        f"{pos_id} - product.template - tbl_produit - ADDED"
+                        f" '{name}' id {produit.NoProduit} - is active"
+                        f" {active}"
                     )
 
                 self.dct_produit = dct_produit
