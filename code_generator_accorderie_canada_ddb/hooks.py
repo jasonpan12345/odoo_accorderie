@@ -73,8 +73,53 @@ def post_init_hook(cr, e):
             .filtered(lambda x: x.name.startswith("tbl_"))
         )
 
-        # lst_nomenclator = ("tbl_accorderie",)
-        lst_nomenclator = []
+        lst_nomenclator = (
+            "tbl_accorderie",
+            "tbl_achat_ponctuel",
+            "tbl_achat_ponctuel_produit",
+            "tbl_arrondissement",
+            "tbl_cartier",
+            "tbl_categorie",
+            "tbl_categorie_sous_categorie",
+            "tbl_commande",
+            "tbl_commande_membre",
+            "tbl_commande_membre_produit",
+            "tbl_commentaire",
+            "tbl_demande_service",
+            "tbl_dmd_adhesion",
+            "tbl_droits_admin",
+            "tbl_echange_service",
+            "tbl_fichier",
+            "tbl_fournisseur",
+            "tbl_fournisseur_produit",
+            "tbl_fournisseur_produit_commande",
+            "tbl_fournisseur_produit_pointservice",
+            "tbl_info_logiciel_bd",
+            # "tbl_log_acces",
+            "tbl_membre",
+            "tbl_mensualite",
+            "tbl_occupation",
+            "tbl_offre_service_membre",
+            "tbl_origine",
+            "tbl_pointservice",
+            "tbl_pointservice_fournisseur",
+            "tbl_pret",
+            "tbl_produit",
+            "tbl_provenance",
+            "tbl_region",
+            "tbl_revenu_familial",
+            "tbl_situation_maison",
+            "tbl_sous_categorie",
+            "tbl_taxe",
+            "tbl_titre",
+            "tbl_type_communication",
+            "tbl_type_compte",
+            "tbl_type_fichier",
+            "tbl_type_tel",
+            "tbl_versement",
+            "tbl_ville",
+        )
+        # lst_nomenclator = []
         # tbl_accorderie_id = None
 
         if lst_nomenclator:
