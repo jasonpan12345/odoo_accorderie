@@ -31,7 +31,6 @@ class CommandeMembre(models.Model):
 
     nocommande = fields.Integer(
         string="Field Nocommande",
-        required=True,
     )
 
     nocommandemembre = fields.Integer(
@@ -41,7 +40,6 @@ class CommandeMembre(models.Model):
 
     nomembre = fields.Integer(
         string="Field Nomembre",
-        required=True,
     )
 
     numrefmembre = fields.Integer(string="Field Numrefmembre")

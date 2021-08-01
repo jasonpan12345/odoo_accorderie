@@ -21,7 +21,6 @@ class Commande(models.Model):
 
     nocommande = fields.Integer(
         string="Field Nocommande",
-        required=True,
     )
 
     nopointservice = fields.Integer(

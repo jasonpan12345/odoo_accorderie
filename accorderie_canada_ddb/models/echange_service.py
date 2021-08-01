@@ -11,7 +11,7 @@ class EchangeService(models.Model):
 
     name = fields.Char(string="Field Name")
 
-    nbheure = fields.Datetime(string="Field Nbheure")
+    nbheure = fields.Float(string="Field Nbheure")
 
     nodemandeservice = fields.Integer(string="Field Nodemandeservice")
 

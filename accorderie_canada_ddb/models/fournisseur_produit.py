@@ -13,7 +13,6 @@ class FournisseurProduit(models.Model):
 
     nofournisseur = fields.Integer(
         string="Field Nofournisseur",
-        required=True,
     )
 
     nofournisseurproduit = fields.Integer(

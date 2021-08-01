@@ -19,7 +19,6 @@ class TypeCompte(models.Model):
 
     nomembre = fields.Integer(
         string="Field Nomembre",
-        required=True,
     )
 
     reseau = fields.Integer(string="Field Reseau")

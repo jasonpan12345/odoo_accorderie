@@ -21,7 +21,6 @@ class FournisseurProduitCommande(models.Model):
 
     nocommande = fields.Integer(
         string="Field Nocommande",
-        required=True,
     )
 
     nofournisseurproduit = fields.Integer(

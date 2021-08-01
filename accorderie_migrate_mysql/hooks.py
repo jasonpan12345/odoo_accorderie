@@ -1350,7 +1350,7 @@ class MigrationAccorderie:
                             echange_service.NoPointService
                         ).id,
                         "company_id": accorderie_obj.id,
-                        "unit_amount": echange_service.NbHeure.seconds / 3600,
+                        "unit_amount": echange_service.NbHeure / 3600,
                     }
 
                     if echange_service.NoMembreVendeur:

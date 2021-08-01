@@ -27,7 +27,6 @@ class DroitsAdmin(models.Model):
 
     nomembre = fields.Integer(
         string="Field Nomembre",
-        required=True,
     )
 
     saisieechange = fields.Integer(string="Field Saisieechange")

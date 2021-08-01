@@ -14,6 +14,15 @@ db_name = "accorderie_log_2019"
 port = 3306
 ```
 
+### Migration et correction d'erreur
+
+Dans le fichier SQL, il y a des dates qui ont la valeur '0000-00-00' au lieu de NULL, ça fait planter PostgreSQL.
+
+Corriger le fichier SQL avec la commande suivante avant de restorer la base de donnée.
+```bash
+sed -i "s/'0000-00-00'/NULL/g" accorderie_log_2019
+```
+
 ### Restoration d'une base de données
 
 Créer une base de donnée
@@ -37,6 +46,18 @@ Restorer le fichier SQL de la dernière sauvegarde. Assurez-vous que dans le fic
 ```bash
 # Log into mysql
 mysql -u accorderie -p accorderie_log_2019 < FICHIER_SQL.sql
+```
+
+### Effacer une base de données
+
+Pour afficher toutes les bases de données
+```sql
+show databases;
+```
+
+Effacer votre table, avec exemple de table 'accorderie_log_2019'
+```sql
+DROP DATABASE accorderie_log_2019;
 ```
 
 ### Création de modules ERPLibre à partir du générateur de code

@@ -96,7 +96,7 @@ def post_init_hook(cr, e):
             "tbl_fournisseur_produit_pointservice",
             "tbl_info_logiciel_bd",
             # "tbl_log_acces",
-            "tbl_membre",
+            # "tbl_membre",
             "tbl_mensualite",
             "tbl_occupation",
             "tbl_offre_service_membre",
