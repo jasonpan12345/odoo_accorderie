@@ -5,11 +5,8 @@ class RevenuFamilial(models.Model):
     _name = "revenu.familial"
     _description = "Model Revenu_familial belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    norevenufamilial = fields.Integer(
-        string="Field Norevenufamilial",
-        required=True,
-    )
+    norevenufamilial = fields.Integer(required=True)
 
-    revenu = fields.Char(string="Field Revenu")
+    revenu = fields.Char()

@@ -5,11 +5,8 @@ class Region(models.Model):
     _name = "region"
     _description = "Model Region belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noregion = fields.Integer(
-        string="Field Noregion",
-        required=True,
-    )
+    noregion = fields.Integer(required=True)
 
-    region = fields.Char(string="Field Region")
+    region = fields.Char()

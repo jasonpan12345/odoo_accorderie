@@ -5,30 +5,28 @@ class DroitsAdmin(models.Model):
     _name = "droits.admin"
     _description = "Model Droits_admin belonging to Module Tbl"
 
-    consulteretatcompte = fields.Integer(string="Field Consulteretatcompte")
+    consulteretatcompte = fields.Integer()
 
-    consulterprofil = fields.Integer(string="Field Consulterprofil")
+    consulterprofil = fields.Integer()
 
-    gestioncatsouscat = fields.Integer(string="Field Gestioncatsouscat")
+    gestioncatsouscat = fields.Integer()
 
-    gestiondmd = fields.Integer(string="Field Gestiondmd")
+    gestiondmd = fields.Integer()
 
-    gestionfichier = fields.Integer(string="Field Gestionfichier")
+    gestionfichier = fields.Integer()
 
-    gestionoffre = fields.Integer(string="Field Gestionoffre")
+    gestionoffre = fields.Integer()
 
-    gestionoffremembre = fields.Integer(string="Field Gestionoffremembre")
+    gestionoffremembre = fields.Integer()
 
-    gestionprofil = fields.Integer(string="Field Gestionprofil")
+    gestionprofil = fields.Integer()
 
-    groupeachat = fields.Integer(string="Field Groupeachat")
+    groupeachat = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nomembre = fields.Integer(
-        string="Field Nomembre",
-    )
+    nomembre = fields.Integer()
 
-    saisieechange = fields.Integer(string="Field Saisieechange")
+    saisieechange = fields.Integer()
 
-    validation = fields.Integer(string="Field Validation")
+    validation = fields.Integer()

@@ -5,48 +5,36 @@ class Fournisseur(models.Model):
     _name = "fournisseur"
     _description = "Model Fournisseur belonging to Module Tbl"
 
-    adresse = fields.Char(string="Field Adresse")
+    adresse = fields.Char()
 
-    codepostalfournisseur = fields.Char(string="Field Codepostalfournisseur")
+    codepostalfournisseur = fields.Char()
 
-    courrielcontact = fields.Char(string="Field Courrielcontact")
+    courrielcontact = fields.Char()
 
-    courrielfournisseur = fields.Char(string="Field Courrielfournisseur")
+    courrielfournisseur = fields.Char()
 
-    datemaj_fournisseur = fields.Datetime(string="Field Datemaj_fournisseur")
+    datemaj_fournisseur = fields.Datetime(string="Datemaj fournisseur")
 
-    faxfounisseur = fields.Char(string="Field Faxfounisseur")
+    faxfounisseur = fields.Char()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    nofournisseur = fields.Integer(
-        string="Field Nofournisseur",
-        required=True,
-    )
+    nofournisseur = fields.Integer(required=True)
 
-    nomcontact = fields.Char(string="Field Nomcontact")
+    nomcontact = fields.Char()
 
-    nomfournisseur = fields.Char(string="Field Nomfournisseur")
+    nomfournisseur = fields.Char()
 
-    noregion = fields.Integer(
-        string="Field Noregion",
-        required=True,
-    )
+    noregion = fields.Integer(required=True)
 
-    notefournisseur = fields.Text(string="Field Notefournisseur")
+    notefournisseur = fields.Text()
 
-    noville = fields.Integer(
-        string="Field Noville",
-        required=True,
-    )
+    noville = fields.Integer(required=True)
 
-    postecontact = fields.Char(string="Field Postecontact")
+    postecontact = fields.Char()
 
-    telfournisseur = fields.Char(string="Field Telfournisseur")
+    telfournisseur = fields.Char()
 
-    visible_fournisseur = fields.Integer(string="Field Visible_fournisseur")
+    visible_fournisseur = fields.Integer(string="Visible fournisseur")

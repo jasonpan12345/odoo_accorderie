@@ -5,32 +5,22 @@ class FournisseurProduitCommande(models.Model):
     _name = "fournisseur.produit.commande"
     _description = "Model Fournisseur_produit_commande belonging to Module Tbl"
 
-    coutunitprevu = fields.Float(string="Field Coutunitprevu")
+    coutunitprevu = fields.Float()
 
     datemaj_fournprodcommande = fields.Datetime(
-        string="Field Datemaj_fournprodcommande"
+        string="Datemaj fournprodcommande"
     )
 
-    disponible = fields.Integer(string="Field Disponible")
+    disponible = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nbboiteminfournisseur = fields.Integer(
-        string="Field Nbboiteminfournisseur"
-    )
+    nbboiteminfournisseur = fields.Integer()
 
-    nocommande = fields.Integer(
-        string="Field Nocommande",
-    )
+    nocommande = fields.Integer()
 
-    nofournisseurproduit = fields.Integer(
-        string="Field Nofournisseurproduit",
-        required=True,
-    )
+    nofournisseurproduit = fields.Integer(required=True)
 
-    nofournisseurproduitcommande = fields.Integer(
-        string="Field Nofournisseurproduitcommande",
-        required=True,
-    )
+    nofournisseurproduitcommande = fields.Integer(required=True)
 
-    qteparboiteprevu = fields.Float(string="Field Qteparboiteprevu")
+    qteparboiteprevu = fields.Float()

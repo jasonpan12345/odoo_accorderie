@@ -5,39 +5,30 @@ class Fichier(models.Model):
     _name = "fichier"
     _description = "Model Fichier belonging to Module Tbl"
 
-    datemaj_fichier = fields.Datetime(string="Field Datemaj_fichier")
+    datemaj_fichier = fields.Datetime(string="Datemaj fichier")
 
     id_fichier = fields.Integer(
-        string="Field Id_fichier",
+        string="Id fichier",
         required=True,
     )
 
     id_typefichier = fields.Integer(
-        string="Field Id_typefichier",
+        string="Id typefichier",
         required=True,
     )
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    nomfichieroriginal = fields.Char(
-        string="Field Nomfichieroriginal",
-        required=True,
-    )
+    nomfichieroriginal = fields.Char(required=True)
 
-    nomfichierstokage = fields.Char(
-        string="Field Nomfichierstokage",
-        required=True,
-    )
+    nomfichierstokage = fields.Char(required=True)
 
     si_accorderielocalseulement = fields.Integer(
-        string="Field Si_accorderielocalseulement"
+        string="Si accorderielocalseulement"
     )
 
-    si_admin = fields.Integer(string="Field Si_admin")
+    si_admin = fields.Integer(string="Si admin")
 
-    si_disponible = fields.Integer(string="Field Si_disponible")
+    si_disponible = fields.Integer(string="Si disponible")

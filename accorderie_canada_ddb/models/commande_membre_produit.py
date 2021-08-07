@@ -5,37 +5,26 @@ class CommandeMembreProduit(models.Model):
     _name = "commande.membre.produit"
     _description = "Model Commande_membre_produit belonging to Module Tbl"
 
-    ajustement = fields.Float(string="Field Ajustement")
+    ajustement = fields.Float()
 
-    coutunitaire_facture = fields.Float(string="Field Coutunitaire_facture")
+    coutunitaire_facture = fields.Float(string="Coutunitaire facture")
 
-    datemaj_cmdmembreprod = fields.Datetime(
-        string="Field Datemaj_cmdmembreprod"
-    )
+    datemaj_cmdmembreprod = fields.Datetime(string="Datemaj cmdmembreprod")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nocmdmbproduit = fields.Integer(
-        string="Field Nocmdmbproduit",
-        required=True,
-    )
+    nocmdmbproduit = fields.Integer(required=True)
 
-    nocommandemembre = fields.Integer(
-        string="Field Nocommandemembre",
-        required=True,
-    )
+    nocommandemembre = fields.Integer(required=True)
 
-    nofournisseurproduitcommande = fields.Integer(
-        string="Field Nofournisseurproduitcommande",
-        required=True,
-    )
+    nofournisseurproduitcommande = fields.Integer(required=True)
 
-    prixfacturer_manuel = fields.Float(string="Field Prixfacturer_manuel")
+    prixfacturer_manuel = fields.Float(string="Prixfacturer manuel")
 
-    qte = fields.Float(string="Field Qte")
+    qte = fields.Float()
 
-    qtedeplus = fields.Float(string="Field Qtedeplus")
+    qtedeplus = fields.Float()
 
-    sitaxablef_facture = fields.Integer(string="Field Sitaxablef_facture")
+    sitaxablef_facture = fields.Integer(string="Sitaxablef facture")
 
-    sitaxablep_facture = fields.Integer(string="Field Sitaxablep_facture")
+    sitaxablep_facture = fields.Integer(string="Sitaxablep facture")

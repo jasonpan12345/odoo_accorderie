@@ -5,13 +5,10 @@ class Ville(models.Model):
     _name = "ville"
     _description = "Model Ville belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noregion = fields.Integer(string="Field Noregion")
+    noregion = fields.Integer()
 
-    noville = fields.Integer(
-        string="Field Noville",
-        required=True,
-    )
+    noville = fields.Integer(required=True)
 
-    ville = fields.Char(string="Field Ville")
+    ville = fields.Char()

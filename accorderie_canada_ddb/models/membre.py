@@ -5,142 +5,112 @@ class Membre(models.Model):
     _name = "membre"
     _description = "Model Membre belonging to Module Tbl"
 
-    achatregrouper = fields.Integer(string="Field Achatregrouper")
+    achatregrouper = fields.Integer()
 
-    adresse = fields.Char(string="Field Adresse")
+    adresse = fields.Char()
 
-    anneenaissance = fields.Integer(string="Field Anneenaissance")
+    anneenaissance = fields.Integer()
 
-    bottincourriel = fields.Integer(string="Field Bottincourriel")
+    bottincourriel = fields.Integer()
 
-    bottintel = fields.Integer(string="Field Bottintel")
+    bottintel = fields.Integer()
 
-    codepostal = fields.Char(string="Field Codepostal")
+    codepostal = fields.Char()
 
-    courriel = fields.Char(string="Field Courriel")
+    courriel = fields.Char()
 
-    date_maj_membre = fields.Datetime(string="Field Date_maj_membre")
+    date_maj_membre = fields.Datetime(string="Date maj membre")
 
-    dateadhesion = fields.Date(string="Field Dateadhesion")
+    dateadhesion = fields.Date()
 
-    descriptionaccordeur = fields.Char(string="Field Descriptionaccordeur")
+    descriptionaccordeur = fields.Char()
 
-    etatcomptecourriel = fields.Integer(string="Field Etatcomptecourriel")
+    etatcomptecourriel = fields.Integer()
 
-    membreactif = fields.Integer(string="Field Membreactif")
+    membreactif = fields.Integer()
 
-    membreca = fields.Integer(string="Field Membreca")
+    membreca = fields.Integer()
 
-    membreconjoint = fields.Integer(string="Field Membreconjoint")
+    membreconjoint = fields.Integer()
 
-    membreprinc = fields.Integer(string="Field Membreprinc")
+    membreprinc = fields.Integer()
 
-    memo = fields.Text(string="Field Memo")
+    memo = fields.Text()
 
-    motdepasse = fields.Char(string="Field Motdepasse")
+    motdepasse = fields.Char()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    noarrondissement = fields.Integer(string="Field Noarrondissement")
+    noarrondissement = fields.Integer()
 
-    nocartier = fields.Integer(string="Field Nocartier")
+    nocartier = fields.Integer()
 
-    nom = fields.Char(string="Field Nom")
+    nom = fields.Char()
 
-    nomaccorderie = fields.Char(string="Field Nomaccorderie")
+    nomaccorderie = fields.Char()
 
-    nomembre = fields.Integer(
-        string="Field Nomembre",
-        required=True,
-    )
+    nomembre = fields.Integer(required=True)
 
-    nomembreconjoint = fields.Integer(string="Field Nomembreconjoint")
+    nomembreconjoint = fields.Integer()
 
-    nomutilisateur = fields.Char(string="Field Nomutilisateur")
+    nomutilisateur = fields.Char()
 
-    nooccupation = fields.Integer(
-        string="Field Nooccupation",
-        required=True,
-    )
+    nooccupation = fields.Integer(required=True)
 
-    noorigine = fields.Integer(
-        string="Field Noorigine",
-        required=True,
-    )
+    noorigine = fields.Integer(required=True)
 
-    nopointservice = fields.Integer(string="Field Nopointservice")
+    nopointservice = fields.Integer()
 
-    noprovenance = fields.Integer(
-        string="Field Noprovenance",
-        required=True,
-    )
+    noprovenance = fields.Integer(required=True)
 
-    noregion = fields.Integer(
-        string="Field Noregion",
-        required=True,
-    )
+    noregion = fields.Integer(required=True)
 
-    norevenufamilial = fields.Integer(
-        string="Field Norevenufamilial",
-        required=True,
-    )
+    norevenufamilial = fields.Integer(required=True)
 
-    nosituationmaison = fields.Integer(
-        string="Field Nosituationmaison",
-        required=True,
-    )
+    nosituationmaison = fields.Integer(required=True)
 
-    notypecommunication = fields.Integer(
-        string="Field Notypecommunication",
-        required=True,
-    )
+    notypecommunication = fields.Integer(required=True)
 
-    notypetel1 = fields.Integer(string="Field Notypetel1")
+    notypetel1 = fields.Integer()
 
-    notypetel2 = fields.Integer(string="Field Notypetel2")
+    notypetel2 = fields.Integer()
 
-    notypetel3 = fields.Integer(string="Field Notypetel3")
+    notypetel3 = fields.Integer()
 
-    noville = fields.Integer(
-        string="Field Noville",
-        required=True,
-    )
+    noville = fields.Integer(required=True)
 
-    partsocialpaye = fields.Integer(string="Field Partsocialpaye")
+    partsocialpaye = fields.Integer()
 
-    pascommunication = fields.Integer(string="Field Pascommunication")
+    pascommunication = fields.Integer()
 
-    postetel1 = fields.Char(string="Field Postetel1")
+    postetel1 = fields.Char()
 
-    postetel2 = fields.Char(string="Field Postetel2")
+    postetel2 = fields.Char()
 
-    postetel3 = fields.Char(string="Field Postetel3")
+    postetel3 = fields.Char()
 
-    precisezorigine = fields.Char(string="Field Precisezorigine")
+    precisezorigine = fields.Char()
 
-    prenom = fields.Char(string="Field Prenom")
+    prenom = fields.Char()
 
-    pretactif = fields.Integer(string="Field Pretactif")
+    pretactif = fields.Integer()
 
-    pretpayer = fields.Integer(string="Field Pretpayer")
+    pretpayer = fields.Integer()
 
-    pretradier = fields.Integer(string="Field Pretradier")
+    pretradier = fields.Integer()
 
-    profilapprouver = fields.Integer(string="Field Profilapprouver")
+    profilapprouver = fields.Integer()
 
-    recevoircourrielgrp = fields.Integer(string="Field Recevoircourrielgrp")
+    recevoircourrielgrp = fields.Integer()
 
-    sexe = fields.Integer(string="Field Sexe")
+    sexe = fields.Integer()
 
-    telephone1 = fields.Char(string="Field Telephone1")
+    telephone1 = fields.Char()
 
-    telephone2 = fields.Char(string="Field Telephone2")
+    telephone2 = fields.Char()
 
-    telephone3 = fields.Char(string="Field Telephone3")
+    telephone3 = fields.Char()
 
-    transferede = fields.Integer(string="Field Transferede")
+    transferede = fields.Integer()

@@ -5,41 +5,34 @@ class CommandeMembre(models.Model):
     _name = "commande.membre"
     _description = "Model Commande_membre belonging to Module Tbl"
 
-    archivesoustotal = fields.Float(string="Field Archivesoustotal")
+    archivesoustotal = fields.Float()
 
-    archivetotmajoration = fields.Float(string="Field Archivetotmajoration")
+    archivetotmajoration = fields.Float()
 
-    archivetottxfed = fields.Float(string="Field Archivetottxfed")
+    archivetottxfed = fields.Float()
 
-    archivetottxprov = fields.Float(string="Field Archivetottxprov")
+    archivetottxprov = fields.Float()
 
-    cmdconfirmer = fields.Integer(string="Field Cmdconfirmer")
+    cmdconfirmer = fields.Integer()
 
-    coutunitaireajour = fields.Integer(string="Field Coutunitaireajour")
+    coutunitaireajour = fields.Integer()
 
-    datecmdmb = fields.Datetime(string="Field Datecmdmb")
+    datecmdmb = fields.Datetime()
 
-    datefacture = fields.Date(string="Field Datefacture")
+    datefacture = fields.Date()
 
-    datemaj_cmdmembre = fields.Datetime(string="Field Datemaj_cmdmembre")
+    datemaj_cmdmembre = fields.Datetime(string="Datemaj cmdmembre")
 
-    facturer = fields.Integer(string="Field Facturer")
+    facturer = fields.Integer()
 
-    montantpaiement = fields.Float(string="Field Montantpaiement")
+    montantpaiement = fields.Float()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nocommande = fields.Integer(
-        string="Field Nocommande",
-    )
+    nocommande = fields.Integer()
 
-    nocommandemembre = fields.Integer(
-        string="Field Nocommandemembre",
-        required=True,
-    )
+    nocommandemembre = fields.Integer(required=True)
 
-    nomembre = fields.Integer(
-        string="Field Nomembre",
-    )
+    nomembre = fields.Integer()
 
-    numrefmembre = fields.Integer(string="Field Numrefmembre")
+    numrefmembre = fields.Integer()

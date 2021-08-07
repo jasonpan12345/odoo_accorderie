@@ -5,11 +5,8 @@ class SituationMaison(models.Model):
     _name = "situation.maison"
     _description = "Model Situation_maison belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nosituationmaison = fields.Integer(
-        string="Field Nosituationmaison",
-        required=True,
-    )
+    nosituationmaison = fields.Integer(required=True)
 
-    situation = fields.Char(string="Field Situation")
+    situation = fields.Char()

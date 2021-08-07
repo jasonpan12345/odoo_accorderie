@@ -6,15 +6,15 @@ class TypeFichier(models.Model):
     _description = "Model Type_fichier belonging to Module Tbl"
 
     datemaj_typefichier = fields.Datetime(
-        string="Field Datemaj_typefichier",
+        string="Datemaj typefichier",
         required=True,
     )
 
     id_typefichier = fields.Integer(
-        string="Field Id_typefichier",
+        string="Id typefichier",
         required=True,
     )
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    typefichier = fields.Char(string="Field Typefichier")
+    typefichier = fields.Char()

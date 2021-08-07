@@ -5,31 +5,29 @@ class LogAcces(models.Model):
     _name = "log.acces"
     _description = "Model Log_acces belonging to Module Tbl"
 
-    dateheure_deconnexion = fields.Datetime(
-        string="Field Dateheure_deconnexion"
-    )
+    dateheure_deconnexion = fields.Datetime(string="Dateheure deconnexion")
 
-    dateheureconnexion = fields.Datetime(string="Field Dateheureconnexion")
+    dateheureconnexion = fields.Datetime()
 
     id_log_acces = fields.Integer(
-        string="Field Id_log_acces",
+        string="Id log acces",
         required=True,
     )
 
-    ip_client_v4 = fields.Char(string="Field Ip_client_v4")
+    ip_client_v4 = fields.Char(string="Ip client v4")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    navigateur = fields.Char(string="Field Navigateur")
+    navigateur = fields.Char()
 
-    nomembre = fields.Integer(string="Field Nomembre")
+    nomembre = fields.Integer()
 
-    nomusageressayer = fields.Char(string="Field Nomusageressayer")
+    nomusageressayer = fields.Char()
 
-    referer = fields.Char(string="Field Referer")
+    referer = fields.Char()
 
-    resolution_h = fields.Integer(string="Field Resolution_h")
+    resolution_h = fields.Integer(string="Resolution h")
 
-    resolution_w = fields.Integer(string="Field Resolution_w")
+    resolution_w = fields.Integer(string="Resolution w")
 
-    statut = fields.Char(string="Field Statut")
+    statut = fields.Char()

@@ -5,18 +5,18 @@ class Versement(models.Model):
     _name = "versement"
     _description = "Model Versement belonging to Module Tbl"
 
-    datemaj_versement = fields.Datetime(string="Field Datemaj_versement")
+    datemaj_versement = fields.Datetime(string="Datemaj versement")
 
     id_mensualite = fields.Integer(
-        string="Field Id_mensualite",
+        string="Id mensualite",
         required=True,
     )
 
     id_versement = fields.Integer(
-        string="Field Id_versement",
+        string="Id versement",
         required=True,
     )
 
-    montantversement = fields.Float(string="Field Montantversement")
+    montantversement = fields.Float()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()

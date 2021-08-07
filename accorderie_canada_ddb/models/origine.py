@@ -5,11 +5,8 @@ class Origine(models.Model):
     _name = "origine"
     _description = "Model Origine belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noorigine = fields.Integer(
-        string="Field Noorigine",
-        required=True,
-    )
+    noorigine = fields.Integer(required=True)
 
-    origine = fields.Char(string="Field Origine")
+    origine = fields.Char()

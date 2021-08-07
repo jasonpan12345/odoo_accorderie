@@ -5,32 +5,26 @@ class DmdAdhesion(models.Model):
     _name = "dmd.adhesion"
     _description = "Model Dmd_adhesion belonging to Module Tbl"
 
-    courriel = fields.Char(string="Field Courriel")
+    courriel = fields.Char()
 
-    datemaj = fields.Datetime(string="Field Datemaj")
+    datemaj = fields.Datetime()
 
-    enattente = fields.Integer(string="Field Enattente")
+    enattente = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    nodmdadhesion = fields.Integer(
-        string="Field Nodmdadhesion",
-        required=True,
-    )
+    nodmdadhesion = fields.Integer(required=True)
 
-    nom = fields.Char(string="Field Nom")
+    nom = fields.Char()
 
-    poste = fields.Char(string="Field Poste")
+    poste = fields.Char()
 
-    prenom = fields.Char(string="Field Prenom")
+    prenom = fields.Char()
 
-    supprimer = fields.Integer(string="Field Supprimer")
+    supprimer = fields.Integer()
 
-    telephone = fields.Char(string="Field Telephone")
+    telephone = fields.Char()
 
-    transferer = fields.Integer(string="Field Transferer")
+    transferer = fields.Integer()

@@ -5,58 +5,46 @@ class Accorderie(models.Model):
     _name = "accorderie"
     _description = "Model Accorderie belonging to Module Tbl"
 
-    adresseaccorderie = fields.Char(string="Field Adresseaccorderie")
+    adresseaccorderie = fields.Char()
 
-    codepostalaccorderie = fields.Char(string="Field Codepostalaccorderie")
+    codepostalaccorderie = fields.Char()
 
-    courrielaccorderie = fields.Char(string="Field Courrielaccorderie")
+    courrielaccorderie = fields.Char()
 
-    datemaj_accorderie = fields.Datetime(string="Field Datemaj_accorderie")
+    datemaj_accorderie = fields.Datetime(string="Datemaj accorderie")
 
-    grpachat_accordeur = fields.Integer(string="Field Grpachat_accordeur")
+    grpachat_accordeur = fields.Integer(string="Grpachat accordeur")
 
-    grpachat_admin = fields.Integer(string="Field Grpachat_admin")
+    grpachat_admin = fields.Integer(string="Grpachat admin")
 
-    messageaccueil = fields.Text(string="Field Messageaccueil")
+    messageaccueil = fields.Text()
 
-    messagegrpachat = fields.Text(string="Field Messagegrpachat")
+    messagegrpachat = fields.Text()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    noarrondissement = fields.Integer(string="Field Noarrondissement")
+    noarrondissement = fields.Integer()
 
-    nocartier = fields.Integer(string="Field Nocartier")
+    nocartier = fields.Integer()
 
-    nom = fields.Char(string="Field Nom")
+    nom = fields.Char()
 
-    nomcomplet = fields.Char(
-        string="Field Nomcomplet",
-        required=True,
-    )
+    nomcomplet = fields.Char(required=True)
 
-    nonvisible = fields.Integer(string="Field Nonvisible")
+    nonvisible = fields.Integer()
 
-    noregion = fields.Integer(
-        string="Field Noregion",
-        required=True,
-    )
+    noregion = fields.Integer(required=True)
 
-    noville = fields.Integer(
-        string="Field Noville",
-        required=True,
-    )
+    noville = fields.Integer(required=True)
 
-    telaccorderie = fields.Char(string="Field Telaccorderie")
+    telaccorderie = fields.Char()
 
-    telecopieuraccorderie = fields.Char(string="Field Telecopieuraccorderie")
+    telecopieuraccorderie = fields.Char()
 
-    url_logoaccorderie = fields.Char(string="Field Url_logoaccorderie")
+    url_logoaccorderie = fields.Char(string="Url logoaccorderie")
 
-    url_public_accorderie = fields.Char(string="Field Url_public_accorderie")
+    url_public_accorderie = fields.Char(string="Url public accorderie")
 
-    url_transac_accorderie = fields.Char(string="Field Url_transac_accorderie")
+    url_transac_accorderie = fields.Char(string="Url transac accorderie")

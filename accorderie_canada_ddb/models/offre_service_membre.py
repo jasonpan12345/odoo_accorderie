@@ -5,52 +5,45 @@ class OffreServiceMembre(models.Model):
     _name = "offre.service.membre"
     _description = "Model Offre_service_membre belonging to Module Tbl"
 
-    approuve = fields.Integer(string="Field Approuve")
+    approuve = fields.Integer()
 
-    conditionoffre = fields.Char(string="Field Conditionoffre")
+    conditionoffre = fields.Char()
 
-    conditionx = fields.Char(string="Field Conditionx")
+    conditionx = fields.Char()
 
-    dateaffichage = fields.Date(string="Field Dateaffichage")
+    dateaffichage = fields.Date()
 
-    datedebut = fields.Date(string="Field Datedebut")
+    datedebut = fields.Date()
 
-    datefin = fields.Date(string="Field Datefin")
+    datefin = fields.Date()
 
     datemaj_servicemembre = fields.Datetime(
-        string="Field Datemaj_servicemembre",
+        string="Datemaj servicemembre",
         required=True,
     )
 
-    description = fields.Char(string="Field Description")
+    description = fields.Char()
 
-    disponibilite = fields.Char(string="Field Disponibilite")
+    disponibilite = fields.Char()
 
-    fait = fields.Integer(string="Field Fait")
+    fait = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nbfoisconsulteroffremembre = fields.Integer(
-        string="Field Nbfoisconsulteroffremembre"
-    )
+    nbfoisconsulteroffremembre = fields.Integer()
 
-    noaccorderie = fields.Integer(string="Field Noaccorderie")
+    noaccorderie = fields.Integer()
 
-    nocategoriesouscategorie = fields.Integer(
-        string="Field Nocategoriesouscategorie"
-    )
+    nocategoriesouscategorie = fields.Integer()
 
-    nomembre = fields.Integer(string="Field Nomembre")
+    nomembre = fields.Integer()
 
-    nooffreservicemembre = fields.Integer(
-        string="Field Nooffreservicemembre",
-        required=True,
-    )
+    nooffreservicemembre = fields.Integer(required=True)
 
-    offrespecial = fields.Integer(string="Field Offrespecial")
+    offrespecial = fields.Integer()
 
-    supprimer = fields.Integer(string="Field Supprimer")
+    supprimer = fields.Integer()
 
-    tarif = fields.Char(string="Field Tarif")
+    tarif = fields.Char()
 
-    titreoffrespecial = fields.Char(string="Field Titreoffrespecial")
+    titreoffrespecial = fields.Char()

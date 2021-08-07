@@ -5,11 +5,8 @@ class Provenance(models.Model):
     _name = "provenance"
     _description = "Model Provenance belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noprovenance = fields.Integer(
-        string="Field Noprovenance",
-        required=True,
-    )
+    noprovenance = fields.Integer(required=True)
 
-    provenance = fields.Char(string="Field Provenance")
+    provenance = fields.Char()

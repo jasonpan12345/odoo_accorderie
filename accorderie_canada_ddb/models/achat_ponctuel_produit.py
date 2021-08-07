@@ -5,41 +5,30 @@ class AchatPonctuelProduit(models.Model):
     _name = "achat.ponctuel.produit"
     _description = "Model Achat_ponctuel_produit belonging to Module Tbl"
 
-    coutunit_achatponctprod = fields.Float(
-        string="Field Coutunit_achatponctprod"
-    )
+    coutunit_achatponctprod = fields.Float(string="Coutunit achatponctprod")
 
     datemaj_achatponcproduit = fields.Datetime(
-        string="Field Datemaj_achatponcproduit"
+        string="Datemaj achatponcproduit"
     )
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noachatponctuel = fields.Integer(
-        string="Field Noachatponctuel",
-        required=True,
-    )
+    noachatponctuel = fields.Integer(required=True)
 
-    noachatponctuelproduit = fields.Integer(
-        string="Field Noachatponctuelproduit",
-        required=True,
-    )
+    noachatponctuelproduit = fields.Integer(required=True)
 
-    nofournisseurproduit = fields.Integer(
-        string="Field Nofournisseurproduit",
-        required=True,
-    )
+    nofournisseurproduit = fields.Integer(required=True)
 
     prixfacturer_achatponctprod = fields.Float(
-        string="Field Prixfacturer_achatponctprod"
+        string="Prixfacturer achatponctprod"
     )
 
-    qteacheter = fields.Float(string="Field Qteacheter")
+    qteacheter = fields.Float()
 
     sitaxablef_achatponctprod = fields.Integer(
-        string="Field Sitaxablef_achatponctprod"
+        string="Sitaxablef achatponctprod"
     )
 
     sitaxablep_achatponctprod = fields.Integer(
-        string="Field Sitaxablep_achatponctprod"
+        string="Sitaxablep achatponctprod"
     )

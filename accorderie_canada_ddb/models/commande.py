@@ -5,31 +5,26 @@ class Commande(models.Model):
     _name = "commande"
     _description = "Model Commande belonging to Module Tbl"
 
-    commandetermine = fields.Integer(string="Field Commandetermine")
+    commandetermine = fields.Integer()
 
-    datecmddebut = fields.Date(string="Field Datecmddebut")
+    datecmddebut = fields.Date()
 
-    datecmdfin = fields.Date(string="Field Datecmdfin")
+    datecmdfin = fields.Date()
 
-    datecueillette = fields.Date(string="Field Datecueillette")
+    datecueillette = fields.Date()
 
-    datemaj_cmd = fields.Datetime(string="Field Datemaj_cmd")
+    datemaj_cmd = fields.Datetime(string="Datemaj cmd")
 
-    majoration = fields.Float(string="Field Majoration")
+    majoration = fields.Float()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nocommande = fields.Integer(
-        string="Field Nocommande",
-    )
+    nocommande = fields.Integer()
 
-    nopointservice = fields.Integer(
-        string="Field Nopointservice",
-        required=True,
-    )
+    nopointservice = fields.Integer(required=True)
 
-    norefcommande = fields.Integer(string="Field Norefcommande")
+    norefcommande = fields.Integer()
 
-    taxefcommande = fields.Float(string="Field Taxefcommande")
+    taxefcommande = fields.Float()
 
-    taxepcommande = fields.Float(string="Field Taxepcommande")
+    taxepcommande = fields.Float()

@@ -5,13 +5,10 @@ class Arrondissement(models.Model):
     _name = "arrondissement"
     _description = "Model Arrondissement belonging to Module Tbl"
 
-    arrondissement = fields.Char(string="Field Arrondissement")
+    arrondissement = fields.Char()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noarrondissement = fields.Integer(
-        string="Field Noarrondissement",
-        required=True,
-    )
+    noarrondissement = fields.Integer(required=True)
 
-    noville = fields.Integer(string="Field Noville")
+    noville = fields.Integer()

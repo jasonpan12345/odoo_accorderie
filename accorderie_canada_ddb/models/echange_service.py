@@ -5,29 +5,26 @@ class EchangeService(models.Model):
     _name = "echange.service"
     _description = "Model Echange_service belonging to Module Tbl"
 
-    commentaire = fields.Char(string="Field Commentaire")
+    commentaire = fields.Char()
 
-    dateechange = fields.Date(string="Field Dateechange")
+    dateechange = fields.Date()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nbheure = fields.Float(string="Field Nbheure")
+    nbheure = fields.Float()
 
-    nodemandeservice = fields.Integer(string="Field Nodemandeservice")
+    nodemandeservice = fields.Integer()
 
-    noechangeservice = fields.Integer(
-        string="Field Noechangeservice",
-        required=True,
-    )
+    noechangeservice = fields.Integer(required=True)
 
-    nomembreacheteur = fields.Integer(string="Field Nomembreacheteur")
+    nomembreacheteur = fields.Integer()
 
-    nomembrevendeur = fields.Integer(string="Field Nomembrevendeur")
+    nomembrevendeur = fields.Integer()
 
-    nooffreservicemembre = fields.Integer(string="Field Nooffreservicemembre")
+    nooffreservicemembre = fields.Integer()
 
-    nopointservice = fields.Integer(string="Field Nopointservice")
+    nopointservice = fields.Integer()
 
-    remarque = fields.Char(string="Field Remarque")
+    remarque = fields.Char()
 
-    typeechange = fields.Integer(string="Field Typeechange")
+    typeechange = fields.Integer()

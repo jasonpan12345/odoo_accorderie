@@ -5,20 +5,14 @@ class SousCategorie(models.Model):
     _name = "sous.categorie"
     _description = "Model Sous_categorie belonging to Module Tbl"
 
-    approuver = fields.Integer(string="Field Approuver")
+    approuver = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nocategorie = fields.Integer(
-        string="Field Nocategorie",
-        required=True,
-    )
+    nocategorie = fields.Integer(required=True)
 
-    nosouscategorie = fields.Char(
-        string="Field Nosouscategorie",
-        required=True,
-    )
+    nosouscategorie = fields.Char(required=True)
 
-    supprimer = fields.Integer(string="Field Supprimer")
+    supprimer = fields.Integer()
 
-    titresouscategorie = fields.Char(string="Field Titresouscategorie")
+    titresouscategorie = fields.Char()

@@ -5,19 +5,14 @@ class InfoLogicielBd(models.Model):
     _name = "info.logiciel.bd"
     _description = "Model Info_logiciel_bd belonging to Module Tbl"
 
-    datecreation = fields.Datetime(string="Field Datecreation")
+    datecreation = fields.Datetime()
 
-    derniereversionlogiciel = fields.Integer(
-        string="Field Derniereversionlogiciel"
-    )
+    derniereversionlogiciel = fields.Integer()
 
-    lienweb = fields.Char(string="Field Lienweb")
+    lienweb = fields.Char()
 
-    majoblig = fields.Integer(string="Field Majoblig")
+    majoblig = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noinfologicielbd = fields.Integer(
-        string="Field Noinfologicielbd",
-        required=True,
-    )
+    noinfologicielbd = fields.Integer(required=True)

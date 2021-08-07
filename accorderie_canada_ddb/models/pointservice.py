@@ -5,24 +5,18 @@ class Pointservice(models.Model):
     _name = "pointservice"
     _description = "Model Pointservice belonging to Module Tbl"
 
-    datemaj_pointservice = fields.Datetime(string="Field Datemaj_pointservice")
+    datemaj_pointservice = fields.Datetime(string="Datemaj pointservice")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    nomembre = fields.Integer(string="Field Nomembre")
+    nomembre = fields.Integer()
 
-    nompointservice = fields.Char(string="Field Nompointservice")
+    nompointservice = fields.Char()
 
-    nopointservice = fields.Integer(
-        string="Field Nopointservice",
-        required=True,
-    )
+    nopointservice = fields.Integer(required=True)
 
-    notegrpachatpageclient = fields.Text(string="Field Notegrpachatpageclient")
+    notegrpachatpageclient = fields.Text()
 
-    ordrepointservice = fields.Integer(string="Field Ordrepointservice")
+    ordrepointservice = fields.Integer()

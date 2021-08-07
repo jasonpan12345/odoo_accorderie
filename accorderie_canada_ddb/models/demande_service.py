@@ -5,27 +5,24 @@ class DemandeService(models.Model):
     _name = "demande.service"
     _description = "Model Demande_service belonging to Module Tbl"
 
-    approuve = fields.Integer(string="Field Approuve")
+    approuve = fields.Integer()
 
-    datedebut = fields.Date(string="Field Datedebut")
+    datedebut = fields.Date()
 
-    datefin = fields.Date(string="Field Datefin")
+    datefin = fields.Date()
 
-    description = fields.Char(string="Field Description")
+    description = fields.Char()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(string="Field Noaccorderie")
+    noaccorderie = fields.Integer()
 
-    nodemandeservice = fields.Integer(
-        string="Field Nodemandeservice",
-        required=True,
-    )
+    nodemandeservice = fields.Integer(required=True)
 
-    nomembre = fields.Integer(string="Field Nomembre")
+    nomembre = fields.Integer()
 
-    supprimer = fields.Integer(string="Field Supprimer")
+    supprimer = fields.Integer()
 
-    titredemande = fields.Char(string="Field Titredemande")
+    titredemande = fields.Char()
 
-    transmit = fields.Integer(string="Field Transmit")
+    transmit = fields.Integer()

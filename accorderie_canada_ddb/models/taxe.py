@@ -5,19 +5,16 @@ class Taxe(models.Model):
     _name = "taxe"
     _description = "Model Taxe belonging to Module Tbl"
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    notaxe = fields.Integer(
-        string="Field Notaxe",
-        required=True,
-    )
+    notaxe = fields.Integer(required=True)
 
-    notaxefed = fields.Char(string="Field Notaxefed")
+    notaxefed = fields.Char()
 
-    notaxepro = fields.Char(string="Field Notaxepro")
+    notaxepro = fields.Char()
 
-    tauxmajoration = fields.Float(string="Field Tauxmajoration")
+    tauxmajoration = fields.Float()
 
-    tauxtaxefed = fields.Float(string="Field Tauxtaxefed")
+    tauxtaxefed = fields.Float()
 
-    tauxtaxepro = fields.Float(string="Field Tauxtaxepro")
+    tauxtaxepro = fields.Float()

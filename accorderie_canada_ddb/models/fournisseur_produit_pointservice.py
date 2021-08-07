@@ -7,27 +7,16 @@ class FournisseurProduitPointservice(models.Model):
         "Model Fournisseur_produit_pointservice belonging to Module Tbl"
     )
 
-    coutunitaire = fields.Float(string="Field Coutunitaire")
+    coutunitaire = fields.Float()
 
-    datemaj_fournprodptserv = fields.Datetime(
-        string="Field Datemaj_fournprodptserv"
-    )
+    datemaj_fournprodptserv = fields.Datetime(string="Datemaj fournprodptserv")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nofournisseurproduit = fields.Integer(
-        string="Field Nofournisseurproduit",
-        required=True,
-    )
+    nofournisseurproduit = fields.Integer(required=True)
 
-    nofournisseurproduitpointservice = fields.Integer(
-        string="Field Nofournisseurproduitpointservice",
-        required=True,
-    )
+    nofournisseurproduitpointservice = fields.Integer(required=True)
 
-    nopointservice = fields.Integer(
-        string="Field Nopointservice",
-        required=True,
-    )
+    nopointservice = fields.Integer(required=True)
 
-    qtestokeacc = fields.Integer(string="Field Qtestokeacc")
+    qtestokeacc = fields.Integer()

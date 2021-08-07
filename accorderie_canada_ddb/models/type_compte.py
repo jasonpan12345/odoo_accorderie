@@ -5,22 +5,20 @@ class TypeCompte(models.Model):
     _name = "type.compte"
     _description = "Model Type_compte belonging to Module Tbl"
 
-    accodeursimple = fields.Integer(string="Field Accodeursimple")
+    accodeursimple = fields.Integer()
 
-    admin = fields.Integer(string="Field Admin")
+    admin = fields.Integer()
 
-    adminchef = fields.Integer(string="Field Adminchef")
+    adminchef = fields.Integer()
 
-    adminordpointservice = fields.Integer(string="Field Adminordpointservice")
+    adminordpointservice = fields.Integer()
 
-    adminpointservice = fields.Integer(string="Field Adminpointservice")
+    adminpointservice = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nomembre = fields.Integer(
-        string="Field Nomembre",
-    )
+    nomembre = fields.Integer()
 
-    reseau = fields.Integer(string="Field Reseau")
+    reseau = fields.Integer()
 
-    spip = fields.Integer(string="Field Spip")
+    spip = fields.Integer()

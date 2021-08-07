@@ -5,15 +5,12 @@ class Categorie(models.Model):
     _name = "categorie"
     _description = "Model Categorie belonging to Module Tbl"
 
-    approuver = fields.Integer(string="Field Approuver")
+    approuver = fields.Integer()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nocategorie = fields.Integer(
-        string="Field Nocategorie",
-        required=True,
-    )
+    nocategorie = fields.Integer(required=True)
 
-    supprimer = fields.Integer(string="Field Supprimer")
+    supprimer = fields.Integer()
 
-    titrecategorie = fields.Char(string="Field Titrecategorie")
+    titrecategorie = fields.Char()

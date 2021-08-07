@@ -6,13 +6,13 @@ class Mensualite(models.Model):
     _description = "Model Mensualite belonging to Module Tbl"
 
     id_mensualite = fields.Integer(
-        string="Field Id_mensualite",
+        string="Id mensualite",
         required=True,
     )
 
     id_pret = fields.Integer(
-        string="Field Id_pret",
+        string="Id pret",
         required=True,
     )
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()

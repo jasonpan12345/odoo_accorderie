@@ -5,61 +5,50 @@ class Commentaire(models.Model):
     _name = "commentaire"
     _description = "Model Commentaire belonging to Module Tbl"
 
-    autrecommentaire = fields.Text(string="Field Autrecommentaire")
+    autrecommentaire = fields.Text()
 
-    autresituation = fields.Char(string="Field Autresituation")
+    autresituation = fields.Char()
 
-    consulteraccorderie = fields.Integer(string="Field Consulteraccorderie")
+    consulteraccorderie = fields.Integer()
 
-    consulterreseau = fields.Integer(string="Field Consulterreseau")
+    consulterreseau = fields.Integer()
 
-    dateheureajout = fields.Datetime(string="Field Dateheureajout")
+    dateheureajout = fields.Datetime()
 
-    dateincident = fields.Date(string="Field Dateincident")
+    dateincident = fields.Date()
 
-    datemaj_commentaire = fields.Datetime(string="Field Datemaj_commentaire")
+    datemaj_commentaire = fields.Datetime(string="Datemaj commentaire")
 
-    demarche = fields.Text(string="Field Demarche")
+    demarche = fields.Text()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nocommentaire = fields.Integer(
-        string="Field Nocommentaire",
-        required=True,
-    )
+    nocommentaire = fields.Integer(required=True)
 
-    nodemandeservice = fields.Integer(string="Field Nodemandeservice")
+    nodemandeservice = fields.Integer()
 
-    nomcomite = fields.Char(string="Field Nomcomite")
+    nomcomite = fields.Char()
 
-    nomembresource = fields.Integer(
-        string="Field Nomembresource",
-        required=True,
-    )
+    nomembresource = fields.Integer(required=True)
 
-    nomembreviser = fields.Integer(string="Field Nomembreviser")
+    nomembreviser = fields.Integer()
 
-    nomemployer = fields.Char(string="Field Nomemployer")
+    nomemployer = fields.Char()
 
-    nooffreservicemembre = fields.Integer(string="Field Nooffreservicemembre")
+    nooffreservicemembre = fields.Integer()
 
-    nopointservice = fields.Integer(
-        string="Field Nopointservice",
-        required=True,
-    )
+    nopointservice = fields.Integer(required=True)
 
-    noteadministrative = fields.Text(string="Field Noteadministrative")
+    noteadministrative = fields.Text()
 
-    resumersituation = fields.Text(string="Field Resumersituation")
+    resumersituation = fields.Text()
 
-    satisfactioninsatisfaction = fields.Integer(
-        string="Field Satisfactioninsatisfaction"
-    )
+    satisfactioninsatisfaction = fields.Integer()
 
-    siconfidentiel = fields.Integer(string="Field Siconfidentiel")
+    siconfidentiel = fields.Integer()
 
-    situation_impliquant = fields.Integer(string="Field Situation_impliquant")
+    situation_impliquant = fields.Integer(string="Situation impliquant")
 
-    solutionpourregler = fields.Text(string="Field Solutionpourregler")
+    solutionpourregler = fields.Text()
 
-    typeoffre = fields.Integer(string="Field Typeoffre")
+    typeoffre = fields.Integer()

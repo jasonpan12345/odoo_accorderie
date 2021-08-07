@@ -5,29 +5,20 @@ class Produit(models.Model):
     _name = "produit"
     _description = "Model Produit belonging to Module Tbl"
 
-    datemaj_produit = fields.Datetime(string="Field Datemaj_produit")
+    datemaj_produit = fields.Datetime(string="Datemaj produit")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    noaccorderie = fields.Integer(
-        string="Field Noaccorderie",
-        required=True,
-    )
+    noaccorderie = fields.Integer(required=True)
 
-    nomproduit = fields.Char(string="Field Nomproduit")
+    nomproduit = fields.Char()
 
-    noproduit = fields.Integer(
-        string="Field Noproduit",
-        required=True,
-    )
+    noproduit = fields.Integer(required=True)
 
-    notitre = fields.Integer(
-        string="Field Notitre",
-        required=True,
-    )
+    notitre = fields.Integer(required=True)
 
-    taxablef = fields.Integer(string="Field Taxablef")
+    taxablef = fields.Integer()
 
-    taxablep = fields.Integer(string="Field Taxablep")
+    taxablep = fields.Integer()
 
-    visible_produit = fields.Integer(string="Field Visible_produit")
+    visible_produit = fields.Integer(string="Visible produit")

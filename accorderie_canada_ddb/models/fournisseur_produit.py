@@ -5,30 +5,22 @@ class FournisseurProduit(models.Model):
     _name = "fournisseur.produit"
     _description = "Model Fournisseur_produit belonging to Module Tbl"
 
-    codeproduit = fields.Char(string="Field Codeproduit")
+    codeproduit = fields.Char()
 
-    datemaj_fournproduit = fields.Datetime(string="Field Datemaj_fournproduit")
+    datemaj_fournproduit = fields.Datetime(string="Datemaj fournproduit")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nofournisseur = fields.Integer(
-        string="Field Nofournisseur",
-    )
+    nofournisseur = fields.Integer()
 
-    nofournisseurproduit = fields.Integer(
-        string="Field Nofournisseurproduit",
-        required=True,
-    )
+    nofournisseurproduit = fields.Integer(required=True)
 
-    noproduit = fields.Integer(
-        string="Field Noproduit",
-        required=True,
-    )
+    noproduit = fields.Integer(required=True)
 
     visible_fournisseurproduit = fields.Integer(
-        string="Field Visible_fournisseurproduit"
+        string="Visible fournisseurproduit"
     )
 
-    zcoutunitaire = fields.Float(string="Field Zcoutunitaire")
+    zcoutunitaire = fields.Float()
 
-    zqtestokeacc = fields.Integer(string="Field Zqtestokeacc")
+    zqtestokeacc = fields.Integer()

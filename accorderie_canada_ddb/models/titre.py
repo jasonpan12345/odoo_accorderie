@@ -5,15 +5,12 @@ class Titre(models.Model):
     _name = "titre"
     _description = "Model Titre belonging to Module Tbl"
 
-    datemaj_titre = fields.Datetime(string="Field Datemaj_titre")
+    datemaj_titre = fields.Datetime(string="Datemaj titre")
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    notitre = fields.Integer(
-        string="Field Notitre",
-        required=True,
-    )
+    notitre = fields.Integer(required=True)
 
-    titre = fields.Char(string="Field Titre")
+    titre = fields.Char()
 
-    visible_titre = fields.Integer(string="Field Visible_titre")
+    visible_titre = fields.Integer(string="Visible titre")

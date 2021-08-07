@@ -5,49 +5,44 @@ class Pret(models.Model):
     _name = "pret"
     _description = "Model Pret belonging to Module Tbl"
 
-    datecomitepret = fields.Datetime(string="Field Datecomitepret")
+    datecomitepret = fields.Datetime()
 
-    datedemandepret = fields.Datetime(string="Field Datedemandepret")
+    datedemandepret = fields.Datetime()
 
-    datemaj_pret = fields.Datetime(string="Field Datemaj_pret")
+    datemaj_pret = fields.Datetime(string="Datemaj pret")
 
-    datepret = fields.Datetime(string="Field Datepret")
+    datepret = fields.Datetime()
 
     id_pret = fields.Integer(
-        string="Field Id_pret",
+        string="Id pret",
         required=True,
     )
 
-    montantaccorder = fields.Float(string="Field Montantaccorder")
+    montantaccorder = fields.Float()
 
-    montantdemande = fields.Float(string="Field Montantdemande")
+    montantdemande = fields.Float()
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nbremois = fields.Integer(string="Field Nbremois")
+    nbremois = fields.Integer()
 
-    nbrepaiement = fields.Integer(string="Field Nbrepaiement")
+    nbrepaiement = fields.Integer()
 
-    nomembre = fields.Integer(
-        string="Field Nomembre",
-        required=True,
-    )
+    nomembre = fields.Integer(required=True)
 
-    nomembre_intermediaire = fields.Integer(
-        string="Field Nomembre_intermediaire"
-    )
+    nomembre_intermediaire = fields.Integer(string="Nomembre intermediaire")
 
     nomembre_responsable = fields.Integer(
-        string="Field Nomembre_responsable",
+        string="Nomembre responsable",
         required=True,
     )
 
-    note = fields.Text(string="Field Note")
+    note = fields.Text()
 
-    raisonemprunt = fields.Text(string="Field Raisonemprunt")
+    raisonemprunt = fields.Text()
 
-    recommandation = fields.Text(string="Field Recommandation")
+    recommandation = fields.Text()
 
-    si_pretaccorder = fields.Integer(string="Field Si_pretaccorder")
+    si_pretaccorder = fields.Integer(string="Si pretaccorder")
 
-    tautinteretannuel = fields.Float(string="Field Tautinteretannuel")
+    tautinteretannuel = fields.Float()

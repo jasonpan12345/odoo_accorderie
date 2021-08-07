@@ -6,22 +6,13 @@ class PointserviceFournisseur(models.Model):
     _description = "Model Pointservice_fournisseur belonging to Module Tbl"
 
     datemaj_pointservicefournisseur = fields.Datetime(
-        string="Field Datemaj_pointservicefournisseur"
+        string="Datemaj pointservicefournisseur"
     )
 
-    name = fields.Char(string="Field Name")
+    name = fields.Char()
 
-    nofournisseur = fields.Integer(
-        string="Field Nofournisseur",
-        required=True,
-    )
+    nofournisseur = fields.Integer(required=True)
 
-    nopointservice = fields.Integer(
-        string="Field Nopointservice",
-        required=True,
-    )
+    nopointservice = fields.Integer(required=True)
 
-    nopointservicefournisseur = fields.Integer(
-        string="Field Nopointservicefournisseur",
-        required=True,
-    )
+    nopointservicefournisseur = fields.Integer(required=True)
