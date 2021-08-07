@@ -198,15 +198,16 @@ def post_init_hook(cr, e):
         )
 
         # Fix in model
-        field_nonvisible = env["ir.model.fields"].search(
-            [("name", "=", "nonvisible"), ("model", "=", "accorderie")]
+        set_required_field(env, "nonvisible", "accorderie", False)
+        set_required_field(env, "nocommande", "commande", False)
+        set_required_field(env, "nocommande", "commande.membre", False)
+        set_required_field(env, "nomembre", "commande.membre", False)
+        set_required_field(env, "nomembre", "droits.admin", False)
+        set_required_field(env, "nofournisseur", "fournisseur.produit", False)
+        set_required_field(
+            env, "nocommande", "fournisseur.produit.commande", False
         )
-        if field_nonvisible and len(field_nonvisible) == 1:
-            field_nonvisible.required = False
-        else:
-            _logger.warning(
-                "Cannot find field nonvisible from table accorderie."
-            )
+        set_required_field(env, "nomembre", "type.compte", False)
 
         # change ttype is not supported
         # field_messageaccueil = env["ir.model.fields"].search(
@@ -243,6 +244,18 @@ def post_init_hook(cr, e):
         # Generate module
         value = {"code_generator_ids": code_generator_id.ids}
         env["code.generator.writer"].create(value)
+
+
+def set_required_field(env, field_name, model_name, required):
+    field = env["ir.model.fields"].search(
+        [("name", "=", field_name), ("model", "=", model_name)]
+    )
+    if field and len(field) == 1:
+        field.required = required
+    else:
+        _logger.warning(
+            f"Cannot find field {field_name} from table {model_name}"
+        )
 
 
 def uninstall_hook(cr, e):
