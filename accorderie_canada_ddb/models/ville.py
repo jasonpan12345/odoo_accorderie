@@ -7,7 +7,7 @@ class Ville(models.Model):
 
     name = fields.Char()
 
-    noregion = fields.Integer()
+    noregion = fields.Many2one(comodel_name="region")
 
     noville = fields.Integer(required=True)
 

@@ -11,4 +11,4 @@ class Arrondissement(models.Model):
 
     noarrondissement = fields.Integer(required=True)
 
-    noville = fields.Integer()
+    noville = fields.Many2one(comodel_name="ville")

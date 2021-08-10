@@ -9,6 +9,9 @@ class Cartier(models.Model):
 
     name = fields.Char()
 
-    noarrondissement = fields.Integer(required=True)
+    noarrondissement = fields.Many2one(
+        comodel_name="arrondissement",
+        required=True,
+    )
 
     nocartier = fields.Integer(required=True)

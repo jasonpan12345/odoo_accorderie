@@ -1,5 +1,5 @@
 {
-    "name": "Code Generator Accorderie Canada",
+    "name": "Code Generator Accorderie Canada Ddb",
     "version": "12.0.1.0",
     "author": "TechnoLibre",
     "license": "AGPL-3",
