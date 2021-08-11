@@ -74,7 +74,7 @@ def post_init_hook(cr, e):
         )
 
         lst_nomenclator = (
-            # "tbl_accorderie",
+            "tbl_accorderie",
             # # "tbl_achat_ponctuel",
             # # "tbl_achat_ponctuel_produit",
             "tbl_region",

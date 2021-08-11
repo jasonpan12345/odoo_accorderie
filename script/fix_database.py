@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import pymysql
 
 database = "accorderie_log_2019"
@@ -37,14 +38,84 @@ cr = conn.cursor()
 query_search = """ALTER TABLE tbl_echange_service modify NbHeure float null;"""
 cr.execute(query_search)
 
+# Accorderie
+# - arrondissement
+# Replace 0 by null
+query_search = """UPDATE `tbl_accorderie` SET `NoArrondissement` = NULL WHERE NoArrondissement = 0;"""
+cr.execute(query_search)
+
+try:
+    query_search = """
+    ALTER TABLE tbl_accorderie
+    DROP FOREIGN KEY foreign_key_tbl_accorderie_noarrondissement;
+    """
+    cr.execute(query_search)
+except Exception:
+    pass
+
+query_search = """
+ALTER TABLE tbl_accorderie
+ADD CONSTRAINT foreign_key_tbl_accorderie_noarrondissement
+FOREIGN KEY (NoArrondissement) REFERENCES tbl_arrondissement(NoArrondissement)
+on update set null on delete set null;
+"""
+cr.execute(query_search)
+# - ville
+try:
+    query_search = """
+    ALTER TABLE tbl_accorderie
+    DROP FOREIGN KEY foreign_key_tbl_accorderie_noville;
+    """
+    cr.execute(query_search)
+except Exception:
+    pass
+
+query_search = """
+ALTER TABLE tbl_accorderie
+ADD CONSTRAINT foreign_key_tbl_accorderie_noville
+FOREIGN KEY (NoVille) REFERENCES tbl_ville(NoVille);
+"""
+cr.execute(query_search)
+# - region
+try:
+    query_search = """
+    ALTER TABLE tbl_accorderie
+    DROP FOREIGN KEY foreign_key_tbl_accorderie_noregion;
+    """
+    cr.execute(query_search)
+except Exception:
+    pass
+
+query_search = """
+ALTER TABLE tbl_accorderie
+ADD CONSTRAINT foreign_key_tbl_accorderie_noregion
+FOREIGN KEY (NoRegion) REFERENCES tbl_region(NoRegion);
+"""
+cr.execute(query_search)
+# - cartier
+try:
+    query_search = """
+    ALTER TABLE tbl_accorderie
+    DROP FOREIGN KEY foreign_key_tbl_accorderie_nocartier;
+    """
+    cr.execute(query_search)
+except Exception:
+    pass
+
+query_search = """
+ALTER TABLE tbl_accorderie
+ADD CONSTRAINT foreign_key_tbl_accorderie_nocartier
+FOREIGN KEY (NoCartier) REFERENCES tbl_cartier(NoCartier);
+"""
+cr.execute(query_search)
+
+# Arrondissement
 # Fix field for foreign key
 query_search = """
 ALTER TABLE tbl_arrondissement
 MODIFY NoVille int unsigned null;
 """
 cr.execute(query_search)
-
-# Arrondissement
 try:
     query_search = """
     ALTER TABLE tbl_arrondissement
@@ -66,7 +137,7 @@ cr.execute(query_search)
 try:
     query_search = """
     ALTER TABLE tbl_cartier
-    DROP FOREIGN KEY tbl_cartier_tbl_arrondissement_NoArrondissement_fk;
+    DROP FOREIGN KEY foreign_key_tbl_arrondissement_noarrondissement;
     """
     cr.execute(query_search)
 except Exception:

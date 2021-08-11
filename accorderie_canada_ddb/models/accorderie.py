@@ -25,9 +25,9 @@ class Accorderie(models.Model):
 
     noaccorderie = fields.Integer(required=True)
 
-    noarrondissement = fields.Integer()
+    noarrondissement = fields.Many2one(comodel_name="arrondissement")
 
-    nocartier = fields.Integer()
+    nocartier = fields.Many2one(comodel_name="cartier")
 
     nom = fields.Char()
 
@@ -35,9 +35,15 @@ class Accorderie(models.Model):
 
     nonvisible = fields.Integer()
 
-    noregion = fields.Integer(required=True)
+    noregion = fields.Many2one(
+        comodel_name="region",
+        required=True,
+    )
 
-    noville = fields.Integer(required=True)
+    noville = fields.Many2one(
+        comodel_name="ville",
+        required=True,
+    )
 
     telaccorderie = fields.Char()
 
