@@ -21,7 +21,10 @@ class Commande(models.Model):
 
     nocommande = fields.Integer()
 
-    nopointservice = fields.Integer(required=True)
+    nopointservice = fields.Many2one(
+        comodel_name="pointservice",
+        required=True,
+    )
 
     norefcommande = fields.Integer()
 

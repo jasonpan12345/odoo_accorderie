@@ -9,13 +9,19 @@ class Produit(models.Model):
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer(required=True)
+    noaccorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+    )
 
     nomproduit = fields.Char()
 
     noproduit = fields.Integer(required=True)
 
-    notitre = fields.Integer(required=True)
+    notitre = fields.Many2one(
+        comodel_name="titre",
+        required=True,
+    )
 
     taxablef = fields.Integer()
 

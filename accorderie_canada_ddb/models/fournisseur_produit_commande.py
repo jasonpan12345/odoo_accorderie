@@ -17,9 +17,12 @@ class FournisseurProduitCommande(models.Model):
 
     nbboiteminfournisseur = fields.Integer()
 
-    nocommande = fields.Integer()
+    nocommande = fields.Many2one(comodel_name="commande")
 
-    nofournisseurproduit = fields.Integer(required=True)
+    nofournisseurproduit = fields.Many2one(
+        comodel_name="fournisseur.produit",
+        required=True,
+    )
 
     nofournisseurproduitcommande = fields.Integer(required=True)
 

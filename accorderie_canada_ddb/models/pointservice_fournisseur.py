@@ -11,8 +11,14 @@ class PointserviceFournisseur(models.Model):
 
     name = fields.Char()
 
-    nofournisseur = fields.Integer(required=True)
+    nofournisseur = fields.Many2one(
+        comodel_name="fournisseur",
+        required=True,
+    )
 
-    nopointservice = fields.Integer(required=True)
+    nopointservice = fields.Many2one(
+        comodel_name="pointservice",
+        required=True,
+    )
 
     nopointservicefournisseur = fields.Integer(required=True)

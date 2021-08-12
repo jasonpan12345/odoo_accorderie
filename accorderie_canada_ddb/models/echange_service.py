@@ -13,17 +13,17 @@ class EchangeService(models.Model):
 
     nbheure = fields.Float()
 
-    nodemandeservice = fields.Integer()
+    nodemandeservice = fields.Many2one(comodel_name="demande.service")
 
     noechangeservice = fields.Integer(required=True)
 
-    nomembreacheteur = fields.Integer()
+    nomembreacheteur = fields.Many2one(comodel_name="membre")
 
-    nomembrevendeur = fields.Integer()
+    nomembrevendeur = fields.Many2one(comodel_name="membre")
 
-    nooffreservicemembre = fields.Integer()
+    nooffreservicemembre = fields.Many2one(comodel_name="offre.service.membre")
 
-    nopointservice = fields.Integer()
+    nopointservice = fields.Many2one(comodel_name="pointservice")
 
     remarque = fields.Char()
 

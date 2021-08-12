@@ -9,9 +9,12 @@ class Pointservice(models.Model):
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer(required=True)
+    noaccorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+    )
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     nompointservice = fields.Char()
 

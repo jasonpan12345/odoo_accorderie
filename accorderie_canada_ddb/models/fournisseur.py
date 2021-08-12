@@ -19,7 +19,10 @@ class Fournisseur(models.Model):
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer(required=True)
+    noaccorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+    )
 
     nofournisseur = fields.Integer(required=True)
 
@@ -27,11 +30,17 @@ class Fournisseur(models.Model):
 
     nomfournisseur = fields.Char()
 
-    noregion = fields.Integer(required=True)
+    noregion = fields.Many2one(
+        comodel_name="region",
+        required=True,
+    )
 
     notefournisseur = fields.Text()
 
-    noville = fields.Integer(required=True)
+    noville = fields.Many2one(
+        comodel_name="ville",
+        required=True,
+    )
 
     postecontact = fields.Char()
 

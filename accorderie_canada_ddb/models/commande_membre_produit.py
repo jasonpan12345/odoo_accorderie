@@ -15,9 +15,15 @@ class CommandeMembreProduit(models.Model):
 
     nocmdmbproduit = fields.Integer(required=True)
 
-    nocommandemembre = fields.Integer(required=True)
+    nocommandemembre = fields.Many2one(
+        comodel_name="commande.membre",
+        required=True,
+    )
 
-    nofournisseurproduitcommande = fields.Integer(required=True)
+    nofournisseurproduitcommande = fields.Many2one(
+        comodel_name="fournisseur.produit.commande",
+        required=True,
+    )
 
     prixfacturer_manuel = fields.Float(string="Prixfacturer manuel")
 

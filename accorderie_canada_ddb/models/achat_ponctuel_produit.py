@@ -13,11 +13,17 @@ class AchatPonctuelProduit(models.Model):
 
     name = fields.Char()
 
-    noachatponctuel = fields.Integer(required=True)
+    noachatponctuel = fields.Many2one(
+        comodel_name="achat.ponctuel",
+        required=True,
+    )
 
     noachatponctuelproduit = fields.Integer(required=True)
 
-    nofournisseurproduit = fields.Integer(required=True)
+    nofournisseurproduit = fields.Many2one(
+        comodel_name="fournisseur.produit",
+        required=True,
+    )
 
     prixfacturer_achatponctprod = fields.Float(
         string="Prixfacturer achatponctprod"

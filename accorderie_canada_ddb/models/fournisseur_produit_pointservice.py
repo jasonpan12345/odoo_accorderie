@@ -13,10 +13,16 @@ class FournisseurProduitPointservice(models.Model):
 
     name = fields.Char()
 
-    nofournisseurproduit = fields.Integer(required=True)
+    nofournisseurproduit = fields.Many2one(
+        comodel_name="fournisseur.produit",
+        required=True,
+    )
 
     nofournisseurproduitpointservice = fields.Integer(required=True)
 
-    nopointservice = fields.Integer(required=True)
+    nopointservice = fields.Many2one(
+        comodel_name="pointservice",
+        required=True,
+    )
 
     qtestokeacc = fields.Integer()

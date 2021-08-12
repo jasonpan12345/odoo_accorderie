@@ -20,7 +20,7 @@ class LogAcces(models.Model):
 
     navigateur = fields.Char()
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     nomusageressayer = fields.Char()
 

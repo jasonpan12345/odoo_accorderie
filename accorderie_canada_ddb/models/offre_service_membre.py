@@ -32,11 +32,13 @@ class OffreServiceMembre(models.Model):
 
     nbfoisconsulteroffremembre = fields.Integer()
 
-    noaccorderie = fields.Integer()
+    noaccorderie = fields.Many2one(comodel_name="accorderie")
 
-    nocategoriesouscategorie = fields.Integer()
+    nocategoriesouscategorie = fields.Many2one(
+        comodel_name="categorie.sous.categorie"
+    )
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     nooffreservicemembre = fields.Integer(required=True)
 

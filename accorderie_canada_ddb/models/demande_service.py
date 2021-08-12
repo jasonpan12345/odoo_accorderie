@@ -15,11 +15,11 @@ class DemandeService(models.Model):
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer()
+    noaccorderie = fields.Many2one(comodel_name="accorderie")
 
     nodemandeservice = fields.Integer(required=True)
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     supprimer = fields.Integer()
 

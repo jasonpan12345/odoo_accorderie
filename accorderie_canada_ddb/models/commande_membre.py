@@ -29,10 +29,10 @@ class CommandeMembre(models.Model):
 
     name = fields.Char()
 
-    nocommande = fields.Integer()
+    nocommande = fields.Many2one(comodel_name="commande")
 
     nocommandemembre = fields.Integer(required=True)
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     numrefmembre = fields.Integer()

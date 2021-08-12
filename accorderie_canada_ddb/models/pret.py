@@ -28,12 +28,19 @@ class Pret(models.Model):
 
     nbrepaiement = fields.Integer()
 
-    nomembre = fields.Integer(required=True)
+    nomembre = fields.Many2one(
+        comodel_name="membre",
+        required=True,
+    )
 
-    nomembre_intermediaire = fields.Integer(string="Nomembre intermediaire")
+    nomembre_intermediaire = fields.Many2one(
+        string="Nomembre intermediaire",
+        comodel_name="membre",
+    )
 
-    nomembre_responsable = fields.Integer(
+    nomembre_responsable = fields.Many2one(
         string="Nomembre responsable",
+        comodel_name="membre",
         required=True,
     )
 

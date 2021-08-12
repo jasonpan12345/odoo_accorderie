@@ -17,7 +17,7 @@ class TypeCompte(models.Model):
 
     name = fields.Char()
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     reseau = fields.Integer()
 

@@ -11,13 +11,13 @@ class CategorieSousCategorie(models.Model):
 
     name = fields.Char()
 
-    nocategorie = fields.Integer()
+    nocategorie = fields.Many2one(comodel_name="categorie")
 
     nocategoriesouscategorie = fields.Integer(required=True)
 
     nooffre = fields.Integer()
 
-    nosouscategorie = fields.Char()
+    nosouscategorie = fields.Many2one(comodel_name="sous.categorie")
 
     supprimer = fields.Integer()
 

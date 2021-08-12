@@ -13,7 +13,10 @@ class DmdAdhesion(models.Model):
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer(required=True)
+    noaccorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+    )
 
     nodmdadhesion = fields.Integer(required=True)
 

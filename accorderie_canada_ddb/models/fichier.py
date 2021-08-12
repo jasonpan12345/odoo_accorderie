@@ -12,14 +12,18 @@ class Fichier(models.Model):
         required=True,
     )
 
-    id_typefichier = fields.Integer(
+    id_typefichier = fields.Many2one(
         string="Id typefichier",
+        comodel_name="type.fichier",
         required=True,
     )
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer(required=True)
+    noaccorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+    )
 
     nomfichieroriginal = fields.Char(required=True)
 

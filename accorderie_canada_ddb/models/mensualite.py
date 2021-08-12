@@ -10,8 +10,9 @@ class Mensualite(models.Model):
         required=True,
     )
 
-    id_pret = fields.Integer(
+    id_pret = fields.Many2one(
         string="Id pret",
+        comodel_name="pret",
         required=True,
     )
 

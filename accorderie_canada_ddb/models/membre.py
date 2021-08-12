@@ -41,11 +41,14 @@ class Membre(models.Model):
 
     name = fields.Char()
 
-    noaccorderie = fields.Integer(required=True)
+    noaccorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+    )
 
-    noarrondissement = fields.Integer()
+    noarrondissement = fields.Many2one(comodel_name="arrondissement")
 
-    nocartier = fields.Integer()
+    nocartier = fields.Many2one(comodel_name="cartier")
 
     nom = fields.Char()
 
@@ -57,21 +60,24 @@ class Membre(models.Model):
 
     nomutilisateur = fields.Char()
 
-    nooccupation = fields.Integer(required=True)
+    nooccupation = fields.Many2one(comodel_name="occupation")
 
-    noorigine = fields.Integer(required=True)
+    noorigine = fields.Many2one(comodel_name="origine")
 
-    nopointservice = fields.Integer()
+    nopointservice = fields.Many2one(comodel_name="pointservice")
 
-    noprovenance = fields.Integer(required=True)
+    noprovenance = fields.Many2one(comodel_name="provenance")
 
-    noregion = fields.Integer(required=True)
+    noregion = fields.Many2one(
+        comodel_name="region",
+        required=True,
+    )
 
-    norevenufamilial = fields.Integer(required=True)
+    norevenufamilial = fields.Many2one(comodel_name="revenu.familial")
 
-    nosituationmaison = fields.Integer(required=True)
+    nosituationmaison = fields.Many2one(comodel_name="situation.maison")
 
-    notypecommunication = fields.Integer(required=True)
+    notypecommunication = fields.Many2one(comodel_name="type.communication")
 
     notypetel1 = fields.Integer()
 
@@ -79,7 +85,10 @@ class Membre(models.Model):
 
     notypetel3 = fields.Integer()
 
-    noville = fields.Integer(required=True)
+    noville = fields.Many2one(
+        comodel_name="ville",
+        required=True,
+    )
 
     partsocialpaye = fields.Integer()
 

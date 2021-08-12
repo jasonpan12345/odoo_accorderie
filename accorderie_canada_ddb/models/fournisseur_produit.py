@@ -11,11 +11,14 @@ class FournisseurProduit(models.Model):
 
     name = fields.Char()
 
-    nofournisseur = fields.Integer()
+    nofournisseur = fields.Many2one(comodel_name="fournisseur")
 
     nofournisseurproduit = fields.Integer(required=True)
 
-    noproduit = fields.Integer(required=True)
+    noproduit = fields.Many2one(
+        comodel_name="produit",
+        required=True,
+    )
 
     visible_fournisseurproduit = fields.Integer(
         string="Visible fournisseurproduit"

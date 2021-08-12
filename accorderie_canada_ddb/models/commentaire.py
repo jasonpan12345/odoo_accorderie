@@ -25,19 +25,25 @@ class Commentaire(models.Model):
 
     nocommentaire = fields.Integer(required=True)
 
-    nodemandeservice = fields.Integer()
+    nodemandeservice = fields.Many2one(comodel_name="demande.service")
 
     nomcomite = fields.Char()
 
-    nomembresource = fields.Integer(required=True)
+    nomembresource = fields.Many2one(
+        comodel_name="membre",
+        required=True,
+    )
 
-    nomembreviser = fields.Integer()
+    nomembreviser = fields.Many2one(comodel_name="membre")
 
     nomemployer = fields.Char()
 
-    nooffreservicemembre = fields.Integer()
+    nooffreservicemembre = fields.Many2one(comodel_name="offre.service.membre")
 
-    nopointservice = fields.Integer(required=True)
+    nopointservice = fields.Many2one(
+        comodel_name="pointservice",
+        required=True,
+    )
 
     noteadministrative = fields.Text()
 

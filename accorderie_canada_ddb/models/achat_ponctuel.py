@@ -19,7 +19,10 @@ class AchatPonctuel(models.Model):
 
     noachatponctuel = fields.Integer(required=True)
 
-    nomembre = fields.Integer(required=True)
+    nomembre = fields.Many2one(
+        comodel_name="membre",
+        required=True,
+    )
 
     taxef_achatponct = fields.Float(string="Taxef achatponct")
 

@@ -25,7 +25,7 @@ class DroitsAdmin(models.Model):
 
     name = fields.Char()
 
-    nomembre = fields.Integer()
+    nomembre = fields.Many2one(comodel_name="membre")
 
     saisieechange = fields.Integer()
 

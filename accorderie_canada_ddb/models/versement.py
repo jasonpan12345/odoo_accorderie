@@ -7,8 +7,9 @@ class Versement(models.Model):
 
     datemaj_versement = fields.Datetime(string="Datemaj versement")
 
-    id_mensualite = fields.Integer(
+    id_mensualite = fields.Many2one(
         string="Id mensualite",
+        comodel_name="mensualite",
         required=True,
     )
 
