@@ -90,8 +90,10 @@ def main():
     delete_record(cr)
     alter_table(cr)
     replace_record(cr)
+    migrate_record(cr)
     add_foreign_key(cr)
 
+    conn.commit()
     cr.close()
 
 
@@ -136,26 +138,109 @@ def delete_record(cr):
     print("Delete record")
     query_search = """DELETE FROM `tbl_droits_admin` WHERE NoMembre in (0, 945, 7703, 1253, 2655);"""
     cr.execute(query_search)
+
     query_search = """DELETE FROM `tbl_type_compte` WHERE NoMembre in (0, 945, 7703, 1253, 2652);"""
     cr.execute(query_search)
+
     query_search = """
     DELETE FROM `tbl_commande_membre_produit` 
     WHERE NoFournisseurProduitCommande in (22659, 22724, 22662, 22663, 22732, 22670, 22705, 22737, 22741, 22679, 22680, 22682, 22655);
     """
     cr.execute(query_search)
+
     query_search = """
     DELETE FROM `tbl_echange_service` 
     WHERE NoMembreVendeur in (7703);
     """
     cr.execute(query_search)
+
     query_search = """
     DELETE FROM `tbl_categorie_sous_categorie` 
     WHERE NoCategorie in (999);
     """
     cr.execute(query_search)
 
+    query_search = """
+    DELETE FROM `tbl_sous_categorie`
+    WHERE NoSousCategorie = "10";
+    """
+    cr.execute(query_search)
+
+
+def migrate_record(cr):
+    print("Migrate record")
+    # Fix tbl_echange_service NbHeure, transform time to float
+    query_search = f"""SELECT *
+    FROM tbl_categorie
+    """
+    cr.execute(query_search)
+    lst_categorie = cr.fetchall()
+
+    query_search = f"""SELECT *
+    FROM tbl_sous_categorie
+    """
+    cr.execute(query_search)
+    lst_sous_categorie = cr.fetchall()
+
+    query_search = f"""SELECT *
+    FROM tbl_categorie_sous_categorie
+    """
+    cr.execute(query_search)
+    lst_categorie_sous_categorie = cr.fetchall()
+
+    # Insert Id into tbl_sous_categorie
+    i = 0
+    for sous_categorie_id in lst_sous_categorie:
+        i += 1
+        query_search = f"""UPDATE tbl_sous_categorie set NoSousCategorieId={i} 
+        WHERE NoCategorie={sous_categorie_id[1]} and NoSousCategorie='{sous_categorie_id[0]}'
+        """
+        cr.execute(query_search)
+    query_search = f"""SELECT *
+    FROM tbl_sous_categorie
+    """
+    cr.execute(query_search)
+    lst_sous_categorie = cr.fetchall()
+
+    # Update all NoSousCategorieId from tbl_categorie_sous_categorie
+    for categorie_sous_categorie_id in lst_categorie_sous_categorie:
+        id_sous_categorie = _search_id_from_sous_categorie(
+            lst_sous_categorie,
+            categorie_sous_categorie_id[2],
+            categorie_sous_categorie_id[1],
+        )
+        if id_sous_categorie is None:
+            raise ValueError(
+                f"Get null from {categorie_sous_categorie_id[2]} and"
+                f" {categorie_sous_categorie_id[1]}"
+            )
+        query_search = f"""UPDATE tbl_categorie_sous_categorie set NoSousCategorieId={id_sous_categorie} 
+        WHERE NoCategorieSousCategorie={categorie_sous_categorie_id[0]}
+        """
+        cr.execute(query_search)
+
+    # Validate for debugging
+    query_search = f"""SELECT *
+    FROM tbl_categorie_sous_categorie
+    """
+    cr.execute(query_search)
+    lst_categorie_sous_categorie = cr.fetchall()
+    pass
+
+
+def _search_id_from_sous_categorie(
+    lst_sous_categorie, no_categorie, no_sous_categorie
+):
+    for tpl_sous_categorie in lst_sous_categorie:
+        if (
+            tpl_sous_categorie[0] == no_sous_categorie
+            and tpl_sous_categorie[1] == no_categorie
+        ):
+            return tpl_sous_categorie[5]
+
 
 def alter_table(cr):
+    print("Alter table")
     # Fix tbl_echange_service NbHeure, transform time to float
     query_search = (
         """ALTER TABLE tbl_echange_service modify NbHeure float null;"""
@@ -219,6 +304,45 @@ def alter_table(cr):
     MODIFY NoRevenuFamilial int unsigned null;
     """
     cr.execute(query_search)
+
+    # Fix field for foreign key
+    query_search = """
+    IF NOT EXISTS( SELECT NULL
+                FROM INFORMATION_SCHEMA.COLUMNS
+               WHERE table_name = 'tbl_sous_categorie'
+                 AND column_name = 'NoSousCategorieId')  THEN
+
+      alter table tbl_sous_categorie
+        add NoSousCategorieId int unsigned null;
+
+      create unique index tbl_sous_categorie_NoSousCategorieId_uindex
+	     on tbl_sous_categorie (NoSousCategorieId);
+    END IF;
+    """
+    cr.execute(query_search)
+
+    query_search = """
+    IF NOT EXISTS( SELECT NULL
+                FROM INFORMATION_SCHEMA.COLUMNS
+               WHERE table_name = 'tbl_categorie_sous_categorie'
+                 AND column_name = 'NoSousCategorieId')  THEN
+
+      alter table tbl_categorie_sous_categorie
+        add NoSousCategorieId int unsigned null;
+
+    END IF;
+    """
+    cr.execute(query_search)
+
+    # Remove wrong column NoSousCategorie de tbl_sous_categorie
+    # query_search = """
+    # alter table tbl_sous_categorie drop primary key;
+    # alter table tbl_sous_categorie
+    # 	add primary key (NoCategorie);
+    # ALTER TABLE tbl_sous_categorie
+    # DROP COLUMN NoSousCategorie;
+    # """
+    # cr.execute(query_search)
 
 
 def replace_record(cr):
@@ -448,29 +572,46 @@ def add_foreign_key(cr):
     """
     cr.execute(query_search)
 
-    # categorie_sous_categorie
-    # - categorie
+    # sous_categorie
     try:
         query_search = """
-        ALTER TABLE tbl_categorie_sous_categorie
-        DROP FOREIGN KEY tbl_categorie_sous_categorie_tbl_categorie_NoCategorie_fk;
+        ALTER TABLE tbl_sous_categorie
+        DROP FOREIGN KEY tbl_sous_categorie_tbl_categorie_NoCategorie_fk;
         """
         cr.execute(query_search)
     except Exception:
         pass
 
     query_search = """
-    alter table tbl_categorie_sous_categorie
-        add constraint tbl_categorie_sous_categorie_tbl_categorie_NoCategorie_fk
+    alter table tbl_sous_categorie
+        add constraint tbl_sous_categorie_tbl_categorie_NoCategorie_fk
             foreign key (NoCategorie) references tbl_categorie (NoCategorie);
     """
     cr.execute(query_search)
+
+    # categorie_sous_categorie
+    # - categorie
+    # try:
+    #     query_search = """
+    #     ALTER TABLE tbl_categorie_sous_categorie
+    #     DROP FOREIGN KEY tbl_categorie_sous_categorie_tbl_categorie_NoCategorie_fk;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_categorie_sous_categorie
+    #     add constraint tbl_categorie_sous_categorie_tbl_categorie_NoCategorie_fk
+    #         foreign key (NoCategorie) references tbl_categorie (NoCategorie);
+    # """
+    # cr.execute(query_search)
 
     # - sous_categorie
     try:
         query_search = """
         ALTER TABLE tbl_categorie_sous_categorie
-        DROP FOREIGN KEY tbl_csc_tbl_sous_categorie_NoSousCategorie_fk;
+        DROP FOREIGN KEY tbl_csc_tbl_sous_categorie_NoSousCategorieId_fk;
         """
         cr.execute(query_search)
     except Exception:
@@ -478,8 +619,8 @@ def add_foreign_key(cr):
 
     query_search = """
     alter table tbl_categorie_sous_categorie
-        add constraint tbl_csc_tbl_sous_categorie_NoSousCategorie_fk
-            foreign key (NoSousCategorie) references tbl_sous_categorie (NoSousCategorie);
+        add constraint tbl_csc_tbl_sous_categorie_NoSousCategorieId_fk
+            foreign key (NoSousCategorieId) references tbl_sous_categorie (NoSousCategorieId);
     """
     cr.execute(query_search)
 
@@ -1399,7 +1540,8 @@ def add_foreign_key(cr):
     query_search = """
     alter table tbl_pret
         add constraint tbl_pret_tbl_membre_NoMembre_fk_2
-            foreign key (NoMembre_Intermediaire) references tbl_membre (NoMembre);
+            foreign key (NoMembre_Intermediaire) references tbl_membre (NoMembre)
+                on update set null on delete set null;
         """
     cr.execute(query_search)
 

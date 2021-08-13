@@ -9,9 +9,14 @@ class SousCategorie(models.Model):
 
     name = fields.Char()
 
-    nocategorie = fields.Integer(required=True)
+    nocategorie = fields.Many2one(
+        comodel_name="categorie",
+        required=True,
+    )
 
     nosouscategorie = fields.Char(required=True)
+
+    nosouscategorieid = fields.Integer()
 
     supprimer = fields.Integer()
 

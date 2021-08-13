@@ -19,6 +19,9 @@
                         <field name="nosouscategorie" />
                     </group>
                     <group>
+                        <field name="nosouscategorieid" />
+                    </group>
+                    <group>
                         <field name="supprimer" />
                     </group>
                     <group>
@@ -38,6 +41,7 @@
                 <field name="name" />
                 <field name="nocategorie" />
                 <field name="nosouscategorie" />
+                <field name="nosouscategorieid" />
                 <field name="supprimer" />
                 <field name="titresouscategorie" />
             </tree>

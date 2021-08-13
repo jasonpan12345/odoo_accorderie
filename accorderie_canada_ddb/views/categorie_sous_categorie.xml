@@ -28,6 +28,9 @@
                         <field name="nosouscategorie" />
                     </group>
                     <group>
+                        <field name="nosouscategorieid" />
+                    </group>
+                    <group>
                         <field name="supprimer" />
                     </group>
                     <group>
@@ -50,6 +53,7 @@
                 <field name="nocategoriesouscategorie" />
                 <field name="nooffre" />
                 <field name="nosouscategorie" />
+                <field name="nosouscategorieid" />
                 <field name="supprimer" />
                 <field name="titreoffre" />
             </tree>
