@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_8303448626659824480448823973109573066" model="region">
+            <field name="noregion">1</field>
+            <field name="region">Bas-Saint-Laurent</field>
+        </record>
+        <record id="region_8304345489459485952750382890627376586" model="region">
+            <field name="noregion">2</field>
+            <field name="region">Saguenay - Lac-Saint-Jean</field>
+        </record>
+        <record id="region_8305258197891650277919460516935247306" model="region">
+            <field name="noregion">3</field>
+            <field name="region">Capitale-Nationale</field>
+        </record>
+        <record id="region_8306205766715320879397079302581265866" model="region">
+            <field name="noregion">4</field>
+            <field name="region">Mauricie</field>
+        </record>
+        <record id="region_8307259501276760595087073437120734666" model="region">
+            <field name="noregion">5</field>
+            <field name="region">Estrie</field>
+        </record>
+        <record id="region_8308969245023818419492342115568985546" model="region">
+            <field name="noregion">6</field>
+            <field name="region">Montr&#233;al</field>
+        </record>
+        <record id="region_8310971340690553879303330971193976266" model="region">
+            <field name="noregion">7</field>
+            <field name="region">Outaouais</field>
+        </record>
+        <record id="region_8312609779091348865804765460086924746" model="region">
+            <field name="noregion">8</field>
+            <field name="region">Abitibi-T&#233;miscamingue</field>
+        </record>
+        <record id="region_8313422660038745217908475221017372106" model="region">
+            <field name="noregion">9</field>
+            <field name="region">C&#244;te-Nord</field>
+        </record>
+        <record id="region_8314093722575241036847892538276718026" model="region">
+            <field name="noregion">10</field>
+            <field name="region">Nord-du-Qu&#233;bec</field>
+        </record>
+        <record id="region_8314754485450610001423422694822520266" model="region">
+            <field name="noregion">11</field>
+            <field name="region">Gasp&#233;sie - &#206;les-de-la-Madeleine</field>
+        </record>
+        <record id="region_8315406533228102396921817561533785546" model="region">
+            <field name="noregion">12</field>
+            <field name="region">Chaudi&#232;re-Appalaches</field>
+        </record>
+        <record id="region_8316118794409105633316783521647306186" model="region">
+            <field name="noregion">13</field>
+            <field name="region">Laval</field>
+        </record>
+        <record id="region_8316785895537475739039321161709135306" model="region">
+            <field name="noregion">14</field>
+            <field name="region">Lanaudi&#232;re</field>
+        </record>
+        <record id="region_8317464088608597841769121897924011466" model="region">
+            <field name="noregion">15</field>
+            <field name="region">Laurentides</field>
+        </record>
+        <record id="region_8318137527989969088638667021501867466" model="region">
+            <field name="noregion">16</field>
+            <field name="region">Mont&#233;r&#233;gie</field>
+        </record>
+        <record id="region_8318794329457212339997317500850152906" model="region">
+            <field name="noregion">17</field>
+            <field name="region">Centre-du-Qu&#233;bec</field>
+        </record>
+    </data>
+</odoo>

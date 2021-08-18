@@ -74,7 +74,7 @@ def post_init_hook(cr, e):
         )
 
         lst_nomenclator = (
-            "tbl_accorderie",
+            # "tbl_accorderie",
             # # "tbl_achat_ponctuel",
             # # "tbl_achat_ponctuel_produit",
             "tbl_region",
@@ -91,21 +91,21 @@ def post_init_hook(cr, e):
             # # "tbl_dmd_adhesion",
             # # "tbl_droits_admin",
             # # "tbl_echange_service",
-            "tbl_fichier",
+            # "tbl_fichier",
             # # "tbl_fournisseur",
             # # "tbl_fournisseur_produit",
             # # "tbl_fournisseur_produit_commande",
             # # "tbl_fournisseur_produit_pointservice",
-            "tbl_info_logiciel_bd",
+            # "tbl_info_logiciel_bd",
             # # "tbl_log_acces",
-            # # "tbl_membre",
-            "tbl_mensualite",
+            # "tbl_membre",
+            # "tbl_mensualite",
             "tbl_occupation",
             # # "tbl_offre_service_membre",
             "tbl_origine",
-            # # "tbl_pointservice",
+            # "tbl_pointservice",
             # # "tbl_pointservice_fournisseur",
-            # # "tbl_pret",
+            # "tbl_pret",
             # # "tbl_produit",
             "tbl_provenance",
             "tbl_revenu_familial",
@@ -117,7 +117,7 @@ def post_init_hook(cr, e):
             # # "tbl_type_compte",
             "tbl_type_fichier",
             "tbl_type_tel",
-            "tbl_versement",
+            # "tbl_versement",
         )
         # lst_nomenclator = []
         # tbl_accorderie_id = None

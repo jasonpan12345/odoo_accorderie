@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="occupation_8245715856917305200287784431939233226" model="occupation">
+            <field name="nooccupation">1</field>
+            <field name="occupation">Choisir</field>
+        </record>
+        <record id="occupation_8246940724309775726946980621411427786" model="occupation">
+            <field name="nooccupation">2</field>
+            <field name="occupation">&#201;tudiant</field>
+        </record>
+        <record id="occupation_8248004758532342297000861916664440266" model="occupation">
+            <field name="nooccupation">3</field>
+            <field name="occupation">Propri&#233;taire d'une entreprise</field>
+        </record>
+        <record id="occupation_8248881022009750060574646512755156426" model="occupation">
+            <field name="nooccupation">4</field>
+            <field name="occupation">Salari&#233;</field>
+        </record>
+        <record id="occupation_8250040922308958890477015996188075466" model="occupation">
+            <field name="nooccupation">5</field>
+            <field name="occupation">Sans-emploi</field>
+        </record>
+        <record id="occupation_8251243605815925423121685993354175946" model="occupation">
+            <field name="nooccupation">6</field>
+            <field name="occupation">Retrait&#233;</field>
+        </record>
+        <record id="occupation_8252215735369975446543958777624798666" model="occupation">
+            <field name="nooccupation">7</field>
+            <field name="occupation">Travailleur autonome</field>
+        </record>
+    </data>
+</odoo>
