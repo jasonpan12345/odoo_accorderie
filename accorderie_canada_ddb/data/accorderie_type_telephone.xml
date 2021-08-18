@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_type_telephone_choisir" model="accorderie.type.telephone">
+            <field name="nom">Choisir</field>
+        </record>
+        <record id="accorderie_type_telephone_domicile" model="accorderie.type.telephone">
+            <field name="nom">Domicile</field>
+        </record>
+        <record id="accorderie_type_telephone_travail" model="accorderie.type.telephone">
+            <field name="nom">Travail</field>
+        </record>
+        <record id="accorderie_type_telephone_cellulaire" model="accorderie.type.telephone">
+            <field name="nom">Cellulaire</field>
+        </record>
+        <record id="accorderie_type_telephone_t&#233;l&#233;avertisseur_(pagette)" model="accorderie.type.telephone">
+            <field name="nom">T&#233;l&#233;avertisseur (pagette)</field>
+        </record>
+    </data>
+</odoo>

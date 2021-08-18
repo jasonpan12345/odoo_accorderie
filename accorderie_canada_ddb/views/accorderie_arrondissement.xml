@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_arrondissement_view_form" model="ir.ui.view">
+        <field name="name">accorderie_arrondissement_form</field>
+        <field name="model">accorderie.arrondissement</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="ville" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_arrondissement_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_arrondissement_tree</field>
+        <field name="model">accorderie.arrondissement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom" />
+                <field name="ville" />
+                <field name="membre" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_arrondissement_arrondissement_action_window"
+        name="Arrondissement"
+        res_model="accorderie.arrondissement"
+        view_mode="list,form"
+    />
+</odoo>

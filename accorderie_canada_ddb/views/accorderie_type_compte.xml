@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_type_compte_view_form" model="ir.ui.view">
+        <field name="name">accorderie_type_compte_form</field>
+        <field name="model">accorderie.type.compte</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom_complet" />
+                    </group>
+                    <group>
+                        <field name="accordeur_simple" />
+                    </group>
+                    <group>
+                        <field name="admin" />
+                    </group>
+                    <group>
+                        <field name="admin_chef" />
+                    </group>
+                    <group>
+                        <field name="admin_ord_point_service" />
+                    </group>
+                    <group>
+                        <field name="admin_point_service" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                    <group>
+                        <field name="reseau" />
+                    </group>
+                    <group>
+                        <field name="spip" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_type_compte_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_type_compte_tree</field>
+        <field name="model">accorderie.type.compte</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom_complet" />
+                <field name="accordeur_simple" />
+                <field name="admin" />
+                <field name="admin_chef" />
+                <field name="admin_ord_point_service" />
+                <field name="admin_point_service" />
+                <field name="membre" />
+                <field name="reseau" />
+                <field name="spip" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_type_compte_type_de_comptes_membre_action_window"
+        name="Type de comptes membre"
+        res_model="accorderie.type.compte"
+        view_mode="list,form"
+    />
+</odoo>

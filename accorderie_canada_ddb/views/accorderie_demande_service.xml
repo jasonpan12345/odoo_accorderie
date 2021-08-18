@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_demande_service_view_form" model="ir.ui.view">
+        <field name="name">accorderie_demande_service_form</field>
+        <field name="model">accorderie.demande.service</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="titre" />
+                    </group>
+                    <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
+                        <field name="approuver" />
+                    </group>
+                    <group>
+                        <field name="date_debut" />
+                    </group>
+                    <group>
+                        <field name="date_fin" />
+                    </group>
+                    <group>
+                        <field name="description" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                    <group>
+                        <field name="commentaire" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_demande_service_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_demande_service_tree</field>
+        <field name="model">accorderie.demande.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="titre" />
+                <field name="accorderie" />
+                <field name="approuver" />
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="description" />
+                <field name="membre" />
+                <field name="commentaire" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_demande_service_demande_de_services_action_window"
+        name="Demande de services"
+        res_model="accorderie.demande.service"
+        view_mode="list,form"
+    />
+</odoo>

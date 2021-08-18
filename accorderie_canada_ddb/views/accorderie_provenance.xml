@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_provenance_view_form" model="ir.ui.view">
+        <field name="name">accorderie_provenance_form</field>
+        <field name="model">accorderie.provenance</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_provenance_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_provenance_tree</field>
+        <field name="model">accorderie.provenance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom" />
+                <field name="membre" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_provenance_provenance_action_window"
+        name="Provenance"
+        res_model="accorderie.provenance"
+        view_mode="list,form"
+    />
+</odoo>
