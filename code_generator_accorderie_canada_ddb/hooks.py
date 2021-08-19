@@ -51,8 +51,83 @@ def post_init_hook(cr, e):
 
         value["hook_constant_code"] = f'MODULE_NAME = "{MODULE_NAME}"'
 
-        # Database
+        # Modification of field before migration
+        # tbl_accorderie
+        add_update_migration_model(
+            env,
+            "accorderie",
+            new_rec_name="nom",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "adresseaccorderie",
+            new_field_name="address",
+            new_string="Address",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "codepostalaccorderie",
+            new_field_name="code_postal",
+            new_string="Code postal",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "courrielaccorderie",
+            new_field_name="courriel",
+            new_string="Courriel",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "datemaj_accorderie",
+            new_field_name="date_update",
+            new_string="Last update",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "grpachat_accordeur",
+            new_field_name="grp_achat_membre",
+            new_string="Groupe d'achat membre",
+            new_type="boolean",
+            new_help="Rend accessible les achats pour les Accordeurs.",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "grpachat_admin",
+            new_field_name="grp_achat_administrateur",
+            new_string="Groupe d'achat pour administrateur",
+            new_type="boolean",
+            new_help="Rend accessible les achats pour les Accordeurs.",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "messageaccueil",
+            new_field_name="message_accueil",
+            new_string="Message accueil",
+            new_type="html",
+            new_help="Message à afficher pour l'Accueil des membres.",
+        )
+        add_update_migration_field(
+            env, "accorderie", "nonvisible", new_required=False
+        )
+        add_update_migration_field(
+            env, "membre", "nopointservice", new_field_name="Cabanon"
+        )
+        # add_update_migration_field(
+        #     env,
+        #     "accorderie",
+        #     "adresseaccorderie",
+        #     new_field_name="address",
+        #     new_string="Address",
+        # )
 
+        # Database
         value_db = {
             "m2o_dbtype": env.ref(
                 "code_generator_db_servers.code_generator_db_type_mysql"
@@ -198,17 +273,22 @@ def post_init_hook(cr, e):
             "code_generator_icon.png",
         )
 
-        # Fix in model
-        set_required_field(env, "nonvisible", "accorderie", False)
-        set_required_field(env, "nocommande", "commande", False)
-        set_required_field(env, "nocommande", "commande.membre", False)
-        set_required_field(env, "nomembre", "commande.membre", False)
-        set_required_field(env, "nomembre", "droits.admin", False)
-        set_required_field(env, "nofournisseur", "fournisseur.produit", False)
-        set_required_field(
-            env, "nocommande", "fournisseur.produit.commande", False
-        )
-        set_required_field(env, "nomembre", "type.compte", False)
+        # Fix model
+        # Accorderie
+        # update_field(env, "commande", "nocommande", new_required=False)
+        # update_field(env, "commande.membre", "nocommande", new_required=False)
+        # update_field(env, "commande.membre", "nomembre", new_required=False)
+        # update_field(env, "droits.admin", "nomembre", new_required=False)
+        # update_field(
+        #     env, "fournisseur.produit", "nofournisseur", new_required=False
+        # )
+        # update_field(
+        #     env,
+        #     "fournisseur.produit.commande",
+        #     "nocommande",
+        #     new_required=False,
+        # )
+        # update_field(env, "type.compte", "nomembre", new_required=False)
 
         # change ttype is not supported
         # field_messageaccueil = env["ir.model.fields"].search(
@@ -247,12 +327,76 @@ def post_init_hook(cr, e):
         env["code.generator.writer"].create(value)
 
 
-def set_required_field(env, field_name, model_name, required):
+def add_update_migration_field(
+    env,
+    model_name,
+    field_name,
+    new_field_name=None,
+    new_string=None,
+    new_type=None,
+    new_help=None,
+    new_required=None,
+):
+
+    value = {
+        "model_name": model_name,
+        "field_name": field_name,
+    }
+    if new_field_name is not None:
+        value["new_field_name"] = new_field_name
+    if new_string is not None:
+        value["new_string"] = new_string
+    if new_type is not None:
+        value["new_type"] = new_type
+    if new_help is not None:
+        value["new_help"] = new_help
+    if new_required is not None:
+        value["new_required"] = new_required
+        value["new_change_required"] = True
+    env["code.generator.db.update.migration.field"].create(value)
+
+
+def add_update_migration_model(
+    env,
+    model_name,
+    new_model_name=None,
+    new_rec_name=None,
+):
+
+    value = {
+        "model_name": model_name,
+    }
+    if new_model_name is not None:
+        value["new_model_name"] = new_model_name
+    if new_rec_name is not None:
+        value["new_rec_name"] = new_rec_name
+    env["code.generator.db.update.migration.model"].create(value)
+
+
+def update_field(
+    env,
+    model_name,
+    field_name,
+    new_field_name=None,
+    new_string=None,
+    new_type=None,
+    new_help=None,
+    new_required=None,
+):
     field = env["ir.model.fields"].search(
         [("name", "=", field_name), ("model", "=", model_name)]
     )
     if field and len(field) == 1:
-        field.required = required
+        if new_field_name is not None:
+            field.name = new_field_name
+        if new_string is not None:
+            field.field_description = new_string
+        if new_required is not None:
+            field.required = new_required
+        if new_help is not None:
+            field.help = new_help
+        if new_type is not None:
+            field.ttype = new_type
     else:
         _logger.warning(
             f"Cannot find field {field_name} from table {model_name}"
