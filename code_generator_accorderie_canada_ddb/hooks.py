@@ -162,6 +162,7 @@ def post_init_hook(cr, e):
             "noregion",
             new_field_name="region",
             new_string="Region",
+            new_required=False,
         )
         add_update_migration_field(
             env,
@@ -169,6 +170,7 @@ def post_init_hook(cr, e):
             "noville",
             new_field_name="ville",
             new_string="Ville",
+            new_required=False,
         )
         add_update_migration_field(
             env,
@@ -176,6 +178,7 @@ def post_init_hook(cr, e):
             "telaccorderie",
             new_field_name="telephone",
             new_string="Téléphone",
+            force_widget="phone",
         )
         add_update_migration_field(
             env,
@@ -184,13 +187,15 @@ def post_init_hook(cr, e):
             new_field_name="telecopieur",
             new_string="Télécopieur",
         )
-        # TODO load fichier de char type vers binary type + ajout variable path pour loader le fichier
         add_update_migration_field(
             env,
             "accorderie",
             "url_logoaccorderie",
             new_field_name="url_logo",
             new_string="Lien du logo",
+            new_type="binary",
+            force_widget="image",
+            path_binary="/accorderie_canada/Intranet/images/logo",
         )
         add_update_migration_field(
             env,
@@ -206,7 +211,12 @@ def post_init_hook(cr, e):
             new_field_name="url_transactionnel",
             new_string="Lien site web transactionnel",
         )
-
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "noaccorderie",
+            delete=True,
+        )
         # tbl_achat_ponctuel
         # TODO create name from selected field
         # add_update_migration_model(
@@ -284,13 +294,13 @@ def post_init_hook(cr, e):
         #     "achat.ponctuel.produit",
         #     new_rec_name="nom",
         # )
-        add_update_migration_field(
-            env,
-            "achat.ponctuel",
-            "taxep_achatponct",
-            new_field_name="taxe_provincial",
-            new_string="provincial",
-        )
+        # add_update_migration_field(
+        #     env,
+        #     "achat.ponctuel",
+        #     "taxep_achatponct",
+        #     new_field_name="taxe_provincial",
+        #     new_string="provincial",
+        # )
 
         # tbl_arrondissement
         add_update_migration_model(
@@ -407,6 +417,17 @@ def post_init_hook(cr, e):
             "region",
             new_field_name="nom",
             new_string="Nom",
+        )
+        # tbl_echange_service
+        # add_update_migration_model(env, "region", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "echange.service",
+            "nbheure",
+            new_field_name="nb_heure",
+            new_string="Nombre d'heure",
+            new_help="Nombre d'heure effectué au moment de l'échange.",
+            force_widget="float_time",
         )
 
         # Database
@@ -532,6 +553,8 @@ def add_update_migration_field(
     new_help=None,
     new_required=None,
     delete=False,
+    path_binary=None,
+    force_widget=None,
 ):
 
     value = {
@@ -561,6 +584,10 @@ def add_update_migration_field(
         if new_required is not None:
             value["new_required"] = new_required
             value["new_change_required"] = True
+        if path_binary is not None:
+            value["path_binary"] = path_binary
+        if force_widget is not None:
+            value["force_widget"] = force_widget
     env["code.generator.db.update.migration.field"].create(value)
 
 
