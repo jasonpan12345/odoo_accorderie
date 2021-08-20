@@ -52,7 +52,9 @@ def post_init_hook(cr, e):
         value["hook_constant_code"] = f'MODULE_NAME = "{MODULE_NAME}"'
 
         # Modification of field before migration
+
         # tbl_accorderie
+        # TODO update _description
         add_update_migration_model(
             env,
             "accorderie",
@@ -62,8 +64,8 @@ def post_init_hook(cr, e):
             env,
             "accorderie",
             "adresseaccorderie",
-            new_field_name="address",
-            new_string="Address",
+            new_field_name="adresse",
+            new_string="Adresse",
         )
         add_update_migration_field(
             env,
@@ -83,8 +85,8 @@ def post_init_hook(cr, e):
             env,
             "accorderie",
             "datemaj_accorderie",
-            new_field_name="date_update",
-            new_string="Last update",
+            new_field_name="date_mise_a_jour",
+            new_string="Dernière mise à jour",
         )
         add_update_migration_field(
             env,
@@ -114,18 +116,298 @@ def post_init_hook(cr, e):
             new_help="Message à afficher pour l'Accueil des membres.",
         )
         add_update_migration_field(
-            env, "accorderie", "nonvisible", new_required=False
+            env,
+            "accorderie",
+            "messagegrpachat",
+            new_field_name="message_grp_achat",
+            new_string="Message groupe achat",
+            new_type="html",
+            new_help="Message à afficher pour les groupes d'achat.",
         )
         add_update_migration_field(
-            env, "membre", "nopointservice", new_field_name="Cabanon"
+            env,
+            "accorderie",
+            "nonvisible",
+            new_required=False,
+            new_type="boolean",
+            new_field_name="archive",
+            new_string="Archivé",
         )
-        # add_update_migration_field(
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "nomcomplet",
+            new_field_name="nom_complet",
+            new_string="Nom complet",
+            delete=True,
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "noarrondissement",
+            new_field_name="arrondissement",
+            new_string="Arrondissement",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "nocartier",
+            new_field_name="cartier",
+            new_string="Cartier",
+            delete=True,
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "noregion",
+            new_field_name="region",
+            new_string="Region",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "noville",
+            new_field_name="ville",
+            new_string="Ville",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "telaccorderie",
+            new_field_name="telephone",
+            new_string="Téléphone",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "telecopieuraccorderie",
+            new_field_name="telecopieur",
+            new_string="Télécopieur",
+        )
+        # TODO load fichier de char type vers binary type + ajout variable path pour loader le fichier
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "url_logoaccorderie",
+            new_field_name="url_logo",
+            new_string="Lien du logo",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "url_public_accorderie",
+            new_field_name="url_public",
+            new_string="Lien site web public",
+        )
+        add_update_migration_field(
+            env,
+            "accorderie",
+            "url_transac_accorderie",
+            new_field_name="url_transactionnel",
+            new_string="Lien site web transactionnel",
+        )
+
+        # tbl_achat_ponctuel
+        # TODO create name from selected field
+        # add_update_migration_model(
         #     env,
-        #     "accorderie",
-        #     "adresseaccorderie",
-        #     new_field_name="address",
-        #     new_string="Address",
+        #     "achat.ponctuel",
+        #     new_rec_name="nom",
         # )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "dateachatponctuel",
+            new_field_name="date_achat",
+            new_string="Date d'achat",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "achatponcfacturer",
+            new_field_name="est_facture",
+            new_string="Facturé",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "datemaj_achantponct",
+            new_field_name="date_mise_a_jour",
+            new_string="Dernière mise à jour",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "majoration_achatponct",
+            new_field_name="majoration",
+            new_string="Majoration",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "montantpaiementachatponct",
+            new_field_name="paiement_effectue",
+            new_string="Paiement effectué",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "noachatponctuel",
+            delete=True,
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "nomembre",
+            new_field_name="membre",
+            new_string="Membre",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "taxef_achatponct",
+            new_field_name="taxe_federal",
+            new_string="Taxe fédéral",
+        )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "taxep_achatponct",
+            new_field_name="taxe_provincial",
+            new_string="Taxe provincial",
+        )
+
+        # tbl_achat_ponctuel_produit
+        # TODO create name from selected field
+        # add_update_migration_model(
+        #     env,
+        #     "achat.ponctuel.produit",
+        #     new_rec_name="nom",
+        # )
+        add_update_migration_field(
+            env,
+            "achat.ponctuel",
+            "taxep_achatponct",
+            new_field_name="taxe_provincial",
+            new_string="provincial",
+        )
+
+        # tbl_arrondissement
+        add_update_migration_model(
+            env,
+            "arrondissement",
+            new_rec_name="nom",
+        )
+        add_update_migration_field(
+            env,
+            "arrondissement",
+            "arrondissement",
+            new_field_name="nom",
+            new_string="Nom",
+        )
+        add_update_migration_field(
+            env,
+            "arrondissement",
+            "noville",
+            new_field_name="ville",
+            new_string="Ville",
+        )
+        add_update_migration_field(
+            env,
+            "arrondissement",
+            "noarrondissement",
+            delete=True,
+        )
+
+        # tbl_commande
+        add_update_migration_field(
+            env,
+            "commande",
+            "nocommande",
+            new_required=False,
+        )
+        # tbl_commande_membre
+        add_update_migration_field(
+            env,
+            "commande.membre",
+            "nocommande",
+            new_required=False,
+        )
+        add_update_migration_field(
+            env,
+            "commande.membre",
+            "nomembre",
+            new_required=False,
+        )
+        # tbl_droits_admin
+        add_update_migration_field(
+            env,
+            "droits.admin",
+            "nomembre",
+            new_required=False,
+        )
+        # tbl_fournisseur_produit
+        add_update_migration_field(
+            env,
+            "fournisseur.produit",
+            "nofournisseur",
+            new_required=False,
+        )
+        # tbl_fournisseur_produit_commande
+        add_update_migration_field(
+            env,
+            "fournisseur.produit.commande",
+            "nocommande",
+            new_required=False,
+        )
+        # tbl_type_compte
+        add_update_migration_field(
+            env,
+            "type.compte",
+            "nomembre",
+            new_required=False,
+        )
+        # tbl_ville
+        add_update_migration_model(env, "ville", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "ville",
+            "noville",
+            new_field_name="code",
+            new_string="Code",
+            new_help="Code de la ville",
+        )
+        add_update_migration_field(
+            env,
+            "ville",
+            "ville",
+            new_field_name="nom",
+            new_string="Nom",
+        )
+        add_update_migration_field(
+            env,
+            "ville",
+            "noregion",
+            new_field_name="region",
+            new_string="Région",
+        )
+        # tbl_region
+        add_update_migration_model(env, "region", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "region",
+            "noregion",
+            new_field_name="code",
+            new_string="Code de région",
+            new_help="Code de la région administrative",
+        )
+        add_update_migration_field(
+            env,
+            "region",
+            "region",
+            new_field_name="nom",
+            new_string="Nom",
+        )
 
         # Database
         value_db = {
@@ -149,7 +431,7 @@ def post_init_hook(cr, e):
         )
 
         lst_nomenclator = (
-            # "tbl_accorderie",
+            "tbl_accorderie",
             # # "tbl_achat_ponctuel",
             # # "tbl_achat_ponctuel_produit",
             "tbl_region",
@@ -201,55 +483,6 @@ def post_init_hook(cr, e):
             for db_table_id in code_generator_db_tables:
                 if db_table_id.name in lst_nomenclator:
                     db_table_id.nomenclator = True
-                    # if db_table_id.name == "tbl_accorderie":
-                    #     tbl_accorderie_id = db_table_id
-
-        # Update fields correction
-        # if tbl_accorderie_id is not None:
-        #     for column in tbl_accorderie_id.o2m_columns:
-        #         if column.name == "nonvisible":
-        #             column.required = False
-        #         elif column.name in ("messageaccueil", "messagegrpachat"):
-        #             column.column_type = "html"
-        #
-        #     field_nonvisible = env["code.generator.db.column"].search(
-        #         [("name", "=", "nonvisible"), ("m2o_table", "=", tbl_accorderie_id.id)]
-        #     )
-        #     if field_nonvisible and len(field_nonvisible) == 1:
-        #         field_nonvisible.required = False
-        #         v = {
-        #             "id": field_nonvisible.id,
-        #             "required": False,
-        #         }
-        #         env["code.generator.db.column"].write(v)
-        #     else:
-        #         _logger.warning(
-        #             "Cannot find field nonvisible from table accorderie."
-        #         )
-        #
-        #     field_messageaccueil = env["code.generator.db.column"].search(
-        #         [("name", "=", "messageaccueil"), ("m2o_table", "=", tbl_accorderie_id.id)]
-        #     )
-        #     if field_messageaccueil and len(field_messageaccueil) == 1:
-        #         field_messageaccueil.column_type = "html"
-        #     else:
-        #         _logger.warning(
-        #             "Cannot find field messageaccueil from table accorderie."
-        #         )
-        #
-        #     field_messagegrpachat = env["code.generator.db.column"].search(
-        #         [("name", "=", "messagegrpachat"), ("m2o_table", "=", tbl_accorderie_id.id)]
-        #     )
-        #     if field_messagegrpachat and len(field_messagegrpachat) == 1:
-        #         field_messagegrpachat.column_type = "html"
-        #     else:
-        #         _logger.warning(
-        #             "Cannot find field messagegrpachat from table accorderie."
-        #         )
-        # else:
-        #     _logger.warning(
-        #         "Cannot find table tbl_accorderie"
-        #     )
 
         # TODO generate code.generator.module before running generation
         code_generator_id = code_generator_db_tables.generate_module(
@@ -272,44 +505,6 @@ def post_init_hook(cr, e):
             "description",
             "code_generator_icon.png",
         )
-
-        # Fix model
-        # Accorderie
-        # update_field(env, "commande", "nocommande", new_required=False)
-        # update_field(env, "commande.membre", "nocommande", new_required=False)
-        # update_field(env, "commande.membre", "nomembre", new_required=False)
-        # update_field(env, "droits.admin", "nomembre", new_required=False)
-        # update_field(
-        #     env, "fournisseur.produit", "nofournisseur", new_required=False
-        # )
-        # update_field(
-        #     env,
-        #     "fournisseur.produit.commande",
-        #     "nocommande",
-        #     new_required=False,
-        # )
-        # update_field(env, "type.compte", "nomembre", new_required=False)
-
-        # change ttype is not supported
-        # field_messageaccueil = env["ir.model.fields"].search(
-        #     [("name", "=", "messageaccueil"), ("model", "=", "accorderie")]
-        # )
-        # if field_messageaccueil and len(field_messageaccueil) == 1:
-        #     field_messageaccueil.ttype = "html"
-        # else:
-        #     _logger.warning(
-        #         "Cannot find field messageaccueil from table accorderie."
-        #     )
-        #
-        # field_messagegrpachat = env["ir.model.fields"].search(
-        #     [("name", "=", "messagegrpachat"), ("model", "=", "accorderie")]
-        # )
-        # if field_messagegrpachat and len(field_messagegrpachat) == 1:
-        #     field_messagegrpachat.ttype = "html"
-        # else:
-        #     _logger.warning(
-        #         "Cannot find field messagegrpachat from table accorderie."
-        #     )
 
         # Generate view
         # Action generate view
@@ -336,23 +531,36 @@ def add_update_migration_field(
     new_type=None,
     new_help=None,
     new_required=None,
+    delete=False,
 ):
 
     value = {
         "model_name": model_name,
         "field_name": field_name,
     }
-    if new_field_name is not None:
-        value["new_field_name"] = new_field_name
-    if new_string is not None:
-        value["new_string"] = new_string
-    if new_type is not None:
-        value["new_type"] = new_type
-    if new_help is not None:
-        value["new_help"] = new_help
-    if new_required is not None:
-        value["new_required"] = new_required
-        value["new_change_required"] = True
+    if delete:
+        value["delete"] = True
+    elif (
+        new_field_name is None
+        and new_string is None
+        and new_type is None
+        and new_help is None
+        and new_required is None
+    ):
+        # Don't add an update with no information
+        return
+    else:
+        if new_field_name is not None:
+            value["new_field_name"] = new_field_name
+        if new_string is not None:
+            value["new_string"] = new_string
+        if new_type is not None:
+            value["new_type"] = new_type
+        if new_help is not None:
+            value["new_help"] = new_help
+        if new_required is not None:
+            value["new_required"] = new_required
+            value["new_change_required"] = True
     env["code.generator.db.update.migration.field"].create(value)
 
 
