@@ -4,11 +4,8 @@ from odoo import _, api, models, fields
 class Arrondissement(models.Model):
     _name = "arrondissement"
     _description = "Model Arrondissement belonging to Module Tbl"
+    _rec_name = "nom"
 
-    arrondissement = fields.Char()
+    nom = fields.Char()
 
-    name = fields.Char()
-
-    noarrondissement = fields.Integer(required=True)
-
-    noville = fields.Many2one(comodel_name="ville")
+    ville = fields.Many2one(comodel_name="ville")

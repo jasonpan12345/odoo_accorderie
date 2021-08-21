@@ -4,11 +4,16 @@ from odoo import _, api, models, fields
 class Ville(models.Model):
     _name = "ville"
     _description = "Model Ville belonging to Module Tbl"
+    _rec_name = "nom"
 
-    name = fields.Char()
+    code = fields.Integer(
+        required=True,
+        help="Code de la ville",
+    )
 
-    noregion = fields.Many2one(comodel_name="region")
+    nom = fields.Char()
 
-    noville = fields.Integer(required=True)
-
-    ville = fields.Char()
+    region = fields.Many2one(
+        string="Région",
+        comodel_name="region",
+    )

@@ -11,7 +11,10 @@ class EchangeService(models.Model):
 
     name = fields.Char()
 
-    nbheure = fields.Float()
+    nb_heure = fields.Float(
+        string="Nombre d'heure",
+        help="Nombre d'heure effectué au moment de l'échange.",
+    )
 
     nodemandeservice = fields.Many2one(comodel_name="demande.service")
 

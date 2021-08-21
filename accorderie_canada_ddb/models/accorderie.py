@@ -4,53 +4,52 @@ from odoo import _, api, models, fields
 class Accorderie(models.Model):
     _name = "accorderie"
     _description = "Model Accorderie belonging to Module Tbl"
+    _rec_name = "nom"
 
-    adresseaccorderie = fields.Char()
+    adresse = fields.Char()
 
-    codepostalaccorderie = fields.Char()
+    archive = fields.Boolean(string="Archivé")
 
-    courrielaccorderie = fields.Char()
+    arrondissement = fields.Many2one(comodel_name="arrondissement")
 
-    datemaj_accorderie = fields.Datetime(string="Datemaj accorderie")
+    code_postal = fields.Char(string="Code postal")
 
-    grpachat_accordeur = fields.Integer(string="Grpachat accordeur")
+    courriel = fields.Char()
 
-    grpachat_admin = fields.Integer(string="Grpachat admin")
+    date_mise_a_jour = fields.Datetime(string="Dernière mise à jour")
 
-    messageaccueil = fields.Text()
+    grp_achat_administrateur = fields.Boolean(
+        string="Groupe d'achat pour administrateur",
+        help="Rend accessible les achats pour les Accordeurs.",
+    )
 
-    messagegrpachat = fields.Text()
+    grp_achat_membre = fields.Boolean(
+        string="Groupe d'achat membre",
+        help="Rend accessible les achats pour les Accordeurs.",
+    )
 
-    name = fields.Char()
+    logo = fields.Binary()
 
-    noaccorderie = fields.Integer(required=True)
+    message_accueil = fields.Html(
+        string="Message accueil",
+        help="Message à afficher pour l'Accueil des membres.",
+    )
 
-    noarrondissement = fields.Many2one(comodel_name="arrondissement")
-
-    nocartier = fields.Many2one(comodel_name="cartier")
+    message_grp_achat = fields.Html(
+        string="Message groupe achat",
+        help="Message à afficher pour les groupes d'achat.",
+    )
 
     nom = fields.Char()
 
-    nomcomplet = fields.Char(required=True)
+    region = fields.Many2one(comodel_name="region")
 
-    nonvisible = fields.Integer()
+    telecopieur = fields.Char(string="Télécopieur")
 
-    noregion = fields.Many2one(
-        comodel_name="region",
-        required=True,
-    )
+    telephone = fields.Char(string="Téléphone")
 
-    noville = fields.Many2one(
-        comodel_name="ville",
-        required=True,
-    )
+    url_public = fields.Char(string="Lien site web public")
 
-    telaccorderie = fields.Char()
+    url_transactionnel = fields.Char(string="Lien site web transactionnel")
 
-    telecopieuraccorderie = fields.Char()
-
-    url_logoaccorderie = fields.Char(string="Url logoaccorderie")
-
-    url_public_accorderie = fields.Char(string="Url public accorderie")
-
-    url_transac_accorderie = fields.Char(string="Url transac accorderie")
+    ville = fields.Many2one(comodel_name="ville")

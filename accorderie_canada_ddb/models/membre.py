@@ -4,6 +4,13 @@ from odoo import _, api, models, fields
 class Membre(models.Model):
     _name = "membre"
     _description = "Model Membre belonging to Module Tbl"
+    _rec_name = "nom"
+
+    accorderie = fields.Many2one(
+        comodel_name="accorderie",
+        required=True,
+        help="Accorderie associé",
+    )
 
     achatregrouper = fields.Integer()
 
@@ -39,13 +46,6 @@ class Membre(models.Model):
 
     motdepasse = fields.Char()
 
-    name = fields.Char()
-
-    noaccorderie = fields.Many2one(
-        comodel_name="accorderie",
-        required=True,
-    )
-
     noarrondissement = fields.Many2one(comodel_name="arrondissement")
 
     nocartier = fields.Many2one(comodel_name="cartier")
@@ -63,8 +63,6 @@ class Membre(models.Model):
     nooccupation = fields.Many2one(comodel_name="occupation")
 
     noorigine = fields.Many2one(comodel_name="origine")
-
-    nopointservice = fields.Many2one(comodel_name="pointservice")
 
     noprovenance = fields.Many2one(comodel_name="provenance")
 
@@ -93,6 +91,12 @@ class Membre(models.Model):
     partsocialpaye = fields.Integer()
 
     pascommunication = fields.Integer()
+
+    point_service = fields.Many2one(
+        string="Point de service",
+        comodel_name="pointservice",
+        help="Point de service associé",
+    )
 
     postetel1 = fields.Char()
 

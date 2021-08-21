@@ -7,6 +7,9 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
                         <field name="achatregrouper" />
                     </group>
                     <group>
@@ -58,12 +61,6 @@
                         <field name="motdepasse" />
                     </group>
                     <group>
-                        <field name="name" />
-                    </group>
-                    <group>
-                        <field name="noaccorderie" />
-                    </group>
-                    <group>
                         <field name="noarrondissement" />
                     </group>
                     <group>
@@ -89,9 +86,6 @@
                     </group>
                     <group>
                         <field name="noorigine" />
-                    </group>
-                    <group>
-                        <field name="nopointservice" />
                     </group>
                     <group>
                         <field name="noprovenance" />
@@ -125,6 +119,9 @@
                     </group>
                     <group>
                         <field name="pascommunication" />
+                    </group>
+                    <group>
+                        <field name="point_service" />
                     </group>
                     <group>
                         <field name="postetel1" />
@@ -181,6 +178,7 @@
         <field name="model">membre</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="accorderie" />
                 <field name="achatregrouper" />
                 <field name="adresse" />
                 <field name="anneenaissance" />
@@ -198,8 +196,6 @@
                 <field name="membreprinc" />
                 <field name="memo" />
                 <field name="motdepasse" />
-                <field name="name" />
-                <field name="noaccorderie" />
                 <field name="noarrondissement" />
                 <field name="nocartier" />
                 <field name="nom" />
@@ -209,7 +205,6 @@
                 <field name="nomutilisateur" />
                 <field name="nooccupation" />
                 <field name="noorigine" />
-                <field name="nopointservice" />
                 <field name="noprovenance" />
                 <field name="noregion" />
                 <field name="norevenufamilial" />
@@ -221,6 +216,7 @@
                 <field name="noville" />
                 <field name="partsocialpaye" />
                 <field name="pascommunication" />
+                <field name="point_service" />
                 <field name="postetel1" />
                 <field name="postetel2" />
                 <field name="postetel3" />

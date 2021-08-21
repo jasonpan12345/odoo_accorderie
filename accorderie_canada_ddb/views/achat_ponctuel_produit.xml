@@ -61,7 +61,7 @@
     </record>
 
     <act_window
-        id="achat_ponctuel_produit_achat_ponctuel_produit_action_action_window"
+        id="achat_ponctuel_produit_achat_ponctuel_produit_action_view_action_window"
         name="achat_ponctuel_produit_action_view"
         res_model="achat.ponctuel.produit"
         view_mode="list,form"

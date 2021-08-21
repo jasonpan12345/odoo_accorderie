@@ -18,6 +18,16 @@ def post_init_hook(cr, e):
 
         short_name = MODULE_NAME.replace("_", " ").title()
 
+        # TODO doc support compute
+        # upper = fields.Char(compute='_compute_upper',
+        #                     inverse='_inverse_upper',
+        #                     search='_search_upper')
+        #
+        # @api.depends('name')
+        # def _compute_upper(self):
+        #     for rec in self:
+        #         rec.upper = rec.name.upper() if rec.name else False
+
         # Add code generator
         categ_id = env["ir.module.category"].search(
             [("name", "=", "Uncategorized")]
@@ -163,6 +173,7 @@ def post_init_hook(cr, e):
             new_field_name="region",
             new_string="Region",
             new_required=False,
+            # add_one2many=True,
         )
         add_update_migration_field(
             env,
@@ -171,6 +182,7 @@ def post_init_hook(cr, e):
             new_field_name="ville",
             new_string="Ville",
             new_required=False,
+            # add_one2many=True,
         )
         add_update_migration_field(
             env,
@@ -191,8 +203,8 @@ def post_init_hook(cr, e):
             env,
             "accorderie",
             "url_logoaccorderie",
-            new_field_name="url_logo",
-            new_string="Lien du logo",
+            new_field_name="logo",
+            new_string="Logo",
             new_type="binary",
             force_widget="image",
             path_binary="/accorderie_canada/Intranet/images/logo",
@@ -203,6 +215,7 @@ def post_init_hook(cr, e):
             "url_public_accorderie",
             new_field_name="url_public",
             new_string="Lien site web public",
+            force_widget="link_button",
         )
         add_update_migration_field(
             env,
@@ -210,6 +223,7 @@ def post_init_hook(cr, e):
             "url_transac_accorderie",
             new_field_name="url_transactionnel",
             new_string="Lien site web transactionnel",
+            force_widget="link_button",
         )
         add_update_migration_field(
             env,
@@ -217,6 +231,7 @@ def post_init_hook(cr, e):
             "noaccorderie",
             delete=True,
         )
+
         # tbl_achat_ponctuel
         # TODO create name from selected field
         # add_update_migration_model(
@@ -329,6 +344,15 @@ def post_init_hook(cr, e):
             delete=True,
         )
 
+        # tbl_cartier
+        # TODO
+
+        # tbl_categorie
+        # TODO
+
+        # tbl_categorie_sous_categorie
+        # TODO
+
         # tbl_commande
         add_update_migration_field(
             env,
@@ -336,6 +360,7 @@ def post_init_hook(cr, e):
             "nocommande",
             new_required=False,
         )
+
         # tbl_commande_membre
         add_update_migration_field(
             env,
@@ -349,6 +374,19 @@ def post_init_hook(cr, e):
             "nomembre",
             new_required=False,
         )
+
+        # tbl_commande_membre_produit
+        # TODO
+
+        # tbl_commentaire
+        # TODO
+
+        # tbl_demande_service
+        # TODO
+
+        # tbl_dmd_adhesion
+        # TODO
+
         # tbl_droits_admin
         add_update_migration_field(
             env,
@@ -356,6 +394,25 @@ def post_init_hook(cr, e):
             "nomembre",
             new_required=False,
         )
+
+        # tbl_echange_service
+        # add_update_migration_model(env, "region", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "echange.service",
+            "nbheure",
+            new_field_name="nb_heure",
+            new_string="Nombre d'heure",
+            new_help="Nombre d'heure effectué au moment de l'échange.",
+            force_widget="float_time",
+        )
+
+        # tbl_fichier
+        # TODO
+
+        # tbl_fournisseur
+        # TODO
+
         # tbl_fournisseur_produit
         add_update_migration_field(
             env,
@@ -363,6 +420,7 @@ def post_init_hook(cr, e):
             "nofournisseur",
             new_required=False,
         )
+
         # tbl_fournisseur_produit_commande
         add_update_migration_field(
             env,
@@ -370,6 +428,119 @@ def post_init_hook(cr, e):
             "nocommande",
             new_required=False,
         )
+
+        # tbl_fournisseur_produit_pointservice
+        # TODO
+
+        # tbl_info_logiciel_bd
+        # TODO
+
+        # tbl_log_access
+        # TODO
+
+        # tbl_membre
+        add_update_migration_model(env, "membre", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "membre",
+            "noaccorderie",
+            new_field_name="accorderie",
+            new_string="Accorderie",
+            new_help="Accorderie associé",
+            # add_one2many=True,
+        )
+        add_update_migration_field(
+            env,
+            "membre",
+            "nopointservice",
+            new_field_name="point_service",
+            new_string="Point de service",
+            new_help="Point de service associé",
+            # add_one2many=True,
+        )
+
+        # tbl_mensualite
+        # TODO
+
+        # tbl_occupation
+        # TODO
+
+        # tbl_offre_service_membre
+        # TODO
+
+        # tbl_origine
+        # TODO
+
+        # tbl_point_service
+        add_update_migration_model(env, "pointservice", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "pointservice",
+            "nompointservice",
+            new_field_name="nom",
+            new_string="Nom",
+            new_help="Nom du point de service",
+        )
+        add_update_migration_field(
+            env,
+            "pointservice",
+            "nopointservice",
+            delete=True,
+        )
+        add_update_migration_field(
+            env,
+            "pointservice",
+            "nomembre",
+            new_field_name="membre",
+            new_string="Organisateur",
+            new_help="Organisateur du point de service",
+        )
+
+        # tbl_pointservice_fournisseur
+        # TODO
+
+        # tbl_pret
+        # TODO
+
+        # tbl_produit
+        # TODO
+
+        # tbl_provenance
+        # TODO
+
+        # tbl_region
+        add_update_migration_model(env, "region", new_rec_name="nom")
+        add_update_migration_field(
+            env,
+            "region",
+            "noregion",
+            new_field_name="code",
+            new_string="Code de région",
+            new_help="Code de la région administrative",
+        )
+        add_update_migration_field(
+            env,
+            "region",
+            "region",
+            new_field_name="nom",
+            new_string="Nom",
+        )
+
+        # tbl_revenu_familial
+        # TODO
+
+        # tbl_sous_categorie
+        # TODO
+
+        # tbl_taxe
+        # TODO
+
+        # tbl_titre
+        # TODO
+
+        # tbl_type_communication
+        # TODO
+
         # tbl_type_compte
         add_update_migration_field(
             env,
@@ -377,6 +548,16 @@ def post_init_hook(cr, e):
             "nomembre",
             new_required=False,
         )
+
+        # tbl_type_fichier
+        # TODO
+
+        # tbl_type_tel
+        # TODO
+
+        # tbl_versement
+        # TODO
+
         # tbl_ville
         add_update_migration_model(env, "ville", new_rec_name="nom")
         add_update_migration_field(
@@ -400,35 +581,17 @@ def post_init_hook(cr, e):
             "noregion",
             new_field_name="region",
             new_string="Région",
+            # add_one2many=True,
         )
-        # tbl_region
-        add_update_migration_model(env, "region", new_rec_name="nom")
-        add_update_migration_field(
-            env,
-            "region",
-            "noregion",
-            new_field_name="code",
-            new_string="Code de région",
-            new_help="Code de la région administrative",
-        )
-        add_update_migration_field(
-            env,
-            "region",
-            "region",
-            new_field_name="nom",
-            new_string="Nom",
-        )
-        # tbl_echange_service
-        # add_update_migration_model(env, "region", new_rec_name="nom")
-        add_update_migration_field(
-            env,
-            "echange.service",
-            "nbheure",
-            new_field_name="nb_heure",
-            new_string="Nombre d'heure",
-            new_help="Nombre d'heure effectué au moment de l'échange.",
-            force_widget="float_time",
-        )
+        # TODO not supported
+        # add_update_migration_field(
+        #     env,
+        #     "ville",
+        #     "accorderie_ids",
+        #     new_string="Accorderie",
+        #     new_help="Liste des Accorderie dans cette ville",
+        #     add_one2many=True,
+        # )
 
         # Database
         value_db = {
@@ -452,7 +615,7 @@ def post_init_hook(cr, e):
         )
 
         lst_nomenclator = (
-            "tbl_accorderie",
+            # "tbl_accorderie",
             # # "tbl_achat_ponctuel",
             # # "tbl_achat_ponctuel_produit",
             "tbl_region",
@@ -555,6 +718,7 @@ def add_update_migration_field(
     delete=False,
     path_binary=None,
     force_widget=None,
+    add_one2many=False,
 ):
 
     value = {
@@ -588,6 +752,8 @@ def add_update_migration_field(
             value["path_binary"] = path_binary
         if force_widget is not None:
             value["force_widget"] = force_widget
+        if add_one2many:
+            value["add_one2many"] = add_one2many
     env["code.generator.db.update.migration.field"].create(value)
 
 

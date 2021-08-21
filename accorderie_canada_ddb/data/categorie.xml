@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="categorie_8208725020121020323708734696966858186" model="categorie">
+        <record id="categorie_18840174043699578842289823368620287434" model="categorie">
             <field name="nocategorie">1</field>
             <field name="supprimer">-1</field>
             <field name="titrecategorie">essai</field>
         </record>
-        <record id="categorie_8211131179416578531641450626738562506" model="categorie">
+        <record id="categorie_18843006450509463792358792564844799434" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">100</field>
             <field name="titrecategorie">Accompagnement / Gardiennage / Animaux</field>
         </record>
-        <record id="categorie_8212045472411993142097280123925439946" model="categorie">
+        <record id="categorie_18844522877539986811780332996054230474" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">101</field>
             <field name="titrecategorie">Administration / Emploi / Organisation</field>
         </record>
-        <record id="categorie_8212883706371394058789019818919994826" model="categorie">
+        <record id="categorie_18845958491844745281577528012434318794" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">102</field>
             <field name="titrecategorie">Informatique / Bureautique</field>
         </record>
-        <record id="categorie_8213820183252312663259375508412966346" model="categorie">
+        <record id="categorie_18847496310479147152370218700510340554" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">103</field>
             <field name="titrecategorie">Transport / D&#233;m&#233;nagement</field>
         </record>
-        <record id="categorie_8214692485321594713616280427306165706" model="categorie">
+        <record id="categorie_18848968369738662183762706747107583434" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">104</field>
             <field name="titrecategorie">Travaux / Entretien / Jardinage</field>
         </record>
-        <record id="categorie_8215575087052003618337072506912908746" model="categorie">
+        <record id="categorie_18850423791084049219644300149475255754" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">105</field>
             <field name="titrecategorie">Cuisine / Alimentation</field>
         </record>
-        <record id="categorie_8216311908963386276676692465651033546" model="categorie">
+        <record id="categorie_18851814245336174558769066845803652554" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">106</field>
             <field name="titrecategorie">Artisanat / Couture / V&#234;tements</field>
         </record>
-        <record id="categorie_8217299884149939152966483958711723466" model="categorie">
+        <record id="categorie_18853209453278050753754089154769069514" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">107</field>
             <field name="titrecategorie">Langues / Litt&#233;rature</field>
         </record>
-        <record id="categorie_8218167432529470347463133264967902666" model="categorie">
+        <record id="categorie_18854572969954921243004074046154352074" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">108</field>
             <field name="titrecategorie">Arts / Culture / &#201;ducation</field>
         </record>
-        <record id="categorie_8219121339606142090087759534129948106" model="categorie">
+        <record id="categorie_18856049782904187130256817705388615114" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">109</field>
             <field name="titrecategorie">Sports / Loisirs / Animation</field>
         </record>
-        <record id="categorie_8219934220553538442191469295060395466" model="categorie">
+        <record id="categorie_18857471928421318175116621819297146314" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">110</field>
             <field name="titrecategorie">Sant&#233; / Maternit&#233; / Esth&#233;tique</field>
         </record>
-        <record id="categorie_8221001423902605582818854332071421386" model="categorie">
+        <record id="categorie_18858891697093573792046298126887167434" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">111</field>
             <field name="titrecategorie">H&#233;bergement / Voyage</field>
         </record>
-        <record id="categorie_8221832527327380215720210608110446026" model="categorie">
+        <record id="categorie_18860292451006825985534951983929107914" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">195</field>
             <field name="titrecategorie">Service de location solidaire</field>
         </record>
-        <record id="categorie_8222667592160280561838446561346987466" model="categorie">
+        <record id="categorie_18861741534099211880269537902780753354" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">199</field>
             <field name="titrecategorie">Divers</field>
         </record>
-        <record id="categorie_8223401244945162649604562778327098826" model="categorie">
+        <record id="categorie_18863156549081716641338958597733754314" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">200</field>
             <field name="titrecategorie">Achat regroup&#233;</field>
         </record>
-        <record id="categorie_8224127767195418453580295576351679946" model="categorie">
+        <record id="categorie_18864566810374470546548123680049735114" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">201</field>
             <field name="titrecategorie">Cr&#233;dit solidaire</field>
         </record>
-        <record id="categorie_8225061074949836487477147524086638026" model="categorie">
+        <record id="categorie_18865982617638600450260920310442239434" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">202</field>
             <field name="supprimer">-1</field>
             <field name="titrecategorie">Service d'&#233;change d'objets</field>
         </record>
-        <record id="categorie_8226022904842759656535533147643717066" model="categorie">
+        <record id="categorie_18867391294368104070183333521879213514" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">203</field>
             <field name="titrecategorie">AccOrdi</field>
         </record>
-        <record id="categorie_8226915806234295415620212387964003786" model="categorie">
+        <record id="categorie_18868788879154855693098483637163140554" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">204</field>
             <field name="titrecategorie">Entraide vers l&amp;#8217;emploi</field>
         </record>
-        <record id="categorie_8227716010675689485429907181862397386" model="categorie">
+        <record id="categorie_18870197555884359313020896848600114634" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">205</field>
             <field name="titrecategorie">Location solidaire</field>
         </record>
-        <record id="categorie_8228361720200180739781294565057635786" model="categorie">
+        <record id="categorie_18871596725234361221222798834763048394" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">300</field>
             <field name="titrecategorie">&#201;changes associatifs</field>
         </record>
-        <record id="categorie_8229076358226059404106388331489666506" model="categorie">
+        <record id="categorie_18872987971768111702990941466530948554" model="categorie">
             <field name="nocategorie">301</field>
             <field name="titrecategorie">Comit&#233; de travail - mobilisation.</field>
         </record>
-        <record id="categorie_8229794957660063781648361775119214026" model="categorie">
+        <record id="categorie_18874414078693368461067625257636996554" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">400</field>
             <field name="titrecategorie">Autres transactions</field>
         </record>
-        <record id="categorie_8230571393652703572156778505832506826" model="categorie">
+        <record id="categorie_18875818794014746367773158791876453834" model="categorie">
             <field name="approuver">-1</field>
             <field name="nocategorie">500</field>
             <field name="titrecategorie">R&#233;seau Accorderie</field>

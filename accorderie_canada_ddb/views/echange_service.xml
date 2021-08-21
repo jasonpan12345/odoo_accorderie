@@ -16,7 +16,7 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="nbheure" />
+                        <field name="nb_heure" widget="float_time" />
                     </group>
                     <group>
                         <field name="nodemandeservice" />
@@ -55,7 +55,7 @@
                 <field name="commentaire" />
                 <field name="dateechange" />
                 <field name="name" />
-                <field name="nbheure" />
+                <field name="nb_heure" widget="float_time" />
                 <field name="nodemandeservice" />
                 <field name="noechangeservice" />
                 <field name="nomembreacheteur" />

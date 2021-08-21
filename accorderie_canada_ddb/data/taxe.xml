@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="taxe_8372292353913344191313982117875033546" model="taxe">
+        <record id="taxe_19018580812330824420326341571426395594" model="taxe">
             <field name="notaxe">1</field>
             <field name="notaxefed">1</field>
             <field name="notaxepro">2</field>

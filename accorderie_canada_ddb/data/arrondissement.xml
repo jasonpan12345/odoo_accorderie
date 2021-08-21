@@ -1,330 +1,265 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="arrondissement_12745317721463419154664422261613667786" model="arrondissement">
-            <field name="arrondissement">Desjardins</field>
-            <field name="noarrondissement">1</field>
-            <field name="noville" ref="ville_11996671006825506862658627088901219786" />
-        </record>
-        <record id="arrondissement_12746157539986070356642913827487229386" model="arrondissement">
-            <field name="arrondissement">Les Chutes-de-la-Chaudi&#232;re-Est</field>
-            <field name="noarrondissement">2</field>
-            <field name="noville" ref="ville_11996671006825506862658627088901219786" />
-        </record>
-        <record id="arrondissement_12746792949849434756630414049968924106" model="arrondissement">
-            <field name="arrondissement">Les Chutes-de-la-Chaudi&#232;re-Ouest</field>
-            <field name="noarrondissement">3</field>
-            <field name="noville" ref="ville_11996671006825506862658627088901219786" />
-        </record>
-        <record id="arrondissement_12747489365397935140157861301292377546" model="arrondissement">
-            <field name="arrondissement">Brompton</field>
-            <field name="noarrondissement">4</field>
-            <field name="noville" ref="ville_12168825088871126699172262803146810826" />
-        </record>
-        <record id="arrondissement_12748353744650965764081006865790543306" model="arrondissement">
-            <field name="arrondissement">Fleurimont</field>
-            <field name="noarrondissement">5</field>
-            <field name="noville" ref="ville_12168825088871126699172262803146810826" />
-        </record>
-        <record id="arrondissement_12749099281660224991497762114363205066" model="arrondissement">
-            <field name="arrondissement">Lennoxville</field>
-            <field name="noarrondissement">6</field>
-            <field name="noville" ref="ville_12168825088871126699172262803146810826" />
-        </record>
-        <record id="arrondissement_12749723599580837394477999240691852746" model="arrondissement">
-            <field name="arrondissement">Mont-Bellevue</field>
-            <field name="noarrondissement">7</field>
-            <field name="noville" ref="ville_12168825088871126699172262803146810826" />
-        </record>
-        <record id="arrondissement_12750544403344485173015468356017333706" model="arrondissement">
-            <field name="arrondissement">Rock Forest--Saint-&#201;lie--Deauville</field>
-            <field name="noarrondissement">8</field>
-            <field name="noville" ref="ville_12168825088871126699172262803146810826" />
-        </record>
-        <record id="arrondissement_12752153527325149881711993233648657866" model="arrondissement">
-            <field name="arrondissement">Jacques-Cartier</field>
-            <field name="noarrondissement">9</field>
-            <field name="noville" ref="ville_12168825088871126699172262803146810826" />
-        </record>
-        <record id="arrondissement_12753517044002020370961978125033940426" model="arrondissement">
-            <field name="arrondissement">MacNider</field>
-            <field name="noarrondissement">10</field>
-            <field name="noville" ref="ville_11875752985196236630623360311898416586" />
-        </record>
-        <record id="arrondissement_12754335470920792721569319434040911306" model="arrondissement">
-            <field name="arrondissement">Newport</field>
-            <field name="noarrondissement">11</field>
-            <field name="noville" ref="ville_12147747228515831814798876370599421386" />
-        </record>
-        <record id="arrondissement_12755074669677050807839067199097546186" model="arrondissement">
-            <field name="arrondissement">Calumet</field>
-            <field name="noarrondissement">12</field>
-            <field name="noville" ref="ville_12433857553550593476003434154931791306" />
-        </record>
-        <record id="arrondissement_12755742563087046056204980774598878666" model="arrondissement">
-            <field name="arrondissement">Grenville</field>
-            <field name="noarrondissement">13</field>
-            <field name="noville" ref="ville_12433857553550593476003434154931791306" />
-        </record>
-        <record id="arrondissement_12756396987709413879633503447628654026" model="arrondissement">
-            <field name="arrondissement">Grosse-&#206;le</field>
-            <field name="noarrondissement">14</field>
-            <field name="noville" ref="ville_11814481093434205162502017162466567626" />
-        </record>
-        <record id="arrondissement_12757076765343786267650056054722536906" model="arrondissement">
-            <field name="arrondissement">Le Vieux-Longueuil</field>
-            <field name="noarrondissement">15</field>
-            <field name="noville" ref="ville_12311537985726445907836137585447544266" />
-        </record>
-        <record id="arrondissement_12757747827880282086589473371981882826" model="arrondissement">
-            <field name="arrondissement">Greenfield Park</field>
-            <field name="noarrondissement">17</field>
-            <field name="noville" ref="ville_12311537985726445907836137585447544266" />
-        </record>
-        <record id="arrondissement_12758408590755651051165003528527685066" model="arrondissement">
-            <field name="arrondissement">Saint-Hubert</field>
-            <field name="noarrondissement">20</field>
-            <field name="noville" ref="ville_12311537985726445907836137585447544266" />
-        </record>
-        <record id="arrondissement_12759082822418647440677924587545044426" model="arrondissement">
-            <field name="arrondissement">Dorval--L'&#206;le-Dorval</field>
-            <field name="noarrondissement">22</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12759814890640279243157288933646149066" model="arrondissement">
-            <field name="arrondissement">Mont-Royal</field>
-            <field name="noarrondissement">23</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12760442377687392216711029801732810186" model="arrondissement">
-            <field name="arrondissement">Kirkland</field>
-            <field name="noarrondissement">24</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12761045304004125768320116671194867146" model="arrondissement">
-            <field name="arrondissement">Westmount</field>
-            <field name="noarrondissement">25</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12761668037361487886013601926644508106" model="arrondissement">
-            <field name="arrondissement">Outremont</field>
-            <field name="noarrondissement">26</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12762322461983855709442124599674283466" model="arrondissement">
-            <field name="arrondissement">L'&#206;le-Bizard--Sainte-Genevi&#232;ve--Sainte-Anne-de-Bel</field>
-            <field name="noarrondissement">27</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12762939649369841828631978307047400906" model="arrondissement">
-            <field name="arrondissement">Beaconsfield--Baie-D'Urf&#233;</field>
-            <field name="noarrondissement">28</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12763599619963585650564132528153699786" model="arrondissement">
-            <field name="arrondissement">Pointe-Claire</field>
-            <field name="noarrondissement">29</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12764215222786321484467234364647810506" model="arrondissement">
-            <field name="arrondissement">Anjou</field>
-            <field name="noarrondissement">30</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12765246773462257206142702306881185226" model="arrondissement">
-            <field name="arrondissement">C&#244;te-Saint-Luc--Hampstead--Montr&#233;al-Ouest</field>
-            <field name="noarrondissement">31</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12766355967737456906869011922185889226" model="arrondissement">
-            <field name="arrondissement">Dollard-Des Ormeaux--Roxboro</field>
-            <field name="noarrondissement">32</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12767060306102208716830218527904376266" model="arrondissement">
-            <field name="arrondissement">Verdun</field>
-            <field name="noarrondissement">33</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12767865264233353642500168934439790026" model="arrondissement">
-            <field name="arrondissement">Pierrefonds-Senneville</field>
-            <field name="noarrondissement">34</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12768719343825257412059427338224412106" model="arrondissement">
-            <field name="arrondissement">Saint-L&#233;onard</field>
-            <field name="noarrondissement">35</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12769780208921323411539804891719411146" model="arrondissement">
-            <field name="arrondissement">Saint-Laurent</field>
-            <field name="noarrondissement">36</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12770628742541851182595431747427509706" model="arrondissement">
-            <field name="arrondissement">Montr&#233;al-Nord</field>
-            <field name="noarrondissement">37</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12771451130868749246419652733631997386" model="arrondissement">
-            <field name="arrondissement">LaSalle</field>
-            <field name="noarrondissement">38</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12772213305792136469347302626434229706" model="arrondissement">
-            <field name="arrondissement">Ville-Marie</field>
-            <field name="noarrondissement">40</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12772942204887267701253163230777320906" model="arrondissement">
-            <field name="arrondissement">Le Sud-Ouest</field>
-            <field name="noarrondissement">41</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12773571276497630960093655969742988746" model="arrondissement">
-            <field name="arrondissement">Le Plateau-Mont-Royal</field>
-            <field name="noarrondissement">42</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12774220155148622785018547094696240586" model="arrondissement">
-            <field name="arrondissement">Mercier--Hochelaga-Maisonneuve</field>
-            <field name="noarrondissement">43</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12774922908950124309693001829535720906" model="arrondissement">
-            <field name="arrondissement">Ahuntsic-Cartierville</field>
-            <field name="noarrondissement">44</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12775636754694377831374719660528248266" model="arrondissement">
-            <field name="arrondissement">Rosemont--La Petite-Patrie</field>
-            <field name="noarrondissement">45</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12776376745732261060287843361024386506" model="arrondissement">
-            <field name="arrondissement">Villeray--Saint-Michel--Parc-Extension</field>
-            <field name="noarrondissement">46</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12777055731085008305661020032678766026" model="arrondissement">
-            <field name="arrondissement">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
-            <field name="noarrondissement">47</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12777776707363888111133121282626823626" model="arrondissement">
-            <field name="arrondissement">Lachine</field>
-            <field name="noarrondissement">48</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12778486591700015919597959436421834186" model="arrondissement">
-            <field name="arrondissement">Pierrefonds-Roxboro</field>
-            <field name="noarrondissement">49</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12779163992489512879684384237197206986" model="arrondissement">
-            <field name="arrondissement">L'&#206;le-Bizard--Sainte-Genevi&#232;ve</field>
-            <field name="noarrondissement">50</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12780288240115590290634836625852474826" model="arrondissement">
-            <field name="arrondissement">Rivi&#232;re-des-Prairies--Pointe-aux-Trembles</field>
-            <field name="noarrondissement">51</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12781169257282748910068876834580211146" model="arrondissement">
-            <field name="arrondissement">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
-            <field name="noarrondissement">52</field>
-            <field name="noville" ref="ville_12351827883209824751432582490511910346" />
-        </record>
-        <record id="arrondissement_12781947277838638985864045436172510666" model="arrondissement">
-            <field name="arrondissement">Beauport</field>
-            <field name="noarrondissement">53</field>
-            <field name="noville" ref="ville_11993998640903900726551596851456386506" />
-        </record>
-        <record id="arrondissement_12782619924938385090090214624310863306" model="arrondissement">
-            <field name="arrondissement">Charlesbourg</field>
-            <field name="noarrondissement">54</field>
-            <field name="noville" ref="ville_11993998640903900726551596851456386506" />
-        </record>
-        <record id="arrondissement_12783290195193255766386256006130705866" model="arrondissement">
-            <field name="arrondissement">La Cit&#233;-Limoilou</field>
-            <field name="noarrondissement">55</field>
-            <field name="noville" ref="ville_11993998640903900726551596851456386506" />
-        </record>
-        <record id="arrondissement_12784038109047390421733139061021877706" model="arrondissement">
-            <field name="arrondissement">La Haute-Saint-Charles</field>
-            <field name="noarrondissement">56</field>
-            <field name="noville" ref="ville_11993998640903900726551596851456386506" />
-        </record>
-        <record id="arrondissement_12784709171583886240672556378281223626" model="arrondissement">
-            <field name="arrondissement">Les Rivi&#232;res</field>
-            <field name="noarrondissement">58</field>
-            <field name="noville" ref="ville_11993998640903900726551596851456386506" />
-        </record>
-        <record id="arrondissement_12785374688149006061108342147464046026" model="arrondissement">
-            <field name="arrondissement">Ste-Foy-Sillery-Cap-Rouge</field>
-            <field name="noarrondissement">60</field>
-            <field name="noville" ref="ville_11993998640903900726551596851456386506" />
-        </record>
-        <record id="arrondissement_12786050504375252735908015077360412106" model="arrondissement">
-            <field name="arrondissement">Chicoutimi</field>
-            <field name="noarrondissement">61</field>
-            <field name="noville" ref="ville_12607330784502075813738002375950476746" />
-        </record>
-        <record id="arrondissement_12786723151474998840134184265498764746" model="arrondissement">
-            <field name="arrondissement">Jonqui&#232;re</field>
-            <field name="noarrondissement">62</field>
-            <field name="noville" ref="ville_12607330784502075813738002375950476746" />
-        </record>
-        <record id="arrondissement_12787418774741874081018255581382714826" model="arrondissement">
-            <field name="arrondissement">La Baie</field>
-            <field name="noarrondissement">63</field>
-            <field name="noville" ref="ville_12607330784502075813738002375950476746" />
-        </record>
-        <record id="arrondissement_12788273646615402993220889920606840266" model="arrondissement">
-            <field name="arrondissement">Cap-de-la-Madeleine</field>
-            <field name="noarrondissement">64</field>
-            <field name="noville" ref="ville_12104453791391537210164260214377817546" />
-        </record>
-        <record id="arrondissement_12789048498044792498442554780441126346" model="arrondissement">
-            <field name="arrondissement">Pointe du Lac</field>
-            <field name="noarrondissement">65</field>
-            <field name="noville" ref="ville_12104453791391537210164260214377817546" />
-        </record>
-        <record id="arrondissement_12789742536748417454039874225446069706" model="arrondissement">
-            <field name="arrondissement">Sainte-Marthe</field>
-            <field name="noarrondissement">66</field>
-            <field name="noville" ref="ville_12104453791391537210164260214377817546" />
-        </record>
-        <record id="arrondissement_12790404884187036703902156252870878666" model="arrondissement">
-            <field name="arrondissement">Saint-Louis de France</field>
-            <field name="noarrondissement">67</field>
-            <field name="noville" ref="ville_12104453791391537210164260214377817546" />
-        </record>
-        <record id="arrondissement_12791041086332026246533032410792076746" model="arrondissement">
-            <field name="arrondissement">Trois-Rivi&#232;res Centre</field>
-            <field name="noarrondissement">68</field>
-            <field name="noville" ref="ville_12104453791391537210164260214377817546" />
-        </record>
-        <record id="arrondissement_12791682042166766645024164181350294986" model="arrondissement">
-            <field name="arrondissement">Trois-Rivi&#232;res Ouest</field>
-            <field name="noarrondissement">69</field>
-            <field name="noville" ref="ville_12104453791391537210164260214377817546" />
-        </record>
-        <record id="arrondissement_12792364988927639603614220530202191306" model="arrondissement">
-            <field name="arrondissement">Douglastown &#224; Pointe-Navarre</field>
-            <field name="noarrondissement">70</field>
-            <field name="noville" ref="ville_11820690996812073201282599137293903306" />
-        </record>
-        <record id="arrondissement_12793081211516768553226066167513228746" model="arrondissement">
-            <field name="arrondissement">St-Majorique &#224; Cap-aux-Os</field>
-            <field name="noarrondissement">71</field>
-            <field name="noville" ref="ville_11820690996812073201282599137293903306" />
-        </record>
-        <record id="arrondissement_12793700775747630100346047681204856266" model="arrondissement">
-            <field name="arrondissement">Cap-des-Rosiers &#224; L'Anse-&#224;-Valleau</field>
-            <field name="noarrondissement">72</field>
-            <field name="noville" ref="ville_11820690996812073201282599137293903306" />
+        <record id="arrondissement_desjardins" model="arrondissement">
+            <field name="nom">Desjardins</field>
+            <field name="ville" ref="ville_levis" />
+        </record>
+        <record id="arrondissement_les_chutes_de_la_chaudiere_est" model="arrondissement">
+            <field name="nom">Les Chutes-de-la-Chaudi&#232;re-Est</field>
+            <field name="ville" ref="ville_levis" />
+        </record>
+        <record id="arrondissement_les_chutes_de_la_chaudiere_ouest" model="arrondissement">
+            <field name="nom">Les Chutes-de-la-Chaudi&#232;re-Ouest</field>
+            <field name="ville" ref="ville_levis" />
+        </record>
+        <record id="arrondissement_brompton" model="arrondissement">
+            <field name="nom">Brompton</field>
+            <field name="ville" ref="ville_sherbrooke" />
+        </record>
+        <record id="arrondissement_fleurimont" model="arrondissement">
+            <field name="nom">Fleurimont</field>
+            <field name="ville" ref="ville_sherbrooke" />
+        </record>
+        <record id="arrondissement_lennoxville" model="arrondissement">
+            <field name="nom">Lennoxville</field>
+            <field name="ville" ref="ville_sherbrooke" />
+        </record>
+        <record id="arrondissement_mont_bellevue" model="arrondissement">
+            <field name="nom">Mont-Bellevue</field>
+            <field name="ville" ref="ville_sherbrooke" />
+        </record>
+        <record id="arrondissement_rock_forest_saint_elie_deauville" model="arrondissement">
+            <field name="nom">Rock Forest--Saint-&#201;lie--Deauville</field>
+            <field name="ville" ref="ville_sherbrooke" />
+        </record>
+        <record id="arrondissement_jacques_cartier" model="arrondissement">
+            <field name="nom">Jacques-Cartier</field>
+            <field name="ville" ref="ville_sherbrooke" />
+        </record>
+        <record id="arrondissement_macnider" model="arrondissement">
+            <field name="nom">MacNider</field>
+            <field name="ville" ref="ville_metis_sur_mer" />
+        </record>
+        <record id="arrondissement_newport" model="arrondissement">
+            <field name="nom">Newport</field>
+            <field name="ville" ref="ville_newport" />
+        </record>
+        <record id="arrondissement_calumet" model="arrondissement">
+            <field name="nom">Calumet</field>
+            <field name="ville" ref="ville_grenville_sur_la_rouge" />
+        </record>
+        <record id="arrondissement_grenville" model="arrondissement">
+            <field name="nom">Grenville</field>
+            <field name="ville" ref="ville_grenville_sur_la_rouge" />
+        </record>
+        <record id="arrondissement_grosse_ile" model="arrondissement">
+            <field name="nom">Grosse-&#206;le</field>
+            <field name="ville" ref="ville_les_iles_de_la_madeleine" />
+        </record>
+        <record id="arrondissement_le_vieux_longueuil" model="arrondissement">
+            <field name="nom">Le Vieux-Longueuil</field>
+            <field name="ville" ref="ville_longueuil" />
+        </record>
+        <record id="arrondissement_greenfield_park" model="arrondissement">
+            <field name="nom">Greenfield Park</field>
+            <field name="ville" ref="ville_longueuil" />
+        </record>
+        <record id="arrondissement_saint_hubert" model="arrondissement">
+            <field name="nom">Saint-Hubert</field>
+            <field name="ville" ref="ville_longueuil" />
+        </record>
+        <record id="arrondissement_dorval_l_ile_dorval" model="arrondissement">
+            <field name="nom">Dorval--L'&#206;le-Dorval</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_mont_royal" model="arrondissement">
+            <field name="nom">Mont-Royal</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_kirkland" model="arrondissement">
+            <field name="nom">Kirkland</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_westmount" model="arrondissement">
+            <field name="nom">Westmount</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_outremont" model="arrondissement">
+            <field name="nom">Outremont</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_l_ile_bizard_sainte_genevieve_sainte_anne_de_bel" model="arrondissement">
+            <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve--Sainte-Anne-de-Bel</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_beaconsfield_baie_d_urfe" model="arrondissement">
+            <field name="nom">Beaconsfield--Baie-D'Urf&#233;</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_pointe_claire" model="arrondissement">
+            <field name="nom">Pointe-Claire</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_anjou" model="arrondissement">
+            <field name="nom">Anjou</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_cote_saint_luc_hampstead_montreal_ouest" model="arrondissement">
+            <field name="nom">C&#244;te-Saint-Luc--Hampstead--Montr&#233;al-Ouest</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_dollard_des_ormeaux_roxboro" model="arrondissement">
+            <field name="nom">Dollard-Des Ormeaux--Roxboro</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_verdun" model="arrondissement">
+            <field name="nom">Verdun</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_pierrefonds_senneville" model="arrondissement">
+            <field name="nom">Pierrefonds-Senneville</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_saint_leonard" model="arrondissement">
+            <field name="nom">Saint-L&#233;onard</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_saint_laurent" model="arrondissement">
+            <field name="nom">Saint-Laurent</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_montreal_nord" model="arrondissement">
+            <field name="nom">Montr&#233;al-Nord</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_lasalle" model="arrondissement">
+            <field name="nom">LaSalle</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_ville_marie" model="arrondissement">
+            <field name="nom">Ville-Marie</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_le_sud_ouest" model="arrondissement">
+            <field name="nom">Le Sud-Ouest</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_le_plateau_mont_royal" model="arrondissement">
+            <field name="nom">Le Plateau-Mont-Royal</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_mercier_hochelaga_maisonneuve" model="arrondissement">
+            <field name="nom">Mercier--Hochelaga-Maisonneuve</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_ahuntsic_cartierville" model="arrondissement">
+            <field name="nom">Ahuntsic-Cartierville</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_rosemont_la_petite_patrie" model="arrondissement">
+            <field name="nom">Rosemont--La Petite-Patrie</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_villeray_saint_michel_parc_extension" model="arrondissement">
+            <field name="nom">Villeray--Saint-Michel--Parc-Extension</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_cote_des_neiges_notre_dame_de_grace" model="arrondissement">
+            <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_lachine" model="arrondissement">
+            <field name="nom">Lachine</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_pierrefonds_roxboro" model="arrondissement">
+            <field name="nom">Pierrefonds-Roxboro</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_l_ile_bizard_sainte_genevieve" model="arrondissement">
+            <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_riviere_des_prairies_pointe_aux_trembles" model="arrondissement">
+            <field name="nom">Rivi&#232;re-des-Prairies--Pointe-aux-Trembles</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_cote_des_neiges_notre_dame_de_grace1" model="arrondissement">
+            <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
+            <field name="ville" ref="ville_montreal" />
+        </record>
+        <record id="arrondissement_beauport" model="arrondissement">
+            <field name="nom">Beauport</field>
+            <field name="ville" ref="ville_quebec" />
+        </record>
+        <record id="arrondissement_charlesbourg" model="arrondissement">
+            <field name="nom">Charlesbourg</field>
+            <field name="ville" ref="ville_quebec" />
+        </record>
+        <record id="arrondissement_la_cite_limoilou" model="arrondissement">
+            <field name="nom">La Cit&#233;-Limoilou</field>
+            <field name="ville" ref="ville_quebec" />
+        </record>
+        <record id="arrondissement_la_haute_saint_charles" model="arrondissement">
+            <field name="nom">La Haute-Saint-Charles</field>
+            <field name="ville" ref="ville_quebec" />
+        </record>
+        <record id="arrondissement_les_rivieres" model="arrondissement">
+            <field name="nom">Les Rivi&#232;res</field>
+            <field name="ville" ref="ville_quebec" />
+        </record>
+        <record id="arrondissement_ste_foy_sillery_cap_rouge" model="arrondissement">
+            <field name="nom">Ste-Foy-Sillery-Cap-Rouge</field>
+            <field name="ville" ref="ville_quebec" />
+        </record>
+        <record id="arrondissement_chicoutimi" model="arrondissement">
+            <field name="nom">Chicoutimi</field>
+            <field name="ville" ref="ville_saguenay" />
+        </record>
+        <record id="arrondissement_jonquiere" model="arrondissement">
+            <field name="nom">Jonqui&#232;re</field>
+            <field name="ville" ref="ville_saguenay" />
+        </record>
+        <record id="arrondissement_la_baie" model="arrondissement">
+            <field name="nom">La Baie</field>
+            <field name="ville" ref="ville_saguenay" />
+        </record>
+        <record id="arrondissement_cap_de_la_madeleine" model="arrondissement">
+            <field name="nom">Cap-de-la-Madeleine</field>
+            <field name="ville" ref="ville_trois_rivieres" />
+        </record>
+        <record id="arrondissement_pointe_du_lac" model="arrondissement">
+            <field name="nom">Pointe du Lac</field>
+            <field name="ville" ref="ville_trois_rivieres" />
+        </record>
+        <record id="arrondissement_sainte_marthe" model="arrondissement">
+            <field name="nom">Sainte-Marthe</field>
+            <field name="ville" ref="ville_trois_rivieres" />
+        </record>
+        <record id="arrondissement_saint_louis_de_france" model="arrondissement">
+            <field name="nom">Saint-Louis de France</field>
+            <field name="ville" ref="ville_trois_rivieres" />
+        </record>
+        <record id="arrondissement_trois_rivieres_centre" model="arrondissement">
+            <field name="nom">Trois-Rivi&#232;res Centre</field>
+            <field name="ville" ref="ville_trois_rivieres" />
+        </record>
+        <record id="arrondissement_trois_rivieres_ouest" model="arrondissement">
+            <field name="nom">Trois-Rivi&#232;res Ouest</field>
+            <field name="ville" ref="ville_trois_rivieres" />
+        </record>
+        <record id="arrondissement_douglastown_a_pointe_navarre" model="arrondissement">
+            <field name="nom">Douglastown &#224; Pointe-Navarre</field>
+            <field name="ville" ref="ville_gaspe" />
+        </record>
+        <record id="arrondissement_st_majorique_a_cap_aux_os" model="arrondissement">
+            <field name="nom">St-Majorique &#224; Cap-aux-Os</field>
+            <field name="ville" ref="ville_gaspe" />
+        </record>
+        <record id="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" model="arrondissement">
+            <field name="nom">Cap-des-Rosiers &#224; L'Anse-&#224;-Valleau</field>
+            <field name="ville" ref="ville_gaspe" />
         </record>
     </data>
 </odoo>

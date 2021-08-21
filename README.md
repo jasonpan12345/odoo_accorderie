@@ -4,6 +4,10 @@ Module ERPLibre pour les Accorderies du Québec.
 
 Pour simplification, mettez la sauvegarde du logiciel portail membre et du site web au path `/accorderie_canada/`, ainsi le reste des commandes pourront être automatisé.
 
+Installer `mariadb` et exécuter `./addons/TechnoLibre_odoo_accorderie/script/restore_database_accorderie.sh` à partir de ERPLibre.
+
+Le reste du document sont des informations détaillées au script de restoration.
+
 ## Base de données
 
 Il est considéré pour la migration de l'Accorderie vers la plateforme ERPLibre, qu'il y a une base de donnée accessible localement avec les informations suivantes :

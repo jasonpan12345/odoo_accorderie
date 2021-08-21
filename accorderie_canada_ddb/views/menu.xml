@@ -19,7 +19,7 @@
 
     <menuitem
         id="achat_ponctuel_produit"
-        action="achat_ponctuel_produit_achat_ponctuel_produit_action_action_window"
+        action="achat_ponctuel_produit_achat_ponctuel_produit_action_view_action_window"
         sequence="3"
         parent="models"
     />
@@ -37,7 +37,7 @@
 
     <menuitem
         id="categorie_sous_categorie"
-        action="categorie_sous_categorie_categorie_sous_categorie_ac_action_window"
+        action="categorie_sous_categorie_categorie_sous_categorie_action_view_action_window"
         sequence="7"
         parent="models"
     />
@@ -53,7 +53,7 @@
 
     <menuitem
         id="commande_membre_produit"
-        action="commande_membre_produit_commande_membre_produit_acti_action_window"
+        action="commande_membre_produit_commande_membre_produit_action_view_action_window"
         parent="models"
     />
 
@@ -110,14 +110,14 @@
 
     <menuitem
         id="fournisseur_produit_commande"
-        action="fournisseur_produit_commande_fournisseur_produit_com_action_window"
+        action="fournisseur_produit_commande_fournisseur_produit_commande_action_view_action_window"
         sequence="19"
         parent="models"
     />
 
     <menuitem
         id="fournisseur_produit_pointservice"
-        action="fournisseur_produit_pointservice_fournisseur_produit_action_window"
+        action="fournisseur_produit_pointservice_fournisseur_produit_pointservice_action_view_action_window"
         sequence="20"
         parent="models"
     />
@@ -139,7 +139,7 @@
 
     <menuitem
         id="offre_service_membre"
-        action="offre_service_membre_offre_service_membre_action_vie_action_window"
+        action="offre_service_membre_offre_service_membre_action_view_action_window"
         sequence="26"
         parent="models"
     />
@@ -155,7 +155,7 @@
 
     <menuitem
         id="pointservice_fournisseur"
-        action="pointservice_fournisseur_pointservice_fournisseur_ac_action_window"
+        action="pointservice_fournisseur_pointservice_fournisseur_action_view_action_window"
         sequence="29"
         parent="models"
     />

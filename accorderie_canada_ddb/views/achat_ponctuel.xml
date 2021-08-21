@@ -7,34 +7,31 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="achatponcfacturer" />
+                        <field name="date_achat" />
                     </group>
                     <group>
-                        <field name="dateachatponctuel" />
+                        <field name="date_mise_a_jour" />
                     </group>
                     <group>
-                        <field name="datemaj_achantponct" />
+                        <field name="est_facture" />
                     </group>
                     <group>
-                        <field name="majoration_achatponct" />
+                        <field name="majoration" />
                     </group>
                     <group>
-                        <field name="montantpaiementachatponct" />
+                        <field name="membre" />
                     </group>
                     <group>
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="noachatponctuel" />
+                        <field name="paiement_effectue" />
                     </group>
                     <group>
-                        <field name="nomembre" />
+                        <field name="taxe_federal" />
                     </group>
                     <group>
-                        <field name="taxef_achatponct" />
-                    </group>
-                    <group>
-                        <field name="taxep_achatponct" />
+                        <field name="taxe_provincial" />
                     </group>
                 </sheet>
             </form>
@@ -46,16 +43,15 @@
         <field name="model">achat.ponctuel</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="achatponcfacturer" />
-                <field name="dateachatponctuel" />
-                <field name="datemaj_achantponct" />
-                <field name="majoration_achatponct" />
-                <field name="montantpaiementachatponct" />
+                <field name="date_achat" />
+                <field name="date_mise_a_jour" />
+                <field name="est_facture" />
+                <field name="majoration" />
+                <field name="membre" />
                 <field name="name" />
-                <field name="noachatponctuel" />
-                <field name="nomembre" />
-                <field name="taxef_achatponct" />
-                <field name="taxep_achatponct" />
+                <field name="paiement_effectue" />
+                <field name="taxe_federal" />
+                <field name="taxe_provincial" />
             </tree>
         </field>
     </record>

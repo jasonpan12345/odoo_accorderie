@@ -5,25 +5,23 @@ class AchatPonctuel(models.Model):
     _name = "achat.ponctuel"
     _description = "Model Achat_ponctuel belonging to Module Tbl"
 
-    achatponcfacturer = fields.Integer()
+    date_achat = fields.Date(string="Date d'achat")
 
-    dateachatponctuel = fields.Date()
+    date_mise_a_jour = fields.Datetime(string="Dernière mise à jour")
 
-    datemaj_achantponct = fields.Datetime(string="Datemaj achantponct")
+    est_facture = fields.Integer(string="Facturé")
 
-    majoration_achatponct = fields.Float(string="Majoration achatponct")
+    majoration = fields.Float()
 
-    montantpaiementachatponct = fields.Float()
-
-    name = fields.Char()
-
-    noachatponctuel = fields.Integer(required=True)
-
-    nomembre = fields.Many2one(
+    membre = fields.Many2one(
         comodel_name="membre",
         required=True,
     )
 
-    taxef_achatponct = fields.Float(string="Taxef achatponct")
+    name = fields.Char()
 
-    taxep_achatponct = fields.Float(string="Taxep achatponct")
+    paiement_effectue = fields.Float(string="Paiement effectué")
+
+    taxe_federal = fields.Float(string="Taxe fédéral")
+
+    taxe_provincial = fields.Float(string="Taxe provincial")

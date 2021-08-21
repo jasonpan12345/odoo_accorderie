@@ -1,134 +1,134 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="cartier_12832029776208780901587052373498406346" model="cartier">
+        <record id="cartier_24927681794707456360940411824279397834" model="cartier">
             <field name="cartier">Montcalm</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">1</field>
         </record>
-        <record id="cartier_12833238797968748575378729854180533706" model="cartier">
+        <record id="cartier_24930082408031638570369496205974578634" model="cartier">
             <field name="cartier">St-Jean-Baptiste</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">2</field>
         </record>
-        <record id="cartier_12834294117093438576355475859599009226" model="cartier">
+        <record id="cartier_24932042512772241470081560483305891274" model="cartier">
             <field name="cartier">St-Roch</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">3</field>
         </record>
-        <record id="cartier_12835454017392647406257845343031928266" model="cartier">
+        <record id="cartier_24933801377980058138376137159003350474" model="cartier">
             <field name="cartier">St-Sacrement</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">4</field>
         </record>
-        <record id="cartier_12836240753046414051130149234458764746" model="cartier">
+        <record id="cartier_24935533305612619956795932029757695434" model="cartier">
             <field name="cartier">St-Sauveur</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">5</field>
         </record>
-        <record id="cartier_12837091663511817250115903896485373386" model="cartier">
+        <record id="cartier_24937230372853675498907185741173892554" model="cartier">
             <field name="cartier">Vieux-Qu&#233;bec</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">6</field>
         </record>
-        <record id="cartier_12837802340129570201224117985719887306" model="cartier">
+        <record id="cartier_24938910009898977902864168872921015754" model="cartier">
             <field name="cartier">Lairet</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">7</field>
         </record>
-        <record id="cartier_12838531239224701433129978590062978506" model="cartier">
+        <record id="cartier_24940558747960899743729490522527507914" model="cartier">
             <field name="cartier">Maizerets</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">9</field>
         </record>
-        <record id="cartier_12839192794381695540348884682048284106" model="cartier">
+        <record id="cartier_24942556882219509490323599700954981834" model="cartier">
             <field name="cartier">Vieux-Limoilou</field>
-            <field name="noarrondissement" ref="arrondissement_12783290195193255766386256006130705866" />
+            <field name="noarrondissement" ref="arrondissement_la_cite_limoilou" />
             <field name="nocartier">10</field>
         </record>
-        <record id="cartier_12839859895510065646071422322110113226" model="cartier">
+        <record id="cartier_24944386260491963853878634630768240074" model="cartier">
             <field name="cartier">Douglastown</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">11</field>
         </record>
-        <record id="cartier_12840524619793560323863832155853432266" model="cartier">
+        <record id="cartier_24946168101866909658831113434211296714" model="cartier">
             <field name="cartier">Haldimand</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">12</field>
         </record>
-        <record id="cartier_12841191720921930429586369795915261386" model="cartier">
+        <record id="cartier_24947906367752472618397915788481668554" model="cartier">
             <field name="cartier">Sandy-Beach</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">13</field>
         </record>
-        <record id="cartier_12841854068360549679448651823340070346" model="cartier">
+        <record id="cartier_24949624826597407011880319756764456394" model="cartier">
             <field name="cartier">Gasp&#233; centre-ville</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">14</field>
         </record>
-        <record id="cartier_12842525130897045498388069140599416266" model="cartier">
+        <record id="cartier_24951302879079459130550551017632572874" model="cartier">
             <field name="cartier">York</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">15</field>
         </record>
-        <record id="cartier_12843189855180540176180478974342735306" model="cartier">
+        <record id="cartier_24952972216463634680143646988666152394" model="cartier">
             <field name="cartier">Sunny-Bank</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">16</field>
         </record>
-        <record id="cartier_12843851410337534283399385066328040906" model="cartier">
+        <record id="cartier_24954861808139599884595253011881665994" model="cartier">
             <field name="cartier">Pointe-Navarre</field>
-            <field name="noarrondissement" ref="arrondissement_12792364988927639603614220530202191306" />
+            <field name="noarrondissement" ref="arrondissement_douglastown_a_pointe_navarre" />
             <field name="nocartier">17</field>
         </record>
-        <record id="cartier_12844531980253531814059313608861427146" model="cartier">
+        <record id="cartier_24956566798196906853140266077692896714" model="cartier">
             <field name="cartier">St-Majorique</field>
-            <field name="noarrondissement" ref="arrondissement_12793081211516768553226066167513228746" />
+            <field name="noarrondissement" ref="arrondissement_st_majorique_a_cap_aux_os" />
             <field name="nocartier">18</field>
         </record>
-        <record id="cartier_12845210965606279059432490280515806666" model="cartier">
+        <record id="cartier_24958206821160952124928452437464851914" model="cartier">
             <field name="cartier">Penouille</field>
-            <field name="noarrondissement" ref="arrondissement_12793081211516768553226066167513228746" />
+            <field name="noarrondissement" ref="arrondissement_st_majorique_a_cap_aux_os" />
             <field name="nocartier">19</field>
         </record>
-        <record id="cartier_12845872520763273166651396372501112266" model="cartier">
+        <record id="cartier_24959883289079753958311931827453961674" model="cartier">
             <field name="cartier">Cap-aux-Os</field>
-            <field name="noarrondissement" ref="arrondissement_12793081211516768553226066167513228746" />
+            <field name="noarrondissement" ref="arrondissement_st_majorique_a_cap_aux_os" />
             <field name="nocartier">20</field>
         </record>
-        <record id="cartier_12846510307471512994569024401301317066" model="cartier">
+        <record id="cartier_24961568472096432360772546507277608394" model="cartier">
             <field name="cartier">Cap-des-Rosiers</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">23</field>
         </record>
-        <record id="cartier_12847250298509396223482148101797455306" model="cartier">
+        <record id="cartier_24963255239676361048519913057980261834" model="cartier">
             <field name="cartier">L'Anse-au-Griffon</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">24</field>
         </record>
-        <record id="cartier_12848082194215795999026880313275983306" model="cartier">
+        <record id="cartier_24964953891480666875917918640275465674" model="cartier">
             <field name="cartier">Rivi&#232;re-au-Renard</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">25</field>
         </record>
-        <record id="cartier_12849035309010842599008130646998525386" model="cartier">
+        <record id="cartier_24966667596635850413540066995921233354" model="cartier">
             <field name="cartier">Petit-Cap</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">26</field>
         </record>
-        <record id="cartier_12849762623542723545627239380462609866" model="cartier">
+        <record id="cartier_24968630870502953883825635015010559434" model="cartier">
             <field name="cartier">St-Maurice</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">27</field>
         </record>
-        <record id="cartier_12850478846131852495239085017773647306" model="cartier">
+        <record id="cartier_24970514916207543089773609490149549514" model="cartier">
             <field name="cartier">Pointe-Jaune</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">28</field>
         </record>
-        <record id="cartier_12851169715708976880262900721020577226" model="cartier">
+        <record id="cartier_24972321318312868316670742292217210314" model="cartier">
             <field name="cartier">L'Anse-&#224;-Valleau</field>
-            <field name="noarrondissement" ref="arrondissement_12793700775747630100346047681204856266" />
+            <field name="noarrondissement" ref="arrondissement_cap_des_rosiers_a_l_anse_a_valleau" />
             <field name="nocartier">29</field>
         </record>
     </data>

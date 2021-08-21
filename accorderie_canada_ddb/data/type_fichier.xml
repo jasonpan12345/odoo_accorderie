@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="type_fichier_8477321167550378710444863655637951946" model="type.fichier">
+        <record id="type_fichier_19135387684607229475883879352846263754" model="type.fichier">
             <field name="datemaj_typefichier">2012-07-25 13:36:06</field>
             <field name="id_typefichier">1</field>
             <field name="typefichier">Journal / Bulletin</field>
         </record>
-        <record id="type_fichier_8478660123496869777750194548398630346" model="type.fichier">
+        <record id="type_fichier_19137081582721784447421629322504447434" model="type.fichier">
             <field name="datemaj_typefichier">2012-07-25 16:50:09</field>
             <field name="id_typefichier">2</field>
             <field name="typefichier">Guides et outils d'&#233;change de services</field>
         </record>
-        <record id="type_fichier_8479503903427646692945565791469708746" model="type.fichier">
+        <record id="type_fichier_19138988604593502790027505925389034954" model="type.fichier">
             <field name="datemaj_typefichier">2012-07-25 11:07:03</field>
             <field name="id_typefichier">3</field>
             <field name="typefichier">Calendrier mensuel et activit&#233;s</field>
         </record>
-        <record id="type_fichier_8480399181664057879960372838108505546" model="type.fichier">
+        <record id="type_fichier_19140505823905650952092422292037969354" model="type.fichier">
             <field name="datemaj_typefichier">2012-07-25 13:47:36</field>
             <field name="id_typefichier">4</field>
             <field name="typefichier">Promotion et outils de communication</field>
         </record>
-        <record id="type_fichier_8481237415623458796652112533103060426" model="type.fichier">
+        <record id="type_fichier_19142039681131927109668233302916474314" model="type.fichier">
             <field name="datemaj_typefichier">2012-07-25 13:44:34</field>
             <field name="id_typefichier">7</field>
             <field name="typefichier">Photos et images</field>
         </record>
-        <record id="type_fichier_8482459906171053895381180916256744906" model="type.fichier">
+        <record id="type_fichier_19143883320473634040804035070640793034" model="type.fichier">
             <field name="datemaj_typefichier">2012-07-26 21:03:46</field>
             <field name="id_typefichier">8</field>
             <field name="typefichier">Rapports et vie d&#233;mocratique</field>
         </record>
-        <record id="type_fichier_8483760832599538115804466907921262026" model="type.fichier">
+        <record id="type_fichier_19145432231050787908603988854869861834" model="type.fichier">
             <field name="datemaj_typefichier">2013-05-23 16:52:58</field>
             <field name="id_typefichier">13</field>
             <field name="typefichier">Vie associative</field>

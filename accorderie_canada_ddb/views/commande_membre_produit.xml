@@ -69,7 +69,7 @@
     </record>
 
     <act_window
-        id="commande_membre_produit_commande_membre_produit_acti_action_window"
+        id="commande_membre_produit_commande_membre_produit_action_view_action_window"
         name="commande_membre_produit_action_view"
         res_model="commande.membre.produit"
         view_mode="list,form"

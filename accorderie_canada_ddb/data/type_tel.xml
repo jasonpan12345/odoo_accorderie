@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="type_tel_8498227102793017641205672097813112266" model="type.tel">
+        <record id="type_tel_19156158139691969014627402834866349514" model="type.tel">
             <field name="notypetel">1</field>
             <field name="typetel">Choisir</field>
         </record>
-        <record id="type_tel_8499406017851229894549064031794111946" model="type.tel">
+        <record id="type_tel_19158394750719746696877668580584334794" model="type.tel">
             <field name="notypetel">2</field>
             <field name="typetel">Domicile</field>
         </record>
-        <record id="type_tel_8500603155386820428690102480883688906" model="type.tel">
+        <record id="type_tel_19161397498079037315272463896302069194" model="type.tel">
             <field name="notypetel">3</field>
             <field name="typetel">Travail</field>
         </record>
-        <record id="type_tel_8501716311070145842633291773385909706" model="type.tel">
+        <record id="type_tel_19163178547172357977581566764305622474" model="type.tel">
             <field name="notypetel">4</field>
             <field name="typetel">Cellulaire</field>
         </record>
-        <record id="type_tel_8502903941226234665053818997201446346" model="type.tel">
+        <record id="type_tel_19164778163773520974557580416662906314" model="type.tel">
             <field name="notypetel">5</field>
             <field name="typetel">T&#233;l&#233;avertisseur (pagette)</field>
         </record>
