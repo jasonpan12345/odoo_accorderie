@@ -345,10 +345,73 @@ def post_init_hook(cr, e):
         )
 
         # tbl_cartier
-        # TODO
+        # TODO rename cartier pour quartier
+        add_update_migration_model(
+            env,
+            "cartier",
+            new_rec_name="nom",
+        )
+        add_update_migration_field(
+            env,
+            "cartier",
+            "nocartier",
+            delete=True,
+        )
+        add_update_migration_field(
+            env,
+            "cartier",
+            "noarrondissement",
+            new_field_name="arrondissement",
+            new_string="Arrondissement",
+            new_help="Arrondissement associé au quartier",
+        )
+        add_update_migration_field(
+            env,
+            "cartier",
+            "cartier",
+            new_field_name="nom",
+            new_string="Nom du quartier",
+            new_help="Nom du quartier",
+        )
 
         # tbl_categorie
-        # TODO
+        add_update_migration_model(
+            env,
+            "categorie",
+            new_rec_name="nom",
+        )
+        add_update_migration_field(
+            env,
+            "categorie",
+            "nocategorie",
+            delete=True,
+        )
+        add_update_migration_field(
+            env,
+            "categorie",
+            "titrecategorie",
+            new_field_name="nom",
+            new_string="Nom de la catégorie",
+            new_help="Le nom de la catégorie",
+        )
+        add_update_migration_field(
+            env,
+            "categorie",
+            "supprimer",
+            new_field_name="archive",
+            new_string="Archivé",
+            new_type="boolean",
+            new_help="Permet d'archiver cette entrée",
+        )
+        add_update_migration_field(
+            env,
+            "categorie",
+            "approuver",
+            new_field_name="approuve",
+            new_string="Approuvé",
+            new_type="boolean",
+            new_help="Permet d'approuver cette entrée",
+        )
 
         # tbl_categorie_sous_categorie
         # TODO

@@ -7,19 +7,13 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="approuver" />
+                        <field name="approuve" />
                     </group>
                     <group>
-                        <field name="name" />
+                        <field name="archive" />
                     </group>
                     <group>
-                        <field name="nocategorie" />
-                    </group>
-                    <group>
-                        <field name="supprimer" />
-                    </group>
-                    <group>
-                        <field name="titrecategorie" />
+                        <field name="nom" />
                     </group>
                 </sheet>
             </form>
@@ -31,11 +25,9 @@
         <field name="model">categorie</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="approuver" />
-                <field name="name" />
-                <field name="nocategorie" />
-                <field name="supprimer" />
-                <field name="titrecategorie" />
+                <field name="approuve" />
+                <field name="archive" />
+                <field name="nom" />
             </tree>
         </field>
     </record>

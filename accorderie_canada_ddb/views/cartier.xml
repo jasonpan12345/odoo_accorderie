@@ -7,16 +7,10 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="cartier" />
+                        <field name="arrondissement" />
                     </group>
                     <group>
-                        <field name="name" />
-                    </group>
-                    <group>
-                        <field name="noarrondissement" />
-                    </group>
-                    <group>
-                        <field name="nocartier" />
+                        <field name="nom" />
                     </group>
                 </sheet>
             </form>
@@ -28,10 +22,8 @@
         <field name="model">cartier</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="cartier" />
-                <field name="name" />
-                <field name="noarrondissement" />
-                <field name="nocartier" />
+                <field name="arrondissement" />
+                <field name="nom" />
             </tree>
         </field>
     </record>

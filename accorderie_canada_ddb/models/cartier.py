@@ -4,14 +4,15 @@ from odoo import _, api, models, fields
 class Cartier(models.Model):
     _name = "cartier"
     _description = "Model Cartier belonging to Module Tbl"
+    _rec_name = "nom"
 
-    cartier = fields.Char()
-
-    name = fields.Char()
-
-    noarrondissement = fields.Many2one(
+    arrondissement = fields.Many2one(
         comodel_name="arrondissement",
         required=True,
+        help="Arrondissement associé au quartier",
     )
 
-    nocartier = fields.Integer(required=True)
+    nom = fields.Char(
+        string="Nom du quartier",
+        help="Nom du quartier",
+    )
