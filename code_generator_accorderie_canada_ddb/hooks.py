@@ -69,6 +69,10 @@ def post_init_hook(cr, e):
             env,
             "accorderie",
             new_rec_name="nom",
+            new_description=(
+                "Gestion des entitées Accorderie, contient les informations et"
+                " les messages d'une Accorderie."
+            ),
         )
         add_update_migration_field(
             env,
@@ -401,7 +405,7 @@ def post_init_hook(cr, e):
             new_field_name="archive",
             new_string="Archivé",
             new_type="boolean",
-            new_help="Permet d'archiver cette entrée",
+            new_help="Permet d'archiver cette catégorie.",
         )
         add_update_migration_field(
             env,
@@ -410,7 +414,7 @@ def post_init_hook(cr, e):
             new_field_name="approuve",
             new_string="Approuvé",
             new_type="boolean",
-            new_help="Permet d'approuver cette entrée",
+            new_help="Permet d'approuver cette catégorie.",
         )
 
         # tbl_categorie_sous_categorie
@@ -824,6 +828,7 @@ def add_update_migration_model(
     env,
     model_name,
     new_model_name=None,
+    new_description=None,
     new_rec_name=None,
 ):
 
@@ -832,6 +837,8 @@ def add_update_migration_model(
     }
     if new_model_name is not None:
         value["new_model_name"] = new_model_name
+    if new_description is not None:
+        value["new_description"] = new_description
     if new_rec_name is not None:
         value["new_rec_name"] = new_rec_name
     env["code.generator.db.update.migration.model"].create(value)

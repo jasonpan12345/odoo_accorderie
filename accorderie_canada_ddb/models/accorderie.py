@@ -3,7 +3,10 @@ from odoo import _, api, models, fields
 
 class Accorderie(models.Model):
     _name = "accorderie"
-    _description = "Model Accorderie belonging to Module Tbl"
+    _description = (
+        "Gestion des entitées Accorderie, contient les informations et les"
+        " messages d'une Accorderie."
+    )
     _rec_name = "nom"
 
     adresse = fields.Char()

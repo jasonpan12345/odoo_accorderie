@@ -8,12 +8,15 @@ class Categorie(models.Model):
 
     approuve = fields.Boolean(
         string="Approuvé",
-        help="Permet d'approuver cette entrée",
+        help="Permet d'approuver cette catégorie.",
     )
 
     archive = fields.Boolean(
         string="Archivé",
-        help="Permet d'archiver cette entrée",
+        help="Permet d'archiver cette catégorie.",
     )
 
-    nom = fields.Char(help="Le nom de la catégorie")
+    nom = fields.Char(
+        string="Nom de la catégorie",
+        help="Le nom de la catégorie",
+    )
