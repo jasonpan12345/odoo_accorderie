@@ -151,6 +151,11 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "accorderie",
+            "nom",
+            new_required=True,
+        )
+        migration.add_update_migration_field(
+            "accorderie",
             "noarrondissement",
             new_field_name="arrondissement",
             new_string="Arrondissement",
@@ -309,6 +314,7 @@ def post_init_hook(cr, e):
             "noville",
             new_field_name="ville",
             new_string="Ville",
+            # add_one2many=True,
         )
         migration.add_update_migration_field(
             "arrondissement",
@@ -458,6 +464,7 @@ def post_init_hook(cr, e):
         # TODO
 
         # tbl_membre
+        # TODO change rec_name to display_name with compute of nom et prenom
         migration.add_update_migration_model("membre", new_rec_name="nom")
         migration.add_update_migration_field(
             "membre",
@@ -510,6 +517,7 @@ def post_init_hook(cr, e):
             new_field_name="membre",
             new_string="Organisateur",
             new_help="Organisateur du point de service",
+            # add_one2many=True,
         )
 
         # tbl_pointservice_fournisseur
