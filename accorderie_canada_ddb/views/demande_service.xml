@@ -65,8 +65,8 @@
     </record>
 
     <act_window
-        id="demande_service_demande_service_action_view_action_window"
-        name="demande_service_action_view"
+        id="demande_service_demande_service_action_window"
+        name="Demande Service"
         res_model="demande.service"
         view_mode="list,form"
     />

@@ -40,10 +40,5 @@
         </field>
     </record>
 
-    <act_window
-        id="titre_titre_action_view_action_window"
-        name="titre_action_view"
-        res_model="titre"
-        view_mode="list,form"
-    />
+    <act_window id="titre_titre_action_window" name="Titre" res_model="titre" view_mode="list,form" />
 </odoo>

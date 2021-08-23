@@ -117,8 +117,8 @@
     </record>
 
     <act_window
-        id="commentaire_commentaire_action_view_action_window"
-        name="commentaire_action_view"
+        id="commentaire_commentaire_action_window"
+        name="Commentaire"
         res_model="commentaire"
         view_mode="list,form"
     />

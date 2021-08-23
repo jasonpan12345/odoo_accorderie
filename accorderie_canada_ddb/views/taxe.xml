@@ -48,10 +48,5 @@
         </field>
     </record>
 
-    <act_window
-        id="taxe_taxe_action_view_action_window"
-        name="taxe_action_view"
-        res_model="taxe"
-        view_mode="list,form"
-    />
+    <act_window id="taxe_taxe_action_window" name="Taxe" res_model="taxe" view_mode="list,form" />
 </odoo>

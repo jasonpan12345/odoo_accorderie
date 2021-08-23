@@ -33,8 +33,8 @@
     </record>
 
     <act_window
-        id="revenu_familial_revenu_familial_action_view_action_window"
-        name="revenu_familial_action_view"
+        id="revenu_familial_revenu_familial_action_window"
+        name="Revenu Familial"
         res_model="revenu.familial"
         view_mode="list,form"
     />

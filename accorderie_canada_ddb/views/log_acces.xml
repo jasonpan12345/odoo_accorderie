@@ -68,10 +68,5 @@
         </field>
     </record>
 
-    <act_window
-        id="log_acces_log_acces_action_view_action_window"
-        name="log_acces_action_view"
-        res_model="log.acces"
-        view_mode="list,form"
-    />
+    <act_window id="log_acces_log_acces_action_window" name="Log Acces" res_model="log.acces" view_mode="list,form" />
 </odoo>

@@ -29,8 +29,8 @@
     </record>
 
     <act_window
-        id="arrondissement_arrondissement_action_view_action_window"
-        name="arrondissement_action_view"
+        id="arrondissement_arrondissement_action_window"
+        name="Arrondissement"
         res_model="arrondissement"
         view_mode="list,form"
     />

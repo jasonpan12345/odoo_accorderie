@@ -32,10 +32,5 @@
         </field>
     </record>
 
-    <act_window
-        id="type_tel_type_tel_action_view_action_window"
-        name="type_tel_action_view"
-        res_model="type.tel"
-        view_mode="list,form"
-    />
+    <act_window id="type_tel_type_tel_action_window" name="Type Tel" res_model="type.tel" view_mode="list,form" />
 </odoo>

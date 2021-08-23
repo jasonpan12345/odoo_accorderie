@@ -33,8 +33,8 @@
     </record>
 
     <act_window
-        id="situation_maison_situation_maison_action_view_action_window"
-        name="situation_maison_action_view"
+        id="situation_maison_situation_maison_action_window"
+        name="Situation Maison"
         res_model="situation.maison"
         view_mode="list,form"
     />

@@ -69,8 +69,8 @@
     </record>
 
     <act_window
-        id="dmd_adhesion_dmd_adhesion_action_view_action_window"
-        name="dmd_adhesion_action_view"
+        id="dmd_adhesion_dmd_adhesion_action_window"
+        name="Dmd Adhesion"
         res_model="dmd.adhesion"
         view_mode="list,form"
     />

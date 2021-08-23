@@ -37,8 +37,8 @@
     </record>
 
     <act_window
-        id="type_fichier_type_fichier_action_view_action_window"
-        name="type_fichier_action_view"
+        id="type_fichier_type_fichier_action_window"
+        name="Type Fichier"
         res_model="type.fichier"
         view_mode="list,form"
     />

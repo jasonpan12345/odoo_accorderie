@@ -28,10 +28,5 @@
         </field>
     </record>
 
-    <act_window
-        id="cartier_cartier_action_view_action_window"
-        name="cartier_action_view"
-        res_model="cartier"
-        view_mode="list,form"
-    />
+    <act_window id="cartier_cartier_action_window" name="Cartier" res_model="cartier" view_mode="list,form" />
 </odoo>

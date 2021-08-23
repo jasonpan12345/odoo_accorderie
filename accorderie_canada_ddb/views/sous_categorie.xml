@@ -49,8 +49,8 @@
     </record>
 
     <act_window
-        id="sous_categorie_sous_categorie_action_view_action_window"
-        name="sous_categorie_action_view"
+        id="sous_categorie_sous_categorie_action_window"
+        name="Sous Categorie"
         res_model="sous.categorie"
         view_mode="list,form"
     />

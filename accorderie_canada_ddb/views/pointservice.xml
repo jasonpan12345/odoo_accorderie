@@ -45,8 +45,8 @@
     </record>
 
     <act_window
-        id="pointservice_pointservice_action_view_action_window"
-        name="pointservice_action_view"
+        id="pointservice_pointservice_action_window"
+        name="Pointservice"
         res_model="pointservice"
         view_mode="list,form"
     />

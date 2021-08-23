@@ -57,8 +57,8 @@
     </record>
 
     <act_window
-        id="fournisseur_produit_commande_fournisseur_produit_commande_action_view_action_window"
-        name="fournisseur_produit_commande_action_view"
+        id="fournisseur_produit_commande_fournisseur_produit_commande_action_window"
+        name="Fournisseur Produit Commande"
         res_model="fournisseur.produit.commande"
         view_mode="list,form"
     />

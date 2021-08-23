@@ -32,10 +32,5 @@
         </field>
     </record>
 
-    <act_window
-        id="ville_ville_action_view_action_window"
-        name="ville_action_view"
-        res_model="ville"
-        view_mode="list,form"
-    />
+    <act_window id="ville_ville_action_window" name="Ville" res_model="ville" view_mode="list,form" />
 </odoo>

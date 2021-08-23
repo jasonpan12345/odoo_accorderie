@@ -89,8 +89,8 @@
     </record>
 
     <act_window
-        id="fournisseur_fournisseur_action_view_action_window"
-        name="fournisseur_action_view"
+        id="fournisseur_fournisseur_action_window"
+        name="Fournisseur"
         res_model="fournisseur"
         view_mode="list,form"
     />

@@ -92,10 +92,5 @@
         </field>
     </record>
 
-    <act_window
-        id="pret_pret_action_view_action_window"
-        name="pret_action_view"
-        res_model="pret"
-        view_mode="list,form"
-    />
+    <act_window id="pret_pret_action_window" name="Pret" res_model="pret" view_mode="list,form" />
 </odoo>

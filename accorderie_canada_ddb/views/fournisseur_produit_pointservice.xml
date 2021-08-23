@@ -49,8 +49,8 @@
     </record>
 
     <act_window
-        id="fournisseur_produit_pointservice_fournisseur_produit_pointservice_action_view_action_window"
-        name="fournisseur_produit_pointservice_action_view"
+        id="fournisseur_produit_pointservice_fournisseur_produit_pointservice_action_window"
+        name="Fournisseur Produit Pointservice"
         res_model="fournisseur.produit.pointservice"
         view_mode="list,form"
     />

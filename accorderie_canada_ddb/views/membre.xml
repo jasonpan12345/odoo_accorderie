@@ -236,10 +236,5 @@
         </field>
     </record>
 
-    <act_window
-        id="membre_membre_action_view_action_window"
-        name="membre_action_view"
-        res_model="membre"
-        view_mode="list,form"
-    />
+    <act_window id="membre_membre_action_window" name="Membre" res_model="membre" view_mode="list,form" />
 </odoo>

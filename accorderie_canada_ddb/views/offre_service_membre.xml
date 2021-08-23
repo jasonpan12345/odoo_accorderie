@@ -101,8 +101,8 @@
     </record>
 
     <act_window
-        id="offre_service_membre_offre_service_membre_action_view_action_window"
-        name="offre_service_membre_action_view"
+        id="offre_service_membre_offre_service_membre_action_window"
+        name="Offre Service Membre"
         res_model="offre.service.membre"
         view_mode="list,form"
     />

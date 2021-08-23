@@ -40,10 +40,5 @@
         </field>
     </record>
 
-    <act_window
-        id="versement_versement_action_view_action_window"
-        name="versement_action_view"
-        res_model="versement"
-        view_mode="list,form"
-    />
+    <act_window id="versement_versement_action_window" name="Versement" res_model="versement" view_mode="list,form" />
 </odoo>

@@ -33,8 +33,8 @@
     </record>
 
     <act_window
-        id="occupation_occupation_action_view_action_window"
-        name="occupation_action_view"
+        id="occupation_occupation_action_window"
+        name="Occupation"
         res_model="occupation"
         view_mode="list,form"
     />

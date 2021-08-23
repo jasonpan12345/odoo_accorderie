@@ -32,10 +32,5 @@
         </field>
     </record>
 
-    <act_window
-        id="categorie_categorie_action_view_action_window"
-        name="categorie_action_view"
-        res_model="categorie"
-        view_mode="list,form"
-    />
+    <act_window id="categorie_categorie_action_window" name="Categorie" res_model="categorie" view_mode="list,form" />
 </odoo>

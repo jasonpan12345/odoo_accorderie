@@ -68,10 +68,5 @@
         </field>
     </record>
 
-    <act_window
-        id="commande_commande_action_view_action_window"
-        name="commande_action_view"
-        res_model="commande"
-        view_mode="list,form"
-    />
+    <act_window id="commande_commande_action_window" name="Commande" res_model="commande" view_mode="list,form" />
 </odoo>

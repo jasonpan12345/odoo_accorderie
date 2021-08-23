@@ -33,8 +33,8 @@
     </record>
 
     <act_window
-        id="mensualite_mensualite_action_view_action_window"
-        name="mensualite_action_view"
+        id="mensualite_mensualite_action_window"
+        name="Mensualite"
         res_model="mensualite"
         view_mode="list,form"
     />

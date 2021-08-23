@@ -69,8 +69,8 @@
     </record>
 
     <act_window
-        id="echange_service_echange_service_action_view_action_window"
-        name="echange_service_action_view"
+        id="echange_service_echange_service_action_window"
+        name="Echange Service"
         res_model="echange.service"
         view_mode="list,form"
     />

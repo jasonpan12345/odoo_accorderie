@@ -57,8 +57,8 @@
     </record>
 
     <act_window
-        id="type_compte_type_compte_action_view_action_window"
-        name="type_compte_action_view"
+        id="type_compte_type_compte_action_window"
+        name="Type Compte"
         res_model="type.compte"
         view_mode="list,form"
     />

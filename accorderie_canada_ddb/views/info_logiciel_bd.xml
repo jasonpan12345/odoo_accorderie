@@ -45,8 +45,8 @@
     </record>
 
     <act_window
-        id="info_logiciel_bd_info_logiciel_bd_action_view_action_window"
-        name="info_logiciel_bd_action_view"
+        id="info_logiciel_bd_info_logiciel_bd_action_window"
+        name="Info Logiciel Bd"
         res_model="info.logiciel.bd"
         view_mode="list,form"
     />

@@ -73,8 +73,8 @@
     </record>
 
     <act_window
-        id="droits_admin_droits_admin_action_view_action_window"
-        name="droits_admin_action_view"
+        id="droits_admin_droits_admin_action_window"
+        name="Droits Admin"
         res_model="droits.admin"
         view_mode="list,form"
     />

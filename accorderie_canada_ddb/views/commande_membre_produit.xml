@@ -69,8 +69,8 @@
     </record>
 
     <act_window
-        id="commande_membre_produit_commande_membre_produit_action_view_action_window"
-        name="commande_membre_produit_action_view"
+        id="commande_membre_produit_commande_membre_produit_action_window"
+        name="Commande Membre Produit"
         res_model="commande.membre.produit"
         view_mode="list,form"
     />

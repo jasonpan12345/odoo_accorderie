@@ -56,10 +56,5 @@
         </field>
     </record>
 
-    <act_window
-        id="produit_produit_action_view_action_window"
-        name="produit_action_view"
-        res_model="produit"
-        view_mode="list,form"
-    />
+    <act_window id="produit_produit_action_window" name="Produit" res_model="produit" view_mode="list,form" />
 </odoo>
