@@ -62,7 +62,7 @@ def fill_dct_table(cr):
     VALUES (1, null, null, null, '2021-08-17 00:46:07');"""
     cr.execute(sql)
     sql = """INSERT INTO tbl_accorderie (NoAccorderie, NoRegion, NoVille, NoArrondissement, NoCartier, Nom, NomComplet, AdresseAccorderie, CodePostalAccorderie, TelAccorderie, TelecopieurAccorderie, CourrielAccorderie, MessageGrpAchat, MessageAccueil, URL_Public_Accorderie, URL_Transac_Accorderie, URL_LogoAccorderie, GrpAchat_Admin, GrpAchat_Accordeur, NonVisible, DateMAJ_Accorderie)
-    VALUES (1, 1, 1, null, null, 'Québec', 'de Québec', '', 'G1K 3A7', '4184184188', '4184184188', 'courriel@courriel.ca', '<p>Bonjour chers membres,</p>', '', ''https://www.google.ca', 'https://www.google.ca', 'LogoQuebec.png', -1, -1, 0, '2020-08-24 21:42:51');"""
+    VALUES (1, 1, 1, null, null, 'Québec', 'de Québec', '', 'G1K 3A7', '4184184188', '4184184188', 'courriel@courriel.ca', '<p>Bonjour chers membres,</p>', '', 'https://www.google.ca', 'https://www.google.ca', 'LogoQuebec.png', -1, -1, 0, '2020-08-24 21:42:51');"""
     cr.execute(sql)
     sql = """INSERT INTO tbl_fichier (Id_TypeFichier, NoAccorderie, NomFichierStokage, NomFichierOriginal, Si_Admin, Si_AccorderieLocalSeulement, Si_Disponible, DateMAJ_Fichier) 
     VALUES (1, 1, 'Nom 1', 'Nom original', 1, 1, 0, '2021-08-17 00:45:05');"""
