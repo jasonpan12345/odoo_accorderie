@@ -44,8 +44,6 @@ class Membre(models.Model):
 
     memo = fields.Text()
 
-    motdepasse = fields.Char()
-
     noarrondissement = fields.Many2one(comodel_name="arrondissement")
 
     nocartier = fields.Many2one(comodel_name="cartier")

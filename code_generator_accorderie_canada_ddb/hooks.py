@@ -477,6 +477,11 @@ def post_init_hook(cr, e):
             "nom",
             new_required=True,
         )
+        migration.add_update_migration_field(
+            "membre",
+            "motdepasse",
+            ignore_field=True,
+        )
 
         # tbl_mensualite
         # TODO
@@ -751,10 +756,27 @@ class MigrationDB:
         new_help=None,
         new_required=None,
         delete=False,
+        ignore_field=False,
         path_binary=None,
         force_widget=None,
         add_one2many=False,
     ):
+        """
+
+        :param model_name:
+        :param field_name:
+        :param new_field_name:
+        :param new_string:
+        :param new_type:
+        :param new_help:
+        :param new_required:
+        :param delete: import data, use to compute information but delete the field at the end with his data
+        :param ignore_field: never compute it and ignore data from it
+        :param path_binary: path for type binary when the past was char
+        :param force_widget:
+        :param add_one2many:
+        :return:
+        """
 
         value = {
             "model_name": model_name,
@@ -763,12 +785,16 @@ class MigrationDB:
         }
         if delete:
             value["delete"] = True
+        elif ignore_field:
+            value["ignore_field"] = True
         elif (
             new_field_name is None
             and new_string is None
             and new_type is None
             and new_help is None
             and new_required is None
+            and force_widget is None
+            and add_one2many is None
         ):
             # Don't add an update with no information
             return

@@ -58,9 +58,6 @@
                         <field name="memo" />
                     </group>
                     <group>
-                        <field name="motdepasse" />
-                    </group>
-                    <group>
                         <field name="noarrondissement" />
                     </group>
                     <group>
@@ -198,7 +195,6 @@
                 <field name="membreconjoint" />
                 <field name="membreprinc" />
                 <field name="memo" />
-                <field name="motdepasse" />
                 <field name="noarrondissement" />
                 <field name="nocartier" />
                 <field name="nom" />
