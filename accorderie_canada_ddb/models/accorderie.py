@@ -43,7 +43,7 @@ class Accorderie(models.Model):
         help="Message à afficher pour les groupes d'achat.",
     )
 
-    nom = fields.Char()
+    nom = fields.Char(required=True)
 
     region = fields.Many2one(comodel_name="region")
 

@@ -70,6 +70,9 @@
                         <field name="nom" />
                     </group>
                     <group>
+                        <field name="nom_complet" />
+                    </group>
+                    <group>
                         <field name="nomaccorderie" />
                     </group>
                     <group>
@@ -199,6 +202,7 @@
                 <field name="noarrondissement" />
                 <field name="nocartier" />
                 <field name="nom" />
+                <field name="nom_complet" />
                 <field name="nomaccorderie" />
                 <field name="nomembre" />
                 <field name="nomembreconjoint" />

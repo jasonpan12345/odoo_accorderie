@@ -1,5 +1,5 @@
 {
-    "name": "accorderie_canada_ddb",
+    "name": "Accorderie Canada Ddb",
     "category": "Uncategorized",
     "version": "12.0.1.0",
     "author": "TechnoLibre",

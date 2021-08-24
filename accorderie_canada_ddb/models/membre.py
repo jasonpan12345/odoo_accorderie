@@ -4,7 +4,7 @@ from odoo import _, api, models, fields
 class Membre(models.Model):
     _name = "membre"
     _description = "Model Membre belonging to Module Tbl"
-    _rec_name = "nom"
+    _rec_name = "nom_complet"
 
     accorderie = fields.Many2one(
         comodel_name="accorderie",
@@ -50,7 +50,13 @@ class Membre(models.Model):
 
     nocartier = fields.Many2one(comodel_name="cartier")
 
-    nom = fields.Char()
+    nom = fields.Char(required=True)
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     nomaccorderie = fields.Char()
 
@@ -127,3 +133,15 @@ class Membre(models.Model):
     telephone3 = fields.Char()
 
     transferede = fields.Integer()
+
+    @api.depends("nom", "prenom")
+    def _compute_nom_complet(self):
+        for rec in self:
+            if self.nom and self.prenom:
+                rec.nom_complet = f"{self.prenom} {self.nom}"
+            elif self.nom:
+                rec.nom_complet = f"{self.nom}"
+            elif self.prenom:
+                rec.nom_complet = f"{self.prenom}"
+            else:
+                rec.nom_complet = False

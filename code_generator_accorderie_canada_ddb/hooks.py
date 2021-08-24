@@ -18,22 +18,12 @@ def post_init_hook(cr, e):
 
         short_name = MODULE_NAME.replace("_", " ").title()
 
-        # TODO doc support compute
-        # upper = fields.Char(compute='_compute_upper',
-        #                     inverse='_inverse_upper',
-        #                     search='_search_upper')
-        #
-        # @api.depends('name')
-        # def _compute_upper(self):
-        #     for rec in self:
-        #         rec.upper = rec.name.upper() if rec.name else False
-
         # Add code generator
         categ_id = env["ir.module.category"].search(
             [("name", "=", "Uncategorized")]
         )
         value = {
-            "shortdesc": "accorderie_canada_ddb",
+            "shortdesc": short_name,
             "name": MODULE_NAME,
             "license": "AGPL-3",
             "category_id": categ_id.id,
@@ -482,6 +472,11 @@ def post_init_hook(cr, e):
             new_help="Point de service associé",
             # add_one2many=True,
         )
+        migration.add_update_migration_field(
+            "membre",
+            "nom",
+            new_required=True,
+        )
 
         # tbl_mensualite
         # TODO
@@ -688,6 +683,42 @@ def post_init_hook(cr, e):
         code_generator_id = code_generator_db_tables.generate_module(
             code_generator_id=code_generator_id
         )
+
+        # Add new field
+        model_membre_id = env["ir.model"].search([("model", "=", "membre")])
+        value_field_nom_complet_membre = {
+            "name": "nom_complet",
+            "field_description": "Nom complet",
+            "ttype": "char",
+            "code_generator_compute": "_compute_nom_complet",
+            "model_id": model_membre_id.id,
+        }
+        env["ir.model.fields"].create(value_field_nom_complet_membre)
+
+        # Add code
+        lst_value = [
+            {
+                "code": """for rec in self:
+    if self.nom and self.prenom:
+        rec.nom_complet = f"{self.prenom} {self.nom}"
+    elif self.nom:
+        rec.nom_complet = f"{self.nom}"
+    elif self.prenom:
+        rec.nom_complet = f"{self.prenom}"
+    else:
+        rec.nom_complet = False
+    """,
+                "name": "_compute_nom_complet",
+                "decorator": '@api.depends("nom", "prenom")',
+                "param": "self",
+                "sequence": 1,
+                "m2o_module": code_generator_id.id,
+                "m2o_model": model_membre_id.id,
+            },
+        ]
+        env["code.generator.model.code"].create(lst_value)
+
+        model_membre_id.rec_name = "nom_complet"
 
         # Generate view
         # Action generate view
