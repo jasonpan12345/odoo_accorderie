@@ -355,6 +355,7 @@ def post_init_hook(cr, e):
             new_field_name="nom",
             new_string="Nom de la catégorie",
             new_help="Le nom de la catégorie",
+            compute_data_function="""nom.replace("&#8217;", "'").strip()""",
         )
         migration.add_update_migration_field(
             "categorie",
@@ -375,6 +376,14 @@ def post_init_hook(cr, e):
 
         # tbl_categorie_sous_categorie
         # TODO
+        migration.add_update_migration_model(
+            "categorie.sous.categorie", new_rec_name="description"
+        )
+        migration.add_update_migration_field(
+            "categorie.sous.categorie",
+            "description",
+            compute_data_function="""description.replace("&#8217;", "'").strip()""",
+        )
 
         # tbl_commande
         migration.add_update_migration_field(
@@ -561,6 +570,16 @@ def post_init_hook(cr, e):
 
         # tbl_sous_categorie
         # TODO
+        migration.add_update_migration_model(
+            "sous.categorie", new_rec_name="titre"
+        )
+        migration.add_update_migration_field(
+            "sous.categorie",
+            "titresouscategorie",
+            new_field_name="titre",
+            new_string="Titre",
+            compute_data_function="""titre.replace("&#8217;", "'").strip()""",
+        )
 
         # tbl_taxe
         # TODO
@@ -768,6 +787,7 @@ class MigrationDB:
         ignore_field=False,
         path_binary=None,
         force_widget=None,
+        compute_data_function=None,
         add_one2many=False,
     ):
         """
@@ -784,6 +804,7 @@ class MigrationDB:
         :param ignore_field: never compute it and ignore data from it
         :param path_binary: path for type binary when the past was char
         :param force_widget:
+        :param compute_data_function: function, in string, to run with data in argument and overwrite data
         :param add_one2many:
         :return:
         """
@@ -806,6 +827,7 @@ class MigrationDB:
             and force_widget is None
             and add_one2many is None
             and sql_select_modify is None
+            and compute_data_function is None
         ):
             # Don't add an update with no information
             return
@@ -827,6 +849,8 @@ class MigrationDB:
                 value["force_widget"] = force_widget
             if add_one2many:
                 value["add_one2many"] = add_one2many
+            if compute_data_function:
+                value["compute_data_function"] = compute_data_function
             if sql_select_modify:
                 value["sql_select_modify"] = sql_select_modify
         self.env["code.generator.db.update.migration.field"].create(value)

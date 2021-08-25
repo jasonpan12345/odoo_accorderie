@@ -25,7 +25,7 @@
                         <field name="supprimer" />
                     </group>
                     <group>
-                        <field name="titresouscategorie" />
+                        <field name="titre" />
                     </group>
                 </sheet>
             </form>
@@ -43,7 +43,7 @@
                 <field name="nosouscategorie" />
                 <field name="nosouscategorieid" />
                 <field name="supprimer" />
-                <field name="titresouscategorie" />
+                <field name="titre" />
             </tree>
         </field>
     </record>

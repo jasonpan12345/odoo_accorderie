@@ -4,6 +4,7 @@ from odoo import _, api, models, fields
 class SousCategorie(models.Model):
     _name = "sous.categorie"
     _description = "Model Sous_categorie belonging to Module Tbl"
+    _rec_name = "titre"
 
     approuver = fields.Integer()
 
@@ -20,4 +21,4 @@ class SousCategorie(models.Model):
 
     supprimer = fields.Integer()
 
-    titresouscategorie = fields.Char()
+    titre = fields.Char()
