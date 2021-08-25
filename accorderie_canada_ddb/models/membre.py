@@ -32,6 +32,8 @@ class Membre(models.Model):
 
     descriptionaccordeur = fields.Char()
 
+    estunpointservice = fields.Integer()
+
     etatcomptecourriel = fields.Integer()
 
     membreactif = fields.Integer()
@@ -48,7 +50,7 @@ class Membre(models.Model):
 
     nocartier = fields.Many2one(comodel_name="cartier")
 
-    nom = fields.Char(required=True)
+    nom = fields.Char()
 
     nom_complet = fields.Char(
         string="Nom complet",

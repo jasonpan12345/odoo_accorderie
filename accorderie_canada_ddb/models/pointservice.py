@@ -8,12 +8,6 @@ class Pointservice(models.Model):
 
     datemaj_pointservice = fields.Datetime(string="Datemaj pointservice")
 
-    membre = fields.Many2one(
-        string="Organisateur",
-        comodel_name="membre",
-        help="Organisateur du point de service",
-    )
-
     noaccorderie = fields.Many2one(
         comodel_name="accorderie",
         required=True,

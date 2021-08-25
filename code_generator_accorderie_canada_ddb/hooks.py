@@ -472,11 +472,11 @@ def post_init_hook(cr, e):
             new_help="Point de service associé",
             # add_one2many=True,
         )
-        migration.add_update_migration_field(
-            "membre",
-            "nom",
-            new_required=True,
-        )
+        # migration.add_update_migration_field(
+        #     "membre",
+        #     "nom",
+        #     new_required=True,
+        # )
         migration.add_update_migration_field(
             "membre",
             "motdepasse",

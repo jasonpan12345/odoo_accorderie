@@ -40,6 +40,9 @@
                         <field name="descriptionaccordeur" />
                     </group>
                     <group>
+                        <field name="estunpointservice" />
+                    </group>
+                    <group>
                         <field name="etatcomptecourriel" />
                     </group>
                     <group>
@@ -189,6 +192,7 @@
                 <field name="date_maj_membre" />
                 <field name="dateadhesion" />
                 <field name="descriptionaccordeur" />
+                <field name="estunpointservice" />
                 <field name="etatcomptecourriel" />
                 <field name="membreactif" />
                 <field name="membreca" />
