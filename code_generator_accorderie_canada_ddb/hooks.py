@@ -5,6 +5,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 MODULE_NAME = "accorderie_canada_ddb"
+# SECRET_PASSWORD = ""
 
 
 def post_init_hook(cr, e):
@@ -477,6 +478,13 @@ def post_init_hook(cr, e):
         #     "nom",
         #     new_required=True,
         # )
+        # Configuration for test
+        # migration.add_update_migration_field(
+        #     "membre",
+        #     "motdepasse",
+        #     sql_select_modify=f"DECODE(motdepasse,'{SECRET_PASSWORD}')",
+        # )
+        # Always keep this configuration
         migration.add_update_migration_field(
             "membre",
             "motdepasse",
@@ -755,6 +763,7 @@ class MigrationDB:
         new_type=None,
         new_help=None,
         new_required=None,
+        sql_select_modify=None,
         delete=False,
         ignore_field=False,
         path_binary=None,
@@ -770,6 +779,7 @@ class MigrationDB:
         :param new_type:
         :param new_help:
         :param new_required:
+        :param sql_select_modify: update select command with this string
         :param delete: import data, use to compute information but delete the field at the end with his data
         :param ignore_field: never compute it and ignore data from it
         :param path_binary: path for type binary when the past was char
@@ -795,6 +805,7 @@ class MigrationDB:
             and new_required is None
             and force_widget is None
             and add_one2many is None
+            and sql_select_modify is None
         ):
             # Don't add an update with no information
             return
@@ -816,6 +827,8 @@ class MigrationDB:
                 value["force_widget"] = force_widget
             if add_one2many:
                 value["add_one2many"] = add_one2many
+            if sql_select_modify:
+                value["sql_select_modify"] = sql_select_modify
         self.env["code.generator.db.update.migration.field"].create(value)
 
     def add_update_migration_model(
