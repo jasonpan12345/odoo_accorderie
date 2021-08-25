@@ -718,14 +718,26 @@ def post_init_hook(cr, e):
 
         # Add new field
         model_membre_id = env["ir.model"].search([("model", "=", "membre")])
-        value_field_nom_complet_membre = {
+        value_field = {
             "name": "nom_complet",
             "field_description": "Nom complet",
             "ttype": "char",
             "code_generator_compute": "_compute_nom_complet",
             "model_id": model_membre_id.id,
         }
-        env["ir.model.fields"].create(value_field_nom_complet_membre)
+        env["ir.model.fields"].create(value_field)
+
+        model_categorie_sous_categorie_id = env["ir.model"].search(
+            [("model", "=", "categorie.sous.categorie")]
+        )
+        value_field = {
+            "name": "nom_complet",
+            "field_description": "Nom complet",
+            "ttype": "char",
+            "code_generator_compute": "_compute_nom_complet",
+            "model_id": model_categorie_sous_categorie_id.id,
+        }
+        env["ir.model.fields"].create(value_field)
 
         # Add code
         lst_value = [
@@ -747,10 +759,34 @@ def post_init_hook(cr, e):
                 "m2o_module": code_generator_id.id,
                 "m2o_model": model_membre_id.id,
             },
+            {
+                "code": """for rec in self:
+    value = ""
+    if self.nosouscategorie:
+        value += self.nosouscategorie
+    if self.nocategorie:
+        value += str(self.nocategorie)
+    if (self.nosouscategorie or self.nocategorie) and self.description:
+        value += " - "
+    if self.description:
+        value += self.description
+    rec.nom_complet = value
+    """,
+                "name": "_compute_nom_complet",
+                "decorator": (
+                    '@api.depends("description", "nosouscategorie",'
+                    ' "nocategorie")'
+                ),
+                "param": "self",
+                "sequence": 1,
+                "m2o_module": code_generator_id.id,
+                "m2o_model": model_categorie_sous_categorie_id.id,
+            },
         ]
         env["code.generator.model.code"].create(lst_value)
 
         model_membre_id.rec_name = "nom_complet"
+        model_categorie_sous_categorie_id.rec_name = "nom_complet"
 
         # Generate view
         # Action generate view
