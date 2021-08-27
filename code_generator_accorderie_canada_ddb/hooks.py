@@ -71,85 +71,33 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "accorderie",
-            "adresseaccorderie",
-            new_field_name="adresse",
-            new_string="Adresse",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "codepostalaccorderie",
-            new_field_name="code_postal",
-            new_string="Code postal",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "courrielaccorderie",
-            new_field_name="courriel",
-            new_string="Courriel",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "datemaj_accorderie",
-            new_field_name="date_mise_a_jour",
-            new_string="Dernière mise à jour",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "grpachat_accordeur",
-            new_field_name="grp_achat_membre",
-            new_string="Groupe d'achat membre",
-            new_type="boolean",
-            new_help="Rend accessible les achats pour les Accordeurs.",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "grpachat_admin",
-            new_field_name="grp_achat_administrateur",
-            new_string="Groupe d'achat pour administrateur",
-            new_type="boolean",
-            new_help="Rend accessible les achats pour les Accordeurs.",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "messageaccueil",
-            new_field_name="message_accueil",
-            new_string="Message accueil",
-            new_type="html",
-            new_help="Message à afficher pour l'Accueil des membres.",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "messagegrpachat",
-            new_field_name="message_grp_achat",
-            new_string="Message groupe achat",
-            new_type="html",
-            new_help="Message à afficher pour les groupes d'achat.",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "nonvisible",
-            new_required=False,
-            new_type="boolean",
-            new_field_name="archive",
-            new_string="Archivé",
-        )
-        migration.add_update_migration_field(
-            "accorderie",
-            "nomcomplet",
-            new_field_name="nom_complet",
-            new_string="Nom complet",
+            "noaccorderie",
             delete=True,
         )
         migration.add_update_migration_field(
             "accorderie",
-            "nom",
-            new_required=True,
+            "noregion",
+            new_field_name="region",
+            new_string="Région administrative",
+            new_required=False,
+            new_help="Nom de la région administrative de l'Accorderie",
+            # add_one2many=True,
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "noville",
+            new_field_name="ville",
+            new_string="Ville",
+            new_required=False,
+            new_help="Nom de la ville de l'Accorderie",
+            # add_one2many=True,
         )
         migration.add_update_migration_field(
             "accorderie",
             "noarrondissement",
             new_field_name="arrondissement",
             new_string="Arrondissement",
+            new_help="Nom de l'Arrondissement qui contient l'Accorderie",
         )
         migration.add_update_migration_field(
             "accorderie",
@@ -160,32 +108,82 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "accorderie",
-            "noregion",
-            new_field_name="region",
-            new_string="Region",
-            new_required=False,
-            # add_one2many=True,
+            "nom",
+            new_required=True,
+            new_help="Nom de l'Accorderie",
         )
         migration.add_update_migration_field(
             "accorderie",
-            "noville",
-            new_field_name="ville",
-            new_string="Ville",
-            new_required=False,
-            # add_one2many=True,
+            "nomcomplet",
+            new_field_name="nom_complet",
+            new_string="Nom complet",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "adresseaccorderie",
+            new_field_name="adresse",
+            new_string="Adresse",
+            new_help="Adresse de l'Accorderie",
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "codepostalaccorderie",
+            new_field_name="code_postal",
+            new_string="Code postal",
+            new_help="Code postal de l'Accorderie",
         )
         migration.add_update_migration_field(
             "accorderie",
             "telaccorderie",
-            new_field_name="telephone",
+            new_field_name="tel_accorderie",
             new_string="Téléphone",
-            force_widget="phone",
+            new_help="Numéro de téléphone pour joindre l'Accorderie",
         )
         migration.add_update_migration_field(
             "accorderie",
             "telecopieuraccorderie",
-            new_field_name="telecopieur",
+            new_field_name="telecopieur_accorderie",
             new_string="Télécopieur",
+            new_help="Numéro de télécopieur pour joindre l'Accorderie",
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "courrielaccorderie",
+            new_field_name="courriel",
+            new_string="Adresse courriel pour joindre l'Accorderie",
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "messagegrpachat",
+            new_field_name="message_grp_achat",
+            new_string="Message groupe d'achats",
+            new_type="html",
+            new_help="Message à afficher pour les groupes d'achats.",
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "messageaccueil",
+            new_field_name="message_accueil",
+            new_string="Message d'accueil",
+            new_type="html",
+            new_help="Message à afficher pour accueillir les membres.",
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "url_public_accorderie",
+            new_field_name="url_public",
+            new_string="Lien du site web publique",
+            new_help="Lien du site web publique de l'Accorderie",
+            force_widget="link_button",
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "url_transac_accorderie",
+            new_field_name="url_transactionnel",
+            new_string="Lien du site web transactionnel",
+            force_widget="link_button",
+            new_help="Lien du site web transactionnel de l'Accorderie",
         )
         migration.add_update_migration_field(
             "accorderie",
@@ -195,25 +193,45 @@ def post_init_hook(cr, e):
             new_type="binary",
             force_widget="image",
             path_binary="/accorderie_canada/Intranet/images/logo",
+            new_help="Logo de l'Accorderie",
         )
         migration.add_update_migration_field(
             "accorderie",
-            "url_public_accorderie",
-            new_field_name="url_public",
-            new_string="Lien site web public",
-            force_widget="link_button",
+            "grpachat_admin",
+            new_field_name="grp_achat_administrateur",
+            new_string="Groupe d'achats des administrateurs",
+            new_type="boolean",
+            new_help=(
+                "Permet de rendre accessible les achats pour les"
+                " administrateurs"
+            ),
         )
         migration.add_update_migration_field(
             "accorderie",
-            "url_transac_accorderie",
-            new_field_name="url_transactionnel",
-            new_string="Lien site web transactionnel",
-            force_widget="link_button",
+            "grpachat_accordeur",
+            new_field_name="grp_achat_membre",
+            new_string="Groupe d'achats membre",
+            new_type="boolean",
+            new_help="Rend accessible les achats pour les Accordeurs",
         )
         migration.add_update_migration_field(
             "accorderie",
-            "noaccorderie",
-            delete=True,
+            "nonvisible",
+            new_required=False,
+            new_type="boolean",
+            new_field_name="archive",
+            new_string="Archivé",
+            new_help=(
+                "Lorsque archivé, cette accorderie n'est plus en fonction,"
+                " mais demeure accessible"
+            ),
+        )
+        migration.add_update_migration_field(
+            "accorderie",
+            "datemaj_accorderie",
+            new_field_name="date_mise_a_jour",
+            new_string="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
 
         # tbl_achat_ponctuel

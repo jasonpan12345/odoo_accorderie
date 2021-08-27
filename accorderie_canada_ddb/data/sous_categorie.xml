@@ -1,1075 +1,1068 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="sous_categorie_19252242886062768232687349196075836874" model="sous.categorie">
-            <field name="nocategorie" ref="categorie_18840174043699578842289823368620287434" />
+        <record id="sous_categorie_premiere_sous_categorie" model="sous.categorie">
+            <field name="nocategorie" ref="categorie_essai" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">1</field>
             <field name="supprimer">-1</field>
-            <field name="titresouscategorie">premi&#232;re sous-cat&#233;gorie</field>
+            <field name="titre">premi&#232;re sous-cat&#233;gorie</field>
         </record>
-        <record id="sous_categorie_19253825072468178091509092268764046794" model="sous.categorie">
+        <record id="sous_categorie_accompagnement_pour_rendez_vous_ou_demarches" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">2</field>
-            <field name="titresouscategorie">Accompagnement pour rendez-vous ou d&#233;marches</field>
+            <field name="titre">Accompagnement pour rendez-vous ou d&#233;marches</field>
         </record>
-        <record id="sous_categorie_19255408051155213092974211276891760074" model="sous.categorie">
+        <record id="sous_categorie_administration_et_gestion" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">3</field>
-            <field name="titresouscategorie">Administration et gestion</field>
+            <field name="titre">Administration et gestion</field>
         </record>
-        <record id="sous_categorie_19256928439593861825612631385298707914" model="sous.categorie">
+        <record id="sous_categorie_formation_et_initiation_a_l_informatique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">4</field>
-            <field name="titresouscategorie">Formation et initiation &#224; l'informatique</field>
+            <field name="titre">Formation et initiation &#224; l'informatique</field>
         </record>
-        <record id="sous_categorie_19258450412595760843537803364584662474" model="sous.categorie">
+        <record id="sous_categorie_transport_local_de_personnes" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">5</field>
-            <field name="titresouscategorie">Transport local de personnes</field>
+            <field name="titre">Transport local de personnes</field>
         </record>
-        <record id="sous_categorie_19259946240304030154231569474367006154" model="sous.categorie">
+        <record id="sous_categorie_entretien_menager" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">6</field>
-            <field name="titresouscategorie">Entretien m&#233;nager</field>
+            <field name="titre">Entretien m&#233;nager</field>
         </record>
-        <record id="sous_categorie_19261479305248681169164004549806007754" model="sous.categorie">
+        <record id="sous_categorie_cuisine_et_preparation_de_mets" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18850423791084049219644300149475255754" />
+            <field name="nocategorie" ref="categorie_cuisine_/_alimentation" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">7</field>
-            <field name="titresouscategorie">Cuisine et pr&#233;paration de mets</field>
+            <field name="titre">Cuisine et pr&#233;paration de mets</field>
         </record>
-        <record id="sous_categorie_19263005239658705900306056206289479114" model="sous.categorie">
+        <record id="sous_categorie_artisanat_et_bricolage" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18851814245336174558769066845803652554" />
+            <field name="nocategorie" ref="categorie_artisanat_/_couture_/_vetements" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">8</field>
-            <field name="titresouscategorie">Artisanat et bricolage</field>
+            <field name="titre">Artisanat et bricolage</field>
         </record>
-        <record id="sous_categorie_19264525628097354632944476314696426954" model="sous.categorie">
+        <record id="sous_categorie_redaction_et_correction_de_textes" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18853209453278050753754089154769069514" />
+            <field name="nocategorie" ref="categorie_langues_/_litterature" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">9</field>
-            <field name="titresouscategorie">R&#233;daction et correction de textes</field>
+            <field name="titre">R&#233;daction et correction de textes</field>
         </record>
-        <record id="sous_categorie_19266044431972753080296144552224368074" model="sous.categorie">
+        <record id="sous_categorie_apprentissage_de_la_musique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">10</field>
-            <field name="titresouscategorie">Apprentissage de la musique</field>
+            <field name="titre">Apprentissage de la musique</field>
         </record>
-        <record id="sous_categorie_19267560066721650957074309047994295754" model="sous.categorie">
+        <record id="sous_categorie_pratique_de_sports_et_conditionnement_physique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">11</field>
-            <field name="titresouscategorie">Pratique de sports et conditionnement physique</field>
+            <field name="titre">Pratique de sports et conditionnement physique</field>
         </record>
-        <record id="sous_categorie_19269085208850050545572984769038263754" model="sous.categorie">
+        <record id="sous_categorie_informations_et_ressources_en_sante" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">12</field>
-            <field name="titresouscategorie">Informations et ressources en sant&#233;</field>
+            <field name="titre">Informations et ressources en sant&#233;</field>
         </record>
-        <record id="sous_categorie_19270606389570324420854780812884714954" model="sous.categorie">
+        <record id="sous_categorie_hebergement" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18858891697093573792046298126887167434" />
+            <field name="nocategorie" ref="categorie_hebergement_/_voyage" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">13</field>
-            <field name="titresouscategorie">H&#233;bergement</field>
+            <field name="titre">H&#233;bergement</field>
         </record>
-        <record id="sous_categorie_19272123608882472582919697179533649354" model="sous.categorie">
+        <record id="sous_categorie_eligibilite_a_la_location_solidaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18860292451006825985534951983929107914" />
+            <field name="nocategorie" ref="categorie_service_de_location_solidaire" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">14</field>
-            <field name="titresouscategorie">&#201;ligibilit&#233; &#224; la location solidaire</field>
+            <field name="titre">&#201;ligibilit&#233; &#224; la location solidaire</field>
         </record>
-        <record id="sous_categorie_19273656673827123597852132254972650954" model="sous.categorie">
+        <record id="sous_categorie_commande" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18863156549081716641338958597733754314" />
+            <field name="nocategorie" ref="categorie_achat_regroupe" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">15</field>
-            <field name="titresouscategorie">Commande</field>
+            <field name="titre">Commande</field>
         </record>
-        <record id="sous_categorie_19275166762604645476126665202666055114" model="sous.categorie">
+        <record id="sous_categorie_pret" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18864566810374470546548123680049735114" />
+            <field name="nocategorie" ref="categorie_credit_solidaire" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">16</field>
-            <field name="titresouscategorie">Pr&#234;t</field>
+            <field name="titre">Pr&#234;t</field>
         </record>
-        <record id="sous_categorie_19276685566480043923478333440193996234" model="sous.categorie">
+        <record id="sous_categorie_echange_d_objet" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18865982617638600450260920310442239434" />
+            <field name="nocategorie" ref="categorie_service_d_echange_d_objets" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">17</field>
-            <field name="titresouscategorie">&#201;change d'objet</field>
+            <field name="titre">&#201;change d'objet</field>
         </record>
-        <record id="sous_categorie_19278204370355442370830001677721937354" model="sous.categorie">
+        <record id="sous_categorie_pret_accordi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18867391294368104070183333521879213514" />
+            <field name="nocategorie" ref="categorie_accordi" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">18</field>
-            <field name="titresouscategorie">Pr&#234;t AccOrdi</field>
+            <field name="titre">Pr&#234;t AccOrdi</field>
         </record>
-        <record id="sous_categorie_19279736643018468243119060817721435594" model="sous.categorie">
+        <record id="sous_categorie_participation_reseau_d_entraide_vers_l_emploi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18868788879154855693098483637163140554" />
+            <field name="nocategorie" ref="categorie_entraide_vers_l_emploi" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">19</field>
-            <field name="titresouscategorie">Participation R&#233;seau d'Entraide vers l&amp;#8217;emploi</field>
+            <field name="titre">Participation R&#233;seau d'Entraide vers l'emploi</field>
         </record>
-        <record id="sous_categorie_19281268123399868972764744022281430474" model="sous.categorie">
+        <record id="sous_categorie_participation_a_la_location_solidaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18870197555884359313020896848600114634" />
+            <field name="nocategorie" ref="categorie_location_solidaire" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">20</field>
-            <field name="titresouscategorie">Participation &#224; la location solidaire</field>
+            <field name="titre">Participation &#224; la location solidaire</field>
         </record>
-        <record id="sous_categorie_19282789304120142848046540066127881674" model="sous.categorie">
+        <record id="sous_categorie_administration_et_accueil" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">21</field>
-            <field name="titresouscategorie">Administration et accueil</field>
+            <field name="titre">Administration et accueil</field>
         </record>
-        <record id="sous_categorie_19284311277122041865971712045413836234" model="sous.categorie">
+        <record id="sous_categorie_promotions_speciales" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18874414078693368461067625257636996554" />
+            <field name="nocategorie" ref="categorie_autres_transactions" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">22</field>
-            <field name="titresouscategorie">Promotions sp&#233;ciales</field>
+            <field name="titre">Promotions sp&#233;ciales</field>
         </record>
-        <record id="sous_categorie_19285827704152564885393252476623267274" model="sous.categorie">
+        <record id="sous_categorie_administration" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">A</field>
             <field name="nosouscategorieid">23</field>
-            <field name="titresouscategorie">Administration</field>
+            <field name="titre">Administration</field>
         </record>
-        <record id="sous_categorie_19287363145942091328255815358380778954" model="sous.categorie">
+        <record id="sous_categorie_accompagnement_pour_courses_et_magasinage" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">24</field>
-            <field name="titresouscategorie">Accompagnement pour courses et magasinage</field>
+            <field name="titre">Accompagnement pour courses et magasinage</field>
         </record>
-        <record id="sous_categorie_19288885118943990346180987337666733514" model="sous.categorie">
+        <record id="sous_categorie_comptabilite" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">25</field>
-            <field name="titresouscategorie">Comptabilit&#233;</field>
+            <field name="titre">Comptabilit&#233;</field>
         </record>
-        <record id="sous_categorie_19290409468790764792036287123271198154" model="sous.categorie">
+        <record id="sous_categorie_utilisation_de_logiciels_et_outils_informatiques" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">26</field>
-            <field name="titresouscategorie">Utilisation de logiciels et outils informatiques</field>
+            <field name="titre">Utilisation de logiciels et outils informatiques</field>
         </record>
-        <record id="sous_categorie_19291922726694787240884323812722615754" model="sous.categorie">
+        <record id="sous_categorie_transport_de_materiel" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">27</field>
-            <field name="titresouscategorie">Transport de mat&#233;riel</field>
+            <field name="titre">Transport de mat&#233;riel</field>
         </record>
-        <record id="sous_categorie_19293443115133435973522743921129563594" model="sous.categorie">
+        <record id="sous_categorie_peinture_et_travaux_manuels" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">28</field>
-            <field name="titresouscategorie">Peinture et travaux manuels</field>
+            <field name="titre">Peinture et travaux manuels</field>
         </record>
-        <record id="sous_categorie_19295026886102096117631238864696780234" model="sous.categorie">
+        <record id="sous_categorie_cuisines_du_monde_et_specialisees" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18850423791084049219644300149475255754" />
+            <field name="nocategorie" ref="categorie_cuisine_/_alimentation" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">29</field>
-            <field name="titresouscategorie">Cuisines du monde et sp&#233;cialis&#233;es</field>
+            <field name="titre">Cuisines du monde et sp&#233;cialis&#233;es</field>
         </record>
-        <record id="sous_categorie_19296536182597992853262395876950681034" model="sous.categorie">
+        <record id="sous_categorie_bijoux_et_joaillerie" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18851814245336174558769066845803652554" />
+            <field name="nocategorie" ref="categorie_artisanat_/_couture_/_vetements" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">30</field>
-            <field name="titresouscategorie">Bijoux et joaillerie</field>
+            <field name="titre">Bijoux et joaillerie</field>
         </record>
-        <record id="sous_categorie_19298081924048646150488845919421736394" model="sous.categorie">
+        <record id="sous_categorie_traduction_et_interpretation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18853209453278050753754089154769069514" />
+            <field name="nocategorie" ref="categorie_langues_/_litterature" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">31</field>
-            <field name="titresouscategorie">Traduction et interpr&#233;tation</field>
+            <field name="titre">Traduction et interpr&#233;tation</field>
         </record>
-        <record id="sous_categorie_19299665695017306294597340862988953034" model="sous.categorie">
+        <record id="sous_categorie_musique_et_interpretation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">32</field>
-            <field name="titresouscategorie">Musique et interpr&#233;tation</field>
+            <field name="titre">Musique et interpr&#233;tation</field>
         </record>
-        <record id="sous_categorie_19301605200435655485581630818893178314" model="sous.categorie">
+        <record id="sous_categorie_initiation_aux_sports" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">33</field>
-            <field name="titresouscategorie">Initiation aux sports</field>
+            <field name="titre">Initiation aux sports</field>
         </record>
-        <record id="sous_categorie_19303191348249191057620253568778905034" model="sous.categorie">
+        <record id="sous_categorie_medecines_alternatives_et_soins" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">34</field>
-            <field name="titresouscategorie">M&#233;decines alternatives et soins</field>
+            <field name="titre">M&#233;decines alternatives et soins</field>
         </record>
-        <record id="sous_categorie_19304725205475467215196064579657409994" model="sous.categorie">
+        <record id="sous_categorie_sejours_et_vacances" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18858891697093573792046298126887167434" />
+            <field name="nocategorie" ref="categorie_hebergement_/_voyage" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">35</field>
-            <field name="titresouscategorie">S&#233;jours et vacances</field>
+            <field name="titre">S&#233;jours et vacances</field>
         </record>
-        <record id="sous_categorie_19306251932167117088981492171580384714" model="sous.categorie">
+        <record id="sous_categorie_administration_du_groupe_d_achats" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18863156549081716641338958597733754314" />
+            <field name="nocategorie" ref="categorie_achat_regroupe" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">36</field>
-            <field name="titresouscategorie">Administration du groupe d'achats</field>
+            <field name="titre">Administration du groupe d'achats</field>
         </record>
-        <record id="sous_categorie_19307780243422017248053671634382366154" model="sous.categorie">
+        <record id="sous_categorie_administration_du_credit_solidaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18864566810374470546548123680049735114" />
+            <field name="nocategorie" ref="categorie_credit_solidaire" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">37</field>
-            <field name="titresouscategorie">Administration du cr&#233;dit solidaire</field>
+            <field name="titre">Administration du cr&#233;dit solidaire</field>
         </record>
-        <record id="sous_categorie_19309331530844046543783753224929945034" model="sous.categorie">
+        <record id="sous_categorie_administration_du_service_d_echange_d_objet" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18865982617638600450260920310442239434" />
+            <field name="nocategorie" ref="categorie_service_d_echange_d_objets" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">38</field>
-            <field name="titresouscategorie">Administration du service d'&#233;change d'objet</field>
+            <field name="titre">Administration du service d'&#233;change d'objet</field>
         </record>
-        <record id="sous_categorie_19310901833025079262954857266025604554" model="sous.categorie">
+        <record id="sous_categorie_administration_du_projet_accordi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18867391294368104070183333521879213514" />
+            <field name="nocategorie" ref="categorie_accordi" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">39</field>
-            <field name="titresouscategorie">Administration du projet AccOrdi</field>
+            <field name="titre">Administration du projet AccOrdi</field>
         </record>
-        <record id="sous_categorie_19312424598308603423523405180751062474" model="sous.categorie">
+        <record id="sous_categorie_administration_de_l_entraide_vers_l_emploi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18868788879154855693098483637163140554" />
+            <field name="nocategorie" ref="categorie_entraide_vers_l_emploi" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">40</field>
-            <field name="titresouscategorie">Administration de l'Entraide vers l&amp;#8217;emploi</field>
+            <field name="titre">Administration de l'Entraide vers l'emploi</field>
         </record>
-        <record id="sous_categorie_19314078882341901262892358378434078154" model="sous.categorie">
+        <record id="sous_categorie_animation_de_la_location_solidaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18870197555884359313020896848600114634" />
+            <field name="nocategorie" ref="categorie_location_solidaire" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">41</field>
-            <field name="titresouscategorie">Animation de la location solidaire</field>
+            <field name="titre">Animation de la location solidaire</field>
         </record>
-        <record id="sous_categorie_19315564410389043719222237327502878154" model="sous.categorie">
+        <record id="sous_categorie_animation_et_formation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">42</field>
-            <field name="titresouscategorie">Animation et formation</field>
+            <field name="titre">Animation et formation</field>
         </record>
-        <record id="sous_categorie_19317099059896945019441424273820886474" model="sous.categorie">
+        <record id="sous_categorie_achat_d_objets" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18874414078693368461067625257636996554" />
+            <field name="nocategorie" ref="categorie_autres_transactions" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">43</field>
-            <field name="titresouscategorie">Achat d'objets</field>
+            <field name="titre">Achat d'objets</field>
         </record>
-        <record id="sous_categorie_19318632124841596034373859349259888074" model="sous.categorie">
+        <record id="sous_categorie_outils" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">B</field>
             <field name="nosouscategorieid">44</field>
-            <field name="titresouscategorie">Outils</field>
+            <field name="titre">Outils</field>
         </record>
-        <record id="sous_categorie_19320205596149129324118467132113561034" model="sous.categorie">
+        <record id="sous_categorie_accompagnement_pour_loisirs_et_activites" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">45</field>
-            <field name="titresouscategorie">Accompagnement pour loisirs et activit&#233;s</field>
+            <field name="titre">Accompagnement pour loisirs et activit&#233;s</field>
         </record>
-        <record id="sous_categorie_19321732322840779197903894724036535754" model="sous.categorie">
+        <record id="sous_categorie_impot_et_finances_personnelles" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">46</field>
-            <field name="titresouscategorie">Imp&#244;t et finances personnelles</field>
+            <field name="titre">Imp&#244;t et finances personnelles</field>
         </record>
-        <record id="sous_categorie_19323303417303437059718374700571698634" model="sous.categorie">
+        <record id="sous_categorie_internet_et_sites_web" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">47</field>
-            <field name="titresouscategorie">Internet et sites web</field>
+            <field name="titre">Internet et sites web</field>
         </record>
-        <record id="sous_categorie_19324946609393982902080064802101667274" model="sous.categorie">
+        <record id="sous_categorie_main_d_oeuvre_pour_demenagement" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">48</field>
-            <field name="titresouscategorie">Main-d'oeuvre pour d&#233;m&#233;nagement</field>
+            <field name="titre">Main-d'oeuvre pour d&#233;m&#233;nagement</field>
         </record>
-        <record id="sous_categorie_19326530380362643046188559745668883914" model="sous.categorie">
+        <record id="sous_categorie_construction_et_renovation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">49</field>
-            <field name="titresouscategorie">Construction et r&#233;novation</field>
+            <field name="titre">Construction et r&#233;novation</field>
         </record>
-        <record id="sous_categorie_19328248839207577439670963713951671754" model="sous.categorie">
+        <record id="sous_categorie_formation_en_cuisine" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18850423791084049219644300149475255754" />
+            <field name="nocategorie" ref="categorie_cuisine_/_alimentation" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">50</field>
-            <field name="titresouscategorie">Formation en cuisine</field>
+            <field name="titre">Formation en cuisine</field>
         </record>
-        <record id="sous_categorie_19329964921207636405223239875915949514" model="sous.categorie">
+        <record id="sous_categorie_couture_et_vetements" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18851814245336174558769066845803652554" />
+            <field name="nocategorie" ref="categorie_artisanat_/_couture_/_vetements" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">51</field>
-            <field name="titresouscategorie">Couture et v&#234;tements</field>
+            <field name="titre">Couture et v&#234;tements</field>
         </record>
-        <record id="sous_categorie_19331583552567802825640275978821313994" model="sous.categorie">
+        <record id="sous_categorie_formation_en_langues_et_conversation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18853209453278050753754089154769069514" />
+            <field name="nocategorie" ref="categorie_langues_/_litterature" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">52</field>
-            <field name="titresouscategorie">Formation en langues et conversation</field>
+            <field name="titre">Formation en langues et conversation</field>
         </record>
-        <record id="sous_categorie_19333114240667578412642583247941805514" model="sous.categorie">
+        <record id="sous_categorie_theatre,_cinema_et_video" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">53</field>
-            <field name="titresouscategorie">Th&#233;&#226;tre, cin&#233;ma et vid&#233;o</field>
+            <field name="titre">Th&#233;&#226;tre, cin&#233;ma et vid&#233;o</field>
         </record>
-        <record id="sous_categorie_19334688504256736845030566966234981834" model="sous.categorie">
+        <record id="sous_categorie_activites_de_plein_air" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">54</field>
-            <field name="titresouscategorie">Activit&#233;s de plein air</field>
+            <field name="titre">Activit&#233;s de plein air</field>
         </record>
-        <record id="sous_categorie_19336236622552265570187144815024547274" model="sous.categorie">
+        <record id="sous_categorie_massotherapie_et_bien_etre" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">55</field>
-            <field name="titresouscategorie">Massoth&#233;rapie et bien-&#234;tre</field>
+            <field name="titre">Massoth&#233;rapie et bien-&#234;tre</field>
         </record>
-        <record id="sous_categorie_19337803755606797718784745114362193354" model="sous.categorie">
+        <record id="sous_categorie_tourisme_local" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18858891697093573792046298126887167434" />
+            <field name="nocategorie" ref="categorie_hebergement_/_voyage" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">56</field>
-            <field name="titresouscategorie">Tourisme local</field>
+            <field name="titre">Tourisme local</field>
         </record>
-        <record id="sous_categorie_19339331274580072735213548641724671434" model="sous.categorie">
+        <record id="sous_categorie_animation_du_groupe_d_achats" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18863156549081716641338958597733754314" />
+            <field name="nocategorie" ref="categorie_achat_regroupe" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">57</field>
-            <field name="titresouscategorie">Animation du groupe d'achats</field>
+            <field name="titre">Animation du groupe d'achats</field>
         </record>
-        <record id="sous_categorie_19340855624426847181068848427329136074" model="sous.categorie">
+        <record id="sous_categorie_comite_de_pret" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18864566810374470546548123680049735114" />
+            <field name="nocategorie" ref="categorie_credit_solidaire" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">58</field>
-            <field name="titresouscategorie">Comit&#233; de pr&#234;t</field>
+            <field name="titre">Comit&#233; de pr&#234;t</field>
         </record>
-        <record id="sous_categorie_19342391066216373623931411309086647754" model="sous.categorie">
+        <record id="sous_categorie_animation_du_service_d_echange_d_objet" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18865982617638600450260920310442239434" />
+            <field name="nocategorie" ref="categorie_service_d_echange_d_objets" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">59</field>
-            <field name="titresouscategorie">Animation du service d'&#233;change d'objet</field>
+            <field name="titre">Animation du service d'&#233;change d'objet</field>
         </record>
-        <record id="sous_categorie_19343902739557145787492696127659058634" model="sous.categorie">
+        <record id="sous_categorie_comite_de_pret_accordi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18867391294368104070183333521879213514" />
+            <field name="nocategorie" ref="categorie_accordi" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">60</field>
-            <field name="titresouscategorie">Comit&#233; de pr&#234;t AccOrdi</field>
+            <field name="titre">Comit&#233; de pr&#234;t AccOrdi</field>
         </record>
-        <record id="sous_categorie_19345434219938546517138379332219053514" model="sous.categorie">
+        <record id="sous_categorie_animation_reseau_d_entraide_vers_l_emploi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18868788879154855693098483637163140554" />
+            <field name="nocategorie" ref="categorie_entraide_vers_l_emploi" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">61</field>
-            <field name="titresouscategorie">Animation R&#233;seau d'Entraide vers l&amp;#8217;emploi</field>
+            <field name="titre">Animation R&#233;seau d'Entraide vers l'emploi</field>
         </record>
-        <record id="sous_categorie_19346953023813944964490047569746994634" model="sous.categorie">
+        <record id="sous_categorie_administration_de_la_location_solidaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18870197555884359313020896848600114634" />
+            <field name="nocategorie" ref="categorie_location_solidaire" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">62</field>
-            <field name="titresouscategorie">Administration de la location solidaire</field>
+            <field name="titre">Administration de la location solidaire</field>
         </record>
-        <record id="sous_categorie_19348492427011597120569490128702023114" model="sous.categorie">
+        <record id="sous_categorie_comite_d_echange_de_services" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">63</field>
-            <field name="titresouscategorie">Comit&#233; d'&#233;change de services</field>
+            <field name="titre">Comit&#233; d'&#233;change de services</field>
         </record>
-        <record id="sous_categorie_19350020738266497279641669591504004554" model="sous.categorie">
+        <record id="sous_categorie_annulation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18874414078693368461067625257636996554" />
+            <field name="nocategorie" ref="categorie_autres_transactions" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">64</field>
-            <field name="titresouscategorie">Annulation</field>
+            <field name="titre">Annulation</field>
         </record>
-        <record id="sous_categorie_19351537165297020299063210022713435594" model="sous.categorie">
+        <record id="sous_categorie_demarrage" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">C</field>
             <field name="nosouscategorieid">65</field>
-            <field name="titresouscategorie">D&#233;marrage</field>
+            <field name="titre">D&#233;marrage</field>
         </record>
-        <record id="sous_categorie_19353062307425419887561885743757403594" model="sous.categorie">
+        <record id="sous_categorie_gardiennage_d_enfants" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">66</field>
-            <field name="titresouscategorie">Gardiennage d'enfants</field>
+            <field name="titre">Gardiennage d'enfants</field>
         </record>
-        <record id="sous_categorie_19354570019358066337906290885132297674" model="sous.categorie">
+        <record id="sous_categorie_aide_a_l_emploi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">67</field>
-            <field name="titresouscategorie">Aide &#224; l'emploi</field>
+            <field name="titre">Aide &#224; l'emploi</field>
         </record>
-        <record id="sous_categorie_19356095953768091069048342541615769034" model="sous.categorie">
+        <record id="sous_categorie_installation_de_logiciels_et_depannage" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">68</field>
-            <field name="titresouscategorie">Installation de logiciels et d&#233;pannage</field>
+            <field name="titre">Installation de logiciels et d&#233;pannage</field>
         </record>
-        <record id="sous_categorie_19357614757643489516400010779143710154" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_quebec" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">69</field>
-            <field name="titresouscategorie">Covoiturage interurbain - D&#233;parts de Qu&#233;bec</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de Qu&#233;bec</field>
         </record>
-        <record id="sous_categorie_19359142276616764532828814306506188234" model="sous.categorie">
+        <record id="sous_categorie_amenagement_interieur_et_decoration" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">70</field>
-            <field name="titresouscategorie">Am&#233;nagement int&#233;rieur et d&#233;coration</field>
+            <field name="titre">Am&#233;nagement int&#233;rieur et d&#233;coration</field>
         </record>
-        <record id="sous_categorie_19360653157675911553746723189639095754" model="sous.categorie">
+        <record id="sous_categorie_conseils_et_trucs_en_alimentation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18850423791084049219644300149475255754" />
+            <field name="nocategorie" ref="categorie_cuisine_/_alimentation" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">71</field>
-            <field name="titresouscategorie">Conseils et trucs en alimentation</field>
+            <field name="titre">Conseils et trucs en alimentation</field>
         </record>
-        <record id="sous_categorie_19362174338396185429028519233485546954" model="sous.categorie">
+        <record id="sous_categorie_tricot,_crochet_et_tissage" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18851814245336174558769066845803652554" />
+            <field name="nocategorie" ref="categorie_artisanat_/_couture_/_vetements" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">72</field>
-            <field name="titresouscategorie">Tricot, crochet et tissage</field>
+            <field name="titre">Tricot, crochet et tissage</field>
         </record>
-        <record id="sous_categorie_19363701065087835302813946825408521674" model="sous.categorie">
+        <record id="sous_categorie_litterature_et_poesie" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18853209453278050753754089154769069514" />
+            <field name="nocategorie" ref="categorie_langues_/_litterature" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">73</field>
-            <field name="titresouscategorie">Litt&#233;rature et po&#233;sie</field>
+            <field name="titre">Litt&#233;rature et po&#233;sie</field>
         </record>
-        <record id="sous_categorie_19365225414934609748669246611012986314" model="sous.categorie">
+        <record id="sous_categorie_arts_de_la_scene_et_du_cirque" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">74</field>
-            <field name="titresouscategorie">Arts de la sc&#232;ne et du cirque</field>
+            <field name="titre">Arts de la sc&#232;ne et du cirque</field>
         </record>
-        <record id="sous_categorie_19366757687597635620958305751012484554" model="sous.categorie">
+        <record id="sous_categorie_danse" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">75</field>
-            <field name="titresouscategorie">Danse</field>
+            <field name="titre">Danse</field>
         </record>
-        <record id="sous_categorie_19368286791134160922673861149253969354" model="sous.categorie">
+        <record id="sous_categorie_maternite/paternite_et_sante_feminine" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">76</field>
-            <field name="titresouscategorie">Maternit&#233;/paternit&#233; et sant&#233; f&#233;minine</field>
+            <field name="titre">Maternit&#233;/paternit&#233; et sant&#233; f&#233;minine</field>
         </record>
-        <record id="sous_categorie_19369751719859049670275965776895681994" model="sous.categorie">
+        <record id="sous_categorie_voyages" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18858891697093573792046298126887167434" />
+            <field name="nocategorie" ref="categorie_hebergement_/_voyage" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">77</field>
-            <field name="titresouscategorie">Voyages</field>
+            <field name="titre">Voyages</field>
         </record>
-        <record id="sous_categorie_19371629427310637735076932768518645194" model="sous.categorie">
+        <record id="sous_categorie_autres_taches_du_groupe_d_achats" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18863156549081716641338958597733754314" />
+            <field name="nocategorie" ref="categorie_achat_regroupe" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">78</field>
-            <field name="titresouscategorie">Autres t&#226;ches du groupe d'achats</field>
+            <field name="titre">Autres t&#226;ches du groupe d'achats</field>
         </record>
-        <record id="sous_categorie_19374449157614520402851886997711103434" model="sous.categorie">
+        <record id="sous_categorie_autres_taches_du_service_d_echange_d_objet" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18865982617638600450260920310442239434" />
+            <field name="nocategorie" ref="categorie_service_d_echange_d_objets" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">79</field>
-            <field name="titresouscategorie">Autres t&#226;ches du service d'&#233;change d'objet</field>
+            <field name="titre">Autres t&#226;ches du service d'&#233;change d'objet</field>
         </record>
-        <record id="sous_categorie_19376429861677377011291725596469503434" model="sous.categorie">
+        <record id="sous_categorie_taches_techniques_accordi" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18867391294368104070183333521879213514" />
+            <field name="nocategorie" ref="categorie_accordi" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">80</field>
-            <field name="titresouscategorie">T&#226;ches techniques AccOrdi</field>
+            <field name="titre">T&#226;ches techniques AccOrdi</field>
         </record>
-        <record id="sous_categorie_19378024724588789152407483636189767114" model="sous.categorie">
+        <record id="sous_categorie_autres_taches_de_la_location_solidaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18870197555884359313020896848600114634" />
+            <field name="nocategorie" ref="categorie_location_solidaire" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">81</field>
-            <field name="titresouscategorie">Autres t&#226;ches de la location solidaire</field>
+            <field name="titre">Autres t&#226;ches de la location solidaire</field>
         </record>
-        <record id="sous_categorie_19379717830421718981301857670408447434" model="sous.categorie">
+        <record id="sous_categorie_autres_taches" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">82</field>
-            <field name="titresouscategorie">Autres t&#226;ches</field>
+            <field name="titre">Autres t&#226;ches</field>
         </record>
-        <record id="sous_categorie_19381590784183556190242569049394390474" model="sous.categorie">
+        <record id="sous_categorie_recherche" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">D</field>
             <field name="nosouscategorieid">83</field>
-            <field name="titresouscategorie">Recherche</field>
+            <field name="titre">Recherche</field>
         </record>
-        <record id="sous_categorie_19383699837869685906909309189352334794" model="sous.categorie">
+        <record id="sous_categorie_gardiennage_divers" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">84</field>
-            <field name="titresouscategorie">Gardiennage divers</field>
+            <field name="titre">Gardiennage divers</field>
         </record>
-        <record id="sous_categorie_19385695595283420225573290561461298634" model="sous.categorie">
+        <record id="sous_categorie_aide_a_l_organisation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">85</field>
-            <field name="titresouscategorie">Aide &#224; l'organisation</field>
+            <field name="titre">Aide &#224; l'organisation</field>
         </record>
-        <record id="sous_categorie_19387738097313037960196452124500960714" model="sous.categorie">
+        <record id="sous_categorie_reparation_et_entretien_d_ordinateurs" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">86</field>
-            <field name="titresouscategorie">R&#233;paration et entretien d'ordinateurs</field>
+            <field name="titre">R&#233;paration et entretien d'ordinateurs</field>
         </record>
-        <record id="sous_categorie_19390150594861597309276175537788691914" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_trois_rivieres" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">87</field>
-            <field name="titresouscategorie">Covoiturage interurbain - D&#233;parts de Trois-Rivi&#232;res</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de Trois-Rivi&#232;res</field>
         </record>
-        <record id="sous_categorie_19392261233110977311229667548625642954" model="sous.categorie">
+        <record id="sous_categorie_meubles_et_appareils" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">88</field>
-            <field name="titresouscategorie">Meubles et appareils</field>
+            <field name="titre">Meubles et appareils</field>
         </record>
-        <record id="sous_categorie_19394168254982695653835544151510230474" model="sous.categorie">
+        <record id="sous_categorie_photographie" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">89</field>
-            <field name="titresouscategorie">Photographie</field>
+            <field name="titre">Photographie</field>
         </record>
-        <record id="sous_categorie_19396122813751922555043976880765019594" model="sous.categorie">
+        <record id="sous_categorie_loisirs_et_jeux_divers" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">90</field>
-            <field name="titresouscategorie">Loisirs et jeux divers</field>
+            <field name="titre">Loisirs et jeux divers</field>
         </record>
-        <record id="sous_categorie_19398364970751076235797874174559528394" model="sous.categorie">
+        <record id="sous_categorie_coiffure_et_esthetique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">91</field>
-            <field name="titresouscategorie">Coiffure et esth&#233;tique</field>
+            <field name="titre">Coiffure et esth&#233;tique</field>
         </record>
-        <record id="sous_categorie_19401000891717925810309611381787207114" model="sous.categorie">
+        <record id="sous_categorie_comite_de_financement" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">92</field>
-            <field name="titresouscategorie">Comit&#233; de financement</field>
+            <field name="titre">Comit&#233; de financement</field>
         </record>
-        <record id="sous_categorie_19403353175862974318492763701672682954" model="sous.categorie">
+        <record id="sous_categorie_promotion" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">E</field>
             <field name="nosouscategorieid">93</field>
-            <field name="titresouscategorie">Promotion</field>
+            <field name="titre">Promotion</field>
         </record>
-        <record id="sous_categorie_19405653961702388554856480217990440394" model="sous.categorie">
+        <record id="sous_categorie_garde_de_lieux,_animaux,_plantes" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">94</field>
-            <field name="titresouscategorie">Garde de lieux, animaux, plantes</field>
+            <field name="titre">Garde de lieux, animaux, plantes</field>
         </record>
-        <record id="sous_categorie_19407842243551032535860813901898720714" model="sous.categorie">
+        <record id="sous_categorie_propriete_et_gestion_immobiliere" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">95</field>
-            <field name="titresouscategorie">Propri&#233;t&#233; et gestion immobili&#232;re</field>
+            <field name="titre">Propri&#233;t&#233; et gestion immobili&#232;re</field>
         </record>
-        <record id="sous_categorie_19409721535565870885948532764400690634" model="sous.categorie">
+        <record id="sous_categorie_utilisation_de_materiel_bureautique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">96</field>
-            <field name="titresouscategorie">Utilisation de mat&#233;riel bureautique</field>
+            <field name="titre">Utilisation de mat&#233;riel bureautique</field>
         </record>
-        <record id="sous_categorie_19411444748100556135291192345320498634" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_montreal" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">97</field>
-            <field name="titresouscategorie">Covoiturage interurbain - D&#233;parts de Montr&#233;al</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de Montr&#233;al</field>
         </record>
-        <record id="sous_categorie_19413732065152342946717517959166698954" model="sous.categorie">
+        <record id="sous_categorie_vehicules_motorises" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">98</field>
-            <field name="titresouscategorie">V&#233;hicules motoris&#233;s</field>
+            <field name="titre">V&#233;hicules motoris&#233;s</field>
         </record>
-        <record id="sous_categorie_19416043150652884037445121636198000074" model="sous.categorie">
+        <record id="sous_categorie_graphisme_et_calligraphie" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">99</field>
-            <field name="titresouscategorie">Graphisme et calligraphie</field>
+            <field name="titre">Graphisme et calligraphie</field>
         </record>
-        <record id="sous_categorie_19418287684496913146129146736311018954" model="sous.categorie">
+        <record id="sous_categorie_animation,_fetes_et_evenements" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">100</field>
-            <field name="titresouscategorie">Animation, f&#234;tes et &#233;v&#233;nements</field>
+            <field name="titre">Animation, f&#234;tes et &#233;v&#233;nements</field>
         </record>
-        <record id="sous_categorie_19420614615629957089724269122132387274" model="sous.categorie">
+        <record id="sous_categorie_produits_de_soins_corporels" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">101</field>
-            <field name="titresouscategorie">Produits de soins corporels</field>
+            <field name="titre">Produits de soins corporels</field>
         </record>
-        <record id="sous_categorie_19422913024624495898157857832131634634" model="sous.categorie">
+        <record id="sous_categorie_comite_contact_communautaire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">102</field>
-            <field name="titresouscategorie">Comit&#233; contact communautaire</field>
+            <field name="titre">Comit&#233; contact communautaire</field>
         </record>
-        <record id="sous_categorie_19424880259899725081660305528418477514" model="sous.categorie">
+        <record id="sous_categorie_formation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">F</field>
             <field name="nosouscategorieid">103</field>
-            <field name="titresouscategorie">Formation</field>
+            <field name="titre">Formation</field>
         </record>
-        <record id="sous_categorie_19426547220439025203323273693133546954" model="sous.categorie">
+        <record id="sous_categorie_animaux_de_compagnie" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">104</field>
-            <field name="titresouscategorie">Animaux de compagnie</field>
+            <field name="titre">Animaux de compagnie</field>
         </record>
-        <record id="sous_categorie_19428135745097436203292024249337783754" model="sous.categorie">
+        <record id="sous_categorie_communications_et_marketing" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">105</field>
-            <field name="titresouscategorie">Communications et marketing</field>
+            <field name="titre">Communications et marketing</field>
         </record>
-        <record id="sous_categorie_19429770222090105476576579061033215434" model="sous.categorie">
+        <record id="sous_categorie_reparation_et_entretien_de_materiel_bureautique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">106</field>
-            <field name="titresouscategorie">R&#233;paration et entretien de mat&#233;riel bureautique</field>
+            <field name="titre">R&#233;paration et entretien de mat&#233;riel bureautique</field>
         </record>
-        <record id="sous_categorie_19431345277960889051607938714765895114" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_intra_urbain" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">107</field>
-            <field name="titresouscategorie">Covoiturage intra-urbain</field>
+            <field name="titre">Covoiturage intra-urbain</field>
         </record>
-        <record id="sous_categorie_19432944894562052048583952367123178954" model="sous.categorie">
+        <record id="sous_categorie_velo_et_vehicules_non_motorises" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">108</field>
-            <field name="titresouscategorie">V&#233;lo et v&#233;hicules non motoris&#233;s</field>
+            <field name="titre">V&#233;lo et v&#233;hicules non motoris&#233;s</field>
         </record>
-        <record id="sous_categorie_19434544511163215045559966019480462794" model="sous.categorie">
+        <record id="sous_categorie_dessin,_peinture_et_arts_visuels" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">109</field>
-            <field name="titresouscategorie">Dessin, peinture et arts visuels</field>
+            <field name="titre">Dessin, peinture et arts visuels</field>
         </record>
-        <record id="sous_categorie_19436129074413500332311836898487182794" model="sous.categorie">
+        <record id="sous_categorie_comite_jardin_collectif" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">G</field>
             <field name="nosouscategorieid">110</field>
-            <field name="titresouscategorie">Comit&#233; jardin collectif</field>
+            <field name="titre">Comit&#233; jardin collectif</field>
         </record>
-        <record id="sous_categorie_19437723145043287330784219002767943114" model="sous.categorie">
+        <record id="sous_categorie_aide_a_l_integration_des_personnes_immigrantes" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">H</field>
             <field name="nosouscategorieid">111</field>
-            <field name="titresouscategorie">Aide &#224; l'int&#233;gration des personnes immigrantes</field>
+            <field name="titre">Aide &#224; l'int&#233;gration des personnes immigrantes</field>
         </record>
-        <record id="sous_categorie_19439294239505945192598698979303105994" model="sous.categorie">
+        <record id="sous_categorie_reseautique_et_securite_informatique" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">H</field>
             <field name="nosouscategorieid">112</field>
-            <field name="titresouscategorie">R&#233;seautique et s&#233;curit&#233; informatique</field>
+            <field name="titre">R&#233;seautique et s&#233;curit&#233; informatique</field>
         </record>
-        <record id="sous_categorie_19440927924216989323239877855559034314" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_shawinigan" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">H</field>
             <field name="nosouscategorieid">113</field>
-            <field name="titresouscategorie">Covoiturage interurbain - D&#233;parts de Shawinigan</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de Shawinigan</field>
         </record>
-        <record id="sous_categorie_19442535463634403746649650862311351754" model="sous.categorie">
+        <record id="sous_categorie_plantes_et_jardinage" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">H</field>
             <field name="nosouscategorieid">114</field>
-            <field name="titresouscategorie">Plantes et jardinage</field>
+            <field name="titre">Plantes et jardinage</field>
         </record>
-        <record id="sous_categorie_19444131118827441030408784837471118794" model="sous.categorie">
+        <record id="sous_categorie_culture_et_histoire" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">H</field>
             <field name="nosouscategorieid">115</field>
-            <field name="titresouscategorie">Culture et histoire</field>
+            <field name="titre">Culture et histoire</field>
         </record>
-        <record id="sous_categorie_19445731527710229170028174425267905994" model="sous.categorie">
+        <record id="sous_categorie_cafe_populaire_de_l_accorderie" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">H</field>
             <field name="nosouscategorieid">116</field>
-            <field name="titresouscategorie">Caf&#233; populaire de L&amp;#8217;Accorderie</field>
+            <field name="titre">Caf&#233; populaire de L'Accorderie</field>
         </record>
-        <record id="sous_categorie_19447395319123028721117638848224961994" model="sous.categorie">
+        <record id="sous_categorie_efface!_103_i_covoiturage_interurbain_departs_de_matane" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">I</field>
             <field name="nosouscategorieid">117</field>
             <field name="supprimer">-1</field>
-            <field
-                name="titresouscategorie"
-            >Effac&#233;! 103-I - Covoiturage interurbain - D&#233;parts de Matane</field>
+            <field name="titre">Effac&#233;! 103-I - Covoiturage interurbain - D&#233;parts de Matane</field>
         </record>
-        <record id="sous_categorie_19449079709858081980934877592609105354" model="sous.categorie">
+        <record id="sous_categorie_utilisation_/_entretien_d_appareils_mobiles" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">I</field>
             <field name="nosouscategorieid">118</field>
-            <field name="titresouscategorie">Utilisation / entretien d'appareils mobiles</field>
+            <field name="titre">Utilisation / entretien d'appareils mobiles</field>
         </record>
-        <record id="sous_categorie_19450701510344748971925417437272483274" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_matane" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">I</field>
             <field name="nosouscategorieid">119</field>
-            <field name="titresouscategorie">Covoiturage interurbain - D&#233;parts de Matane</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de Matane</field>
         </record>
-        <record id="sous_categorie_19452290035003159971894167993476720074" model="sous.categorie">
+        <record id="sous_categorie_amenagement_et_entretien_de_terrain" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">I</field>
             <field name="nosouscategorieid">120</field>
-            <field name="titresouscategorie">Am&#233;nagement et entretien de terrain</field>
+            <field name="titre">Am&#233;nagement et entretien de terrain</field>
         </record>
-        <record id="sous_categorie_19453884897914572113009926033196983754" model="sous.categorie">
+        <record id="sous_categorie_education_et_formation" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">I</field>
             <field name="nosouscategorieid">121</field>
-            <field name="titresouscategorie">&#201;ducation et formation</field>
+            <field name="titre">&#201;ducation et formation</field>
         </record>
-        <record id="sous_categorie_19455499567866612820210082458904831434" model="sous.categorie">
+        <record id="sous_categorie_soutien_a_la_communaute" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">I</field>
             <field name="nosouscategorieid">122</field>
-            <field name="titresouscategorie">Soutien &#224; la communaut&#233;</field>
+            <field name="titre">Soutien &#224; la communaut&#233;</field>
         </record>
-        <record id="sous_categorie_19457196635107668362321336170321028554" model="sous.categorie">
+        <record id="sous_categorie_soutien_aux_individus" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">J</field>
             <field name="nosouscategorieid">123</field>
-            <field name="titresouscategorie">Soutien aux individus</field>
+            <field name="titre">Soutien aux individus</field>
         </record>
-        <record id="sous_categorie_19458822397002461066528755692181923274" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_la_region_de_lac_megantic" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">J</field>
             <field name="nosouscategorieid">124</field>
-            <field
-                name="titresouscategorie"
-            >Covoiturage interurbain - D&#233;parts de la r&#233;gion de Lac-M&#233;gantic</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Lac-M&#233;gantic</field>
         </record>
-        <record id="sous_categorie_19460418844477123492931265602781193674" model="sous.categorie">
+        <record id="sous_categorie_arts_du_livre_et_du_papier" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">J</field>
             <field name="nosouscategorieid">125</field>
-            <field name="titresouscategorie">Arts du livre et du papier</field>
+            <field name="titre">Arts du livre et du papier</field>
         </record>
-        <record id="sous_categorie_19462007369135534492900016158985430474" model="sous.categorie">
+        <record id="sous_categorie_soutien_aux_individus1" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">J</field>
             <field name="nosouscategorieid">126</field>
-            <field name="titresouscategorie">Soutien aux individus</field>
+            <field name="titre">Soutien aux individus</field>
         </record>
-        <record id="sous_categorie_19463671952829959186632856517381989834" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_la_region_de_portneuf" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">K</field>
             <field name="nosouscategorieid">127</field>
-            <field
-                name="titresouscategorie"
-            >Covoiturage interurbain - D&#233;parts de la r&#233;gion de Portneuf</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Portneuf</field>
         </record>
-        <record id="sous_categorie_19465304052977753031987283522758911434" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_sherbrooke" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">L</field>
             <field name="nosouscategorieid">128</field>
-            <field name="titresouscategorie">Covoiturage interurbain - D&#233;parts de Sherbrooke</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de Sherbrooke</field>
         </record>
-        <record id="sous_categorie_19466908423268666884823552787753215434" model="sous.categorie">
+        <record
+            id="sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)"
+            model="sous.categorie"
+        >
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">M</field>
             <field name="nosouscategorieid">129</field>
             <field
-                name="titresouscategorie"
+                name="titre"
             >Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Manicouagan (C&#244;te-Nord)</field>
         </record>
-        <record id="sous_categorie_19468588852595594431423911854939841994" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_la_region_de_rimouski" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">N</field>
             <field name="nosouscategorieid">130</field>
-            <field
-                name="titresouscategorie"
-            >Covoiturage interurbain - D&#233;parts de la r&#233;gion de Rimouski</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Rimouski</field>
         </record>
-        <record id="sous_categorie_19470176584972380288749286475704575434" model="sous.categorie">
+        <record id="sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_matapedia" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">O</field>
             <field name="nosouscategorieid">131</field>
-            <field
-                name="titresouscategorie"
-            >Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Matap&#233;dia</field>
+            <field name="titre">Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Matap&#233;dia</field>
         </record>
-        <record id="sous_categorie_19471780162981668998942179805259376074" model="sous.categorie">
+        <record id="sous_categorie_autres_taches1" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">O</field>
             <field name="nosouscategorieid">132</field>
-            <field name="titresouscategorie">Autres t&#226;ches</field>
+            <field name="titre">Autres t&#226;ches</field>
         </record>
-        <record id="sous_categorie_19473414639974338272226734616954807754" model="sous.categorie">
+        <record id="sous_categorie_divers" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18843006450509463792358792564844799434" />
+            <field name="nocategorie" ref="categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">133</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19475015048857126411846124204751594954" model="sous.categorie">
+        <record id="sous_categorie_divers1" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18844522877539986811780332996054230474" />
+            <field name="nocategorie" ref="categorie_administration_/_emploi_/_organisation" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">134</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19476607534923663125031754438153348554" model="sous.categorie">
+        <record id="sous_categorie_divers2" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18845958491844745281577528012434318794" />
+            <field name="nocategorie" ref="categorie_informatique_/_bureautique" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">135</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19478195267300448982357129058918081994" model="sous.categorie">
+        <record id="sous_categorie_divers3" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18847496310479147152370218700510340554" />
+            <field name="nocategorie" ref="categorie_transport_/_demenagement" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">136</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19479794091619986836689766775835862474" model="sous.categorie">
+        <record id="sous_categorie_divers4" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18848968369738662183762706747107583434" />
+            <field name="nocategorie" ref="categorie_travaux_/_entretien_/_jardinage" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">137</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19481406384727152115959795395225200074" model="sous.categorie">
+        <record id="sous_categorie_divers5" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18850423791084049219644300149475255754" />
+            <field name="nocategorie" ref="categorie_cuisine_/_alimentation" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">138</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19483013924144566539369568401977517514" model="sous.categorie">
+        <record id="sous_categorie_divers6" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18851814245336174558769066845803652554" />
+            <field name="nocategorie" ref="categorie_artisanat_/_couture_/_vetements" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">139</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19484611163900854108415454248016291274" model="sous.categorie">
+        <record id="sous_categorie_divers7" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18853209453278050753754089154769069514" />
+            <field name="nocategorie" ref="categorie_langues_/_litterature" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">140</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19486197311714389680454076997902017994" model="sous.categorie">
+        <record id="sous_categorie_divers8" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18854572969954921243004074046154352074" />
+            <field name="nocategorie" ref="categorie_arts_/_culture_/_education" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">141</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19487794551470677249499962843940791754" model="sous.categorie">
+        <record id="sous_categorie_divers9" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18856049782904187130256817705388615114" />
+            <field name="nocategorie" ref="categorie_sports_/_loisirs_/_animation" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">142</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19489378322439337393608457787508008394" model="sous.categorie">
+        <record id="sous_categorie_divers10" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18857471928421318175116621819297146314" />
+            <field name="nocategorie" ref="categorie_sante_/_maternite_/_esthetique" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">143</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19491066674582516366642576209089668554" model="sous.categorie">
+        <record id="sous_categorie_divers11" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18858891697093573792046298126887167434" />
+            <field name="nocategorie" ref="categorie_hebergement_/_voyage" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">144</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19492670252591805076835469538644469194" model="sous.categorie">
+        <record id="sous_categorie_divers12" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18861741534099211880269537902780753354" />
+            <field name="nocategorie" ref="categorie_divers" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">145</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19494270661474593216454859126441256394" model="sous.categorie">
+        <record id="sous_categorie_divers13" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18863156549081716641338958597733754314" />
+            <field name="nocategorie" ref="categorie_achat_regroupe" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">146</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19496109547126549291730405281528554954" model="sous.categorie">
+        <record id="sous_categorie_divers14" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18864566810374470546548123680049735114" />
+            <field name="nocategorie" ref="categorie_credit_solidaire" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">147</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19497819290873607116135673959976805834" model="sous.categorie">
+        <record id="sous_categorie_divers15" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18865982617638600450260920310442239434" />
+            <field name="nocategorie" ref="categorie_service_d_echange_d_objets" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">148</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19499433960825647823335830385684653514" model="sous.categorie">
+        <record id="sous_categorie_divers16" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18871596725234361221222798834763048394" />
+            <field name="nocategorie" ref="categorie_echanges_associatifs" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">149</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19501035161990061105598595908920944074" model="sous.categorie">
+        <record id="sous_categorie_divers17" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18874414078693368461067625257636996554" />
+            <field name="nocategorie" ref="categorie_autres_transactions" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">150</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
-        <record id="sous_categorie_19502610217860844680629955562653623754" model="sous.categorie">
+        <record id="sous_categorie_divers18" model="sous.categorie">
             <field name="approuver">-1</field>
-            <field name="nocategorie" ref="categorie_18875818794014746367773158791876453834" />
+            <field name="nocategorie" ref="categorie_reseau_accorderie" />
             <field name="nosouscategorie">Z</field>
             <field name="nosouscategorieid">151</field>
-            <field name="titresouscategorie">Divers</field>
+            <field name="titre">Divers</field>
         </record>
     </data>
 </odoo>

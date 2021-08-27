@@ -46,10 +46,10 @@
                         <field name="region" />
                     </group>
                     <group>
-                        <field name="telecopieur" />
+                        <field name="tel_accorderie" />
                     </group>
                     <group>
-                        <field name="telephone" widget="phone" />
+                        <field name="telecopieur_accorderie" />
                     </group>
                     <group>
                         <field name="url_public" widget="link_button" />
@@ -83,8 +83,8 @@
                 <field name="message_grp_achat" />
                 <field name="nom" />
                 <field name="region" />
-                <field name="telecopieur" />
-                <field name="telephone" widget="phone" />
+                <field name="tel_accorderie" />
+                <field name="telecopieur_accorderie" />
                 <field name="url_public" widget="link_button" />
                 <field name="url_transactionnel" widget="link_button" />
                 <field name="ville" />
