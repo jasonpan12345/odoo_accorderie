@@ -24,8 +24,6 @@ class Fournisseur(models.Model):
         required=True,
     )
 
-    nofournisseur = fields.Integer(required=True)
-
     nomcontact = fields.Char()
 
     nomfournisseur = fields.Char()

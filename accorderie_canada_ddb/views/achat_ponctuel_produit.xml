@@ -19,9 +19,6 @@
                         <field name="noachatponctuel" />
                     </group>
                     <group>
-                        <field name="noachatponctuelproduit" />
-                    </group>
-                    <group>
                         <field name="nofournisseurproduit" />
                     </group>
                     <group>
@@ -50,7 +47,6 @@
                 <field name="datemaj_achatponcproduit" />
                 <field name="name" />
                 <field name="noachatponctuel" />
-                <field name="noachatponctuelproduit" />
                 <field name="nofournisseurproduit" />
                 <field name="prixfacturer_achatponctprod" />
                 <field name="qteacheter" />

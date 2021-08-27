@@ -18,8 +18,6 @@ class AchatPonctuelProduit(models.Model):
         required=True,
     )
 
-    noachatponctuelproduit = fields.Integer(required=True)
-
     nofournisseurproduit = fields.Many2one(
         comodel_name="fournisseur.produit",
         required=True,

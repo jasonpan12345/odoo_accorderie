@@ -34,9 +34,6 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="nocommentaire" />
-                    </group>
-                    <group>
                         <field name="nodemandeservice" />
                     </group>
                     <group>
@@ -97,7 +94,6 @@
                 <field name="datemaj_commentaire" />
                 <field name="demarche" />
                 <field name="name" />
-                <field name="nocommentaire" />
                 <field name="nodemandeservice" />
                 <field name="nomcomite" />
                 <field name="nomembresource" />

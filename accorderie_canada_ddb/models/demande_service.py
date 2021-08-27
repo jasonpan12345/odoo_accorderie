@@ -17,8 +17,6 @@ class DemandeService(models.Model):
 
     noaccorderie = fields.Many2one(comodel_name="accorderie")
 
-    nodemandeservice = fields.Integer(required=True)
-
     nomembre = fields.Many2one(comodel_name="membre")
 
     supprimer = fields.Integer()

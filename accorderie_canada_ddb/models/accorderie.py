@@ -69,14 +69,14 @@ class Accorderie(models.Model):
         help="Nom de la région administrative de l'Accorderie",
     )
 
-    tel_accorderie = fields.Char(
-        string="Téléphone",
-        help="Numéro de téléphone pour joindre l'Accorderie",
-    )
-
-    telecopieur_accorderie = fields.Char(
+    telecopieur = fields.Char(
         string="Télécopieur",
         help="Numéro de télécopieur pour joindre l'Accorderie",
+    )
+
+    telephone = fields.Char(
+        string="Téléphone",
+        help="Numéro de téléphone pour joindre l'Accorderie",
     )
 
     url_public = fields.Char(

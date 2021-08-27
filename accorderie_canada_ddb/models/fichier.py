@@ -7,11 +7,6 @@ class Fichier(models.Model):
 
     datemaj_fichier = fields.Datetime(string="Datemaj fichier")
 
-    id_fichier = fields.Integer(
-        string="Id fichier",
-        required=True,
-    )
-
     id_typefichier = fields.Many2one(
         string="Id typefichier",
         comodel_name="type.fichier",

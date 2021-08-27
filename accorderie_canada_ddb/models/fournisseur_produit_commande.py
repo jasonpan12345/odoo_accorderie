@@ -24,6 +24,4 @@ class FournisseurProduitCommande(models.Model):
         required=True,
     )
 
-    nofournisseurproduitcommande = fields.Integer(required=True)
-
     qteparboiteprevu = fields.Float()

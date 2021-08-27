@@ -28,9 +28,6 @@
                         <field name="nofournisseurproduit" />
                     </group>
                     <group>
-                        <field name="nofournisseurproduitcommande" />
-                    </group>
-                    <group>
                         <field name="qteparboiteprevu" />
                     </group>
                 </sheet>
@@ -50,7 +47,6 @@
                 <field name="nbboiteminfournisseur" />
                 <field name="nocommande" />
                 <field name="nofournisseurproduit" />
-                <field name="nofournisseurproduitcommande" />
                 <field name="qteparboiteprevu" />
             </tree>
         </field>

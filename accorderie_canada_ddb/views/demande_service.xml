@@ -25,9 +25,6 @@
                         <field name="noaccorderie" />
                     </group>
                     <group>
-                        <field name="nodemandeservice" />
-                    </group>
-                    <group>
                         <field name="nomembre" />
                     </group>
                     <group>
@@ -55,7 +52,6 @@
                 <field name="description" />
                 <field name="name" />
                 <field name="noaccorderie" />
-                <field name="nodemandeservice" />
                 <field name="nomembre" />
                 <field name="supprimer" />
                 <field name="titredemande" />

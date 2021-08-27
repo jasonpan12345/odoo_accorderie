@@ -22,9 +22,6 @@
                         <field name="noaccorderie" />
                     </group>
                     <group>
-                        <field name="nodmdadhesion" />
-                    </group>
-                    <group>
                         <field name="nom" />
                     </group>
                     <group>
@@ -57,7 +54,6 @@
                 <field name="enattente" />
                 <field name="name" />
                 <field name="noaccorderie" />
-                <field name="nodmdadhesion" />
                 <field name="nom" />
                 <field name="poste" />
                 <field name="prenom" />

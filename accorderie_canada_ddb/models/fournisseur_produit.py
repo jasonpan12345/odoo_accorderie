@@ -13,8 +13,6 @@ class FournisseurProduit(models.Model):
 
     nofournisseur = fields.Many2one(comodel_name="fournisseur")
 
-    nofournisseurproduit = fields.Integer(required=True)
-
     noproduit = fields.Many2one(
         comodel_name="produit",
         required=True,

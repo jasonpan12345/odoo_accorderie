@@ -18,8 +18,6 @@ class EchangeService(models.Model):
 
     nodemandeservice = fields.Many2one(comodel_name="demande.service")
 
-    noechangeservice = fields.Integer(required=True)
-
     nomembreacheteur = fields.Many2one(comodel_name="membre")
 
     nomembrevendeur = fields.Many2one(comodel_name="membre")

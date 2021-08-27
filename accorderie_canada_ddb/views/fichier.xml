@@ -10,9 +10,6 @@
                         <field name="datemaj_fichier" />
                     </group>
                     <group>
-                        <field name="id_fichier" />
-                    </group>
-                    <group>
                         <field name="id_typefichier" />
                     </group>
                     <group>
@@ -47,7 +44,6 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="datemaj_fichier" />
-                <field name="id_fichier" />
                 <field name="id_typefichier" />
                 <field name="name" />
                 <field name="noaccorderie" />

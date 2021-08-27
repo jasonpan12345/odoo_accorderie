@@ -22,9 +22,6 @@
                         <field name="nodemandeservice" />
                     </group>
                     <group>
-                        <field name="noechangeservice" />
-                    </group>
-                    <group>
                         <field name="nomembreacheteur" />
                     </group>
                     <group>
@@ -57,7 +54,6 @@
                 <field name="name" />
                 <field name="nb_heure" widget="float_time" />
                 <field name="nodemandeservice" />
-                <field name="noechangeservice" />
                 <field name="nomembreacheteur" />
                 <field name="nomembrevendeur" />
                 <field name="nooffreservicemembre" />

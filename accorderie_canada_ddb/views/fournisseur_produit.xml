@@ -19,9 +19,6 @@
                         <field name="nofournisseur" />
                     </group>
                     <group>
-                        <field name="nofournisseurproduit" />
-                    </group>
-                    <group>
                         <field name="noproduit" />
                     </group>
                     <group>
@@ -47,7 +44,6 @@
                 <field name="datemaj_fournproduit" />
                 <field name="name" />
                 <field name="nofournisseur" />
-                <field name="nofournisseurproduit" />
                 <field name="noproduit" />
                 <field name="visible_fournisseurproduit" />
                 <field name="zcoutunitaire" />

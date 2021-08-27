@@ -18,8 +18,6 @@ class DmdAdhesion(models.Model):
         required=True,
     )
 
-    nodmdadhesion = fields.Integer(required=True)
-
     nom = fields.Char()
 
     poste = fields.Char()

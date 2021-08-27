@@ -60,8 +60,6 @@ class Membre(models.Model):
 
     nomaccorderie = fields.Char()
 
-    nomembre = fields.Integer(required=True)
-
     nomembreconjoint = fields.Integer()
 
     nomutilisateur = fields.Char()

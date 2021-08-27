@@ -76,9 +76,6 @@
                         <field name="nomaccorderie" />
                     </group>
                     <group>
-                        <field name="nomembre" />
-                    </group>
-                    <group>
                         <field name="nomembreconjoint" />
                     </group>
                     <group>
@@ -204,7 +201,6 @@
                 <field name="nom" />
                 <field name="nom_complet" />
                 <field name="nomaccorderie" />
-                <field name="nomembre" />
                 <field name="nomembreconjoint" />
                 <field name="nomutilisateur" />
                 <field name="nooccupation" />

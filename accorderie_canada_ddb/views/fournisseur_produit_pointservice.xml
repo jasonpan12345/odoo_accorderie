@@ -19,9 +19,6 @@
                         <field name="nofournisseurproduit" />
                     </group>
                     <group>
-                        <field name="nofournisseurproduitpointservice" />
-                    </group>
-                    <group>
                         <field name="nopointservice" />
                     </group>
                     <group>
@@ -41,7 +38,6 @@
                 <field name="datemaj_fournprodptserv" />
                 <field name="name" />
                 <field name="nofournisseurproduit" />
-                <field name="nofournisseurproduitpointservice" />
                 <field name="nopointservice" />
                 <field name="qtestokeacc" />
             </tree>

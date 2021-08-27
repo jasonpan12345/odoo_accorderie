@@ -31,8 +31,6 @@ class CommandeMembre(models.Model):
 
     nocommande = fields.Many2one(comodel_name="commande")
 
-    nocommandemembre = fields.Integer(required=True)
-
     nomembre = fields.Many2one(comodel_name="membre")
 
     numrefmembre = fields.Integer()

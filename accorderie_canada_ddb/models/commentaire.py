@@ -23,8 +23,6 @@ class Commentaire(models.Model):
 
     name = fields.Char()
 
-    nocommentaire = fields.Integer(required=True)
-
     nodemandeservice = fields.Many2one(comodel_name="demande.service")
 
     nomcomite = fields.Char()

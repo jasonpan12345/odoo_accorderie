@@ -46,9 +46,6 @@
                         <field name="nocommande" />
                     </group>
                     <group>
-                        <field name="nocommandemembre" />
-                    </group>
-                    <group>
                         <field name="nomembre" />
                     </group>
                     <group>
@@ -77,7 +74,6 @@
                 <field name="montantpaiement" />
                 <field name="name" />
                 <field name="nocommande" />
-                <field name="nocommandemembre" />
                 <field name="nomembre" />
                 <field name="numrefmembre" />
             </tree>

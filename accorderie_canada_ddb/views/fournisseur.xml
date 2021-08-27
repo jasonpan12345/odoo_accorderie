@@ -31,9 +31,6 @@
                         <field name="noaccorderie" />
                     </group>
                     <group>
-                        <field name="nofournisseur" />
-                    </group>
-                    <group>
                         <field name="nomcontact" />
                     </group>
                     <group>
@@ -75,7 +72,6 @@
                 <field name="faxfounisseur" />
                 <field name="name" />
                 <field name="noaccorderie" />
-                <field name="nofournisseur" />
                 <field name="nomcontact" />
                 <field name="nomfournisseur" />
                 <field name="noregion" />
