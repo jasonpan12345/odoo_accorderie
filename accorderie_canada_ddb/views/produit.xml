@@ -19,9 +19,6 @@
                         <field name="nomproduit" />
                     </group>
                     <group>
-                        <field name="noproduit" />
-                    </group>
-                    <group>
                         <field name="notitre" />
                     </group>
                     <group>
@@ -47,7 +44,6 @@
                 <field name="name" />
                 <field name="noaccorderie" />
                 <field name="nomproduit" />
-                <field name="noproduit" />
                 <field name="notitre" />
                 <field name="taxablef" />
                 <field name="taxablep" />

@@ -40,8 +40,6 @@ class OffreServiceMembre(models.Model):
 
     nomembre = fields.Many2one(comodel_name="membre")
 
-    nooffreservicemembre = fields.Integer(required=True)
-
     offrespecial = fields.Integer()
 
     supprimer = fields.Integer()

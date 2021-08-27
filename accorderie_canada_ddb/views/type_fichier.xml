@@ -10,9 +10,6 @@
                         <field name="datemaj_typefichier" />
                     </group>
                     <group>
-                        <field name="id_typefichier" />
-                    </group>
-                    <group>
                         <field name="name" />
                     </group>
                     <group>
@@ -29,7 +26,6 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="datemaj_typefichier" />
-                <field name="id_typefichier" />
                 <field name="name" />
                 <field name="typefichier" />
             </tree>

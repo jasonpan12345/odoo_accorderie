@@ -10,9 +10,6 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="norevenufamilial" />
-                    </group>
-                    <group>
                         <field name="revenu" />
                     </group>
                 </sheet>
@@ -26,7 +23,6 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="norevenufamilial" />
                 <field name="revenu" />
             </tree>
         </field>

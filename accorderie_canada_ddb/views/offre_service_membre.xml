@@ -52,9 +52,6 @@
                         <field name="nomembre" />
                     </group>
                     <group>
-                        <field name="nooffreservicemembre" />
-                    </group>
-                    <group>
                         <field name="offrespecial" />
                     </group>
                     <group>
@@ -91,7 +88,6 @@
                 <field name="noaccorderie" />
                 <field name="nocategoriesouscategorie" />
                 <field name="nomembre" />
-                <field name="nooffreservicemembre" />
                 <field name="offrespecial" />
                 <field name="supprimer" />
                 <field name="tarif" />

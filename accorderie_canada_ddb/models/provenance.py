@@ -7,6 +7,4 @@ class Provenance(models.Model):
 
     name = fields.Char()
 
-    noprovenance = fields.Integer(required=True)
-
     provenance = fields.Char()

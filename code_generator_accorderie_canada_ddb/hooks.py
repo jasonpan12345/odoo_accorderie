@@ -1395,35 +1395,127 @@ def post_init_hook(cr, e):
             "transferede",
         )
 
-        # TODO TEMPLATE MATHBEN
-        # # migration.add_update_migration_model(
-        # #     "commentaire", new_rec_name="description"
-        # # )
-        # migration.add_update_migration_field(
-        #     "commentaire",
-        #     "nocommentaire",
-        #     delete=True,
-        # )
-        # migration.add_update_migration_field(
-        #     "commentaire",
-        #     "nopointservice",
-        # )
-
         # tbl_mensualite
-        # TODO
+        # removed
 
         # tbl_occupation
-        # TODO
+        # migration.add_update_migration_model(
+        #     "occupation", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "occupation",
+            "nooccupation",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "occupation",
+            "occupation",
+        )
 
         # tbl_offre_service_membre
-        # TODO
+        # migration.add_update_migration_model(
+        #     "offre.service.membre", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "nooffreservicemembre",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "nomembre",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "noaccorderie",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "nocategoriesouscategorie",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "titreoffrespecial",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "conditionx",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "disponibilite",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "tarif",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "description",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "dateaffichage",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "datedebut",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "datefin",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "approuve",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "offrespecial",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "supprimer",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "fait",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "conditionoffre",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "nbfoisconsulteroffremembre",
+        )
+        migration.add_update_migration_field(
+            "offre.service.membre",
+            "datemaj_servicemembre",
+        )
 
         # tbl_origine
-        # TODO
+        # migration.add_update_migration_model(
+        #     "origine", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "origine",
+            "noorigine",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "commentaire",
+            "origine",
+        )
 
         # tbl_point_service
         migration.add_update_migration_model(
             "pointservice", new_rec_name="nom"
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "nopointservice",
+            delete=True,
         )
         migration.add_update_migration_field(
             "pointservice",
@@ -1434,29 +1526,133 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "pointservice",
-            "nopointservice",
-            delete=True,
+            "ordrepointservice",
         )
         migration.add_update_migration_field(
             "pointservice",
-            "nomembre",
-            new_field_name="membre",
-            new_string="Organisateur",
-            new_help="Organisateur du point de service",
-            # add_one2many=True,
+            "notegrpachatpageclient",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "datemaj_pointservice",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "noarrondissement",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "noville",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "noregion",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "codepostale",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "dateadhesion",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "adresse",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "telephone1",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "telephone2",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "courriel",
+        )
+        migration.add_update_migration_field(
+            "pointservice",
+            "recevoircourrielgrp",
         )
 
         # tbl_pointservice_fournisseur
-        # TODO
+        # migration.add_update_migration_model(
+        #     "pointservice.fournisseur", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "pointservice.fournisseur",
+            "nopointservicefournisseur",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "pointservice.fournisseur",
+            "nopointservice",
+        )
+        migration.add_update_migration_field(
+            "pointservice.fournisseur",
+            "nofournisseur",
+        )
+        migration.add_update_migration_field(
+            "pointservice.fournisseur",
+            "datemaj_pointservicefournisseur",
+        )
 
         # tbl_pret
-        # TODO
+        # removed
 
         # tbl_produit
-        # TODO
+        # migration.add_update_migration_model(
+        #     "produit", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "produit",
+            "noproduit",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "notitre",
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "noaccorderie",
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "nomproduit",
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "taxablef",
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "taxablep",
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "visible_produit",
+        )
+        migration.add_update_migration_field(
+            "produit",
+            "datemaj_produit",
+        )
 
         # tbl_provenance
-        # TODO
+        # migration.add_update_migration_model(
+        #     "provenance", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "provenance",
+            "noprovenance",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "provenance",
+            "provenance",
+        )
 
         # tbl_region
         migration.add_update_migration_model("region", new_rec_name="nom")
@@ -1475,7 +1671,32 @@ def post_init_hook(cr, e):
         )
 
         # tbl_revenu_familial
-        # TODO
+        # migration.add_update_migration_model(
+        #     "revenu.familial", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "revenu.familial",
+            "norevenufamilial",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "commentaire",
+            "revenu",
+        )
+
+        # tbl_situation_maison
+        # migration.add_update_migration_model(
+        #     "situation.maison", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "situation.maison",
+            "nosituationmaison",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "situation.maison",
+            "situation",
+        )
 
         # tbl_sous_categorie
         # TODO
@@ -1484,36 +1705,166 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "sous.categorie",
+            "nosouscategorie",
+        )
+        migration.add_update_migration_field(
+            "sous.categorie",
+            "nocategorie",
+        )
+        migration.add_update_migration_field(
+            "sous.categorie",
             "titresouscategorie",
             new_field_name="titre",
             new_string="Titre",
             compute_data_function="""titre.replace("&#8217;", "'").strip()""",
         )
+        migration.add_update_migration_field(
+            "sous.categorie",
+            "supprimer",
+        )
+        migration.add_update_migration_field(
+            "sous.categorie",
+            "approuver",
+        )
 
         # tbl_taxe
-        # TODO
+        # migration.add_update_migration_model(
+        #     "taxe", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "taxe",
+            "notaxe",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "taxe",
+            "tauxtaxepro",
+        )
+        migration.add_update_migration_field(
+            "taxe",
+            "notaxepro",
+        )
+        migration.add_update_migration_field(
+            "taxe",
+            "tauxtaxefed",
+        )
+        migration.add_update_migration_field(
+            "taxe",
+            "notaxefed",
+        )
+        migration.add_update_migration_field(
+            "taxe",
+            "tauxmajoration",
+        )
 
         # tbl_titre
-        # TODO
+        # migration.add_update_migration_model(
+        #     "titre", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "titre",
+            "nottire",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "titre",
+            "titre",
+        )
+        migration.add_update_migration_field(
+            "titre",
+            "visible_titre",
+        )
+        migration.add_update_migration_field(
+            "titre",
+            "datemaj_titre",
+        )
 
         # tbl_type_communication
-        # TODO
+        # migration.add_update_migration_model(
+        #     "type.communication", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "type.communication",
+            "notypecommunication",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "type.communication",
+            "typecommunication",
+        )
 
         # tbl_type_compte
+        # migration.add_update_migration_model(
+        #     "type.compte", new_rec_name="description"
+        # )
         migration.add_update_migration_field(
             "type.compte",
             "nomembre",
             new_required=False,
         )
+        migration.add_update_migration_field(
+            "type.compte",
+            "accordeursimple",
+        )
+        migration.add_update_migration_field(
+            "type.compte",
+            "admin",
+        )
+        migration.add_update_migration_field(
+            "type.compte",
+            "adminchef",
+        )
+        migration.add_update_migration_field(
+            "type.compte",
+            "reseau",
+        )
+        migration.add_update_migration_field(
+            "type.compte",
+            "spip",
+        )
+        migration.add_update_migration_field(
+            "type.compte",
+            "adminpointservice",
+        )
+        migration.add_update_migration_field(
+            "type.compte",
+            "adminordpointservice",
+        )
 
         # tbl_type_fichier
-        # TODO
+        # migration.add_update_migration_model(
+        #     "type.fichier", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "type.fichier",
+            "id_typefichier",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "type.fichier",
+            "typefichier",
+        )
+        migration.add_update_migration_field(
+            "type.fichier",
+            "datemaj_typefichier",
+        )
 
         # tbl_type_tel
-        # TODO
+        # migration.add_update_migration_model(
+        #     "type.tel", new_rec_name="description"
+        # )
+        migration.add_update_migration_field(
+            "type.tel",
+            "notypetel",
+            delete=True,
+        )
+        migration.add_update_migration_field(
+            "type.tel",
+            "typetel",
+        )
 
         # tbl_versement
-        # TODO
+        # removed
 
         # tbl_ville
         migration.add_update_migration_model("ville", new_rec_name="nom")
@@ -1537,14 +1888,6 @@ def post_init_hook(cr, e):
             new_string="Région",
             # add_one2many=True,
         )
-        # TODO not supported
-        # migration.add_update_migration_field(
-        #     "ville",
-        #     "accorderie_ids",
-        #     new_string="Accorderie",
-        #     new_help="Liste des Accorderie dans cette ville",
-        #     add_one2many=True,
-        # )
 
         # Database
         value_db = {
@@ -1566,7 +1909,14 @@ def post_init_hook(cr, e):
             .search([])
             .filtered(
                 lambda x: x.name.startswith("tbl_")
-                and x.name not in ("tbl_info_logiciel_bd", "tbl_log_acces")
+                and x.name
+                not in (
+                    "tbl_info_logiciel_bd",
+                    "tbl_log_acces",
+                    "tbl_mensualite",
+                    "tbl_pret",
+                    "tbl_versement",
+                )
             )
         )
 
@@ -1617,7 +1967,6 @@ def post_init_hook(cr, e):
             # "tbl_versement",
         )
         # lst_nomenclator = []
-        # tbl_accorderie_id = None
 
         if lst_nomenclator:
             for db_table_id in code_generator_db_tables:

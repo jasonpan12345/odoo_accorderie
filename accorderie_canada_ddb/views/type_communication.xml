@@ -10,9 +10,6 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="notypecommunication" />
-                    </group>
-                    <group>
                         <field name="typecommunication" />
                     </group>
                 </sheet>
@@ -26,7 +23,6 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="notypecommunication" />
                 <field name="typecommunication" />
             </tree>
         </field>

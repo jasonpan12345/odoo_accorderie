@@ -20,5 +20,3 @@ class PointserviceFournisseur(models.Model):
         comodel_name="pointservice",
         required=True,
     )
-
-    nopointservicefournisseur = fields.Integer(required=True)

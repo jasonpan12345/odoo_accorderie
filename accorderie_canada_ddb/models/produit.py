@@ -16,8 +16,6 @@ class Produit(models.Model):
 
     nomproduit = fields.Char()
 
-    noproduit = fields.Integer(required=True)
-
     notitre = fields.Many2one(
         comodel_name="titre",
         required=True,

@@ -21,13 +21,11 @@ from . import fournisseur_produit
 from . import fournisseur_produit_commande
 from . import fournisseur_produit_pointservice
 from . import membre
-from . import mensualite
 from . import occupation
 from . import offre_service_membre
 from . import origine
 from . import pointservice
 from . import pointservice_fournisseur
-from . import pret
 from . import produit
 from . import provenance
 from . import region
@@ -40,5 +38,4 @@ from . import type_communication
 from . import type_compte
 from . import type_fichier
 from . import type_tel
-from . import versement
 from . import ville

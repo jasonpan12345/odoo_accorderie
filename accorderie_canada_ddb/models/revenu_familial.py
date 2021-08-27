@@ -7,6 +7,4 @@ class RevenuFamilial(models.Model):
 
     name = fields.Char()
 
-    norevenufamilial = fields.Integer(required=True)
-
     revenu = fields.Char()

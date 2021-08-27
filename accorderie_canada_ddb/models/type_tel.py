@@ -7,6 +7,4 @@ class TypeTel(models.Model):
 
     name = fields.Char()
 
-    notypetel = fields.Integer(required=True)
-
     typetel = fields.Char()

@@ -7,6 +7,4 @@ class Origine(models.Model):
 
     name = fields.Char()
 
-    noorigine = fields.Integer(required=True)
-
     origine = fields.Char()

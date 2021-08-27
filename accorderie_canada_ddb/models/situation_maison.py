@@ -7,6 +7,4 @@ class SituationMaison(models.Model):
 
     name = fields.Char()
 
-    nosituationmaison = fields.Integer(required=True)
-
     situation = fields.Char()

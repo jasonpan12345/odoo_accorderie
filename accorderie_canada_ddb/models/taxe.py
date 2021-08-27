@@ -7,8 +7,6 @@ class Taxe(models.Model):
 
     name = fields.Char()
 
-    notaxe = fields.Integer(required=True)
-
     notaxefed = fields.Char()
 
     notaxepro = fields.Char()

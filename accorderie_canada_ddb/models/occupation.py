@@ -7,6 +7,4 @@ class Occupation(models.Model):
 
     name = fields.Char()
 
-    nooccupation = fields.Integer(required=True)
-
     occupation = fields.Char()

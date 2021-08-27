@@ -7,6 +7,4 @@ class TypeCommunication(models.Model):
 
     name = fields.Char()
 
-    notypecommunication = fields.Integer(required=True)
-
     typecommunication = fields.Char()

@@ -18,9 +18,6 @@
                     <group>
                         <field name="nopointservice" />
                     </group>
-                    <group>
-                        <field name="nopointservicefournisseur" />
-                    </group>
                 </sheet>
             </form>
         </field>
@@ -35,7 +32,6 @@
                 <field name="name" />
                 <field name="nofournisseur" />
                 <field name="nopointservice" />
-                <field name="nopointservicefournisseur" />
             </tree>
         </field>
     </record>

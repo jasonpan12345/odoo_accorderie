@@ -10,11 +10,6 @@ class TypeFichier(models.Model):
         required=True,
     )
 
-    id_typefichier = fields.Integer(
-        string="Id typefichier",
-        required=True,
-    )
-
     name = fields.Char()
 
     typefichier = fields.Char()
