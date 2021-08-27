@@ -19,8 +19,6 @@ fournisseur_access_user_types_/_internal_user,fournisseur Access User types / In
 fournisseur_produit_access_user_types_/_internal_user,fournisseur_produit Access User types / Internal User,model_fournisseur_produit,base.group_user,1,1,1,1
 fournisseur_produit_commande_access_user_types_/_internal_user,fournisseur_produit_commande Access User types / Internal User,model_fournisseur_produit_commande,base.group_user,1,1,1,1
 fournisseur_produit_pointservice_access_user_types_/_internal_user,fournisseur_produit_pointservice Access User types / Internal User,model_fournisseur_produit_pointservice,base.group_user,1,1,1,1
-info_logiciel_bd_access_user_types_/_internal_user,info_logiciel_bd Access User types / Internal User,model_info_logiciel_bd,base.group_user,1,1,1,1
-log_acces_access_user_types_/_internal_user,log_acces Access User types / Internal User,model_log_acces,base.group_user,1,1,1,1
 membre_access_user_types_/_internal_user,membre Access User types / Internal User,model_membre,base.group_user,1,1,1,1
 mensualite_access_user_types_/_internal_user,mensualite Access User types / Internal User,model_mensualite,base.group_user,1,1,1,1
 occupation_access_user_types_/_internal_user,occupation Access User types / Internal User,model_occupation,base.group_user,1,1,1,1

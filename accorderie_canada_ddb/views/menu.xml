@@ -93,81 +93,72 @@
         parent="models"
     />
 
-    <menuitem
-        id="info_logiciel_bd"
-        action="info_logiciel_bd_info_logiciel_bd_action_window"
-        sequence="21"
-        parent="models"
-    />
+    <menuitem id="membre" action="membre_membre_action_window" sequence="21" parent="models" />
 
-    <menuitem id="log_acces" action="log_acces_log_acces_action_window" sequence="22" parent="models" />
+    <menuitem id="mensualite" action="mensualite_mensualite_action_window" sequence="22" parent="models" />
 
-    <menuitem id="membre" action="membre_membre_action_window" sequence="23" parent="models" />
-
-    <menuitem id="mensualite" action="mensualite_mensualite_action_window" sequence="24" parent="models" />
-
-    <menuitem id="occupation" action="occupation_occupation_action_window" sequence="25" parent="models" />
+    <menuitem id="occupation" action="occupation_occupation_action_window" sequence="23" parent="models" />
 
     <menuitem
         id="offre_service_membre"
         action="offre_service_membre_offre_service_membre_action_window"
-        sequence="26"
+        sequence="24"
         parent="models"
     />
 
-    <menuitem id="origine" action="origine_origine_action_window" sequence="27" parent="models" />
+    <menuitem id="origine" action="origine_origine_action_window" sequence="25" parent="models" />
 
-    <menuitem id="pointservice" action="pointservice_pointservice_action_window" sequence="28" parent="models" />
+    <menuitem id="pointservice" action="pointservice_pointservice_action_window" sequence="26" parent="models" />
 
     <menuitem
         id="pointservice_fournisseur"
         action="pointservice_fournisseur_pointservice_fournisseur_action_window"
-        sequence="29"
+        sequence="27"
         parent="models"
     />
 
-    <menuitem id="pret" action="pret_pret_action_window" sequence="30" parent="models" />
+    <menuitem id="pret" action="pret_pret_action_window" sequence="28" parent="models" />
 
-    <menuitem id="produit" action="produit_produit_action_window" sequence="31" parent="models" />
+    <menuitem id="produit" action="produit_produit_action_window" sequence="29" parent="models" />
 
-    <menuitem id="provenance" action="provenance_provenance_action_window" sequence="32" parent="models" />
+    <menuitem id="provenance" action="provenance_provenance_action_window" sequence="30" parent="models" />
 
-    <menuitem id="region" action="region_region_action_window" sequence="33" parent="models" />
+    <menuitem id="region" action="region_region_action_window" sequence="31" parent="models" />
 
     <menuitem
         id="revenu_familial"
         action="revenu_familial_revenu_familial_action_window"
-        sequence="34"
+        sequence="32"
         parent="models"
     />
 
     <menuitem
         id="situation_maison"
         action="situation_maison_situation_maison_action_window"
-        sequence="35"
+        sequence="33"
         parent="models"
     />
 
-    <menuitem id="sous_categorie" action="sous_categorie_sous_categorie_action_window" sequence="36" parent="models" />
+    <menuitem id="sous_categorie" action="sous_categorie_sous_categorie_action_window" sequence="34" parent="models" />
 
-    <menuitem id="taxe" action="taxe_taxe_action_window" sequence="37" parent="models" />
+    <menuitem id="taxe" action="taxe_taxe_action_window" sequence="35" parent="models" />
 
-    <menuitem id="titre" action="titre_titre_action_window" sequence="38" parent="models" />
+    <menuitem id="titre" action="titre_titre_action_window" sequence="36" parent="models" />
 
     <menuitem
         id="type_communication"
         action="type_communication_type_communication_action_window"
-        sequence="39"
+        sequence="37"
         parent="models"
     />
 
-    <menuitem id="type_compte" action="type_compte_type_compte_action_window" sequence="40" parent="models" />
+    <menuitem id="type_compte" action="type_compte_type_compte_action_window" sequence="38" parent="models" />
 
-    <menuitem id="type_fichier" action="type_fichier_type_fichier_action_window" sequence="41" parent="models" />
+    <menuitem id="type_fichier" action="type_fichier_type_fichier_action_window" sequence="39" parent="models" />
 
-    <menuitem id="type_tel" action="type_tel_type_tel_action_window" sequence="42" parent="models" />
+    <menuitem id="type_tel" action="type_tel_type_tel_action_window" sequence="40" parent="models" />
 
-    <menuitem id="versement" action="versement_versement_action_window" sequence="43" parent="models" />
+    <menuitem id="versement" action="versement_versement_action_window" sequence="41" parent="models" />
 
-    <menuitem id="ville" action="ville_ville_action_window" sequence="44" parent="models" />
+    <menuitem id="ville" action="ville_ville_action_window" sequence="42" parent="models" />
 </odoo>

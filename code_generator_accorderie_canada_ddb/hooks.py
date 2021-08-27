@@ -1152,10 +1152,10 @@ def post_init_hook(cr, e):
         )
 
         # tbl_info_logiciel_bd
-        # TODO effacer cette table
+        # removed
 
-        # tbl_log_access
-        # TODO effacer cette table
+        # tbl_log_acces
+        # removed
 
         # tbl_membre
         # TODO change rec_name to display_name with compute of nom et prenom
@@ -1409,7 +1409,6 @@ def post_init_hook(cr, e):
         #     "nopointservice",
         # )
 
-
         # tbl_mensualite
         # TODO
 
@@ -1562,11 +1561,13 @@ def post_init_hook(cr, e):
         }
         code_generator_db_server_id = env["code.generator.db"].create(value_db)
 
-        # TODO remove table here
         code_generator_db_tables = (
             env["code.generator.db.table"]
             .search([])
-            .filtered(lambda x: x.name.startswith("tbl_"))
+            .filtered(
+                lambda x: x.name.startswith("tbl_")
+                and x.name not in ("tbl_info_logiciel_bd", "tbl_log_acces")
+            )
         )
 
         lst_nomenclator = (

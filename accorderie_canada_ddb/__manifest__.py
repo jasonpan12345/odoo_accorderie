@@ -30,8 +30,6 @@
         "views/fournisseur_produit.xml",
         "views/fournisseur_produit_commande.xml",
         "views/fournisseur_produit_pointservice.xml",
-        "views/info_logiciel_bd.xml",
-        "views/log_acces.xml",
         "views/membre.xml",
         "views/mensualite.xml",
         "views/occupation.xml",

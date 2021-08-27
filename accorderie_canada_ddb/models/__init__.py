@@ -20,8 +20,6 @@ from . import fournisseur
 from . import fournisseur_produit
 from . import fournisseur_produit_commande
 from . import fournisseur_produit_pointservice
-from . import info_logiciel_bd
-from . import log_acces
 from . import membre
 from . import mensualite
 from . import occupation
