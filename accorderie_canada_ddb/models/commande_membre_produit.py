@@ -13,8 +13,6 @@ class CommandeMembreProduit(models.Model):
 
     name = fields.Char()
 
-    nocmdmbproduit = fields.Integer(required=True)
-
     nocommandemembre = fields.Many2one(
         comodel_name="commande.membre",
         required=True,

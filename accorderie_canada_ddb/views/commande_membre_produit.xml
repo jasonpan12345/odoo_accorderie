@@ -19,9 +19,6 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="nocmdmbproduit" />
-                    </group>
-                    <group>
                         <field name="nocommandemembre" />
                     </group>
                     <group>
@@ -56,7 +53,6 @@
                 <field name="coutunitaire_facture" />
                 <field name="datemaj_cmdmembreprod" />
                 <field name="name" />
-                <field name="nocmdmbproduit" />
                 <field name="nocommandemembre" />
                 <field name="nofournisseurproduitcommande" />
                 <field name="prixfacturer_manuel" />

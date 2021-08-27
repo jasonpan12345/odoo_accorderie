@@ -9,8 +9,6 @@ class Titre(models.Model):
 
     name = fields.Char()
 
-    notitre = fields.Integer(required=True)
-
     titre = fields.Char()
 
     visible_titre = fields.Integer(string="Visible titre")

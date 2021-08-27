@@ -13,9 +13,6 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="notitre" />
-                    </group>
-                    <group>
                         <field name="titre" />
                     </group>
                     <group>
@@ -33,7 +30,6 @@
             <tree>
                 <field name="datemaj_titre" />
                 <field name="name" />
-                <field name="notitre" />
                 <field name="titre" />
                 <field name="visible_titre" />
             </tree>

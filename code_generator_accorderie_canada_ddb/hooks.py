@@ -324,11 +324,11 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "achat.ponctuel.produit",
-            "sitaxeablef_achatponctprod",
+            "sitaxablef_achatponctprod",
         )
         migration.add_update_migration_field(
             "achat.ponctuel.produit",
-            "sitaxeablep_achatponctprod",
+            "sitaxablep_achatponctprod",
         )
         migration.add_update_migration_field(
             "achat.ponctuel.produit",
@@ -586,48 +586,48 @@ def post_init_hook(cr, e):
         #     "commande.membre.produit", new_rec_name="description"
         # )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "nocmdmbproduit",
             delete=True,
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "nocommandemembre",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "nofournisseurproduitcommande",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "qte",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "qtedeplus",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "ajustement",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "coutunitaire_facture",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "sitaxablep_facture",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "sitaxablef_facture",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "prixfacturer_manuel",
         )
         migration.add_update_migration_field(
-            "commande.membre",
+            "commande.membre.produit",
             "datemaj_cmdmembreprod",
         )
 
@@ -941,35 +941,35 @@ def post_init_hook(cr, e):
             delete=True,
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "id_typefichier",
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "noaccorderie",
         )
         migration.add_update_migration_field(
-            "commentaire",
-            "nomfichierstockage",
+            "fichier",
+            "nomfichierstokage",
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "nomfichieroriginal",
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "si_admin",
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "si_accorderielocalseulement",
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "si_disponible",
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "fichier",
             "datemaj_fichier",
         )
 
@@ -1012,7 +1012,7 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "fournisseur",
-            "faxfournisseur",
+            "faxfounisseur",
         )
         migration.add_update_migration_field(
             "fournisseur",
@@ -1118,7 +1118,7 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "fournisseur.produit.commande",
-            "datemaj_founprodcommande",
+            "datemaj_fournprodcommande",
         )
 
         # tbl_fournisseur_produit_pointservice
@@ -1340,7 +1340,7 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "membre",
-            "annenaissance",
+            "anneenaissance",
         )
         migration.add_update_migration_field(
             "membre",
@@ -1504,7 +1504,7 @@ def post_init_hook(cr, e):
             delete=True,
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "origine",
             "origine",
         )
 
@@ -1536,46 +1536,46 @@ def post_init_hook(cr, e):
             "pointservice",
             "datemaj_pointservice",
         )
-        migration.add_update_migration_field(
-            "pointservice",
-            "noarrondissement",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "noville",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "noregion",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "codepostale",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "dateadhesion",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "adresse",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "telephone1",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "telephone2",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "courriel",
-        )
-        migration.add_update_migration_field(
-            "pointservice",
-            "recevoircourrielgrp",
-        )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "noarrondissement",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "noville",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "noregion",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "codepostale",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "dateadhesion",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "adresse",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "telephone1",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "telephone2",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "courriel",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice",
+        #     "recevoircourrielgrp",
+        # )
 
         # tbl_pointservice_fournisseur
         # migration.add_update_migration_model(
@@ -1680,7 +1680,7 @@ def post_init_hook(cr, e):
             delete=True,
         )
         migration.add_update_migration_field(
-            "commentaire",
+            "revenu.familial",
             "revenu",
         )
 
@@ -1763,7 +1763,7 @@ def post_init_hook(cr, e):
         # )
         migration.add_update_migration_field(
             "titre",
-            "nottire",
+            "notitre",
             delete=True,
         )
         migration.add_update_migration_field(
@@ -1804,7 +1804,7 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "type.compte",
-            "accordeursimple",
+            "accodeursimple",
         )
         migration.add_update_migration_field(
             "type.compte",
