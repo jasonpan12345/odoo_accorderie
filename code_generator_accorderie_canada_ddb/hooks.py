@@ -34,12 +34,12 @@ def post_init_hook(cr, e):
             "application": True,
             "enable_sync_code": True,
             "path_sync_code": path_module_generate,
-            "icon": os.path.join(
-                os.path.dirname(__file__),
-                "static",
-                "description",
-                "code_generator_icon.png",
-            ),
+            # "icon": os.path.join(
+            #     os.path.basename(os.path.dirname(os.path.dirname(__file__))),
+            #     "static",
+            #     "description",
+            #     "code_generator_icon.png",
+            # ),
         }
 
         # TODO HUMAN: enable your functionality to generate
@@ -53,6 +53,22 @@ def post_init_hook(cr, e):
         value["hook_constant_code"] = f'MODULE_NAME = "{MODULE_NAME}"'
 
         code_generator_id = env["code.generator.module"].create(value)
+
+        # Database
+        value_db = {
+            "m2o_dbtype": env.ref(
+                "code_generator_db_servers.code_generator_db_type_mysql"
+            ).id,
+            "database": "accorderie_log_2019",
+            "host": "localhost",
+            "port": 3306,
+            "user": "accorderie",
+            "password": "accorderie",
+            "schema": "public",
+            "accept_primary_key": True,
+            # TODO option to create application pear first prefix or use in model name (si on prend tbl ou non)
+        }
+        code_generator_db_server_id = env["code.generator.db"].create(value_db)
 
         # Local variable to add update information
         migration = MigrationDB(env, code_generator_id)
@@ -1889,34 +1905,29 @@ def post_init_hook(cr, e):
             # add_one2many=True,
         )
 
-        # Database
-        value_db = {
-            "m2o_dbtype": env.ref(
-                "code_generator_db_servers.code_generator_db_type_mysql"
-            ).id,
-            "database": "accorderie_log_2019",
-            "host": "localhost",
-            "port": 3306,
-            "user": "accorderie",
-            "password": "accorderie",
-            "schema": "public",
-            "accept_primary_key": True,
-        }
-        code_generator_db_server_id = env["code.generator.db"].create(value_db)
+        # TODO rename tbl_ pour accorderie_
+        # TODO call generate table, remove rec_name
+        # TODO Create field name à la création du modèle et non à la création de .table
+
+        lst_table_to_delete = (
+            "tbl_info_logiciel_bd",
+            "tbl_log_acces",
+            "tbl_mensualite",
+            "tbl_pret",
+            "tbl_versement",
+        )
+        for table_to_delete in lst_table_to_delete:
+            table_id = env["code.generator.db.table"].search(
+                [("name", "=", table_to_delete)]
+            )
+            table_id.delete = True
 
         code_generator_db_tables = (
             env["code.generator.db.table"]
             .search([])
             .filtered(
                 lambda x: x.name.startswith("tbl_")
-                and x.name
-                not in (
-                    "tbl_info_logiciel_bd",
-                    "tbl_log_acces",
-                    "tbl_mensualite",
-                    "tbl_pret",
-                    "tbl_versement",
-                )
+                and x.name not in lst_table_to_delete
             )
         )
 
@@ -1952,7 +1963,7 @@ def post_init_hook(cr, e):
             "tbl_origine",
             # "tbl_pointservice",
             # # "tbl_pointservice_fournisseur",
-            # "tbl_pret",
+            # # "tbl_pret",
             # # "tbl_produit",
             "tbl_provenance",
             "tbl_revenu_familial",
@@ -1964,7 +1975,7 @@ def post_init_hook(cr, e):
             # # "tbl_type_compte",
             "tbl_type_fichier",
             "tbl_type_tel",
-            # "tbl_versement",
+            # # "tbl_versement",
         )
         # lst_nomenclator = []
 
@@ -2106,6 +2117,7 @@ class MigrationDB:
         :return:
         """
 
+        tbl_name = f"tbl_{model_name.replace('.', '_')}"
         value = {
             "model_name": model_name,
             "field_name": field_name,
@@ -2150,6 +2162,55 @@ class MigrationDB:
                 value["compute_data_function"] = compute_data_function
             if sql_select_modify:
                 value["sql_select_modify"] = sql_select_modify
+
+        # Update code_generator_db_columns
+        table_id = self.env["code.generator.db.table"].search(
+            [("name", "=", tbl_name)]
+        )
+        if not table_id:
+            _logger.error(
+                f"Cannot update table {tbl_name} with field {field_name}."
+            )
+        else:
+            column_id = self.env["code.generator.db.column"].search(
+                [("m2o_table", "=", table_id.id), ("name", "=", field_name)]
+            )
+            if len(column_id) > 1:
+                _logger.error(
+                    f"Find too much column field {field_name} from table"
+                    f" {tbl_name}."
+                )
+            elif column_id:
+                if new_field_name:
+                    column_id.new_field_name = new_field_name
+                if new_string:
+                    column_id.new_string = new_string
+                if new_type:
+                    column_id.new_type = new_type
+                if new_help:
+                    column_id.new_help = new_help
+                if new_required is not None:
+                    column_id.new_change_required = True
+                    column_id.new_required = new_required
+                if path_binary:
+                    column_id.path_binary = path_binary
+                if force_widget:
+                    column_id.force_widget = force_widget
+                if add_one2many:
+                    column_id.add_one2many = add_one2many
+                if compute_data_function:
+                    column_id.compute_data_function = compute_data_function
+                if sql_select_modify:
+                    column_id.sql_select_modify = sql_select_modify
+                if delete:
+                    column_id.delete = True
+                if ignore_field:
+                    column_id.ignore_field = True
+            else:
+                _logger.error(
+                    f"Cannot find field {field_name} from table {tbl_name}."
+                )
+
         self.env["code.generator.db.update.migration.field"].create(value)
 
     def add_update_migration_model(
@@ -2159,6 +2220,8 @@ class MigrationDB:
         new_description=None,
         new_rec_name=None,
     ):
+
+        tbl_name = f"tbl_{model_name.replace('.', '_')}"
 
         value = {
             "model_name": model_name,
@@ -2170,6 +2233,20 @@ class MigrationDB:
             value["new_description"] = new_description
         if new_rec_name is not None:
             value["new_rec_name"] = new_rec_name
+
+        # Update code_generator_db_table
+        table_id = self.env["code.generator.db.table"].search(
+            [("name", "=", tbl_name)]
+        )
+        if not table_id:
+            _logger.error(f"Cannot update table {tbl_name}.")
+        else:
+            if new_model_name:
+                table_id.new_model_name = new_model_name
+            if new_rec_name:
+                table_id.new_rec_name = new_rec_name
+            table_id.new_description = new_description
+
         self.env["code.generator.db.update.migration.model"].create(value)
 
 
