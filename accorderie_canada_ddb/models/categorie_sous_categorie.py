@@ -10,8 +10,6 @@ class CategorieSousCategorie(models.Model):
 
     description = fields.Char()
 
-    name = fields.Char()
-
     nocategorie = fields.Integer()
 
     nocategoriesouscategorie = fields.Integer(required=True)

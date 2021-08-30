@@ -13,9 +13,6 @@
                         <field name="description" />
                     </group>
                     <group>
-                        <field name="name" />
-                    </group>
-                    <group>
                         <field name="nocategorie" />
                     </group>
                     <group>
@@ -51,7 +48,6 @@
             <tree>
                 <field name="approuver" />
                 <field name="description" />
-                <field name="name" />
                 <field name="nocategorie" />
                 <field name="nocategoriesouscategorie" />
                 <field name="nom_complet" />

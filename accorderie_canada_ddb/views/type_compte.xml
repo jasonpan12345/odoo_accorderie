@@ -22,7 +22,7 @@
                         <field name="adminpointservice" />
                     </group>
                     <group>
-                        <field name="name" />
+                        <field name="nom_complet" />
                     </group>
                     <group>
                         <field name="nomembre" />
@@ -48,7 +48,7 @@
                 <field name="adminchef" />
                 <field name="adminordpointservice" />
                 <field name="adminpointservice" />
-                <field name="name" />
+                <field name="nom_complet" />
                 <field name="nomembre" />
                 <field name="reseau" />
                 <field name="spip" />

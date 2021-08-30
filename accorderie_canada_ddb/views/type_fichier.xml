@@ -13,7 +13,7 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="typefichier" />
+                        <field name="nom" />
                     </group>
                 </sheet>
             </form>
@@ -27,7 +27,7 @@
             <tree>
                 <field name="datemaj_typefichier" />
                 <field name="name" />
-                <field name="typefichier" />
+                <field name="nom" />
             </tree>
         </field>
     </record>

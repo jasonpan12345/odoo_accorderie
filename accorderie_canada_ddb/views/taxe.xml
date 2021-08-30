@@ -7,7 +7,7 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="name" />
+                        <field name="nom_complet" />
                     </group>
                     <group>
                         <field name="notaxefed" />
@@ -34,7 +34,7 @@
         <field name="model">taxe</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" />
+                <field name="nom_complet" />
                 <field name="notaxefed" />
                 <field name="notaxepro" />
                 <field name="tauxmajoration" />

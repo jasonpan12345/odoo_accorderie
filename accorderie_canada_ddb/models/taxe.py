@@ -6,8 +6,6 @@ class Taxe(models.Model):
     _description = "Model Taxe belonging to Module Tbl"
     _rec_name = "nom_complet"
 
-    name = fields.Char()
-
     nom_complet = fields.Char(
         string="Nom complet",
         compute="_compute_nom_complet",
