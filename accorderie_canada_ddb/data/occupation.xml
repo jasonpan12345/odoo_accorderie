@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="occupation_18886205606120366422431672403765503434" model="occupation">
-            <field name="nooccupation">1</field>
-            <field name="occupation">Choisir</field>
+        <record id="occupation_choisir" model="occupation">
+            <field name="nom">Choisir</field>
         </record>
-        <record id="occupation_18887733125093641438860475931127981514" model="occupation">
-            <field name="nooccupation">2</field>
-            <field name="occupation">&#201;tudiant</field>
+        <record id="occupation_etudiant" model="occupation">
+            <field name="nom">&#201;tudiant</field>
         </record>
-        <record id="occupation_18890964049560973138547540653422683594" model="occupation">
-            <field name="nooccupation">3</field>
-            <field name="occupation">Propri&#233;taire d'une entreprise</field>
+        <record id="occupation_proprietaire_d_une_entreprise" model="occupation">
+            <field name="nom">Propri&#233;taire d'une entreprise</field>
         </record>
-        <record id="occupation_18893756050007975813804337142232524234" model="occupation">
-            <field name="nooccupation">4</field>
-            <field name="occupation">Salari&#233;</field>
+        <record id="occupation_salarie" model="occupation">
+            <field name="nom">Salari&#233;</field>
         </record>
-        <record id="occupation_18895354082045888525493598923710801354" model="occupation">
-            <field name="nooccupation">5</field>
-            <field name="occupation">Sans-emploi</field>
+        <record id="occupation_sans_emploi" model="occupation">
+            <field name="nom">Sans-emploi</field>
         </record>
-        <record id="occupation_18896849909754157836187365033493145034" model="occupation">
-            <field name="nooccupation">6</field>
-            <field name="occupation">Retrait&#233;</field>
+        <record id="occupation_retraite" model="occupation">
+            <field name="nom">Retrait&#233;</field>
         </record>
-        <record id="occupation_18898295823720043160348447210586777034" model="occupation">
-            <field name="nooccupation">7</field>
-            <field name="occupation">Travailleur autonome</field>
+        <record id="occupation_travailleur_autonome" model="occupation">
+            <field name="nom">Travailleur autonome</field>
         </record>
     </data>
 </odoo>

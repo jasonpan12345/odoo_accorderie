@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="situation_maison_18998773771702258335927955583842395594" model="situation.maison">
-            <field name="nosituationmaison">1</field>
-            <field name="situation">Choisir</field>
+        <record id="situation_maison_choisir" model="situation.maison">
+            <field name="nom">Choisir</field>
         </record>
-        <record id="situation_maison_19000287821887905927419368208733316554" model="situation.maison">
-            <field name="nosituationmaison">2</field>
-            <field name="situation">Vivant seul</field>
+        <record id="situation_maison_vivant_seul" model="situation.maison">
+            <field name="nom">Vivant seul</field>
         </record>
-        <record id="situation_maison_19001832771056934082002442315764868554" model="situation.maison">
-            <field name="nosituationmaison">3</field>
-            <field name="situation">Vivant en colocation</field>
+        <record id="situation_maison_vivant_en_colocation" model="situation.maison">
+            <field name="nom">Vivant en colocation</field>
         </record>
-        <record id="situation_maison_19003342859834455960276975263458272714" model="situation.maison">
-            <field name="nosituationmaison">4</field>
-            <field name="situation">Monoparental</field>
+        <record id="situation_maison_monoparental" model="situation.maison">
+            <field name="nom">Monoparental</field>
         </record>
-        <record id="situation_maison_19005337032684939993654204764688229834" model="situation.maison">
-            <field name="nosituationmaison">5</field>
-            <field name="situation">Couple sans enfant</field>
+        <record id="situation_maison_couple_sans_enfant" model="situation.maison">
+            <field name="nom">Couple sans enfant</field>
         </record>
-        <record id="situation_maison_19007423110203940573663042776900576714" model="situation.maison">
-            <field name="nosituationmaison">6</field>
-            <field name="situation">Couple avec enfant(s)</field>
+        <record id="situation_maison_couple_avec_enfant(s)" model="situation.maison">
+            <field name="nom">Couple avec enfant(s)</field>
         </record>
     </data>
 </odoo>

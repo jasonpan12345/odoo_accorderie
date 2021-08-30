@@ -10,10 +10,7 @@
                         <field name="datemaj_titre" />
                     </group>
                     <group>
-                        <field name="name" />
-                    </group>
-                    <group>
-                        <field name="titre" />
+                        <field name="nom" />
                     </group>
                     <group>
                         <field name="visible_titre" />
@@ -29,8 +26,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="datemaj_titre" />
-                <field name="name" />
-                <field name="titre" />
+                <field name="nom" />
                 <field name="visible_titre" />
             </tree>
         </field>

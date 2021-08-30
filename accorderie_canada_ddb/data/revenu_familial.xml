@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="revenu_familial_18980323909497561599632547004127651274" model="revenu.familial">
-            <field name="norevenufamilial">1</field>
-            <field name="revenu">Choisir</field>
+        <record id="revenu_familial_choisir" model="revenu.familial">
+            <field name="nom">Choisir</field>
         </record>
-        <record id="revenu_familial_18982112881407133688375409226526238154" model="revenu.familial">
-            <field name="norevenufamilial">2</field>
-            <field name="revenu">Moins de 10 000$</field>
+        <record id="revenu_familial_moins_de_10_000$" model="revenu.familial">
+            <field name="nom">Moins de 10 000$</field>
         </record>
-        <record id="revenu_familial_18984109431102493149682766534074705354" model="revenu.familial">
-            <field name="norevenufamilial">3</field>
-            <field name="revenu">De 10 001$ &#224; 20 000$</field>
+        <record id="revenu_familial_de_10_001$_a_20_000$" model="revenu.familial">
+            <field name="nom">De 10 001$ &#224; 20 000$</field>
         </record>
-        <record id="revenu_familial_18985645665173644735188705351271720394" model="revenu.familial">
-            <field name="norevenufamilial">4</field>
-            <field name="revenu">De 20 001$ &#224; 30 000$</field>
+        <record id="revenu_familial_de_20_001$_a_30_000$" model="revenu.familial">
+            <field name="nom">De 20 001$ &#224; 30 000$</field>
         </record>
-        <record id="revenu_familial_18987047211368522071320735143753164234" model="revenu.familial">
-            <field name="norevenufamilial">5</field>
-            <field name="revenu">De 30 001$ &#224; 50 000$</field>
+        <record id="revenu_familial_de_30_001$_a_50_000$" model="revenu.familial">
+            <field name="nom">De 30 001$ &#224; 50 000$</field>
         </record>
-        <record id="revenu_familial_18988400428384265706206832874424903114" model="revenu.familial">
-            <field name="norevenufamilial">6</field>
-            <field name="revenu">De 50 001$ et plus</field>
+        <record id="revenu_familial_de_50_001$_et_plus" model="revenu.familial">
+            <field name="nom">De 50 001$ et plus</field>
         </record>
     </data>
 </odoo>

@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="type_communication_19113130116912097195523725050878371274" model="type.communication">
-            <field name="notypecommunication">1</field>
-            <field name="typecommunication">Choisir</field>
+        <record id="type_communication_choisir" model="type.communication">
+            <field name="nom">Choisir</field>
         </record>
-        <record id="type_communication_19115378612164252017424629828188906954" model="type.communication">
-            <field name="notypecommunication">2</field>
-            <field name="typecommunication">Courriel (Email)</field>
+        <record id="type_communication_courriel_(email)" model="type.communication">
+            <field name="nom">Courriel (Email)</field>
         </record>
-        <record id="type_communication_19117601754404402274737504671435335114" model="type.communication">
-            <field name="notypecommunication">3</field>
-            <field name="typecommunication">Courrier traditionnel</field>
+        <record id="type_communication_courrier_traditionnel" model="type.communication">
+            <field name="nom">Courrier traditionnel</field>
         </record>
-        <record id="type_communication_19119793997661171968958718032541132234" model="type.communication">
-            <field name="notypecommunication">4</field>
-            <field name="typecommunication">Courrier porte &#224; porte</field>
+        <record id="type_communication_courrier_porte_a_porte" model="type.communication">
+            <field name="nom">Courrier porte &#224; porte</field>
         </record>
     </data>
 </odoo>
