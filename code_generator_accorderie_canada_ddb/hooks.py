@@ -80,6 +80,7 @@ def post_init_hook(cr, e):
         # TODO manque de . dans le help
         migration.add_update_migration_model(
             "accorderie",
+            new_model_name="accorderie.accorderie",
             new_rec_name="nom",
             new_description=(
                 "Gestion des entitées Accorderie, contient les informations et"
@@ -255,6 +256,7 @@ def post_init_hook(cr, e):
         # TODO create name from selected field
         # migration.add_update_migration_model(
         #     "achat.ponctuel",
+        #     new_model_name="accorderie.achat.ponctuel",
         #     new_rec_name="nom",
         # )
         migration.add_update_migration_field(
@@ -315,6 +317,7 @@ def post_init_hook(cr, e):
         # TODO create name from selected field
         # migration.add_update_migration_model(
         #     "achat.ponctuel.produit",
+        #     new_model_name="accorderie.achat.ponctuel.produit",
         #     new_rec_name="nom",
         # )
         migration.add_update_migration_field(
@@ -358,6 +361,7 @@ def post_init_hook(cr, e):
         # tbl_arrondissement
         migration.add_update_migration_model(
             "arrondissement",
+            new_model_name="accorderie.arrondissement",
             new_rec_name="nom",
         )
         migration.add_update_migration_field(
@@ -383,6 +387,7 @@ def post_init_hook(cr, e):
         # TODO rename cartier pour quartier
         migration.add_update_migration_model(
             "cartier",
+            new_model_name="accorderie.quartier",
             new_rec_name="nom",
         )
         migration.add_update_migration_field(
@@ -408,6 +413,7 @@ def post_init_hook(cr, e):
         # tbl_categorie
         migration.add_update_migration_model(
             "categorie",
+            new_model_name="accorderie.categorie",
             new_rec_name="nom",
         )
         migration.add_update_migration_field(
@@ -443,7 +449,9 @@ def post_init_hook(cr, e):
         # tbl_categorie_sous_categorie
         # TODO
         migration.add_update_migration_model(
-            "categorie.sous.categorie", new_rec_name="description"
+            "categorie.sous.categorie",
+            new_model_name="accorderie.categorie.sous.categorie",
+            new_rec_name="description",
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
@@ -481,7 +489,7 @@ def post_init_hook(cr, e):
 
         # tbl_commande
         # migration.add_update_migration_model(
-        #     "commande", new_rec_name="description"
+        #     "commande", new_rec_name="description", new_model_name="accorderie.commande",
         # )
         migration.add_update_migration_field(
             "commande",
@@ -531,7 +539,7 @@ def post_init_hook(cr, e):
 
         # tbl_commande_membre
         # migration.add_update_migration_model(
-        #     "commande.membre", new_rec_name="description"
+        #     "commande.membre", new_rec_name="description", new_model_name="accorderie.commande.membre",
         # )
         migration.add_update_migration_field(
             "commande.membre",
@@ -599,7 +607,7 @@ def post_init_hook(cr, e):
 
         # tbl_commande_membre_produit
         # migration.add_update_migration_model(
-        #     "commande.membre.produit", new_rec_name="description"
+        #     "commande.membre.produit", new_rec_name="description", new_model_name="accorderie.commande.membre.produit",
         # )
         migration.add_update_migration_field(
             "commande.membre.produit",
@@ -649,7 +657,7 @@ def post_init_hook(cr, e):
 
         # tbl_commentaire
         # migration.add_update_migration_model(
-        #     "commentaire", new_rec_name="description"
+        #     "commentaire", new_rec_name="description", new_model_name="accorderie.commentaire",
         # )
         migration.add_update_migration_field(
             "commentaire",
@@ -747,7 +755,7 @@ def post_init_hook(cr, e):
 
         # tbl_demande_service
         # migration.add_update_migration_model(
-        #     "demande.service", new_rec_name="description"
+        #     "demande.service", new_rec_name="description", new_model_name="accorderie.demande.service",
         # )
         migration.add_update_migration_field(
             "demande.service",
@@ -793,7 +801,7 @@ def post_init_hook(cr, e):
 
         # tbl_dmd_adhesion
         # migration.add_update_migration_model(
-        #     "dmd.adhesion", new_rec_name="description"
+        #     "dmd.adhesion", new_rec_name="description", new_model_name="accorderie.dmd.adhesion",
         # )
         migration.add_update_migration_field(
             "dmd.adhesion",
@@ -843,7 +851,7 @@ def post_init_hook(cr, e):
 
         # tbl_droits_admin
         # migration.add_update_migration_model(
-        #     "droits.admin", new_rec_name="description"
+        #     "droits.admin", new_rec_name="description", new_model_name="accorderie.droits.admin",
         # )
         migration.add_update_migration_field(
             "droits.admin",
@@ -896,7 +904,7 @@ def post_init_hook(cr, e):
         )
 
         # tbl_echange_service
-        # migration.add_update_migration_model("echange.service", new_rec_name="nom")
+        # migration.add_update_migration_model("echange.service", new_rec_name="nom", new_model_name="accorderie.echange.service")
         migration.add_update_migration_field(
             "echange.service",
             "noechangeservice",
@@ -949,7 +957,7 @@ def post_init_hook(cr, e):
 
         # tbl_fichier
         # migration.add_update_migration_model(
-        #     "fichier", new_rec_name="description"
+        #     "fichier", new_rec_name="description", new_model_name="accorderie.fichier",
         # )
         migration.add_update_migration_field(
             "fichier",
@@ -991,7 +999,7 @@ def post_init_hook(cr, e):
 
         # tbl_fournisseur
         # migration.add_update_migration_model(
-        #     "fournisseur", new_rec_name="description"
+        #     "fournisseur", new_rec_name="description", new_model_name="accorderie.fournisseur",
         # )
         migration.add_update_migration_field(
             "fournisseur",
@@ -1061,7 +1069,7 @@ def post_init_hook(cr, e):
 
         # tbl_fournisseur_produit
         # migration.add_update_migration_model(
-        #     "fournisseur.produit", new_rec_name="description"
+        #     "fournisseur.produit", new_rec_name="description", new_model_name="accorderie.fournisseur.produit",
         # )
         migration.add_update_migration_field(
             "fournisseur.produit",
@@ -1100,7 +1108,7 @@ def post_init_hook(cr, e):
 
         # tbl_fournisseur_produit_commande
         # migration.add_update_migration_model(
-        #     "fournisseur.produit.commande", new_rec_name="description"
+        #     "fournisseur.produit.commande", new_rec_name="description", new_model_name="accorderie.fournisseur.produit.commande",
         # )
         migration.add_update_migration_field(
             "fournisseur.produit.commande",
@@ -1139,7 +1147,7 @@ def post_init_hook(cr, e):
 
         # tbl_fournisseur_produit_pointservice
         # migration.add_update_migration_model(
-        #     "fournisseur.produit.pointservice", new_rec_name="description"
+        #     "fournisseur.produit.pointservice", new_rec_name="description", new_model_name="accorderie.fournisseur.produit.pointservice",
         # )
         migration.add_update_migration_field(
             "fournisseur.produit.pointservice",
@@ -1175,7 +1183,11 @@ def post_init_hook(cr, e):
 
         # tbl_membre
         # TODO change rec_name to display_name with compute of nom et prenom
-        migration.add_update_migration_model("membre", new_rec_name="nom")
+        migration.add_update_migration_model(
+            "membre",
+            new_rec_name="nom",
+            new_model_name="accorderie.membre",
+        )
         migration.add_update_migration_field(
             "membre",
             "nomembre",
@@ -1416,7 +1428,7 @@ def post_init_hook(cr, e):
 
         # tbl_occupation
         # migration.add_update_migration_model(
-        #     "occupation", new_rec_name="description"
+        #     "occupation", new_rec_name="description", new_model_name="accorderie.occupation",
         # )
         migration.add_update_migration_field(
             "occupation",
@@ -1430,7 +1442,7 @@ def post_init_hook(cr, e):
 
         # tbl_offre_service_membre
         # migration.add_update_migration_model(
-        #     "offre.service.membre", new_rec_name="description"
+        #     "offre.service.membre", new_rec_name="description", new_model_name="accorderie.offre.service.membre",
         # )
         migration.add_update_migration_field(
             "offre.service.membre",
@@ -1512,7 +1524,7 @@ def post_init_hook(cr, e):
 
         # tbl_origine
         # migration.add_update_migration_model(
-        #     "origine", new_rec_name="description"
+        #     "origine", new_rec_name="description", new_model_name="accorderie.origine",
         # )
         migration.add_update_migration_field(
             "origine",
@@ -1526,7 +1538,9 @@ def post_init_hook(cr, e):
 
         # tbl_point_service
         migration.add_update_migration_model(
-            "pointservice", new_rec_name="nom"
+            "pointservice",
+            new_rec_name="nom",
+            new_model_name="accorderie.pointservice",
         )
         migration.add_update_migration_field(
             "pointservice",
@@ -1595,7 +1609,7 @@ def post_init_hook(cr, e):
 
         # tbl_pointservice_fournisseur
         # migration.add_update_migration_model(
-        #     "pointservice.fournisseur", new_rec_name="description"
+        #     "pointservice.fournisseur", new_rec_name="description", new_model_name="accorderie.pointservice.fournisseur",
         # )
         migration.add_update_migration_field(
             "pointservice.fournisseur",
@@ -1620,7 +1634,7 @@ def post_init_hook(cr, e):
 
         # tbl_produit
         # migration.add_update_migration_model(
-        #     "produit", new_rec_name="description"
+        #     "produit", new_rec_name="description", new_model_name="accorderie.produit",
         # )
         migration.add_update_migration_field(
             "produit",
@@ -1658,7 +1672,7 @@ def post_init_hook(cr, e):
 
         # tbl_provenance
         # migration.add_update_migration_model(
-        #     "provenance", new_rec_name="description"
+        #     "provenance", new_rec_name="description", new_model_name="accorderie.provenance",
         # )
         migration.add_update_migration_field(
             "provenance",
@@ -1671,7 +1685,11 @@ def post_init_hook(cr, e):
         )
 
         # tbl_region
-        migration.add_update_migration_model("region", new_rec_name="nom")
+        migration.add_update_migration_model(
+            "region",
+            new_rec_name="nom",
+            new_model_name="accorderie.region",
+        )
         migration.add_update_migration_field(
             "region",
             "noregion",
@@ -1688,7 +1706,7 @@ def post_init_hook(cr, e):
 
         # tbl_revenu_familial
         # migration.add_update_migration_model(
-        #     "revenu.familial", new_rec_name="description"
+        #     "revenu.familial", new_rec_name="description", new_model_name="accorderie.revenu.familial",
         # )
         migration.add_update_migration_field(
             "revenu.familial",
@@ -1702,7 +1720,7 @@ def post_init_hook(cr, e):
 
         # tbl_situation_maison
         # migration.add_update_migration_model(
-        #     "situation.maison", new_rec_name="description"
+        #     "situation.maison", new_rec_name="description", new_model_name="accorderie.situation.maison",
         # )
         migration.add_update_migration_field(
             "situation.maison",
@@ -1717,7 +1735,9 @@ def post_init_hook(cr, e):
         # tbl_sous_categorie
         # TODO
         migration.add_update_migration_model(
-            "sous.categorie", new_rec_name="titre"
+            "sous.categorie",
+            new_rec_name="titre",
+            new_model_name="accorderie.sous.categorie",
         )
         migration.add_update_migration_field(
             "sous.categorie",
@@ -1745,7 +1765,7 @@ def post_init_hook(cr, e):
 
         # tbl_taxe
         # migration.add_update_migration_model(
-        #     "taxe", new_rec_name="description"
+        #     "taxe", new_rec_name="description", new_model_name="accorderie.taxe",
         # )
         migration.add_update_migration_field(
             "taxe",
@@ -1775,7 +1795,7 @@ def post_init_hook(cr, e):
 
         # tbl_titre
         # migration.add_update_migration_model(
-        #     "titre", new_rec_name="description"
+        #     "titre", new_rec_name="description", new_model_name="accorderie.titre",
         # )
         migration.add_update_migration_field(
             "titre",
@@ -1797,7 +1817,7 @@ def post_init_hook(cr, e):
 
         # tbl_type_communication
         # migration.add_update_migration_model(
-        #     "type.communication", new_rec_name="description"
+        #     "type.communication", new_rec_name="description", new_model_name="accorderie.type.communication",
         # )
         migration.add_update_migration_field(
             "type.communication",
@@ -1811,7 +1831,7 @@ def post_init_hook(cr, e):
 
         # tbl_type_compte
         # migration.add_update_migration_model(
-        #     "type.compte", new_rec_name="description"
+        #     "type.compte", new_rec_name="description", new_model_name="accorderie.type.compte",
         # )
         migration.add_update_migration_field(
             "type.compte",
@@ -1849,7 +1869,7 @@ def post_init_hook(cr, e):
 
         # tbl_type_fichier
         # migration.add_update_migration_model(
-        #     "type.fichier", new_rec_name="description"
+        #     "type.fichier", new_rec_name="description", new_model_name="accorderie.type.fichier",
         # )
         migration.add_update_migration_field(
             "type.fichier",
@@ -1867,7 +1887,7 @@ def post_init_hook(cr, e):
 
         # tbl_type_tel
         # migration.add_update_migration_model(
-        #     "type.tel", new_rec_name="description"
+        #     "type.tel", new_rec_name="description", new_model_name="accorderie.type.tel",
         # )
         migration.add_update_migration_field(
             "type.tel",
@@ -1883,7 +1903,11 @@ def post_init_hook(cr, e):
         # removed
 
         # tbl_ville
-        migration.add_update_migration_model("ville", new_rec_name="nom")
+        migration.add_update_migration_model(
+            "ville",
+            new_rec_name="nom",
+            new_model_name="accorderie.ville",
+        )
         migration.add_update_migration_field(
             "ville",
             "noville",
