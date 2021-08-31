@@ -2057,9 +2057,13 @@ def post_init_hook(cr, e):
                 if db_table_id.name in lst_nomenclator:
                     db_table_id.nomenclator = True
 
-        code_generator_id = code_generator_db_tables.generate_module(
+        lst_code_generator_id = code_generator_db_tables.generate_module(
             code_generator_id=code_generator_id
         )
+
+        if len(lst_code_generator_id) != 1:
+            _logger.error("Suppose to create only 1 module.")
+            return
 
         # Add new field
         ## Get model
@@ -2073,156 +2077,179 @@ def post_init_hook(cr, e):
         )
 
         ## Create field
-        # TODO add variable to create field without export data
-        value_field = {
-            "name": "nom_complet",
-            "field_description": "Nom complet",
-            "ttype": "char",
-            "code_generator_compute": "_compute_nom_complet",
-            "model_id": model_membre_id.id,
-        }
-        env["ir.model.fields"].create(value_field)
+        if model_membre_id:
+            # TODO add variable to create field without export data
+            value_field = {
+                "name": "nom_complet",
+                "field_description": "Nom complet",
+                "ttype": "char",
+                "code_generator_compute": "_compute_nom_complet",
+                "model_id": model_membre_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
 
-        value_field = {
-            "name": "nom_complet",
-            "field_description": "Nom complet",
-            "ttype": "char",
-            "code_generator_compute": "_compute_nom_complet",
-            "model_id": model_categorie_sous_categorie_id.id,
-        }
-        env["ir.model.fields"].create(value_field)
+        if model_categorie_sous_categorie_id:
+            value_field = {
+                "name": "nom_complet",
+                "field_description": "Nom complet",
+                "ttype": "char",
+                "code_generator_compute": "_compute_nom_complet",
+                "model_id": model_categorie_sous_categorie_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
 
-        value_field = {
-            "name": "nom_complet",
-            "field_description": "Nom complet",
-            "ttype": "char",
-            "code_generator_compute": "_compute_nom_complet",
-            "model_id": model_taxe_id.id,
-        }
-        env["ir.model.fields"].create(value_field)
+        if model_taxe_id:
+            value_field = {
+                "name": "nom_complet",
+                "field_description": "Nom complet",
+                "ttype": "char",
+                "code_generator_compute": "_compute_nom_complet",
+                "model_id": model_taxe_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
 
-        value_field = {
-            "name": "nom_complet",
-            "field_description": "Nom complet",
-            "ttype": "char",
-            "code_generator_compute": "_compute_nom_complet",
-            "model_id": model_type_compte_id.id,
-        }
-        env["ir.model.fields"].create(value_field)
+        if model_type_compte_id:
+            value_field = {
+                "name": "nom_complet",
+                "field_description": "Nom complet",
+                "ttype": "char",
+                "code_generator_compute": "_compute_nom_complet",
+                "model_id": model_type_compte_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
 
         # Set new rec name
-        model_membre_id.rec_name = "nom_complet"
-        model_categorie_sous_categorie_id.rec_name = "nom_complet"
-        model_taxe_id.rec_name = "nom_complet"
-        model_type_compte_id.rec_name = "nom_complet"
+        if model_membre_id:
+            model_membre_id.rec_name = "nom_complet"
+        if model_categorie_sous_categorie_id:
+            model_categorie_sous_categorie_id.rec_name = "nom_complet"
+        if model_taxe_id:
+            model_taxe_id.rec_name = "nom_complet"
+        if model_type_compte_id:
+            model_type_compte_id.rec_name = "nom_complet"
 
         # Remove name field
-        # TODO validate it was name
-        for field_id in model_membre_id.field_id:
-            if field_id.name == "name":
-                field_id.unlink()
-                continue
+        if model_membre_id:
+            # TODO validate it was name
+            for field_id in model_membre_id.field_id:
+                if field_id.name == "name":
+                    field_id.unlink()
+                    continue
 
-        for field_id in model_categorie_sous_categorie_id.field_id:
-            if field_id.name == "name":
-                field_id.unlink()
-                continue
+        if model_categorie_sous_categorie_id:
+            for field_id in model_categorie_sous_categorie_id.field_id:
+                if field_id.name == "name":
+                    field_id.unlink()
+                    continue
 
-        for field_id in model_taxe_id.field_id:
-            if field_id.name == "name":
-                field_id.unlink()
-                continue
+        if model_taxe_id:
+            for field_id in model_taxe_id.field_id:
+                if field_id.name == "name":
+                    field_id.unlink()
+                    continue
 
-        for field_id in model_type_compte_id.field_id:
-            if field_id.name == "name":
-                field_id.unlink()
-                continue
+        if model_type_compte_id:
+            for field_id in model_type_compte_id.field_id:
+                if field_id.name == "name":
+                    field_id.unlink()
+                    continue
 
         # Add code
-        lst_value = [
-            {
-                "code": """for rec in self:
-    if self.nom and self.prenom:
-        rec.nom_complet = f"{self.prenom} {self.nom}"
-    elif self.nom:
-        rec.nom_complet = f"{self.nom}"
-    elif self.prenom:
-        rec.nom_complet = f"{self.prenom}"
-    else:
-        rec.nom_complet = False
-    """,
-                "name": "_compute_nom_complet",
-                "decorator": '@api.depends("nom", "prenom")',
-                "param": "self",
-                "sequence": 1,
-                "m2o_module": code_generator_id.id,
-                "m2o_model": model_membre_id.id,
-            },
-            {
-                "code": """for rec in self:
-    value = ""
-    if self.nosouscategorie:
-        value += self.nosouscategorie
-    if self.nocategorie:
-        value += str(self.nocategorie)
-    if (self.nosouscategorie or self.nocategorie) and self.description:
-        value += " - "
-    if self.description:
-        value += self.description
-    rec.nom_complet = value
-    """,
-                "name": "_compute_nom_complet",
-                "decorator": (
-                    '@api.depends("description", "nosouscategorie",'
-                    ' "nocategorie")'
-                ),
-                "param": "self",
-                "sequence": 1,
-                "m2o_module": code_generator_id.id,
-                "m2o_model": model_categorie_sous_categorie_id.id,
-            },
-            {
-                "code": """for rec in self:
-    value = ""
-    if self.tauxtaxepro:
-        value += str(self.tauxtaxepro)
-    if self.tauxtaxepro and self.tauxtaxefed:
-        value += " - "
-    if self.tauxtaxefed:
-        value += str(self.tauxtaxefed)
-    rec.nom_complet = value
-    """,
-                "name": "_compute_nom_complet",
-                "decorator": '@api.depends("tauxtaxepro", "tauxtaxefed")',
-                "param": "self",
-                "sequence": 1,
-                "m2o_module": code_generator_id.id,
-                "m2o_model": model_taxe_id.id,
-            },
-            {
-                "code": """for rec in self:
-    value = ""
-    value += str(self.accodeursimple)
-    value += str(self.admin)
-    value += str(self.adminchef)
-    value += str(self.reseau)
-    value += str(self.spip)
-    value += str(self.adminpointservice)
-    value += str(self.adminordpointservice)
-    rec.nom_complet = value
-    """,
-                "name": "_compute_nom_complet",
-                "decorator": (
-                    '@api.depends("accodeursimple", "admin", "adminchef",'
-                    ' "reseau", "spip", "adminpointservice",'
-                    ' "adminordpointservice")'
-                ),
-                "param": "self",
-                "sequence": 1,
-                "m2o_module": code_generator_id.id,
-                "m2o_model": model_type_compte_id.id,
-            },
-        ]
+        lst_value = []
+        if model_membre_id:
+            lst_value.append(
+                {
+                    "code": """for rec in self:
+                if self.nom and self.prenom:
+                    rec.nom_complet = f"{self.prenom} {self.nom}"
+                elif self.nom:
+                    rec.nom_complet = f"{self.nom}"
+                elif self.prenom:
+                    rec.nom_complet = f"{self.prenom}"
+                else:
+                    rec.nom_complet = False
+                """,
+                    "name": "_compute_nom_complet",
+                    "decorator": '@api.depends("nom", "prenom")',
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_membre_id.id,
+                }
+            )
+        if model_categorie_sous_categorie_id:
+            lst_value.append(
+                {
+                    "code": """for rec in self:
+               value = ""
+               if self.nosouscategorie:
+                   value += self.nosouscategorie
+               if self.nocategorie:
+                   value += str(self.nocategorie)
+               if (self.nosouscategorie or self.nocategorie) and self.description:
+                   value += " - "
+               if self.description:
+                   value += self.description
+               rec.nom_complet = value
+               """,
+                    "name": "_compute_nom_complet",
+                    "decorator": (
+                        '@api.depends("description", "nosouscategorie",'
+                        ' "nocategorie")'
+                    ),
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_categorie_sous_categorie_id.id,
+                }
+            )
+        if model_taxe_id:
+            lst_value.append(
+                {
+                    "code": """for rec in self:
+                value = ""
+                if self.tauxtaxepro:
+                    value += str(self.tauxtaxepro)
+                if self.tauxtaxepro and self.tauxtaxefed:
+                    value += " - "
+                if self.tauxtaxefed:
+                    value += str(self.tauxtaxefed)
+                rec.nom_complet = value
+                """,
+                    "name": "_compute_nom_complet",
+                    "decorator": '@api.depends("tauxtaxepro", "tauxtaxefed")',
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_taxe_id.id,
+                }
+            )
+        if model_type_compte_id:
+            lst_value.append(
+                {
+                    "code": """for rec in self:
+               value = ""
+               value += str(self.accodeursimple)
+               value += str(self.admin)
+               value += str(self.adminchef)
+               value += str(self.reseau)
+               value += str(self.spip)
+               value += str(self.adminpointservice)
+               value += str(self.adminordpointservice)
+               rec.nom_complet = value
+               """,
+                    "name": "_compute_nom_complet",
+                    "decorator": (
+                        '@api.depends("accodeursimple", "admin", "adminchef",'
+                        ' "reseau", "spip", "adminpointservice",'
+                        ' "adminordpointservice")'
+                    ),
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_type_compte_id.id,
+                }
+            )
         env["code.generator.model.code"].create(lst_value)
 
         # Generate view
