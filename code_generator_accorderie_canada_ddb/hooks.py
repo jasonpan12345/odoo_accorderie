@@ -1437,7 +1437,9 @@ def post_init_hook(cr, e):
 
         # tbl_occupation
         migration.add_update_migration_model(
-            "occupation", new_rec_name="nom", new_model_name="accorderie.occupation",
+            "occupation",
+            new_rec_name="nom",
+            new_model_name="accorderie.occupation",
         )
         migration.add_update_migration_field(
             "occupation",
@@ -1534,7 +1536,9 @@ def post_init_hook(cr, e):
 
         # tbl_origine
         migration.add_update_migration_model(
-            "origine", new_rec_name="nom", new_model_name="accorderie.origine",
+            "origine",
+            new_rec_name="nom",
+            new_model_name="accorderie.origine",
         )
         migration.add_update_migration_field(
             "origine",
@@ -1683,7 +1687,9 @@ def post_init_hook(cr, e):
 
         # tbl_provenance
         migration.add_update_migration_model(
-            "provenance", new_rec_name="nom", new_model_name="accorderie.provenance",
+            "provenance",
+            new_rec_name="nom",
+            new_model_name="accorderie.provenance",
         )
         migration.add_update_migration_field(
             "provenance",
@@ -1717,8 +1723,11 @@ def post_init_hook(cr, e):
         )
 
         # tbl_revenu_familial
+        # TODO bug field name est encore là
         migration.add_update_migration_model(
-            "revenu.familial", new_rec_name="nom", new_model_name="accorderie.revenu.familial",
+            "revenu.familial",
+            new_rec_name="nom",
+            new_model_name="accorderie.revenu.familial",
         )
         migration.add_update_migration_field(
             "revenu.familial",
@@ -1733,7 +1742,9 @@ def post_init_hook(cr, e):
 
         # tbl_situation_maison
         migration.add_update_migration_model(
-            "situation.maison", new_rec_name="nom", new_model_name="accorderie.situation.maison",
+            "situation.maison",
+            new_rec_name="nom",
+            new_model_name="accorderie.situation.maison",
         )
         migration.add_update_migration_field(
             "situation.maison",
@@ -1779,7 +1790,8 @@ def post_init_hook(cr, e):
 
         # tbl_taxe
         migration.add_update_migration_model(
-            "taxe", new_model_name="accorderie.taxe"
+            "taxe",
+            new_model_name="accorderie.taxe"
             # "taxe", new_model_name="accorderie.taxe", new_rec_name="nom_complet"
         )
         migration.add_update_migration_field(
@@ -1819,7 +1831,9 @@ def post_init_hook(cr, e):
 
         # tbl_titre
         migration.add_update_migration_model(
-            "titre", new_rec_name="nom", new_model_name="accorderie.titre",
+            "titre",
+            new_rec_name="nom",
+            new_model_name="accorderie.titre",
         )
         migration.add_update_migration_field(
             "titre",
@@ -1842,7 +1856,9 @@ def post_init_hook(cr, e):
 
         # tbl_type_communication
         migration.add_update_migration_model(
-            "type.communication", new_rec_name="nom", new_model_name="accorderie.type.communication",
+            "type.communication",
+            new_rec_name="nom",
+            new_model_name="accorderie.type.communication",
         )
         migration.add_update_migration_field(
             "type.communication",
@@ -1857,7 +1873,8 @@ def post_init_hook(cr, e):
 
         # tbl_type_compte
         migration.add_update_migration_model(
-            "type.compte", new_model_name="accorderie.type.compte",
+            "type.compte",
+            new_model_name="accorderie.type.compte",
         )
         migration.add_update_migration_field(
             "type.compte",
@@ -1895,7 +1912,9 @@ def post_init_hook(cr, e):
 
         # tbl_type_fichier
         migration.add_update_migration_model(
-            "type.fichier", new_rec_name="nom", new_model_name="accorderie.type.fichier",
+            "type.fichier",
+            new_rec_name="nom",
+            new_model_name="accorderie.type.fichier",
         )
         migration.add_update_migration_field(
             "type.fichier",
@@ -1914,7 +1933,9 @@ def post_init_hook(cr, e):
 
         # tbl_type_tel
         migration.add_update_migration_model(
-            "type.tel", new_rec_name="nom", new_model_name="accorderie.type.tel",
+            "type.tel",
+            new_rec_name="nom",
+            new_model_name="accorderie.type.tel",
         )
         migration.add_update_migration_field(
             "type.tel",
@@ -2046,9 +2067,7 @@ def post_init_hook(cr, e):
         model_categorie_sous_categorie_id = env["ir.model"].search(
             [("model", "=", "categorie.sous.categorie")]
         )
-        model_taxe_id = env["ir.model"].search(
-            [("model", "=", "taxe")]
-        )
+        model_taxe_id = env["ir.model"].search([("model", "=", "taxe")])
         model_type_compte_id = env["ir.model"].search(
             [("model", "=", "type.compte")]
         )
@@ -2174,9 +2193,7 @@ def post_init_hook(cr, e):
     rec.nom_complet = value
     """,
                 "name": "_compute_nom_complet",
-                "decorator": (
-                    '@api.depends("tauxtaxepro", "tauxtaxefed")'
-                ),
+                "decorator": '@api.depends("tauxtaxepro", "tauxtaxefed")',
                 "param": "self",
                 "sequence": 1,
                 "m2o_module": code_generator_id.id,
@@ -2196,7 +2213,9 @@ def post_init_hook(cr, e):
     """,
                 "name": "_compute_nom_complet",
                 "decorator": (
-                    '@api.depends("tauxtaxepro", "tauxtaxefed")'
+                    '@api.depends("accodeursimple", "admin", "adminchef",'
+                    ' "reseau", "spip", "adminpointservice",'
+                    ' "adminordpointservice")'
                 ),
                 "param": "self",
                 "sequence": 1,
@@ -2329,11 +2348,13 @@ class MigrationDB:
 
             if not field_name:
                 # Create new field
-                column_id = self.env["code.generator.db.column"].create({
-                    "name": "",
-                    "is_new_field": True,
-                    "m2o_table": table_id.id,
-                })
+                column_id = self.env["code.generator.db.column"].create(
+                    {
+                        "name": "",
+                        "is_new_field": True,
+                        "m2o_table": table_id.id,
+                    }
+                )
 
             if len(column_id) > 1:
                 _logger.error(

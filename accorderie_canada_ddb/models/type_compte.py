@@ -28,7 +28,15 @@ class TypeCompte(models.Model):
 
     spip = fields.Integer()
 
-    @api.depends("tauxtaxepro", "tauxtaxefed")
+    @api.depends(
+        "accodeursimple",
+        "admin",
+        "adminchef",
+        "reseau",
+        "spip",
+        "adminpointservice",
+        "adminordpointservice",
+    )
     def _compute_nom_complet(self):
         for rec in self:
             value = ""
