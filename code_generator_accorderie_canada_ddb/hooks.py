@@ -76,8 +76,6 @@ def post_init_hook(cr, e):
         # Modification of field before migration
 
         # tbl_accorderie
-        # TODO update _description
-        # TODO manque de . dans le help
         migration.add_update_migration_model(
             "accorderie",
             new_model_name="accorderie.accorderie",
@@ -115,7 +113,7 @@ def post_init_hook(cr, e):
             "noarrondissement",
             new_field_name="arrondissement",
             new_description="Arrondissement",
-            new_help="Nom de l'Arrondissement qui contient l'Accorderie",
+            new_help="Nom de l'Arrondissement qui contient l'Accorderie.",
         )
         migration.add_update_migration_field(
             "accorderie",
@@ -156,20 +154,21 @@ def post_init_hook(cr, e):
             "telaccorderie",
             new_field_name="telephone",
             new_description="Téléphone",
-            new_help="Numéro de téléphone pour joindre l'Accorderie",
+            new_help="Numéro de téléphone pour joindre l'Accorderie.",
         )
         migration.add_update_migration_field(
             "accorderie",
             "telecopieuraccorderie",
             new_field_name="telecopieur",
             new_description="Télécopieur",
-            new_help="Numéro de télécopieur pour joindre l'Accorderie",
+            new_help="Numéro de télécopieur pour joindre l'Accorderie.",
         )
         migration.add_update_migration_field(
             "accorderie",
             "courrielaccorderie",
             new_field_name="courriel",
-            new_description="Adresse courriel pour joindre l'Accorderie",
+            new_description="Adresse courriel",
+            new_help="Adresse courriel pour joindre l'Accorderie.",
         )
         migration.add_update_migration_field(
             "accorderie",
@@ -221,7 +220,7 @@ def post_init_hook(cr, e):
             new_type="boolean",
             new_help=(
                 "Permet de rendre accessible les achats pour les"
-                " administrateurs"
+                " administrateurs."
             ),
         )
         migration.add_update_migration_field(
@@ -230,7 +229,7 @@ def post_init_hook(cr, e):
             new_field_name="grp_achat_membre",
             new_description="Groupe d'achats membre",
             new_type="boolean",
-            new_help="Rend accessible les achats pour les Accordeurs",
+            new_help="Rend accessible les achats pour les Accordeurs.",
         )
         migration.add_update_migration_field(
             "accorderie",
@@ -241,7 +240,7 @@ def post_init_hook(cr, e):
             new_description="Archivé",
             new_help=(
                 "Lorsque archivé, cette accorderie n'est plus en fonction,"
-                " mais demeure accessible"
+                " mais demeure accessible."
             ),
         )
         migration.add_update_migration_field(
@@ -253,115 +252,143 @@ def post_init_hook(cr, e):
         )
 
         # tbl_achat_ponctuel
-        # TODO create name from selected field
-        migration.add_update_migration_model(
-            "achat.ponctuel",
-            new_model_name="accorderie.achat.ponctuel",
-            # new_rec_name="nom",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "noachatponctuel",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "nomembre",
-            new_field_name="membre",
-            new_description="Membre",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "dateachatponctuel",
-            new_field_name="date_achat",
-            new_description="Date d'achat",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "montantpaiementachatponct",
-            new_field_name="paiement_effectue",
-            new_description="Paiement effectué",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "achatponcfacturer",
-            new_field_name="est_facture",
-            new_description="Facturé",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "majoration_achatponct",
-            new_field_name="majoration",
-            new_description="Majoration",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "taxef_achatponct",
-            new_field_name="taxe_federal",
-            new_description="Taxe fédéral",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "taxep_achatponct",
-            new_field_name="taxe_provincial",
-            new_description="Taxe provincial",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel",
-            "datemaj_achantponct",
-            new_field_name="date_mise_a_jour",
-            new_description="Dernière mise à jour",
-        )
+        # Deleted
+        # # TODO create name from selected field, new_rec_name
+        # migration.add_update_migration_model(
+        #     "achat.ponctuel",
+        #     new_model_name="accorderie.achat.ponctuel",
+        #     new_description="Gestion des achats ponctuels"
+        #     # new_rec_name="nom",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "noachatponctuel",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "nomembre",
+        #     new_field_name="membre",
+        #     new_description="Membre",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "dateachatponctuel",
+        #     new_field_name="date_achat",
+        #     new_description="Date d'achat",
+        #     new_help="Date de l'achat ponctuel"
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "montantpaiementachatponct",
+        #     new_field_name="paiement_effectue",
+        #     new_description="Paiement effectué",
+        #     new_help="Montant du paiement"
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "achatponcfacturer",
+        #     new_field_name="est_facture",
+        #     new_description="Facturé",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "majoration_achatponct",
+        #     new_field_name="majoration",
+        #     new_description="Majoration",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "taxef_achatponct",
+        #     new_field_name="taxe_federal",
+        #     new_description="Taxes fédérales",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "taxep_achatponct",
+        #     new_field_name="taxe_provincial",
+        #     new_description="Taxes provinciales",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel",
+        #     "datemaj_achantponct",
+        #     new_field_name="date_mise_a_jour",
+        #     new_description="Dernière mise à jour",
+        #     new_help="Date de la dernière mise à jour",
+        # )
 
         # tbl_achat_ponctuel_produit
-        # TODO create name from selected field
-        migration.add_update_migration_model(
-            "achat.ponctuel.produit",
-            new_model_name="accorderie.achat.ponctuel.produit",
-            # new_rec_name="nom",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "noachatponctuelproduit",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "noachatponctuel",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "nofournisseurproduit",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "qteacheter",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "coutunit_achatponctprod",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "sitaxablef_achatponctprod",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "sitaxablep_achatponctprod",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "prixfacturer_achatponctprod",
-        )
-        migration.add_update_migration_field(
-            "achat.ponctuel.produit",
-            "datemaj_achatponcproduit",
-        )
+        # Deleted
+        # # TODO create name from selected field, new_rec_name
+        # migration.add_update_migration_model(
+        #     "achat.ponctuel.produit",
+        #     new_model_name="accorderie.achat.ponctuel.produit",
+        #     new_description="Liaisons des achats ponctuels aux produits des fournisseurs."
+        #     # new_rec_name="nom",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "noachatponctuelproduit",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "noachatponctuel",
+        #     new_field_name="achat_ponctuel",
+        #     new_description="Achat ponctuel",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "nofournisseurproduit",
+        #     new_field_name="fournisseur_produit",
+        #     new_description="Fournisseur du produit",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "qteacheter",
+        #     new_field_name="quantite_acheter",
+        #     new_description="Quantité achetée"
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "coutunit_achatponctprod",
+        #     new_field_name="cout_unitaire",
+        #     new_description="Coût unitaire",
+        #     new_help="Le coût unitaire de l'achat ponctuel"
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "sitaxablef_achatponctprod",
+        #     new_field_name="taxable_federal",
+        #     new_description="Appliquer taxes fédérales",
+        #     new_help="Cocher si application des taxes fédérales."
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "sitaxablep_achatponctprod",
+        #     new_field_name="taxale_provincial",
+        #     new_description="Appliquer taxes provinciales",
+        #     new_help="Cocher si application des taxes provinciales."
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "prixfacturer_achatponctprod",
+        #     new_field_name="prix_facturer",
+        #     new_description="Prix facturé",
+        # )
+        # migration.add_update_migration_field(
+        #     "achat.ponctuel.produit",
+        #     "datemaj_achatponcproduit",
+        #     new_field_name="date_mise_a_jour",
+        #     new_description="Dernière mise à jour",
+        #     new_help="Date de la dernière mise à jour",
+        # )
 
         # tbl_arrondissement
         migration.add_update_migration_model(
             "arrondissement",
             new_model_name="accorderie.arrondissement",
+            new_description="Ensemble des arrondissement des Accorderies",
             new_rec_name="nom",
         )
         migration.add_update_migration_field(
@@ -384,7 +411,6 @@ def post_init_hook(cr, e):
         )
 
         # tbl_cartier
-        # TODO rename cartier pour quartier
         migration.add_update_migration_model(
             "cartier",
             new_model_name="accorderie.quartier",
@@ -413,7 +439,8 @@ def post_init_hook(cr, e):
         # tbl_categorie
         migration.add_update_migration_model(
             "categorie",
-            new_model_name="accorderie.categorie",
+            new_model_name="accorderie.categorie.service",
+            new_description="Les catégories de services des Accorderies",
             new_rec_name="nom",
         )
         migration.add_update_migration_field(
@@ -425,8 +452,8 @@ def post_init_hook(cr, e):
             "categorie",
             "titrecategorie",
             new_field_name="nom",
-            new_description="Nom de la catégorie",
-            new_help="Le nom de la catégorie",
+            new_description="Nom",
+            new_help="Le nom de la catégorie des services",
             compute_data_function="""nom.replace("&#8217;", "'").strip()""",
         )
         migration.add_update_migration_field(
@@ -450,36 +477,51 @@ def post_init_hook(cr, e):
         # TODO
         migration.add_update_migration_model(
             "categorie.sous.categorie",
-            new_model_name="accorderie.categorie.sous.categorie",
-            new_rec_name="description",
+            new_model_name="accorderie.sous.sous.categorie.service",
+            new_rec_name="titre_offre_service",
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "nosouscategorieid",
+            new_field_name="sous_categorie_id",
+            new_description="Sous catégorie de services",
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "nocategoriesouscategorie",
+            delete=True,
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "nosouscategorie",
+            delete=True,
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "nocategorie",
+            delete=True,
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "titreoffre",
+            new_field_name="titre_offre_service",
+            new_description="Titre de l'offre de services",
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "supprimer",
+            new_field_name="archive",
+            new_description="Archivé",
+            new_type="boolean",
+            new_help="Permet d'archiver cette sous-sous-catégorie.",
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "approuver",
+            new_field_name="approuve",
+            new_description="Approuvé",
+            new_type="boolean",
+            new_help="Permet d'approuver cette sous-sous-catégorie.",
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
@@ -489,187 +531,193 @@ def post_init_hook(cr, e):
         migration.add_update_migration_field(
             "categorie.sous.categorie",
             "nooffre",
+            new_field_name="no_offre",
+            new_description="Numéro de l'offre"
+            # TODO mettre invisible
+            # TODO mettre numéro_complet
         )
 
         # tbl_commande
-        migration.add_update_migration_model(
-            "commande",
-            # new_rec_name="description",
-            new_model_name="accorderie.commande",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "nocommande",
-            new_required=False,
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "nopointservice",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "norefcommande",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "datecmddebut",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "datecmdfin",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "datecueillette",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "taxepcommande",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "taxefcommande",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "majoration",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "commandetermine",
-        )
-        migration.add_update_migration_field(
-            "commande",
-            "datemaj_cmd",
-        )
+        # Effacé
+        # migration.add_update_migration_model(
+        #     "commande",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.commande",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "nocommande",
+        #     new_required=False,
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "nopointservice",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "norefcommande",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "datecmddebut",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "datecmdfin",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "datecueillette",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "taxepcommande",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "taxefcommande",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "majoration",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "commandetermine",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande",
+        #     "datemaj_cmd",
+        # )
 
         # tbl_commande_membre
-        migration.add_update_migration_model(
-            "commande.membre",
-            # new_rec_name="description",
-            new_model_name="accorderie.commande.membre",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "nocommandemembre",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "nocommande",
-            new_required=False,
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "nomembre",
-            new_required=False,
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "numrefmembre",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "cmdconfirmer",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "facturer",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "montantpaiement",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "coutunitaireajour",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "datecmdmb",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "datefacture",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "archivesoustotal",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "archivetotmajoration",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "archivetottxfed",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "archivetottxprov",
-        )
-        migration.add_update_migration_field(
-            "commande.membre",
-            "datemaj_cmdmembre",
-        )
+        # migration.add_update_migration_model(
+        #     "commande.membre",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.commande.membre",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "nocommandemembre",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "nocommande",
+        #     new_required=False,
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "nomembre",
+        #     new_required=False,
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "numrefmembre",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "cmdconfirmer",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "facturer",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "montantpaiement",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "coutunitaireajour",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "datecmdmb",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "datefacture",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "archivesoustotal",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "archivetotmajoration",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "archivetottxfed",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "archivetottxprov",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre",
+        #     "datemaj_cmdmembre",
+        # )
 
         # tbl_commande_membre_produit
-        migration.add_update_migration_model(
-            "commande.membre.produit",
-            # new_rec_name="description",
-            new_model_name="accorderie.commande.membre.produit",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "nocmdmbproduit",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "nocommandemembre",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "nofournisseurproduitcommande",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "qte",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "qtedeplus",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "ajustement",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "coutunitaire_facture",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "sitaxablep_facture",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "sitaxablef_facture",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "prixfacturer_manuel",
-        )
-        migration.add_update_migration_field(
-            "commande.membre.produit",
-            "datemaj_cmdmembreprod",
-        )
+        # migration.add_update_migration_model(
+        #     "commande.membre.produit",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.commande.membre.produit",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "nocmdmbproduit",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "nocommandemembre",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "nofournisseurproduitcommande",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "qte",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "qtedeplus",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "ajustement",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "coutunitaire_facture",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "sitaxablep_facture",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "sitaxablef_facture",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "prixfacturer_manuel",
+        # )
+        # migration.add_update_migration_field(
+        #     "commande.membre.produit",
+        #     "datemaj_cmdmembreprod",
+        # )
 
         # tbl_commentaire
         migration.add_update_migration_model(
             "commentaire",
             # new_rec_name="description",
             new_model_name="accorderie.commentaire",
+            new_description="Les commentaires des membres envers d'autres membres sur des services et demandes"
         )
         migration.add_update_migration_field(
             "commentaire",
@@ -679,30 +727,51 @@ def post_init_hook(cr, e):
         migration.add_update_migration_field(
             "commentaire",
             "nopointservice",
+            new_field_name="point_service",
+            new_description="Point de services",
         )
         migration.add_update_migration_field(
             "commentaire",
             "nomembresource",
+            new_field_name="membre_source",
+            new_description="Membre source",
+            new_help="Membre duquel provient le commentaire",
         )
         migration.add_update_migration_field(
             "commentaire",
             "nomembreviser",
+            new_field_name="membre_viser",
+            new_description="Membre visé",
+            new_help="Membre visé par le commentaire",
         )
         migration.add_update_migration_field(
             "commentaire",
             "nooffreservicemembre",
+            new_field_name="offre_service_id",
+            new_description="Offre de services",
+            new_help="L'offre de services qui est visée par ce commentaire."
         )
         migration.add_update_migration_field(
             "commentaire",
             "nodemandeservice",
+            new_field_name="demande_service_id",
+            new_description="Demande de services",
+            new_help="La demande de services qui est visée par ce commentaire."
         )
         migration.add_update_migration_field(
             "commentaire",
             "dateheureajout",
+            new_field_name="datetime_creation",
+            new_description="Date et heure de création",
         )
         migration.add_update_migration_field(
             "commentaire",
             "situation_impliquant",
+            # TODO support type selection
+            # 1. UnE ou des AccordeurEs
+            # 2. Un comité
+            # 3. UnE employéE
+            # 4. Autre
         )
         migration.add_update_migration_field(
             "commentaire",
@@ -1022,190 +1091,190 @@ def post_init_hook(cr, e):
         )
 
         # tbl_fournisseur
-        migration.add_update_migration_model(
-            "fournisseur",
-            # new_rec_name="description",
-            new_model_name="accorderie.fournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "nofournisseur",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "noaccorderie",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "noregion",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "noville",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "nomfournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "adresse",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "codepostalfournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "telfournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "faxfounisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "courrielfournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "nomcontact",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "postecontact",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "courrielcontact",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "notefournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "visible_fournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur",
-            "datemaj_fournisseur",
-        )
+        # migration.add_update_migration_model(
+        #     "fournisseur",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.fournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "nofournisseur",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "noaccorderie",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "noregion",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "noville",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "nomfournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "adresse",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "codepostalfournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "telfournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "faxfounisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "courrielfournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "nomcontact",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "postecontact",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "courrielcontact",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "notefournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "visible_fournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur",
+        #     "datemaj_fournisseur",
+        # )
 
         # tbl_fournisseur_produit
-        migration.add_update_migration_model(
-            "fournisseur.produit",
-            # new_rec_name="description",
-            new_model_name="accorderie.fournisseur.produit",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "nofournisseurproduit",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "nofournisseur",
-            new_required=False,
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "noproduit",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "codeproduit",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "zqtestokeacc",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "zcoutunitaire",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "visible_fournisseurproduit",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit",
-            "datemaj_fournproduit",
-        )
+        # migration.add_update_migration_model(
+        #     "fournisseur.produit",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.fournisseur.produit",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "nofournisseurproduit",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "nofournisseur",
+        #     new_required=False,
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "noproduit",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "codeproduit",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "zqtestokeacc",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "zcoutunitaire",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "visible_fournisseurproduit",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit",
+        #     "datemaj_fournproduit",
+        # )
 
         # tbl_fournisseur_produit_commande
-        migration.add_update_migration_model(
-            "fournisseur.produit.commande",
-            # new_rec_name="description",
-            new_model_name="accorderie.fournisseur.produit.commande",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "nofournisseurproduitcommande",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "nocommande",
-            new_required=False,
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "nofournisseurproduit",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "nbboiteminfournisseur",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "qteparboiteprevu",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "coutunitprevu",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "disponible",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.commande",
-            "datemaj_fournprodcommande",
-        )
+        # migration.add_update_migration_model(
+        #     "fournisseur.produit.commande",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.fournisseur.produit.commande",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "nofournisseurproduitcommande",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "nocommande",
+        #     new_required=False,
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "nofournisseurproduit",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "nbboiteminfournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "qteparboiteprevu",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "coutunitprevu",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "disponible",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.commande",
+        #     "datemaj_fournprodcommande",
+        # )
 
         # tbl_fournisseur_produit_pointservice
-        migration.add_update_migration_model(
-            "fournisseur.produit.pointservice",
-            # new_rec_name="description",
-            new_model_name="accorderie.fournisseur.produit.pointservice",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.pointservice",
-            "nofournisseurproduitpointservice",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.pointservice",
-            "nofournisseurproduit",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.pointservice",
-            "nopointservice",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.pointservice",
-            "qtestokeacc",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.pointservice",
-            "coutunitaire",
-        )
-        migration.add_update_migration_field(
-            "fournisseur.produit.pointservice",
-            "datemaj_fournprodptserv",
-        )
+        # migration.add_update_migration_model(
+        #     "fournisseur.produit.pointservice",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.fournisseur.produit.pointservice",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.pointservice",
+        #     "nofournisseurproduitpointservice",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.pointservice",
+        #     "nofournisseurproduit",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.pointservice",
+        #     "nopointservice",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.pointservice",
+        #     "qtestokeacc",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.pointservice",
+        #     "coutunitaire",
+        # )
+        # migration.add_update_migration_field(
+        #     "fournisseur.produit.pointservice",
+        #     "datemaj_fournprodptserv",
+        # )
 
         # tbl_info_logiciel_bd
         # removed
@@ -1656,71 +1725,71 @@ def post_init_hook(cr, e):
         # )
 
         # tbl_pointservice_fournisseur
-        migration.add_update_migration_model(
-            "pointservice.fournisseur",
-            # new_rec_name="description",
-            new_model_name="accorderie.pointservice.fournisseur",
-        )
-        migration.add_update_migration_field(
-            "pointservice.fournisseur",
-            "nopointservicefournisseur",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "pointservice.fournisseur",
-            "nopointservice",
-        )
-        migration.add_update_migration_field(
-            "pointservice.fournisseur",
-            "nofournisseur",
-        )
-        migration.add_update_migration_field(
-            "pointservice.fournisseur",
-            "datemaj_pointservicefournisseur",
-        )
+        # migration.add_update_migration_model(
+        #     "pointservice.fournisseur",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.pointservice.fournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice.fournisseur",
+        #     "nopointservicefournisseur",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice.fournisseur",
+        #     "nopointservice",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice.fournisseur",
+        #     "nofournisseur",
+        # )
+        # migration.add_update_migration_field(
+        #     "pointservice.fournisseur",
+        #     "datemaj_pointservicefournisseur",
+        # )
 
         # tbl_pret
         # removed
 
         # tbl_produit
-        migration.add_update_migration_model(
-            "produit",
-            # new_rec_name="description",
-            new_model_name="accorderie.produit",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "noproduit",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "notitre",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "noaccorderie",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "nomproduit",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "taxablef",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "taxablep",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "visible_produit",
-        )
-        migration.add_update_migration_field(
-            "produit",
-            "datemaj_produit",
-        )
+        # migration.add_update_migration_model(
+        #     "produit",
+        #     # new_rec_name="description",
+        #     new_model_name="accorderie.produit",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "noproduit",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "notitre",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "noaccorderie",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "nomproduit",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "taxablef",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "taxablep",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "visible_produit",
+        # )
+        # migration.add_update_migration_field(
+        #     "produit",
+        #     "datemaj_produit",
+        # )
 
         # tbl_provenance
         migration.add_update_migration_model(
@@ -1795,24 +1864,28 @@ def post_init_hook(cr, e):
         )
 
         # tbl_sous_categorie
-        # TODO
         migration.add_update_migration_model(
             "sous.categorie",
             new_rec_name="titre",
-            new_model_name="accorderie.sous.categorie",
+            new_description="Titre de la sous-catégorie de services",
+            new_model_name="accorderie.sous.categorie.service",
         )
         migration.add_update_migration_field(
             "sous.categorie",
             "nosouscategorieid",
-            # delete=True,
+            delete=True,
         )
         migration.add_update_migration_field(
             "sous.categorie",
             "nosouscategorie",
+            new_field_name="sous_categorie_service",
+            new_description="Sous catégorie de services"
         )
         migration.add_update_migration_field(
             "sous.categorie",
             "nocategorie",
+            new_field_name="categorie",
+            new_description="Catégorie",
         )
         migration.add_update_migration_field(
             "sous.categorie",
@@ -1824,43 +1897,55 @@ def post_init_hook(cr, e):
         migration.add_update_migration_field(
             "sous.categorie",
             "supprimer",
+            new_type="boolean",
+            new_field_name="archive",
+            new_description="Archivé",
+            new_help=(
+                "Lorsque archivé, cette sous-catégorie n'est plus en fonction,"
+                " mais demeure accessible."
+            ),
         )
         migration.add_update_migration_field(
             "sous.categorie",
             "approuver",
+            new_field_name="approuver",
+            new_description="Approuvé",
+            new_type="boolean",
+            new_help="Permet d'approuver cette sous-catégorie.",
         )
 
         # tbl_taxe
-        migration.add_update_migration_model(
-            "taxe",
-            new_model_name="accorderie.taxe"
-            # "taxe", new_model_name="accorderie.taxe", new_rec_name="nom_complet"
-        )
-        migration.add_update_migration_field(
-            "taxe",
-            "notaxe",
-            delete=True,
-        )
-        migration.add_update_migration_field(
-            "taxe",
-            "tauxtaxepro",
-        )
-        migration.add_update_migration_field(
-            "taxe",
-            "notaxepro",
-        )
-        migration.add_update_migration_field(
-            "taxe",
-            "tauxtaxefed",
-        )
-        migration.add_update_migration_field(
-            "taxe",
-            "notaxefed",
-        )
-        migration.add_update_migration_field(
-            "taxe",
-            "tauxmajoration",
-        )
+        # TODO
+        # migration.add_update_migration_model(
+        #     "taxe",
+        #     new_model_name="accorderie.taxe"
+        #     # "taxe", new_model_name="accorderie.taxe", new_rec_name="nom_complet"
+        # )
+        # migration.add_update_migration_field(
+        #     "taxe",
+        #     "notaxe",
+        #     delete=True,
+        # )
+        # migration.add_update_migration_field(
+        #     "taxe",
+        #     "tauxtaxepro",
+        # )
+        # migration.add_update_migration_field(
+        #     "taxe",
+        #     "notaxepro",
+        # )
+        # migration.add_update_migration_field(
+        #     "taxe",
+        #     "tauxtaxefed",
+        # )
+        # migration.add_update_migration_field(
+        #     "taxe",
+        #     "notaxefed",
+        # )
+        # migration.add_update_migration_field(
+        #     "taxe",
+        #     "tauxmajoration",
+        # )
         # migration.add_update_migration_field(
         #     "taxe",
         #     "",
@@ -2028,9 +2113,23 @@ def post_init_hook(cr, e):
             "tbl_mensualite",
             "tbl_pret",
             "tbl_versement",
+            "tbl_commande",
+            "tbl_achat_ponctuel",
+            "tbl_achat_ponctuel_produit",
+            "tbl_commande_membre",
+            "tbl_commande_membre_produit",
+            "tbl_commande_membre_produit",
+            "tbl_fournisseur",
+            "tbl_fournisseur_produit",
+            "tbl_fournisseur_produit_commande",
+            "tbl_fournisseur_produit_pointservice",
+            "tbl_pointservice_fournisseur",
+            "tbl_produit",
+            "tbl_taxe",
             "Vue_Membre_Qc",
             "Vue_Membre_TR",
         )
+        # TODO move this in model edit
         for table_to_delete in lst_table_to_delete:
             table_id = env["code.generator.db.table"].search(
                 [("name", "=", table_to_delete)]
@@ -2113,6 +2212,7 @@ def post_init_hook(cr, e):
 
         # Add new field
         ## Get model
+        # TODO search new model name from table name
         model_membre_id = env["ir.model"].search([("model", "=", "membre")])
         model_categorie_sous_categorie_id = env["ir.model"].search(
             [("model", "=", "categorie.sous.categorie")]
