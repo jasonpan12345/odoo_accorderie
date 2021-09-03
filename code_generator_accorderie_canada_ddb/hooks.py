@@ -455,6 +455,10 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "categorie.sous.categorie",
+            "nosouscategorieid",
+        )
+        migration.add_update_migration_field(
+            "categorie.sous.categorie",
             "nocategoriesouscategorie",
         )
         migration.add_update_migration_field(
@@ -1799,6 +1803,11 @@ def post_init_hook(cr, e):
         )
         migration.add_update_migration_field(
             "sous.categorie",
+            "nosouscategorieid",
+            # delete=True,
+        )
+        migration.add_update_migration_field(
+            "sous.categorie",
             "nosouscategorie",
         )
         migration.add_update_migration_field(
@@ -2037,8 +2046,8 @@ def post_init_hook(cr, e):
 
         code_generator_db_tables = (
             env["code.generator.db.table"]
-            .search([])
-            .filtered(lambda x: x.name not in lst_table_to_delete)
+            # .search([("name", "in", ("tbl_membre", "tbl_pointservice"))])
+            .search([]).filtered(lambda x: x.name not in lst_table_to_delete)
         )
 
         lst_nomenclator = (
