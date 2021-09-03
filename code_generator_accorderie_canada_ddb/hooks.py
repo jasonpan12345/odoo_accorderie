@@ -717,7 +717,10 @@ def post_init_hook(cr, e):
             "commentaire",
             # new_rec_name="description",
             new_model_name="accorderie.commentaire",
-            new_description="Les commentaires des membres envers d'autres membres sur des services et demandes"
+            new_description=(
+                "Les commentaires des membres envers d'autres membres sur des"
+                " services et demandes"
+            ),
         )
         migration.add_update_migration_field(
             "commentaire",
@@ -749,14 +752,16 @@ def post_init_hook(cr, e):
             "nooffreservicemembre",
             new_field_name="offre_service_id",
             new_description="Offre de services",
-            new_help="L'offre de services qui est visée par ce commentaire."
+            new_help="L'offre de services qui est visée par ce commentaire.",
         )
         migration.add_update_migration_field(
             "commentaire",
             "nodemandeservice",
             new_field_name="demande_service_id",
             new_description="Demande de services",
-            new_help="La demande de services qui est visée par ce commentaire."
+            new_help=(
+                "La demande de services qui est visée par ce commentaire."
+            ),
         )
         migration.add_update_migration_field(
             "commentaire",
@@ -1879,7 +1884,7 @@ def post_init_hook(cr, e):
             "sous.categorie",
             "nosouscategorie",
             new_field_name="sous_categorie_service",
-            new_description="Sous catégorie de services"
+            new_description="Sous catégorie de services",
         )
         migration.add_update_migration_field(
             "sous.categorie",
