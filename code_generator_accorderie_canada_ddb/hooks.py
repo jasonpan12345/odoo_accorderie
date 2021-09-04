@@ -363,40 +363,41 @@ def post_init_hook(cr, e):
         )
 
         # tbl_categorie_sous_categorie
-        # TODO
         db_table.update_table(
             "tbl_categorie_sous_categorie",
-            new_model_name="accorderie.sous.sous.categorie.service",
-            new_rec_name="titre_offre_service",
+            new_model_name="accorderie.type.service",
+            new_rec_name="nom",
+            new_description="Type de services des Accorderies",
             nomenclator=True,
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "nosouscategorieid",
             new_field_name="sous_categorie_id",
-            new_description="Sous catégorie de services",
+            new_description="Sous-catégorie",
+            new_help="Sous-catégorie de services",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "nocategoriesouscategorie",
             delete=True,
         )
-        # TODO use delete and update _compte_nom_complet with many2one on this field
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "nosouscategorie",
-            # delete=True,
+            delete=True,
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "nocategorie",
-            # delete=True,
+            delete=True,
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "titreoffre",
-            new_field_name="titre_offre_service",
-            new_description="Titre de l'offre de services",
+            new_field_name="nom",
+            new_description="Nom",
+            new_help="Nom du type de services",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
@@ -404,7 +405,7 @@ def post_init_hook(cr, e):
             new_field_name="archive",
             new_description="Archivé",
             new_type="boolean",
-            new_help="Permet d'archiver cette sous-sous-catégorie.",
+            new_help="Permet d'archiver ce type de services.",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
@@ -412,18 +413,20 @@ def post_init_hook(cr, e):
             new_field_name="approuve",
             new_description="Approuvé",
             new_type="boolean",
-            new_help="Permet d'approuver cette sous-sous-catégorie.",
+            new_help="Permet d'approuver ce type de services.",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "description",
+            new_help="Description du type de services",
             compute_data_function="""description.replace("&#8217;", "'").strip()""",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "nooffre",
-            new_field_name="no_offre",
-            new_description="Numéro de l'offre"
+            new_field_name="numero",
+            new_description="Numéro",
+            new_help="Numéro du type de services"
             # TODO mettre invisible
             # TODO mettre numéro_complet
         )
@@ -511,6 +514,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_commentaire",
             "situation_impliquant",
+            new_help="Choisir un type de groupe visé par ce commentaire.",
             # TODO support type selection
             # 1. UnE ou des AccordeurEs
             # 2. Un comité
@@ -520,62 +524,107 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_commentaire",
             "nomemployer",
+            delete=True,
         )
         db_column.update_column(
             "tbl_commentaire",
             "nomcomite",
+            new_field_name="nom_comite",
+            new_description="Nom du comité",
         )
         db_column.update_column(
             "tbl_commentaire",
             "autresituation",
+            new_field_name="autre_situation",
+            new_description="Autre situation",
         )
         db_column.update_column(
             "tbl_commentaire",
             "satisfactioninsatisfaction",
+            new_field_name="degre_satisfaction",
+            new_description="Degré de satisfaction",
+            # TODO mettre selection, 1 = Grande satisfaction 2 = Insatisfaction
         )
         db_column.update_column(
             "tbl_commentaire",
             "dateincident",
+            new_field_name="date_incident",
+            new_description="Date de l'indicent",
         )
         db_column.update_column(
             "tbl_commentaire",
             "typeoffre",
+            new_field_name="type_offre",
+            new_description="Type de l'offre",
+            # TODO support selection
+            # 0 aucun
+            # 1 Offre ordinaire
+            # 2 Offre spéciale
+            # 3 Demande
+            # 4 Ponctuel - non
         )
         db_column.update_column(
             "tbl_commentaire",
             "resumersituation",
+            new_field_name="resumer_situation",
+            new_description="Résumé de la situation",
         )
         db_column.update_column(
             "tbl_commentaire",
             "demarche",
+            new_description="Démarche",
+            new_help="Démarche entreprise avant de faire le commentaire"
         )
         db_column.update_column(
             "tbl_commentaire",
             "solutionpourregler",
+            new_field_name="solution_pour_regler",
+            new_description="Solution pour régler la situation",
+            new_help="Indiquer quels seraient la meilleur solution, selon vous, pour régler la situation."
         )
         db_column.update_column(
             "tbl_commentaire",
             "autrecommentaire",
+            new_field_name="autre_commentaire",
+            new_description="Autres commentaires"
         )
         db_column.update_column(
             "tbl_commentaire",
             "siconfidentiel",
+            new_field_name="confidentiel",
+            new_description="Confidentialité",
+            # TODO selection
+            # 1 autorise - 	J'autorise L'Accorderie à divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation.
+            # 0 non autorisé - Je demande à L'Accorderie de ne pas divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation.
         )
         db_column.update_column(
             "tbl_commentaire",
             "noteadministrative",
+            new_field_name="note_administrative",
+            new_description="Note administrative",
+            new_help="Suivi du commentaire, visible par le Réseau et les administrateurs-chefs seulement.",
+            # TODO write only by reseau + admin
         )
         db_column.update_column(
             "tbl_commentaire",
             "consulteraccorderie",
+            new_field_name="consulter_accorderie",
+            new_description="Consulté par une Accorderie",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_commentaire",
             "consulterreseau",
+            new_field_name="consulter_reseau",
+            new_description="Consulté par le Réseau",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_commentaire",
             "datemaj_commentaire",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
 
         # tbl_demande_service
@@ -898,7 +947,7 @@ def post_init_hook(cr, e):
             "noaccorderie",
             new_field_name="accorderie",
             new_description="Accorderie",
-            new_help="Accorderie associé",
+            new_help="Accorderie associée",
             # add_one2many=True,
         )
         db_column.update_column(
@@ -1155,8 +1204,8 @@ def post_init_hook(cr, e):
         # tbl_offre_service_membre
         db_table.update_table(
             "tbl_offre_service_membre",
-            # new_rec_name="description",
-            new_model_name="accorderie.offre.service.membre",
+            new_rec_name="description",
+            new_model_name="accorderie.offre.service",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
@@ -1166,26 +1215,41 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_offre_service_membre",
             "nomembre",
+            new_field_name="membre",
+            new_description="Membre",
+            new_help="Membre qui offre le service",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "noaccorderie",
+            new_field_name="accorderie",
+            new_description="Accorderie",
+            new_help="Accorderie associée",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "nocategoriesouscategorie",
+            new_field_name="type_service_id",
+            new_description="Type de services",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "titreoffrespecial",
+            new_field_name="nom_offre_special",
+            new_description="Nom de l'offre spéciale",
+            new_help="Nom ou brève description de l'offre spéciale"
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "conditionx",
+            new_field_name="condition_autre",
+            new_description="Condition autres",
+            new_help="Autres conditions à informer"
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "disponibilite",
+            new_description="Disponibilité",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
@@ -1198,42 +1262,73 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_offre_service_membre",
             "dateaffichage",
+            new_field_name="date_affichage",
+            new_description="Date d'affichage",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "datedebut",
+            new_field_name="date_debut",
+            new_description="Date de début",
+            new_help="Date à partir de laquelle l'offre est valide.",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "datefin",
+            new_field_name="date_fin",
+            new_description="Date de fin",
+            new_help="Date jusqu'à laquelle l'offre est valide.",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "approuve",
+            new_field_name="approuve",
+            new_description="Approuvé",
+            new_type="boolean",
+            new_help="Permet d'approuver ce type de services.",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "offrespecial",
+            new_field_name="offre_special",
+            new_description="Offre spéciale",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "supprimer",
+            new_field_name="archive",
+            new_description="Archivé",
+            new_type="boolean",
+            new_help="Permet d'archiver cette offre de services.",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "fait",
+            new_field_name="accompli",
+            new_description="Accomplie",
+            new_help="Cette offre de service est réalisée.",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "conditionoffre",
+            new_field_name="condition",
+            new_description="Conditions",
+            new_help="Conditions inhérentes à l'offre",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "nbfoisconsulteroffremembre",
+            new_field_name="nb_consultation",
+            new_description="Nombre de consultations",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "datemaj_servicemembre",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
 
         # tbl_origine
@@ -1426,8 +1521,8 @@ def post_init_hook(cr, e):
         # tbl_sous_categorie
         db_table.update_table(
             "tbl_sous_categorie",
-            new_rec_name="titre",
-            new_description="Titre de la sous-catégorie de services",
+            new_rec_name="nom",
+            new_description="Sous-catégorie de services",
             new_model_name="accorderie.sous.categorie.service",
             nomenclator=True,
         )
@@ -1440,7 +1535,7 @@ def post_init_hook(cr, e):
             "tbl_sous_categorie",
             "nosouscategorie",
             new_field_name="sous_categorie_service",
-            new_description="Sous catégorie de services",
+            new_description="Sous-catégorie",
         )
         db_column.update_column(
             "tbl_sous_categorie",
@@ -1451,9 +1546,9 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_sous_categorie",
             "titresouscategorie",
-            new_field_name="titre",
-            new_description="Titre",
-            compute_data_function="""titre.replace("&#8217;", "'").strip()""",
+            new_field_name="nom",
+            new_description="Nom",
+            compute_data_function="""nom.replace("&#8217;", "'").strip()""",
         )
         db_column.update_column(
             "tbl_sous_categorie",
@@ -1783,45 +1878,86 @@ def post_init_hook(cr, e):
                 }
             )
 
-        if model_categorie_sous_categorie_id:
-            value_field = {
-                "name": "nom_complet",
-                "field_description": "Nom complet",
-                "ttype": "char",
-                "code_generator_compute": "_compute_nom_complet",
-                "model_id": model_categorie_sous_categorie_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            model_categorie_sous_categorie_id.rec_name = "nom_complet"
-            for field_id in model_categorie_sous_categorie_id.field_id:
-                if field_id.name == "name":
-                    field_id.unlink()
-                    continue
-            lst_value_code.append(
-                {
-                    "code": """for rec in self:
-                           value = ""
-                           if self.nosouscategorie:
-                               value += self.nosouscategorie
-                           if self.nocategorie:
-                               value += str(self.nocategorie)
-                           if (self.nosouscategorie or self.nocategorie) and self.description:
-                               value += " - "
-                           if self.description:
-                               value += self.description
-                           rec.nom_complet = value
-                           """,
-                    "name": "_compute_nom_complet",
-                    "decorator": (
-                        '@api.depends("description", "nosouscategorie",'
-                        ' "nocategorie")'
-                    ),
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_categorie_sous_categorie_id.id,
-                }
-            )
+        # if model_categorie_sous_categorie_id:
+        #     # Create the identity
+        #     value_field = {
+        #         "name": "identifiant",
+        #         "field_description": "Identifiant",
+        #         "ttype": "char",
+        #         "code_generator_compute": "_compute_identifiant",
+        #         "model_id": model_categorie_sous_categorie_id.id,
+        #     }
+        #     env["ir.model.fields"].create(value_field)
+        #     # Change rec_name
+        #     model_categorie_sous_categorie_id.rec_name = "identifiant"
+        #     for field_id in model_categorie_sous_categorie_id.field_id:
+        #         if field_id.name == "name":
+        #             field_id.unlink()
+        #             continue
+        #     # Add code
+        #     lst_value_code.append(
+        #         {
+        #             "code": """for rec in self:
+        #                    value = ""
+        #                    if self.nosouscategorieid:
+        #                        pass
+        #                    if self.nosouscategorie:
+        #                        value += self.nosouscategorie
+        #                    if self.nocategorie:
+        #                        value += str(self.nocategorie)
+        #                    if (self.nosouscategorie or self.nocategorie) and self.description:
+        #                        value += " - "
+        #                    if self.description:
+        #                        value += self.description
+        #                    rec.identifiant = value
+        #                    """,
+        #             "name": "_compute_nom_complet",
+        #             "decorator": (
+        #                 '@api.depends("description", "nosouscategorie",'
+        #                 ' "nocategorie")'
+        #             ),
+        #             "param": "self",
+        #             "sequence": 1,
+        #             "m2o_module": code_generator_id.id,
+        #             "m2o_model": model_categorie_sous_categorie_id.id,
+        #         }
+        #     )
+        #
+        #     value_field = {
+        #         "name": "nom_complet",
+        #         "field_description": "Nom complet",
+        #         "ttype": "char",
+        #         "code_generator_compute": "_compute_nom_complet",
+        #         "model_id": model_categorie_sous_categorie_id.id,
+        #     }
+        #     env["ir.model.fields"].create(value_field)
+        #     lst_value_code.append(
+        #         {
+        #             "code": """for rec in self:
+        #                    value = ""
+        #                    if self.nosouscategorieid:
+        #                        -
+        #                    if self.nosouscategorie:
+        #                        value += self.nosouscategorie
+        #                    if self.nocategorie:
+        #                        value += str(self.nocategorie)
+        #                    if (self.nosouscategorie or self.nocategorie) and self.description:
+        #                        value += " - "
+        #                    if self.description:
+        #                        value += self.description
+        #                    rec.nom_complet = value
+        #                    """,
+        #             "name": "_compute_nom_complet",
+        #             "decorator": (
+        #                 '@api.depends("description", "nosouscategorie",'
+        #                 ' "nocategorie")'
+        #             ),
+        #             "param": "self",
+        #             "sequence": 1,
+        #             "m2o_module": code_generator_id.id,
+        #             "m2o_model": model_categorie_sous_categorie_id.id,
+        #         }
+        #     )
 
         if model_taxe_id:
             value_field = {
