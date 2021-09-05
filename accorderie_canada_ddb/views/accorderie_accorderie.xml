@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_accorderie_view_form" model="ir.ui.view">
+        <field name="name">accorderie_accorderie_form</field>
+        <field name="model">accorderie.accorderie</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="adresse" />
+                    </group>
+                    <group>
+                        <field name="archive" />
+                    </group>
+                    <group>
+                        <field name="arrondissement" />
+                    </group>
+                    <group>
+                        <field name="code_postal" />
+                    </group>
+                    <group>
+                        <field name="courriel" />
+                    </group>
+                    <group>
+                        <field name="date_mise_a_jour" />
+                    </group>
+                    <group>
+                        <field name="grp_achat_administrateur" />
+                    </group>
+                    <group>
+                        <field name="grp_achat_membre" />
+                    </group>
+                    <group>
+                        <field name="logo" />
+                    </group>
+                    <group>
+                        <field name="message_accueil" />
+                    </group>
+                    <group>
+                        <field name="message_grp_achat" />
+                    </group>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="region" />
+                    </group>
+                    <group>
+                        <field name="telecopieur" />
+                    </group>
+                    <group>
+                        <field name="telephone" />
+                    </group>
+                    <group>
+                        <field name="url_public" />
+                    </group>
+                    <group>
+                        <field name="url_transactionnel" />
+                    </group>
+                    <group>
+                        <field name="ville" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_accorderie_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_accorderie_tree</field>
+        <field name="model">accorderie.accorderie</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="adresse" />
+                <field name="archive" />
+                <field name="arrondissement" />
+                <field name="code_postal" />
+                <field name="courriel" />
+                <field name="date_mise_a_jour" />
+                <field name="grp_achat_administrateur" />
+                <field name="grp_achat_membre" />
+                <field name="logo" />
+                <field name="message_accueil" />
+                <field name="message_grp_achat" />
+                <field name="nom" />
+                <field name="region" />
+                <field name="telecopieur" />
+                <field name="telephone" />
+                <field name="url_public" />
+                <field name="url_transactionnel" />
+                <field name="ville" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_accorderie_accorderie_accorderie_action_window"
+        name="Accorderie Accorderie"
+        res_model="accorderie.accorderie"
+        view_mode="list,form"
+    />
+</odoo>

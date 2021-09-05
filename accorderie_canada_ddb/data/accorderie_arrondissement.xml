@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_arrondissement_desjardins" model="accorderie.arrondissement">
+            <field name="nom">Desjardins</field>
+            <field name="ville" ref="accorderie_ville_l&#233;vis" />
+        </record>
+        <record id="accorderie_arrondissement_les_chutes_de_la_chaudi&#232;re_est" model="accorderie.arrondissement">
+            <field name="nom">Les Chutes-de-la-Chaudi&#232;re-Est</field>
+            <field name="ville" ref="accorderie_ville_l&#233;vis" />
+        </record>
+        <record id="accorderie_arrondissement_les_chutes_de_la_chaudi&#232;re_ouest" model="accorderie.arrondissement">
+            <field name="nom">Les Chutes-de-la-Chaudi&#232;re-Ouest</field>
+            <field name="ville" ref="accorderie_ville_l&#233;vis" />
+        </record>
+        <record id="accorderie_arrondissement_brompton" model="accorderie.arrondissement">
+            <field name="nom">Brompton</field>
+            <field name="ville" ref="accorderie_ville_sherbrooke" />
+        </record>
+        <record id="accorderie_arrondissement_fleurimont" model="accorderie.arrondissement">
+            <field name="nom">Fleurimont</field>
+            <field name="ville" ref="accorderie_ville_sherbrooke" />
+        </record>
+        <record id="accorderie_arrondissement_lennoxville" model="accorderie.arrondissement">
+            <field name="nom">Lennoxville</field>
+            <field name="ville" ref="accorderie_ville_sherbrooke" />
+        </record>
+        <record id="accorderie_arrondissement_mont_bellevue" model="accorderie.arrondissement">
+            <field name="nom">Mont-Bellevue</field>
+            <field name="ville" ref="accorderie_ville_sherbrooke" />
+        </record>
+        <record id="accorderie_arrondissement_rock_forest_saint_&#233;lie_deauville" model="accorderie.arrondissement">
+            <field name="nom">Rock Forest--Saint-&#201;lie--Deauville</field>
+            <field name="ville" ref="accorderie_ville_sherbrooke" />
+        </record>
+        <record id="accorderie_arrondissement_jacques_cartier" model="accorderie.arrondissement">
+            <field name="nom">Jacques-Cartier</field>
+            <field name="ville" ref="accorderie_ville_sherbrooke" />
+        </record>
+        <record id="accorderie_arrondissement_macnider" model="accorderie.arrondissement">
+            <field name="nom">MacNider</field>
+            <field name="ville" ref="accorderie_ville_m&#233;tis_sur_mer" />
+        </record>
+        <record id="accorderie_arrondissement_newport" model="accorderie.arrondissement">
+            <field name="nom">Newport</field>
+            <field name="ville" ref="accorderie_ville_newport" />
+        </record>
+        <record id="accorderie_arrondissement_calumet" model="accorderie.arrondissement">
+            <field name="nom">Calumet</field>
+            <field name="ville" ref="accorderie_ville_grenville_sur_la_rouge" />
+        </record>
+        <record id="accorderie_arrondissement_grenville" model="accorderie.arrondissement">
+            <field name="nom">Grenville</field>
+            <field name="ville" ref="accorderie_ville_grenville_sur_la_rouge" />
+        </record>
+        <record id="accorderie_arrondissement_grosse_&#238;le" model="accorderie.arrondissement">
+            <field name="nom">Grosse-&#206;le</field>
+            <field name="ville" ref="accorderie_ville_les_&#238;les_de_la_madeleine" />
+        </record>
+        <record id="accorderie_arrondissement_le_vieux_longueuil" model="accorderie.arrondissement">
+            <field name="nom">Le Vieux-Longueuil</field>
+            <field name="ville" ref="accorderie_ville_longueuil" />
+        </record>
+        <record id="accorderie_arrondissement_greenfield_park" model="accorderie.arrondissement">
+            <field name="nom">Greenfield Park</field>
+            <field name="ville" ref="accorderie_ville_longueuil" />
+        </record>
+        <record id="accorderie_arrondissement_saint_hubert" model="accorderie.arrondissement">
+            <field name="nom">Saint-Hubert</field>
+            <field name="ville" ref="accorderie_ville_longueuil" />
+        </record>
+        <record id="accorderie_arrondissement_dorval_l_&#238;le_dorval" model="accorderie.arrondissement">
+            <field name="nom">Dorval--L'&#206;le-Dorval</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_mont_royal" model="accorderie.arrondissement">
+            <field name="nom">Mont-Royal</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_kirkland" model="accorderie.arrondissement">
+            <field name="nom">Kirkland</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_westmount" model="accorderie.arrondissement">
+            <field name="nom">Westmount</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_outremont" model="accorderie.arrondissement">
+            <field name="nom">Outremont</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record
+            id="accorderie_arrondissement_l_&#238;le_bizard_sainte_genevi&#232;ve_sainte_anne_de_bel"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve--Sainte-Anne-de-Bel</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_beaconsfield_baie_d_urf&#233;" model="accorderie.arrondissement">
+            <field name="nom">Beaconsfield--Baie-D'Urf&#233;</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_pointe_claire" model="accorderie.arrondissement">
+            <field name="nom">Pointe-Claire</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_anjou" model="accorderie.arrondissement">
+            <field name="nom">Anjou</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record
+            id="accorderie_arrondissement_c&#244;te_saint_luc_hampstead_montr&#233;al_ouest"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">C&#244;te-Saint-Luc--Hampstead--Montr&#233;al-Ouest</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_dollard_des_ormeaux_roxboro" model="accorderie.arrondissement">
+            <field name="nom">Dollard-Des Ormeaux--Roxboro</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_verdun" model="accorderie.arrondissement">
+            <field name="nom">Verdun</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_pierrefonds_senneville" model="accorderie.arrondissement">
+            <field name="nom">Pierrefonds-Senneville</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_saint_l&#233;onard" model="accorderie.arrondissement">
+            <field name="nom">Saint-L&#233;onard</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_saint_laurent" model="accorderie.arrondissement">
+            <field name="nom">Saint-Laurent</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_montr&#233;al_nord" model="accorderie.arrondissement">
+            <field name="nom">Montr&#233;al-Nord</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_lasalle" model="accorderie.arrondissement">
+            <field name="nom">LaSalle</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_ville_marie" model="accorderie.arrondissement">
+            <field name="nom">Ville-Marie</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_le_sud_ouest" model="accorderie.arrondissement">
+            <field name="nom">Le Sud-Ouest</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_le_plateau_mont_royal" model="accorderie.arrondissement">
+            <field name="nom">Le Plateau-Mont-Royal</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_mercier_hochelaga_maisonneuve" model="accorderie.arrondissement">
+            <field name="nom">Mercier--Hochelaga-Maisonneuve</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_ahuntsic_cartierville" model="accorderie.arrondissement">
+            <field name="nom">Ahuntsic-Cartierville</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_rosemont_la_petite_patrie" model="accorderie.arrondissement">
+            <field name="nom">Rosemont--La Petite-Patrie</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_villeray_saint_michel_parc_extension" model="accorderie.arrondissement">
+            <field name="nom">Villeray--Saint-Michel--Parc-Extension</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record
+            id="accorderie_arrondissement_c&#244;te_des_neiges_notre_dame_de_gr&#226;ce"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_lachine" model="accorderie.arrondissement">
+            <field name="nom">Lachine</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_pierrefonds_roxboro" model="accorderie.arrondissement">
+            <field name="nom">Pierrefonds-Roxboro</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record
+            id="accorderie_arrondissement_l_&#238;le_bizard_sainte_genevi&#232;ve"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record
+            id="accorderie_arrondissement_rivi&#232;re_des_prairies_pointe_aux_trembles"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">Rivi&#232;re-des-Prairies--Pointe-aux-Trembles</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record
+            id="accorderie_arrondissement_c&#244;te_des_neiges_notre_dame_de_gr&#226;ce"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>
+            <field name="ville" ref="accorderie_ville_montr&#233;al" />
+        </record>
+        <record id="accorderie_arrondissement_beauport" model="accorderie.arrondissement">
+            <field name="nom">Beauport</field>
+            <field name="ville" ref="accorderie_ville_qu&#233;bec" />
+        </record>
+        <record id="accorderie_arrondissement_charlesbourg" model="accorderie.arrondissement">
+            <field name="nom">Charlesbourg</field>
+            <field name="ville" ref="accorderie_ville_qu&#233;bec" />
+        </record>
+        <record id="accorderie_arrondissement_la_cit&#233;_limoilou" model="accorderie.arrondissement">
+            <field name="nom">La Cit&#233;-Limoilou</field>
+            <field name="ville" ref="accorderie_ville_qu&#233;bec" />
+        </record>
+        <record id="accorderie_arrondissement_la_haute_saint_charles" model="accorderie.arrondissement">
+            <field name="nom">La Haute-Saint-Charles</field>
+            <field name="ville" ref="accorderie_ville_qu&#233;bec" />
+        </record>
+        <record id="accorderie_arrondissement_les_rivi&#232;res" model="accorderie.arrondissement">
+            <field name="nom">Les Rivi&#232;res</field>
+            <field name="ville" ref="accorderie_ville_qu&#233;bec" />
+        </record>
+        <record id="accorderie_arrondissement_ste_foy_sillery_cap_rouge" model="accorderie.arrondissement">
+            <field name="nom">Ste-Foy-Sillery-Cap-Rouge</field>
+            <field name="ville" ref="accorderie_ville_qu&#233;bec" />
+        </record>
+        <record id="accorderie_arrondissement_chicoutimi" model="accorderie.arrondissement">
+            <field name="nom">Chicoutimi</field>
+            <field name="ville" ref="accorderie_ville_saguenay" />
+        </record>
+        <record id="accorderie_arrondissement_jonqui&#232;re" model="accorderie.arrondissement">
+            <field name="nom">Jonqui&#232;re</field>
+            <field name="ville" ref="accorderie_ville_saguenay" />
+        </record>
+        <record id="accorderie_arrondissement_la_baie" model="accorderie.arrondissement">
+            <field name="nom">La Baie</field>
+            <field name="ville" ref="accorderie_ville_saguenay" />
+        </record>
+        <record id="accorderie_arrondissement_cap_de_la_madeleine" model="accorderie.arrondissement">
+            <field name="nom">Cap-de-la-Madeleine</field>
+            <field name="ville" ref="accorderie_ville_trois_rivi&#232;res" />
+        </record>
+        <record id="accorderie_arrondissement_pointe_du_lac" model="accorderie.arrondissement">
+            <field name="nom">Pointe du Lac</field>
+            <field name="ville" ref="accorderie_ville_trois_rivi&#232;res" />
+        </record>
+        <record id="accorderie_arrondissement_sainte_marthe" model="accorderie.arrondissement">
+            <field name="nom">Sainte-Marthe</field>
+            <field name="ville" ref="accorderie_ville_trois_rivi&#232;res" />
+        </record>
+        <record id="accorderie_arrondissement_saint_louis_de_france" model="accorderie.arrondissement">
+            <field name="nom">Saint-Louis de France</field>
+            <field name="ville" ref="accorderie_ville_trois_rivi&#232;res" />
+        </record>
+        <record id="accorderie_arrondissement_trois_rivi&#232;res_centre" model="accorderie.arrondissement">
+            <field name="nom">Trois-Rivi&#232;res Centre</field>
+            <field name="ville" ref="accorderie_ville_trois_rivi&#232;res" />
+        </record>
+        <record id="accorderie_arrondissement_trois_rivi&#232;res_ouest" model="accorderie.arrondissement">
+            <field name="nom">Trois-Rivi&#232;res Ouest</field>
+            <field name="ville" ref="accorderie_ville_trois_rivi&#232;res" />
+        </record>
+        <record id="accorderie_arrondissement_douglastown_&#224;_pointe_navarre" model="accorderie.arrondissement">
+            <field name="nom">Douglastown &#224; Pointe-Navarre</field>
+            <field name="ville" ref="accorderie_ville_gasp&#233;" />
+        </record>
+        <record id="accorderie_arrondissement_st_majorique_&#224;_cap_aux_os" model="accorderie.arrondissement">
+            <field name="nom">St-Majorique &#224; Cap-aux-Os</field>
+            <field name="ville" ref="accorderie_ville_gasp&#233;" />
+        </record>
+        <record
+            id="accorderie_arrondissement_cap_des_rosiers_&#224;_l_anse_&#224;_valleau"
+            model="accorderie.arrondissement"
+        >
+            <field name="nom">Cap-des-Rosiers &#224; L'Anse-&#224;-Valleau</field>
+            <field name="ville" ref="accorderie_ville_gasp&#233;" />
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_origine_view_form" model="ir.ui.view">
+        <field name="name">accorderie_origine_form</field>
+        <field name="model">accorderie.origine</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_origine_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_origine_tree</field>
+        <field name="model">accorderie.origine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_origine_accorderie_origine_action_window"
+        name="Accorderie Origine"
+        res_model="accorderie.origine"
+        view_mode="list,form"
+    />
+</odoo>

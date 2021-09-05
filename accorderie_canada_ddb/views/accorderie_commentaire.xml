@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_commentaire_view_form" model="ir.ui.view">
+        <field name="name">accorderie_commentaire_form</field>
+        <field name="model">accorderie.commentaire</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="autre_commentaire" />
+                    </group>
+                    <group>
+                        <field name="autre_situation" />
+                    </group>
+                    <group>
+                        <field name="confidentiel" />
+                    </group>
+                    <group>
+                        <field name="consulter_accorderie" />
+                    </group>
+                    <group>
+                        <field name="consulter_reseau" />
+                    </group>
+                    <group>
+                        <field name="date_incident" />
+                    </group>
+                    <group>
+                        <field name="date_mise_a_jour" />
+                    </group>
+                    <group>
+                        <field name="datetime_creation" />
+                    </group>
+                    <group>
+                        <field name="degre_satisfaction" />
+                    </group>
+                    <group>
+                        <field name="demande_service_id" />
+                    </group>
+                    <group>
+                        <field name="demarche" />
+                    </group>
+                    <group>
+                        <field name="membre_source" />
+                    </group>
+                    <group>
+                        <field name="membre_viser" />
+                    </group>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="nom_comite" />
+                    </group>
+                    <group>
+                        <field name="note_administrative" />
+                    </group>
+                    <group>
+                        <field name="offre_service_id" />
+                    </group>
+                    <group>
+                        <field name="point_service" />
+                    </group>
+                    <group>
+                        <field name="resumer_situation" />
+                    </group>
+                    <group>
+                        <field name="situation_impliquant" />
+                    </group>
+                    <group>
+                        <field name="solution_pour_regler" />
+                    </group>
+                    <group>
+                        <field name="type_offre" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_commentaire_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_commentaire_tree</field>
+        <field name="model">accorderie.commentaire</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="autre_commentaire" />
+                <field name="autre_situation" />
+                <field name="confidentiel" />
+                <field name="consulter_accorderie" />
+                <field name="consulter_reseau" />
+                <field name="date_incident" />
+                <field name="date_mise_a_jour" />
+                <field name="datetime_creation" />
+                <field name="degre_satisfaction" />
+                <field name="demande_service_id" />
+                <field name="demarche" />
+                <field name="membre_source" />
+                <field name="membre_viser" />
+                <field name="name" />
+                <field name="nom_comite" />
+                <field name="note_administrative" />
+                <field name="offre_service_id" />
+                <field name="point_service" />
+                <field name="resumer_situation" />
+                <field name="situation_impliquant" />
+                <field name="solution_pour_regler" />
+                <field name="type_offre" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_commentaire_accorderie_commentaire_action_window"
+        name="Accorderie Commentaire"
+        res_model="accorderie.commentaire"
+        view_mode="list,form"
+    />
+</odoo>

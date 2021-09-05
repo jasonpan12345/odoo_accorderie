@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_region_view_form" model="ir.ui.view">
+        <field name="name">accorderie_region_form</field>
+        <field name="model">accorderie.region</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="code" />
+                    </group>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_region_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_region_tree</field>
+        <field name="model">accorderie.region</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" />
+                <field name="nom" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_region_accorderie_region_action_window"
+        name="Accorderie Region"
+        res_model="accorderie.region"
+        view_mode="list,form"
+    />
+</odoo>

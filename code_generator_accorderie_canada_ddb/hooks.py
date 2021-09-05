@@ -573,20 +573,23 @@ def post_init_hook(cr, e):
             "tbl_commentaire",
             "demarche",
             new_description="Démarche",
-            new_help="Démarche entreprise avant de faire le commentaire"
+            new_help="Démarche entreprise avant de faire le commentaire",
         )
         db_column.update_column(
             "tbl_commentaire",
             "solutionpourregler",
             new_field_name="solution_pour_regler",
             new_description="Solution pour régler la situation",
-            new_help="Indiquer quels seraient la meilleur solution, selon vous, pour régler la situation."
+            new_help=(
+                "Indiquer quels seraient la meilleur solution, selon vous,"
+                " pour régler la situation."
+            ),
         )
         db_column.update_column(
             "tbl_commentaire",
             "autrecommentaire",
             new_field_name="autre_commentaire",
-            new_description="Autres commentaires"
+            new_description="Autres commentaires",
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -602,7 +605,10 @@ def post_init_hook(cr, e):
             "noteadministrative",
             new_field_name="note_administrative",
             new_description="Note administrative",
-            new_help="Suivi du commentaire, visible par le Réseau et les administrateurs-chefs seulement.",
+            new_help=(
+                "Suivi du commentaire, visible par le Réseau et les"
+                " administrateurs-chefs seulement."
+            ),
             # TODO write only by reseau + admin
         )
         db_column.update_column(
@@ -1237,14 +1243,14 @@ def post_init_hook(cr, e):
             "titreoffrespecial",
             new_field_name="nom_offre_special",
             new_description="Nom de l'offre spéciale",
-            new_help="Nom ou brève description de l'offre spéciale"
+            new_help="Nom ou brève description de l'offre spéciale",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
             "conditionx",
             new_field_name="condition_autre",
             new_description="Condition autres",
-            new_help="Autres conditions à informer"
+            new_help="Autres conditions à informer",
         )
         db_column.update_column(
             "tbl_offre_service_membre",

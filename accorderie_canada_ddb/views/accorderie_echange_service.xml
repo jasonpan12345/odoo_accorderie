@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_echange_service_view_form" model="ir.ui.view">
+        <field name="name">accorderie_echange_service_form</field>
+        <field name="model">accorderie.echange.service</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="commentaire" />
+                    </group>
+                    <group>
+                        <field name="dateechange" />
+                    </group>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="nb_heure" />
+                    </group>
+                    <group>
+                        <field name="nodemandeservice" />
+                    </group>
+                    <group>
+                        <field name="nomembreacheteur" />
+                    </group>
+                    <group>
+                        <field name="nomembrevendeur" />
+                    </group>
+                    <group>
+                        <field name="nooffreservicemembre" />
+                    </group>
+                    <group>
+                        <field name="nopointservice" />
+                    </group>
+                    <group>
+                        <field name="remarque" />
+                    </group>
+                    <group>
+                        <field name="typeechange" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_echange_service_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_echange_service_tree</field>
+        <field name="model">accorderie.echange.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="commentaire" />
+                <field name="dateechange" />
+                <field name="name" />
+                <field name="nb_heure" />
+                <field name="nodemandeservice" />
+                <field name="nomembreacheteur" />
+                <field name="nomembrevendeur" />
+                <field name="nooffreservicemembre" />
+                <field name="nopointservice" />
+                <field name="remarque" />
+                <field name="typeechange" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_echange_service_accorderie_echange_service_action_window"
+        name="Accorderie Echange Service"
+        res_model="accorderie.echange.service"
+        view_mode="list,form"
+    />
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_type_communication_view_form" model="ir.ui.view">
+        <field name="name">accorderie_type_communication_form</field>
+        <field name="model">accorderie.type.communication</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_type_communication_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_type_communication_tree</field>
+        <field name="model">accorderie.type.communication</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_type_communication_accorderie_type_communication_action_window"
+        name="Accorderie Type Communication"
+        res_model="accorderie.type.communication"
+        view_mode="list,form"
+    />
+</odoo>

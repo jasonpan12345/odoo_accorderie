@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_situation_maison_view_form" model="ir.ui.view">
+        <field name="name">accorderie_situation_maison_form</field>
+        <field name="model">accorderie.situation.maison</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_situation_maison_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_situation_maison_tree</field>
+        <field name="model">accorderie.situation.maison</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_situation_maison_accorderie_situation_maison_action_window"
+        name="Accorderie Situation Maison"
+        res_model="accorderie.situation.maison"
+        view_mode="list,form"
+    />
+</odoo>

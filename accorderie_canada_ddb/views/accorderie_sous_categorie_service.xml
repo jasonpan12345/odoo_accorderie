@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_sous_categorie_service_view_form" model="ir.ui.view">
+        <field name="name">accorderie_sous_categorie_service_form</field>
+        <field name="model">accorderie.sous.categorie.service</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="approuver" />
+                    </group>
+                    <group>
+                        <field name="archive" />
+                    </group>
+                    <group>
+                        <field name="categorie" />
+                    </group>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="sous_categorie_service" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_sous_categorie_service_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_sous_categorie_service_tree</field>
+        <field name="model">accorderie.sous.categorie.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="approuver" />
+                <field name="archive" />
+                <field name="categorie" />
+                <field name="nom" />
+                <field name="sous_categorie_service" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_sous_categorie_service_accorderie_sous_categorie_service_action_window"
+        name="Accorderie Sous Categorie Service"
+        res_model="accorderie.sous.categorie.service"
+        view_mode="list,form"
+    />
+</odoo>

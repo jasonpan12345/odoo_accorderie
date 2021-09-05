@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_provenance_choisir" model="accorderie.provenance">
+            <field name="nom">Choisir</field>
+        </record>
+        <record id="accorderie_provenance_accordeur_ou_ami" model="accorderie.provenance">
+            <field name="nom">Accordeur ou ami</field>
+        </record>
+        <record id="accorderie_provenance_internet" model="accorderie.provenance">
+            <field name="nom">Internet</field>
+        </record>
+        <record id="accorderie_provenance_kiosque/rencontre_de_pr&#233;sentation" model="accorderie.provenance">
+            <field name="nom">Kiosque/Rencontre de pr&#233;sentation</field>
+        </record>
+        <record id="accorderie_provenance_m&#233;dias_ou_promotion_sp&#233;ciale" model="accorderie.provenance">
+            <field name="nom">M&#233;dias ou promotion sp&#233;ciale</field>
+        </record>
+        <record id="accorderie_provenance_organisme_ou_institution" model="accorderie.provenance">
+            <field name="nom">Organisme ou institution</field>
+        </record>
+    </data>
+</odoo>

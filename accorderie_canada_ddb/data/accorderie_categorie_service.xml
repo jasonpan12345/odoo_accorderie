@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_categorie_service_essai" model="accorderie.categorie.service">
+            <field name="archive">True</field>
+            <field name="nom">essai</field>
+        </record>
+        <record
+            id="accorderie_categorie_service_accompagnement_/_gardiennage_/_animaux"
+            model="accorderie.categorie.service"
+        >
+            <field name="approuve">True</field>
+            <field name="nom">Accompagnement / Gardiennage / Animaux</field>
+        </record>
+        <record
+            id="accorderie_categorie_service_administration_/_emploi_/_organisation"
+            model="accorderie.categorie.service"
+        >
+            <field name="approuve">True</field>
+            <field name="nom">Administration / Emploi / Organisation</field>
+        </record>
+        <record id="accorderie_categorie_service_informatique_/_bureautique" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Informatique / Bureautique</field>
+        </record>
+        <record
+            id="accorderie_categorie_service_transport_/_d&#233;m&#233;nagement"
+            model="accorderie.categorie.service"
+        >
+            <field name="approuve">True</field>
+            <field name="nom">Transport / D&#233;m&#233;nagement</field>
+        </record>
+        <record id="accorderie_categorie_service_travaux_/_entretien_/_jardinage" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Travaux / Entretien / Jardinage</field>
+        </record>
+        <record id="accorderie_categorie_service_cuisine_/_alimentation" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Cuisine / Alimentation</field>
+        </record>
+        <record
+            id="accorderie_categorie_service_artisanat_/_couture_/_v&#234;tements"
+            model="accorderie.categorie.service"
+        >
+            <field name="approuve">True</field>
+            <field name="nom">Artisanat / Couture / V&#234;tements</field>
+        </record>
+        <record id="accorderie_categorie_service_langues_/_litt&#233;rature" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Langues / Litt&#233;rature</field>
+        </record>
+        <record id="accorderie_categorie_service_arts_/_culture_/_&#233;ducation" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Arts / Culture / &#201;ducation</field>
+        </record>
+        <record id="accorderie_categorie_service_sports_/_loisirs_/_animation" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Sports / Loisirs / Animation</field>
+        </record>
+        <record
+            id="accorderie_categorie_service_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
+            model="accorderie.categorie.service"
+        >
+            <field name="approuve">True</field>
+            <field name="nom">Sant&#233; / Maternit&#233; / Esth&#233;tique</field>
+        </record>
+        <record id="accorderie_categorie_service_h&#233;bergement_/_voyage" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">H&#233;bergement / Voyage</field>
+        </record>
+        <record id="accorderie_categorie_service_service_de_location_solidaire" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Service de location solidaire</field>
+        </record>
+        <record id="accorderie_categorie_service_divers" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Divers</field>
+        </record>
+        <record id="accorderie_categorie_service_achat_regroup&#233;" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Achat regroup&#233;</field>
+        </record>
+        <record id="accorderie_categorie_service_cr&#233;dit_solidaire" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Cr&#233;dit solidaire</field>
+        </record>
+        <record id="accorderie_categorie_service_service_d_&#233;change_d_objets" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="archive">True</field>
+            <field name="nom">Service d'&#233;change d'objets</field>
+        </record>
+        <record id="accorderie_categorie_service_accordi" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">AccOrdi</field>
+        </record>
+        <record id="accorderie_categorie_service_entraide_vers_l_emploi" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Entraide vers l'emploi</field>
+        </record>
+        <record id="accorderie_categorie_service_location_solidaire" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Location solidaire</field>
+        </record>
+        <record id="accorderie_categorie_service_&#233;changes_associatifs" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">&#201;changes associatifs</field>
+        </record>
+        <record
+            id="accorderie_categorie_service_comit&#233;_de_travail_mobilisation"
+            model="accorderie.categorie.service"
+        >
+            <field name="nom">Comit&#233; de travail - mobilisation.</field>
+        </record>
+        <record id="accorderie_categorie_service_autres_transactions" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">Autres transactions</field>
+        </record>
+        <record id="accorderie_categorie_service_r&#233;seau_accorderie" model="accorderie.categorie.service">
+            <field name="approuve">True</field>
+            <field name="nom">R&#233;seau Accorderie</field>
+        </record>
+    </data>
+</odoo>
