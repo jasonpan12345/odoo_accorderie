@@ -7,6 +7,12 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
+                        <field name="arrondissement" />
+                    </group>
+                    <group>
                         <field name="code" />
                     </group>
                     <group>
@@ -25,6 +31,8 @@
         <field name="model">accorderie.ville</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="accorderie" />
+                <field name="arrondissement" />
                 <field name="code" />
                 <field name="nom" />
                 <field name="region" />

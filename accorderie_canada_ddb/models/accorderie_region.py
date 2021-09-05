@@ -6,6 +6,12 @@ class AccorderieRegion(models.Model):
     _description = "Accorderie Region"
     _rec_name = "nom"
 
+    accorderie = fields.One2many(
+        comodel_name="accorderie.accorderie",
+        inverse_name="region",
+        help="Accorderie relation",
+    )
+
     code = fields.Integer(
         string="Code de région",
         required=True,
@@ -13,3 +19,9 @@ class AccorderieRegion(models.Model):
     )
 
     nom = fields.Char()
+
+    ville = fields.One2many(
+        comodel_name="accorderie.ville",
+        inverse_name="region",
+        help="Ville relation",
+    )

@@ -8,6 +8,12 @@ class AccorderiePointservice(models.Model):
 
     datemaj_pointservice = fields.Datetime(string="Datemaj pointservice")
 
+    membre = fields.One2many(
+        comodel_name="accorderie.membre",
+        inverse_name="point_service",
+        help="Membre relation",
+    )
+
     noaccorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
         required=True,

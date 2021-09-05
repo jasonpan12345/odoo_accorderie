@@ -7,10 +7,16 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
                         <field name="code" />
                     </group>
                     <group>
                         <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="ville" />
                     </group>
                 </sheet>
             </form>
@@ -22,8 +28,10 @@
         <field name="model">accorderie.region</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="accorderie" />
                 <field name="code" />
                 <field name="nom" />
+                <field name="ville" />
             </tree>
         </field>
     </record>

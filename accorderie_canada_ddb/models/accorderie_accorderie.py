@@ -53,6 +53,12 @@ class AccorderieAccorderie(models.Model):
 
     logo = fields.Binary(help="Logo de l'Accorderie")
 
+    membre = fields.One2many(
+        comodel_name="accorderie.membre",
+        inverse_name="accorderie",
+        help="Membre relation",
+    )
+
     message_accueil = fields.Html(
         string="Message d'accueil",
         help="Message à afficher pour accueillir les membres.",

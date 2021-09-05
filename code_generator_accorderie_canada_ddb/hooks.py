@@ -98,7 +98,7 @@ def post_init_hook(cr, e):
             new_description="Région administrative",
             new_required=False,
             new_help="Nom de la région administrative de l'Accorderie",
-            # add_one2many=True,
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -107,7 +107,7 @@ def post_init_hook(cr, e):
             new_description="Ville",
             new_required=False,
             new_help="Nom de la ville de l'Accorderie",
-            # add_one2many=True,
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -288,7 +288,7 @@ def post_init_hook(cr, e):
             "noville",
             new_field_name="ville",
             new_description="Ville",
-            # add_one2many=True,
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_arrondissement",
@@ -954,7 +954,7 @@ def post_init_hook(cr, e):
             new_field_name="accorderie",
             new_description="Accorderie",
             new_help="Accorderie associée",
-            # add_one2many=True,
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -962,7 +962,7 @@ def post_init_hook(cr, e):
             new_field_name="point_service",
             new_description="Point de service",
             new_help="Point de service associé",
-            # add_one2many=True,
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1738,7 +1738,7 @@ def post_init_hook(cr, e):
             "noregion",
             new_field_name="region",
             new_description="Région",
-            # add_one2many=True,
+            add_one2many=True,
         )
 
         # vue_membre_qc
