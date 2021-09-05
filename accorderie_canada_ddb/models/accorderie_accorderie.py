@@ -9,15 +9,15 @@ class AccorderieAccorderie(models.Model):
     )
     _rec_name = "nom"
 
-    adresse = fields.Char(help="Adresse de l'Accorderie")
-
-    archive = fields.Boolean(
-        string="Archivé",
+    actif = fields.Boolean(
+        default=True,
         help=(
-            "Lorsque archivé, cette accorderie n'est plus en fonction, mais"
+            "Lorsque non actif, cette accorderie n'est plus en fonction, mais"
             " demeure accessible."
         ),
     )
+
+    adresse = fields.Char(help="Adresse de l'Accorderie")
 
     arrondissement = fields.Many2one(
         comodel_name="accorderie.arrondissement",

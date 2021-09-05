@@ -6,6 +6,14 @@
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="actif" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="description" />
+                    </group>
                     <group>
                         <field name="accompli" />
                     </group>
@@ -14,9 +22,6 @@
                     </group>
                     <group>
                         <field name="approuve" />
-                    </group>
-                    <group>
-                        <field name="archive" />
                     </group>
                     <group>
                         <field name="condition" />
@@ -35,9 +40,6 @@
                     </group>
                     <group>
                         <field name="date_mise_a_jour" />
-                    </group>
-                    <group>
-                        <field name="description" />
                     </group>
                     <group>
                         <field name="disponibilite" />
@@ -70,17 +72,16 @@
         <field name="model">accorderie.offre.service</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="description" />
                 <field name="accompli" />
                 <field name="accorderie" />
                 <field name="approuve" />
-                <field name="archive" />
                 <field name="condition" />
                 <field name="condition_autre" />
                 <field name="date_affichage" />
                 <field name="date_debut" />
                 <field name="date_fin" />
                 <field name="date_mise_a_jour" />
-                <field name="description" />
                 <field name="disponibilite" />
                 <field name="membre" />
                 <field name="nb_consultation" />

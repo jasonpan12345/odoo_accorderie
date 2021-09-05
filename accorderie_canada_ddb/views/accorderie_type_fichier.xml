@@ -7,10 +7,10 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="datemaj_typefichier" />
+                        <field name="nom" />
                     </group>
                     <group>
-                        <field name="nom" />
+                        <field name="datemaj_typefichier" />
                     </group>
                 </sheet>
             </form>
@@ -22,8 +22,8 @@
         <field name="model">accorderie.type.fichier</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="datemaj_typefichier" />
                 <field name="nom" />
+                <field name="datemaj_typefichier" />
             </tree>
         </field>
     </record>

@@ -85,6 +85,7 @@ def post_init_hook(cr, e):
                 "Gestion des entitées Accorderie, contient les informations et"
                 " les messages d'une Accorderie."
             ),
+            # nomenclator=True,
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -237,12 +238,14 @@ def post_init_hook(cr, e):
             "nonvisible",
             new_required=False,
             new_type="boolean",
-            new_field_name="archive",
-            new_description="Archivé",
+            new_field_name="actif",
+            new_description="Actif",
+            new_default_value="True",
             new_help=(
-                "Lorsque archivé, cette accorderie n'est plus en fonction,"
+                "Lorsque non actif, cette accorderie n'est plus en fonction,"
                 " mais demeure accessible."
             ),
+            compute_data_function="""not actif""",
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -348,10 +351,15 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_categorie",
             "supprimer",
-            new_field_name="archive",
-            new_description="Archivé",
+            new_field_name="actif",
+            new_description="Actif",
             new_type="boolean",
-            new_help="Permet d'archiver cette catégorie.",
+            new_default_value="True",
+            new_help=(
+                "Lorsque non actif, cette catégorie n'est plus en fonction,"
+                " mais demeure accessible."
+            ),
+            compute_data_function="""not actif""",
         )
         db_column.update_column(
             "tbl_categorie",
@@ -402,10 +410,15 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "supprimer",
-            new_field_name="archive",
-            new_description="Archivé",
+            new_field_name="actif",
+            new_description="Actif",
             new_type="boolean",
-            new_help="Permet d'archiver ce type de services.",
+            new_default_value="True",
+            new_help=(
+                "Lorsque non actif, ce type de service n'est plus en fonction,"
+                " mais demeure accessible."
+            ),
+            compute_data_function="""not actif""",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
@@ -1303,10 +1316,15 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_offre_service_membre",
             "supprimer",
-            new_field_name="archive",
-            new_description="Archivé",
+            new_field_name="actif",
+            new_description="Actif",
             new_type="boolean",
-            new_help="Permet d'archiver cette offre de services.",
+            new_default_value="True",
+            new_help=(
+                "Lorsque non actif, cet offre de services n'est plus en"
+                " fonction, mais demeure accessible."
+            ),
+            compute_data_function="""not actif""",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
@@ -1559,13 +1577,15 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_sous_categorie",
             "supprimer",
+            new_field_name="actif",
+            new_description="Actif",
             new_type="boolean",
-            new_field_name="archive",
-            new_description="Archivé",
+            new_default_value="True",
             new_help=(
-                "Lorsque archivé, cette sous-catégorie n'est plus en fonction,"
-                " mais demeure accessible."
+                "Lorsque non actif, cette sous-catégorie n'est plus en"
+                " fonction, mais demeure accessible."
             ),
+            compute_data_function="""not actif""",
         )
         db_column.update_column(
             "tbl_sous_categorie",

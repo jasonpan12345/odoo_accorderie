@@ -7,6 +7,9 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="nom_complet" />
+                    </group>
+                    <group>
                         <field name="accorderie" />
                     </group>
                     <group>
@@ -65,9 +68,6 @@
                     </group>
                     <group>
                         <field name="nom" />
-                    </group>
-                    <group>
-                        <field name="nom_complet" />
                     </group>
                     <group>
                         <field name="nomaccorderie" />
@@ -178,6 +178,7 @@
         <field name="model">accorderie.membre</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="nom_complet" />
                 <field name="accorderie" />
                 <field name="achatregrouper" />
                 <field name="adresse" />
@@ -198,7 +199,6 @@
                 <field name="memo" />
                 <field name="noarrondissement" />
                 <field name="nom" />
-                <field name="nom_complet" />
                 <field name="nomaccorderie" />
                 <field name="nomembreconjoint" />
                 <field name="nomutilisateur" />

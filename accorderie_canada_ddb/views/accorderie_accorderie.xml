@@ -6,11 +6,16 @@
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="actif" widget="boolean_button" />
+                        </button>
+                    </div>
                     <group>
-                        <field name="adresse" />
+                        <field name="nom" />
                     </group>
                     <group>
-                        <field name="archive" />
+                        <field name="adresse" />
                     </group>
                     <group>
                         <field name="arrondissement" />
@@ -31,19 +36,13 @@
                         <field name="grp_achat_membre" />
                     </group>
                     <group>
-                        <field name="logo" />
-                    </group>
-                    <group>
-                        <field name="membre" />
+                        <field name="logo" widget="image" />
                     </group>
                     <group>
                         <field name="message_accueil" />
                     </group>
                     <group>
                         <field name="message_grp_achat" />
-                    </group>
-                    <group>
-                        <field name="nom" />
                     </group>
                     <group>
                         <field name="region" />
@@ -55,13 +54,16 @@
                         <field name="telephone" />
                     </group>
                     <group>
-                        <field name="url_public" />
+                        <field name="url_public" widget="link_button" />
                     </group>
                     <group>
-                        <field name="url_transactionnel" />
+                        <field name="url_transactionnel" widget="link_button" />
                     </group>
                     <group>
                         <field name="ville" />
+                    </group>
+                    <group>
+                        <field name="membre" />
                     </group>
                 </sheet>
             </form>
@@ -73,25 +75,24 @@
         <field name="model">accorderie.accorderie</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="nom" />
                 <field name="adresse" />
-                <field name="archive" />
                 <field name="arrondissement" />
                 <field name="code_postal" />
                 <field name="courriel" />
                 <field name="date_mise_a_jour" />
                 <field name="grp_achat_administrateur" />
                 <field name="grp_achat_membre" />
-                <field name="logo" />
-                <field name="membre" />
+                <field name="logo" widget="image" />
                 <field name="message_accueil" />
                 <field name="message_grp_achat" />
-                <field name="nom" />
                 <field name="region" />
                 <field name="telecopieur" />
                 <field name="telephone" />
-                <field name="url_public" />
-                <field name="url_transactionnel" />
+                <field name="url_public" widget="link_button" />
+                <field name="url_transactionnel" widget="link_button" />
                 <field name="ville" />
+                <field name="membre" />
             </tree>
         </field>
     </record>

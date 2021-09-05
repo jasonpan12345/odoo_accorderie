@@ -7,22 +7,22 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
                         <field name="datemaj_pointservice" />
                     </group>
                     <group>
-                        <field name="membre" />
-                    </group>
-                    <group>
                         <field name="noaccorderie" />
-                    </group>
-                    <group>
-                        <field name="nom" />
                     </group>
                     <group>
                         <field name="notegrpachatpageclient" />
                     </group>
                     <group>
                         <field name="ordrepointservice" />
+                    </group>
+                    <group>
+                        <field name="membre" />
                     </group>
                 </sheet>
             </form>
@@ -34,12 +34,12 @@
         <field name="model">accorderie.pointservice</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="datemaj_pointservice" />
-                <field name="membre" />
-                <field name="noaccorderie" />
                 <field name="nom" />
+                <field name="datemaj_pointservice" />
+                <field name="noaccorderie" />
                 <field name="notegrpachatpageclient" />
                 <field name="ordrepointservice" />
+                <field name="membre" />
             </tree>
         </field>
     </record>

@@ -5,7 +5,7 @@
             id="accorderie_sous_categorie_service_premi&#232;re_sous_cat&#233;gorie"
             model="accorderie.sous.categorie.service"
         >
-            <field name="archive">True</field>
+            <field name="actif">False</field>
             <field name="categorie" ref="accorderie_categorie_service_essai" />
             <field name="nom">premi&#232;re sous-cat&#233;gorie</field>
             <field name="sous_categorie_service">A</field>
@@ -947,8 +947,8 @@
             id="accorderie_sous_categorie_service_effac&#233;!_103_i_covoiturage_interurbain_d&#233;parts_de_matane"
             model="accorderie.sous.categorie.service"
         >
+            <field name="actif">False</field>
             <field name="approuver">True</field>
-            <field name="archive">True</field>
             <field name="categorie" ref="accorderie_categorie_service_accompagnement_/_gardiennage_/_animaux" />
             <field name="nom">Effac&#233;! 103-I - Covoiturage interurbain - D&#233;parts de Matane</field>
             <field name="sous_categorie_service">I</field>

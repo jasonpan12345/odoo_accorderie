@@ -7,10 +7,10 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="datemaj_titre" />
+                        <field name="nom" />
                     </group>
                     <group>
-                        <field name="nom" />
+                        <field name="datemaj_titre" />
                     </group>
                     <group>
                         <field name="visible_titre" />
@@ -25,8 +25,8 @@
         <field name="model">accorderie.titre</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="datemaj_titre" />
                 <field name="nom" />
+                <field name="datemaj_titre" />
                 <field name="visible_titre" />
             </tree>
         </field>

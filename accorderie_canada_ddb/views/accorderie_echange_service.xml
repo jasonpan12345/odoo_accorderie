@@ -7,16 +7,16 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="name" />
+                    </group>
+                    <group>
                         <field name="commentaire" />
                     </group>
                     <group>
                         <field name="dateechange" />
                     </group>
                     <group>
-                        <field name="name" />
-                    </group>
-                    <group>
-                        <field name="nb_heure" />
+                        <field name="nb_heure" widget="float_time" />
                     </group>
                     <group>
                         <field name="nodemandeservice" />
@@ -49,10 +49,10 @@
         <field name="model">accorderie.echange.service</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="name" />
                 <field name="commentaire" />
                 <field name="dateechange" />
-                <field name="name" />
-                <field name="nb_heure" />
+                <field name="nb_heure" widget="float_time" />
                 <field name="nodemandeservice" />
                 <field name="nomembreacheteur" />
                 <field name="nomembrevendeur" />

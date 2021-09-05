@@ -7,6 +7,9 @@
             <form string="Titre">
                 <sheet>
                     <group>
+                        <field name="name" />
+                    </group>
+                    <group>
                         <field name="courriel" />
                     </group>
                     <group>
@@ -14,9 +17,6 @@
                     </group>
                     <group>
                         <field name="enattente" />
-                    </group>
-                    <group>
-                        <field name="name" />
                     </group>
                     <group>
                         <field name="noaccorderie" />
@@ -49,10 +49,10 @@
         <field name="model">accorderie.dmd.adhesion</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="name" />
                 <field name="courriel" />
                 <field name="datemaj" />
                 <field name="enattente" />
-                <field name="name" />
                 <field name="noaccorderie" />
                 <field name="nom" />
                 <field name="poste" />

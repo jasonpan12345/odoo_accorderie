@@ -6,14 +6,16 @@
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
-                    <group>
-                        <field name="approuve" />
-                    </group>
-                    <group>
-                        <field name="archive" />
-                    </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="actif" widget="boolean_button" />
+                        </button>
+                    </div>
                     <group>
                         <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="approuve" />
                     </group>
                 </sheet>
             </form>
@@ -25,9 +27,8 @@
         <field name="model">accorderie.categorie.service</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="approuve" />
-                <field name="archive" />
                 <field name="nom" />
+                <field name="approuve" />
             </tree>
         </field>
     </record>

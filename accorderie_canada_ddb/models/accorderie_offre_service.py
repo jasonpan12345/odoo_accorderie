@@ -16,14 +16,17 @@ class AccorderieOffreService(models.Model):
         help="Accorderie associée",
     )
 
+    actif = fields.Boolean(
+        default=True,
+        help=(
+            "Lorsque non actif, cet offre de services n'est plus en fonction,"
+            " mais demeure accessible."
+        ),
+    )
+
     approuve = fields.Boolean(
         string="Approuvé",
         help="Permet d'approuver ce type de services.",
-    )
-
-    archive = fields.Boolean(
-        string="Archivé",
-        help="Permet d'archiver cette offre de services.",
     )
 
     condition = fields.Char(

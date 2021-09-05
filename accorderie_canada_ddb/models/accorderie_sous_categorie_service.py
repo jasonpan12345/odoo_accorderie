@@ -6,17 +6,17 @@ class AccorderieSousCategorieService(models.Model):
     _description = "Sous-catégorie de services"
     _rec_name = "nom"
 
+    actif = fields.Boolean(
+        default=True,
+        help=(
+            "Lorsque non actif, cette sous-catégorie n'est plus en fonction,"
+            " mais demeure accessible."
+        ),
+    )
+
     approuver = fields.Boolean(
         string="Approuvé",
         help="Permet d'approuver cette sous-catégorie.",
-    )
-
-    archive = fields.Boolean(
-        string="Archivé",
-        help=(
-            "Lorsque archivé, cette sous-catégorie n'est plus en fonction,"
-            " mais demeure accessible."
-        ),
     )
 
     categorie = fields.Many2one(

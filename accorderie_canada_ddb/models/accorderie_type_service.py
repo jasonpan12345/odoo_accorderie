@@ -6,14 +6,17 @@ class AccorderieTypeService(models.Model):
     _description = "Type de services des Accorderies"
     _rec_name = "nom"
 
+    actif = fields.Boolean(
+        default=True,
+        help=(
+            "Lorsque non actif, ce type de service n'est plus en fonction,"
+            " mais demeure accessible."
+        ),
+    )
+
     approuve = fields.Boolean(
         string="Approuvé",
         help="Permet d'approuver ce type de services.",
-    )
-
-    archive = fields.Boolean(
-        string="Archivé",
-        help="Permet d'archiver ce type de services.",
     )
 
     description = fields.Char(help="Description du type de services")

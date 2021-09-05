@@ -7,10 +7,10 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="arrondissement" />
+                        <field name="nom" />
                     </group>
                     <group>
-                        <field name="nom" />
+                        <field name="arrondissement" />
                     </group>
                 </sheet>
             </form>
@@ -22,8 +22,8 @@
         <field name="model">accorderie.quartier</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="arrondissement" />
                 <field name="nom" />
+                <field name="arrondissement" />
             </tree>
         </field>
     </record>
