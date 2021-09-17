@@ -333,15 +333,17 @@ def post_init_hook(cr, e):
         # tbl_categorie
         db_table.update_table(
             "tbl_categorie",
-            new_model_name="accorderie.categorie.service",
-            new_description="Les catégories de services des Accorderies",
+            new_model_name="accorderie.type.service.categorie",
+            new_description=(
+                "Les catégories de types de services des Accorderies"
+            ),
             new_rec_name="nom",
             nomenclator=True,
         )
         db_column.update_column(
             "tbl_categorie",
             "nocategorie",
-            delete=True,
+            # delete=True,
         )
         db_column.update_column(
             "tbl_categorie",
@@ -387,6 +389,7 @@ def post_init_hook(cr, e):
             new_field_name="sous_categorie_id",
             new_description="Sous-catégorie",
             new_help="Sous-catégorie de services",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
@@ -1563,9 +1566,9 @@ def post_init_hook(cr, e):
         # tbl_sous_categorie
         db_table.update_table(
             "tbl_sous_categorie",
+            new_model_name="accorderie.type.service.sous.categorie",
             new_rec_name="nom",
-            new_description="Sous-catégorie de services",
-            new_model_name="accorderie.sous.categorie.service",
+            new_description="Type de services sous-catégorie",
             nomenclator=True,
         )
         db_column.update_column(
@@ -1584,6 +1587,7 @@ def post_init_hook(cr, e):
             "nocategorie",
             new_field_name="categorie",
             new_description="Catégorie",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_sous_categorie",
@@ -1910,15 +1914,15 @@ def post_init_hook(cr, e):
             lst_value_code.append(
                 {
                     "code": """for rec in self:
-                            if self.nom and self.prenom:
-                                rec.nom_complet = f"{self.prenom} {self.nom}"
-                            elif self.nom:
-                                rec.nom_complet = f"{self.nom}"
-                            elif self.prenom:
-                                rec.nom_complet = f"{self.prenom}"
-                            else:
-                                rec.nom_complet = False
-                            """,
+                        if rec.nom and rec.prenom:
+                            rec.nom_complet = f"{rec.prenom} {rec.nom}"
+                        elif rec.nom:
+                            rec.nom_complet = f"{rec.nom}"
+                        elif rec.prenom:
+                            rec.nom_complet = f"{rec.prenom}"
+                        else:
+                            rec.nom_complet = False
+                    """,
                     "name": "_compute_nom_complet",
                     "decorator": '@api.depends("nom", "prenom")',
                     "param": "self",
@@ -1928,86 +1932,92 @@ def post_init_hook(cr, e):
                 }
             )
 
-        # if model_categorie_sous_categorie_id:
-        #     # Create the identity
-        #     value_field = {
-        #         "name": "identifiant",
-        #         "field_description": "Identifiant",
-        #         "ttype": "char",
-        #         "code_generator_compute": "_compute_identifiant",
-        #         "model_id": model_categorie_sous_categorie_id.id,
-        #     }
-        #     env["ir.model.fields"].create(value_field)
-        #     # Change rec_name
-        #     model_categorie_sous_categorie_id.rec_name = "identifiant"
-        #     for field_id in model_categorie_sous_categorie_id.field_id:
-        #         if field_id.name == "name":
-        #             field_id.unlink()
-        #             continue
-        #     # Add code
-        #     lst_value_code.append(
-        #         {
-        #             "code": """for rec in self:
-        #                    value = ""
-        #                    if self.nosouscategorieid:
-        #                        pass
-        #                    if self.nosouscategorie:
-        #                        value += self.nosouscategorie
-        #                    if self.nocategorie:
-        #                        value += str(self.nocategorie)
-        #                    if (self.nosouscategorie or self.nocategorie) and self.description:
-        #                        value += " - "
-        #                    if self.description:
-        #                        value += self.description
-        #                    rec.identifiant = value
-        #                    """,
-        #             "name": "_compute_nom_complet",
-        #             "decorator": (
-        #                 '@api.depends("description", "nosouscategorie",'
-        #                 ' "nocategorie")'
-        #             ),
-        #             "param": "self",
-        #             "sequence": 1,
-        #             "m2o_module": code_generator_id.id,
-        #             "m2o_model": model_categorie_sous_categorie_id.id,
-        #         }
-        #     )
-        #
-        #     value_field = {
-        #         "name": "nom_complet",
-        #         "field_description": "Nom complet",
-        #         "ttype": "char",
-        #         "code_generator_compute": "_compute_nom_complet",
-        #         "model_id": model_categorie_sous_categorie_id.id,
-        #     }
-        #     env["ir.model.fields"].create(value_field)
-        #     lst_value_code.append(
-        #         {
-        #             "code": """for rec in self:
-        #                    value = ""
-        #                    if self.nosouscategorieid:
-        #                        -
-        #                    if self.nosouscategorie:
-        #                        value += self.nosouscategorie
-        #                    if self.nocategorie:
-        #                        value += str(self.nocategorie)
-        #                    if (self.nosouscategorie or self.nocategorie) and self.description:
-        #                        value += " - "
-        #                    if self.description:
-        #                        value += self.description
-        #                    rec.nom_complet = value
-        #                    """,
-        #             "name": "_compute_nom_complet",
-        #             "decorator": (
-        #                 '@api.depends("description", "nosouscategorie",'
-        #                 ' "nocategorie")'
-        #             ),
-        #             "param": "self",
-        #             "sequence": 1,
-        #             "m2o_module": code_generator_id.id,
-        #             "m2o_model": model_categorie_sous_categorie_id.id,
-        #         }
-        #     )
+        if model_categorie_sous_categorie_id:
+            # Create the identity
+            value_field = {
+                "name": "identifiant",
+                "field_description": "Identifiant",
+                "ttype": "char",
+                "code_generator_compute": "_compute_identifiant",
+                "model_id": model_categorie_sous_categorie_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
+            # Change rec_name
+            model_categorie_sous_categorie_id.rec_name = "nom_complet"
+            for field_id in model_categorie_sous_categorie_id.field_id:
+                if field_id.name == "name":
+                    field_id.unlink()
+                    continue
+            # Add code
+            str_code = """for rec in self:
+                value = ""
+                if rec.sous_categorie_id and rec.sous_categorie_id.categorie:
+                   value += str(rec.sous_categorie_id.categorie.nocategorie)
+                if value and rec.sous_categorie_id:
+                   value += "-"
+                if rec.sous_categorie_id:
+                   value += rec.sous_categorie_id.sous_categorie_service
+                if rec.sous_categorie_id and rec.numero:
+                   value += "-"
+                if rec.numero:
+                   value += str(rec.numero)
+                rec.identifiant = value
+            """
+            lst_value_code.append(
+                {
+                    "code": str_code,
+                    "name": "_compute_identifiant",
+                    "decorator": (
+                        '@api.depends("sous_categorie_id",'
+                        ' "sous_categorie_id.categorie", "numero")'
+                    ),
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_categorie_sous_categorie_id.id,
+                }
+            )
+            # Compute all data
+            record_ids = env[model_categorie_sous_categorie_id.model].search(
+                []
+            )
+            exec(str_code, {"self": record_ids})
+
+            value_field = {
+                "name": "nom_complet",
+                "field_description": "Nom complet",
+                "ttype": "char",
+                "code_generator_compute": "_compute_nom_complet",
+                "model_id": model_categorie_sous_categorie_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
+            # Add code
+            str_code = """for rec in self:
+                value = ""
+                if rec.identifiant:
+                   value += rec.identifiant
+                if rec.identifiant and rec.nom:
+                    value += " - "
+                if rec.nom:
+                   value += rec.nom
+                rec.nom_complet = value
+            """
+            lst_value_code.append(
+                {
+                    "code": str_code,
+                    "name": "_compute_nom_complet",
+                    "decorator": '@api.depends("nom", "identifiant")',
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_categorie_sous_categorie_id.id,
+                }
+            )
+            # Compute all data
+            record_ids = env[model_categorie_sous_categorie_id.model].search(
+                []
+            )
+            exec(str_code, {"self": record_ids})
 
         if model_taxe_id:
             value_field = {
@@ -2026,15 +2036,15 @@ def post_init_hook(cr, e):
             lst_value_code.append(
                 {
                     "code": """for rec in self:
-                                        value = ""
-                                        if self.tauxtaxepro:
-                                            value += str(self.tauxtaxepro)
-                                        if self.tauxtaxepro and self.tauxtaxefed:
-                                            value += " - "
-                                        if self.tauxtaxefed:
-                                            value += str(self.tauxtaxefed)
-                                        rec.nom_complet = value
-                                        """,
+                        value = ""
+                        if rec.tauxtaxepro:
+                            value += str(rec.tauxtaxepro)
+                        if rec.tauxtaxepro and rec.tauxtaxefed:
+                            value += " - "
+                        if rec.tauxtaxefed:
+                            value += str(rec.tauxtaxefed)
+                        rec.nom_complet = value
+                    """,
                     "name": "_compute_nom_complet",
                     "decorator": '@api.depends("tauxtaxepro", "tauxtaxefed")',
                     "param": "self",
@@ -2062,15 +2072,15 @@ def post_init_hook(cr, e):
                 {
                     "code": """for rec in self:
                            value = ""
-                           value += str(self.accodeursimple)
-                           value += str(self.admin)
-                           value += str(self.adminchef)
-                           value += str(self.reseau)
-                           value += str(self.spip)
-                           value += str(self.adminpointservice)
-                           value += str(self.adminordpointservice)
+                           value += str(rec.accodeursimple)
+                           value += str(rec.admin)
+                           value += str(rec.adminchef)
+                           value += str(rec.reseau)
+                           value += str(rec.spip)
+                           value += str(rec.adminpointservice)
+                           value += str(rec.adminordpointservice)
                            rec.nom_complet = value
-                           """,
+                       """,
                     "name": "_compute_nom_complet",
                     "decorator": (
                         '@api.depends("accodeursimple", "admin", "adminchef",'

@@ -146,11 +146,11 @@ class AccorderieMembre(models.Model):
     @api.depends("nom", "prenom")
     def _compute_nom_complet(self):
         for rec in self:
-            if self.nom and self.prenom:
-                rec.nom_complet = f"{self.prenom} {self.nom}"
-            elif self.nom:
-                rec.nom_complet = f"{self.nom}"
-            elif self.prenom:
-                rec.nom_complet = f"{self.prenom}"
+            if rec.nom and rec.prenom:
+                rec.nom_complet = f"{rec.prenom} {rec.nom}"
+            elif rec.nom:
+                rec.nom_complet = f"{rec.nom}"
+            elif rec.prenom:
+                rec.nom_complet = f"{rec.prenom}"
             else:
                 rec.nom_complet = False

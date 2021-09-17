@@ -1,9 +1,9 @@
 from odoo import _, api, models, fields
 
 
-class AccorderieCategorieService(models.Model):
-    _name = "accorderie.categorie.service"
-    _description = "Les catégories de services des Accorderies"
+class AccorderieTypeServiceCategorie(models.Model):
+    _name = "accorderie.type.service.categorie"
+    _description = "Les catégories de types de services des Accorderies"
     _rec_name = "nom"
 
     actif = fields.Boolean(
@@ -19,4 +19,12 @@ class AccorderieCategorieService(models.Model):
         help="Permet d'approuver cette catégorie.",
     )
 
+    nocategorie = fields.Integer(required=True)
+
     nom = fields.Char(help="Le nom de la catégorie des services")
+
+    type_service_sous_categorie = fields.One2many(
+        comodel_name="accorderie.type.service.sous.categorie",
+        inverse_name="categorie",
+        help="Type Service Sous Categorie relation",
+    )

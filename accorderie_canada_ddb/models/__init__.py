@@ -2,7 +2,6 @@
 
 from . import accorderie_accorderie
 from . import accorderie_arrondissement
-from . import accorderie_categorie_service
 from . import accorderie_commentaire
 from . import accorderie_demande_service
 from . import accorderie_dmd_adhesion
@@ -19,11 +18,12 @@ from . import accorderie_quartier
 from . import accorderie_region
 from . import accorderie_revenu_familial
 from . import accorderie_situation_maison
-from . import accorderie_sous_categorie_service
 from . import accorderie_titre
 from . import accorderie_type_communication
 from . import accorderie_type_compte
 from . import accorderie_type_fichier
 from . import accorderie_type_service
+from . import accorderie_type_service_categorie
+from . import accorderie_type_service_sous_categorie
 from . import accorderie_type_tel
 from . import accorderie_ville

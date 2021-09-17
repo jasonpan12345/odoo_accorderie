@@ -26,18 +26,10 @@
     />
 
     <menuitem
-        id="categorie_service"
-        name="Categorie Service"
-        action="accorderie_categorie_service_accorderie_categorie_service_action_window"
-        sequence="3"
-        parent="models"
-    />
-
-    <menuitem
         id="commentaire"
         name="Commentaire"
         action="accorderie_commentaire_accorderie_commentaire_action_window"
-        sequence="4"
+        sequence="3"
         parent="models"
     />
 
@@ -45,7 +37,7 @@
         id="demande_service"
         name="Demande Service"
         action="accorderie_demande_service_accorderie_demande_service_action_window"
-        sequence="5"
+        sequence="4"
         parent="models"
     />
 
@@ -53,7 +45,7 @@
         id="dmd_adhesion"
         name="Dmd Adhesion"
         action="accorderie_dmd_adhesion_accorderie_dmd_adhesion_action_window"
-        sequence="6"
+        sequence="5"
         parent="models"
     />
 
@@ -61,7 +53,7 @@
         id="droits_admin"
         name="Droits Admin"
         action="accorderie_droits_admin_accorderie_droits_admin_action_window"
-        sequence="7"
+        sequence="6"
         parent="models"
     />
 
@@ -69,7 +61,7 @@
         id="echange_service"
         name="Echange Service"
         action="accorderie_echange_service_accorderie_echange_service_action_window"
-        sequence="8"
+        sequence="7"
         parent="models"
     />
 
@@ -77,17 +69,22 @@
         id="fichier"
         name="Fichier"
         action="accorderie_fichier_accorderie_fichier_action_window"
-        sequence="9"
+        sequence="8"
         parent="models"
     />
 
-    <menuitem id="membre" name="Membre" action="accorderie_membre_accorderie_membre_action_window" parent="models" />
+    <menuitem
+        id="membre"
+        name="Membre"
+        action="accorderie_membre_accorderie_membre_action_window"
+        sequence="9"
+        parent="models"
+    />
 
     <menuitem
         id="occupation"
         name="Occupation"
         action="accorderie_occupation_accorderie_occupation_action_window"
-        sequence="11"
         parent="models"
     />
 
@@ -95,7 +92,7 @@
         id="offre_service"
         name="Offre Service"
         action="accorderie_offre_service_accorderie_offre_service_action_window"
-        sequence="12"
+        sequence="11"
         parent="models"
     />
 
@@ -103,7 +100,7 @@
         id="origine"
         name="Origine"
         action="accorderie_origine_accorderie_origine_action_window"
-        sequence="13"
+        sequence="12"
         parent="models"
     />
 
@@ -111,7 +108,7 @@
         id="pointservice"
         name="Pointservice"
         action="accorderie_pointservice_accorderie_pointservice_action_window"
-        sequence="14"
+        sequence="13"
         parent="models"
     />
 
@@ -119,7 +116,7 @@
         id="provenance"
         name="Provenance"
         action="accorderie_provenance_accorderie_provenance_action_window"
-        sequence="15"
+        sequence="14"
         parent="models"
     />
 
@@ -127,7 +124,7 @@
         id="quartier"
         name="Quartier"
         action="accorderie_quartier_accorderie_quartier_action_window"
-        sequence="16"
+        sequence="15"
         parent="models"
     />
 
@@ -135,7 +132,7 @@
         id="region"
         name="Region"
         action="accorderie_region_accorderie_region_action_window"
-        sequence="17"
+        sequence="16"
         parent="models"
     />
 
@@ -143,7 +140,7 @@
         id="revenu_familial"
         name="Revenu Familial"
         action="accorderie_revenu_familial_accorderie_revenu_familial_action_window"
-        sequence="18"
+        sequence="17"
         parent="models"
     />
 
@@ -151,15 +148,7 @@
         id="situation_maison"
         name="Situation Maison"
         action="accorderie_situation_maison_accorderie_situation_maison_action_window"
-        sequence="19"
-        parent="models"
-    />
-
-    <menuitem
-        id="sous_categorie_service"
-        name="Sous Categorie Service"
-        action="accorderie_sous_categorie_service_accorderie_sous_categorie_service_action_window"
-        sequence="20"
+        sequence="18"
         parent="models"
     />
 
@@ -167,7 +156,7 @@
         id="titre"
         name="Titre"
         action="accorderie_titre_accorderie_titre_action_window"
-        sequence="21"
+        sequence="19"
         parent="models"
     />
 
@@ -175,7 +164,7 @@
         id="type_communication"
         name="Type Communication"
         action="accorderie_type_communication_accorderie_type_communication_action_window"
-        sequence="22"
+        sequence="20"
         parent="models"
     />
 
@@ -183,7 +172,7 @@
         id="type_compte"
         name="Type Compte"
         action="accorderie_type_compte_accorderie_type_compte_action_window"
-        sequence="23"
+        sequence="21"
         parent="models"
     />
 
@@ -191,7 +180,7 @@
         id="type_fichier"
         name="Type Fichier"
         action="accorderie_type_fichier_accorderie_type_fichier_action_window"
-        sequence="24"
+        sequence="22"
         parent="models"
     />
 
@@ -199,6 +188,22 @@
         id="type_service"
         name="Type Service"
         action="accorderie_type_service_accorderie_type_service_action_window"
+        sequence="23"
+        parent="models"
+    />
+
+    <menuitem
+        id="type_service_categorie"
+        name="Type Service Categorie"
+        action="accorderie_type_service_categorie_accorderie_type_service_categorie_action_window"
+        sequence="24"
+        parent="models"
+    />
+
+    <menuitem
+        id="type_service_sous_categorie"
+        name="Type Service Sous Categorie"
+        action="accorderie_type_service_sous_categorie_accorderie_type_service_sous_categorie_action_window"
         sequence="25"
         parent="models"
     />

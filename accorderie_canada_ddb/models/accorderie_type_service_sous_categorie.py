@@ -1,9 +1,9 @@
 from odoo import _, api, models, fields
 
 
-class AccorderieSousCategorieService(models.Model):
-    _name = "accorderie.sous.categorie.service"
-    _description = "Sous-catégorie de services"
+class AccorderieTypeServiceSousCategorie(models.Model):
+    _name = "accorderie.type.service.sous.categorie"
+    _description = "Type de services sous-catégorie"
     _rec_name = "nom"
 
     actif = fields.Boolean(
@@ -21,7 +21,7 @@ class AccorderieSousCategorieService(models.Model):
 
     categorie = fields.Many2one(
         string="Catégorie",
-        comodel_name="accorderie.categorie.service",
+        comodel_name="accorderie.type.service.categorie",
         required=True,
     )
 
@@ -30,4 +30,10 @@ class AccorderieSousCategorieService(models.Model):
     sous_categorie_service = fields.Char(
         string="Sous-catégorie",
         required=True,
+    )
+
+    type_service = fields.One2many(
+        comodel_name="accorderie.type.service",
+        inverse_name="sous_categorie_id",
+        help="Type Service relation",
     )

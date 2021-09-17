@@ -40,11 +40,11 @@ class AccorderieTypeCompte(models.Model):
     def _compute_nom_complet(self):
         for rec in self:
             value = ""
-            value += str(self.accodeursimple)
-            value += str(self.admin)
-            value += str(self.adminchef)
-            value += str(self.reseau)
-            value += str(self.spip)
-            value += str(self.adminpointservice)
-            value += str(self.adminordpointservice)
+            value += str(rec.accodeursimple)
+            value += str(rec.admin)
+            value += str(rec.adminchef)
+            value += str(rec.reseau)
+            value += str(rec.spip)
+            value += str(rec.adminpointservice)
+            value += str(rec.adminordpointservice)
             rec.nom_complet = value

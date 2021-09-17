@@ -12,13 +12,19 @@
                         </button>
                     </div>
                     <group>
-                        <field name="nom" />
+                        <field name="nom_complet" />
                     </group>
                     <group>
                         <field name="approuve" />
                     </group>
                     <group>
                         <field name="description" />
+                    </group>
+                    <group>
+                        <field name="identifiant" />
+                    </group>
+                    <group>
+                        <field name="nom" />
                     </group>
                     <group>
                         <field name="numero" />
@@ -36,9 +42,11 @@
         <field name="model">accorderie.type.service</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="nom" />
+                <field name="nom_complet" />
                 <field name="approuve" />
                 <field name="description" />
+                <field name="identifiant" />
+                <field name="nom" />
                 <field name="numero" />
                 <field name="sous_categorie_id" />
             </tree>
