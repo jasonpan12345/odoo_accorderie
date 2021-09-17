@@ -6,7 +6,8 @@ class AccorderieTypeServiceCategorie(models.Model):
     _description = "Les catégories de types de services des Accorderies"
     _rec_name = "nom"
 
-    actif = fields.Boolean(
+    active = fields.Boolean(
+        string="Actif",
         default=True,
         help=(
             "Lorsque non actif, cette catégorie n'est plus en fonction, mais"

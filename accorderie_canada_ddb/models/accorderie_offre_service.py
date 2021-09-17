@@ -16,7 +16,8 @@ class AccorderieOffreService(models.Model):
         help="Accorderie associée",
     )
 
-    actif = fields.Boolean(
+    active = fields.Boolean(
+        string="Actif",
         default=True,
         help=(
             "Lorsque non actif, cet offre de services n'est plus en fonction,"

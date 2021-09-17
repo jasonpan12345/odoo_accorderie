@@ -241,14 +241,14 @@ def post_init_hook(cr, e):
             "nonvisible",
             new_required=False,
             new_type="boolean",
-            new_field_name="actif",
+            new_field_name="active",
             new_description="Actif",
             new_default_value="True",
             new_help=(
                 "Lorsque non actif, cette accorderie n'est plus en fonction,"
                 " mais demeure accessible."
             ),
-            compute_data_function="""not actif""",
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -356,7 +356,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_categorie",
             "supprimer",
-            new_field_name="actif",
+            new_field_name="active",
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
@@ -364,7 +364,7 @@ def post_init_hook(cr, e):
                 "Lorsque non actif, cette catégorie n'est plus en fonction,"
                 " mais demeure accessible."
             ),
-            compute_data_function="""not actif""",
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_categorie",
@@ -416,7 +416,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_categorie_sous_categorie",
             "supprimer",
-            new_field_name="actif",
+            new_field_name="active",
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
@@ -424,7 +424,7 @@ def post_init_hook(cr, e):
                 "Lorsque non actif, ce type de service n'est plus en fonction,"
                 " mais demeure accessible."
             ),
-            compute_data_function="""not actif""",
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
@@ -1337,7 +1337,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_offre_service_membre",
             "supprimer",
-            new_field_name="actif",
+            new_field_name="active",
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
@@ -1345,7 +1345,7 @@ def post_init_hook(cr, e):
                 "Lorsque non actif, cet offre de services n'est plus en"
                 " fonction, mais demeure accessible."
             ),
-            compute_data_function="""not actif""",
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
@@ -1599,7 +1599,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_sous_categorie",
             "supprimer",
-            new_field_name="actif",
+            new_field_name="active",
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
@@ -1607,7 +1607,7 @@ def post_init_hook(cr, e):
                 "Lorsque non actif, cette sous-catégorie n'est plus en"
                 " fonction, mais demeure accessible."
             ),
-            compute_data_function="""not actif""",
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_sous_categorie",
@@ -1978,7 +1978,7 @@ def post_init_hook(cr, e):
                 }
             )
             # Compute all data
-            record_ids = env[model_categorie_sous_categorie_id.model].search(
+            record_ids = env[model_categorie_sous_categorie_id.model].with_context(active_test=False).search(
                 []
             )
             exec(str_code, {"self": record_ids})
@@ -2014,7 +2014,7 @@ def post_init_hook(cr, e):
                 }
             )
             # Compute all data
-            record_ids = env[model_categorie_sous_categorie_id.model].search(
+            record_ids = env[model_categorie_sous_categorie_id.model].with_context(active_test=False).search(
                 []
             )
             exec(str_code, {"self": record_ids})

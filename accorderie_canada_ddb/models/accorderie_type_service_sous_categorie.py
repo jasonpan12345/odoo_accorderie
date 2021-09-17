@@ -6,7 +6,8 @@ class AccorderieTypeServiceSousCategorie(models.Model):
     _description = "Type de services sous-catégorie"
     _rec_name = "nom"
 
-    actif = fields.Boolean(
+    active = fields.Boolean(
+        string="Actif",
         default=True,
         help=(
             "Lorsque non actif, cette sous-catégorie n'est plus en fonction,"

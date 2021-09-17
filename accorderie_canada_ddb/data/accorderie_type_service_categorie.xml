@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="1">
         <record id="accorderie_type_service_categorie_essai" model="accorderie.type.service.categorie">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="nocategorie">1</field>
             <field name="nom">essai</field>
         </record>
@@ -126,7 +126,7 @@
             id="accorderie_type_service_categorie_service_d_&#233;change_d_objets"
             model="accorderie.type.service.categorie"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="nocategorie">202</field>
             <field name="nom">Service d'&#233;change d'objets</field>

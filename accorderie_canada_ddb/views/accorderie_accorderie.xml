@@ -8,7 +8,7 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
-                            <field name="actif" widget="boolean_button" />
+                            <field name="active" widget="boolean_button" />
                         </button>
                     </div>
                     <group>

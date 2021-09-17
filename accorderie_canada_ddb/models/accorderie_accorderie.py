@@ -9,7 +9,8 @@ class AccorderieAccorderie(models.Model):
     )
     _rec_name = "nom"
 
-    actif = fields.Boolean(
+    active = fields.Boolean(
+        string="Actif",
         default=True,
         help=(
             "Lorsque non actif, cette accorderie n'est plus en fonction, mais"

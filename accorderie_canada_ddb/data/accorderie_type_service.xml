@@ -239,7 +239,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_du_groupe_d_achats" />
         </record>
         <record id="accorderie_type_service_200_c_4_accueil_ramassag" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Accueil des Accordeurs pour le ramassage des commandes</field>
             <field name="identifiant">200-C-4</field>
@@ -941,7 +941,7 @@
             />
         </record>
         <record id="accorderie_type_service_101_a_4_conseils_assurance" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Conseils en assurance</field>
             <field name="identifiant">101-A-4</field>
@@ -3130,7 +3130,7 @@
             id="accorderie_type_service_106_a_41_conseils_choix_et_agencement_v&#234;tements_voir_106_c_41"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -3222,7 +3222,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_12_tissage_cadres_en_laine" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">
                 Tisse des cadres en laine selon technique d'artisanat colombien des "cuadros tejidos en lana"
@@ -4661,7 +4661,7 @@
             id="accorderie_type_service_108_h_3_soutien_scolaire_pour_mati&#232;res_scientifiques"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -5358,7 +5358,7 @@
             id="accorderie_type_service_110_c_4_massage_tha&#239;landais_retir&#233;"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">S&#233;ance de massage tha&#239;landais</field>
             <field name="identifiant">110-C-4</field>
@@ -5386,7 +5386,7 @@
             id="accorderie_type_service_110_c_5_massage_des_pieds_tha&#239;landais_retir&#233;"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">S&#233;ance de massage des pieds tha&#239;landais</field>
             <field name="identifiant">110-C-5</field>
@@ -5647,7 +5647,7 @@
             id="accorderie_type_service_111_c_1_conseils_pour_pr&#233;paration_voyage"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Conseils pour pr&#233;paration &#224; un voyage (tourisme, travail)</field>
             <field name="identifiant">111-C-1</field>
@@ -5822,7 +5822,7 @@
             id="accorderie_type_service_400_b_1_achat_d_un_objet_&#224;_une_foire_d_&#233;change"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Achat d'un objet lors d'une foire d'&#233;change</field>
             <field name="identifiant">400-B-1</field>
@@ -5835,7 +5835,7 @@
             id="accorderie_type_service_400_b_2_achat_d_un_objet_hors_d_une_foire_d_&#233;change"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -6164,7 +6164,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_divers_8" />
         </record>
         <record id="accorderie_type_service_106_a_24_impression_d_images" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -6191,7 +6191,7 @@
             id="accorderie_type_service_202_a_1_acquisition_d_un_objet_service_d_&#233;change"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -6206,7 +6206,7 @@
             id="accorderie_type_service_202_b_1_inscription_au_service_d_&#233;change_d_objet"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Inscription au service d'&#233;change d'objet</field>
             <field name="identifiant">202-B-1</field>
@@ -6222,7 +6222,7 @@
             id="accorderie_type_service_202_c_1_rencontre_de_travail_pour_service_d_&#233;change_d_objet"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Rencontres de travail pour la gestion du service d'&#233;change d'objet</field>
             <field name="identifiant">202-C-1</field>
@@ -6238,7 +6238,7 @@
             id="accorderie_type_service_202_d_1_t&#226;ches_cl&#233;ricales_pour_service_d_&#233;change_d_objet"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -6494,7 +6494,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_recherche" />
         </record>
         <record id="accorderie_type_service_202_b_22_zzz" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="description">ZZZ</field>
             <field name="identifiant">202-B-22</field>
             <field name="nom">ZZZ</field>
@@ -6890,7 +6890,7 @@
             />
         </record>
         <record id="accorderie_type_service_199_z_199_ecoute_t&#233;l&#233;phonique" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="identifiant">199-Z-199</field>
             <field name="nom">Ecoute t&#233;l&#233;phonique</field>
             <field name="nom_complet">199-Z-199 - Ecoute t&#233;l&#233;phonique</field>
@@ -6924,7 +6924,7 @@
             />
         </record>
         <record id="accorderie_type_service_110_a_7_accompagnement_situation_de_stress" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="description">Accompagnement individuel pour personne en situation de stress</field>
             <field name="identifiant">110-A-7</field>
             <field name="nom">Accompagnement situation de stress</field>
@@ -6936,7 +6936,7 @@
             />
         </record>
         <record id="accorderie_type_service_107_c_15_apprentissage_d_arabe" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="identifiant">107-C-15</field>
             <field name="nom">Apprentissage d'arabe</field>
@@ -6948,7 +6948,7 @@
             />
         </record>
         <record id="accorderie_type_service_107_c_16_apprentissage_d_arabe" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="identifiant">107-C-16</field>
             <field name="nom">apprentissage d'arabe</field>
             <field name="nom_complet">107-C-16 - apprentissage d'arabe</field>
@@ -6971,7 +6971,7 @@
             />
         </record>
         <record id="accorderie_type_service_107_c_16_apprentissage_d_arabe#" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="identifiant">107-C-16</field>
             <field name="nom">Apprentissage d'arabe#</field>
@@ -6983,7 +6983,7 @@
             />
         </record>
         <record id="accorderie_type_service_107_c_12_dsdsd" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="description">dsds</field>
             <field name="identifiant">107-C-12</field>
             <field name="nom">dsdsd</field>
@@ -7007,7 +7007,7 @@
             />
         </record>
         <record id="accorderie_type_service_110_c_19_initiation_pilates" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -7022,7 +7022,7 @@
             />
         </record>
         <record id="accorderie_type_service_111_c_9_tour_gud&#233;_sur_le_mont_royal" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="identifiant">111-C-9</field>
             <field name="nom">Tour gud&#233; sur le Mont-Royal</field>
             <field name="nom_complet">111-C-9 - Tour gud&#233; sur le Mont-Royal</field>
@@ -8024,7 +8024,7 @@
             id="accorderie_type_service_101_c_6_conseils_hypoth&#232;que#maintenant_101_f_3"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -8157,7 +8157,7 @@
             id="accorderie_type_service_106_c_34_apprentissage_&#233;criture_chinoise"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -8407,7 +8407,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_photographie" />
         </record>
         <record id="accorderie_type_service_111_a_2_site_pour_camping" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -8704,7 +8704,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_couture_et_v&#234;tements" />
         </record>
         <record id="accorderie_type_service_102_f_1_r&#233;paration_imprimante" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">R&#233;paration d'imprimante</field>
             <field name="identifiant">102-F-1</field>
@@ -8852,7 +8852,7 @@
             id="accorderie_type_service_101_e_8_conseils_efficacit&#233;_communicationnelle"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="identifiant">101-E-8</field>
             <field name="nom">Conseils efficacit&#233; communicationnelle</field>
@@ -8997,7 +8997,7 @@
             id="accorderie_type_service_102_b_11_initiation_pr&#233;sentations_cr&#233;&#233;e:_102_a_11"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -9716,7 +9716,7 @@
             />
         </record>
         <record id="accorderie_type_service_105_b_14_cuisine_belge" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="description">Cuisine des plats belge</field>
             <field name="identifiant">105-B-14</field>
             <field name="nom">Cuisine belge</field>
@@ -9864,7 +9864,7 @@
             id="accorderie_type_service_300_z_2_rencontre_&#233;tude_des_besoins_hochelaga_maisonneuve"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -10125,7 +10125,7 @@
             />
         </record>
         <record id="accorderie_type_service_107_c_37_conversation_en_mandarin#doublon" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Conversation en mandarin</field>
             <field name="identifiant">107-C-37</field>
@@ -10150,7 +10150,7 @@
             />
         </record>
         <record id="accorderie_type_service_300_z_comit&#233;_d&#233;veloppement#" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field
                 name="description"
             >Rencontre de travail Comit&#233; de d&#233;veloppement Accorderie d'Hochelaga-Maisonneuve</field>
@@ -10163,7 +10163,7 @@
             id="accorderie_type_service_300_z_comit&#233;_s&#233;curit&#233;_alimentaire_hochelaga_maisonneuve#"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field
                 name="description"
             >Rencontre du Comit&#233; de s&#233;curit&#233; alimentaire &#224; L'Accorderie de Montr&#233;al &#224; Hochelaga-Maisonneuve</field>
@@ -10479,7 +10479,7 @@
             id="accorderie_type_service_108_a_8_&#233;veil_musical_pour_enfant_doublon"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Formation en &#233;veil &#224; la musique pour un ou des enfants</field>
             <field name="identifiant">108-A-8</field>
@@ -10946,7 +10946,7 @@
             id="accorderie_type_service_106_b_7_travaux_broderie_x_mal_plac&#233;e_106_d_7"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Peut broder divers objets</field>
             <field name="identifiant">106-B-7</field>
@@ -12152,7 +12152,7 @@
             id="accorderie_type_service_107_c_48_conseil_pour_apprentissage_d_une_langue_&#233;trang&#232;re"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field
                 name="description"
             >Vous fournir les bases pour l'apprentissage d'une langue seconde ou &#233;trang&#232;re.</field>
@@ -12644,7 +12644,7 @@
             id="accorderie_type_service_103_a_6_aide_planification_d&#233;m&#233;nagement_erreur:103_c_6"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field
                 name="description"
             >Conseils et aide pour planifier votre d&#233;m&#233;nagement : transport, main-d'oeuvre, &#233;quipement, &#233;ch&#233;ancier, etc.</field>
@@ -13026,7 +13026,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_divers_1" />
         </record>
         <record id="accorderie_type_service_500_z_999_test" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">test</field>
             <field name="identifiant">500-Z-999</field>
@@ -13036,7 +13036,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_divers_11" />
         </record>
         <record id="accorderie_type_service_100_a_998_test_#2" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="description">Coucou</field>
             <field name="identifiant">100-A-998</field>
             <field name="nom">Test #2</field>
@@ -13252,7 +13252,7 @@
             id="accorderie_type_service_106_a_18_couture_de_type_industriel_plut&#244;t:_106_c_18"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -13273,7 +13273,7 @@
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_loisirs_et_jeux_divers" />
         </record>
         <record id="accorderie_type_service_105_z_105_sommellerie_erreur,_voir_105_z_5" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -13288,7 +13288,7 @@
             id="accorderie_type_service_105_z_105_sommellerie_autre_erreur,_voir_105_z_5"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">"Vous aide &#224; choisir vos vins et r&#233;pond &#224; vos&#13;
 questions sur les vins, leur choix, leur service et l'accord mets et vins "</field>
@@ -13655,7 +13655,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             id="accorderie_type_service_109_b_24_initiation_paraski_/_ski_cerf_volant_voir_109_b_25"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Initiation au paraski ou ski cerf-volant (snowkite)</field>
             <field name="identifiant">109-B-24</field>
@@ -13682,7 +13682,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             id="accorderie_type_service_106_a_18_initiation_vannerie_(tressage)_coublon_voir_106_a_30"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -14356,7 +14356,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             id="accorderie_type_service_103_z_777_covoiturage_pour_les_&#233;lections_7_avril_2014"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -14371,7 +14371,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             id="accorderie_type_service_103_z_888_transport_pour_les_&#233;lections_7_avril_2014"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -14901,7 +14901,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             id="accorderie_type_service_110_f_3_initiation_fabrication_cosm&#233;tiques_naturels_mauvais_no_vrai:_110_f_2"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -14997,7 +14997,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             id="accorderie_type_service_200_a_7_formation_outils_groupe_d_achats_mauvaise_ss_cat&#233;g"
             model="accorderie.type.service"
         >
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -16386,7 +16386,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_comit&#233;_jardin_collectif" />
         </record>
         <record id="accorderie_type_service_100_a_14_accompagnement_de_test&#233;" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">TEST</field>
             <field name="identifiant">100-A-14</field>
@@ -16739,7 +16739,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             />
         </record>
         <record id="accorderie_type_service_106_z_106_foire_de_l_artisanat" model="accorderie.type.service">
-            <field name="actif">False</field>
+            <field name="active">False</field>
             <field name="description">&#201;changes faits lors d'une foire de l'artisanat</field>
             <field name="identifiant">106-Z-106</field>
             <field name="nom">Foire de l'Artisanat</field>
