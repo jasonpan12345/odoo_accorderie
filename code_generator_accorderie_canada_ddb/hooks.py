@@ -1,6 +1,7 @@
 from odoo import _, api, models, fields, SUPERUSER_ID
 import os
 import logging
+import time
 
 _logger = logging.getLogger(__name__)
 
@@ -75,6 +76,8 @@ def post_init_hook(cr, e):
         db_column = env["code.generator.db.column"]
 
         # Modification of field before migration
+
+        before_time = time.process_time()
 
         # tbl_accorderie
         db_table.update_table(
@@ -1832,6 +1835,12 @@ def post_init_hook(cr, e):
         #     for db_table_id in code_generator_db_tables:
         #         if db_table_id.name in lst_nomenclator:
         #             db_table_id.nomenclator = True
+
+        after_time = time.process_time()
+        _logger.info(
+            "DEBUG time execution hook update model db before generate_module"
+            f" {after_time - before_time}"
+        )
 
         lst_code_generator_id = code_generator_db_tables.generate_module(
             code_generator_id=code_generator_id
