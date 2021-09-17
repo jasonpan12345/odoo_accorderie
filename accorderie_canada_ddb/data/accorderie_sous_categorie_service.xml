@@ -1022,7 +1022,10 @@
             <field name="nom">Arts du livre et du papier</field>
             <field name="sous_categorie_service">J</field>
         </record>
-        <record id="accorderie_sous_categorie_service_soutien_aux_individus" model="accorderie.sous.categorie.service">
+        <record
+            id="accorderie_sous_categorie_service_soutien_aux_individus_1"
+            model="accorderie.sous.categorie.service"
+        >
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_&#233;changes_associatifs" />
             <field name="nom">Soutien aux individus</field>
@@ -1075,7 +1078,7 @@
             <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Matap&#233;dia</field>
             <field name="sous_categorie_service">O</field>
         </record>
-        <record id="accorderie_sous_categorie_service_autres_t&#226;ches" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_autres_t&#226;ches_1" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_r&#233;seau_accorderie" />
             <field name="nom">Autres t&#226;ches</field>
@@ -1087,109 +1090,109 @@
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_1" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_administration_/_emploi_/_organisation" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_2" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_informatique_/_bureautique" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_3" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_transport_/_d&#233;m&#233;nagement" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_4" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_travaux_/_entretien_/_jardinage" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_5" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_cuisine_/_alimentation" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_6" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_artisanat_/_couture_/_v&#234;tements" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_7" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_langues_/_litt&#233;rature" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_8" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_arts_/_culture_/_&#233;ducation" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_9" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_sports_/_loisirs_/_animation" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_10" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_sant&#233;_/_maternit&#233;_/_esth&#233;tique" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_11" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_h&#233;bergement_/_voyage" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_12" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_divers" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_13" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_achat_regroup&#233;" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_14" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_cr&#233;dit_solidaire" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_15" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_service_d_&#233;change_d_objets" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_16" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_&#233;changes_associatifs" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_17" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_autres_transactions" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
-        <record id="accorderie_sous_categorie_service_divers" model="accorderie.sous.categorie.service">
+        <record id="accorderie_sous_categorie_service_divers_18" model="accorderie.sous.categorie.service">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_categorie_service_r&#233;seau_accorderie" />
             <field name="nom">Divers</field>

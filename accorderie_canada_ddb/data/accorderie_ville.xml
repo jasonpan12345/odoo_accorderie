@@ -861,7 +861,7 @@
             <field name="nom">Clermont</field>
             <field name="region" ref="accorderie_region_capitale_nationale" />
         </record>
-        <record id="accorderie_ville_saint_sim&#233;on" model="accorderie.ville">
+        <record id="accorderie_ville_saint_sim&#233;on_1" model="accorderie.ville">
             <field name="code">15058</field>
             <field name="nom">Saint-Sim&#233;on</field>
             <field name="region" ref="accorderie_region_capitale_nationale" />
@@ -931,7 +931,7 @@
             <field name="nom">Saint-Marcel</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
         </record>
-        <record id="accorderie_ville_sainte_f&#233;licit&#233;" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_f&#233;licit&#233;_1" model="accorderie.ville">
             <field name="code">17025</field>
             <field name="nom">Sainte-F&#233;licit&#233;</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
@@ -1311,7 +1311,7 @@
             <field name="nom">Vall&#233;e-Jonction</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
         </record>
-        <record id="accorderie_ville_saint_elz&#233;ar" model="accorderie.ville">
+        <record id="accorderie_ville_saint_elz&#233;ar_1" model="accorderie.ville">
             <field name="code">26022</field>
             <field name="nom">Saint-Elz&#233;ar</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
@@ -1321,7 +1321,7 @@
             <field name="nom">Sainte-Marie</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
         </record>
-        <record id="accorderie_ville_sainte_marguerite" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_marguerite_1" model="accorderie.ville">
             <field name="code">26035</field>
             <field name="nom">Sainte-Marguerite</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
@@ -1431,7 +1431,7 @@
             <field name="nom">Saint-Louis-de-Gonzague</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
         </record>
-        <record id="accorderie_ville_saint_cyprien" model="accorderie.ville">
+        <record id="accorderie_ville_saint_cyprien_1" model="accorderie.ville">
             <field name="code">28040</field>
             <field name="nom">Saint-Cyprien</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
@@ -1656,7 +1656,7 @@
             <field name="nom">Disraeli</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
         </record>
-        <record id="accorderie_ville_disraeli" model="accorderie.ville">
+        <record id="accorderie_ville_disraeli_1" model="accorderie.ville">
             <field name="code">31020</field>
             <field name="nom">Disraeli</field>
             <field name="region" ref="accorderie_region_chaudi&#232;re_appalaches" />
@@ -1761,7 +1761,7 @@
             <field name="nom">Plessisville</field>
             <field name="region" ref="accorderie_region_centre_du_qu&#233;bec" />
         </record>
-        <record id="accorderie_ville_plessisville" model="accorderie.ville">
+        <record id="accorderie_ville_plessisville_1" model="accorderie.ville">
             <field name="code">32045</field>
             <field name="nom">Plessisville</field>
             <field name="region" ref="accorderie_region_centre_du_qu&#233;bec" />
@@ -1991,7 +1991,7 @@
             <field name="nom">Saint-Adelphe</field>
             <field name="region" ref="accorderie_region_mauricie" />
         </record>
-        <record id="accorderie_ville_saint_s&#233;verin" model="accorderie.ville">
+        <record id="accorderie_ville_saint_s&#233;verin_1" model="accorderie.ville">
             <field name="code">35020</field>
             <field name="nom">Saint-S&#233;verin</field>
             <field name="region" ref="accorderie_region_mauricie" />
@@ -2086,7 +2086,7 @@
             <field name="nom">Saint-Stanislas</field>
             <field name="region" ref="accorderie_region_mauricie" />
         </record>
-        <record id="accorderie_ville_saint_prosper" model="accorderie.ville">
+        <record id="accorderie_ville_saint_prosper_1" model="accorderie.ville">
             <field name="code">37250</field>
             <field name="nom">Saint-Prosper</field>
             <field name="region" ref="accorderie_region_mauricie" />
@@ -2116,7 +2116,7 @@
             <field name="nom">Manseau</field>
             <field name="region" ref="accorderie_region_centre_du_qu&#233;bec" />
         </record>
-        <record id="accorderie_ville_sainte_fran&#231;oise" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_fran&#231;oise_1" model="accorderie.ville">
             <field name="code">38035</field>
             <field name="nom">Sainte-Fran&#231;oise</field>
             <field name="region" ref="accorderie_region_centre_du_qu&#233;bec" />
@@ -2541,7 +2541,7 @@
             <field name="nom">Ogden</field>
             <field name="region" ref="accorderie_region_estrie" />
         </record>
-        <record id="accorderie_ville_stanstead" model="accorderie.ville">
+        <record id="accorderie_ville_stanstead_1" model="accorderie.ville">
             <field name="code">45025</field>
             <field name="nom">Stanstead</field>
             <field name="region" ref="accorderie_region_estrie" />
@@ -2566,7 +2566,7 @@
             <field name="nom">North Hatley</field>
             <field name="region" ref="accorderie_region_estrie" />
         </record>
-        <record id="accorderie_ville_hatley" model="accorderie.ville">
+        <record id="accorderie_ville_hatley_1" model="accorderie.ville">
             <field name="code">45055</field>
             <field name="nom">Hatley</field>
             <field name="region" ref="accorderie_region_estrie" />
@@ -2696,7 +2696,7 @@
             <field name="nom">Notre-Dame-de-Stanbridge</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_sainte_sabine" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_sabine_1" model="accorderie.ville">
             <field name="code">46105</field>
             <field name="nom">Sainte-Sabine</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -2711,7 +2711,7 @@
             <field name="nom">Bromont</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_saint_alphonse" model="accorderie.ville">
+        <record id="accorderie_ville_saint_alphonse_1" model="accorderie.ville">
             <field name="code">47010</field>
             <field name="nom">Saint-Alphonse</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -2721,7 +2721,7 @@
             <field name="nom">Granby</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_granby" model="accorderie.ville">
+        <record id="accorderie_ville_granby_1" model="accorderie.ville">
             <field name="code">47020</field>
             <field name="nom">Granby</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -2906,7 +2906,7 @@
             <field name="nom">Saint-L&#233;onard-d'Aston</field>
             <field name="region" ref="accorderie_region_centre_du_qu&#233;bec" />
         </record>
-        <record id="accorderie_ville_sainte_perp&#233;tue" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_perp&#233;tue_1" model="accorderie.ville">
             <field name="code">50050</field>
             <field name="nom">Sainte-Perp&#233;tue</field>
             <field name="region" ref="accorderie_region_centre_du_qu&#233;bec" />
@@ -2986,7 +2986,7 @@
             <field name="nom">Saint-S&#233;v&#232;re</field>
             <field name="region" ref="accorderie_region_mauricie" />
         </record>
-        <record id="accorderie_ville_saint_l&#233;on_le_grand" model="accorderie.ville">
+        <record id="accorderie_ville_saint_l&#233;on_le_grand_1" model="accorderie.ville">
             <field name="code">51035</field>
             <field name="nom">Saint-L&#233;on-le-Grand</field>
             <field name="region" ref="accorderie_region_mauricie" />
@@ -3186,7 +3186,7 @@
             <field name="nom">Saint-Pie</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_saint_damase" model="accorderie.ville">
+        <record id="accorderie_ville_saint_damase_1" model="accorderie.ville">
             <field name="code">54017</field>
             <field name="nom">Saint-Damase</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -3226,7 +3226,7 @@
             <field name="nom">Saint-Liboire</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_saint_simon" model="accorderie.ville">
+        <record id="accorderie_ville_saint_simon_1" model="accorderie.ville">
             <field name="code">54090</field>
             <field name="nom">Saint-Simon</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -3341,7 +3341,7 @@
             <field name="nom">Henryville</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_saint_s&#233;bastien" model="accorderie.ville">
+        <record id="accorderie_ville_saint_s&#233;bastien_1" model="accorderie.ville">
             <field name="code">56050</field>
             <field name="nom">Saint-S&#233;bastien</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -3521,7 +3521,7 @@
             <field name="nom">L'&#201;piphanie</field>
             <field name="region" ref="accorderie_region_lanaudi&#232;re" />
         </record>
-        <record id="accorderie_ville_l_&#233;piphanie" model="accorderie.ville">
+        <record id="accorderie_ville_l_&#233;piphanie_1" model="accorderie.ville">
             <field name="code">60040</field>
             <field name="nom">L'&#201;piphanie</field>
             <field name="region" ref="accorderie_region_lanaudi&#232;re" />
@@ -3566,7 +3566,7 @@
             <field name="nom">Saint-Ambroise-de-Kildare</field>
             <field name="region" ref="accorderie_region_lanaudi&#232;re" />
         </record>
-        <record id="accorderie_ville_notre_dame_de_lourdes" model="accorderie.ville">
+        <record id="accorderie_ville_notre_dame_de_lourdes_1" model="accorderie.ville">
             <field name="code">61045</field>
             <field name="nom">Notre-Dame-de-Lourdes</field>
             <field name="region" ref="accorderie_region_lanaudi&#232;re" />
@@ -3621,7 +3621,7 @@
             <field name="nom">Notre-Dame-de-la-Merci</field>
             <field name="region" ref="accorderie_region_lanaudi&#232;re" />
         </record>
-        <record id="accorderie_ville_saint_donat" model="accorderie.ville">
+        <record id="accorderie_ville_saint_donat_1" model="accorderie.ville">
             <field name="code">62060</field>
             <field name="nom">Saint-Donat</field>
             <field name="region" ref="accorderie_region_lanaudi&#232;re" />
@@ -3851,7 +3851,7 @@
             <field name="nom">Saint-Constant</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_saint_isidore" model="accorderie.ville">
+        <record id="accorderie_ville_saint_isidore_1" model="accorderie.ville">
             <field name="code">67040</field>
             <field name="nom">Saint-Isidore</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -4016,7 +4016,7 @@
             <field name="nom">Saint-&#201;tienne-de-Beauharnois</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
         </record>
-        <record id="accorderie_ville_saint_louis_de_gonzague" model="accorderie.ville">
+        <record id="accorderie_ville_saint_louis_de_gonzague_1" model="accorderie.ville">
             <field name="code">70035</field>
             <field name="nom">Saint-Louis-de-Gonzague</field>
             <field name="region" ref="accorderie_region_mont&#233;r&#233;gie" />
@@ -4651,7 +4651,7 @@
             <field name="nom">Gatineau</field>
             <field name="region" ref="accorderie_region_outaouais" />
         </record>
-        <record id="accorderie_ville_l_ange_gardien" model="accorderie.ville">
+        <record id="accorderie_ville_l_ange_gardien_1" model="accorderie.ville">
             <field name="code">82005</field>
             <field name="nom">L'Ange-Gardien</field>
             <field name="region" ref="accorderie_region_outaouais" />
@@ -5091,7 +5091,7 @@
             <field name="nom">Val-Saint-Gilles</field>
             <field name="region" ref="accorderie_region_abitibi_t&#233;miscamingue" />
         </record>
-        <record id="accorderie_ville_clermont" model="accorderie.ville">
+        <record id="accorderie_ville_clermont_1" model="accorderie.ville">
             <field name="code">87110</field>
             <field name="nom">Clermont</field>
             <field name="region" ref="accorderie_region_abitibi_t&#233;miscamingue" />
@@ -5101,7 +5101,7 @@
             <field name="nom">Norm&#233;tal</field>
             <field name="region" ref="accorderie_region_abitibi_t&#233;miscamingue" />
         </record>
-        <record id="accorderie_ville_saint_lambert" model="accorderie.ville">
+        <record id="accorderie_ville_saint_lambert_1" model="accorderie.ville">
             <field name="code">87120</field>
             <field name="nom">Saint-Lambert</field>
             <field name="region" ref="accorderie_region_abitibi_t&#233;miscamingue" />
@@ -5231,7 +5231,7 @@
             <field name="nom">Senneterre</field>
             <field name="region" ref="accorderie_region_abitibi_t&#233;miscamingue" />
         </record>
-        <record id="accorderie_ville_lac_simon" model="accorderie.ville">
+        <record id="accorderie_ville_lac_simon_1" model="accorderie.ville">
             <field name="code">89804</field>
             <field name="nom">Lac-Simon</field>
             <field name="region" ref="accorderie_region_abitibi_t&#233;miscamingue" />
@@ -5331,7 +5331,7 @@
             <field name="nom">P&#233;ribonka</field>
             <field name="region" ref="accorderie_region_saguenay_lac_saint_jean" />
         </record>
-        <record id="accorderie_ville_sainte_jeanne_d_arc" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_jeanne_d_arc_1" model="accorderie.ville">
             <field name="code">92015</field>
             <field name="nom">Sainte-Jeanne-d'Arc</field>
             <field name="region" ref="accorderie_region_saguenay_lac_saint_jean" />
@@ -5376,7 +5376,7 @@
             <field name="nom">Saint-Eug&#232;ne-d'Argentenay</field>
             <field name="region" ref="accorderie_region_saguenay_lac_saint_jean" />
         </record>
-        <record id="accorderie_ville_saint_stanislas" model="accorderie.ville">
+        <record id="accorderie_ville_saint_stanislas_1" model="accorderie.ville">
             <field name="code">92070</field>
             <field name="nom">Saint-Stanislas</field>
             <field name="region" ref="accorderie_region_saguenay_lac_saint_jean" />
@@ -5446,7 +5446,7 @@
             <field name="nom">Saint-Henri-de-Taillon</field>
             <field name="region" ref="accorderie_region_saguenay_lac_saint_jean" />
         </record>
-        <record id="accorderie_ville_sainte_monique" model="accorderie.ville">
+        <record id="accorderie_ville_sainte_monique_1" model="accorderie.ville">
             <field name="code">93075</field>
             <field name="nom">Sainte-Monique</field>
             <field name="region" ref="accorderie_region_saguenay_lac_saint_jean" />
@@ -5686,7 +5686,7 @@
             <field name="nom">Bonne-Esp&#233;rance</field>
             <field name="region" ref="accorderie_region_c&#244;te_nord" />
         </record>
-        <record id="accorderie_ville_saint_augustin" model="accorderie.ville">
+        <record id="accorderie_ville_saint_augustin_1" model="accorderie.ville">
             <field name="code">98012</field>
             <field name="nom">Saint-Augustin</field>
             <field name="region" ref="accorderie_region_c&#244;te_nord" />

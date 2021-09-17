@@ -201,7 +201,7 @@
             <field name="ville" ref="accorderie_ville_montr&#233;al" />
         </record>
         <record
-            id="accorderie_arrondissement_c&#244;te_des_neiges_notre_dame_de_gr&#226;ce"
+            id="accorderie_arrondissement_c&#244;te_des_neiges_notre_dame_de_gr&#226;ce_1"
             model="accorderie.arrondissement"
         >
             <field name="nom">C&#244;te-des-Neiges--Notre-Dame-de-Gr&#226;ce</field>

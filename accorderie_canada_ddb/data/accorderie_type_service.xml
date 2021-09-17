@@ -826,7 +826,7 @@
             >Initiation au Code civil du Qu&#233;bec : droit de la famille, droit des contrats, etc.</field>
             <field name="nom">Initiation au code civil</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_1" />
         </record>
         <record
             id="accorderie_type_service_initiation_g&#233;n&#233;rale_&#224;_l_informatique"
@@ -1113,7 +1113,7 @@
             >Fait recherche pour toute question touchant Windows '95 et les syst&#232;mes d'exploitation subs&#233;quents</field>
             <field name="nom">Recherche pour Windows</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_2" />
         </record>
         <record
             id="accorderie_type_service_r&#233;cup&#233;ration_pi&#232;ces_d_ordinateur"
@@ -1125,7 +1125,7 @@
             >R&#233;cup&#233;ration de pi&#232;ces ou d'ordinateur qui ne fonctionne plus</field>
             <field name="nom">R&#233;cup&#233;ration pi&#232;ces d'ordinateur</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_2" />
         </record>
         <record id="accorderie_type_service_transport_besoins_divers" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -1362,7 +1362,7 @@
             >Conduit votre auto &#224; votre place si vous &#234;tes dans l'impossibilit&#233; de le faire</field>
             <field name="nom">Conducteur pour votre voiture</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_3" />
         </record>
         <record id="accorderie_type_service_m&#233;nage_l&#233;ger" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2172,7 +2172,7 @@
             <field name="description">Fabrication de vin artisanale</field>
             <field name="nom">Fabrication vin artisanale</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_confection_montages_floraux" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3543,7 +3543,7 @@
             >Conseils pour am&#233;liorer votre dossier artistique et/ou votre portfolio</field>
             <field name="nom">Conseils dossier artistique et portfolio</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_8" />
         </record>
         <record
             id="accorderie_type_service_initiation_montage_de_planches_d&amp;#8217;imprimerie"
@@ -3553,7 +3553,7 @@
             <field name="description">Vous montre le montage de planches d'imprimerie, mise en page incluse</field>
             <field name="nom">Initiation montage de planches d&amp;#8217;imprimerie</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_8" />
         </record>
         <record id="accorderie_type_service_conseils_conditionnement_physique" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3849,7 +3849,7 @@
             >Initiation &#224; la grimpe urbaine, ou l'art du d&#233;placement (le Parkour, art de rue)</field>
             <field name="nom">Initiation grimpe urbaine (Parkour)</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_9" />
         </record>
         <record id="accorderie_type_service_jeu_de_cartomancie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3858,7 +3858,7 @@
             >Cartomancie - &#192; titre de loisir: il ne s'agit pas d'un service pour pr&#233;dire votre avenir, vous conseiller ou vous aider &#224; vous orienter dans la vie</field>
             <field name="nom">Jeu de cartomancie</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_9" />
         </record>
         <record id="accorderie_type_service_jeu_de_cartomancie_zen" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3867,7 +3867,7 @@
             >Cartomancie Zen - &#192; titre de loisir: il ne s'agit pas d'un service pour pr&#233;dire votre avenir, vous conseiller ou vous aider &#224; vous orienter dans la vie</field>
             <field name="nom">Jeu de cartomancie Zen</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_9" />
         </record>
         <record
             id="accorderie_type_service_jeu_de_tarot_am&#233;rindien_et_&#233;gyptien"
@@ -3879,7 +3879,7 @@
             >Lecture du tarot am&#233;rindien et &#233;gyptien - &#192; titre de loisir: il ne s'agit pas d'un service pour pr&#233;dire votre avenir, vous conseiller ou vous aider &#224; vous orienter dans la vie</field>
             <field name="nom">Jeu de tarot am&#233;rindien et &#233;gyptien</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_9" />
         </record>
         <record id="accorderie_type_service_apprentissage_de_la_m&#233;thode_rcr" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4326,7 +4326,7 @@
             >Notions et trucs pratiques de consommation responsable (&#233;cologique, solidaire, &#233;quitable, &#233;conomique, etc.)</field>
             <field name="nom">Conseils consommation responsable</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_entretien_m&#233;nager_des_locaux" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4389,7 +4389,7 @@
             >Organisation ou accomplissement de t&#226;ches relatives &#224; la production de sacs &#233;cologiques pour L'Accorderie</field>
             <field name="nom">Production de sacs &#233;cologiques pour Accorderie</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_bon_cadeau" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4479,7 +4479,7 @@
             <field name="numero">41</field>
             <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_couture_et_v&#234;tements" />
         </record>
-        <record id="accorderie_type_service_conseils_pour_pr&#233;paration_voyage" model="accorderie.type.service">
+        <record id="accorderie_type_service_conseils_pour_pr&#233;paration_voyage_1" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Conseils pour pr&#233;paration &#224; un voyage (tourisme, travail)</field>
             <field name="nom">Conseils pour pr&#233;paration voyage</field>
@@ -4653,7 +4653,7 @@
             >Conseils et/ou aide pour vous procurer divers produits ou services gratuitement ou &#224; faible co&#251;t</field>
             <field name="nom">Aide d&#233;nichage d'aubaines</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_r&#233;paration_machine_&#224;_coudre" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4679,7 +4679,7 @@
             >UnE AccordeurE (ou L'Accorderie) transf&#232;re des heures &#224; unE autre AccordeurE</field>
             <field name="nom">Transfert d'heures</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_17" />
         </record>
         <record id="accorderie_type_service_impression_d_images" model="accorderie.type.service">
             <field name="actif">False</field>
@@ -4872,7 +4872,7 @@
             >Chante message pour vous &#224; la personne de votre choix (par exemple: d&#233;clarations d'amour ou d'amiti&#233;, demandes de pardon, message po&#233;tique ou humoristique, etc.)</field>
             <field name="nom">Message chant&#233;</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_8" />
         </record>
         <record id="accorderie_type_service_initiation_accord&#233;on_piano" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5035,7 +5035,7 @@
             <field name="description">Initiation au maquillage artistique</field>
             <field name="nom">Initiation maquillage artistique</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_8" />
         </record>
         <record id="accorderie_type_service_d&#233;veloppement_du_guide_d_implantation" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5073,7 +5073,7 @@
             >Inspection de maison avant achat: isolation, &#233;lectricit&#233;, plomberie, etc.</field>
             <field name="nom">Inspection de maison</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record id="accorderie_type_service_menus_travaux_ma&#231;onnerie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5115,14 +5115,14 @@
             <field name="description">Peut teindre v&#234;tements, objets utilitaires comme tapis, etc.</field>
             <field name="nom">Teinture tissus</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_6" />
         </record>
         <record id="accorderie_type_service_aide_cordage_de_bois" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">De l'aide pour corder votre bois de chauffage</field>
             <field name="nom">Aide cordage de bois</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record id="accorderie_type_service_aide_calfeutrage_de_fen&#234;tres" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5185,7 +5185,7 @@
             >R&#233;cup&#232;re vos outils qui ne servent ou ne fonctionnent plus: &#233;lectriques, manuels, &#224; air ou &#224; gaz</field>
             <field name="nom">R&#233;cup&#233;ration outils usag&#233;s</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record id="accorderie_type_service_initiation_cuisine_marocaine" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5227,7 +5227,7 @@
             <field name="actif">False</field>
             <field name="nom">Ecoute t&#233;l&#233;phonique</field>
             <field name="numero">199</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_initiation_relaxation" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5271,7 +5271,7 @@
                 ref="accorderie_sous_categorie_service_formation_en_langues_et_conversation"
             />
         </record>
-        <record id="accorderie_type_service_apprentissage_d_arabe" model="accorderie.type.service">
+        <record id="accorderie_type_service_apprentissage_d_arabe_1" model="accorderie.type.service">
             <field name="actif">False</field>
             <field name="nom">apprentissage d'arabe</field>
             <field name="numero">16</field>
@@ -5317,7 +5317,7 @@
             <field name="numero">9</field>
             <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_dessin,_peinture_et_arts_visuels" />
         </record>
-        <record id="accorderie_type_service_initiation_pilates" model="accorderie.type.service">
+        <record id="accorderie_type_service_initiation_pilates_1" model="accorderie.type.service">
             <field name="actif">False</field>
             <field name="approuve">True</field>
             <field
@@ -5544,7 +5544,7 @@
             >Conduit minibus pour vos activit&#233;s en petit groupe (24 passagers et moins)</field>
             <field name="nom">Conducteur minibus</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_3" />
         </record>
         <record
             id="accorderie_type_service_branchement_syst&#232;me_audiovisuel_et_dvd"
@@ -5764,7 +5764,7 @@
             >Interventions vari&#233;es, en hauteur et avec &#233;quipement de s&#233;curit&#233;: installation de corde &#224; linge, cabane d'oiseaux, antenne, peinture, r&#233;parations, drain ou d&#233;neigement de toiture, etc.</field>
             <field name="nom">Travaux divers en hauteur</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record id="accorderie_type_service_accompagnement_raquette" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5809,7 +5809,7 @@
             <field name="description">R&#233;paration de souliers et objets divers en cuir, su&#232;de, etc.</field>
             <field name="nom">Cordonnerie</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_6" />
         </record>
         <record id="accorderie_type_service_conversation_su&#233;doise" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5975,7 +5975,7 @@
             <field name="description">Apprentissage de techniques ou gestes d'autod&#233;fense et conseils</field>
             <field name="nom">Initiation autod&#233;fense</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_tour_guid&#233;_hochelaga_maisonneuve" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6058,7 +6058,7 @@
             >&#201;tude des lignes de la main - &#192; titre de loisir: il ne s'agit pas d'un service pour pr&#233;dire votre avenir, vous conseiller ou vous aider &#224; vous orienter dans la vie</field>
             <field name="nom">Jeu de chirologie</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_9" />
         </record>
         <record id="accorderie_type_service_am&#233;nagement_de_l_espace_maison" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6117,7 +6117,7 @@
             >Vous assiste dans l'achat de pi&#232;ces d'ordinateur ou de syst&#232;me complet au meilleur co&#251;t</field>
             <field name="nom">Assistance achat mat&#233;riel informatique</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_2" />
         </record>
         <record
             id="accorderie_type_service_conseils_pratiques_&#233;ducation_des_enfants"
@@ -6205,7 +6205,7 @@
             <field name="numero">34</field>
             <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_couture_et_v&#234;tements" />
         </record>
-        <record id="accorderie_type_service_apprentissage_&#233;criture_chinoise" model="accorderie.type.service">
+        <record id="accorderie_type_service_apprentissage_&#233;criture_chinoise_1" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field
                 name="description"
@@ -6245,7 +6245,7 @@
             >Vous assiste dans vos recherches d'informations et diverses d&#233;marches: droit municipal, biens et successions, mise en demeure, logement, etc. - Ne donne pas d'avis juridique</field>
             <field name="nom">Aide d&#233;marches juridiques</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_1" />
         </record>
         <record id="accorderie_type_service_conseils_pr&#233;sentation_devant_public" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6254,7 +6254,7 @@
             >Aide &#224; vous pr&#233;parer pour une intervention devant auditoire: pr&#233;sentation personnelle ou sur un sujet dans un cadre professionnel, familial ou social, expos&#233; oral &#224; l'&#233;cole, intervention au micro pour conf&#233;rence ou &#233;v&#233;nement, etc.</field>
             <field name="nom">Conseils pr&#233;sentation devant public</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_aide_r&#233;daction_de_r&#233;cits_de_vie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6616,7 +6616,7 @@
                 ref="accorderie_sous_categorie_service_utilisation_de_mat&#233;riel_bureautique"
             />
         </record>
-        <record id="accorderie_type_service_r&#233;paration_imprimante" model="accorderie.type.service">
+        <record id="accorderie_type_service_r&#233;paration_imprimante_1" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">R&#233;paration d'imprimante</field>
             <field name="nom">R&#233;paration imprimante</field>
@@ -6748,7 +6748,7 @@
             >R&#233;vision de vos documents promotionnels et conseils divers pour une strat&#233;gie de communication efficace</field>
             <field name="nom">Conseils en efficacit&#233; communicationnelle</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_1" />
         </record>
         <record id="accorderie_type_service_d&#233;monstration_danse_irlandaise" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7332,7 +7332,7 @@
             >Vous donne de l'information et des r&#233;f&#233;rences pour les gais, lesbiennes et bisexuels, ou en lien avec l'orientation sexuelle</field>
             <field name="nom">R&#233;f&#233;rences orientation sexuelle</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_initiation_imitation_(humour)" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7413,7 +7413,7 @@
             >Conseils pour lutter contre divers parasites (insectes, vermine) dans le jardin ou &#224; la maison</field>
             <field name="nom">Conseils lutte antiparasitaire</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record
             id="accorderie_type_service_conseils_pr&#233;paration_voyage_en_am&#233;rique_du_sud"
@@ -7504,7 +7504,7 @@
             >Rencontre de travail pour le Comit&#233; de suivi de L'&#201;tude des besoins et aspirations des r&#233;sidants d'Hochelaga-Maisonneuve</field>
             <field name="nom">Rencontre &#201;tude des besoins Hochelaga-Maisonneuve</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_dressage_chien" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7729,7 +7729,7 @@
                 name="description"
             >Rencontre de travail Comit&#233; de d&#233;veloppement Accorderie d'Hochelaga-Maisonneuve</field>
             <field name="nom">Comit&#233; d&#233;veloppement#</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record
             id="accorderie_type_service_comit&#233;_s&#233;curit&#233;_alimentaire_hochelaga_maisonneuve#"
@@ -7740,7 +7740,7 @@
                 name="description"
             >Rencontre du Comit&#233; de s&#233;curit&#233; alimentaire &#224; L'Accorderie de Montr&#233;al &#224; Hochelaga-Maisonneuve</field>
             <field name="nom">Comit&#233; s&#233;curit&#233; alimentaire Hochelaga-Maisonneuve#</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_&#233;valuation_fonci&#232;re" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7798,7 +7798,7 @@
             >Rencontre de travail du Comit&#233; de s&#233;curit&#233; alimentaire &#224; L'Accorderie de Montr&#233;al &#224; Hochelaga-Maisonneuve</field>
             <field name="nom">Rencontre Comit&#233; s&#233;curit&#233; alimentaire Hochelaga-Maisonneuve</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record
             id="accorderie_type_service_rencontre_comit&#233;_de_d&#233;veloppement_hochelaga_maisonneuve"
@@ -7810,7 +7810,7 @@
             >Rencontre de travail du Comit&#233; de d&#233;veloppement de l'Accorderie de Hochelaga-Maisonneuve</field>
             <field name="nom">Rencontre Comit&#233; de d&#233;veloppement Hochelaga-Maisonneuve</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_initiation_d&#233;gustation_de_vin" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7819,7 +7819,7 @@
             >Initiation &#224; la d&#233;gustation de vin et aide pour le choix de vins selon vos pr&#233;f&#233;rences</field>
             <field name="nom">Initiation d&#233;gustation de vin</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_cuisine_plats_qu&#233;b&#233;cois" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7968,7 +7968,7 @@
             <field name="description">Vous montre &#224; conduire une voiture avec transmission manuelle</field>
             <field name="nom">Cours de conduite manuelle</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_3" />
         </record>
         <record id="accorderie_type_service_garde_d_enfant_autiste" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8018,7 +8018,7 @@
             >Aide pour trier et se d&#233;barrasser (don, vente, recyclage, etc.) des objets superflus</field>
             <field name="nom">Aide au d&#233;sencombrement</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record
             id="accorderie_type_service_r&#233;seau_informatique_avec_fil_&#224;_domicile"
@@ -8118,7 +8118,7 @@
             >Vous conseille sur la pr&#233;vention et la s&#233;curit&#233; li&#233;es au feu et aux incendies &#224; votre domicile (po&#234;le &#224; bois,&#160;extincteurs,&#160;d&#233;tecteurs de fum&#233;e, monoxyde de carbone, etc.)</field>
             <field name="nom">Conseils pr&#233;vention et s&#233;curit&#233; incendie</field>
             <field name="numero">7</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record id="accorderie_type_service_initiation_tir_&#224;_l_arc" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8143,7 +8143,7 @@
             >Peut distribuer courrier, documents divers ou publicit&#233; directement dans des bo&#238;tes aux lettres</field>
             <field name="nom">Distribution porte-&#224;-porte</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_1" />
         </record>
         <record id="accorderie_type_service_initiation_fabrication_savon_naturel" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8159,7 +8159,7 @@
             <field name="description">Remboursement d'un service</field>
             <field name="nom">Remboursement</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_17" />
         </record>
         <record
             id="accorderie_type_service_entretien_ou_r&#233;paration_v&#233;hicule_motoris&#233;_l&#233;ger"
@@ -8218,7 +8218,7 @@
             >Initiation th&#233;orique et/ou pratique au th&#233; et &#224; sa d&#233;gustation</field>
             <field name="nom">Initiation d&#233;gustation de th&#233;</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_initiation_fabrication_bijoux_en_chanvre" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8702,7 +8702,7 @@
             <field name="description">Peut conduire un camion</field>
             <field name="nom">Conducteur camion</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_3" />
         </record>
         <record id="accorderie_type_service_partenaire_danses_latines" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9151,7 +9151,7 @@
             >Vous assiste pour trouver les meilleures solutions en r&#233;cup&#233;ration et recyclage d'une grande vari&#233;t&#233; d'objets</field>
             <field name="nom">Aide et conseils r&#233;cup&#233;ration / recyclage</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_12" />
         </record>
         <record id="accorderie_type_service_menus_travaux_vitrerie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9495,14 +9495,14 @@
             >Accomplissement de t&#226;ches cl&#233;ricales pour le R&#233;seau Accorderie</field>
             <field name="nom">T&#226;ches cl&#233;ricales pour le R&#233;seau</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_autres_t&#226;ches" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_autres_t&#226;ches_1" />
         </record>
         <record id="accorderie_type_service_t&#226;ches_manuelles_pour_le_r&#233;seau" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Accomplissement de t&#226;ches manuelles pour le R&#233;seau Accorderie</field>
             <field name="nom">T&#226;ches manuelles pour le R&#233;seau</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_autres_t&#226;ches" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_autres_t&#226;ches_1" />
         </record>
         <record
             id="accorderie_type_service_rencontre_de_travail_pour_promotion_r&#233;seau"
@@ -9617,7 +9617,7 @@
             </field>
             <field name="nom">Information droits des consommateurs</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_1" />
         </record>
         <record id="accorderie_type_service_traduction_textes_russe_fran&#231;ais" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9749,7 +9749,7 @@
             <field name="description">Conseils pour la torr&#233;faction du caf&#233;</field>
             <field name="nom">Conseils torr&#233;faction du caf&#233;</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_cuisine_plats_sans_gluten" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9942,7 +9942,7 @@
             >Vous aide et vous conseille lors d'un achat t&#233;l&#233;phonique, par ex.: choix de t&#233;l&#233;phone, forfait, compagnie, etc.</field>
             <field name="nom">Assistance achat t&#233;l&#233;phonie</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_2" />
         </record>
         <record id="accorderie_type_service_test" model="accorderie.type.service">
             <field name="actif">False</field>
@@ -9950,7 +9950,7 @@
             <field name="description">test</field>
             <field name="nom">Test</field>
             <field name="numero">999</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_18" />
         </record>
         <record id="accorderie_type_service_test_#2" model="accorderie.type.service">
             <field name="actif">False</field>
@@ -10150,7 +10150,7 @@
             >"Vous aide &#224; choisir vos vins et r&#233;pond &#224; vos questions sur les vins, leur choix, leur service et l'accord mets et vins "</field>
             <field name="nom">Sommellerie - erreur, voir 105-Z-5</field>
             <field name="numero">105</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_sommellerie_autre_erreur,_voir_105_z_5" model="accorderie.type.service">
             <field name="actif">False</field>
@@ -10159,7 +10159,7 @@
 questions sur les vins, leur choix, leur service et l'accord mets et vins "</field>
             <field name="nom">sommellerie - autre erreur, voir 105-Z-5</field>
             <field name="numero">105</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_sommellerie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -10168,7 +10168,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Vous aide &#224; choisir vos vins et r&#233;pond &#224; vos questions sur les vins, leur choix, leur service et l'accord mets et vins</field>
             <field name="nom">Sommellerie</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record
             id="accorderie_type_service_stimulation_pr&#233;coce_enfant_pr&#233;scolaire"
@@ -10264,7 +10264,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             </field>
             <field name="nom">Fendre bois de chauffage</field>
             <field name="numero">8</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record
             id="accorderie_type_service_transport_de_mat&#233;riel_&#224;_v&#233;lo"
@@ -10560,7 +10560,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             </field>
             <field name="nom">Aiguisage couteaux ou outils</field>
             <field name="numero">9</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_4" />
         </record>
         <record
             id="accorderie_type_service_conseils_pr&#233;paration_voyage_au_venezuela"
@@ -10968,7 +10968,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Covoiturage pour aller voter aux &#233;lections du 7 avril 2014 (aucuns frais d'essence ne peuvent &#234;tre exig&#233;s)</field>
             <field name="nom">Covoiturage pour les &#233;lections - 7 avril 2014</field>
             <field name="numero">777</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_3" />
         </record>
         <record
             id="accorderie_type_service_transport_pour_les_&#233;lections_7_avril_2014"
@@ -10981,7 +10981,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Transport pour aller voter aux &#233;lections du 7 avril 2014 (frais d'essence exigibles selon les conditions du Code de courtoisie)</field>
             <field name="nom">Transport pour les &#233;lections - 7 avril 2014</field>
             <field name="numero">888</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_3" />
         </record>
         <record id="accorderie_type_service_accompagnement_en_fin_de_vie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11838,7 +11838,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Tirage de pierres avec runes vikings inscrites dessus - &#192; titre de loisir: il ne s'agit pas d'un service pour pr&#233;dire votre avenir, vous conseiller ou vous aider &#224; vous orienter dans la vie</field>
             <field name="nom">Jeu de runes des Vikings</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_9" />
         </record>
         <record id="accorderie_type_service_conseils_plantes_ornementales" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11877,7 +11877,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Initiation th&#233;orique / pratique pour apprendre &#224; brasser sa propre bi&#232;re</field>
             <field name="nom">Initiation brassage bi&#232;re</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_5" />
         </record>
         <record id="accorderie_type_service_diction_en_fran&#231;ais" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -12277,7 +12277,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Vous donne des informations g&#233;n&#233;rales sur le coaching professionnel et/ou personnel et ses applications - pas d'intervention personnalis&#233;e ni de conseils appliqu&#233;s &#224; votre situation</field>
             <field name="nom">Introduction coaching professionnel/personnel</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_1" />
         </record>
         <record id="accorderie_type_service_fabrication_jouets_au_crochet" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -12857,14 +12857,14 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="description">&#201;changes faits lors d'une foire de l'artisanat</field>
             <field name="nom">Foire de l'Artisanat</field>
             <field name="numero">106</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_6" />
         </record>
         <record id="accorderie_type_service_foire_artisanale" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">&#201;changes fait lors de foire d'artisanat</field>
             <field name="nom">Foire artisanale</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_6" />
         </record>
         <record
             id="accorderie_type_service_participation_rencontre_du_r&#233;seau_/_mouvement_accorderie"
@@ -12885,7 +12885,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Participation d'accompagnateurs au projet de recherche sur l'Accompagnement citoyen personnalis&#233; d'a&#238;n&#233;s.</field>
             <field name="nom">APIC-Accompagnement d'a&#238;n&#233;s</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_visite_guid&#233;e_agrotouristique" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -12963,7 +12963,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Appels faits &#224; des membres a&#238;n&#233;s dans le contexte de la crise du COVID-19</field>
             <field name="nom">Appels de courtoisie</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_aide_aux_courses" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -12972,7 +12972,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             >Service d'aide aux courses offert &#224; la population dans le cadre de la crise de la COVID-19</field>
             <field name="nom">Aide aux courses</field>
             <field name="numero">7</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_divers_16" />
         </record>
         <record id="accorderie_type_service_fabrication_de_masques" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -12989,7 +12989,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             </field>
             <field name="nom">Soutien en informatique</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_soutien_aux_individus" />
+            <field name="sous_categorie_id" ref="accorderie_sous_categorie_service_soutien_aux_individus_1" />
         </record>
     </data>
 </odoo>
