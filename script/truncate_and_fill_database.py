@@ -108,6 +108,9 @@ def fill_dct_table(cr):
     sql = """INSERT INTO tbl_occupation (Occupation) 
     VALUES (null);"""
     cr.execute(sql)
+    sql = """INSERT INTO tbl_commentaire (NoPointService, NoMembreSource, Situation_Impliquant, SatisfactionInsatisfaction, TypeOffre, SiConfidentiel) 
+    VALUES (1, 1, 2, 2, 0, 1);"""
+    cr.execute(sql)
 
 
 def drop_database(cr):

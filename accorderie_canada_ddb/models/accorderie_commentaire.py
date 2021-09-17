@@ -12,7 +12,24 @@ class AccorderieCommentaire(models.Model):
 
     autre_situation = fields.Char(string="Autre situation")
 
-    confidentiel = fields.Integer(string="Confidentialité")
+    confidentiel = fields.Selection(
+        selection=[
+            (
+                "non_autorise",
+                "Non-autorisé - Je demande à L'Accorderie                 de"
+                " ne pas divulguer mon identité lors de ses démarches         "
+                "        auprès des personnes concernées par la               "
+                "  situation.",
+            ),
+            (
+                "autorise",
+                "Autorisé - J'autorise                 L'Accorderie à"
+                " divulguer mon identité lors de ses démarches                "
+                " auprès des personnes concernées par la situation.",
+            ),
+        ],
+        string="Confidentialité",
+    )
 
     consulter_accorderie = fields.Boolean(string="Consulté par une Accorderie")
 
@@ -27,7 +44,13 @@ class AccorderieCommentaire(models.Model):
 
     datetime_creation = fields.Datetime(string="Date et heure de création")
 
-    degre_satisfaction = fields.Integer(string="Degré de satisfaction")
+    degre_satisfaction = fields.Selection(
+        selection=[
+            ("satisfait", "Grand satisfaction"),
+            ("insatisfait", "Insatisfaction"),
+        ],
+        string="Degré de satisfaction",
+    )
 
     demande_service_id = fields.Many2one(
         string="Demande de services",
@@ -79,7 +102,13 @@ class AccorderieCommentaire(models.Model):
 
     resumer_situation = fields.Text(string="Résumé de la situation")
 
-    situation_impliquant = fields.Integer(
+    situation_impliquant = fields.Selection(
+        selection=[
+            ("accordeur", "UnE ou des AccordeurEs"),
+            ("comite", "Un comité"),
+            ("employe", "UnE employéE"),
+            ("autre", "Autre"),
+        ],
         string="Situation impliquant",
         help="Choisir un type de groupe visé par ce commentaire.",
     )
@@ -92,4 +121,13 @@ class AccorderieCommentaire(models.Model):
         ),
     )
 
-    type_offre = fields.Integer(string="Type de l'offre")
+    type_offre = fields.Selection(
+        selection=[
+            ("aucun", "Aucun"),
+            ("offre_ordinaire", "Offre ordinaire"),
+            ("offre_special", "Offre spéciale"),
+            ("demande", "Demande"),
+            ("ponctuel", "Ponctuel"),
+        ],
+        string="Type de l'offre",
+    )

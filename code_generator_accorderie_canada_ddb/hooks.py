@@ -531,11 +531,14 @@ def post_init_hook(cr, e):
             "tbl_commentaire",
             "situation_impliquant",
             new_help="Choisir un type de groupe visé par ce commentaire.",
-            # TODO support type selection
-            # 1. UnE ou des AccordeurEs
-            # 2. Un comité
-            # 3. UnE employéE
-            # 4. Autre
+            new_type="selection",
+            selection_migration_start_at=1,
+            new_selection=(
+                "[('accordeur', 'UnE ou des AccordeurEs'),"
+                "('comite', 'Un comité'),"
+                "('employe', 'UnE employéE'),"
+                "('autre', 'Autre')]"
+            ),
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -559,7 +562,12 @@ def post_init_hook(cr, e):
             "satisfactioninsatisfaction",
             new_field_name="degre_satisfaction",
             new_description="Degré de satisfaction",
-            # TODO mettre selection, 1 = Grande satisfaction 2 = Insatisfaction
+            new_type="selection",
+            selection_migration_start_at=1,
+            new_selection=(
+                "[('satisfait', 'Grand satisfaction'),"
+                "('insatisfait', 'Insatisfaction')]"
+            ),
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -572,12 +580,15 @@ def post_init_hook(cr, e):
             "typeoffre",
             new_field_name="type_offre",
             new_description="Type de l'offre",
-            # TODO support selection
-            # 0 aucun
-            # 1 Offre ordinaire
-            # 2 Offre spéciale
-            # 3 Demande
-            # 4 Ponctuel - non
+            new_type="selection",
+            new_selection=(
+                "[('aucun', 'Aucun'),"
+                "('offre_ordinaire', 'Offre ordinaire'),"
+                "('offre_special', 'Offre spéciale'),"
+                "('demande', 'Demande'),"
+                "('ponctuel', 'Ponctuel')"
+                "]"
+            ),
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -612,9 +623,13 @@ def post_init_hook(cr, e):
             "siconfidentiel",
             new_field_name="confidentiel",
             new_description="Confidentialité",
-            # TODO selection
-            # 1 autorise - 	J'autorise L'Accorderie à divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation.
-            # 0 non autorisé - Je demande à L'Accorderie de ne pas divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation.
+            new_type="selection",
+            new_selection="""[("non_autorise", "Non-autorisé - Je demande à L'Accorderie
+                 de ne pas divulguer mon identité lors de ses démarches
+                 auprès des personnes concernées par la
+                 situation."),("autorise", "Autorisé - J'autorise
+                 L'Accorderie à divulguer mon identité lors de ses démarches
+                 auprès des personnes concernées par la situation.")]""",
         )
         db_column.update_column(
             "tbl_commentaire",
