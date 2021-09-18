@@ -2106,317 +2106,180 @@ def post_init_hook(cr, e):
             code_generator_id=code_generator_id
         )
 
-        # Add new field
-        ## Get model
-        model_membre_name = env["code.generator.db.table"].search(
-            [("name", "=", "tbl_membre")]
-        )
-        model_membre_id = env["ir.model"].search(
-            [("model", "=", model_membre_name.model_name)]
-        )
-        model_commentaire_name = env["code.generator.db.table"].search(
-            [("name", "=", "tbl_commentaire")]
-        )
-        model_commentaire_id = env["ir.model"].search(
-            [("model", "=", model_commentaire_name.model_name)]
-        )
-        model_categorie_sous_categorie_name = env[
-            "code.generator.db.table"
-        ].search([("name", "=", "tbl_categorie_sous_categorie")])
-        model_categorie_sous_categorie_id = env["ir.model"].search(
-            [("model", "=", model_categorie_sous_categorie_name.model_name)]
-        )
-        model_taxe_name = env["code.generator.db.table"].search(
-            [("name", "=", "tbl_taxe")]
-        )
-        model_taxe_id = env["ir.model"].search(
-            [("model", "=", model_taxe_name.model_name)]
-        )
-        model_type_compte_name = env["code.generator.db.table"].search(
-            [("name", "=", "tbl_type_compte")]
-        )
-        model_type_compte_id = env["ir.model"].search(
-            [("model", "=", model_type_compte_name.model_name)]
-        )
-
-        ## Create field compute with his code
         lst_value_code = []
+        # Add new field tbl_membre nom_complet
+        str_code = """for rec in self:
+            if rec.nom and rec.prenom:
+                rec.nom_complet = f"{rec.prenom} {rec.nom}"
+            elif rec.nom:
+                rec.nom_complet = f"{rec.nom}"
+            elif rec.prenom:
+                rec.nom_complet = f"{rec.prenom}"
+            else:
+                rec.nom_complet = False
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_membre",
+            code_generator_id,
+            "nom_complet",
+            ("nom", "prenom"),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
 
-        if model_commentaire_id:
-            # TODO add variable to create field without export data
-            value_field = {
-                "name": "nom_complet",
-                "field_description": "Nom complet",
-                "ttype": "char",
-                "code_generator_compute": "_compute_nom_complet",
-                "model_id": model_commentaire_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            model_commentaire_id.rec_name = "nom_complet"
-            for field_id in model_commentaire_id.field_id:
-                if field_id.name == "name":
-                    field_id.unlink()
-                    continue
+        # Add new field tbl_dmd_adhesion nom_complet
+        str_code = """for rec in self:
+            if rec.nom and rec.prenom:
+                rec.nom_complet = f"{rec.prenom} {rec.nom}"
+            elif rec.nom:
+                rec.nom_complet = f"{rec.nom}"
+            elif rec.prenom:
+                rec.nom_complet = f"{rec.prenom}"
+            else:
+                rec.nom_complet = False
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_dmd_adhesion",
+            code_generator_id,
+            "nom_complet",
+            ("nom", "prenom"),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
 
-            str_code = """for rec in self:
-                        value = ""
-                        if rec.number:
-                            value += str(rec.number)
-                        if rec.number and (rec.type_offre or rec.degre_satisfaction):
-                            value += " - "
-                        if rec.type_offre:
-                            value += str(rec.type_offre)
-                        if rec.type_offre and rec.degre_satisfaction:
-                            value += " - "
-                        if rec.degre_satisfaction:
-                            value += str(rec.degre_satisfaction)
-                        if not value:
-                            value = False
-                        rec.nom_complet = value
-                    """
+        # Add new field tbl_commentaire nom_complet
+        str_code = """for rec in self:
+            value = ""
+            if rec.number:
+                value += str(rec.number)
+            if rec.number and (rec.type_offre or rec.degre_satisfaction):
+                value += " - "
+            if rec.type_offre:
+                value += str(rec.type_offre)
+            if rec.type_offre and rec.degre_satisfaction:
+                value += " - "
+            if rec.degre_satisfaction:
+                value += str(rec.degre_satisfaction)
+            if not value:
+                value = False
+            rec.nom_complet = value
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_commentaire",
+            code_generator_id,
+            "nom_complet",
+            ("type_offre", "number", "degre_satisfaction"),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
 
-            lst_value_code.append(
-                {
-                    "code": str_code,
-                    "name": "_compute_nom_complet",
-                    "decorator": (
-                        '@api.depends("type_offre", "number",'
-                        ' "degre_satisfaction")'
-                    ),
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_commentaire_id.id,
-                }
-            )
+        # Add new field tbl_categorie_sous_categorie identifiant
+        str_code = """for rec in self:
+            value = ""
+            if rec.sous_categorie_id and rec.sous_categorie_id.categorie:
+               value += str(rec.sous_categorie_id.categorie.nocategorie)
+            if value and rec.sous_categorie_id:
+               value += "-"
+            if rec.sous_categorie_id:
+               value += rec.sous_categorie_id.sous_categorie_service
+            if rec.sous_categorie_id and rec.numero:
+               value += "-"
+            if rec.numero:
+               value += str(rec.numero)
+            rec.identifiant = value
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_categorie_sous_categorie",
+            code_generator_id,
+            "identifiant",
+            ("sous_categorie_id", "sous_categorie_id.categorie", "numero"),
+            str_code,
+            update_rec_name=False,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
 
-            # Compute all data
-            record_ids = (
-                env[model_commentaire_id.model]
-                .with_context(active_test=False)
-                .search([])
-            )
-            exec(str_code, {"self": record_ids})
+        # Add new field tbl_categorie_sous_categorie nom_complet
+        str_code = """for rec in self:
+            value = ""
+            if rec.identifiant:
+               value += rec.identifiant
+            if rec.identifiant and rec.nom:
+                value += " - "
+            if rec.nom:
+               value += rec.nom
+            rec.nom_complet = value
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_categorie_sous_categorie",
+            code_generator_id,
+            "nom_complet",
+            ("nom", "identifiant"),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
 
-        if model_membre_id:
-            # TODO add variable to create field without export data
-            value_field = {
-                "name": "nom_complet",
-                "field_description": "Nom complet",
-                "ttype": "char",
-                "code_generator_compute": "_compute_nom_complet",
-                "model_id": model_membre_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            model_membre_id.rec_name = "nom_complet"
-            for field_id in model_membre_id.field_id:
-                if field_id.name == "name":
-                    field_id.unlink()
-                    continue
-            str_code = """for rec in self:
-                        if rec.nom and rec.prenom:
-                            rec.nom_complet = f"{rec.prenom} {rec.nom}"
-                        elif rec.nom:
-                            rec.nom_complet = f"{rec.nom}"
-                        elif rec.prenom:
-                            rec.nom_complet = f"{rec.prenom}"
-                        else:
-                            rec.nom_complet = False
-                    """
-            lst_value_code.append(
-                {
-                    "code": str_code,
-                    "name": "_compute_nom_complet",
-                    "decorator": '@api.depends("nom", "prenom")',
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_membre_id.id,
-                }
-            )
+        # Add new field tbl_taxe nom_complet
+        # str_code = """for rec in self:
+        #     value = ""
+        #     if rec.tauxtaxepro:
+        #         value += str(rec.tauxtaxepro)
+        #     if rec.tauxtaxepro and rec.tauxtaxefed:
+        #         value += " - "
+        #     if rec.tauxtaxefed:
+        #         value += str(rec.tauxtaxefed)
+        #     rec.nom_complet = value
+        # """
+        # code_id = generate_rec_name_code_compute(
+        #     env,
+        #     "tbl_taxe",
+        #     code_generator_id,
+        #     "nom_complet",
+        #     ("tauxtaxepro", "tauxtaxefed"),
+        #     str_code,
+        # )
+        # if code_id:
+        #     lst_value_code.append(code_id)
 
-            # Compute all data
-            record_ids = (
-                env[model_membre_id.model]
-                .with_context(active_test=False)
-                .search([])
-            )
-            exec(str_code, {"self": record_ids})
-
-        if model_categorie_sous_categorie_id:
-            # Create the identity
-            value_field = {
-                "name": "identifiant",
-                "field_description": "Identifiant",
-                "ttype": "char",
-                "code_generator_compute": "_compute_identifiant",
-                "model_id": model_categorie_sous_categorie_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            # Change rec_name
-            model_categorie_sous_categorie_id.rec_name = "nom_complet"
-            for field_id in model_categorie_sous_categorie_id.field_id:
-                if field_id.name == "name":
-                    field_id.unlink()
-                    continue
-            # Add code
-            str_code = """for rec in self:
-                value = ""
-                if rec.sous_categorie_id and rec.sous_categorie_id.categorie:
-                   value += str(rec.sous_categorie_id.categorie.nocategorie)
-                if value and rec.sous_categorie_id:
-                   value += "-"
-                if rec.sous_categorie_id:
-                   value += rec.sous_categorie_id.sous_categorie_service
-                if rec.sous_categorie_id and rec.numero:
-                   value += "-"
-                if rec.numero:
-                   value += str(rec.numero)
-                rec.identifiant = value
-            """
-            lst_value_code.append(
-                {
-                    "code": str_code,
-                    "name": "_compute_identifiant",
-                    "decorator": (
-                        '@api.depends("sous_categorie_id",'
-                        ' "sous_categorie_id.categorie", "numero")'
-                    ),
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_categorie_sous_categorie_id.id,
-                }
-            )
-            # Compute all data
-            record_ids = (
-                env[model_categorie_sous_categorie_id.model]
-                .with_context(active_test=False)
-                .search([])
-            )
-            exec(str_code, {"self": record_ids})
-
-            value_field = {
-                "name": "nom_complet",
-                "field_description": "Nom complet",
-                "ttype": "char",
-                "code_generator_compute": "_compute_nom_complet",
-                "model_id": model_categorie_sous_categorie_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            # Add code
-            str_code = """for rec in self:
-                value = ""
-                if rec.identifiant:
-                   value += rec.identifiant
-                if rec.identifiant and rec.nom:
-                    value += " - "
-                if rec.nom:
-                   value += rec.nom
-                rec.nom_complet = value
-            """
-            lst_value_code.append(
-                {
-                    "code": str_code,
-                    "name": "_compute_nom_complet",
-                    "decorator": '@api.depends("nom", "identifiant")',
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_categorie_sous_categorie_id.id,
-                }
-            )
-            # Compute all data
-            record_ids = (
-                env[model_categorie_sous_categorie_id.model]
-                .with_context(active_test=False)
-                .search([])
-            )
-            exec(str_code, {"self": record_ids})
-
-        if model_taxe_id:
-            value_field = {
-                "name": "nom_complet",
-                "field_description": "Nom complet",
-                "ttype": "char",
-                "code_generator_compute": "_compute_nom_complet",
-                "model_id": model_taxe_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            model_taxe_id.rec_name = "nom_complet"
-            for field_id in model_taxe_id.field_id:
-                if field_id.name == "name":
-                    field_id.unlink()
-                    continue
-            str_code = """for rec in self:
-                        value = ""
-                        if rec.tauxtaxepro:
-                            value += str(rec.tauxtaxepro)
-                        if rec.tauxtaxepro and rec.tauxtaxefed:
-                            value += " - "
-                        if rec.tauxtaxefed:
-                            value += str(rec.tauxtaxefed)
-                        rec.nom_complet = value
-                    """
-            lst_value_code.append(
-                {
-                    "code": str_code,
-                    "name": "_compute_nom_complet",
-                    "decorator": '@api.depends("tauxtaxepro", "tauxtaxefed")',
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_taxe_id.id,
-                }
-            )
-
-            # Compute all data
-            record_ids = (
-                env[model_taxe_id.model]
-                .with_context(active_test=False)
-                .search([])
-            )
-            exec(str_code, {"self": record_ids})
-
-        if model_type_compte_id:
-            value_field = {
-                "name": "nom_complet",
-                "field_description": "Nom complet",
-                "ttype": "char",
-                "code_generator_compute": "_compute_nom_complet",
-                "model_id": model_type_compte_id.id,
-            }
-            env["ir.model.fields"].create(value_field)
-            model_type_compte_id.rec_name = "nom_complet"
-            for field_id in model_type_compte_id.field_id:
-                if field_id.name == "name":
-                    field_id.unlink()
-                    continue
-            lst_value_code.append(
-                {
-                    "code": """for rec in self:
-                           value = ""
-                           value += str(rec.accodeursimple)
-                           value += str(rec.admin)
-                           value += str(rec.adminchef)
-                           value += str(rec.reseau)
-                           value += str(rec.spip)
-                           value += str(rec.adminpointservice)
-                           value += str(rec.adminordpointservice)
-                           rec.nom_complet = value
-                       """,
-                    "name": "_compute_nom_complet",
-                    "decorator": (
-                        '@api.depends("accodeursimple", "admin", "adminchef",'
-                        ' "reseau", "spip", "adminpointservice",'
-                        ' "adminordpointservice")'
-                    ),
-                    "param": "self",
-                    "sequence": 1,
-                    "m2o_module": code_generator_id.id,
-                    "m2o_model": model_type_compte_id.id,
-                }
-            )
+        # Add new field tbl_type_compte nom_complet
+        str_code = """for rec in self:
+           value = ""
+           value += str(rec.accodeursimple)
+           value += str(rec.admin)
+           value += str(rec.adminchef)
+           value += str(rec.reseau)
+           value += str(rec.spip)
+           value += str(rec.adminpointservice)
+           value += str(rec.adminordpointservice)
+           rec.nom_complet = value
+       """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_type_compte",
+            code_generator_id,
+            "nom_complet",
+            (
+                "accodeursimple",
+                "admin",
+                "adminchef",
+                "reseau",
+                "spip",
+                "adminpointservice",
+                "adminordpointservice",
+            ),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
 
         env["code.generator.model.code"].create(lst_value_code)
 
@@ -2434,6 +2297,58 @@ def post_init_hook(cr, e):
         # Generate module
         value = {"code_generator_ids": code_generator_id.ids}
         env["code.generator.writer"].create(value)
+
+
+def generate_rec_name_code_compute(
+    env,
+    tbl_name,
+    code_generator_id,
+    new_field_name,
+    api_depend,
+    str_code,
+    ttype="char",
+    update_rec_name=True,
+):
+    model_name = env["code.generator.db.table"].search(
+        [("name", "=", tbl_name)]
+    )
+    model_id = env["ir.model"].search([("model", "=", model_name.model_name)])
+    if model_id:
+        method_name = f"_compute_{new_field_name}"
+        # TODO add variable to create field without export data
+        value_field = {
+            "name": new_field_name,
+            "field_description": new_field_name.replace("_", " ").capitalize(),
+            "ttype": ttype,
+            "code_generator_compute": method_name,
+            "model_id": model_id.id,
+        }
+        env["ir.model.fields"].create(value_field)
+        if update_rec_name:
+            model_id.rec_name = new_field_name
+        for field_id in model_id.field_id:
+            if field_id.name == "name":
+                field_id.unlink()
+                continue
+
+        # Compute all data
+        # TODO don't compute if contain no data
+        record_ids = (
+            env[model_id.model].with_context(active_test=False).search([])
+        )
+        if record_ids:
+            exec(str_code, {"self": record_ids})
+        return {
+            "code": str_code,
+            "name": method_name,
+            "decorator": f"@api.depends{api_depend}",
+            "param": "self",
+            "sequence": 1,
+            "m2o_module": code_generator_id.id,
+            "m2o_model": model_id.id,
+        }
+    else:
+        _logger.error(f"Cannot find model from table {tbl_name}")
 
 
 def uninstall_hook(cr, e):

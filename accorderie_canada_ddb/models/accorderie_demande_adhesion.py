@@ -4,6 +4,7 @@ from odoo import _, api, models, fields
 class AccorderieDemandeAdhesion(models.Model):
     _name = "accorderie.demande.adhesion"
     _description = "Accorderie Demande Adhesion"
+    _rec_name = "nom_complet"
 
     accorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
@@ -31,9 +32,13 @@ class AccorderieDemandeAdhesion(models.Model):
         default=True,
     )
 
-    name = fields.Char()
-
     nom = fields.Char()
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     poste = fields.Char()
 
@@ -45,3 +50,15 @@ class AccorderieDemandeAdhesion(models.Model):
         string="Transféré",
         default=False,
     )
+
+    @api.depends("nom", "prenom")
+    def _compute_nom_complet(self):
+        for rec in self:
+            if rec.nom and rec.prenom:
+                rec.nom_complet = f"{rec.prenom} {rec.nom}"
+            elif rec.nom:
+                rec.nom_complet = f"{rec.nom}"
+            elif rec.prenom:
+                rec.nom_complet = f"{rec.prenom}"
+            else:
+                rec.nom_complet = False
