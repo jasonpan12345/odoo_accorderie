@@ -10,7 +10,7 @@
                         <field name="nom" />
                     </group>
                     <group>
-                        <field name="datemaj_typefichier" />
+                        <field name="date_mise_a_jour" />
                     </group>
                 </sheet>
             </form>
@@ -23,7 +23,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nom" />
-                <field name="datemaj_typefichier" />
+                <field name="date_mise_a_jour" />
             </tree>
         </field>
     </record>

@@ -6,4 +6,4 @@ class AccorderieTypeTel(models.Model):
     _description = "Accorderie Type Tel"
     _rec_name = "nom"
 
-    nom = fields.Char(string="Typetel")
+    nom = fields.Char()

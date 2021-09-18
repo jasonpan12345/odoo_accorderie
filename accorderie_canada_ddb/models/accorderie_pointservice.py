@@ -6,7 +6,10 @@ class AccorderiePointservice(models.Model):
     _description = "Accorderie Pointservice"
     _rec_name = "nom"
 
-    datemaj_pointservice = fields.Datetime(string="Datemaj pointservice")
+    date_mise_a_jour = fields.Datetime(
+        string="Dernière mise à jour",
+        help="Date de la dernière mise à jour",
+    )
 
     membre = fields.One2many(
         comodel_name="accorderie.membre",
@@ -21,6 +24,7 @@ class AccorderiePointservice(models.Model):
 
     nom = fields.Char(help="Nom du point de service")
 
-    notegrpachatpageclient = fields.Text()
-
-    ordrepointservice = fields.Integer()
+    sequence = fields.Integer(
+        string="Séquence",
+        help="Séquence d'affichage",
+    )

@@ -4,6 +4,7 @@ from odoo import _, api, models, fields
 class AccorderieEchangeService(models.Model):
     _name = "accorderie.echange.service"
     _description = "Accorderie Echange Service"
+    _rec_name = "nom_complet"
 
     commentaire = fields.Char()
 
@@ -24,11 +25,15 @@ class AccorderieEchangeService(models.Model):
         comodel_name="accorderie.membre",
     )
 
-    name = fields.Char()
-
     nb_heure = fields.Float(
         string="Nombre d'heure",
         help="Nombre d'heure effectué au moment de l'échange.",
+    )
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
     )
 
     offre_service = fields.Many2one(
@@ -52,3 +57,17 @@ class AccorderieEchangeService(models.Model):
         ],
         string="Type d'échange",
     )
+
+    @api.depends("type_echange", "point_service")
+    def _compute_nom_complet(self):
+        for rec in self:
+            value = ""
+            if rec.type_echange:
+                value += rec.type_echange
+            if rec.type_echange and rec.point_service:
+                value += " - "
+            if rec.point_service:
+                value += rec.point_service.nom
+            if not value:
+                value = False
+            rec.nom_complet = value

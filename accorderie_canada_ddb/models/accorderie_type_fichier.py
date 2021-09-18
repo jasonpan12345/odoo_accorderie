@@ -6,9 +6,10 @@ class AccorderieTypeFichier(models.Model):
     _description = "Accorderie Type Fichier"
     _rec_name = "nom"
 
-    datemaj_typefichier = fields.Datetime(
-        string="Datemaj typefichier",
+    date_mise_a_jour = fields.Datetime(
+        string="Dernière mise à jour",
         required=True,
+        help="Date de la dernière mise à jour",
     )
 
-    nom = fields.Char(string="Typefichier")
+    nom = fields.Char()

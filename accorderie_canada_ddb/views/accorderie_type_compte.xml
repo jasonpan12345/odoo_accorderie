@@ -10,22 +10,22 @@
                         <field name="nom_complet" />
                     </group>
                     <group>
-                        <field name="accodeursimple" />
+                        <field name="accordeur_simple" />
                     </group>
                     <group>
                         <field name="admin" />
                     </group>
                     <group>
-                        <field name="adminchef" />
+                        <field name="admin_chef" />
                     </group>
                     <group>
-                        <field name="adminordpointservice" />
+                        <field name="admin_ord_point_service" />
                     </group>
                     <group>
-                        <field name="adminpointservice" />
+                        <field name="admin_point_service" />
                     </group>
                     <group>
-                        <field name="nomembre" />
+                        <field name="membre" />
                     </group>
                     <group>
                         <field name="reseau" />
@@ -44,12 +44,12 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nom_complet" />
-                <field name="accodeursimple" />
+                <field name="accordeur_simple" />
                 <field name="admin" />
-                <field name="adminchef" />
-                <field name="adminordpointservice" />
-                <field name="adminpointservice" />
-                <field name="nomembre" />
+                <field name="admin_chef" />
+                <field name="admin_ord_point_service" />
+                <field name="admin_point_service" />
+                <field name="membre" />
                 <field name="reseau" />
                 <field name="spip" />
             </tree>

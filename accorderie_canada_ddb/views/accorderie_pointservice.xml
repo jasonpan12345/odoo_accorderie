@@ -10,16 +10,13 @@
                         <field name="nom" />
                     </group>
                     <group>
-                        <field name="datemaj_pointservice" />
+                        <field name="date_mise_a_jour" />
                     </group>
                     <group>
                         <field name="noaccorderie" />
                     </group>
                     <group>
-                        <field name="notegrpachatpageclient" />
-                    </group>
-                    <group>
-                        <field name="ordrepointservice" />
+                        <field name="sequence" />
                     </group>
                     <group>
                         <field name="membre" />
@@ -35,10 +32,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nom" />
-                <field name="datemaj_pointservice" />
+                <field name="date_mise_a_jour" />
                 <field name="noaccorderie" />
-                <field name="notegrpachatpageclient" />
-                <field name="ordrepointservice" />
+                <field name="sequence" />
                 <field name="membre" />
             </tree>
         </field>

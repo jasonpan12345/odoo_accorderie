@@ -1656,14 +1656,21 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_pointservice",
             "ordrepointservice",
+            new_field_name="sequence",
+            new_description="Séquence",
+            new_help="Séquence d'affichage",
         )
         db_column.update_column(
             "tbl_pointservice",
             "notegrpachatpageclient",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_pointservice",
             "datemaj_pointservice",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
         # db_column.update_column(
         #     "tbl_pointservice",
@@ -1920,34 +1927,52 @@ def post_init_hook(cr, e):
             "tbl_type_compte",
             "nomembre",
             new_required=False,
+            new_field_name="membre",
+            new_description="Membre",
         )
         db_column.update_column(
             "tbl_type_compte",
             "accodeursimple",
+            new_field_name="accordeur_simple",
+            new_description="Accordeur simple",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_type_compte",
             "admin",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_type_compte",
             "adminchef",
+            new_field_name="admin_chef",
+            new_description="Admin chef",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_type_compte",
             "reseau",
+            new_description="Réseau",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_type_compte",
             "spip",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_type_compte",
             "adminpointservice",
+            new_field_name="admin_point_service",
+            new_description="Administrateur point service",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_type_compte",
             "adminordpointservice",
+            new_field_name="admin_ord_point_service",
+            new_description="Administrateur ordinaire point service",
+            new_type="boolean",
         )
 
         # tbl_type_fichier
@@ -1966,10 +1991,14 @@ def post_init_hook(cr, e):
             "tbl_type_fichier",
             "typefichier",
             new_field_name="nom",
+            new_description="Nom",
         )
         db_column.update_column(
             "tbl_type_fichier",
             "datemaj_typefichier",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
 
         # tbl_type_tel
@@ -1988,6 +2017,7 @@ def post_init_hook(cr, e):
             "tbl_type_tel",
             "typetel",
             new_field_name="nom",
+            new_description="Nom",
         )
 
         # tbl_versement
@@ -2129,6 +2159,48 @@ def post_init_hook(cr, e):
         if code_id:
             lst_value_code.append(code_id)
 
+        # Add new field tbl_droits_admin nom_complet
+        str_code = """for rec in self:
+            if rec.membre:
+                rec.nom_complet = rec.membre.nom_complet
+            else:
+                rec.nom_complet = False
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_droits_admin",
+            code_generator_id,
+            "nom_complet",
+            ("membre",),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
+
+        # Add new field tbl_echange_service nom_complet
+        str_code = """for rec in self:
+            value = ""
+            if rec.type_echange:
+                value += rec.type_echange
+            if rec.type_echange and rec.point_service:
+                value += " - "
+            if rec.point_service:
+                value += rec.point_service.nom
+            if not value:
+                value = False
+            rec.nom_complet = value
+        """
+        code_id = generate_rec_name_code_compute(
+            env,
+            "tbl_echange_service",
+            code_generator_id,
+            "nom_complet",
+            ("type_echange", "point_service"),
+            str_code,
+        )
+        if code_id:
+            lst_value_code.append(code_id)
+
         # Add new field tbl_dmd_adhesion nom_complet
         str_code = """for rec in self:
             if rec.nom and rec.prenom:
@@ -2252,30 +2324,39 @@ def post_init_hook(cr, e):
 
         # Add new field tbl_type_compte nom_complet
         str_code = """for rec in self:
-           value = ""
-           value += str(rec.accodeursimple)
-           value += str(rec.admin)
-           value += str(rec.adminchef)
-           value += str(rec.reseau)
-           value += str(rec.spip)
-           value += str(rec.adminpointservice)
-           value += str(rec.adminordpointservice)
-           rec.nom_complet = value
-       """
+            value = ""
+            if rec.membre:
+                value += rec.membre.nom_complet
+            if not value:
+                value = False
+            rec.nom_complet = value
+        """
+        #  str_code = """for rec in self:
+        #     value = ""
+        #     value += str(rec.accodeursimple)
+        #     value += str(rec.admin)
+        #     value += str(rec.adminchef)
+        #     value += str(rec.reseau)
+        #     value += str(rec.spip)
+        #     value += str(rec.adminpointservice)
+        #     value += str(rec.adminordpointservice)
+        #     rec.nom_complet = value
+        # """
         code_id = generate_rec_name_code_compute(
             env,
             "tbl_type_compte",
             code_generator_id,
             "nom_complet",
-            (
-                "accodeursimple",
-                "admin",
-                "adminchef",
-                "reseau",
-                "spip",
-                "adminpointservice",
-                "adminordpointservice",
-            ),
+            # (
+            #     "accodeursimple",
+            #     "admin",
+            #     "adminchef",
+            #     "reseau",
+            #     "spip",
+            #     "adminpointservice",
+            #     "adminordpointservice",
+            # ),
+            ("membre",),
             str_code,
         )
         if code_id:

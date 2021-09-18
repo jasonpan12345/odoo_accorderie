@@ -7,7 +7,7 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="name" />
+                        <field name="nom_complet" />
                     </group>
                     <group>
                         <field name="consulter_etat_compte" />
@@ -55,7 +55,7 @@
         <field name="model">accorderie.droits.admin</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" />
+                <field name="nom_complet" />
                 <field name="consulter_etat_compte" />
                 <field name="consulter_profil" />
                 <field name="gestion_dmd" />

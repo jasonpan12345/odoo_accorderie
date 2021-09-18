@@ -6,15 +6,19 @@ class AccorderieTypeCompte(models.Model):
     _description = "Accorderie Type Compte"
     _rec_name = "nom_complet"
 
-    accodeursimple = fields.Integer()
+    accordeur_simple = fields.Boolean(string="Accordeur simple")
 
-    admin = fields.Integer()
+    admin = fields.Boolean()
 
-    adminchef = fields.Integer()
+    admin_chef = fields.Boolean(string="Admin chef")
 
-    adminordpointservice = fields.Integer()
+    admin_ord_point_service = fields.Boolean(
+        string="Administrateur ordinaire point service"
+    )
 
-    adminpointservice = fields.Integer()
+    admin_point_service = fields.Boolean(string="Administrateur point service")
+
+    membre = fields.Many2one(comodel_name="accorderie.membre")
 
     nom_complet = fields.Char(
         string="Nom complet",
@@ -22,29 +26,18 @@ class AccorderieTypeCompte(models.Model):
         store=True,
     )
 
-    nomembre = fields.Many2one(comodel_name="accorderie.membre")
+    reseau = fields.Boolean(string="Réseau")
 
-    reseau = fields.Integer()
-
-    spip = fields.Integer()
+    spip = fields.Boolean()
 
     @api.depends(
-        "accodeursimple",
-        "admin",
-        "adminchef",
-        "reseau",
-        "spip",
-        "adminpointservice",
-        "adminordpointservice",
+        "membre",
     )
     def _compute_nom_complet(self):
         for rec in self:
             value = ""
-            value += str(rec.accodeursimple)
-            value += str(rec.admin)
-            value += str(rec.adminchef)
-            value += str(rec.reseau)
-            value += str(rec.spip)
-            value += str(rec.adminpointservice)
-            value += str(rec.adminordpointservice)
+            if rec.membre:
+                value += rec.membre.nom_complet
+            if not value:
+                value = False
             rec.nom_complet = value
