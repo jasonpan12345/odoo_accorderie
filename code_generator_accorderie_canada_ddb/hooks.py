@@ -486,7 +486,9 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_commentaire",
             "nocommentaire",
-            delete=True,
+            new_field_name="number",
+            new_description="# de commentaire",
+            # delete=True,
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -670,7 +672,7 @@ def post_init_hook(cr, e):
         # tbl_demande_service
         db_table.update_table(
             "tbl_demande_service",
-            # new_rec_name="description",
+            new_rec_name="titre",
             new_model_name="accorderie.demande.service",
         )
         db_column.update_column(
@@ -681,14 +683,20 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_demande_service",
             "nomembre",
+            new_field_name="membre",
+            new_description="Membre",
         )
         db_column.update_column(
             "tbl_demande_service",
             "noaccorderie",
+            new_field_name="accorderie",
+            new_description="Accorderie",
         )
         db_column.update_column(
             "tbl_demande_service",
             "titredemande",
+            new_field_name="titre",
+            new_description="Titre",
         )
         db_column.update_column(
             "tbl_demande_service",
@@ -697,29 +705,47 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_demande_service",
             "approuve",
+            new_field_name="approuver",
+            new_description="Approuvé",
+            new_type="boolean",
+            new_help="Permet d'approuver cette demande de service.",
         )
         db_column.update_column(
             "tbl_demande_service",
             "supprimer",
+            new_field_name="active",
+            new_description="Actif",
+            new_type="boolean",
+            new_default_value="True",
+            new_help=(
+                "Lorsque non actif, cet demande de services n'est plus en"
+                " fonction, mais demeure accessible."
+            ),
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_demande_service",
             "transmit",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_demande_service",
             "datedebut",
+            new_field_name="date_debut",
+            new_description="Date début",
         )
         db_column.update_column(
             "tbl_demande_service",
             "datefin",
+            new_field_name="date_fin",
+            new_description="Date fin",
         )
 
         # tbl_dmd_adhesion
         db_table.update_table(
             "tbl_dmd_adhesion",
             # new_rec_name="description",
-            new_model_name="accorderie.dmd.adhesion",
+            new_model_name="accorderie.demande.adhesion",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
@@ -729,6 +755,8 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_dmd_adhesion",
             "noaccorderie",
+            new_field_name="accorderie",
+            new_description="Accorderie",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
@@ -737,14 +765,12 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_dmd_adhesion",
             "prenom",
+            new_description="Prénom",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
             "telephone",
-        )
-        db_column.update_column(
-            "tbl_dmd_adhesion",
-            "poste",
+            new_description="Téléphone",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
@@ -753,18 +779,41 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_dmd_adhesion",
             "supprimer",
+            new_field_name="active",
+            new_description="Actif",
+            new_type="boolean",
+            new_default_value="True",
+            new_help=(
+                "Lorsque non actif, cet demande d'adhésion n'est plus en"
+                " fonction, mais demeure accessible."
+            ),
+            compute_data_function="""not active""",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
             "transferer",
+            new_description="Transféré",
+            new_type="boolean",
+            new_default_value="False",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
             "enattente",
+            new_field_name="en_attente",
+            new_description="En attente",
+            new_type="boolean",
+            new_default_value="True",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
             "datemaj",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
+        )
+        db_column.update_column(
+            "tbl_dmd_adhesion",
+            "poste",
         )
 
         # tbl_droits_admin
@@ -776,51 +825,84 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_droits_admin",
             "nomembre",
+            new_field_name="membre",
+            new_description="Membre",
             new_required=False,
         )
         db_column.update_column(
             "tbl_droits_admin",
             "gestionprofil",
+            new_field_name="gestion_profil",
+            new_description="Gestion profil",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "gestioncatsouscat",
+            new_field_name="gestion_type_service",
+            new_description="Gestion type de services",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "gestionoffre",
+            new_field_name="gestion_offre",
+            new_description="Gestion offre",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "gestionoffremembre",
+            new_field_name="gestion_offre_service",
+            new_description="Gestion offre de services",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "saisieechange",
+            new_field_name="saisie_echange",
+            new_description="Saisie échange",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "validation",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "gestiondmd",
+            new_field_name="gestion_dmd",
+            new_description="Gestion demande de services",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "groupeachat",
+            new_field_name="groupe_achat",
+            new_description="Groupe d'achat",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "consulterprofil",
+            new_field_name="consulter_profil",
+            new_description="Consulter profil",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "consulteretatcompte",
+            new_field_name="consulter_etat_compte",
+            new_description="Consulter état de compte",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_droits_admin",
             "gestionfichier",
+            new_field_name="gestion_fichier",
+            new_description="Gestion fichier",
+            new_type="boolean",
         )
 
         # tbl_echange_service
@@ -837,22 +919,32 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_echange_service",
             "nopointservice",
+            new_field_name="point_service",
+            new_description="Point de services",
         )
         db_column.update_column(
             "tbl_echange_service",
             "nomembrevendeur",
+            new_field_name="membre_vendeur",
+            new_description="Membre vendeur",
         )
         db_column.update_column(
             "tbl_echange_service",
             "nomembreacheteur",
+            new_field_name="membre_acheteur",
+            new_description="Membre acheteur",
         )
         db_column.update_column(
             "tbl_echange_service",
             "nodemandeservice",
+            new_field_name="demande_service",
+            new_description="Demande de services",
         )
         db_column.update_column(
             "tbl_echange_service",
             "nooffreservicemembre",
+            new_field_name="offre_service",
+            new_description="Offre de services",
         )
         db_column.update_column(
             "tbl_echange_service",
@@ -865,10 +957,22 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_echange_service",
             "dateechange",
+            new_field_name="date_echange",
+            new_description="Date de l'échange",
         )
         db_column.update_column(
             "tbl_echange_service",
             "typeechange",
+            new_field_name="type_echange",
+            new_description="Type d'échange",
+            new_type="selection",
+            selection_migration_start_at=1,
+            new_selection=(
+                "[('offre_ordinaire', 'Offre ordinaire'),"
+                "('offre_special', 'Offre spéciale'),"
+                "('demande', 'Demande'),"
+                "('offre_ponctuel', 'Offre ponctuelle')]"
+            ),
         )
         db_column.update_column(
             "tbl_echange_service",
@@ -882,7 +986,7 @@ def post_init_hook(cr, e):
         # tbl_fichier
         db_table.update_table(
             "tbl_fichier",
-            # new_rec_name="description",
+            new_rec_name="nom",
             new_model_name="accorderie.fichier",
         )
         db_column.update_column(
@@ -893,34 +997,52 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_fichier",
             "id_typefichier",
+            new_field_name="type_fichier",
+            new_description="Type fichier",
         )
         db_column.update_column(
             "tbl_fichier",
             "noaccorderie",
+            new_field_name="accorderie",
+            new_description="Accorderie",
         )
         db_column.update_column(
             "tbl_fichier",
             "nomfichierstokage",
+            new_field_name="nom",
+            new_description="Nom",
         )
         db_column.update_column(
             "tbl_fichier",
             "nomfichieroriginal",
+            new_field_name="nom_original",
+            new_description="Nom original",
         )
         db_column.update_column(
             "tbl_fichier",
             "si_admin",
+            new_type="boolean",
+            new_description="Admin",
         )
         db_column.update_column(
             "tbl_fichier",
             "si_accorderielocalseulement",
+            new_type="boolean",
+            new_field_name="si_accorderie_local_seulement",
+            new_description="Accorderie local seulement",
         )
         db_column.update_column(
             "tbl_fichier",
             "si_disponible",
+            new_type="boolean",
+            new_description="Disponible",
         )
         db_column.update_column(
             "tbl_fichier",
             "datemaj_fichier",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
 
         # tbl_fournisseur
@@ -968,7 +1090,6 @@ def post_init_hook(cr, e):
         )
 
         # tbl_membre
-        # TODO change rec_name to display_name with compute of nom et prenom
         db_table.update_table(
             "tbl_membre",
             # new_rec_name="nom_complet",
@@ -980,7 +1101,10 @@ def post_init_hook(cr, e):
             delete=True,
         )
         db_column.update_column(
-            "tbl_membre", "nocartier", new_field_name="quartier"
+            "tbl_membre",
+            "nocartier",
+            new_field_name="quartier",
+            new_description="Quartier",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1001,46 +1125,70 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_membre",
             "notypecommunication",
+            new_field_name="type_communication",
+            new_description="Type de communication",
         )
         db_column.update_column(
             "tbl_membre",
             "nooccupation",
+            new_field_name="occupation",
+            new_description="Occupation",
         )
         db_column.update_column(
             "tbl_membre",
             "noorigine",
+            new_field_name="origine",
+            new_description="Origine",
         )
         db_column.update_column(
             "tbl_membre",
             "nosituationmaison",
+            new_field_name="situation_maison",
+            new_description="Situation maison",
         )
         db_column.update_column(
             "tbl_membre",
             "noprovenance",
+            new_field_name="provenance",
+            new_description="Provenance",
         )
         db_column.update_column(
             "tbl_membre",
             "norevenufamilial",
+            new_field_name="revenu_familial",
+            new_description="Revenu familial",
         )
         db_column.update_column(
             "tbl_membre",
             "noarrondissement",
+            new_field_name="arrondissement",
+            new_description="Arrondissement",
         )
         db_column.update_column(
             "tbl_membre",
             "noville",
+            new_field_name="ville",
+            new_description="Ville",
         )
         db_column.update_column(
             "tbl_membre",
             "noregion",
+            new_field_name="region",
+            new_description="Région",
         )
         db_column.update_column(
             "tbl_membre",
             "membreca",
+            new_field_name="membre_ca",
+            new_description="Membre du CA",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "partsocialpaye",
+            new_field_name="part_social_paye",
+            new_description="Part social payé",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1049,6 +1197,8 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_membre",
             "dateadhesion",
+            new_field_name="date_adhesion",
+            new_description="Date de l'adhésion",
         )
         # db_column.update_column(
         #     "tbl_membre",
@@ -1058,6 +1208,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_membre",
             "prenom",
+            new_description="Prénom",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1066,38 +1217,56 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_membre",
             "telephone1",
+            new_field_name="telephone_1",
+            new_description="1er téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "postetel1",
+            new_field_name="telephone_poste_1",
+            new_description="1er poste téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "notypetel1",
+            new_field_name="telephone_type_1",
+            new_description="1er type de téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "telephone2",
+            new_field_name="telephone_2",
+            new_description="2e téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "postetel2",
+            new_field_name="telephone_poste_2",
+            new_description="2 poste téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "notypetel2",
+            new_field_name="telephone_type_2",
+            new_description="2e type de téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "telephone3",
+            new_field_name="telephone_3",
+            new_description="3e téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "postetel3",
+            new_field_name="telephone_poste_3",
+            new_description="3 poste téléphone",
         )
         db_column.update_column(
             "tbl_membre",
             "notypetel3",
+            new_field_name="telephone_type_3",
+            new_description="3e type de téléphone",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1106,62 +1275,106 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_membre",
             "achatregrouper",
+            new_field_name="achat_regrouper",
+            new_description="Achat regroupé",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "pretactif",
+            new_field_name="pret_actif",
+            new_description="Prêt actif",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "pretradier",
+            new_field_name="pret_radier",
+            new_description="Prêt radié",
+            new_type="boolean",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_membre",
             "pretpayer",
+            new_field_name="pret_payer",
+            new_description="Prêt payé",
+            new_type="boolean",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_membre",
             "etatcomptecourriel",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_membre",
             "bottintel",
+            new_field_name="bottin_tel",
+            new_description="Bottin téléphone",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "bottincourriel",
+            new_field_name="bottin_courriel",
+            new_description="Bottin courriel",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "membreactif",
+            new_field_name="active",
+            new_description="Actif",
+            new_type="boolean",
+            new_default_value="True",
+            new_help=(
+                "Lorsque non actif, ce membre n'est plus en"
+                " fonction, mais demeure accessible."
+            ),
         )
         db_column.update_column(
             "tbl_membre",
             "membreconjoint",
+            new_field_name="membre_conjoint",
+            new_description="A un membre conjoint",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "nomembreconjoint",
+            new_field_name="membre_conjoint_id",
+            new_description="Membre conjoint",
         )
         db_column.update_column(
             "tbl_membre",
             "memo",
+            new_description="Mémo",
         )
         db_column.update_column(
             "tbl_membre",
             "sexe",
+            new_type="selection",
+            new_selection=(
+                "[('femme', 'Femme'),('homme', 'Homme'),('autre', 'Autre')]"
+            ),
         )
         db_column.update_column(
             "tbl_membre",
             "anneenaissance",
+            new_field_name="annee_naissance",
+            new_description="Année de naissance",
         )
         db_column.update_column(
             "tbl_membre",
             "precisezorigine",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_membre",
             "nomutilisateur",
+            new_field_name="nom_utilisateur",
+            new_description="Nom du compte",
         )
         # Configuration for test
         # db_column.update_column(
@@ -1178,34 +1391,62 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_membre",
             "profilapprouver",
+            new_field_name="profil_approuver",
+            new_description="Profil approuvé",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "membreprinc",
+            new_field_name="membre_principal",
+            new_description="Membre principal",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "nomaccorderie",
+            ignore_field=True,
         )
         db_column.update_column(
             "tbl_membre",
             "recevoircourrielgrp",
+            new_field_name="recevoir_courriel_groupe",
+            new_description="Veut recevoir courriel de groupes",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "pascommunication",
+            new_field_name="pas_communication",
+            new_description="Pas de communication",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "descriptionaccordeur",
+            new_field_name="description_membre",
+            new_description="Description du membre",
+            new_type="boolean",
+        )
+        db_column.update_column(
+            "tbl_membre",
+            "estunpointservice",
+            new_field_name="est_un_point_service",
+            new_description="Est un point de service",
+            new_type="boolean",
         )
         db_column.update_column(
             "tbl_membre",
             "date_maj_membre",
+            new_field_name="date_mise_a_jour",
+            new_description="Dernière mise à jour",
+            new_help="Date de la dernière mise à jour",
         )
         db_column.update_column(
             "tbl_membre",
             "transferede",
+            new_field_name="transfert_accorderie",
+            new_description="Transfert d'une Accorderie",
         )
         # db_column.update_column(
         #     "tbl_membre",
@@ -1873,6 +2114,12 @@ def post_init_hook(cr, e):
         model_membre_id = env["ir.model"].search(
             [("model", "=", model_membre_name.model_name)]
         )
+        model_commentaire_name = env["code.generator.db.table"].search(
+            [("name", "=", "tbl_commentaire")]
+        )
+        model_commentaire_id = env["ir.model"].search(
+            [("model", "=", model_commentaire_name.model_name)]
+        )
         model_categorie_sous_categorie_name = env[
             "code.generator.db.table"
         ].search([("name", "=", "tbl_categorie_sous_categorie")])
@@ -1895,6 +2142,62 @@ def post_init_hook(cr, e):
         ## Create field compute with his code
         lst_value_code = []
 
+        if model_commentaire_id:
+            # TODO add variable to create field without export data
+            value_field = {
+                "name": "nom_complet",
+                "field_description": "Nom complet",
+                "ttype": "char",
+                "code_generator_compute": "_compute_nom_complet",
+                "model_id": model_commentaire_id.id,
+            }
+            env["ir.model.fields"].create(value_field)
+            model_commentaire_id.rec_name = "nom_complet"
+            for field_id in model_commentaire_id.field_id:
+                if field_id.name == "name":
+                    field_id.unlink()
+                    continue
+
+            str_code = """for rec in self:
+                        value = ""
+                        if rec.number:
+                            value += str(rec.number)
+                        if rec.number and (rec.type_offre or rec.degre_satisfaction):
+                            value += " - "
+                        if rec.type_offre:
+                            value += str(rec.type_offre)
+                        if rec.type_offre and rec.degre_satisfaction:
+                            value += " - "
+                        if rec.degre_satisfaction:
+                            value += str(rec.degre_satisfaction)
+                        if not value:
+                            value = False
+                        rec.nom_complet = value
+                    """
+
+            lst_value_code.append(
+                {
+                    "code": str_code,
+                    "name": "_compute_nom_complet",
+                    "decorator": (
+                        '@api.depends("type_offre", "number",'
+                        ' "degre_satisfaction")'
+                    ),
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_commentaire_id.id,
+                }
+            )
+
+            # Compute all data
+            record_ids = (
+                env[model_commentaire_id.model]
+                .with_context(active_test=False)
+                .search([])
+            )
+            exec(str_code, {"self": record_ids})
+
         if model_membre_id:
             # TODO add variable to create field without export data
             value_field = {
@@ -1906,14 +2209,11 @@ def post_init_hook(cr, e):
             }
             env["ir.model.fields"].create(value_field)
             model_membre_id.rec_name = "nom_complet"
-            # TODO validate it was name
             for field_id in model_membre_id.field_id:
                 if field_id.name == "name":
                     field_id.unlink()
                     continue
-            lst_value_code.append(
-                {
-                    "code": """for rec in self:
+            str_code = """for rec in self:
                         if rec.nom and rec.prenom:
                             rec.nom_complet = f"{rec.prenom} {rec.nom}"
                         elif rec.nom:
@@ -1922,7 +2222,10 @@ def post_init_hook(cr, e):
                             rec.nom_complet = f"{rec.prenom}"
                         else:
                             rec.nom_complet = False
-                    """,
+                    """
+            lst_value_code.append(
+                {
+                    "code": str_code,
                     "name": "_compute_nom_complet",
                     "decorator": '@api.depends("nom", "prenom")',
                     "param": "self",
@@ -1931,6 +2234,14 @@ def post_init_hook(cr, e):
                     "m2o_model": model_membre_id.id,
                 }
             )
+
+            # Compute all data
+            record_ids = (
+                env[model_membre_id.model]
+                .with_context(active_test=False)
+                .search([])
+            )
+            exec(str_code, {"self": record_ids})
 
         if model_categorie_sous_categorie_id:
             # Create the identity
@@ -1978,8 +2289,10 @@ def post_init_hook(cr, e):
                 }
             )
             # Compute all data
-            record_ids = env[model_categorie_sous_categorie_id.model].with_context(active_test=False).search(
-                []
+            record_ids = (
+                env[model_categorie_sous_categorie_id.model]
+                .with_context(active_test=False)
+                .search([])
             )
             exec(str_code, {"self": record_ids})
 
@@ -2014,8 +2327,10 @@ def post_init_hook(cr, e):
                 }
             )
             # Compute all data
-            record_ids = env[model_categorie_sous_categorie_id.model].with_context(active_test=False).search(
-                []
+            record_ids = (
+                env[model_categorie_sous_categorie_id.model]
+                .with_context(active_test=False)
+                .search([])
             )
             exec(str_code, {"self": record_ids})
 
@@ -2033,9 +2348,7 @@ def post_init_hook(cr, e):
                 if field_id.name == "name":
                     field_id.unlink()
                     continue
-            lst_value_code.append(
-                {
-                    "code": """for rec in self:
+            str_code = """for rec in self:
                         value = ""
                         if rec.tauxtaxepro:
                             value += str(rec.tauxtaxepro)
@@ -2044,7 +2357,10 @@ def post_init_hook(cr, e):
                         if rec.tauxtaxefed:
                             value += str(rec.tauxtaxefed)
                         rec.nom_complet = value
-                    """,
+                    """
+            lst_value_code.append(
+                {
+                    "code": str_code,
                     "name": "_compute_nom_complet",
                     "decorator": '@api.depends("tauxtaxepro", "tauxtaxefed")',
                     "param": "self",
@@ -2053,6 +2369,14 @@ def post_init_hook(cr, e):
                     "m2o_model": model_taxe_id.id,
                 }
             )
+
+            # Compute all data
+            record_ids = (
+                env[model_taxe_id.model]
+                .with_context(active_test=False)
+                .search([])
+            )
+            exec(str_code, {"self": record_ids})
 
         if model_type_compte_id:
             value_field = {

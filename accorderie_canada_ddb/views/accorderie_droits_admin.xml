@@ -10,37 +10,37 @@
                         <field name="name" />
                     </group>
                     <group>
-                        <field name="consulteretatcompte" />
+                        <field name="consulter_etat_compte" />
                     </group>
                     <group>
-                        <field name="consulterprofil" />
+                        <field name="consulter_profil" />
                     </group>
                     <group>
-                        <field name="gestioncatsouscat" />
+                        <field name="gestion_dmd" />
                     </group>
                     <group>
-                        <field name="gestiondmd" />
+                        <field name="gestion_fichier" />
                     </group>
                     <group>
-                        <field name="gestionfichier" />
+                        <field name="gestion_offre" />
                     </group>
                     <group>
-                        <field name="gestionoffre" />
+                        <field name="gestion_offre_service" />
                     </group>
                     <group>
-                        <field name="gestionoffremembre" />
+                        <field name="gestion_profil" />
                     </group>
                     <group>
-                        <field name="gestionprofil" />
+                        <field name="gestion_type_service" />
                     </group>
                     <group>
-                        <field name="groupeachat" />
+                        <field name="groupe_achat" />
                     </group>
                     <group>
-                        <field name="nomembre" />
+                        <field name="membre" />
                     </group>
                     <group>
-                        <field name="saisieechange" />
+                        <field name="saisie_echange" />
                     </group>
                     <group>
                         <field name="validation" />
@@ -56,17 +56,17 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="consulteretatcompte" />
-                <field name="consulterprofil" />
-                <field name="gestioncatsouscat" />
-                <field name="gestiondmd" />
-                <field name="gestionfichier" />
-                <field name="gestionoffre" />
-                <field name="gestionoffremembre" />
-                <field name="gestionprofil" />
-                <field name="groupeachat" />
-                <field name="nomembre" />
-                <field name="saisieechange" />
+                <field name="consulter_etat_compte" />
+                <field name="consulter_profil" />
+                <field name="gestion_dmd" />
+                <field name="gestion_fichier" />
+                <field name="gestion_offre" />
+                <field name="gestion_offre_service" />
+                <field name="gestion_profil" />
+                <field name="gestion_type_service" />
+                <field name="groupe_achat" />
+                <field name="membre" />
+                <field name="saisie_echange" />
                 <field name="validation" />
             </tree>
         </field>

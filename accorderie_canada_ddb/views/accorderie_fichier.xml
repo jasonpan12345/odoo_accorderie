@@ -7,31 +7,28 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="name" />
+                        <field name="nom" />
                     </group>
                     <group>
-                        <field name="datemaj_fichier" />
+                        <field name="accorderie" />
                     </group>
                     <group>
-                        <field name="id_typefichier" />
+                        <field name="date_mise_a_jour" />
                     </group>
                     <group>
-                        <field name="noaccorderie" />
+                        <field name="nom_original" />
                     </group>
                     <group>
-                        <field name="nomfichieroriginal" />
-                    </group>
-                    <group>
-                        <field name="nomfichierstokage" />
-                    </group>
-                    <group>
-                        <field name="si_accorderielocalseulement" />
+                        <field name="si_accorderie_local_seulement" />
                     </group>
                     <group>
                         <field name="si_admin" />
                     </group>
                     <group>
                         <field name="si_disponible" />
+                    </group>
+                    <group>
+                        <field name="type_fichier" />
                     </group>
                 </sheet>
             </form>
@@ -43,15 +40,14 @@
         <field name="model">accorderie.fichier</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" />
-                <field name="datemaj_fichier" />
-                <field name="id_typefichier" />
-                <field name="noaccorderie" />
-                <field name="nomfichieroriginal" />
-                <field name="nomfichierstokage" />
-                <field name="si_accorderielocalseulement" />
+                <field name="nom" />
+                <field name="accorderie" />
+                <field name="date_mise_a_jour" />
+                <field name="nom_original" />
+                <field name="si_accorderie_local_seulement" />
                 <field name="si_admin" />
                 <field name="si_disponible" />
+                <field name="type_fichier" />
             </tree>
         </field>
     </record>

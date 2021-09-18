@@ -4,23 +4,30 @@ from odoo import _, api, models, fields
 class AccorderieDemandeService(models.Model):
     _name = "accorderie.demande.service"
     _description = "Accorderie Demande Service"
+    _rec_name = "titre"
 
-    approuve = fields.Integer()
+    accorderie = fields.Many2one(comodel_name="accorderie.accorderie")
 
-    datedebut = fields.Date()
+    active = fields.Boolean(
+        string="Actif",
+        default=True,
+        help=(
+            "Lorsque non actif, cet demande de services n'est plus en"
+            " fonction, mais demeure accessible."
+        ),
+    )
 
-    datefin = fields.Date()
+    approuver = fields.Boolean(
+        string="Approuvé",
+        help="Permet d'approuver cette demande de service.",
+    )
+
+    date_debut = fields.Date(string="Date début")
+
+    date_fin = fields.Date(string="Date fin")
 
     description = fields.Char()
 
-    name = fields.Char()
+    membre = fields.Many2one(comodel_name="accorderie.membre")
 
-    noaccorderie = fields.Many2one(comodel_name="accorderie.accorderie")
-
-    nomembre = fields.Many2one(comodel_name="accorderie.membre")
-
-    supprimer = fields.Integer()
-
-    titredemande = fields.Char()
-
-    transmit = fields.Integer()
+    titre = fields.Char()

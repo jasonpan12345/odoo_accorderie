@@ -7,7 +7,7 @@
             <form string="Titre">
                 <sheet>
                     <group>
-                        <field name="name" />
+                        <field name="nom_complet" />
                     </group>
                     <group>
                         <field name="autre_commentaire" />
@@ -55,6 +55,9 @@
                         <field name="note_administrative" />
                     </group>
                     <group>
+                        <field name="number" />
+                    </group>
+                    <group>
                         <field name="offre_service_id" />
                     </group>
                     <group>
@@ -82,7 +85,7 @@
         <field name="model">accorderie.commentaire</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" />
+                <field name="nom_complet" />
                 <field name="autre_commentaire" />
                 <field name="autre_situation" />
                 <field name="confidentiel" />
@@ -98,6 +101,7 @@
                 <field name="membre_viser" />
                 <field name="nom_comite" />
                 <field name="note_administrative" />
+                <field name="number" />
                 <field name="offre_service_id" />
                 <field name="point_service" />
                 <field name="resumer_situation" />

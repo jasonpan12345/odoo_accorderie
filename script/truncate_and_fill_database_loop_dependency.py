@@ -577,9 +577,20 @@ create table tbl_membre
     PasCommunication     tinyint(1)                               null,
     DescriptionAccordeur varchar(255)                             null,
     Date_MAJ_Membre      timestamp    default current_timestamp() null on update current_timestamp(),
-    TransfereDe          int(10)                                  null,
+    TransfereDe          int unsigned                             null,
+    EstUnPointService    tinyint(1)                               null,
     constraint tbl_membre_tbl_accorderie_NoAccorderie_fk
         foreign key (NoAccorderie) references tbl_accorderie (NoAccorderie),
+    constraint tbl_membre_tbl_accorderie_NoAccorderie_2_fk
+        foreign key (TransfereDe) references tbl_accorderie (NoAccorderie),
+    constraint tbl_membre_tbl_type_tel_NoTypeTel_fk
+        foreign key (NoTypeTel1) references tbl_type_tel (NoTypeTel),
+    constraint tbl_membre_tbl_type_tel_NoTypeTel_2_fk
+        foreign key (NoTypeTel2) references tbl_type_tel (NoTypeTel),
+    constraint tbl_membre_tbl_type_tel_NoTypeTel_3_fk
+        foreign key (NoTypeTel3) references tbl_type_tel (NoTypeTel),
+    constraint tbl_membre_tbl_membre_NoMembre_fk
+        foreign key (NoMembreConjoint) references tbl_membre (NoMembre),
     constraint tbl_membre_tbl_arrondissement_NoArrondissement_fk
         foreign key (NoArrondissement) references tbl_arrondissement (NoArrondissement),
     constraint tbl_membre_tbl_cartier_NoCartier_fk

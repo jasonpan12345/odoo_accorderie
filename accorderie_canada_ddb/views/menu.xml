@@ -34,17 +34,17 @@
     />
 
     <menuitem
-        id="demande_service"
-        name="Demande Service"
-        action="accorderie_demande_service_accorderie_demande_service_action_window"
+        id="demande_adhesion"
+        name="Demande Adhesion"
+        action="accorderie_demande_adhesion_accorderie_demande_adhesion_action_window"
         sequence="4"
         parent="models"
     />
 
     <menuitem
-        id="dmd_adhesion"
-        name="Dmd Adhesion"
-        action="accorderie_dmd_adhesion_accorderie_dmd_adhesion_action_window"
+        id="demande_service"
+        name="Demande Service"
+        action="accorderie_demande_service_accorderie_demande_service_action_window"
         sequence="5"
         parent="models"
     />

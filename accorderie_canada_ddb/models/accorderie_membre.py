@@ -12,43 +12,51 @@ class AccorderieMembre(models.Model):
         help="Accorderie associée",
     )
 
-    achatregrouper = fields.Integer()
+    achat_regrouper = fields.Boolean(string="Achat regroupé")
+
+    active = fields.Boolean(
+        string="Actif",
+        default=True,
+        help=(
+            "Lorsque non actif, ce membre n'est plus en fonction, mais demeure"
+            " accessible."
+        ),
+    )
 
     adresse = fields.Char()
 
-    anneenaissance = fields.Integer()
+    annee_naissance = fields.Integer(string="Année de naissance")
 
-    bottincourriel = fields.Integer()
+    arrondissement = fields.Many2one(comodel_name="accorderie.arrondissement")
 
-    bottintel = fields.Integer()
+    bottin_courriel = fields.Boolean(string="Bottin courriel")
+
+    bottin_tel = fields.Boolean(string="Bottin téléphone")
 
     codepostal = fields.Char()
 
     courriel = fields.Char()
 
-    date_maj_membre = fields.Datetime(string="Date maj membre")
+    date_adhesion = fields.Date(string="Date de l'adhésion")
 
-    dateadhesion = fields.Date()
-
-    descriptionaccordeur = fields.Char()
-
-    estunpointservice = fields.Integer()
-
-    etatcomptecourriel = fields.Integer()
-
-    membreactif = fields.Integer()
-
-    membreca = fields.Integer()
-
-    membreconjoint = fields.Integer()
-
-    membreprinc = fields.Integer()
-
-    memo = fields.Text()
-
-    noarrondissement = fields.Many2one(
-        comodel_name="accorderie.arrondissement"
+    date_mise_a_jour = fields.Datetime(
+        string="Dernière mise à jour",
+        help="Date de la dernière mise à jour",
     )
+
+    description_membre = fields.Boolean(string="Description du membre")
+
+    est_un_point_service = fields.Boolean(string="Est un point de service")
+
+    membre_ca = fields.Boolean(string="Membre du CA")
+
+    membre_conjoint = fields.Boolean(string="A un membre conjoint")
+
+    membre_conjoint_id = fields.Integer(string="Membre conjoint")
+
+    membre_principal = fields.Boolean(string="Membre principal")
+
+    memo = fields.Text(string="Mémo")
 
     nom = fields.Char()
 
@@ -58,49 +66,15 @@ class AccorderieMembre(models.Model):
         store=True,
     )
 
-    nomaccorderie = fields.Char()
+    nom_utilisateur = fields.Char(string="Nom du compte")
 
-    nomembreconjoint = fields.Integer()
+    occupation = fields.Many2one(comodel_name="accorderie.occupation")
 
-    nomutilisateur = fields.Char()
+    origine = fields.Many2one(comodel_name="accorderie.origine")
 
-    nooccupation = fields.Many2one(comodel_name="accorderie.occupation")
+    part_social_paye = fields.Boolean(string="Part social payé")
 
-    noorigine = fields.Many2one(comodel_name="accorderie.origine")
-
-    noprovenance = fields.Many2one(comodel_name="accorderie.provenance")
-
-    noregion = fields.Many2one(
-        comodel_name="accorderie.region",
-        required=True,
-    )
-
-    norevenufamilial = fields.Many2one(
-        comodel_name="accorderie.revenu.familial"
-    )
-
-    nosituationmaison = fields.Many2one(
-        comodel_name="accorderie.situation.maison"
-    )
-
-    notypecommunication = fields.Many2one(
-        comodel_name="accorderie.type.communication"
-    )
-
-    notypetel1 = fields.Integer()
-
-    notypetel2 = fields.Integer()
-
-    notypetel3 = fields.Integer()
-
-    noville = fields.Many2one(
-        comodel_name="accorderie.ville",
-        required=True,
-    )
-
-    partsocialpaye = fields.Integer()
-
-    pascommunication = fields.Integer()
+    pas_communication = fields.Boolean(string="Pas de communication")
 
     point_service = fields.Many2one(
         string="Point de service",
@@ -108,40 +82,81 @@ class AccorderieMembre(models.Model):
         help="Point de service associé",
     )
 
-    postetel1 = fields.Char()
+    prenom = fields.Char(string="Prénom")
 
-    postetel2 = fields.Char()
+    pret_actif = fields.Boolean(string="Prêt actif")
 
-    postetel3 = fields.Char()
+    profil_approuver = fields.Boolean(string="Profil approuvé")
 
-    precisezorigine = fields.Char()
+    provenance = fields.Many2one(comodel_name="accorderie.provenance")
 
-    prenom = fields.Char()
+    quartier = fields.Many2one(comodel_name="accorderie.quartier")
 
-    pretactif = fields.Integer()
-
-    pretpayer = fields.Integer()
-
-    pretradier = fields.Integer()
-
-    profilapprouver = fields.Integer()
-
-    quartier = fields.Many2one(
-        string="Nocartier",
-        comodel_name="accorderie.quartier",
+    recevoir_courriel_groupe = fields.Boolean(
+        string="Veut recevoir courriel de groupes"
     )
 
-    recevoircourrielgrp = fields.Integer()
+    region = fields.Many2one(
+        string="Région",
+        comodel_name="accorderie.region",
+        required=True,
+    )
 
-    sexe = fields.Integer()
+    revenu_familial = fields.Many2one(
+        string="Revenu familial",
+        comodel_name="accorderie.revenu.familial",
+    )
 
-    telephone1 = fields.Char()
+    sexe = fields.Selection(
+        selection=[("femme", "Femme"), ("homme", "Homme"), ("autre", "Autre")]
+    )
 
-    telephone2 = fields.Char()
+    situation_maison = fields.Many2one(
+        string="Situation maison",
+        comodel_name="accorderie.situation.maison",
+    )
 
-    telephone3 = fields.Char()
+    telephone_1 = fields.Char(string="1er téléphone")
 
-    transferede = fields.Integer()
+    telephone_2 = fields.Char(string="2e téléphone")
+
+    telephone_3 = fields.Char(string="3e téléphone")
+
+    telephone_poste_1 = fields.Char(string="1er poste téléphone")
+
+    telephone_poste_2 = fields.Char(string="2 poste téléphone")
+
+    telephone_poste_3 = fields.Char(string="3 poste téléphone")
+
+    telephone_type_1 = fields.Many2one(
+        string="1er type de téléphone",
+        comodel_name="accorderie.type.tel",
+    )
+
+    telephone_type_2 = fields.Many2one(
+        string="2e type de téléphone",
+        comodel_name="accorderie.type.tel",
+    )
+
+    telephone_type_3 = fields.Many2one(
+        string="3e type de téléphone",
+        comodel_name="accorderie.type.tel",
+    )
+
+    transfert_accorderie = fields.Many2one(
+        string="Transfert d'une Accorderie",
+        comodel_name="accorderie.accorderie",
+    )
+
+    type_communication = fields.Many2one(
+        string="Type de communication",
+        comodel_name="accorderie.type.communication",
+    )
+
+    ville = fields.Many2one(
+        comodel_name="accorderie.ville",
+        required=True,
+    )
 
     @api.depends("nom", "prenom")
     def _compute_nom_complet(self):

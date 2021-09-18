@@ -7,7 +7,22 @@ class AccorderieEchangeService(models.Model):
 
     commentaire = fields.Char()
 
-    dateechange = fields.Date()
+    date_echange = fields.Date(string="Date de l'échange")
+
+    demande_service = fields.Many2one(
+        string="Demande de services",
+        comodel_name="accorderie.demande.service",
+    )
+
+    membre_acheteur = fields.Many2one(
+        string="Membre acheteur",
+        comodel_name="accorderie.membre",
+    )
+
+    membre_vendeur = fields.Many2one(
+        string="Membre vendeur",
+        comodel_name="accorderie.membre",
+    )
 
     name = fields.Char()
 
@@ -16,20 +31,24 @@ class AccorderieEchangeService(models.Model):
         help="Nombre d'heure effectué au moment de l'échange.",
     )
 
-    nodemandeservice = fields.Many2one(
-        comodel_name="accorderie.demande.service"
+    offre_service = fields.Many2one(
+        string="Offre de services",
+        comodel_name="accorderie.offre.service",
     )
 
-    nomembreacheteur = fields.Many2one(comodel_name="accorderie.membre")
-
-    nomembrevendeur = fields.Many2one(comodel_name="accorderie.membre")
-
-    nooffreservicemembre = fields.Many2one(
-        comodel_name="accorderie.offre.service"
+    point_service = fields.Many2one(
+        string="Point de services",
+        comodel_name="accorderie.pointservice",
     )
-
-    nopointservice = fields.Many2one(comodel_name="accorderie.pointservice")
 
     remarque = fields.Char()
 
-    typeechange = fields.Integer()
+    type_echange = fields.Selection(
+        selection=[
+            ("offre_ordinaire", "Offre ordinaire"),
+            ("offre_special", "Offre spéciale"),
+            ("demande", "Demande"),
+            ("offre_ponctuel", "Offre ponctuelle"),
+        ],
+        string="Type d'échange",
+    )

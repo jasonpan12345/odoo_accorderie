@@ -7,6 +7,7 @@ class AccorderieCommentaire(models.Model):
         "Les commentaires des membres envers d'autres membres sur des services"
         " et demandes"
     )
+    _rec_name = "nom_complet"
 
     autre_commentaire = fields.Text(string="Autres commentaires")
 
@@ -76,9 +77,13 @@ class AccorderieCommentaire(models.Model):
         help="Membre visé par le commentaire",
     )
 
-    name = fields.Char()
-
     nom_comite = fields.Char(string="Nom du comité")
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     note_administrative = fields.Text(
         string="Note administrative",
@@ -86,6 +91,11 @@ class AccorderieCommentaire(models.Model):
             "Suivi du commentaire, visible par le Réseau et les"
             " administrateurs-chefs seulement."
         ),
+    )
+
+    number = fields.Integer(
+        string="# de commentaire",
+        required=True,
     )
 
     offre_service_id = fields.Many2one(
@@ -131,3 +141,21 @@ class AccorderieCommentaire(models.Model):
         ],
         string="Type de l'offre",
     )
+
+    @api.depends("type_offre", "number", "degre_satisfaction")
+    def _compute_nom_complet(self):
+        for rec in self:
+            value = ""
+            if rec.number:
+                value += str(rec.number)
+            if rec.number and (rec.type_offre or rec.degre_satisfaction):
+                value += " - "
+            if rec.type_offre:
+                value += str(rec.type_offre)
+            if rec.type_offre and rec.degre_satisfaction:
+                value += " - "
+            if rec.degre_satisfaction:
+                value += str(rec.degre_satisfaction)
+            if not value:
+                value = False
+            rec.nom_complet = value

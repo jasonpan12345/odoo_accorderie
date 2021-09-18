@@ -6,6 +6,11 @@
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
                     <group>
                         <field name="nom_complet" />
                     </group>
@@ -13,19 +18,22 @@
                         <field name="accorderie" />
                     </group>
                     <group>
-                        <field name="achatregrouper" />
+                        <field name="achat_regrouper" />
                     </group>
                     <group>
                         <field name="adresse" />
                     </group>
                     <group>
-                        <field name="anneenaissance" />
+                        <field name="annee_naissance" />
                     </group>
                     <group>
-                        <field name="bottincourriel" />
+                        <field name="arrondissement" />
                     </group>
                     <group>
-                        <field name="bottintel" />
+                        <field name="bottin_courriel" />
+                    </group>
+                    <group>
+                        <field name="bottin_tel" />
                     </group>
                     <group>
                         <field name="codepostal" />
@@ -34,139 +42,118 @@
                         <field name="courriel" />
                     </group>
                     <group>
-                        <field name="date_maj_membre" />
+                        <field name="date_adhesion" />
                     </group>
                     <group>
-                        <field name="dateadhesion" />
+                        <field name="date_mise_a_jour" />
                     </group>
                     <group>
-                        <field name="descriptionaccordeur" />
+                        <field name="description_membre" />
                     </group>
                     <group>
-                        <field name="estunpointservice" />
+                        <field name="est_un_point_service" />
                     </group>
                     <group>
-                        <field name="etatcomptecourriel" />
+                        <field name="membre_ca" />
                     </group>
                     <group>
-                        <field name="membreactif" />
+                        <field name="membre_conjoint" />
                     </group>
                     <group>
-                        <field name="membreca" />
+                        <field name="membre_conjoint_id" />
                     </group>
                     <group>
-                        <field name="membreconjoint" />
-                    </group>
-                    <group>
-                        <field name="membreprinc" />
+                        <field name="membre_principal" />
                     </group>
                     <group>
                         <field name="memo" />
                     </group>
                     <group>
-                        <field name="noarrondissement" />
-                    </group>
-                    <group>
                         <field name="nom" />
                     </group>
                     <group>
-                        <field name="nomaccorderie" />
+                        <field name="nom_utilisateur" />
                     </group>
                     <group>
-                        <field name="nomembreconjoint" />
+                        <field name="occupation" />
                     </group>
                     <group>
-                        <field name="nomutilisateur" />
+                        <field name="origine" />
                     </group>
                     <group>
-                        <field name="nooccupation" />
+                        <field name="part_social_paye" />
                     </group>
                     <group>
-                        <field name="noorigine" />
-                    </group>
-                    <group>
-                        <field name="noprovenance" />
-                    </group>
-                    <group>
-                        <field name="noregion" />
-                    </group>
-                    <group>
-                        <field name="norevenufamilial" />
-                    </group>
-                    <group>
-                        <field name="nosituationmaison" />
-                    </group>
-                    <group>
-                        <field name="notypecommunication" />
-                    </group>
-                    <group>
-                        <field name="notypetel1" />
-                    </group>
-                    <group>
-                        <field name="notypetel2" />
-                    </group>
-                    <group>
-                        <field name="notypetel3" />
-                    </group>
-                    <group>
-                        <field name="noville" />
-                    </group>
-                    <group>
-                        <field name="partsocialpaye" />
-                    </group>
-                    <group>
-                        <field name="pascommunication" />
+                        <field name="pas_communication" />
                     </group>
                     <group>
                         <field name="point_service" />
                     </group>
                     <group>
-                        <field name="postetel1" />
-                    </group>
-                    <group>
-                        <field name="postetel2" />
-                    </group>
-                    <group>
-                        <field name="postetel3" />
-                    </group>
-                    <group>
-                        <field name="precisezorigine" />
-                    </group>
-                    <group>
                         <field name="prenom" />
                     </group>
                     <group>
-                        <field name="pretactif" />
+                        <field name="pret_actif" />
                     </group>
                     <group>
-                        <field name="pretpayer" />
+                        <field name="profil_approuver" />
                     </group>
                     <group>
-                        <field name="pretradier" />
-                    </group>
-                    <group>
-                        <field name="profilapprouver" />
+                        <field name="provenance" />
                     </group>
                     <group>
                         <field name="quartier" />
                     </group>
                     <group>
-                        <field name="recevoircourrielgrp" />
+                        <field name="recevoir_courriel_groupe" />
+                    </group>
+                    <group>
+                        <field name="region" />
+                    </group>
+                    <group>
+                        <field name="revenu_familial" />
                     </group>
                     <group>
                         <field name="sexe" />
                     </group>
                     <group>
-                        <field name="telephone1" />
+                        <field name="situation_maison" />
                     </group>
                     <group>
-                        <field name="telephone2" />
+                        <field name="telephone_1" />
                     </group>
                     <group>
-                        <field name="telephone3" />
+                        <field name="telephone_2" />
                     </group>
                     <group>
-                        <field name="transferede" />
+                        <field name="telephone_3" />
+                    </group>
+                    <group>
+                        <field name="telephone_poste_1" />
+                    </group>
+                    <group>
+                        <field name="telephone_poste_2" />
+                    </group>
+                    <group>
+                        <field name="telephone_poste_3" />
+                    </group>
+                    <group>
+                        <field name="telephone_type_1" />
+                    </group>
+                    <group>
+                        <field name="telephone_type_2" />
+                    </group>
+                    <group>
+                        <field name="telephone_type_3" />
+                    </group>
+                    <group>
+                        <field name="transfert_accorderie" />
+                    </group>
+                    <group>
+                        <field name="type_communication" />
+                    </group>
+                    <group>
+                        <field name="ville" />
                     </group>
                 </sheet>
             </form>
@@ -180,58 +167,52 @@
             <tree>
                 <field name="nom_complet" />
                 <field name="accorderie" />
-                <field name="achatregrouper" />
+                <field name="achat_regrouper" />
                 <field name="adresse" />
-                <field name="anneenaissance" />
-                <field name="bottincourriel" />
-                <field name="bottintel" />
+                <field name="annee_naissance" />
+                <field name="arrondissement" />
+                <field name="bottin_courriel" />
+                <field name="bottin_tel" />
                 <field name="codepostal" />
                 <field name="courriel" />
-                <field name="date_maj_membre" />
-                <field name="dateadhesion" />
-                <field name="descriptionaccordeur" />
-                <field name="estunpointservice" />
-                <field name="etatcomptecourriel" />
-                <field name="membreactif" />
-                <field name="membreca" />
-                <field name="membreconjoint" />
-                <field name="membreprinc" />
+                <field name="date_adhesion" />
+                <field name="date_mise_a_jour" />
+                <field name="description_membre" />
+                <field name="est_un_point_service" />
+                <field name="membre_ca" />
+                <field name="membre_conjoint" />
+                <field name="membre_conjoint_id" />
+                <field name="membre_principal" />
                 <field name="memo" />
-                <field name="noarrondissement" />
                 <field name="nom" />
-                <field name="nomaccorderie" />
-                <field name="nomembreconjoint" />
-                <field name="nomutilisateur" />
-                <field name="nooccupation" />
-                <field name="noorigine" />
-                <field name="noprovenance" />
-                <field name="noregion" />
-                <field name="norevenufamilial" />
-                <field name="nosituationmaison" />
-                <field name="notypecommunication" />
-                <field name="notypetel1" />
-                <field name="notypetel2" />
-                <field name="notypetel3" />
-                <field name="noville" />
-                <field name="partsocialpaye" />
-                <field name="pascommunication" />
+                <field name="nom_utilisateur" />
+                <field name="occupation" />
+                <field name="origine" />
+                <field name="part_social_paye" />
+                <field name="pas_communication" />
                 <field name="point_service" />
-                <field name="postetel1" />
-                <field name="postetel2" />
-                <field name="postetel3" />
-                <field name="precisezorigine" />
                 <field name="prenom" />
-                <field name="pretactif" />
-                <field name="pretpayer" />
-                <field name="pretradier" />
-                <field name="profilapprouver" />
+                <field name="pret_actif" />
+                <field name="profil_approuver" />
+                <field name="provenance" />
                 <field name="quartier" />
-                <field name="recevoircourrielgrp" />
+                <field name="recevoir_courriel_groupe" />
+                <field name="region" />
+                <field name="revenu_familial" />
                 <field name="sexe" />
-                <field name="telephone1" />
-                <field name="telephone2" />
-                <field name="telephone3" />
-                <field name="transferede" />
+                <field name="situation_maison" />
+                <field name="telephone_1" />
+                <field name="telephone_2" />
+                <field name="telephone_3" />
+                <field name="telephone_poste_1" />
+                <field name="telephone_poste_2" />
+                <field name="telephone_poste_3" />
+                <field name="telephone_type_1" />
+                <field name="telephone_type_2" />
+                <field name="telephone_type_3" />
+                <field name="transfert_accorderie" />
+                <field name="type_communication" />
+                <field name="ville" />
             </tree>
         </field>
     </record>

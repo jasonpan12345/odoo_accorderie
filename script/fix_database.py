@@ -87,6 +87,20 @@ def main():
         "tbl_origine",
         "NoOrigine",
     )
+    debug_over_generic(
+        cr,
+        "tbl_membre",
+        "TransfereDe",
+        "tbl_accorderie",
+        "NoAccorderie",
+    )
+    # debug_over_generic(
+    #     cr,
+    #     "tbl_membre",
+    #     "NoMembreConjoint",
+    #     "tbl_membre",
+    #     "NoMembre",
+    # )
 
     delete_record(cr)
     alter_table(cr)
@@ -577,6 +591,13 @@ def alter_table(cr):
     cr.execute(query_search)
 
     # Fix field for foreign key
+    query_search = """
+    ALTER TABLE tbl_membre
+    MODIFY TransfereDe int unsigned null;
+    """
+    cr.execute(query_search)
+
+    # Fix field for foreign key
     # query_search = """
     # ALTER TABLE tbl_achat_ponctuel
     # MODIFY NoMembre int unsigned null;
@@ -673,6 +694,12 @@ def replace_record(cr):
     query_search = """UPDATE `tbl_membre` SET `NoRevenuFamilial` = NULL WHERE NoRevenuFamilial = 0;"""
     cr.execute(query_search)
     query_search = """UPDATE `tbl_membre` SET `NoArrondissement` = NULL WHERE NoArrondissement = 0;"""
+    cr.execute(query_search)
+    query_search = (
+        """UPDATE `tbl_membre` SET `NoTypeTel3` = NULL WHERE NoTypeTel3 = 0;"""
+    )
+    cr.execute(query_search)
+    query_search = """UPDATE `tbl_membre` SET `NoMembreConjoint` = NULL WHERE NoMembreConjoint = 0;"""
     cr.execute(query_search)
     query_search = """UPDATE `tbl_offre_service_membre` SET `NoCategorieSousCategorie` = NULL WHERE NoCategorieSousCategorie = 0;"""
     cr.execute(query_search)
@@ -1696,6 +1723,93 @@ def add_foreign_key(cr):
     alter table tbl_membre
         add constraint tbl_membre_tbl_region_NoRegion_fk
             foreign key (NoRegion) references tbl_region (NoRegion);
+    """
+    cr.execute(query_search)
+
+    # - NoMembreConjoint
+    # TODO enable when support looping
+    # try:
+    #     query_search = """
+    #     ALTER TABLE tbl_membre
+    #     DROP FOREIGN KEY tbl_membre_tbl_membre_NoMembre_fk;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_membre
+    #     add constraint tbl_membre_tbl_membre_NoMembre_fk
+    #         foreign key (NoMembreConjoint) references tbl_membre (NoMembre);
+    # """
+    # cr.execute(query_search)
+
+    # - transfereDe
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_accorderie_NoAccorderie_fk_2;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_accorderie_NoAccorderie_fk_2
+            foreign key (TransfereDe) references tbl_accorderie (NoAccorderie)
+                on update set null on delete set null;
+    """
+    cr.execute(query_search)
+
+    # - notypetel1
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_type_tel_NoTypeTel_fk;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_type_tel_NoTypeTel_fk
+            foreign key (NoTypeTel1) references tbl_type_tel (NoTypeTel);
+    """
+    cr.execute(query_search)
+
+    # - notypetel2
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_type_tel_NoTypeTel_2_fk;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_type_tel_NoTypeTel_2_fk
+            foreign key (NoTypeTel2) references tbl_type_tel (NoTypeTel);
+    """
+    cr.execute(query_search)
+
+    # - notypetel3
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_type_tel_NoTypeTel_3_fk;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_type_tel_NoTypeTel_3_fk
+            foreign key (NoTypeTel3) references tbl_type_tel (NoTypeTel);
     """
     cr.execute(query_search)
 

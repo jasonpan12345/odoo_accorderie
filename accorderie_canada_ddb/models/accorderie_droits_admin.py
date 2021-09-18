@@ -5,28 +5,28 @@ class AccorderieDroitsAdmin(models.Model):
     _name = "accorderie.droits.admin"
     _description = "Accorderie Droits Admin"
 
-    consulteretatcompte = fields.Integer()
+    consulter_etat_compte = fields.Boolean(string="Consulter état de compte")
 
-    consulterprofil = fields.Integer()
+    consulter_profil = fields.Boolean(string="Consulter profil")
 
-    gestioncatsouscat = fields.Integer()
+    gestion_dmd = fields.Boolean(string="Gestion demande de services")
 
-    gestiondmd = fields.Integer()
+    gestion_fichier = fields.Boolean(string="Gestion fichier")
 
-    gestionfichier = fields.Integer()
+    gestion_offre = fields.Boolean(string="Gestion offre")
 
-    gestionoffre = fields.Integer()
+    gestion_offre_service = fields.Boolean(string="Gestion offre de services")
 
-    gestionoffremembre = fields.Integer()
+    gestion_profil = fields.Boolean(string="Gestion profil")
 
-    gestionprofil = fields.Integer()
+    gestion_type_service = fields.Boolean(string="Gestion type de services")
 
-    groupeachat = fields.Integer()
+    groupe_achat = fields.Boolean(string="Groupe d'achat")
+
+    membre = fields.Many2one(comodel_name="accorderie.membre")
 
     name = fields.Char()
 
-    nomembre = fields.Many2one(comodel_name="accorderie.membre")
+    saisie_echange = fields.Boolean(string="Saisie échange")
 
-    saisieechange = fields.Integer()
-
-    validation = fields.Integer()
+    validation = fields.Boolean()
