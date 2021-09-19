@@ -503,6 +503,7 @@ def post_init_hook(cr, e):
             "nopointservice",
             new_field_name="point_service",
             new_description="Point de services",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -510,6 +511,7 @@ def post_init_hook(cr, e):
             new_field_name="membre_source",
             new_description="Membre source",
             new_help="Membre duquel provient le commentaire",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -517,6 +519,7 @@ def post_init_hook(cr, e):
             new_field_name="membre_viser",
             new_description="Membre visé",
             new_help="Membre visé par le commentaire",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -533,6 +536,7 @@ def post_init_hook(cr, e):
             new_help=(
                 "La demande de services qui est visée par ce commentaire."
             ),
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -833,7 +837,7 @@ def post_init_hook(cr, e):
             "tbl_droits_admin",
             # new_rec_name="description",
             new_model_name="accorderie.droits.admin",
-            menu_group="Droits",
+            menu_group="Configuration",
             menu_label="Droits administratifs",
         )
         db_column.update_column(
@@ -1016,6 +1020,7 @@ def post_init_hook(cr, e):
             "id_typefichier",
             new_field_name="type_fichier",
             new_description="Type fichier",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_fichier",
@@ -1026,14 +1031,16 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_fichier",
             "nomfichierstokage",
-            new_field_name="nom",
-            new_description="Nom",
+            new_field_name="fichier_binaire",
+            new_description="fichier_binaire",
+            new_type="binary",
+            path_binary="/accorderie_canada/Intranet/document/doc",
         )
         db_column.update_column(
             "tbl_fichier",
             "nomfichieroriginal",
-            new_field_name="nom_original",
-            new_description="Nom original",
+            new_field_name="nom",
+            new_description="Nom",
         )
         db_column.update_column(
             "tbl_fichier",
@@ -1123,6 +1130,7 @@ def post_init_hook(cr, e):
             "nocartier",
             new_field_name="quartier",
             new_description="Quartier",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1145,54 +1153,63 @@ def post_init_hook(cr, e):
             "notypecommunication",
             new_field_name="type_communication",
             new_description="Type de communications",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "nooccupation",
             new_field_name="occupation",
             new_description="Occupation",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "noorigine",
             new_field_name="origine",
             new_description="Origine",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "nosituationmaison",
             new_field_name="situation_maison",
             new_description="Situation maison",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "noprovenance",
             new_field_name="provenance",
             new_description="Provenance",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "norevenufamilial",
             new_field_name="revenu_familial",
             new_description="Revenu familial",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "noarrondissement",
             new_field_name="arrondissement",
             new_description="Arrondissement",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "noville",
             new_field_name="ville",
             new_description="Ville",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
             "noregion",
             new_field_name="region",
             new_description="Région",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1249,6 +1266,7 @@ def post_init_hook(cr, e):
             "notypetel1",
             new_field_name="telephone_type_1",
             new_description="1er type de téléphones",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1267,6 +1285,7 @@ def post_init_hook(cr, e):
             "notypetel2",
             new_field_name="telephone_type_2",
             new_description="2e type de téléphones",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1285,6 +1304,7 @@ def post_init_hook(cr, e):
             "notypetel3",
             new_field_name="telephone_type_3",
             new_description="3e type de téléphones",
+            add_one2many=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1373,6 +1393,7 @@ def post_init_hook(cr, e):
             "tbl_membre",
             "sexe",
             new_type="selection",
+            # TODO add default pour autre
             new_selection=(
                 "[('femme', 'Femme'),('homme', 'Homme'),('autre', 'Autre')]"
             ),
@@ -1696,6 +1717,12 @@ def post_init_hook(cr, e):
             new_description="Dernière mise à jour",
             new_help="Date de la dernière mise à jour",
         )
+        db_column.update_column(
+            "tbl_pointservice",
+            "noaccorderie",
+            new_field_name="accorderie",
+            new_description="Accorderie",
+        )
         # db_column.update_column(
         #     "tbl_pointservice",
         #     "noarrondissement",
@@ -1956,7 +1983,7 @@ def post_init_hook(cr, e):
         db_table.update_table(
             "tbl_type_compte",
             new_model_name="accorderie.type.compte",
-            menu_group="Droits",
+            menu_group="Configuration",
             menu_label="Type de comptes membre",
         )
         db_column.update_column(
@@ -2180,21 +2207,23 @@ def post_init_hook(cr, e):
         lst_value_code = []
         # Add new field tbl_membre nom_complet
         str_code = """for rec in self:
-            if rec.nom and rec.prenom:
-                rec.nom_complet = f"{rec.prenom} {rec.nom}"
-            elif rec.nom:
-                rec.nom_complet = f"{rec.nom}"
-            elif rec.prenom:
-                rec.nom_complet = f"{rec.prenom}"
+            rec.nom_complet = False
+            if rec.est_un_point_service:
+                rec.nom_complet = f"Point de service {rec.point_service.nom}"
             else:
-                rec.nom_complet = False
+                if rec.nom and rec.prenom:
+                    rec.nom_complet = f"{rec.prenom} {rec.nom}"
+                elif rec.nom:
+                    rec.nom_complet = f"{rec.nom}"
+                elif rec.prenom:
+                    rec.nom_complet = f"{rec.prenom}"
         """
         code_id = generate_rec_name_code_compute(
             env,
             "tbl_membre",
             code_generator_id,
             "nom_complet",
-            ("nom", "prenom"),
+            ("nom", "prenom", "est_un_point_service", "point_service"),
             str_code,
         )
         if code_id:

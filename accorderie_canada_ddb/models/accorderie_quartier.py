@@ -12,6 +12,12 @@ class AccorderieQuartier(models.Model):
         help="Arrondissement associé au quartier",
     )
 
+    membre = fields.One2many(
+        comodel_name="accorderie.membre",
+        inverse_name="quartier",
+        help="Membre relation",
+    )
+
     nom = fields.Char(
         string="Nom du quartier",
         help="Nom du quartier",

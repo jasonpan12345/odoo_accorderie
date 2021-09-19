@@ -18,9 +18,9 @@
         parent="menu"
     />
 
-    <menuitem id="accorderie_canada_ddb.group_document" name="Document" sequence="2" parent="menu" />
+    <menuitem id="accorderie_canada_ddb.group_configuration" name="Configuration" sequence="2" parent="menu" />
 
-    <menuitem id="accorderie_canada_ddb.group_droits" name="Droits" sequence="3" parent="menu" />
+    <menuitem id="accorderie_canada_ddb.group_document" name="Document" sequence="3" parent="menu" />
 
     <menuitem id="accorderie_canada_ddb.group_location" name="Location" sequence="4" parent="menu" />
 
@@ -83,7 +83,7 @@
         name="Droits administratifs"
         action="accorderie_droits_admin_droits_administratifs_action_window"
         sequence="6"
-        parent="accorderie_canada_ddb.group_droits"
+        parent="accorderie_canada_ddb.group_configuration"
     />
 
     <menuitem
@@ -194,7 +194,7 @@
         name="Type de comptes membre"
         action="accorderie_type_compte_type_de_comptes_membre_action_window"
         sequence="20"
-        parent="accorderie_canada_ddb.group_droits"
+        parent="accorderie_canada_ddb.group_configuration"
     />
 
     <menuitem

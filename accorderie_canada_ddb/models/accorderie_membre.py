@@ -35,6 +35,18 @@ class AccorderieMembre(models.Model):
 
     codepostal = fields.Char()
 
+    commentaire = fields.One2many(
+        comodel_name="accorderie.commentaire",
+        inverse_name="membre_source",
+        help="Commentaire relation",
+    )
+
+    commentaire_ids = fields.One2many(
+        comodel_name="accorderie.commentaire",
+        inverse_name="membre_viser",
+        help="Commentaire Ids relation",
+    )
+
     courriel = fields.Char()
 
     date_adhesion = fields.Date(string="Date de l'adhésion")
@@ -158,14 +170,16 @@ class AccorderieMembre(models.Model):
         required=True,
     )
 
-    @api.depends("nom", "prenom")
+    @api.depends("nom", "prenom", "est_un_point_service", "point_service")
     def _compute_nom_complet(self):
         for rec in self:
-            if rec.nom and rec.prenom:
-                rec.nom_complet = f"{rec.prenom} {rec.nom}"
-            elif rec.nom:
-                rec.nom_complet = f"{rec.nom}"
-            elif rec.prenom:
-                rec.nom_complet = f"{rec.prenom}"
+            rec.nom_complet = False
+            if rec.est_un_point_service:
+                rec.nom_complet = f"Point de service {rec.point_service.nom}"
             else:
-                rec.nom_complet = False
+                if rec.nom and rec.prenom:
+                    rec.nom_complet = f"{rec.prenom} {rec.nom}"
+                elif rec.nom:
+                    rec.nom_complet = f"{rec.nom}"
+                elif rec.prenom:
+                    rec.nom_complet = f"{rec.prenom}"

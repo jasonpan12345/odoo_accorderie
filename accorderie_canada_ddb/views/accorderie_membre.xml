@@ -155,6 +155,12 @@
                     <group>
                         <field name="ville" />
                     </group>
+                    <group>
+                        <field name="commentaire" />
+                    </group>
+                    <group>
+                        <field name="commentaire_ids" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -213,6 +219,8 @@
                 <field name="transfert_accorderie" />
                 <field name="type_communication" />
                 <field name="ville" />
+                <field name="commentaire" />
+                <field name="commentaire_ids" />
             </tree>
         </field>
     </record>

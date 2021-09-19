@@ -12,6 +12,9 @@
                     <group>
                         <field name="arrondissement" />
                     </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -24,6 +27,7 @@
             <tree>
                 <field name="nom" />
                 <field name="arrondissement" />
+                <field name="membre" />
             </tree>
         </field>
     </record>

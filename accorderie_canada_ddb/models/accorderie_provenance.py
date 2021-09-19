@@ -6,4 +6,10 @@ class AccorderieProvenance(models.Model):
     _description = "Accorderie Provenance"
     _rec_name = "nom"
 
+    membre = fields.One2many(
+        comodel_name="accorderie.membre",
+        inverse_name="provenance",
+        help="Membre relation",
+    )
+
     nom = fields.Char(string="Provenance")

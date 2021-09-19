@@ -21,6 +21,9 @@
                     <group>
                         <field name="arrondissement" />
                     </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -36,6 +39,7 @@
                 <field name="region" />
                 <field name="accorderie" />
                 <field name="arrondissement" />
+                <field name="membre" />
             </tree>
         </field>
     </record>

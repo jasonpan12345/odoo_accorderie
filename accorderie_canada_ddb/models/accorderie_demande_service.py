@@ -22,6 +22,12 @@ class AccorderieDemandeService(models.Model):
         help="Permet d'approuver cette demande de service.",
     )
 
+    commentaire = fields.One2many(
+        comodel_name="accorderie.commentaire",
+        inverse_name="demande_service_id",
+        help="Commentaire relation",
+    )
+
     date_debut = fields.Date(string="Date début")
 
     date_fin = fields.Date(string="Date fin")

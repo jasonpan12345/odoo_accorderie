@@ -6,6 +6,17 @@ class AccorderiePointService(models.Model):
     _description = "Accorderie Point Service"
     _rec_name = "nom"
 
+    accorderie = fields.Many2one(
+        comodel_name="accorderie.accorderie",
+        required=True,
+    )
+
+    commentaire = fields.One2many(
+        comodel_name="accorderie.commentaire",
+        inverse_name="point_service",
+        help="Commentaire relation",
+    )
+
     date_mise_a_jour = fields.Datetime(
         string="Dernière mise à jour",
         help="Date de la dernière mise à jour",
@@ -15,11 +26,6 @@ class AccorderiePointService(models.Model):
         comodel_name="accorderie.membre",
         inverse_name="point_service",
         help="Membre relation",
-    )
-
-    noaccorderie = fields.Many2one(
-        comodel_name="accorderie.accorderie",
-        required=True,
     )
 
     nom = fields.Char(help="Nom du point de service")

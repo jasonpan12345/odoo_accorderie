@@ -16,6 +16,9 @@
                         <field name="accorderie" />
                     </group>
                     <group>
+                        <field name="membre" />
+                    </group>
+                    <group>
                         <field name="ville" />
                     </group>
                 </sheet>
@@ -31,6 +34,7 @@
                 <field name="nom" />
                 <field name="code" />
                 <field name="accorderie" />
+                <field name="membre" />
                 <field name="ville" />
             </tree>
         </field>

@@ -18,6 +18,12 @@ class AccorderieRegion(models.Model):
         help="Code de la région administrative",
     )
 
+    membre = fields.One2many(
+        comodel_name="accorderie.membre",
+        inverse_name="region",
+        help="Membre relation",
+    )
+
     nom = fields.Char()
 
     ville = fields.One2many(

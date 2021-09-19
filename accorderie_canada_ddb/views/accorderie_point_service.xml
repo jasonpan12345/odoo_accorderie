@@ -10,13 +10,16 @@
                         <field name="nom" />
                     </group>
                     <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
                         <field name="date_mise_a_jour" />
                     </group>
                     <group>
-                        <field name="noaccorderie" />
+                        <field name="sequence" />
                     </group>
                     <group>
-                        <field name="sequence" />
+                        <field name="commentaire" />
                     </group>
                     <group>
                         <field name="membre" />
@@ -32,9 +35,10 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nom" />
+                <field name="accorderie" />
                 <field name="date_mise_a_jour" />
-                <field name="noaccorderie" />
                 <field name="sequence" />
+                <field name="commentaire" />
                 <field name="membre" />
             </tree>
         </field>

@@ -16,12 +16,12 @@ class AccorderieFichier(models.Model):
         help="Date de la dernière mise à jour",
     )
 
-    nom = fields.Char(required=True)
-
-    nom_original = fields.Char(
-        string="Nom original",
+    fichier_binaire = fields.Binary(
+        string="fichier_binaire",
         required=True,
     )
+
+    nom = fields.Char(required=True)
 
     si_accorderie_local_seulement = fields.Boolean(
         string="Accorderie local seulement"

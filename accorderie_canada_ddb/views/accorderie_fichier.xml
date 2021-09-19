@@ -16,7 +16,7 @@
                         <field name="date_mise_a_jour" />
                     </group>
                     <group>
-                        <field name="nom_original" />
+                        <field name="fichier_binaire" />
                     </group>
                     <group>
                         <field name="si_accorderie_local_seulement" />
@@ -43,7 +43,7 @@
                 <field name="nom" />
                 <field name="accorderie" />
                 <field name="date_mise_a_jour" />
-                <field name="nom_original" />
+                <field name="fichier_binaire" />
                 <field name="si_accorderie_local_seulement" />
                 <field name="si_admin" />
                 <field name="si_disponible" />

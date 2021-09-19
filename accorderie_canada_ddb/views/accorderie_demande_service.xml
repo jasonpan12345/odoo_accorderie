@@ -32,6 +32,9 @@
                     <group>
                         <field name="membre" />
                     </group>
+                    <group>
+                        <field name="commentaire" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -49,6 +52,7 @@
                 <field name="date_fin" />
                 <field name="description" />
                 <field name="membre" />
+                <field name="commentaire" />
             </tree>
         </field>
     </record>
