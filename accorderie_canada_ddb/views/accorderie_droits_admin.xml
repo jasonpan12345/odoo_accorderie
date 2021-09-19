@@ -73,8 +73,8 @@
     </record>
 
     <act_window
-        id="accorderie_droits_admin_accorderie_droits_admin_action_window"
-        name="Accorderie Droits Admin"
+        id="accorderie_droits_admin_droits_administratifs_action_window"
+        name="Droits administratifs"
         res_model="accorderie.droits.admin"
         view_mode="list,form"
     />

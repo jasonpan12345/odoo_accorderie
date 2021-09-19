@@ -1,9 +1,9 @@
 from odoo import _, api, models, fields
 
 
-class AccorderiePointservice(models.Model):
-    _name = "accorderie.pointservice"
-    _description = "Accorderie Pointservice"
+class AccorderiePointService(models.Model):
+    _name = "accorderie.point.service"
+    _description = "Accorderie Point Service"
     _rec_name = "nom"
 
     date_mise_a_jour = fields.Datetime(

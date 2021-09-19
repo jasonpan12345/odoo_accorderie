@@ -78,7 +78,7 @@ class AccorderieMembre(models.Model):
 
     point_service = fields.Many2one(
         string="Point de service",
-        comodel_name="accorderie.pointservice",
+        comodel_name="accorderie.point.service",
         help="Point de service associé",
     )
 
@@ -129,18 +129,18 @@ class AccorderieMembre(models.Model):
     telephone_poste_3 = fields.Char(string="3 poste téléphone")
 
     telephone_type_1 = fields.Many2one(
-        string="1er type de téléphone",
-        comodel_name="accorderie.type.tel",
+        string="1er type de téléphones",
+        comodel_name="accorderie.type.telephone",
     )
 
     telephone_type_2 = fields.Many2one(
-        string="2e type de téléphone",
-        comodel_name="accorderie.type.tel",
+        string="2e type de téléphones",
+        comodel_name="accorderie.type.telephone",
     )
 
     telephone_type_3 = fields.Many2one(
-        string="3e type de téléphone",
-        comodel_name="accorderie.type.tel",
+        string="3e type de téléphones",
+        comodel_name="accorderie.type.telephone",
     )
 
     transfert_accorderie = fields.Many2one(
@@ -149,7 +149,7 @@ class AccorderieMembre(models.Model):
     )
 
     type_communication = fields.Many2one(
-        string="Type de communication",
+        string="Type de communications",
         comodel_name="accorderie.type.communication",
     )
 

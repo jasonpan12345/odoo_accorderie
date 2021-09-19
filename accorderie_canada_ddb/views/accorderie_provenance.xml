@@ -25,8 +25,8 @@
     </record>
 
     <act_window
-        id="accorderie_provenance_accorderie_provenance_action_window"
-        name="Accorderie Provenance"
+        id="accorderie_provenance_provenance_action_window"
+        name="Provenance"
         res_model="accorderie.provenance"
         view_mode="list,form"
     />

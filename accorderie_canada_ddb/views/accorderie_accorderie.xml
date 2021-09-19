@@ -98,8 +98,8 @@
     </record>
 
     <act_window
-        id="accorderie_accorderie_accorderie_accorderie_action_window"
-        name="Accorderie Accorderie"
+        id="accorderie_accorderie_accorderie_action_window"
+        name="Accorderie"
         res_model="accorderie.accorderie"
         view_mode="list,form"
     />

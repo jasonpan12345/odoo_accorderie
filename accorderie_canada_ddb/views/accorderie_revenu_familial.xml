@@ -25,8 +25,8 @@
     </record>
 
     <act_window
-        id="accorderie_revenu_familial_accorderie_revenu_familial_action_window"
-        name="Accorderie Revenu Familial"
+        id="accorderie_revenu_familial_revenu_familial_action_window"
+        name="Revenu familial"
         res_model="accorderie.revenu.familial"
         view_mode="list,form"
     />

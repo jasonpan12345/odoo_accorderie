@@ -113,8 +113,8 @@
     </record>
 
     <act_window
-        id="accorderie_commentaire_accorderie_commentaire_action_window"
-        name="Accorderie Commentaire"
+        id="accorderie_commentaire_commentaire_action_window"
+        name="Commentaire"
         res_model="accorderie.commentaire"
         view_mode="list,form"
     />

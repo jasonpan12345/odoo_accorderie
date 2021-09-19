@@ -89,6 +89,7 @@ def post_init_hook(cr, e):
                 " les messages d'une Accorderie."
             ),
             # nomenclator=True,
+            menu_group="Accorderie",
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -283,6 +284,7 @@ def post_init_hook(cr, e):
             new_description="Ensemble des arrondissement des Accorderies",
             new_rec_name="nom",
             nomenclator=True,
+            menu_group="Location",
         )
         db_column.update_column(
             "tbl_arrondissement",
@@ -309,6 +311,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.quartier",
             new_rec_name="nom",
             nomenclator=True,
+            menu_group="Location",
         )
         db_column.update_column(
             "tbl_cartier",
@@ -339,6 +342,8 @@ def post_init_hook(cr, e):
             ),
             new_rec_name="nom",
             nomenclator=True,
+            menu_group="Catégorie de services",
+            menu_label="Catégorie de services",
         )
         db_column.update_column(
             "tbl_categorie",
@@ -382,6 +387,8 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_description="Type de services des Accorderies",
             nomenclator=True,
+            menu_group="Catégorie de services",
+            menu_label="Type de services",
         )
         db_column.update_column(
             "tbl_categorie_sous_categorie",
@@ -482,6 +489,7 @@ def post_init_hook(cr, e):
                 "Les commentaires des membres envers d'autres membres sur des"
                 " services et demandes"
             ),
+            menu_group="Service",
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -535,7 +543,7 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_commentaire",
             "situation_impliquant",
-            new_help="Choisir un type de groupe visé par ce commentaire.",
+            new_help="Choisir un type de groupes visé par ce commentaire.",
             new_type="selection",
             selection_migration_start_at=1,
             new_selection=(
@@ -674,6 +682,8 @@ def post_init_hook(cr, e):
             "tbl_demande_service",
             new_rec_name="titre",
             new_model_name="accorderie.demande.service",
+            menu_group="Service",
+            menu_label="Demande de services",
         )
         db_column.update_column(
             "tbl_demande_service",
@@ -746,6 +756,8 @@ def post_init_hook(cr, e):
             "tbl_dmd_adhesion",
             # new_rec_name="description",
             new_model_name="accorderie.demande.adhesion",
+            menu_group="Membre",
+            menu_label="Demande d'adhésion",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
@@ -821,6 +833,8 @@ def post_init_hook(cr, e):
             "tbl_droits_admin",
             # new_rec_name="description",
             new_model_name="accorderie.droits.admin",
+            menu_group="Droits",
+            menu_label="Droits administratifs",
         )
         db_column.update_column(
             "tbl_droits_admin",
@@ -910,6 +924,8 @@ def post_init_hook(cr, e):
             "tbl_echange_service",
             # new_rec_name="nom",
             new_model_name="accorderie.echange.service",
+            menu_group="Service",
+            menu_label="Échange de services",
         )
         db_column.update_column(
             "tbl_echange_service",
@@ -988,6 +1004,7 @@ def post_init_hook(cr, e):
             "tbl_fichier",
             new_rec_name="nom",
             new_model_name="accorderie.fichier",
+            menu_group="Document",
         )
         db_column.update_column(
             "tbl_fichier",
@@ -1094,6 +1111,7 @@ def post_init_hook(cr, e):
             "tbl_membre",
             # new_rec_name="nom_complet",
             new_model_name="accorderie.membre",
+            menu_group="Membre",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1126,7 +1144,7 @@ def post_init_hook(cr, e):
             "tbl_membre",
             "notypecommunication",
             new_field_name="type_communication",
-            new_description="Type de communication",
+            new_description="Type de communications",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1230,7 +1248,7 @@ def post_init_hook(cr, e):
             "tbl_membre",
             "notypetel1",
             new_field_name="telephone_type_1",
-            new_description="1er type de téléphone",
+            new_description="1er type de téléphones",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1248,7 +1266,7 @@ def post_init_hook(cr, e):
             "tbl_membre",
             "notypetel2",
             new_field_name="telephone_type_2",
-            new_description="2e type de téléphone",
+            new_description="2e type de téléphones",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1266,7 +1284,7 @@ def post_init_hook(cr, e):
             "tbl_membre",
             "notypetel3",
             new_field_name="telephone_type_3",
-            new_description="3e type de téléphone",
+            new_description="3e type de téléphones",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1470,6 +1488,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.occupation",
             nomenclator=True,
+            menu_group="Statistique",
         )
         db_column.update_column(
             "tbl_occupation",
@@ -1487,6 +1506,8 @@ def post_init_hook(cr, e):
             "tbl_offre_service_membre",
             new_rec_name="description",
             new_model_name="accorderie.offre.service",
+            menu_group="Service",
+            menu_label="Offre de services",
         )
         db_column.update_column(
             "tbl_offre_service_membre",
@@ -1623,6 +1644,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.origine",
             nomenclator=True,
+            menu_group="Statistique",
         )
         db_column.update_column(
             "tbl_origine",
@@ -1639,7 +1661,9 @@ def post_init_hook(cr, e):
         db_table.update_table(
             "tbl_pointservice",
             new_rec_name="nom",
-            new_model_name="accorderie.pointservice",
+            new_model_name="accorderie.point.service",
+            menu_group="Accorderie",
+            menu_label="Point de services",
         )
         db_column.update_column(
             "tbl_pointservice",
@@ -1741,6 +1765,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.provenance",
             nomenclator=True,
+            menu_group="Statistique",
         )
         db_column.update_column(
             "tbl_provenance",
@@ -1759,6 +1784,8 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.region",
             nomenclator=True,
+            menu_group="Location",
+            menu_label="Région",
         )
         db_column.update_column(
             "tbl_region",
@@ -1781,6 +1808,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.revenu.familial",
             nomenclator=True,
+            menu_group="Statistique",
         )
         db_column.update_column(
             "tbl_revenu_familial",
@@ -1799,6 +1827,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.situation.maison",
             nomenclator=True,
+            menu_group="Statistique",
         )
         db_column.update_column(
             "tbl_situation_maison",
@@ -1818,6 +1847,8 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_description="Type de services sous-catégorie",
             nomenclator=True,
+            menu_group="Catégorie de services",
+            menu_label="Sous-catégorie de services",
         )
         db_column.update_column(
             "tbl_sous_categorie",
@@ -1880,6 +1911,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.titre",
             nomenclator=True,
+            delete=True,
         )
         db_column.update_column(
             "tbl_titre",
@@ -1906,6 +1938,8 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.type.communication",
             nomenclator=True,
+            menu_group="Statistique",
+            menu_label="Type de communications",
         )
         db_column.update_column(
             "tbl_type_communication",
@@ -1922,6 +1956,8 @@ def post_init_hook(cr, e):
         db_table.update_table(
             "tbl_type_compte",
             new_model_name="accorderie.type.compte",
+            menu_group="Droits",
+            menu_label="Type de comptes membre",
         )
         db_column.update_column(
             "tbl_type_compte",
@@ -1981,6 +2017,8 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.type.fichier",
             nomenclator=True,
+            menu_group="Document",
+            menu_label="Type de fichiers",
         )
         db_column.update_column(
             "tbl_type_fichier",
@@ -2005,8 +2043,10 @@ def post_init_hook(cr, e):
         db_table.update_table(
             "tbl_type_tel",
             new_rec_name="nom",
-            new_model_name="accorderie.type.tel",
+            new_model_name="accorderie.type.telephone",
             nomenclator=True,
+            menu_group="Statistique",
+            menu_label="Type de téléphones",
         )
         db_column.update_column(
             "tbl_type_tel",
@@ -2032,6 +2072,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.ville",
             nomenclator=True,
+            menu_group="Location",
         )
         db_column.update_column(
             "tbl_ville",

@@ -25,8 +25,8 @@
     </record>
 
     <act_window
-        id="accorderie_situation_maison_accorderie_situation_maison_action_window"
-        name="Accorderie Situation Maison"
+        id="accorderie_situation_maison_situation_maison_action_window"
+        name="Situation maison"
         res_model="accorderie.situation.maison"
         view_mode="list,form"
     />

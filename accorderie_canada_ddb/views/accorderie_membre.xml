@@ -218,8 +218,8 @@
     </record>
 
     <act_window
-        id="accorderie_membre_accorderie_membre_action_window"
-        name="Accorderie Membre"
+        id="accorderie_membre_membre_action_window"
+        name="Membre"
         res_model="accorderie.membre"
         view_mode="list,form"
     />

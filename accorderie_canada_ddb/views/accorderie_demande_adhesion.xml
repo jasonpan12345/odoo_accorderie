@@ -66,8 +66,8 @@
     </record>
 
     <act_window
-        id="accorderie_demande_adhesion_accorderie_demande_adhesion_action_window"
-        name="Accorderie Demande Adhesion"
+        id="accorderie_demande_adhesion_demande_d_adh&#233;sion_action_window"
+        name="Demande d'adh&#233;sion"
         res_model="accorderie.demande.adhesion"
         view_mode="list,form"
     />

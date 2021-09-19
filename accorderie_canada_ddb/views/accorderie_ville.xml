@@ -41,8 +41,8 @@
     </record>
 
     <act_window
-        id="accorderie_ville_accorderie_ville_action_window"
-        name="Accorderie Ville"
+        id="accorderie_ville_ville_action_window"
+        name="Ville"
         res_model="accorderie.ville"
         view_mode="list,form"
     />

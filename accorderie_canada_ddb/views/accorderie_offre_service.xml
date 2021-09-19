@@ -94,8 +94,8 @@
     </record>
 
     <act_window
-        id="accorderie_offre_service_accorderie_offre_service_action_window"
-        name="Accorderie Offre Service"
+        id="accorderie_offre_service_offre_de_services_action_window"
+        name="Offre de services"
         res_model="accorderie.offre.service"
         view_mode="list,form"
     />

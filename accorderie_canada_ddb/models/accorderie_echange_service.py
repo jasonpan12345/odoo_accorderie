@@ -43,7 +43,7 @@ class AccorderieEchangeService(models.Model):
 
     point_service = fields.Many2one(
         string="Point de services",
-        comodel_name="accorderie.pointservice",
+        comodel_name="accorderie.point.service",
     )
 
     remarque = fields.Char()

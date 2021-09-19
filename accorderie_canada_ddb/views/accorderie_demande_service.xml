@@ -54,8 +54,8 @@
     </record>
 
     <act_window
-        id="accorderie_demande_service_accorderie_demande_service_action_window"
-        name="Accorderie Demande Service"
+        id="accorderie_demande_service_demande_de_services_action_window"
+        name="Demande de services"
         res_model="accorderie.demande.service"
         view_mode="list,form"
     />

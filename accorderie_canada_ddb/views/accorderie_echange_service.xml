@@ -65,8 +65,8 @@
     </record>
 
     <act_window
-        id="accorderie_echange_service_accorderie_echange_service_action_window"
-        name="Accorderie Echange Service"
+        id="accorderie_echange_service_&#233;change_de_services_action_window"
+        name="&#201;change de services"
         res_model="accorderie.echange.service"
         view_mode="list,form"
     />

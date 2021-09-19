@@ -54,8 +54,8 @@
     </record>
 
     <act_window
-        id="accorderie_type_service_accorderie_type_service_action_window"
-        name="Accorderie Type Service"
+        id="accorderie_type_service_type_de_services_action_window"
+        name="Type de services"
         res_model="accorderie.type.service"
         view_mode="list,form"
     />

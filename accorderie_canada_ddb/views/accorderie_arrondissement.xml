@@ -29,8 +29,8 @@
     </record>
 
     <act_window
-        id="accorderie_arrondissement_accorderie_arrondissement_action_window"
-        name="Accorderie Arrondissement"
+        id="accorderie_arrondissement_arrondissement_action_window"
+        name="Arrondissement"
         res_model="accorderie.arrondissement"
         view_mode="list,form"
     />

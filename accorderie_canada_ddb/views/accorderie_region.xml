@@ -37,8 +37,8 @@
     </record>
 
     <act_window
-        id="accorderie_region_accorderie_region_action_window"
-        name="Accorderie Region"
+        id="accorderie_region_r&#233;gion_action_window"
+        name="R&#233;gion"
         res_model="accorderie.region"
         view_mode="list,form"
     />

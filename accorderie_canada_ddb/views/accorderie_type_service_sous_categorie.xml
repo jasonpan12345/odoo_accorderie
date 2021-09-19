@@ -46,8 +46,8 @@
     </record>
 
     <act_window
-        id="accorderie_type_service_sous_categorie_accorderie_type_service_sous_categorie_action_window"
-        name="Accorderie Type Service Sous Categorie"
+        id="accorderie_type_service_sous_categorie_sous_cat&#233;gorie_de_services_action_window"
+        name="Sous-cat&#233;gorie de services"
         res_model="accorderie.type.service.sous.categorie"
         view_mode="list,form"
     />

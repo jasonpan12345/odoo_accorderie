@@ -29,8 +29,8 @@
     </record>
 
     <act_window
-        id="accorderie_quartier_accorderie_quartier_action_window"
-        name="Accorderie Quartier"
+        id="accorderie_quartier_quartier_action_window"
+        name="Quartier"
         res_model="accorderie.quartier"
         view_mode="list,form"
     />

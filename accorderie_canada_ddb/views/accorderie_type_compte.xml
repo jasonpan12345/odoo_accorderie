@@ -57,8 +57,8 @@
     </record>
 
     <act_window
-        id="accorderie_type_compte_accorderie_type_compte_action_window"
-        name="Accorderie Type Compte"
+        id="accorderie_type_compte_type_de_comptes_membre_action_window"
+        name="Type de comptes membre"
         res_model="accorderie.type.compte"
         view_mode="list,form"
     />

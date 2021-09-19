@@ -53,8 +53,8 @@
     </record>
 
     <act_window
-        id="accorderie_fichier_accorderie_fichier_action_window"
-        name="Accorderie Fichier"
+        id="accorderie_fichier_fichier_action_window"
+        name="Fichier"
         res_model="accorderie.fichier"
         view_mode="list,form"
     />

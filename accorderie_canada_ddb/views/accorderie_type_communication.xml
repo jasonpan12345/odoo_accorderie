@@ -25,8 +25,8 @@
     </record>
 
     <act_window
-        id="accorderie_type_communication_accorderie_type_communication_action_window"
-        name="Accorderie Type Communication"
+        id="accorderie_type_communication_type_de_communications_action_window"
+        name="Type de communications"
         res_model="accorderie.type.communication"
         view_mode="list,form"
     />

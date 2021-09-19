@@ -25,8 +25,8 @@
     </record>
 
     <act_window
-        id="accorderie_occupation_accorderie_occupation_action_window"
-        name="Accorderie Occupation"
+        id="accorderie_occupation_occupation_action_window"
+        name="Occupation"
         res_model="accorderie.occupation"
         view_mode="list,form"
     />

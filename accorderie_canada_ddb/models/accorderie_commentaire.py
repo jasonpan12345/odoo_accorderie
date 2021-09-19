@@ -106,7 +106,7 @@ class AccorderieCommentaire(models.Model):
 
     point_service = fields.Many2one(
         string="Point de services",
-        comodel_name="accorderie.pointservice",
+        comodel_name="accorderie.point.service",
         required=True,
     )
 
@@ -120,7 +120,7 @@ class AccorderieCommentaire(models.Model):
             ("autre", "Autre"),
         ],
         string="Situation impliquant",
-        help="Choisir un type de groupe visé par ce commentaire.",
+        help="Choisir un type de groupes visé par ce commentaire.",
     )
 
     solution_pour_regler = fields.Text(

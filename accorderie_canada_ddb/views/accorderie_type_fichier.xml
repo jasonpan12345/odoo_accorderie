@@ -29,8 +29,8 @@
     </record>
 
     <act_window
-        id="accorderie_type_fichier_accorderie_type_fichier_action_window"
-        name="Accorderie Type Fichier"
+        id="accorderie_type_fichier_type_de_fichiers_action_window"
+        name="Type de fichiers"
         res_model="accorderie.type.fichier"
         view_mode="list,form"
     />
