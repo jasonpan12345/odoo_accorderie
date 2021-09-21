@@ -12,6 +12,9 @@
                     <group>
                         <field name="date_mise_a_jour" />
                     </group>
+                    <group>
+                        <field name="fichier" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -24,6 +27,7 @@
             <tree>
                 <field name="nom" />
                 <field name="date_mise_a_jour" />
+                <field name="fichier" />
             </tree>
         </field>
     </record>

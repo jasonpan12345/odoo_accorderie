@@ -12,4 +12,10 @@ class AccorderieTypeFichier(models.Model):
         help="Date de la dernière mise à jour",
     )
 
+    fichier = fields.One2many(
+        comodel_name="accorderie.fichier",
+        inverse_name="type_fichier",
+        help="Fichier relation",
+    )
+
     nom = fields.Char()

@@ -9,6 +9,15 @@
                     <group>
                         <field name="nom" />
                     </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                    <group>
+                        <field name="membre_2_ids" />
+                    </group>
+                    <group>
+                        <field name="membre_ids" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -20,6 +29,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nom" />
+                <field name="membre" />
+                <field name="membre_2_ids" />
+                <field name="membre_ids" />
             </tree>
         </field>
     </record>
