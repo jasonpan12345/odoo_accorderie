@@ -90,6 +90,7 @@ def post_init_hook(cr, e):
             ),
             # nomenclator=True,
             menu_group="Accorderie",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -285,6 +286,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             nomenclator=True,
             menu_group="Location",
+            menu_parent="Configuration",
         )
         db_column.update_column(
             "tbl_arrondissement",
@@ -312,6 +314,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             nomenclator=True,
             menu_group="Location",
+            menu_parent="Configuration",
         )
         db_column.update_column(
             "tbl_cartier",
@@ -344,6 +347,7 @@ def post_init_hook(cr, e):
             nomenclator=True,
             menu_group="Catégorie de services",
             menu_label="Catégorie de services",
+            menu_parent="Service",
         )
         db_column.update_column(
             "tbl_categorie",
@@ -388,6 +392,7 @@ def post_init_hook(cr, e):
             new_description="Type de services des Accorderies",
             nomenclator=True,
             menu_group="Catégorie de services",
+            menu_parent="Service",
             menu_label="Type de services",
         )
         db_column.update_column(
@@ -490,6 +495,7 @@ def post_init_hook(cr, e):
                 " services et demandes"
             ),
             menu_group="Service",
+            menu_parent="Service",
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -687,6 +693,7 @@ def post_init_hook(cr, e):
             new_rec_name="titre",
             new_model_name="accorderie.demande.service",
             menu_group="Service",
+            menu_parent="Service",
             menu_label="Demande de services",
         )
         db_column.update_column(
@@ -761,6 +768,7 @@ def post_init_hook(cr, e):
             # new_rec_name="description",
             new_model_name="accorderie.demande.adhesion",
             menu_group="Membre",
+            menu_parent="Accorderie",
             menu_label="Demande d'adhésion",
         )
         db_column.update_column(
@@ -838,6 +846,7 @@ def post_init_hook(cr, e):
             # new_rec_name="description",
             new_model_name="accorderie.droits.admin",
             menu_group="Configuration",
+            menu_parent="Configuration",
             menu_label="Droits administratifs",
         )
         db_column.update_column(
@@ -929,6 +938,7 @@ def post_init_hook(cr, e):
             # new_rec_name="nom",
             new_model_name="accorderie.echange.service",
             menu_group="Service",
+            menu_parent="Service",
             menu_label="Échange de services",
         )
         db_column.update_column(
@@ -1009,6 +1019,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.fichier",
             menu_group="Document",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_fichier",
@@ -1119,6 +1130,7 @@ def post_init_hook(cr, e):
             # new_rec_name="nom_complet",
             new_model_name="accorderie.membre",
             menu_group="Membre",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1510,6 +1522,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.occupation",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_occupation",
@@ -1528,6 +1541,7 @@ def post_init_hook(cr, e):
             new_rec_name="description",
             new_model_name="accorderie.offre.service",
             menu_group="Service",
+            menu_parent="Service",
             menu_label="Offre de services",
         )
         db_column.update_column(
@@ -1666,6 +1680,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.origine",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_origine",
@@ -1684,6 +1699,7 @@ def post_init_hook(cr, e):
             new_rec_name="nom",
             new_model_name="accorderie.point.service",
             menu_group="Accorderie",
+            menu_parent="Accorderie",
             menu_label="Point de services",
         )
         db_column.update_column(
@@ -1793,6 +1809,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.provenance",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_provenance",
@@ -1812,6 +1829,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.region",
             nomenclator=True,
             menu_group="Location",
+            menu_parent="Configuration",
             menu_label="Région",
         )
         db_column.update_column(
@@ -1836,6 +1854,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.revenu.familial",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_revenu_familial",
@@ -1855,6 +1874,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.situation.maison",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
         )
         db_column.update_column(
             "tbl_situation_maison",
@@ -1875,6 +1895,7 @@ def post_init_hook(cr, e):
             new_description="Type de services sous-catégorie",
             nomenclator=True,
             menu_group="Catégorie de services",
+            menu_parent="Service",
             menu_label="Sous-catégorie de services",
         )
         db_column.update_column(
@@ -1966,6 +1987,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.type.communication",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
             menu_label="Type de communications",
         )
         db_column.update_column(
@@ -1984,6 +2006,7 @@ def post_init_hook(cr, e):
             "tbl_type_compte",
             new_model_name="accorderie.type.compte",
             menu_group="Configuration",
+            menu_parent="Configuration",
             menu_label="Type de comptes membre",
         )
         db_column.update_column(
@@ -2045,6 +2068,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.type.fichier",
             nomenclator=True,
             menu_group="Document",
+            menu_parent="Accorderie",
             menu_label="Type de fichiers",
         )
         db_column.update_column(
@@ -2073,6 +2097,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.type.telephone",
             nomenclator=True,
             menu_group="Statistique",
+            menu_parent="Accorderie",
             menu_label="Type de téléphones",
         )
         db_column.update_column(
@@ -2100,6 +2125,7 @@ def post_init_hook(cr, e):
             new_model_name="accorderie.ville",
             nomenclator=True,
             menu_group="Location",
+            menu_parent="Configuration",
         )
         db_column.update_column(
             "tbl_ville",
