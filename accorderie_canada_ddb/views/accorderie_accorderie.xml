@@ -84,8 +84,6 @@
                 <field name="grp_achat_administrateur" />
                 <field name="grp_achat_membre" />
                 <field name="logo" widget="image" />
-                <field name="message_accueil" />
-                <field name="message_grp_achat" />
                 <field name="region" />
                 <field name="telecopieur" />
                 <field name="telephone" />

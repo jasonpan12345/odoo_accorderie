@@ -16,8 +16,8 @@ class AccorderieFichier(models.Model):
         help="Date de la dernière mise à jour",
     )
 
-    fichier_binaire = fields.Binary(
-        string="fichier_binaire",
+    fichier = fields.Binary(
+        string="fichier",
         required=True,
     )
 

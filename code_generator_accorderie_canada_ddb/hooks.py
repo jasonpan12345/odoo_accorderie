@@ -184,6 +184,7 @@ def post_init_hook(cr, e):
             new_description="Message groupe d'achats",
             new_type="html",
             new_help="Message à afficher pour les groupes d'achats.",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -192,6 +193,7 @@ def post_init_hook(cr, e):
             new_description="Message d'accueil",
             new_type="html",
             new_help="Message à afficher pour accueillir les membres.",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_accorderie",
@@ -785,11 +787,13 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_dmd_adhesion",
             "nom",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
             "prenom",
             new_description="Prénom",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
@@ -1042,8 +1046,8 @@ def post_init_hook(cr, e):
         db_column.update_column(
             "tbl_fichier",
             "nomfichierstokage",
-            new_field_name="fichier_binaire",
-            new_description="fichier_binaire",
+            new_field_name="fichier",
+            new_description="fichier",
             new_type="binary",
             path_binary="/accorderie_canada/Intranet/document/doc",
         )
@@ -1173,6 +1177,7 @@ def post_init_hook(cr, e):
             new_field_name="occupation",
             new_description="Occupation",
             add_one2many=True,
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1363,6 +1368,7 @@ def post_init_hook(cr, e):
             new_field_name="bottin_tel",
             new_description="Bottin téléphone",
             new_type="boolean",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1370,6 +1376,7 @@ def post_init_hook(cr, e):
             new_field_name="bottin_courriel",
             new_description="Bottin courriel",
             new_type="boolean",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1389,22 +1396,26 @@ def post_init_hook(cr, e):
             new_field_name="membre_conjoint",
             new_description="A un membre conjoint",
             new_type="boolean",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
             "nomembreconjoint",
             new_field_name="membre_conjoint_id",
             new_description="Membre conjoint",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
             "memo",
             new_description="Mémo",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
             "sexe",
             new_type="selection",
+            is_hide_blacklist_list_view=True,
             # TODO add default pour autre
             new_selection=(
                 "[('femme', 'Femme'),('homme', 'Homme'),('autre', 'Autre')]"
@@ -1415,6 +1426,7 @@ def post_init_hook(cr, e):
             "anneenaissance",
             new_field_name="annee_naissance",
             new_description="Année de naissance",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1452,6 +1464,7 @@ def post_init_hook(cr, e):
             new_field_name="membre_principal",
             new_description="Membre principal",
             new_type="boolean",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1478,6 +1491,7 @@ def post_init_hook(cr, e):
             new_field_name="description_membre",
             new_description="Description du membre",
             new_type="boolean",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_membre",
@@ -1720,6 +1734,7 @@ def post_init_hook(cr, e):
             new_field_name="sequence",
             new_description="Séquence",
             new_help="Séquence d'affichage",
+            is_hide_blacklist_list_view=True,
         )
         db_column.update_column(
             "tbl_pointservice",

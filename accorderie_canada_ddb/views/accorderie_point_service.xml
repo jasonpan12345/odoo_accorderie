@@ -37,7 +37,6 @@
                 <field name="nom" />
                 <field name="accorderie" />
                 <field name="date_mise_a_jour" />
-                <field name="sequence" />
                 <field name="commentaire" />
                 <field name="membre" />
             </tree>
