@@ -69,11 +69,33 @@ def fill_dct_table(cr):
     sql = """INSERT INTO tbl_fichier (Id_TypeFichier, NoAccorderie, NomFichierStokage, NomFichierOriginal, Si_Admin, Si_AccorderieLocalSeulement, Si_Disponible, DateMAJ_Fichier) 
     VALUES (1, 1, 'Nom 1', 'Nom original', 1, 1, 0, '2021-08-17 00:45:05');"""
     cr.execute(sql)
-    sql = f"""INSERT INTO tbl_membre (NoCartier, NoAccorderie, NoPointService, NoTypeCommunication, NoOccupation, NoOrigine, NoSituationMaison, NoProvenance, NoRevenuFamilial, NoArrondissement, NoVille, NoRegion, MembreCA, PartSocialPaye, CodePostal, DateAdhesion, Nom, Prenom, Adresse, Telephone1, PosteTel1, NoTypeTel1, Telephone2, PosteTel2, NoTypeTel2, Telephone3, PosteTel3, NoTypeTel3, Courriel, AchatRegrouper, PretActif, PretRadier, PretPayer, EtatCompteCourriel, BottinTel, BottinCourriel, MembreActif, MembreConjoint, NoMembreConjoint, Memo, Sexe, AnneeNaissance, PrecisezOrigine, NomUtilisateur, MotDePasse, ProfilApprouver, MembrePrinc, NomAccorderie, RecevoirCourrielGRP, PasCommunication, DescriptionAccordeur, Date_MAJ_Membre, TransfereDe) 
-        VALUES (1, 1, null, null, null, null, null, null, null, null, 1, 1, 0, 0, null, null, "Paul", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, -1, null, null, null, null, null, null, null, encode("patate","{SECRET_PASSWORD}"), -1, null, null, null, null, null, '2021-08-17 00:47:30', null);"""
+    sql = f"""INSERT INTO tbl_membre (NoCartier, NoAccorderie, NoPointService, NoPointService2, NoTypeCommunication, NoOccupation, NoOrigine, NoSituationMaison, NoProvenance, NoRevenuFamilial, NoArrondissement, NoVille, NoRegion, MembreCA, PartSocialPaye, CodePostal, DateAdhesion, Nom, Prenom, Adresse, Telephone1, PosteTel1, NoTypeTel1, Telephone2, PosteTel2, NoTypeTel2, Telephone3, PosteTel3, NoTypeTel3, Courriel, AchatRegrouper, PretActif, PretRadier, PretPayer, EtatCompteCourriel, BottinTel, BottinCourriel, MembreActif, MembreConjoint, NoMembreConjoint, Memo, Sexe, AnneeNaissance, PrecisezOrigine, NomUtilisateur, MotDePasse, ProfilApprouver, MembrePrinc, NomAccorderie, RecevoirCourrielGRP, PasCommunication, DescriptionAccordeur, Date_MAJ_Membre, TransfereDe)
+        VALUES (1, 1, null, null, null, null, null, null, null, null, null, 1, 1, 0, 0, null, null, "Paul", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, -1, null, null, null, null, null, null, null, encode("patate","{SECRET_PASSWORD}"), -1, null, null, null, null, null, '2021-08-17 00:47:30', null);"""
     cr.execute(sql)
-    sql = """INSERT INTO tbl_pointservice (NoAccorderie, NomPointService, OrdrePointService, NoteGrpAchatPageClient, DateMAJ_PointService)
-    VALUES (1, 'Service point 1', 0, "Note de groupe d'achat", '2021-08-17 01:02:25');"""
+    sql = f"""INSERT INTO tbl_membre (NoCartier, NoAccorderie, NoPointService, NoPointService2, NoTypeCommunication, NoOccupation, NoOrigine, NoSituationMaison, NoProvenance, NoRevenuFamilial, NoArrondissement, NoVille, NoRegion, MembreCA, PartSocialPaye, CodePostal, DateAdhesion, Nom, Prenom, Adresse, Telephone1, PosteTel1, NoTypeTel1, Telephone2, PosteTel2, NoTypeTel2, Telephone3, PosteTel3, NoTypeTel3, Courriel, AchatRegrouper, PretActif, PretRadier, PretPayer, EtatCompteCourriel, BottinTel, BottinCourriel, MembreActif, MembreConjoint, NoMembreConjoint, Memo, Sexe, AnneeNaissance, PrecisezOrigine, NomUtilisateur, MotDePasse, ProfilApprouver, MembrePrinc, NomAccorderie, RecevoirCourrielGRP, PasCommunication, DescriptionAccordeur, Date_MAJ_Membre, TransfereDe)
+        VALUES (1, 1, null, null, null, null, null, null, null, null, null, 1, 1, 0, 0, null, null, "Martin", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, -1, null, null, null, null, null, null, null, encode("patate","{SECRET_PASSWORD}"), -1, null, null, null, null, null, '2021-08-17 00:47:30', null);"""
+    cr.execute(sql)
+    sql = """INSERT INTO tbl_pointservice (NoAccorderie, NoMembre, NoMembre2, NomPointService, OrdrePointService, NoteGrpAchatPageClient, DateMAJ_PointService) 
+    VALUES (1, 1, 2, 'Service point 1', 0, "Note de groupe d'achat", '2021-08-17 01:02:25');"""
+    cr.execute(sql)
+    sql = """INSERT INTO tbl_pointservice (NoAccorderie, NoMembre, NoMembre2, NomPointService, OrdrePointService, NoteGrpAchatPageClient, DateMAJ_PointService) 
+    VALUES (1, 2, 1, 'Service point 2', 0, "Note de groupe d'achat", '2021-08-17 01:02:25');"""
+    cr.execute(sql)
+    sql = """INSERT INTO tbl_pointservice (NoAccorderie, NoMembre, NoMembre2, NomPointService, OrdrePointService, NoteGrpAchatPageClient, DateMAJ_PointService) 
+    VALUES (1, 2, 1, 'Service point 2', 0, "Note de groupe d'achat", '2021-08-17 01:02:25');"""
+    cr.execute(sql)
+
+    # Force change id, 2 to 3
+    sql = """DELETE FROM tbl_pointservice WHERE NoPointService=2;"""
+    cr.execute(sql)
+
+    sql = """UPDATE tbl_membre
+SET NoPointService = 1, NoPointService2 = 3
+WHERE NoMembre = 1;"""
+    cr.execute(sql)
+    sql = """UPDATE tbl_membre
+SET NoPointService = 3, NoPointService2 = 1
+WHERE NoMembre = 2;"""
     cr.execute(sql)
     sql = """INSERT INTO tbl_pret (NoMembre, NoMembre_Intermediaire, NoMembre_Responsable, DateDemandePret, MontantDemande, RaisonEmprunt, DateComitePret, Si_PretAccorder, MontantAccorder, Note, Recommandation, TautInteretAnnuel, DatePret, NbreMois, NbrePaiement, DateMAJ_Pret) 
     VALUES (1, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, '2021-08-17 15:39:31');"""
@@ -107,9 +129,6 @@ def fill_dct_table(cr):
     cr.execute(sql)
     sql = """INSERT INTO tbl_occupation (Occupation) 
     VALUES (null);"""
-    cr.execute(sql)
-    sql = """INSERT INTO tbl_commentaire (NoPointService, NoMembreSource, Situation_Impliquant, SatisfactionInsatisfaction, TypeOffre, SiConfidentiel) 
-    VALUES (1, 1, 2, 2, 0, 1);"""
     cr.execute(sql)
 
 
@@ -527,6 +546,7 @@ create table tbl_membre
     NoCartier            int unsigned default 0                   null,
     NoAccorderie         int unsigned                             not null,
     NoPointService       int unsigned                             null,
+    NoPointService2      int unsigned                             null,
     NoTypeCommunication  int unsigned                             null,
     NoOccupation         int unsigned                             null,
     NoOrigine            int unsigned                             null,
@@ -759,6 +779,11 @@ create index fk_tbl_membre_tbl_pointservice1_idx
 """
     cr.execute(sql)
     sql = """
+create index fk_tbl_membre_tbl_pointservice12_idx
+    on tbl_membre (NoPointService2);
+"""
+    cr.execute(sql)
+    sql = """
 create index fk_tbl_membre_tbl_provenance1_idx
     on tbl_membre (NoProvenance);
 """
@@ -867,12 +892,18 @@ create table tbl_pointservice
     NoPointService         int unsigned auto_increment
         primary key,
     NoAccorderie           int unsigned                                 not null,
+    NoMembre               int unsigned                                 null,
+    NoMembre2              int unsigned                                 null,
     NomPointService        varchar(255) charset latin1                  null,
     OrdrePointService      tinyint unsigned default 0                   null,
     NoteGrpAchatPageClient text                                         null,
     DateMAJ_PointService   timestamp        default current_timestamp() null on update current_timestamp(),
     constraint tbl_pointservice_tbl_accorderie_NoAccorderie_fk
-        foreign key (NoAccorderie) references tbl_accorderie (NoAccorderie)
+        foreign key (NoAccorderie) references tbl_accorderie (NoAccorderie),
+    constraint tbl_pointservice_tbl_membre_NoMembre_fk
+        foreign key (NoMembre) references tbl_membre (NoMembre),
+    constraint tbl_pointservice2_tbl_membre_NoMembre_fk
+        foreign key (NoMembre2) references tbl_membre (NoMembre)
 )
     collate = latin1_general_ci;
 """
@@ -1072,15 +1103,21 @@ alter table tbl_membre
 """
     cr.execute(sql)
     sql = """
+alter table tbl_membre
+    add constraint tbl_membre_tbl_pointservice2_NoPointService_fk
+        foreign key (NoPointService2) references tbl_pointservice (NoPointService);
+"""
+    cr.execute(sql)
+    sql = """
 create index fk_tbl_pointservice_tbl_accorderie1_idx
     on tbl_pointservice (NoAccorderie);
 """
     cr.execute(sql)
-    #     sql = """
-    # create index fk_tbl_pointservice_tbl_membre1_idx
-    #     on tbl_pointservice (NoMembre);
-    # """
-    #     cr.execute(sql)
+    sql = """
+create index fk_tbl_pointservice_tbl_membre1_idx
+    on tbl_pointservice (NoMembre);
+"""
+    cr.execute(sql)
     sql = """
 create table tbl_pointservice_fournisseur
 (

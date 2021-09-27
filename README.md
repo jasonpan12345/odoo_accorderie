@@ -2,6 +2,12 @@
 
 Module ERPLibre pour les Accorderies du Québec.
 
+Pour simplification, mettez la sauvegarde du logiciel portail membre et du site web au path `/accorderie_canada/`, ainsi le reste des commandes pourront être automatisé.
+
+Installer `mariadb` et exécuter `./addons/TechnoLibre_odoo_accorderie/script/restore_database_accorderie.sh` à partir de ERPLibre.
+
+Le reste du document sont des informations détaillées au script de restoration.
+
 ## Base de données
 
 Il est considéré pour la migration de l'Accorderie vers la plateforme ERPLibre, qu'il y a une base de donnée accessible localement avec les informations suivantes :
@@ -45,7 +51,7 @@ Restorer le fichier SQL de la dernière sauvegarde. Assurez-vous que dans le fic
 
 ```bash
 # Log into mysql
-mysql -u accorderie -p accorderie_log_2019 < FICHIER_SQL.sql
+mysql -u accorderie -p accorderie_log_2019 < /accorderie_canada/Intranet/accorder_AccorderieIntranet_20200826.sql
 ```
 
 ### Effacer une base de données

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import pymysql
+from collections import defaultdict
 
 
 # Fix date with string "0000-00-00"
@@ -86,11 +87,26 @@ def main():
         "tbl_origine",
         "NoOrigine",
     )
+    debug_over_generic(
+        cr,
+        "tbl_membre",
+        "TransfereDe",
+        "tbl_accorderie",
+        "NoAccorderie",
+    )
+    # debug_over_generic(
+    #     cr,
+    #     "tbl_membre",
+    #     "NoMembreConjoint",
+    #     "tbl_membre",
+    #     "NoMembre",
+    # )
 
     delete_record(cr)
     alter_table(cr)
     replace_record(cr)
     migrate_record(cr)
+    inverse_record(cr)
     add_foreign_key(cr)
 
     conn.commit()
@@ -228,6 +244,275 @@ def migrate_record(cr):
     pass
 
 
+def inverse_record(cr):
+    print("Inverse record")
+    query_search = f"""SHOW COLUMNS FROM `tbl_pointservice` LIKE 'NoMembre';
+    """
+    cr.execute(query_search)
+    is_exist = cr.fetchall()
+
+    if not is_exist:
+        return
+
+    # Ignore this, this link need to be dead
+    try:
+        query_search = f"""alter table tbl_membre
+        drop column EstUnPointService;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = f"""alter table tbl_membre
+    add EstUnPointService tinyint(1) null;
+    """
+    cr.execute(query_search)
+
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column NoArrondissement;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column NoVille;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column NoRegion;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column CodePostale;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column DateAdhesion;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column Adresse;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column Telephone1;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column Telephone2;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column Courriel;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column RecevoirCourrielGRP;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    # try:
+    #     query_search = f"""alter table tbl_pointservice
+    #     drop column Date_MAJ_Membre;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # try:
+    #     query_search = f"""alter table tbl_achat_ponctuel
+    #     drop column NoPointService;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # try:
+    #     query_search = f"""alter table tbl_commande_membre
+    #     drop column NoPointService;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = f"""alter table tbl_pointservice
+    # add NoArrondissement int unsigned null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add NoVille int unsigned null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add NoRegion int unsigned null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add CodePostale varchar(10);
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add DateAdhesion date null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add Adresse varchar(60);
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add Telephone1 varchar(15);
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add Telephone2 varchar(15) null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add Courriel varchar(60) null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add RecevoirCourrielGRP tinyint(1) null;
+    # """
+    # cr.execute(query_search)
+    # query_search = f"""alter table tbl_pointservice
+    # add Date_MAJ_Membre datetime null;
+    # """
+    # cr.execute(query_search)
+    #
+    # query_search = f"""alter table tbl_achat_ponctuel
+    # add NoPointService int unsigned null;
+    # """
+    # cr.execute(query_search)
+    #
+    # query_search = f"""alter table tbl_commande_membre
+    # add NoPointService int unsigned null;
+    # """
+    # cr.execute(query_search)
+
+    # Move all information
+    query_search = f"""SELECT *
+    FROM tbl_pointservice
+    """
+    cr.execute(query_search)
+    lst_pointservice = cr.fetchall()
+
+    # for tpl_pointservice in lst_pointservice:
+    #     query_search = f"""SELECT *
+    #     FROM tbl_membre WHERE NoMembre = {tpl_pointservice[2]};
+    #     """
+    #     cr.execute(query_search)
+    #     membre = cr.fetchone()
+    #
+    #     sql = f"""UPDATE tbl_pointservice SET """
+    #
+    #     if membre[10]:
+    #         sql += f"""
+    #                  NoArrondissement = {membre[10]},
+    #         """
+    #     sql += f"""
+    #             NoVille = {membre[11]},
+    #             NoRegion = {membre[12]},
+    #             CodePostale = "{membre[15]}",
+    #             DateAdhesion = "{membre[16]}",
+    #             Adresse = "{membre[19]}",
+    #             Telephone1 = "{membre[20]}",
+    #             """
+    #     if membre[23]:
+    #         sql += f"""
+    #                 Telephone2 = "{membre[23]}",
+    #         """
+    #     if membre[29]:
+    #         sql += f"""
+    #                 Courriel = "{membre[29]}",
+    #                 """
+    #     if membre[49]:
+    #         sql += f"""
+    #             RecevoirCourrielGRP = {membre[49]},
+    #             """
+    #     sql += f"""
+    #         Date_MAJ_Membre = "{membre[52]}"
+    #         """
+    #     sql += f"""
+    #             WHERE NoPointService = {tpl_pointservice[0]};"""
+    #     cr.execute(sql)
+    #
+    #     query_search = f"""
+    #         DELETE FROM `tbl_membre`
+    #         WHERE NoMembre = {tpl_pointservice[2]};
+    #         """
+    #     cr.execute(query_search)
+    #
+    #     query_search = f"""
+    #         UPDATE tbl_achat_ponctuel
+    #         SET NoMembre=NULL, NoPointService={tpl_pointservice[0]}
+    #         WHERE NoMembre = {tpl_pointservice[2]};
+    #         """
+    #     cr.execute(query_search)
+    #
+    #     query_search = f"""
+    #         UPDATE tbl_commande_membre
+    #         SET NoMembre=NULL, NoPointService={tpl_pointservice[0]}
+    #         WHERE NoMembre = {tpl_pointservice[2]};
+    #         """
+    #     cr.execute(query_search)
+
+    dct_membre_pointservice = defaultdict(list)
+    for tpl_pointservice in lst_pointservice:
+        dct_membre_pointservice[tpl_pointservice[2]].append(
+            tpl_pointservice[0]
+        )
+
+    for no_membre, lst_ps_id in dct_membre_pointservice.items():
+        if len(lst_ps_id) > 1:
+            print(
+                f"Too much value for membre admin {no_membre} point service"
+                f" {lst_ps_id}"
+            )
+            return
+        # one_ps_i = lst_ps_id[0]
+        sql = f"""UPDATE tbl_membre
+        SET EstUnPointService = -1
+        WHERE NoMembre = {no_membre};"""
+        cr.execute(sql)
+
+    try:
+        query_search = f"""alter table tbl_pointservice
+    drop column NoMembre;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+    pass
+
+
 def _search_id_from_sous_categorie(
     lst_sous_categorie, no_categorie, no_sous_categorie
 ):
@@ -304,6 +589,20 @@ def alter_table(cr):
     MODIFY NoRevenuFamilial int unsigned null;
     """
     cr.execute(query_search)
+
+    # Fix field for foreign key
+    query_search = """
+    ALTER TABLE tbl_membre
+    MODIFY TransfereDe int unsigned null;
+    """
+    cr.execute(query_search)
+
+    # Fix field for foreign key
+    # query_search = """
+    # ALTER TABLE tbl_achat_ponctuel
+    # MODIFY NoMembre int unsigned null;
+    # """
+    # cr.execute(query_search)
 
     # Fix field for foreign key
     query_search = """
@@ -395,6 +694,12 @@ def replace_record(cr):
     query_search = """UPDATE `tbl_membre` SET `NoRevenuFamilial` = NULL WHERE NoRevenuFamilial = 0;"""
     cr.execute(query_search)
     query_search = """UPDATE `tbl_membre` SET `NoArrondissement` = NULL WHERE NoArrondissement = 0;"""
+    cr.execute(query_search)
+    query_search = (
+        """UPDATE `tbl_membre` SET `NoTypeTel3` = NULL WHERE NoTypeTel3 = 0;"""
+    )
+    cr.execute(query_search)
+    query_search = """UPDATE `tbl_membre` SET `NoMembreConjoint` = NULL WHERE NoMembreConjoint = 0;"""
     cr.execute(query_search)
     query_search = """UPDATE `tbl_offre_service_membre` SET `NoCategorieSousCategorie` = NULL WHERE NoCategorieSousCategorie = 0;"""
     cr.execute(query_search)
@@ -521,6 +826,7 @@ def add_foreign_key(cr):
     cr.execute(query_search)
 
     # achat_ponctuel
+    # - tbl_membre
     try:
         query_search = """
         ALTER TABLE tbl_achat_ponctuel
@@ -536,6 +842,23 @@ def add_foreign_key(cr):
             foreign key (NoMembre) references tbl_membre (NoMembre);
     """
     cr.execute(query_search)
+
+    # - pointservice
+    # try:
+    #     query_search = """
+    #     ALTER TABLE tbl_achat_ponctuel
+    #     DROP FOREIGN KEY tbl_achat_ponctuel_tbl_pointservice_nopointservice_fk;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_achat_ponctuel
+    #     add constraint tbl_achat_ponctuel_tbl_pointservice_nopointservice_fk
+    #         foreign key (NoPointService) references tbl_pointservice (NoPointService);
+    # """
+    # cr.execute(query_search)
 
     # achat_ponctuel_produit
     # - achat_ponctuel
@@ -675,6 +998,23 @@ def add_foreign_key(cr):
             foreign key (NoMembre) references tbl_membre (NoMembre);
     """
     cr.execute(query_search)
+
+    # - pointservice
+    # try:
+    #     query_search = """
+    #     ALTER TABLE tbl_commande_membre
+    #     DROP FOREIGN KEY tbl_commande_membre_tbl_pointservice_nopointservice_fk;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_commande_membre
+    #     add constraint tbl_commande_membre_tbl_pointservice_nopointservice_fk
+    #         foreign key (NoPointService) references tbl_pointservice (NoPointService);
+    # """
+    # cr.execute(query_search)
 
     # tbl_fournisseur_produit_commande
     # - commande
@@ -1216,6 +1556,23 @@ def add_foreign_key(cr):
     """
     cr.execute(query_search)
 
+    # - point service est admin (n'est plus un foreign key, mais une boolean)
+    # try:
+    #     query_search = """
+    #     ALTER TABLE tbl_membre
+    #     DROP FOREIGN KEY tbl_membre_tbl_pointservice_NoPointService_fk_2;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_membre
+    #     add constraint tbl_membre_tbl_pointservice_NoPointService_fk_2
+    #         foreign key (EstUnPointService) references tbl_pointservice (NoPointService);
+    # """
+    # cr.execute(query_search)
+
     # - type communication
     try:
         query_search = """
@@ -1369,6 +1726,93 @@ def add_foreign_key(cr):
     """
     cr.execute(query_search)
 
+    # - NoMembreConjoint
+    # TODO enable when support looping
+    # try:
+    #     query_search = """
+    #     ALTER TABLE tbl_membre
+    #     DROP FOREIGN KEY tbl_membre_tbl_membre_NoMembre_fk;
+    #     """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_membre
+    #     add constraint tbl_membre_tbl_membre_NoMembre_fk
+    #         foreign key (NoMembreConjoint) references tbl_membre (NoMembre);
+    # """
+    # cr.execute(query_search)
+
+    # - transfereDe
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_accorderie_NoAccorderie_fk_2;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_accorderie_NoAccorderie_fk_2
+            foreign key (TransfereDe) references tbl_accorderie (NoAccorderie)
+                on update set null on delete set null;
+    """
+    cr.execute(query_search)
+
+    # - notypetel1
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_type_tel_NoTypeTel_fk;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_type_tel_NoTypeTel_fk
+            foreign key (NoTypeTel1) references tbl_type_tel (NoTypeTel);
+    """
+    cr.execute(query_search)
+
+    # - notypetel2
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_type_tel_NoTypeTel_2_fk;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_type_tel_NoTypeTel_2_fk
+            foreign key (NoTypeTel2) references tbl_type_tel (NoTypeTel);
+    """
+    cr.execute(query_search)
+
+    # - notypetel3
+    try:
+        query_search = """
+        ALTER TABLE tbl_membre
+        DROP FOREIGN KEY tbl_membre_tbl_type_tel_NoTypeTel_3_fk;
+        """
+        cr.execute(query_search)
+    except Exception:
+        pass
+
+    query_search = """
+    alter table tbl_membre
+        add constraint tbl_membre_tbl_type_tel_NoTypeTel_3_fk
+            foreign key (NoTypeTel3) references tbl_type_tel (NoTypeTel);
+    """
+    cr.execute(query_search)
+
     # tbl_mensualite
     # - pret
     try:
@@ -1458,21 +1902,22 @@ def add_foreign_key(cr):
     cr.execute(query_search)
 
     # - membre
-    try:
-        query_search = """
-            ALTER TABLE tbl_pointservice
-            DROP FOREIGN KEY tbl_pointservice_tbl_membre_NoMembre_fk;
-            """
-        cr.execute(query_search)
-    except Exception:
-        pass
-
-    query_search = """
-    alter table tbl_pointservice
-        add constraint tbl_pointservice_tbl_membre_NoMembre_fk
-            foreign key (NoMembre) references tbl_membre (NoMembre);
-        """
-    cr.execute(query_search)
+    # Ignore this field, it's removed from inverse field
+    # try:
+    #     query_search = """
+    #         ALTER TABLE tbl_pointservice
+    #         DROP FOREIGN KEY tbl_pointservice_tbl_membre_NoMembre_fk;
+    #         """
+    #     cr.execute(query_search)
+    # except Exception:
+    #     pass
+    #
+    # query_search = """
+    # alter table tbl_pointservice
+    #     add constraint tbl_pointservice_tbl_membre_NoMembre_fk
+    #         foreign key (NoMembre) references tbl_membre (NoMembre);
+    #     """
+    # cr.execute(query_search)
 
     # tbl_pointservice_fournisseur
     # - point service
