@@ -649,12 +649,9 @@ def post_init_hook(cr, e):
             new_field_name="confidentiel",
             new_description="Confidentialité",
             new_type="selection",
-            new_selection="""[("non_autorise", "Non-autorisé - Je demande à L'Accorderie
-                 de ne pas divulguer mon identité lors de ses démarches
-                 auprès des personnes concernées par la
-                 situation."),("autorise", "Autorisé - J'autorise
-                 L'Accorderie à divulguer mon identité lors de ses démarches
-                 auprès des personnes concernées par la situation.")]""",
+            new_selection="""[("non_autorise", 
+            "Non-autorisé - Je demande à L'Accorderie de ne pas divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation."),
+            ("autorise", "Autorisé - J'autorise l'Accorderie à divulguer mon identité lors de ses démarches auprès des personnes concernées par la situation.")]""",
         )
         db_column.update_column(
             "tbl_commentaire",

@@ -17,16 +17,15 @@ class AccorderieCommentaire(models.Model):
         selection=[
             (
                 "non_autorise",
-                "Non-autorisé - Je demande à L'Accorderie                 de"
-                " ne pas divulguer mon identité lors de ses démarches         "
-                "        auprès des personnes concernées par la               "
-                "  situation.",
+                "Non-autorisé - Je demande à L'Accorderie de ne pas divulguer"
+                " mon identité lors de ses démarches auprès des personnes"
+                " concernées par la situation.",
             ),
             (
                 "autorise",
-                "Autorisé - J'autorise                 L'Accorderie à"
-                " divulguer mon identité lors de ses démarches                "
-                " auprès des personnes concernées par la situation.",
+                "Autorisé - J'autorise l'Accorderie à divulguer mon identité"
+                " lors de ses démarches auprès des personnes concernées par la"
+                " situation.",
             ),
         ],
         string="Confidentialité",
