@@ -1,123 +1,62 @@
-# -*- coding: utf-8 -*-
-
-from odoo import api, models, fields
+from odoo import _, api, models, fields
 
 
 class Accorderie(models.Model):
-    _name = 'accorderie'
-    _description = 'Model Accorderie belonging to Module Tbl'
+    _name = "accorderie"
+    _description = "Model Accorderie belonging to Module Tbl"
 
-    adresseaccorderie = fields.Char(
-        string='Field Adresseaccorderie',
-        copy=False,
-    )
+    adresseaccorderie = fields.Char(string="Field Adresseaccorderie")
 
-    codepostalaccorderie = fields.Char(
-        string='Field Codepostalaccorderie',
-        copy=False,
-    )
+    codepostalaccorderie = fields.Char(string="Field Codepostalaccorderie")
 
-    courrielaccorderie = fields.Char(
-        string='Field Courrielaccorderie',
-        copy=False,
-    )
+    courrielaccorderie = fields.Char(string="Field Courrielaccorderie")
 
-    datemaj_accorderie = fields.Datetime(
-        string='Field Datemaj_accorderie',
-        copy=False,
-    )
+    datemaj_accorderie = fields.Datetime(string="Field Datemaj_accorderie")
 
-    grpachat_accordeur = fields.Integer(
-        string='Field Grpachat_accordeur',
-        copy=False,
-    )
+    grpachat_accordeur = fields.Integer(string="Field Grpachat_accordeur")
 
-    grpachat_admin = fields.Integer(
-        string='Field Grpachat_admin',
-        copy=False,
-    )
+    grpachat_admin = fields.Integer(string="Field Grpachat_admin")
 
-    messageaccueil = fields.Text(
-        string='Field Messageaccueil',
-        copy=False,
-    )
+    messageaccueil = fields.Text(string="Field Messageaccueil")
 
-    messagegrpachat = fields.Text(
-        string='Field Messagegrpachat',
-        copy=False,
-    )
+    messagegrpachat = fields.Text(string="Field Messagegrpachat")
 
-    name = fields.Char(
-        string='Field Name',
-        copy=False,
-    )
+    name = fields.Char(string="Field Name")
 
     noaccorderie = fields.Integer(
-        string='Field Noaccorderie',
+        string="Field Noaccorderie",
         required=True,
-        copy=False,
     )
 
-    noarrondissement = fields.Integer(
-        string='Field Noarrondissement',
-        copy=False,
-    )
+    noarrondissement = fields.Integer(string="Field Noarrondissement")
 
-    nocartier = fields.Integer(
-        string='Field Nocartier',
-        copy=False,
-    )
+    nocartier = fields.Integer(string="Field Nocartier")
 
-    nom = fields.Char(
-        string='Field Nom',
-        copy=False,
-    )
+    nom = fields.Char(string="Field Nom")
 
     nomcomplet = fields.Char(
-        string='Field Nomcomplet',
+        string="Field Nomcomplet",
         required=True,
-        copy=False,
     )
 
-    nonvisible = fields.Integer(
-        string='Field Nonvisible',
-        required=True,
-        copy=False,
-    )
+    nonvisible = fields.Integer(string="Field Nonvisible")
 
     noregion = fields.Integer(
-        string='Field Noregion',
+        string="Field Noregion",
         required=True,
-        copy=False,
     )
 
     noville = fields.Integer(
-        string='Field Noville',
+        string="Field Noville",
         required=True,
-        copy=False,
     )
 
-    telaccorderie = fields.Char(
-        string='Field Telaccorderie',
-        copy=False,
-    )
+    telaccorderie = fields.Char(string="Field Telaccorderie")
 
-    telecopieuraccorderie = fields.Char(
-        string='Field Telecopieuraccorderie',
-        copy=False,
-    )
+    telecopieuraccorderie = fields.Char(string="Field Telecopieuraccorderie")
 
-    url_logoaccorderie = fields.Char(
-        string='Field Url_logoaccorderie',
-        copy=False,
-    )
+    url_logoaccorderie = fields.Char(string="Field Url_logoaccorderie")
 
-    url_public_accorderie = fields.Char(
-        string='Field Url_public_accorderie',
-        copy=False,
-    )
+    url_public_accorderie = fields.Char(string="Field Url_public_accorderie")
 
-    url_transac_accorderie = fields.Char(
-        string='Field Url_transac_accorderie',
-        copy=False,
-    )
+    url_transac_accorderie = fields.Char(string="Field Url_transac_accorderie")

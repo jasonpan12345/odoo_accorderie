@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_occupation_view_form" model="ir.ui.view">
+        <field name="name">accorderie_occupation_form</field>
+        <field name="model">accorderie.occupation</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_occupation_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_occupation_tree</field>
+        <field name="model">accorderie.occupation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom" />
+                <field name="membre" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_occupation_occupation_action_window"
+        name="Occupation"
+        res_model="accorderie.occupation"
+        view_mode="list,form"
+    />
+</odoo>

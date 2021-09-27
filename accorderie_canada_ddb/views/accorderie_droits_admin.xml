@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_droits_admin_view_form" model="ir.ui.view">
+        <field name="name">accorderie_droits_admin_form</field>
+        <field name="model">accorderie.droits.admin</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="nom_complet" />
+                    </group>
+                    <group>
+                        <field name="consulter_etat_compte" />
+                    </group>
+                    <group>
+                        <field name="consulter_profil" />
+                    </group>
+                    <group>
+                        <field name="gestion_dmd" />
+                    </group>
+                    <group>
+                        <field name="gestion_fichier" />
+                    </group>
+                    <group>
+                        <field name="gestion_offre" />
+                    </group>
+                    <group>
+                        <field name="gestion_offre_service" />
+                    </group>
+                    <group>
+                        <field name="gestion_profil" />
+                    </group>
+                    <group>
+                        <field name="gestion_type_service" />
+                    </group>
+                    <group>
+                        <field name="groupe_achat" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                    <group>
+                        <field name="saisie_echange" />
+                    </group>
+                    <group>
+                        <field name="validation" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_droits_admin_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_droits_admin_tree</field>
+        <field name="model">accorderie.droits.admin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom_complet" />
+                <field name="consulter_etat_compte" />
+                <field name="consulter_profil" />
+                <field name="gestion_dmd" />
+                <field name="gestion_fichier" />
+                <field name="gestion_offre" />
+                <field name="gestion_offre_service" />
+                <field name="gestion_profil" />
+                <field name="gestion_type_service" />
+                <field name="groupe_achat" />
+                <field name="membre" />
+                <field name="saisie_echange" />
+                <field name="validation" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_droits_admin_droits_administratifs_action_window"
+        name="Droits administratifs"
+        res_model="accorderie.droits.admin"
+        view_mode="list,form"
+    />
+</odoo>

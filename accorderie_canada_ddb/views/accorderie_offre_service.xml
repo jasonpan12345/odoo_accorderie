@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_offre_service_view_form" model="ir.ui.view">
+        <field name="name">accorderie_offre_service_form</field>
+        <field name="model">accorderie.offre.service</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="description" />
+                    </group>
+                    <group>
+                        <field name="accompli" />
+                    </group>
+                    <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
+                        <field name="approuve" />
+                    </group>
+                    <group>
+                        <field name="condition" />
+                    </group>
+                    <group>
+                        <field name="condition_autre" />
+                    </group>
+                    <group>
+                        <field name="date_affichage" />
+                    </group>
+                    <group>
+                        <field name="date_debut" />
+                    </group>
+                    <group>
+                        <field name="date_fin" />
+                    </group>
+                    <group>
+                        <field name="date_mise_a_jour" />
+                    </group>
+                    <group>
+                        <field name="disponibilite" />
+                    </group>
+                    <group>
+                        <field name="membre" />
+                    </group>
+                    <group>
+                        <field name="nb_consultation" />
+                    </group>
+                    <group>
+                        <field name="nom_offre_special" />
+                    </group>
+                    <group>
+                        <field name="offre_special" />
+                    </group>
+                    <group>
+                        <field name="tarif" />
+                    </group>
+                    <group>
+                        <field name="type_service_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_offre_service_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_offre_service_tree</field>
+        <field name="model">accorderie.offre.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="description" />
+                <field name="accompli" />
+                <field name="accorderie" />
+                <field name="approuve" />
+                <field name="condition" />
+                <field name="condition_autre" />
+                <field name="date_affichage" />
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="date_mise_a_jour" />
+                <field name="disponibilite" />
+                <field name="membre" />
+                <field name="nb_consultation" />
+                <field name="nom_offre_special" />
+                <field name="offre_special" />
+                <field name="tarif" />
+                <field name="type_service_id" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_offre_service_offre_de_services_action_window"
+        name="Offre de services"
+        res_model="accorderie.offre.service"
+        view_mode="list,form"
+    />
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="accorderie_demande_adhesion_view_form" model="ir.ui.view">
+        <field name="name">accorderie_demande_adhesion_form</field>
+        <field name="model">accorderie.demande.adhesion</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="nom_complet" />
+                    </group>
+                    <group>
+                        <field name="accorderie" />
+                    </group>
+                    <group>
+                        <field name="courriel" />
+                    </group>
+                    <group>
+                        <field name="date_mise_a_jour" />
+                    </group>
+                    <group>
+                        <field name="en_attente" />
+                    </group>
+                    <group>
+                        <field name="nom" />
+                    </group>
+                    <group>
+                        <field name="poste" />
+                    </group>
+                    <group>
+                        <field name="prenom" />
+                    </group>
+                    <group>
+                        <field name="telephone" />
+                    </group>
+                    <group>
+                        <field name="transferer" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accorderie_demande_adhesion_view_tree" model="ir.ui.view">
+        <field name="name">accorderie_demande_adhesion_tree</field>
+        <field name="model">accorderie.demande.adhesion</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom_complet" />
+                <field name="accorderie" />
+                <field name="courriel" />
+                <field name="date_mise_a_jour" />
+                <field name="en_attente" />
+                <field name="poste" />
+                <field name="telephone" />
+                <field name="transferer" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="accorderie_demande_adhesion_demande_d_adh&#233;sion_action_window"
+        name="Demande d'adh&#233;sion"
+        res_model="accorderie.demande.adhesion"
+        view_mode="list,form"
+    />
+</odoo>
