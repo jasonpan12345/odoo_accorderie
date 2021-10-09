@@ -1,5 +1,5 @@
 {
-    "name": "Code Generator Template Accorderie Canada",
+    "name": "Code Generator Template Accorderie Canada Ddb",
     "version": "12.0.1.0",
     "author": "TechnoLibre",
     "license": "AGPL-3",

@@ -73,3 +73,16 @@ DROP DATABASE accorderie_log_2019;
 ./script/db_restore.py --database accorderie
 ./script/addons/install_addons_dev.sh accorderie code_generator_db_servers
 ```
+
+## Création du template à partir du générateur de code généré par le migrateur
+
+Modifier le fichier dans `addons/TechnoLibre_odoo-code-generator-template/code_generator_demo/hooks.py`, en vous basant sur le guide de `doc/CODE_GENERATOR.fr.md`, mettre à jour la variable `path_module_generator` en ajoutant dans `os.path.normpath` la valeur `'..', 'TechnoLibre_odoo_accorderie'`, activer la variable `path_sync_code`dans `value`, puis renommer le contenu de `MODULE_NAME` pour `code_generator_template_accorderie_canada_ddb`.
+
+Ensuite, générer le tout avec
+```bash
+make addons_install_code_generator_demo
+```
+
+Adapter le fichier généré, puis activer `enable_sync_template`.
+
+TODO il faut mettre une variable pour mettre à jour `template_model_name`, garder le `path_module_generate` actif lors le path est différent dans la génération. Garder le `import os`.
