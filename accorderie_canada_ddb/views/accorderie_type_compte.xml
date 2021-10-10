@@ -38,6 +38,160 @@
         </field>
     </record>
 
+    <record id="accorderie_type_compte_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_type_compte_graph</field>
+        <field name="model">accorderie.type.compte</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie type compte">
+                <field name="nom_complet" type="row" />
+                <field name="accordeur_simple" type="row" />
+                <field name="admin" type="row" />
+                <field name="admin_chef" type="row" />
+                <field name="admin_ord_point_service" type="row" />
+                <field name="admin_point_service" type="row" />
+                <field name="membre" type="row" />
+                <field name="reseau" type="row" />
+                <field name="spip" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_type_compte_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_type_compte_kanban</field>
+        <field name="model">accorderie.type.compte</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom_complet" />
+                <field name="accordeur_simple" />
+                <field name="admin" />
+                <field name="admin_chef" />
+                <field name="admin_ord_point_service" />
+                <field name="admin_point_service" />
+                <field name="membre" />
+                <field name="reseau" />
+                <field name="spip" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_complet" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.accordeur_simple.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.accordeur_simple.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.admin.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.admin.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.admin_chef.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.admin_chef.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.admin_ord_point_service.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.admin_ord_point_service.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.admin_point_service.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.admin_point_service.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.reseau.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.reseau.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.spip.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.spip.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_type_compte_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_type_compte_pivot</field>
+        <field name="model">accorderie.type.compte</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie type compte">
+                <field name="nom_complet" type="row" />
+                <field name="accordeur_simple" type="row" />
+                <field name="admin" type="row" />
+                <field name="admin_chef" type="row" />
+                <field name="admin_ord_point_service" type="row" />
+                <field name="admin_point_service" type="row" />
+                <field name="membre" type="row" />
+                <field name="reseau" type="row" />
+                <field name="spip" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_type_compte_view_search" model="ir.ui.view">
+        <field name="name">accorderie_type_compte_search</field>
+        <field name="model">accorderie.type.compte</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie type compte">
+                <filter name="nom_complet" string="Nom complet" domain="[('nom_complet','!=',False)]" />
+                <filter name="accordeur_simple" string="Accordeur simple" domain="[('accordeur_simple','=',True)]" />
+                <filter name="admin" string="Admin" domain="[('admin','=',True)]" />
+                <filter name="admin_chef" string="Admin chef" domain="[('admin_chef','=',True)]" />
+                <filter
+                    name="admin_ord_point_service"
+                    string="Administrateur ordinaire point service"
+                    domain="[('admin_ord_point_service','=',True)]"
+                />
+                <filter
+                    name="admin_point_service"
+                    string="Administrateur point service"
+                    domain="[('admin_point_service','=',True)]"
+                />
+                <filter name="membre" string="Membre" domain="[('membre','!=',False)]" />
+                <filter name="reseau" string="R&#233;seau" domain="[('reseau','=',True)]" />
+                <filter name="spip" string="Spip" domain="[('spip','=',True)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_type_compte_view_tree" model="ir.ui.view">
         <field name="name">accorderie_type_compte_tree</field>
         <field name="model">accorderie.type.compte</field>
@@ -60,6 +214,6 @@
         id="accorderie_type_compte_type_de_comptes_membre_action_window"
         name="Type de comptes membre"
         res_model="accorderie.type.compte"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>

@@ -17,6 +17,68 @@
         </field>
     </record>
 
+    <record id="accorderie_occupation_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_occupation_graph</field>
+        <field name="model">accorderie.occupation</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie occupation">
+                <field name="nom" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_occupation_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_occupation_kanban</field>
+        <field name="model">accorderie.occupation</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom" />
+                <field name="membre" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_occupation_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_occupation_pivot</field>
+        <field name="model">accorderie.occupation</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie occupation">
+                <field name="nom" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_occupation_view_search" model="ir.ui.view">
+        <field name="name">accorderie_occupation_search</field>
+        <field name="model">accorderie.occupation</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie occupation">
+                <filter name="nom" string="Occupation" domain="[('nom','!=',False)]" />
+                <filter name="membre" string="Membre" domain="[('membre','!=',False)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_occupation_view_tree" model="ir.ui.view">
         <field name="name">accorderie_occupation_tree</field>
         <field name="model">accorderie.occupation</field>
@@ -32,6 +94,6 @@
         id="accorderie_occupation_occupation_action_window"
         name="Occupation"
         res_model="accorderie.occupation"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>

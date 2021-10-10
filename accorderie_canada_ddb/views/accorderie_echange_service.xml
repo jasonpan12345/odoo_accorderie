@@ -44,6 +44,151 @@
         </field>
     </record>
 
+    <record id="accorderie_echange_service_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_echange_service_graph</field>
+        <field name="model">accorderie.echange.service</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie echange service">
+                <field name="nom_complet" type="row" />
+                <field name="commentaire" type="row" />
+                <field name="date_echange" type="row" />
+                <field name="demande_service" type="row" />
+                <field name="membre_acheteur" type="row" />
+                <field name="membre_vendeur" type="row" />
+                <field name="nb_heure" type="measure" />
+                <field name="offre_service" type="row" />
+                <field name="point_service" type="row" />
+                <field name="remarque" type="row" />
+                <field name="type_echange" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_echange_service_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_echange_service_kanban</field>
+        <field name="model">accorderie.echange.service</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom_complet" />
+                <field name="commentaire" />
+                <field name="date_echange" />
+                <field name="demande_service" />
+                <field name="membre_acheteur" />
+                <field name="membre_vendeur" />
+                <field name="nb_heure" widget="float_time" />
+                <field name="offre_service" />
+                <field name="point_service" />
+                <field name="remarque" />
+                <field name="type_echange" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_complet" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="commentaire" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_echange" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="demande_service" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_acheteur" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_vendeur" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nb_heure" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="offre_service" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="point_service" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="remarque" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="type_echange" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_echange_service_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_echange_service_pivot</field>
+        <field name="model">accorderie.echange.service</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie echange service">
+                <field name="nom_complet" type="row" />
+                <field name="commentaire" type="row" />
+                <field name="date_echange" type="row" />
+                <field name="demande_service" type="row" />
+                <field name="membre_acheteur" type="row" />
+                <field name="membre_vendeur" type="row" />
+                <field name="nb_heure" type="measure" />
+                <field name="offre_service" type="row" />
+                <field name="point_service" type="row" />
+                <field name="remarque" type="row" />
+                <field name="type_echange" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_echange_service_view_search" model="ir.ui.view">
+        <field name="name">accorderie_echange_service_search</field>
+        <field name="model">accorderie.echange.service</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie echange service">
+                <filter name="nom_complet" string="Nom complet" domain="[('nom_complet','!=',False)]" />
+                <filter name="commentaire" string="Commentaire" domain="[('commentaire','!=',False)]" />
+                <filter name="date_echange" string="Date de l'&#233;change" domain="[('date_echange','!=',False)]" />
+                <filter name="demande_service" string="Demande de services" domain="[('demande_service','!=',False)]" />
+                <filter name="membre_acheteur" string="Membre acheteur" domain="[('membre_acheteur','!=',False)]" />
+                <filter name="membre_vendeur" string="Membre vendeur" domain="[('membre_vendeur','!=',False)]" />
+                <filter name="nb_heure" string="Nombre d'heure" domain="[('nb_heure','!=',False)]" />
+                <filter name="offre_service" string="Offre de services" domain="[('offre_service','!=',False)]" />
+                <filter name="point_service" string="Point de services" domain="[('point_service','!=',False)]" />
+                <filter name="remarque" string="Remarque" domain="[('remarque','!=',False)]" />
+                <filter name="type_echange" string="Type d'&#233;change" domain="[('type_echange','!=',False)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_echange_service_view_tree" model="ir.ui.view">
         <field name="name">accorderie_echange_service_tree</field>
         <field name="model">accorderie.echange.service</field>
@@ -68,6 +213,6 @@
         id="accorderie_echange_service_&#233;change_de_services_action_window"
         name="&#201;change de services"
         res_model="accorderie.echange.service"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>

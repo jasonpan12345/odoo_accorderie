@@ -67,6 +67,221 @@
         </field>
     </record>
 
+    <record id="accorderie_offre_service_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_offre_service_graph</field>
+        <field name="model">accorderie.offre.service</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie offre service">
+                <field name="description" type="row" />
+                <field name="accompli" type="row" />
+                <field name="accorderie" type="row" />
+                <field name="approuve" type="row" />
+                <field name="condition" type="row" />
+                <field name="condition_autre" type="row" />
+                <field name="date_affichage" type="row" />
+                <field name="date_debut" type="row" />
+                <field name="date_fin" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="disponibilite" type="row" />
+                <field name="membre" type="row" />
+                <field name="nb_consultation" type="measure" />
+                <field name="nom_offre_special" type="row" />
+                <field name="offre_special" type="row" />
+                <field name="tarif" type="row" />
+                <field name="type_service_id" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_offre_service_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_offre_service_kanban</field>
+        <field name="model">accorderie.offre.service</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="description" />
+                <field name="accompli" />
+                <field name="accorderie" />
+                <field name="approuve" />
+                <field name="condition" />
+                <field name="condition_autre" />
+                <field name="date_affichage" />
+                <field name="date_debut" />
+                <field name="date_fin" />
+                <field name="date_mise_a_jour" />
+                <field name="disponibilite" />
+                <field name="membre" />
+                <field name="nb_consultation" />
+                <field name="nom_offre_special" />
+                <field name="offre_special" />
+                <field name="tarif" />
+                <field name="type_service_id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="description" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.accompli.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.accompli.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="accorderie" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.approuve.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.approuve.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="condition" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="condition_autre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_affichage" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_debut" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_fin" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_mise_a_jour" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="disponibilite" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nb_consultation" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_offre_special" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.offre_special.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.offre_special.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="tarif" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="type_service_id" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_offre_service_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_offre_service_pivot</field>
+        <field name="model">accorderie.offre.service</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie offre service">
+                <field name="description" type="row" />
+                <field name="accompli" type="row" />
+                <field name="accorderie" type="row" />
+                <field name="approuve" type="row" />
+                <field name="condition" type="row" />
+                <field name="condition_autre" type="row" />
+                <field name="date_affichage" type="row" />
+                <field name="date_debut" type="row" />
+                <field name="date_fin" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="disponibilite" type="row" />
+                <field name="membre" type="row" />
+                <field name="nb_consultation" type="measure" />
+                <field name="nom_offre_special" type="row" />
+                <field name="offre_special" type="row" />
+                <field name="tarif" type="row" />
+                <field name="type_service_id" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_offre_service_view_search" model="ir.ui.view">
+        <field name="name">accorderie_offre_service_search</field>
+        <field name="model">accorderie.offre.service</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie offre service">
+                <filter name="description" string="Description" domain="[('description','!=',False)]" />
+                <filter name="accompli" string="Accomplie" domain="[('accompli','=',True)]" />
+                <filter name="accorderie" string="Accorderie" domain="[('accorderie','!=',False)]" />
+                <filter name="Inactive" string="Inactive Accorderie offre service" domain="[('active','=',False)]" />
+                <filter name="approuve" string="Approuv&#233;" domain="[('approuve','=',True)]" />
+                <filter name="condition" string="Conditions" domain="[('condition','!=',False)]" />
+                <filter name="condition_autre" string="Condition autres" domain="[('condition_autre','!=',False)]" />
+                <filter name="date_affichage" string="Date d'affichage" domain="[('date_affichage','!=',False)]" />
+                <filter name="date_debut" string="Date de d&#233;but" domain="[('date_debut','!=',False)]" />
+                <filter name="date_fin" string="Date de fin" domain="[('date_fin','!=',False)]" />
+                <filter
+                    name="date_mise_a_jour"
+                    string="Derni&#232;re mise &#224; jour"
+                    domain="[('date_mise_a_jour','!=',False)]"
+                />
+                <filter name="disponibilite" string="Disponibilit&#233;" domain="[('disponibilite','!=',False)]" />
+                <filter name="membre" string="Membre" domain="[('membre','!=',False)]" />
+                <filter
+                    name="nb_consultation"
+                    string="Nombre de consultations"
+                    domain="[('nb_consultation','!=',False)]"
+                />
+                <filter
+                    name="nom_offre_special"
+                    string="Nom de l'offre sp&#233;ciale"
+                    domain="[('nom_offre_special','!=',False)]"
+                />
+                <filter name="offre_special" string="Offre sp&#233;ciale" domain="[('offre_special','=',True)]" />
+                <filter name="tarif" string="Tarif" domain="[('tarif','!=',False)]" />
+                <filter name="type_service_id" string="Type de services" domain="[('type_service_id','!=',False)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_offre_service_view_tree" model="ir.ui.view">
         <field name="name">accorderie_offre_service_tree</field>
         <field name="model">accorderie.offre.service</field>
@@ -97,6 +312,6 @@
         id="accorderie_offre_service_offre_de_services_action_window"
         name="Offre de services"
         res_model="accorderie.offre.service"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>
