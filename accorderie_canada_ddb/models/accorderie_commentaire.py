@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieCommentaire(models.Model):
     _name = "accorderie.commentaire"
+    _inherit = "portal.mixin"
     _description = (
         "Les commentaires des membres envers d'autres membres sur des services"
         " et demandes"

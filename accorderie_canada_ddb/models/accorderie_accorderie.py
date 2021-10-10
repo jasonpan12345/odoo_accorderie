@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieAccorderie(models.Model):
     _name = "accorderie.accorderie"
+    _inherit = "portal.mixin"
     _description = (
         "Gestion des entitées Accorderie, contient les informations et les"
         " messages d'une Accorderie."

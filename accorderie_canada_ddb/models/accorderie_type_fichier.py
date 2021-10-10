@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieTypeFichier(models.Model):
     _name = "accorderie.type.fichier"
+    _inherit = "portal.mixin"
     _description = "Accorderie Type Fichier"
     _rec_name = "nom"
 

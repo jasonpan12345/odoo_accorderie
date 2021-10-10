@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieVille(models.Model):
     _name = "accorderie.ville"
+    _inherit = "portal.mixin"
     _description = "Accorderie Ville"
     _rec_name = "nom"
 

@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieTypeCompte(models.Model):
     _name = "accorderie.type.compte"
+    _inherit = "portal.mixin"
     _description = "Accorderie Type Compte"
     _rec_name = "nom_complet"
 
