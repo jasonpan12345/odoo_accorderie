@@ -83,3 +83,10 @@ class AccorderieOffreService(models.Model):
         string="Type de services",
         comodel_name="accorderie.type.service",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieOffreService, self)._compute_access_url()
+        for accorderie_offre_service in self:
+            accorderie_offre_service.access_url = (
+                "/my/accorderie_offre_service/%s" % accorderie_offre_service.id
+            )

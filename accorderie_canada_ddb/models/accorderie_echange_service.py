@@ -59,6 +59,14 @@ class AccorderieEchangeService(models.Model):
         string="Type d'échange",
     )
 
+    def _compute_access_url(self):
+        super(AccorderieEchangeService, self)._compute_access_url()
+        for accorderie_echange_service in self:
+            accorderie_echange_service.access_url = (
+                "/my/accorderie_echange_service/%s"
+                % accorderie_echange_service.id
+            )
+
     @api.depends("type_echange", "point_service")
     def _compute_nom_complet(self):
         for rec in self:

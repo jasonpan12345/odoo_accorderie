@@ -136,7 +136,6 @@
                 <field name="nom" type="row" />
                 <field name="accorderie" type="row" />
                 <field name="date_mise_a_jour" type="row" />
-                <field name="fichier" type="row" />
                 <field name="si_accorderie_local_seulement" type="row" />
                 <field name="si_admin" type="row" />
                 <field name="si_disponible" type="row" />

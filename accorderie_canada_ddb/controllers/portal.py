@@ -189,7 +189,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_accorderies = AccorderieAccorderie.search(
@@ -344,7 +343,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_arrondissements = AccorderieArrondissement.search(
@@ -502,7 +500,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_commentaires = AccorderieCommentaire.search(
@@ -659,7 +656,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_demande_adhesions = AccorderieDemandeAdhesion.search(
@@ -820,7 +816,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_demande_services = AccorderieDemandeService.search(
@@ -979,7 +974,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_droits_admins = AccorderieDroitsAdmin.search(
@@ -1136,7 +1130,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_echange_services = AccorderieEchangeService.search(
@@ -1288,7 +1281,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_fichiers = AccorderieFichier.search(
@@ -1436,7 +1428,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_membres = AccorderieMembre.search(
@@ -1589,7 +1580,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_occupations = AccorderieOccupation.search(
@@ -1744,7 +1734,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_offre_services = AccorderieOffreService.search(
@@ -1894,7 +1883,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_origines = AccorderieOrigine.search(
@@ -2049,7 +2037,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_point_services = AccorderiePointService.search(
@@ -2204,7 +2191,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_provenances = AccorderieProvenance.search(
@@ -2357,7 +2343,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_quartiers = AccorderieQuartier.search(
@@ -2505,7 +2490,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_regions = AccorderieRegion.search(
@@ -2660,7 +2644,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_revenu_familials = AccorderieRevenuFamilial.search(
@@ -2819,7 +2802,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_situation_maisons = AccorderieSituationMaison.search(
@@ -2982,7 +2964,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_communications = AccorderieTypeCommunication.search(
@@ -3143,7 +3124,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_comptes = AccorderieTypeCompte.search(
@@ -3300,7 +3280,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_fichiers = AccorderieTypeFichier.search(
@@ -3457,7 +3436,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_services = AccorderieTypeService.search(
@@ -3616,7 +3594,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_service_categories = (
@@ -3786,7 +3763,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_service_sous_categories = (
@@ -3956,7 +3932,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_type_telephones = AccorderieTypeTelephone.search(
@@ -4107,7 +4082,6 @@ class CustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        # content according to pager and archive selected
 
         # content according to pager and archive selected
         accorderie_villes = AccorderieVille.search(

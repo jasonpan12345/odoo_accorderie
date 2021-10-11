@@ -23,3 +23,10 @@ class AccorderieQuartier(models.Model):
         string="Nom du quartier",
         help="Nom du quartier",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieQuartier, self)._compute_access_url()
+        for accorderie_quartier in self:
+            accorderie_quartier.access_url = (
+                "/my/accorderie_quartier/%s" % accorderie_quartier.id
+            )

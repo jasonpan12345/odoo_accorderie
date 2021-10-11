@@ -37,3 +37,10 @@ class AccorderieFichier(models.Model):
         comodel_name="accorderie.type.fichier",
         required=True,
     )
+
+    def _compute_access_url(self):
+        super(AccorderieFichier, self)._compute_access_url()
+        for accorderie_fichier in self:
+            accorderie_fichier.access_url = (
+                "/my/accorderie_fichier/%s" % accorderie_fichier.id
+            )

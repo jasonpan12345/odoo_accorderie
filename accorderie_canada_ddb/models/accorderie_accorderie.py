@@ -106,3 +106,10 @@ class AccorderieAccorderie(models.Model):
         comodel_name="accorderie.ville",
         help="Nom de la ville de l'Accorderie",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieAccorderie, self)._compute_access_url()
+        for accorderie_accorderie in self:
+            accorderie_accorderie.access_url = (
+                "/my/accorderie_accorderie/%s" % accorderie_accorderie.id
+            )

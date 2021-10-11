@@ -30,3 +30,11 @@ class AccorderieTypeServiceCategorie(models.Model):
         inverse_name="categorie",
         help="Type Service Sous Categorie relation",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieTypeServiceCategorie, self)._compute_access_url()
+        for accorderie_type_service_categorie in self:
+            accorderie_type_service_categorie.access_url = (
+                "/my/accorderie_type_service_categorie/%s"
+                % accorderie_type_service_categorie.id
+            )

@@ -35,3 +35,10 @@ class AccorderiePointService(models.Model):
         string="Séquence",
         help="Séquence d'affichage",
     )
+
+    def _compute_access_url(self):
+        super(AccorderiePointService, self)._compute_access_url()
+        for accorderie_point_service in self:
+            accorderie_point_service.access_url = (
+                "/my/accorderie_point_service/%s" % accorderie_point_service.id
+            )

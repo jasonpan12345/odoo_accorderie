@@ -54,10 +54,10 @@
                         <field name="telephone" />
                     </group>
                     <group>
-                        <field name="url_public" widget="link_button" />
+                        <field name="url_public" />
                     </group>
                     <group>
-                        <field name="url_transactionnel" widget="link_button" />
+                        <field name="url_transactionnel" />
                     </group>
                     <group>
                         <field name="ville" />
@@ -244,7 +244,6 @@
                 <field name="date_mise_a_jour" type="row" />
                 <field name="grp_achat_administrateur" type="row" />
                 <field name="grp_achat_membre" type="row" />
-                <field name="logo" type="row" />
                 <field name="message_accueil" type="row" />
                 <field name="message_grp_achat" type="row" />
                 <field name="region" type="row" />

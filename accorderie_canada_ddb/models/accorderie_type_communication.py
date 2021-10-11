@@ -14,3 +14,11 @@ class AccorderieTypeCommunication(models.Model):
     )
 
     nom = fields.Char(string="Typecommunication")
+
+    def _compute_access_url(self):
+        super(AccorderieTypeCommunication, self)._compute_access_url()
+        for accorderie_type_communication in self:
+            accorderie_type_communication.access_url = (
+                "/my/accorderie_type_communication/%s"
+                % accorderie_type_communication.id
+            )

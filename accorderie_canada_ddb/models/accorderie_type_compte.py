@@ -31,6 +31,13 @@ class AccorderieTypeCompte(models.Model):
 
     spip = fields.Boolean()
 
+    def _compute_access_url(self):
+        super(AccorderieTypeCompte, self)._compute_access_url()
+        for accorderie_type_compte in self:
+            accorderie_type_compte.access_url = (
+                "/my/accorderie_type_compte/%s" % accorderie_type_compte.id
+            )
+
     @api.depends(
         "membre",
     )

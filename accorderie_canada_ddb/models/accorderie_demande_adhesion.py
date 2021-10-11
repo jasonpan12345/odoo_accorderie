@@ -52,6 +52,14 @@ class AccorderieDemandeAdhesion(models.Model):
         default=False,
     )
 
+    def _compute_access_url(self):
+        super(AccorderieDemandeAdhesion, self)._compute_access_url()
+        for accorderie_demande_adhesion in self:
+            accorderie_demande_adhesion.access_url = (
+                "/my/accorderie_demande_adhesion/%s"
+                % accorderie_demande_adhesion.id
+            )
+
     @api.depends("nom", "prenom")
     def _compute_nom_complet(self):
         for rec in self:

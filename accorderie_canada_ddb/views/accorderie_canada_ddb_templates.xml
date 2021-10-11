@@ -6,7 +6,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.accorderie&amp;id=%s&amp;view_type=form' % (accorderie_accorderie.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.accorderie&amp;id=%s&amp;view_type=form' % (accorderie_accorderie.id)"
                     />
                 </t>
             </t>
@@ -56,7 +56,12 @@
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Logo:</b>
-                            <span t-field="accorderie_accorderie.logo" />
+                            <img
+                                t-if="accorderie_accorderie.logo"
+                                t-att-src="image_data_uri(accorderie_accorderie.logo)"
+                                alt="logo"
+                                class="img img-fluid d-block mx-auto"
+                            />
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Message d'accueil:</b>
@@ -87,11 +92,19 @@
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Lien du site web publique:</b>
-                            <span t-field="accorderie_accorderie.url_public" />
+                            <a
+                                target="_blank"
+                                t-attf-href="{{accorderie_accorderie.url_public}}"
+                                t-field="accorderie_accorderie.url_public"
+                            />
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Lien du site web transactionnel:</b>
-                            <span t-field="accorderie_accorderie.url_transactionnel" />
+                            <a
+                                target="_blank"
+                                t-attf-href="{{accorderie_accorderie.url_transactionnel}}"
+                                t-field="accorderie_accorderie.url_transactionnel"
+                            />
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Ville:</b>
@@ -368,7 +381,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.arrondissement&amp;id=%s&amp;view_type=form' % (accorderie_arrondissement.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.arrondissement&amp;id=%s&amp;view_type=form' % (accorderie_arrondissement.id)"
                     />
                 </t>
             </t>
@@ -660,7 +673,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.commentaire&amp;id=%s&amp;view_type=form' % (accorderie_commentaire.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.commentaire&amp;id=%s&amp;view_type=form' % (accorderie_commentaire.id)"
                     />
                 </t>
             </t>
@@ -792,7 +805,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.demande.adhesion&amp;id=%s&amp;view_type=form' % (accorderie_demande_adhesion.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.demande.adhesion&amp;id=%s&amp;view_type=form' % (accorderie_demande_adhesion.id)"
                     />
                 </t>
             </t>
@@ -864,7 +877,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.demande.service&amp;id=%s&amp;view_type=form' % (accorderie_demande_service.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.demande.service&amp;id=%s&amp;view_type=form' % (accorderie_demande_service.id)"
                     />
                 </t>
             </t>
@@ -1046,7 +1059,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.droits.admin&amp;id=%s&amp;view_type=form' % (accorderie_droits_admin.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.droits.admin&amp;id=%s&amp;view_type=form' % (accorderie_droits_admin.id)"
                     />
                 </t>
             </t>
@@ -1126,7 +1139,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.echange.service&amp;id=%s&amp;view_type=form' % (accorderie_echange_service.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.echange.service&amp;id=%s&amp;view_type=form' % (accorderie_echange_service.id)"
                     />
                 </t>
             </t>
@@ -1170,7 +1183,10 @@
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Nombre d'heure:</b>
-                            <span t-field="accorderie_echange_service.nb_heure" />
+                            <span
+                                t-field="accorderie_echange_service.nb_heure"
+                                t-options="{&quot;widget&quot;: &quot;duration&quot;, &quot;unit&quot;: &quot;hour&quot;, &quot;round&quot;: &quot;minute&quot;}"
+                            />
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
                             <b>Nom complet:</b>
@@ -1210,7 +1226,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.fichier&amp;id=%s&amp;view_type=form' % (accorderie_fichier.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.fichier&amp;id=%s&amp;view_type=form' % (accorderie_fichier.id)"
                     />
                 </t>
             </t>
@@ -1273,7 +1289,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.membre&amp;id=%s&amp;view_type=form' % (accorderie_membre.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.membre&amp;id=%s&amp;view_type=form' % (accorderie_membre.id)"
                     />
                 </t>
             </t>
@@ -1780,7 +1796,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.occupation&amp;id=%s&amp;view_type=form' % (accorderie_occupation.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.occupation&amp;id=%s&amp;view_type=form' % (accorderie_occupation.id)"
                     />
                 </t>
             </t>
@@ -2065,7 +2081,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.offre.service&amp;id=%s&amp;view_type=form' % (accorderie_offre_service.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.offre.service&amp;id=%s&amp;view_type=form' % (accorderie_offre_service.id)"
                     />
                 </t>
             </t>
@@ -2171,7 +2187,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.origine&amp;id=%s&amp;view_type=form' % (accorderie_origine.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.origine&amp;id=%s&amp;view_type=form' % (accorderie_origine.id)"
                     />
                 </t>
             </t>
@@ -2456,7 +2472,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.point.service&amp;id=%s&amp;view_type=form' % (accorderie_point_service.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.point.service&amp;id=%s&amp;view_type=form' % (accorderie_point_service.id)"
                     />
                 </t>
             </t>
@@ -2875,7 +2891,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.provenance&amp;id=%s&amp;view_type=form' % (accorderie_provenance.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.provenance&amp;id=%s&amp;view_type=form' % (accorderie_provenance.id)"
                     />
                 </t>
             </t>
@@ -3160,7 +3176,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.quartier&amp;id=%s&amp;view_type=form' % (accorderie_quartier.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.quartier&amp;id=%s&amp;view_type=form' % (accorderie_quartier.id)"
                     />
                 </t>
             </t>
@@ -3452,7 +3468,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.region&amp;id=%s&amp;view_type=form' % (accorderie_region.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.region&amp;id=%s&amp;view_type=form' % (accorderie_region.id)"
                     />
                 </t>
             </t>
@@ -3528,7 +3544,12 @@
                                         <t t-esc="region.grp_achat_membre" />
                                     </td>
                                     <td>
-                                        <t t-esc="region.logo" />
+                                        <img
+                                            t-if="region.logo"
+                                            t-att-src="image_data_uri(region.logo)"
+                                            alt="logo"
+                                            class="img img-fluid d-block mx-auto"
+                                        />
                                     </td>
                                     <td>
                                         <t t-raw="region.message_accueil" />
@@ -3552,10 +3573,18 @@
                                         <t t-esc="region.telephone" />
                                     </td>
                                     <td>
-                                        <t t-esc="region.url_public" />
+                                        <a
+                                            target="_blank"
+                                            t-attf-href="{{region.url_public}}"
+                                            t-field="region.url_public"
+                                        />
                                     </td>
                                     <td>
-                                        <t t-esc="region.url_transactionnel" />
+                                        <a
+                                            target="_blank"
+                                            t-attf-href="{{region.url_transactionnel}}"
+                                            t-field="region.url_transactionnel"
+                                        />
                                     </td>
                                     <td>
                                         <a
@@ -3861,7 +3890,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.revenu.familial&amp;id=%s&amp;view_type=form' % (accorderie_revenu_familial.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.revenu.familial&amp;id=%s&amp;view_type=form' % (accorderie_revenu_familial.id)"
                     />
                 </t>
             </t>
@@ -4146,7 +4175,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.situation.maison&amp;id=%s&amp;view_type=form' % (accorderie_situation_maison.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.situation.maison&amp;id=%s&amp;view_type=form' % (accorderie_situation_maison.id)"
                     />
                 </t>
             </t>
@@ -4434,7 +4463,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.communication&amp;id=%s&amp;view_type=form' % (accorderie_type_communication.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.communication&amp;id=%s&amp;view_type=form' % (accorderie_type_communication.id)"
                     />
                 </t>
             </t>
@@ -4719,7 +4748,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.compte&amp;id=%s&amp;view_type=form' % (accorderie_type_compte.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.compte&amp;id=%s&amp;view_type=form' % (accorderie_type_compte.id)"
                     />
                 </t>
             </t>
@@ -4783,7 +4812,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.fichier&amp;id=%s&amp;view_type=form' % (accorderie_type_fichier.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.fichier&amp;id=%s&amp;view_type=form' % (accorderie_type_fichier.id)"
                     />
                 </t>
             </t>
@@ -4866,7 +4895,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.service&amp;id=%s&amp;view_type=form' % (accorderie_type_service.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.service&amp;id=%s&amp;view_type=form' % (accorderie_type_service.id)"
                     />
                 </t>
             </t>
@@ -4929,7 +4958,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.service.categorie&amp;id=%s&amp;view_type=form' % (accorderie_type_service_categorie.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.service.categorie&amp;id=%s&amp;view_type=form' % (accorderie_type_service_categorie.id)"
                     />
                 </t>
             </t>
@@ -5011,7 +5040,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.service.sous.categorie&amp;id=%s&amp;view_type=form' % (accorderie_type_service_sous_categorie.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.service.sous.categorie&amp;id=%s&amp;view_type=form' % (accorderie_type_service_sous_categorie.id)"
                     />
                 </t>
             </t>
@@ -5109,7 +5138,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.type.telephone&amp;id=%s&amp;view_type=form' % (accorderie_type_telephone.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.type.telephone&amp;id=%s&amp;view_type=form' % (accorderie_type_telephone.id)"
                     />
                 </t>
             </t>
@@ -5906,7 +5935,7 @@
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
-                        t-value="'/web#return_label=Website&amp;model=accorderie_canada_ddb.accorderie.ville&amp;id=%s&amp;view_type=form' % (accorderie_ville.id)"
+                        t-value="'/web#return_label=Website&amp;model=accorderie.ville&amp;id=%s&amp;view_type=form' % (accorderie_ville.id)"
                     />
                 </t>
             </t>
@@ -5989,7 +6018,12 @@
                                         <t t-esc="ville.grp_achat_membre" />
                                     </td>
                                     <td>
-                                        <t t-esc="ville.logo" />
+                                        <img
+                                            t-if="ville.logo"
+                                            t-att-src="image_data_uri(ville.logo)"
+                                            alt="logo"
+                                            class="img img-fluid d-block mx-auto"
+                                        />
                                     </td>
                                     <td>
                                         <t t-raw="ville.message_accueil" />
@@ -6013,10 +6047,18 @@
                                         <t t-esc="ville.telephone" />
                                     </td>
                                     <td>
-                                        <t t-esc="ville.url_public" />
+                                        <a
+                                            target="_blank"
+                                            t-attf-href="{{ville.url_public}}"
+                                            t-field="ville.url_public"
+                                        />
                                     </td>
                                     <td>
-                                        <t t-esc="ville.url_transactionnel" />
+                                        <a
+                                            target="_blank"
+                                            t-attf-href="{{ville.url_transactionnel}}"
+                                            t-field="ville.url_transactionnel"
+                                        />
                                     </td>
                                     <td>
                                         <a

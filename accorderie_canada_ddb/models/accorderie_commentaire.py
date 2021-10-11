@@ -142,6 +142,13 @@ class AccorderieCommentaire(models.Model):
         string="Type de l'offre",
     )
 
+    def _compute_access_url(self):
+        super(AccorderieCommentaire, self)._compute_access_url()
+        for accorderie_commentaire in self:
+            accorderie_commentaire.access_url = (
+                "/my/accorderie_commentaire/%s" % accorderie_commentaire.id
+            )
+
     @api.depends("type_offre", "number", "degre_satisfaction")
     def _compute_nom_complet(self):
         for rec in self:

@@ -37,6 +37,13 @@ class AccorderieDroitsAdmin(models.Model):
 
     validation = fields.Boolean()
 
+    def _compute_access_url(self):
+        super(AccorderieDroitsAdmin, self)._compute_access_url()
+        for accorderie_droits_admin in self:
+            accorderie_droits_admin.access_url = (
+                "/my/accorderie_droits_admin/%s" % accorderie_droits_admin.id
+            )
+
     @api.depends(
         "membre",
     )

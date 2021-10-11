@@ -14,3 +14,10 @@ class AccorderieProvenance(models.Model):
     )
 
     nom = fields.Char(string="Provenance")
+
+    def _compute_access_url(self):
+        super(AccorderieProvenance, self)._compute_access_url()
+        for accorderie_provenance in self:
+            accorderie_provenance.access_url = (
+                "/my/accorderie_provenance/%s" % accorderie_provenance.id
+            )

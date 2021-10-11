@@ -26,3 +26,11 @@ class AccorderieTypeTelephone(models.Model):
     )
 
     nom = fields.Char()
+
+    def _compute_access_url(self):
+        super(AccorderieTypeTelephone, self)._compute_access_url()
+        for accorderie_type_telephone in self:
+            accorderie_type_telephone.access_url = (
+                "/my/accorderie_type_telephone/%s"
+                % accorderie_type_telephone.id
+            )
