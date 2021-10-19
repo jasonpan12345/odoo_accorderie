@@ -15,6 +15,9 @@
                         <field name="nom" />
                     </group>
                     <group>
+                        <field name="annee_demarrage" />
+                    </group>
+                    <group>
                         <field name="adresse" />
                     </group>
                     <group>

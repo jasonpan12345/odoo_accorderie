@@ -107,6 +107,15 @@ class AccorderieAccorderie(models.Model):
         help="Nom de la ville de l'Accorderie",
     )
 
+    annee_demarrage = fields.Integer(string="Année de démarrage")
+
+    quantite_membre = fields.Integer(compute="_compute_quantite_membre", store=True)
+
+    @api.depends('membre')
+    def _compute_quantite_membre(self):
+        for accorderie in self:
+            accorderie.quantite_membre = len(accorderie.membre)
+
     def _compute_access_url(self):
         super(AccorderieAccorderie, self)._compute_access_url()
         for accorderie_accorderie in self:
