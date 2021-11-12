@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieDemandeService(models.Model):
     _name = "accorderie.demande.service"
+    _inherit = "portal.mixin"
     _description = "Accorderie Demande Service"
     _rec_name = "titre"
 
@@ -37,3 +38,11 @@ class AccorderieDemandeService(models.Model):
     membre = fields.Many2one(comodel_name="accorderie.membre")
 
     titre = fields.Char()
+
+    def _compute_access_url(self):
+        super(AccorderieDemandeService, self)._compute_access_url()
+        for accorderie_demande_service in self:
+            accorderie_demande_service.access_url = (
+                "/my/accorderie_demande_service/%s"
+                % accorderie_demande_service.id
+            )

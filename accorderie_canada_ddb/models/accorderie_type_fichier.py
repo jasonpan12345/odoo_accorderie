@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieTypeFichier(models.Model):
     _name = "accorderie.type.fichier"
+    _inherit = "portal.mixin"
     _description = "Accorderie Type Fichier"
     _rec_name = "nom"
 
@@ -19,3 +20,10 @@ class AccorderieTypeFichier(models.Model):
     )
 
     nom = fields.Char()
+
+    def _compute_access_url(self):
+        super(AccorderieTypeFichier, self)._compute_access_url()
+        for accorderie_type_fichier in self:
+            accorderie_type_fichier.access_url = (
+                "/my/accorderie_type_fichier/%s" % accorderie_type_fichier.id
+            )

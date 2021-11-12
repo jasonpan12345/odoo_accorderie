@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieDemandeAdhesion(models.Model):
     _name = "accorderie.demande.adhesion"
+    _inherit = "portal.mixin"
     _description = "Accorderie Demande Adhesion"
     _rec_name = "nom_complet"
 
@@ -50,6 +51,14 @@ class AccorderieDemandeAdhesion(models.Model):
         string="Transféré",
         default=False,
     )
+
+    def _compute_access_url(self):
+        super(AccorderieDemandeAdhesion, self)._compute_access_url()
+        for accorderie_demande_adhesion in self:
+            accorderie_demande_adhesion.access_url = (
+                "/my/accorderie_demande_adhesion/%s"
+                % accorderie_demande_adhesion.id
+            )
 
     @api.depends("nom", "prenom")
     def _compute_nom_complet(self):

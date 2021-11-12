@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieFichier(models.Model):
     _name = "accorderie.fichier"
+    _inherit = "portal.mixin"
     _description = "Accorderie Fichier"
     _rec_name = "nom"
 
@@ -36,3 +37,10 @@ class AccorderieFichier(models.Model):
         comodel_name="accorderie.type.fichier",
         required=True,
     )
+
+    def _compute_access_url(self):
+        super(AccorderieFichier, self)._compute_access_url()
+        for accorderie_fichier in self:
+            accorderie_fichier.access_url = (
+                "/my/accorderie_fichier/%s" % accorderie_fichier.id
+            )

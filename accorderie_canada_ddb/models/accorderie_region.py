@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieRegion(models.Model):
     _name = "accorderie.region"
+    _inherit = "portal.mixin"
     _description = "Accorderie Region"
     _rec_name = "nom"
 
@@ -31,3 +32,10 @@ class AccorderieRegion(models.Model):
         inverse_name="region",
         help="Ville relation",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieRegion, self)._compute_access_url()
+        for accorderie_region in self:
+            accorderie_region.access_url = (
+                "/my/accorderie_region/%s" % accorderie_region.id
+            )

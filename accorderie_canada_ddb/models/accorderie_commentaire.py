@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieCommentaire(models.Model):
     _name = "accorderie.commentaire"
+    _inherit = "portal.mixin"
     _description = (
         "Les commentaires des membres envers d'autres membres sur des services"
         " et demandes"
@@ -140,6 +141,13 @@ class AccorderieCommentaire(models.Model):
         ],
         string="Type de l'offre",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieCommentaire, self)._compute_access_url()
+        for accorderie_commentaire in self:
+            accorderie_commentaire.access_url = (
+                "/my/accorderie_commentaire/%s" % accorderie_commentaire.id
+            )
 
     @api.depends("type_offre", "number", "degre_satisfaction")
     def _compute_nom_complet(self):

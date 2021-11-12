@@ -5,9 +5,11 @@
     "author": "TechnoLibre",
     "license": "AGPL-3",
     "application": True,
+    "depends": ["portal"],
     "data": [
         "security/ir.model.access.csv",
         "views/accorderie_accorderie.xml",
+        "views/accorderie_canada_ddb_templates.xml",
         "views/accorderie_arrondissement.xml",
         "views/accorderie_commentaire.xml",
         "views/accorderie_demande_adhesion.xml",

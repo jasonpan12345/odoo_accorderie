@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieTypeService(models.Model):
     _name = "accorderie.type.service"
+    _inherit = "portal.mixin"
     _description = "Type de services des Accorderies"
     _rec_name = "nom_complet"
 
@@ -45,6 +46,13 @@ class AccorderieTypeService(models.Model):
         comodel_name="accorderie.type.service.sous.categorie",
         help="Sous-catégorie de services",
     )
+
+    def _compute_access_url(self):
+        super(AccorderieTypeService, self)._compute_access_url()
+        for accorderie_type_service in self:
+            accorderie_type_service.access_url = (
+                "/my/accorderie_type_service/%s" % accorderie_type_service.id
+            )
 
     @api.depends("sous_categorie_id", "sous_categorie_id.categorie", "numero")
     def _compute_identifiant(self):

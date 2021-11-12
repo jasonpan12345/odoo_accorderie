@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieMembre(models.Model):
     _name = "accorderie.membre"
+    _inherit = "portal.mixin"
     _description = "Accorderie Membre"
     _rec_name = "nom_complet"
 
@@ -169,6 +170,13 @@ class AccorderieMembre(models.Model):
         comodel_name="accorderie.ville",
         required=True,
     )
+
+    def _compute_access_url(self):
+        super(AccorderieMembre, self)._compute_access_url()
+        for accorderie_membre in self:
+            accorderie_membre.access_url = (
+                "/my/accorderie_membre/%s" % accorderie_membre.id
+            )
 
     @api.depends("nom", "prenom", "est_un_point_service", "point_service")
     def _compute_nom_complet(self):

@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieDroitsAdmin(models.Model):
     _name = "accorderie.droits.admin"
+    _inherit = "portal.mixin"
     _description = "Accorderie Droits Admin"
     _rec_name = "nom_complet"
 
@@ -35,6 +36,13 @@ class AccorderieDroitsAdmin(models.Model):
     saisie_echange = fields.Boolean(string="Saisie échange")
 
     validation = fields.Boolean()
+
+    def _compute_access_url(self):
+        super(AccorderieDroitsAdmin, self)._compute_access_url()
+        for accorderie_droits_admin in self:
+            accorderie_droits_admin.access_url = (
+                "/my/accorderie_droits_admin/%s" % accorderie_droits_admin.id
+            )
 
     @api.depends(
         "membre",

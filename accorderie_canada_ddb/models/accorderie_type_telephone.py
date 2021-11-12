@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieTypeTelephone(models.Model):
     _name = "accorderie.type.telephone"
+    _inherit = "portal.mixin"
     _description = "Accorderie Type Telephone"
     _rec_name = "nom"
 
@@ -25,3 +26,11 @@ class AccorderieTypeTelephone(models.Model):
     )
 
     nom = fields.Char()
+
+    def _compute_access_url(self):
+        super(AccorderieTypeTelephone, self)._compute_access_url()
+        for accorderie_type_telephone in self:
+            accorderie_type_telephone.access_url = (
+                "/my/accorderie_type_telephone/%s"
+                % accorderie_type_telephone.id
+            )

@@ -166,6 +166,592 @@
         </field>
     </record>
 
+    <record id="accorderie_membre_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_membre_graph</field>
+        <field name="model">accorderie.membre</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie membre">
+                <field name="nom_complet" type="row" />
+                <field name="accorderie" type="row" />
+                <field name="achat_regrouper" type="row" />
+                <field name="adresse" type="row" />
+                <field name="annee_naissance" type="measure" />
+                <field name="arrondissement" type="row" />
+                <field name="bottin_courriel" type="row" />
+                <field name="bottin_tel" type="row" />
+                <field name="codepostal" type="row" />
+                <field name="courriel" type="row" />
+                <field name="date_adhesion" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="description_membre" type="row" />
+                <field name="est_un_point_service" type="row" />
+                <field name="membre_ca" type="row" />
+                <field name="membre_conjoint" type="row" />
+                <field name="membre_conjoint_id" type="measure" />
+                <field name="membre_principal" type="row" />
+                <field name="memo" type="row" />
+                <field name="nom" type="row" />
+                <field name="nom_utilisateur" type="row" />
+                <field name="occupation" type="row" />
+                <field name="origine" type="row" />
+                <field name="part_social_paye" type="row" />
+                <field name="pas_communication" type="row" />
+                <field name="point_service" type="row" />
+                <field name="prenom" type="row" />
+                <field name="pret_actif" type="row" />
+                <field name="profil_approuver" type="row" />
+                <field name="provenance" type="row" />
+                <field name="quartier" type="row" />
+                <field name="recevoir_courriel_groupe" type="row" />
+                <field name="region" type="row" />
+                <field name="revenu_familial" type="row" />
+                <field name="sexe" type="row" />
+                <field name="situation_maison" type="row" />
+                <field name="telephone_1" type="row" />
+                <field name="telephone_2" type="row" />
+                <field name="telephone_3" type="row" />
+                <field name="telephone_poste_1" type="row" />
+                <field name="telephone_poste_2" type="row" />
+                <field name="telephone_poste_3" type="row" />
+                <field name="telephone_type_1" type="row" />
+                <field name="telephone_type_2" type="row" />
+                <field name="telephone_type_3" type="row" />
+                <field name="transfert_accorderie" type="row" />
+                <field name="type_communication" type="row" />
+                <field name="ville" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_membre_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_membre_kanban</field>
+        <field name="model">accorderie.membre</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom_complet" />
+                <field name="accorderie" />
+                <field name="achat_regrouper" />
+                <field name="adresse" />
+                <field name="annee_naissance" />
+                <field name="arrondissement" />
+                <field name="bottin_courriel" />
+                <field name="bottin_tel" />
+                <field name="codepostal" />
+                <field name="courriel" />
+                <field name="date_adhesion" />
+                <field name="date_mise_a_jour" />
+                <field name="description_membre" />
+                <field name="est_un_point_service" />
+                <field name="membre_ca" />
+                <field name="membre_conjoint" />
+                <field name="membre_conjoint_id" />
+                <field name="membre_principal" />
+                <field name="memo" />
+                <field name="nom" />
+                <field name="nom_utilisateur" />
+                <field name="occupation" />
+                <field name="origine" />
+                <field name="part_social_paye" />
+                <field name="pas_communication" />
+                <field name="point_service" />
+                <field name="prenom" />
+                <field name="pret_actif" />
+                <field name="profil_approuver" />
+                <field name="provenance" />
+                <field name="quartier" />
+                <field name="recevoir_courriel_groupe" />
+                <field name="region" />
+                <field name="revenu_familial" />
+                <field name="sexe" />
+                <field name="situation_maison" />
+                <field name="telephone_1" />
+                <field name="telephone_2" />
+                <field name="telephone_3" />
+                <field name="telephone_poste_1" />
+                <field name="telephone_poste_2" />
+                <field name="telephone_poste_3" />
+                <field name="telephone_type_1" />
+                <field name="telephone_type_2" />
+                <field name="telephone_type_3" />
+                <field name="transfert_accorderie" />
+                <field name="type_communication" />
+                <field name="ville" />
+                <field name="commentaire" />
+                <field name="commentaire_ids" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_complet" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="accorderie" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.achat_regrouper.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.achat_regrouper.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="adresse" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="annee_naissance" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="arrondissement" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.bottin_courriel.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.bottin_courriel.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.bottin_tel.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.bottin_tel.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="codepostal" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="courriel" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_adhesion" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_mise_a_jour" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.description_membre.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.description_membre.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.est_un_point_service.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.est_un_point_service.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.membre_ca.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.membre_ca.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.membre_conjoint.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.membre_conjoint.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_conjoint_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.membre_principal.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.membre_principal.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="memo" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_utilisateur" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="occupation" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="origine" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.part_social_paye.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.part_social_paye.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.pas_communication.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.pas_communication.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="point_service" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="prenom" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.pret_actif.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.pret_actif.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.profil_approuver.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.profil_approuver.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="provenance" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="quartier" />
+                                        </strong>
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.recevoir_courriel_groupe.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.recevoir_courriel_groupe.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="region" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="revenu_familial" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="sexe" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="situation_maison" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_1" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_2" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_3" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_poste_1" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_poste_2" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_poste_3" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_type_1" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_type_2" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone_type_3" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="transfert_accorderie" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="type_communication" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="ville" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="commentaire" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="commentaire_ids" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_membre_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_membre_pivot</field>
+        <field name="model">accorderie.membre</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie membre">
+                <field name="nom_complet" type="row" />
+                <field name="accorderie" type="row" />
+                <field name="achat_regrouper" type="row" />
+                <field name="adresse" type="row" />
+                <field name="annee_naissance" type="measure" />
+                <field name="arrondissement" type="row" />
+                <field name="bottin_courriel" type="row" />
+                <field name="bottin_tel" type="row" />
+                <field name="codepostal" type="row" />
+                <field name="courriel" type="row" />
+                <field name="date_adhesion" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="description_membre" type="row" />
+                <field name="est_un_point_service" type="row" />
+                <field name="membre_ca" type="row" />
+                <field name="membre_conjoint" type="row" />
+                <field name="membre_conjoint_id" type="measure" />
+                <field name="membre_principal" type="row" />
+                <field name="memo" type="row" />
+                <field name="nom" type="row" />
+                <field name="nom_utilisateur" type="row" />
+                <field name="occupation" type="row" />
+                <field name="origine" type="row" />
+                <field name="part_social_paye" type="row" />
+                <field name="pas_communication" type="row" />
+                <field name="point_service" type="row" />
+                <field name="prenom" type="row" />
+                <field name="pret_actif" type="row" />
+                <field name="profil_approuver" type="row" />
+                <field name="provenance" type="row" />
+                <field name="quartier" type="row" />
+                <field name="recevoir_courriel_groupe" type="row" />
+                <field name="region" type="row" />
+                <field name="revenu_familial" type="row" />
+                <field name="sexe" type="row" />
+                <field name="situation_maison" type="row" />
+                <field name="telephone_1" type="row" />
+                <field name="telephone_2" type="row" />
+                <field name="telephone_3" type="row" />
+                <field name="telephone_poste_1" type="row" />
+                <field name="telephone_poste_2" type="row" />
+                <field name="telephone_poste_3" type="row" />
+                <field name="telephone_type_1" type="row" />
+                <field name="telephone_type_2" type="row" />
+                <field name="telephone_type_3" type="row" />
+                <field name="transfert_accorderie" type="row" />
+                <field name="type_communication" type="row" />
+                <field name="ville" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_membre_view_search" model="ir.ui.view">
+        <field name="name">accorderie_membre_search</field>
+        <field name="model">accorderie.membre</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie membre">
+                <filter name="nom_complet" string="Nom complet" domain="[('nom_complet','!=',False)]" />
+                <filter name="accorderie" string="Accorderie" domain="[('accorderie','!=',False)]" />
+                <filter name="achat_regrouper" string="Achat regroup&#233;" domain="[('achat_regrouper','=',True)]" />
+                <filter name="Inactive" string="Inactive Accorderie membre" domain="[('active','=',False)]" />
+                <filter name="adresse" string="Adresse" domain="[('adresse','!=',False)]" />
+                <filter
+                    name="annee_naissance"
+                    string="Ann&#233;e de naissance"
+                    domain="[('annee_naissance','!=',False)]"
+                />
+                <filter name="arrondissement" string="Arrondissement" domain="[('arrondissement','!=',False)]" />
+                <filter name="bottin_courriel" string="Bottin courriel" domain="[('bottin_courriel','=',True)]" />
+                <filter name="bottin_tel" string="Bottin t&#233;l&#233;phone" domain="[('bottin_tel','=',True)]" />
+                <filter name="codepostal" string="Codepostal" domain="[('codepostal','!=',False)]" />
+                <filter name="courriel" string="Courriel" domain="[('courriel','!=',False)]" />
+                <filter name="date_adhesion" string="Date de l'adh&#233;sion" domain="[('date_adhesion','!=',False)]" />
+                <filter
+                    name="date_mise_a_jour"
+                    string="Derni&#232;re mise &#224; jour"
+                    domain="[('date_mise_a_jour','!=',False)]"
+                />
+                <filter
+                    name="description_membre"
+                    string="Description du membre"
+                    domain="[('description_membre','=',True)]"
+                />
+                <filter
+                    name="est_un_point_service"
+                    string="Est un point de service"
+                    domain="[('est_un_point_service','=',True)]"
+                />
+                <filter name="membre_ca" string="Membre du CA" domain="[('membre_ca','=',True)]" />
+                <filter name="membre_conjoint" string="A un membre conjoint" domain="[('membre_conjoint','=',True)]" />
+                <filter
+                    name="membre_conjoint_id"
+                    string="Membre conjoint"
+                    domain="[('membre_conjoint_id','!=',False)]"
+                />
+                <filter name="membre_principal" string="Membre principal" domain="[('membre_principal','=',True)]" />
+                <filter name="memo" string="M&#233;mo" domain="[('memo','!=',False)]" />
+                <filter name="nom" string="Nom" domain="[('nom','!=',False)]" />
+                <filter name="nom_utilisateur" string="Nom du compte" domain="[('nom_utilisateur','!=',False)]" />
+                <filter name="occupation" string="Occupation" domain="[('occupation','!=',False)]" />
+                <filter name="origine" string="Origine" domain="[('origine','!=',False)]" />
+                <filter
+                    name="part_social_paye"
+                    string="Part social pay&#233;"
+                    domain="[('part_social_paye','=',True)]"
+                />
+                <filter
+                    name="pas_communication"
+                    string="Pas de communication"
+                    domain="[('pas_communication','=',True)]"
+                />
+                <filter name="point_service" string="Point de service" domain="[('point_service','!=',False)]" />
+                <filter name="prenom" string="Pr&#233;nom" domain="[('prenom','!=',False)]" />
+                <filter name="pret_actif" string="Pr&#234;t actif" domain="[('pret_actif','=',True)]" />
+                <filter
+                    name="profil_approuver"
+                    string="Profil approuv&#233;"
+                    domain="[('profil_approuver','=',True)]"
+                />
+                <filter name="provenance" string="Provenance" domain="[('provenance','!=',False)]" />
+                <filter name="quartier" string="Quartier" domain="[('quartier','!=',False)]" />
+                <filter
+                    name="recevoir_courriel_groupe"
+                    string="Veut recevoir courriel de groupes"
+                    domain="[('recevoir_courriel_groupe','=',True)]"
+                />
+                <filter name="region" string="R&#233;gion" domain="[('region','!=',False)]" />
+                <filter name="revenu_familial" string="Revenu familial" domain="[('revenu_familial','!=',False)]" />
+                <filter name="sexe" string="Sexe" domain="[('sexe','!=',False)]" />
+                <filter name="situation_maison" string="Situation maison" domain="[('situation_maison','!=',False)]" />
+                <filter name="telephone_1" string="1er t&#233;l&#233;phone" domain="[('telephone_1','!=',False)]" />
+                <filter name="telephone_2" string="2e t&#233;l&#233;phone" domain="[('telephone_2','!=',False)]" />
+                <filter name="telephone_3" string="3e t&#233;l&#233;phone" domain="[('telephone_3','!=',False)]" />
+                <filter
+                    name="telephone_poste_1"
+                    string="1er poste t&#233;l&#233;phone"
+                    domain="[('telephone_poste_1','!=',False)]"
+                />
+                <filter
+                    name="telephone_poste_2"
+                    string="2 poste t&#233;l&#233;phone"
+                    domain="[('telephone_poste_2','!=',False)]"
+                />
+                <filter
+                    name="telephone_poste_3"
+                    string="3 poste t&#233;l&#233;phone"
+                    domain="[('telephone_poste_3','!=',False)]"
+                />
+                <filter
+                    name="telephone_type_1"
+                    string="1er type de t&#233;l&#233;phones"
+                    domain="[('telephone_type_1','!=',False)]"
+                />
+                <filter
+                    name="telephone_type_2"
+                    string="2e type de t&#233;l&#233;phones"
+                    domain="[('telephone_type_2','!=',False)]"
+                />
+                <filter
+                    name="telephone_type_3"
+                    string="3e type de t&#233;l&#233;phones"
+                    domain="[('telephone_type_3','!=',False)]"
+                />
+                <filter
+                    name="transfert_accorderie"
+                    string="Transfert d'une Accorderie"
+                    domain="[('transfert_accorderie','!=',False)]"
+                />
+                <filter
+                    name="type_communication"
+                    string="Type de communications"
+                    domain="[('type_communication','!=',False)]"
+                />
+                <filter name="ville" string="Ville" domain="[('ville','!=',False)]" />
+                <filter name="commentaire" string="Commentaire" domain="[('commentaire','!=',False)]" />
+                <filter name="commentaire_ids" string="Commentaire Ids" domain="[('commentaire_ids','!=',False)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_membre_view_tree" model="ir.ui.view">
         <field name="name">accorderie_membre_tree</field>
         <field name="model">accorderie.membre</field>
@@ -219,6 +805,6 @@
         id="accorderie_membre_membre_action_window"
         name="Membre"
         res_model="accorderie.membre"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>

@@ -80,6 +80,311 @@
         </field>
     </record>
 
+    <record id="accorderie_commentaire_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_commentaire_graph</field>
+        <field name="model">accorderie.commentaire</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie commentaire">
+                <field name="nom_complet" type="row" />
+                <field name="autre_commentaire" type="row" />
+                <field name="autre_situation" type="row" />
+                <field name="confidentiel" type="row" />
+                <field name="consulter_accorderie" type="row" />
+                <field name="consulter_reseau" type="row" />
+                <field name="date_incident" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="datetime_creation" type="row" />
+                <field name="degre_satisfaction" type="row" />
+                <field name="demande_service_id" type="row" />
+                <field name="demarche" type="row" />
+                <field name="membre_source" type="row" />
+                <field name="membre_viser" type="row" />
+                <field name="nom_comite" type="row" />
+                <field name="note_administrative" type="row" />
+                <field name="number" type="measure" />
+                <field name="offre_service_id" type="row" />
+                <field name="point_service" type="row" />
+                <field name="resumer_situation" type="row" />
+                <field name="situation_impliquant" type="row" />
+                <field name="solution_pour_regler" type="row" />
+                <field name="type_offre" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_commentaire_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_commentaire_kanban</field>
+        <field name="model">accorderie.commentaire</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom_complet" />
+                <field name="autre_commentaire" />
+                <field name="autre_situation" />
+                <field name="confidentiel" />
+                <field name="consulter_accorderie" />
+                <field name="consulter_reseau" />
+                <field name="date_incident" />
+                <field name="date_mise_a_jour" />
+                <field name="datetime_creation" />
+                <field name="degre_satisfaction" />
+                <field name="demande_service_id" />
+                <field name="demarche" />
+                <field name="membre_source" />
+                <field name="membre_viser" />
+                <field name="nom_comite" />
+                <field name="note_administrative" />
+                <field name="number" />
+                <field name="offre_service_id" />
+                <field name="point_service" />
+                <field name="resumer_situation" />
+                <field name="situation_impliquant" />
+                <field name="solution_pour_regler" />
+                <field name="type_offre" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_complet" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="autre_commentaire" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="autre_situation" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="confidentiel" />
+                                        </strong>
+                                    </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.consulter_accorderie.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.consulter_accorderie.raw_value"
+                                    >
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.consulter_reseau.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.consulter_reseau.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_incident" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_mise_a_jour" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="datetime_creation" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="degre_satisfaction" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="demande_service_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="demarche" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_source" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_viser" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_comite" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="note_administrative" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="number" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="offre_service_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="point_service" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="resumer_situation" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="situation_impliquant" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="solution_pour_regler" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="type_offre" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_commentaire_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_commentaire_pivot</field>
+        <field name="model">accorderie.commentaire</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie commentaire">
+                <field name="nom_complet" type="row" />
+                <field name="autre_commentaire" type="row" />
+                <field name="autre_situation" type="row" />
+                <field name="confidentiel" type="row" />
+                <field name="consulter_accorderie" type="row" />
+                <field name="consulter_reseau" type="row" />
+                <field name="date_incident" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="datetime_creation" type="row" />
+                <field name="degre_satisfaction" type="row" />
+                <field name="demande_service_id" type="row" />
+                <field name="demarche" type="row" />
+                <field name="membre_source" type="row" />
+                <field name="membre_viser" type="row" />
+                <field name="nom_comite" type="row" />
+                <field name="note_administrative" type="row" />
+                <field name="number" type="measure" />
+                <field name="offre_service_id" type="row" />
+                <field name="point_service" type="row" />
+                <field name="resumer_situation" type="row" />
+                <field name="situation_impliquant" type="row" />
+                <field name="solution_pour_regler" type="row" />
+                <field name="type_offre" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_commentaire_view_search" model="ir.ui.view">
+        <field name="name">accorderie_commentaire_search</field>
+        <field name="model">accorderie.commentaire</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie commentaire">
+                <filter name="nom_complet" string="Nom complet" domain="[('nom_complet','!=',False)]" />
+                <filter
+                    name="autre_commentaire"
+                    string="Autres commentaires"
+                    domain="[('autre_commentaire','!=',False)]"
+                />
+                <filter name="autre_situation" string="Autre situation" domain="[('autre_situation','!=',False)]" />
+                <filter name="confidentiel" string="Confidentialit&#233;" domain="[('confidentiel','!=',False)]" />
+                <filter
+                    name="consulter_accorderie"
+                    string="Consult&#233; par une Accorderie"
+                    domain="[('consulter_accorderie','=',True)]"
+                />
+                <filter
+                    name="consulter_reseau"
+                    string="Consult&#233; par le R&#233;seau"
+                    domain="[('consulter_reseau','=',True)]"
+                />
+                <filter name="date_incident" string="Date de l'indicent" domain="[('date_incident','!=',False)]" />
+                <filter
+                    name="date_mise_a_jour"
+                    string="Derni&#232;re mise &#224; jour"
+                    domain="[('date_mise_a_jour','!=',False)]"
+                />
+                <filter
+                    name="datetime_creation"
+                    string="Date et heure de cr&#233;ation"
+                    domain="[('datetime_creation','!=',False)]"
+                />
+                <filter
+                    name="degre_satisfaction"
+                    string="Degr&#233; de satisfaction"
+                    domain="[('degre_satisfaction','!=',False)]"
+                />
+                <filter
+                    name="demande_service_id"
+                    string="Demande de services"
+                    domain="[('demande_service_id','!=',False)]"
+                />
+                <filter name="demarche" string="D&#233;marche" domain="[('demarche','!=',False)]" />
+                <filter name="membre_source" string="Membre source" domain="[('membre_source','!=',False)]" />
+                <filter name="membre_viser" string="Membre vis&#233;" domain="[('membre_viser','!=',False)]" />
+                <filter name="nom_comite" string="Nom du comit&#233;" domain="[('nom_comite','!=',False)]" />
+                <filter
+                    name="note_administrative"
+                    string="Note administrative"
+                    domain="[('note_administrative','!=',False)]"
+                />
+                <filter name="number" string="# de commentaire" domain="[('number','!=',False)]" />
+                <filter name="offre_service_id" string="Offre de services" domain="[('offre_service_id','!=',False)]" />
+                <filter name="point_service" string="Point de services" domain="[('point_service','!=',False)]" />
+                <filter
+                    name="resumer_situation"
+                    string="R&#233;sum&#233; de la situation"
+                    domain="[('resumer_situation','!=',False)]"
+                />
+                <filter
+                    name="situation_impliquant"
+                    string="Situation impliquant"
+                    domain="[('situation_impliquant','!=',False)]"
+                />
+                <filter
+                    name="solution_pour_regler"
+                    string="Solution pour r&#233;gler la situation"
+                    domain="[('solution_pour_regler','!=',False)]"
+                />
+                <filter name="type_offre" string="Type de l'offre" domain="[('type_offre','!=',False)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_commentaire_view_tree" model="ir.ui.view">
         <field name="name">accorderie_commentaire_tree</field>
         <field name="model">accorderie.commentaire</field>
@@ -116,6 +421,6 @@
         id="accorderie_commentaire_commentaire_action_window"
         name="Commentaire"
         res_model="accorderie.commentaire"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>

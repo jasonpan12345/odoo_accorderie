@@ -46,6 +46,149 @@
         </field>
     </record>
 
+    <record id="accorderie_demande_adhesion_view_graph" model="ir.ui.view">
+        <field name="name">accorderie_demande_adhesion_graph</field>
+        <field name="model">accorderie.demande.adhesion</field>
+        <field name="arch" type="xml">
+            <graph string="Accorderie demande adhesion">
+                <field name="nom_complet" type="row" />
+                <field name="accorderie" type="row" />
+                <field name="courriel" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="en_attente" type="row" />
+                <field name="nom" type="row" />
+                <field name="poste" type="row" />
+                <field name="prenom" type="row" />
+                <field name="telephone" type="row" />
+                <field name="transferer" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="accorderie_demande_adhesion_view_kanban" model="ir.ui.view">
+        <field name="name">accorderie_demande_adhesion_kanban</field>
+        <field name="model">accorderie.demande.adhesion</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nom_complet" />
+                <field name="accorderie" />
+                <field name="courriel" />
+                <field name="date_mise_a_jour" />
+                <field name="en_attente" />
+                <field name="nom" />
+                <field name="poste" />
+                <field name="prenom" />
+                <field name="telephone" />
+                <field name="transferer" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom_complet" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="accorderie" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="courriel" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="date_mise_a_jour" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.en_attente.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.en_attente.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="nom" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="poste" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="prenom" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="telephone" />
+                                        </strong>
+                                    </li>
+                                    <li class="text-success float-right mb4" t-if="record.transferer.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                    </li>
+                                    <li class="text-danger float-right mb4" t-if="!record.transferer.raw_value">
+                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="accorderie_demande_adhesion_view_pivot" model="ir.ui.view">
+        <field name="name">accorderie_demande_adhesion_pivot</field>
+        <field name="model">accorderie.demande.adhesion</field>
+        <field name="arch" type="xml">
+            <pivot string="Accorderie demande adhesion">
+                <field name="nom_complet" type="row" />
+                <field name="accorderie" type="row" />
+                <field name="courriel" type="row" />
+                <field name="date_mise_a_jour" type="row" />
+                <field name="en_attente" type="row" />
+                <field name="nom" type="row" />
+                <field name="poste" type="row" />
+                <field name="prenom" type="row" />
+                <field name="telephone" type="row" />
+                <field name="transferer" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="accorderie_demande_adhesion_view_search" model="ir.ui.view">
+        <field name="name">accorderie_demande_adhesion_search</field>
+        <field name="model">accorderie.demande.adhesion</field>
+        <field name="arch" type="xml">
+            <search string="Accorderie demande adhesion">
+                <filter name="nom_complet" string="Nom complet" domain="[('nom_complet','!=',False)]" />
+                <filter name="accorderie" string="Accorderie" domain="[('accorderie','!=',False)]" />
+                <filter name="Inactive" string="Inactive Accorderie demande adhesion" domain="[('active','=',False)]" />
+                <filter name="courriel" string="Courriel" domain="[('courriel','!=',False)]" />
+                <filter
+                    name="date_mise_a_jour"
+                    string="Derni&#232;re mise &#224; jour"
+                    domain="[('date_mise_a_jour','!=',False)]"
+                />
+                <filter name="en_attente" string="En attente" domain="[('en_attente','=',True)]" />
+                <filter name="nom" string="Nom" domain="[('nom','!=',False)]" />
+                <filter name="poste" string="Poste" domain="[('poste','!=',False)]" />
+                <filter name="prenom" string="Pr&#233;nom" domain="[('prenom','!=',False)]" />
+                <filter name="telephone" string="T&#233;l&#233;phone" domain="[('telephone','!=',False)]" />
+                <filter name="transferer" string="Transf&#233;r&#233;" domain="[('transferer','=',True)]" />
+            </search>
+        </field>
+    </record>
+
     <record id="accorderie_demande_adhesion_view_tree" model="ir.ui.view">
         <field name="name">accorderie_demande_adhesion_tree</field>
         <field name="model">accorderie.demande.adhesion</field>
@@ -67,6 +210,6 @@
         id="accorderie_demande_adhesion_demande_d_adh&#233;sion_action_window"
         name="Demande d'adh&#233;sion"
         res_model="accorderie.demande.adhesion"
-        view_mode="list,form"
+        view_mode="kanban,pivot,list,graph,form"
     />
 </odoo>

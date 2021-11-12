@@ -3,6 +3,7 @@ from odoo import _, api, models, fields
 
 class AccorderieTypeCompte(models.Model):
     _name = "accorderie.type.compte"
+    _inherit = "portal.mixin"
     _description = "Accorderie Type Compte"
     _rec_name = "nom_complet"
 
@@ -29,6 +30,13 @@ class AccorderieTypeCompte(models.Model):
     reseau = fields.Boolean(string="Réseau")
 
     spip = fields.Boolean()
+
+    def _compute_access_url(self):
+        super(AccorderieTypeCompte, self)._compute_access_url()
+        for accorderie_type_compte in self:
+            accorderie_type_compte.access_url = (
+                "/my/accorderie_type_compte/%s" % accorderie_type_compte.id
+            )
 
     @api.depends(
         "membre",
