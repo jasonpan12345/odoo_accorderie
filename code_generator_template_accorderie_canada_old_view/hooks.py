@@ -66,16 +66,7 @@ def post_init_hook(cr, e):
             "code_generator",
             "code_generator_hook",
         ]
-        lst_dependencies = env["ir.module.module"].search(
-            [("name", "in", lst_depend)]
-        )
-        for depend in lst_dependencies:
-            value = {
-                "module_id": code_generator_id.id,
-                "depend_id": depend.id,
-                "name": depend.display_name,
-            }
-            env["code.generator.module.dependency"].create(value)
+        code_generator_id.add_module_dependency(lst_depend)
 
         # Generate module
         value = {"code_generator_ids": code_generator_id.ids}
