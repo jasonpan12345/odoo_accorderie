@@ -605,11 +605,13 @@ def alter_table(cr):
     # cr.execute(query_search)
 
     # Fix field for foreign key
-    query_search = """
+    table_schema = cr.connection.db.decode("utf-8")
+    query_search = f"""
     IF NOT EXISTS( SELECT NULL
                 FROM INFORMATION_SCHEMA.COLUMNS
                WHERE table_name = 'tbl_sous_categorie'
-                 AND column_name = 'NoSousCategorieId')  THEN
+                 AND column_name = 'NoSousCategorieId'
+                  AND TABLE_SCHEMA = '{table_schema}')  THEN
 
       alter table tbl_sous_categorie
         add NoSousCategorieId int unsigned null;
@@ -620,11 +622,12 @@ def alter_table(cr):
     """
     cr.execute(query_search)
 
-    query_search = """
+    query_search = f"""
     IF NOT EXISTS( SELECT NULL
                 FROM INFORMATION_SCHEMA.COLUMNS
                WHERE table_name = 'tbl_categorie_sous_categorie'
-                 AND column_name = 'NoSousCategorieId')  THEN
+                 AND column_name = 'NoSousCategorieId'
+                  AND TABLE_SCHEMA = '{table_schema}' )  THEN
 
       alter table tbl_categorie_sous_categorie
         add NoSousCategorieId int unsigned null;
