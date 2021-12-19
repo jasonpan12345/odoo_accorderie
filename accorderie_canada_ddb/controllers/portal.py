@@ -1,16 +1,13 @@
 from collections import OrderedDict
 from operator import itemgetter
 
-from odoo import http, _
+from odoo import _, http
+from odoo.addons.portal.controllers.portal import CustomerPortal
+from odoo.addons.portal.controllers.portal import pager as portal_pager
 from odoo.exceptions import AccessError, MissingError
 from odoo.http import request
-from odoo.addons.portal.controllers.portal import (
-    CustomerPortal,
-    pager as portal_pager,
-)
-from odoo.tools import groupby as groupbyelem
-
 from odoo.osv.expression import OR
+from odoo.tools import groupby as groupbyelem
 
 
 class CustomerPortal(CustomerPortal):

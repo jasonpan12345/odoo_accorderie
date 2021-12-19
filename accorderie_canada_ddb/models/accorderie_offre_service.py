@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieOffreService(models.Model):
@@ -6,6 +6,8 @@ class AccorderieOffreService(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Offre Service"
     _rec_name = "description"
+
+    description = fields.Char()
 
     accompli = fields.Boolean(
         string="Accomplie",
@@ -59,8 +61,6 @@ class AccorderieOffreService(models.Model):
         help="Date de la dernière mise à jour",
     )
 
-    description = fields.Char()
-
     disponibilite = fields.Char(string="Disponibilité")
 
     membre = fields.Many2one(
@@ -80,8 +80,8 @@ class AccorderieOffreService(models.Model):
     tarif = fields.Char()
 
     type_service_id = fields.Many2one(
-        string="Type de services",
         comodel_name="accorderie.type.service",
+        string="Type de services",
     )
 
     def _compute_access_url(self):

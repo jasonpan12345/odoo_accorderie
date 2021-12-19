@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieTypeFichier(models.Model):
@@ -6,6 +6,8 @@ class AccorderieTypeFichier(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Type Fichier"
     _rec_name = "nom"
+
+    nom = fields.Char()
 
     date_mise_a_jour = fields.Datetime(
         string="Dernière mise à jour",
@@ -18,8 +20,6 @@ class AccorderieTypeFichier(models.Model):
         inverse_name="type_fichier",
         help="Fichier relation",
     )
-
-    nom = fields.Char()
 
     def _compute_access_url(self):
         super(AccorderieTypeFichier, self)._compute_access_url()

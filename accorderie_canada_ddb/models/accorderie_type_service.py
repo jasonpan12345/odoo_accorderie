@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieTypeService(models.Model):
@@ -6,6 +6,12 @@ class AccorderieTypeService(models.Model):
     _inherit = "portal.mixin"
     _description = "Type de services des Accorderies"
     _rec_name = "nom_complet"
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     active = fields.Boolean(
         string="Actif",
@@ -30,20 +36,14 @@ class AccorderieTypeService(models.Model):
 
     nom = fields.Char(help="Nom du type de services")
 
-    nom_complet = fields.Char(
-        string="Nom complet",
-        compute="_compute_nom_complet",
-        store=True,
-    )
-
     numero = fields.Integer(
         string="Numéro",
         help="Numéro du type de services",
     )
 
     sous_categorie_id = fields.Many2one(
-        string="Sous-catégorie",
         comodel_name="accorderie.type.service.sous.categorie",
+        string="Sous-catégorie",
         help="Sous-catégorie de services",
     )
 

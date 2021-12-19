@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieRegion(models.Model):
@@ -6,6 +6,8 @@ class AccorderieRegion(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Region"
     _rec_name = "nom"
+
+    nom = fields.Char()
 
     accorderie = fields.One2many(
         comodel_name="accorderie.accorderie",
@@ -24,8 +26,6 @@ class AccorderieRegion(models.Model):
         inverse_name="region",
         help="Membre relation",
     )
-
-    nom = fields.Char()
 
     ville = fields.One2many(
         comodel_name="accorderie.ville",

@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieTypeTelephone(models.Model):
@@ -6,6 +6,8 @@ class AccorderieTypeTelephone(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Type Telephone"
     _rec_name = "nom"
+
+    nom = fields.Char()
 
     membre = fields.One2many(
         comodel_name="accorderie.membre",
@@ -24,8 +26,6 @@ class AccorderieTypeTelephone(models.Model):
         inverse_name="telephone_type_2",
         help="Membre Ids relation",
     )
-
-    nom = fields.Char()
 
     def _compute_access_url(self):
         super(AccorderieTypeTelephone, self)._compute_access_url()

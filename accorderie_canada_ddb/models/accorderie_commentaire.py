@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieCommentaire(models.Model):
@@ -9,6 +9,12 @@ class AccorderieCommentaire(models.Model):
         " et demandes"
     )
     _rec_name = "nom_complet"
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     autre_commentaire = fields.Text(string="Autres commentaires")
 
@@ -54,8 +60,8 @@ class AccorderieCommentaire(models.Model):
     )
 
     demande_service_id = fields.Many2one(
-        string="Demande de services",
         comodel_name="accorderie.demande.service",
+        string="Demande de services",
         help="La demande de services qui est visée par ce commentaire.",
     )
 
@@ -65,25 +71,19 @@ class AccorderieCommentaire(models.Model):
     )
 
     membre_source = fields.Many2one(
-        string="Membre source",
         comodel_name="accorderie.membre",
+        string="Membre source",
         required=True,
         help="Membre duquel provient le commentaire",
     )
 
     membre_viser = fields.Many2one(
-        string="Membre visé",
         comodel_name="accorderie.membre",
+        string="Membre visé",
         help="Membre visé par le commentaire",
     )
 
     nom_comite = fields.Char(string="Nom du comité")
-
-    nom_complet = fields.Char(
-        string="Nom complet",
-        compute="_compute_nom_complet",
-        store=True,
-    )
 
     note_administrative = fields.Text(
         string="Note administrative",
@@ -99,14 +99,14 @@ class AccorderieCommentaire(models.Model):
     )
 
     offre_service_id = fields.Many2one(
-        string="Offre de services",
         comodel_name="accorderie.offre.service",
+        string="Offre de services",
         help="L'offre de services qui est visée par ce commentaire.",
     )
 
     point_service = fields.Many2one(
-        string="Point de services",
         comodel_name="accorderie.point.service",
+        string="Point de services",
         required=True,
     )
 
