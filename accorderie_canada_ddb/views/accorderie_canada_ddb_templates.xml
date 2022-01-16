@@ -3122,8 +3122,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -3430,8 +3430,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -4270,7 +4270,7 @@
                             <span t-field="accorderie_fichier.date_mise_a_jour" />
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
-                            <b>fichier:</b>
+                            <b>Fichier:</b>
                             <span t-field="accorderie_fichier.fichier" />
                         </div>
                         <div class="col-12 col-md-6 mb-2 mb-md-0">
@@ -4563,7 +4563,7 @@
                         </div>
                         <div class="container" t-if="accorderie_membre.commentaire">
                             <hr class="mt-4 mb-1" />
-                            <h5 class="mt-2 mb-2">Commentaire</h5>
+                            <h5 class="mt-2 mb-2">Commentaire membre source</h5>
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -4682,7 +4682,7 @@
                         </div>
                         <div class="container" t-if="accorderie_membre.commentaire_ids">
                             <hr class="mt-4 mb-1" />
-                            <h5 class="mt-2 mb-2">Commentaire</h5>
+                            <h5 class="mt-2 mb-2">Commentaire membre vis&#233;</h5>
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -4842,8 +4842,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -5245,8 +5245,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -5680,8 +5680,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -5981,8 +5981,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -6289,8 +6289,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -6706,8 +6706,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -7061,8 +7061,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -7362,8 +7362,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -7666,8 +7666,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -8029,7 +8029,7 @@
                                     <tr>
                                         <th>Accorderie</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
-                                        <th>fichier</th>
+                                        <th>Fichier</th>
                                         <th>Nom</th>
                                         <th>Accorderie local seulement</th>
                                         <th>Admin</th>
@@ -8335,7 +8335,7 @@
                         </div>
                         <div class="container" t-if="accorderie_type_telephone.membre">
                             <hr class="mt-4 mb-1" />
-                            <h5 class="mt-2 mb-2">Membre</h5>
+                            <h5 class="mt-2 mb-2">Membre 1</h5>
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -8347,8 +8347,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -8607,7 +8607,7 @@
                         </div>
                         <div class="container" t-if="accorderie_type_telephone.membre_2_ids">
                             <hr class="mt-4 mb-1" />
-                            <h5 class="mt-2 mb-2">Membre 2</h5>
+                            <h5 class="mt-2 mb-2">Membre 3</h5>
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -8619,8 +8619,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -8879,7 +8879,7 @@
                         </div>
                         <div class="container" t-if="accorderie_type_telephone.membre_ids">
                             <hr class="mt-4 mb-1" />
-                            <h5 class="mt-2 mb-2">Membre</h5>
+                            <h5 class="mt-2 mb-2">Membre 2</h5>
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -8891,8 +8891,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -9348,8 +9348,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
-                                        <th>Commentaire</th>
-                                        <th>Commentaire</th>
+                                        <th>Commentaire membre source</th>
+                                        <th>Commentaire membre vis&#233;</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>

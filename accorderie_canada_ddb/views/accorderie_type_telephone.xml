@@ -92,9 +92,9 @@
         <field name="arch" type="xml">
             <search string="Accorderie type telephone">
                 <filter domain="[('nom','!=',False)]" name="nom" string="Nom" />
-                <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
-                <filter domain="[('membre_2_ids','!=',False)]" name="membre_2_ids" string="Membre 2 Ids" />
-                <filter domain="[('membre_ids','!=',False)]" name="membre_ids" string="Membre Ids" />
+                <filter domain="[('membre','!=',False)]" name="membre" string="Membre 1" />
+                <filter domain="[('membre_2_ids','!=',False)]" name="membre_2_ids" string="Membre 3" />
+                <filter domain="[('membre_ids','!=',False)]" name="membre_ids" string="Membre 2" />
             </search>
         </field>
     </record>

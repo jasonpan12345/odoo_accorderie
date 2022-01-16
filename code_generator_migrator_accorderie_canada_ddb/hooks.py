@@ -248,6 +248,7 @@ def post_init_hook(cr, e):
             new_field_name="active",
             new_description="Actif",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, cette accorderie n'est plus en fonction,"
                 " mais demeure accessible."
@@ -371,6 +372,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, cette catégorie n'est plus en fonction,"
                 " mais demeure accessible."
@@ -434,6 +436,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, ce type de service n'est plus en fonction,"
                 " mais demeure accessible."
@@ -520,6 +523,7 @@ def post_init_hook(cr, e):
             new_description="Membre source",
             new_help="Membre duquel provient le commentaire",
             add_one2many=True,
+            one2many_description="Commentaire membre source",
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -528,6 +532,7 @@ def post_init_hook(cr, e):
             new_description="Membre visé",
             new_help="Membre visé par le commentaire",
             add_one2many=True,
+            one2many_description="Commentaire membre visé",
         )
         db_column.update_column(
             "tbl_commentaire",
@@ -737,6 +742,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, cet demande de services n'est plus en"
                 " fonction, mais demeure accessible."
@@ -808,6 +814,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, cet demande d'adhésion n'est plus en"
                 " fonction, mais demeure accessible."
@@ -819,7 +826,6 @@ def post_init_hook(cr, e):
             "transferer",
             new_description="Transféré",
             new_type="boolean",
-            new_default_value="False",
         )
         db_column.update_column(
             "tbl_dmd_adhesion",
@@ -1044,7 +1050,7 @@ def post_init_hook(cr, e):
             "tbl_fichier",
             "nomfichierstokage",
             new_field_name="fichier",
-            new_description="fichier",
+            new_description="Fichier",
             new_type="binary",
             path_binary="/accorderie_canada/Intranet/document/doc",
         )
@@ -1281,6 +1287,7 @@ def post_init_hook(cr, e):
             new_field_name="telephone_type_1",
             new_description="1er type de téléphones",
             add_one2many=True,
+            one2many_description="Membre 1",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1300,6 +1307,7 @@ def post_init_hook(cr, e):
             new_field_name="telephone_type_2",
             new_description="2e type de téléphones",
             add_one2many=True,
+            one2many_description="Membre 2",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1319,6 +1327,7 @@ def post_init_hook(cr, e):
             new_field_name="telephone_type_3",
             new_description="3e type de téléphones",
             add_one2many=True,
+            one2many_description="Membre 3",
         )
         db_column.update_column(
             "tbl_membre",
@@ -1382,6 +1391,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, ce membre n'est plus en"
                 " fonction, mais demeure accessible."
@@ -1649,6 +1659,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, cet offre de services n'est plus en"
                 " fonction, mais demeure accessible."
@@ -1942,6 +1953,7 @@ def post_init_hook(cr, e):
             new_description="Actif",
             new_type="boolean",
             new_default_value="True",
+            force_widget="boolean_button",
             new_help=(
                 "Lorsque non actif, cette sous-catégorie n'est plus en"
                 " fonction, mais demeure accessible."
@@ -2290,9 +2302,9 @@ def post_init_hook(cr, e):
             value = ""
             if rec.type_echange:
                 value += rec.type_echange
-            if rec.type_echange and rec.point_service:
-                value += " - "
-            if rec.point_service:
+            if rec.point_service and rec.point_service.nom:
+                if rec.type_echange:
+                    value += " - "
                 value += rec.point_service.nom
             if not value:
                 value = False
@@ -2464,7 +2476,7 @@ def post_init_hook(cr, e):
             #     "adminpointservice",
             #     "adminordpointservice",
             # ),
-            ("membre",),
+            "membre",
             str_code,
         )
         if code_id:
@@ -2528,10 +2540,25 @@ def generate_rec_name_code_compute(
         )
         if record_ids:
             exec(str_code, {"self": record_ids})
+
+        if type(api_depend) is tuple:
+            if len(api_depend) == 1:
+                item_decorator = f'("{api_depend[0]}")'
+            else:
+                item_decorator = api_depend
+        elif type(api_depend) is str:
+            item_decorator = f'("{api_depend}")'
+        else:
+            _logger.warning(
+                f"Cannot support type '{type(api_depend)}' for api_depend."
+            )
+            item_decorator = "()"
+        decorator = f"@api.depends{item_decorator}"
+
         return {
             "code": str_code,
             "name": method_name,
-            "decorator": f"@api.depends{api_depend}",
+            "decorator": decorator,
             "param": "self",
             "sequence": 1,
             "m2o_module": code_generator_id.id,

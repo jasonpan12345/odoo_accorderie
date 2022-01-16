@@ -13,7 +13,14 @@ def post_init_hook(cr, e):
         env = api.Environment(cr, SUPERUSER_ID, {})
 
         # The path of the actual file
-        path_module_generate = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
+        path_module_generate = os.path.normpath(
+            os.path.join(
+                os.path.dirname(__file__),
+                "..",
+                "..",
+                "TechnoLibre_odoo_accorderie",
+            )
+        )
 
         short_name = MODULE_NAME.replace("_", " ").title()
 
@@ -1101,9 +1108,9 @@ for accorderie_echange_service in self:
     value = ""
     if rec.type_echange:
         value += rec.type_echange
-    if rec.type_echange and rec.point_service:
-        value += " - "
-    if rec.point_service:
+    if rec.point_service and rec.point_service.nom:
+        if rec.type_echange:
+            value += " - "
         value += rec.point_service.nom
     if not value:
         value = False
@@ -1150,7 +1157,7 @@ for accorderie_echange_service in self:
                 "code_generator_form_simple_view_sequence": 13,
                 "code_generator_sequence": 7,
                 "code_generator_tree_view_sequence": 13,
-                "field_description": "fichier",
+                "field_description": "Fichier",
                 "required": True,
                 "ttype": "binary",
             },
@@ -2891,9 +2898,9 @@ for accorderie_type_telephone in self:
         model_model = "accorderie.membre"
         dct_field = {
             "commentaire": {
-                "field_description": "Commentaire",
+                "field_description": "Commentaire membre source",
                 "ttype": "one2many",
-                "help": "Commentaire relation",
+                "help": "Commentaire membre source relation",
                 "code_generator_sequence": 14,
                 "code_generator_form_simple_view_sequence": 59,
                 "code_generator_tree_view_sequence": 48,
@@ -2901,9 +2908,9 @@ for accorderie_type_telephone in self:
                 "relation_field": "membre_source",
             },
             "commentaire_ids": {
-                "field_description": "Commentaire",
+                "field_description": "Commentaire membre visé",
                 "ttype": "one2many",
-                "help": "Commentaire Ids relation",
+                "help": "Commentaire membre visé relation",
                 "code_generator_sequence": 15,
                 "code_generator_form_simple_view_sequence": 60,
                 "code_generator_tree_view_sequence": 49,
@@ -3126,9 +3133,9 @@ for accorderie_type_telephone in self:
         model_model = "accorderie.type.telephone"
         dct_field = {
             "membre": {
-                "field_description": "Membre",
+                "field_description": "Membre 1",
                 "ttype": "one2many",
-                "help": "Membre relation",
+                "help": "Membre 1 relation",
                 "code_generator_sequence": 5,
                 "code_generator_form_simple_view_sequence": 11,
                 "code_generator_tree_view_sequence": 11,
@@ -3136,9 +3143,9 @@ for accorderie_type_telephone in self:
                 "relation_field": "telephone_type_1",
             },
             "membre_2_ids": {
-                "field_description": "Membre 2",
+                "field_description": "Membre 3",
                 "ttype": "one2many",
-                "help": "Membre 2 Ids relation",
+                "help": "Membre 3 relation",
                 "code_generator_sequence": 6,
                 "code_generator_form_simple_view_sequence": 12,
                 "code_generator_tree_view_sequence": 12,
@@ -3146,9 +3153,9 @@ for accorderie_type_telephone in self:
                 "relation_field": "telephone_type_3",
             },
             "membre_ids": {
-                "field_description": "Membre",
+                "field_description": "Membre 2",
                 "ttype": "one2many",
-                "help": "Membre Ids relation",
+                "help": "Membre 2 relation",
                 "code_generator_sequence": 7,
                 "code_generator_form_simple_view_sequence": 13,
                 "code_generator_tree_view_sequence": 13,
@@ -15975,6 +15982,7 @@ for accorderie_ville in self:
                     "item_type": "filter",
                     "name": "fichier",
                     "domain": "[('fichier','!=',False)]",
+                    "label": "Fichier",
                     "sequence": 4,
                 }
             )
@@ -21554,7 +21562,7 @@ for accorderie_ville in self:
                     "item_type": "filter",
                     "name": "commentaire",
                     "domain": "[('commentaire','!=',False)]",
-                    "label": "Commentaire",
+                    "label": "Commentaire membre source",
                     "sequence": 50,
                 }
             )
@@ -21566,7 +21574,7 @@ for accorderie_ville in self:
                     "item_type": "filter",
                     "name": "commentaire_ids",
                     "domain": "[('commentaire_ids','!=',False)]",
-                    "label": "Commentaire Ids",
+                    "label": "Commentaire membre visé",
                     "sequence": 51,
                 }
             )
@@ -32868,7 +32876,7 @@ for accorderie_ville in self:
                     "item_type": "filter",
                     "name": "membre",
                     "domain": "[('membre','!=',False)]",
-                    "label": "Membre",
+                    "label": "Membre 1",
                     "sequence": 2,
                 }
             )
@@ -32880,7 +32888,7 @@ for accorderie_ville in self:
                     "item_type": "filter",
                     "name": "membre_2_ids",
                     "domain": "[('membre_2_ids','!=',False)]",
-                    "label": "Membre 2 Ids",
+                    "label": "Membre 3",
                     "sequence": 3,
                 }
             )
@@ -32892,7 +32900,7 @@ for accorderie_ville in self:
                     "item_type": "filter",
                     "name": "membre_ids",
                     "domain": "[('membre_ids','!=',False)]",
-                    "label": "Membre Ids",
+                    "label": "Membre 2",
                     "sequence": 4,
                 }
             )

@@ -73,9 +73,9 @@ class AccorderieEchangeService(models.Model):
             value = ""
             if rec.type_echange:
                 value += rec.type_echange
-            if rec.type_echange and rec.point_service:
-                value += " - "
-            if rec.point_service:
+            if rec.point_service and rec.point_service.nom:
+                if rec.type_echange:
+                    value += " - "
                 value += rec.point_service.nom
             if not value:
                 value = False

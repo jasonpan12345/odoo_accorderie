@@ -70,6 +70,9 @@ def post_init_hook(cr, e):
         value["enable_cg_generate_portal"] = True
         value["enable_cg_portal_enable_create"] = True
         value["ignore_fields"] = ""
+        value[
+            "template_module_path_generated_extension"
+        ] = "'..', 'TechnoLibre_odoo_accorderie'"
         value["post_init_hook_show"] = True
         value["uninstall_hook_show"] = True
         value["post_init_hook_feature_code_generator"] = True

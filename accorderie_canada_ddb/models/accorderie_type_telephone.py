@@ -12,21 +12,22 @@ class AccorderieTypeTelephone(models.Model):
     membre = fields.One2many(
         comodel_name="accorderie.membre",
         inverse_name="telephone_type_1",
-        help="Membre relation",
+        string="Membre 1",
+        help="Membre 1 relation",
     )
 
     membre_2_ids = fields.One2many(
         comodel_name="accorderie.membre",
         inverse_name="telephone_type_3",
-        string="Membre 2",
-        help="Membre 2 Ids relation",
+        string="Membre 3",
+        help="Membre 3 relation",
     )
 
     membre_ids = fields.One2many(
         comodel_name="accorderie.membre",
         inverse_name="telephone_type_2",
-        string="Membre",
-        help="Membre Ids relation",
+        string="Membre 2",
+        help="Membre 2 relation",
     )
 
     def _compute_access_url(self):

@@ -19,10 +19,7 @@ class AccorderieFichier(models.Model):
         help="Date de la dernière mise à jour",
     )
 
-    fichier = fields.Binary(
-        string="fichier",
-        required=True,
-    )
+    fichier = fields.Binary(required=True)
 
     si_accorderie_local_seulement = fields.Boolean(
         string="Accorderie local seulement"

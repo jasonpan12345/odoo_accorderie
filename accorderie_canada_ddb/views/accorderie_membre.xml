@@ -746,8 +746,12 @@
                     string="Type de communications"
                 />
                 <filter domain="[('ville','!=',False)]" name="ville" string="Ville" />
-                <filter domain="[('commentaire','!=',False)]" name="commentaire" string="Commentaire" />
-                <filter domain="[('commentaire_ids','!=',False)]" name="commentaire_ids" string="Commentaire Ids" />
+                <filter domain="[('commentaire','!=',False)]" name="commentaire" string="Commentaire membre source" />
+                <filter
+                    domain="[('commentaire_ids','!=',False)]"
+                    name="commentaire_ids"
+                    string="Commentaire membre vis&#233;"
+                />
             </search>
         </field>
     </record>

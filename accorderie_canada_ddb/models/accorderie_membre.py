@@ -45,14 +45,15 @@ class AccorderieMembre(models.Model):
     commentaire = fields.One2many(
         comodel_name="accorderie.commentaire",
         inverse_name="membre_source",
-        help="Commentaire relation",
+        string="Commentaire membre source",
+        help="Commentaire membre source relation",
     )
 
     commentaire_ids = fields.One2many(
         comodel_name="accorderie.commentaire",
         inverse_name="membre_viser",
-        string="Commentaire",
-        help="Commentaire Ids relation",
+        string="Commentaire membre visé",
+        help="Commentaire membre visé relation",
     )
 
     courriel = fields.Char()
