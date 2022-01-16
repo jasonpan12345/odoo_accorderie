@@ -5,14 +5,11 @@
             <field name="date_mise_a_jour">2012-07-25 13:36:06</field>
             <field name="nom">Journal / Bulletin</field>
         </record>
-        <record
-            id="accorderie_type_fichier_guides_et_outils_d_&#233;change_de_services"
-            model="accorderie.type.fichier"
-        >
+        <record id="accorderie_type_fichier_guides_et_outils_d_echange_de_services" model="accorderie.type.fichier">
             <field name="date_mise_a_jour">2012-07-25 16:50:09</field>
             <field name="nom">Guides et outils d'&#233;change de services</field>
         </record>
-        <record id="accorderie_type_fichier_calendrier_mensuel_et_activit&#233;s" model="accorderie.type.fichier">
+        <record id="accorderie_type_fichier_calendrier_mensuel_et_activites" model="accorderie.type.fichier">
             <field name="date_mise_a_jour">2012-07-25 11:07:03</field>
             <field name="nom">Calendrier mensuel et activit&#233;s</field>
         </record>
@@ -24,7 +21,7 @@
             <field name="date_mise_a_jour">2012-07-25 13:44:34</field>
             <field name="nom">Photos et images</field>
         </record>
-        <record id="accorderie_type_fichier_rapports_et_vie_d&#233;mocratique" model="accorderie.type.fichier">
+        <record id="accorderie_type_fichier_rapports_et_vie_democratique" model="accorderie.type.fichier">
             <field name="date_mise_a_jour">2012-07-26 21:03:46</field>
             <field name="nom">Rapports et vie d&#233;mocratique</field>
         </record>

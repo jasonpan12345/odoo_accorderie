@@ -21,7 +21,7 @@
             <field name="code">5</field>
             <field name="nom">Estrie</field>
         </record>
-        <record id="accorderie_region_montr&#233;al" model="accorderie.region">
+        <record id="accorderie_region_montreal" model="accorderie.region">
             <field name="code">6</field>
             <field name="nom">Montr&#233;al</field>
         </record>
@@ -29,23 +29,23 @@
             <field name="code">7</field>
             <field name="nom">Outaouais</field>
         </record>
-        <record id="accorderie_region_abitibi_t&#233;miscamingue" model="accorderie.region">
+        <record id="accorderie_region_abitibi_temiscamingue" model="accorderie.region">
             <field name="code">8</field>
             <field name="nom">Abitibi-T&#233;miscamingue</field>
         </record>
-        <record id="accorderie_region_c&#244;te_nord" model="accorderie.region">
+        <record id="accorderie_region_cote_nord" model="accorderie.region">
             <field name="code">9</field>
             <field name="nom">C&#244;te-Nord</field>
         </record>
-        <record id="accorderie_region_nord_du_qu&#233;bec" model="accorderie.region">
+        <record id="accorderie_region_nord_du_quebec" model="accorderie.region">
             <field name="code">10</field>
             <field name="nom">Nord-du-Qu&#233;bec</field>
         </record>
-        <record id="accorderie_region_gasp&#233;sie_&#238;les_de_la_madeleine" model="accorderie.region">
+        <record id="accorderie_region_gaspesie_iles_de_la_madeleine" model="accorderie.region">
             <field name="code">11</field>
             <field name="nom">Gasp&#233;sie - &#206;les-de-la-Madeleine</field>
         </record>
-        <record id="accorderie_region_chaudi&#232;re_appalaches" model="accorderie.region">
+        <record id="accorderie_region_chaudiere_appalaches" model="accorderie.region">
             <field name="code">12</field>
             <field name="nom">Chaudi&#232;re-Appalaches</field>
         </record>
@@ -53,7 +53,7 @@
             <field name="code">13</field>
             <field name="nom">Laval</field>
         </record>
-        <record id="accorderie_region_lanaudi&#232;re" model="accorderie.region">
+        <record id="accorderie_region_lanaudiere" model="accorderie.region">
             <field name="code">14</field>
             <field name="nom">Lanaudi&#232;re</field>
         </record>
@@ -61,11 +61,11 @@
             <field name="code">15</field>
             <field name="nom">Laurentides</field>
         </record>
-        <record id="accorderie_region_mont&#233;r&#233;gie" model="accorderie.region">
+        <record id="accorderie_region_monteregie" model="accorderie.region">
             <field name="code">16</field>
             <field name="nom">Mont&#233;r&#233;gie</field>
         </record>
-        <record id="accorderie_region_centre_du_qu&#233;bec" model="accorderie.region">
+        <record id="accorderie_region_centre_du_quebec" model="accorderie.region">
             <field name="code">17</field>
             <field name="nom">Centre-du-Qu&#233;bec</field>
         </record>

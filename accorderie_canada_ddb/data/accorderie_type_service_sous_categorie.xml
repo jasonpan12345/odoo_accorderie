@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="1">
         <record
-            id="accorderie_type_service_sous_categorie_premi&#232;re_sous_cat&#233;gorie"
+            id="accorderie_type_service_sous_categorie_premiere_sous_categorie"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="active">False</field>
@@ -11,7 +11,7 @@
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_accompagnement_pour_rendez_vous_ou_d&#233;marches"
+            id="accorderie_type_service_sous_categorie_accompagnement_pour_rendez_vous_ou_demarches"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -29,7 +29,7 @@
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_formation_et_initiation_&#224;_l_informatique"
+            id="accorderie_type_service_sous_categorie_formation_et_initiation_a_l_informatique"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -42,12 +42,12 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Transport local de personnes</field>
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_entretien_m&#233;nager"
+            id="accorderie_type_service_sous_categorie_entretien_menager"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -56,7 +56,7 @@
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_cuisine_et_pr&#233;paration_de_mets"
+            id="accorderie_type_service_sous_categorie_cuisine_et_preparation_de_mets"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -69,16 +69,16 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_v&#234;tements" />
+            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_vetements" />
             <field name="nom">Artisanat et bricolage</field>
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_r&#233;daction_et_correction_de_textes"
+            id="accorderie_type_service_sous_categorie_redaction_et_correction_de_textes"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litt&#233;rature" />
+            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litterature" />
             <field name="nom">R&#233;daction et correction de textes</field>
             <field name="sous_categorie_service">A</field>
         </record>
@@ -87,7 +87,7 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Apprentissage de la musique</field>
             <field name="sous_categorie_service">A</field>
         </record>
@@ -101,28 +101,22 @@
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_informations_et_ressources_en_sant&#233;"
+            id="accorderie_type_service_sous_categorie_informations_et_ressources_en_sante"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">Informations et ressources en sant&#233;</field>
             <field name="sous_categorie_service">A</field>
         </record>
-        <record
-            id="accorderie_type_service_sous_categorie_h&#233;bergement"
-            model="accorderie.type.service.sous.categorie"
-        >
+        <record id="accorderie_type_service_sous_categorie_hebergement" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_h&#233;bergement_/_voyage" />
+            <field name="categorie" ref="accorderie_type_service_categorie_hebergement_/_voyage" />
             <field name="nom">H&#233;bergement</field>
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_&#233;ligibilit&#233;_&#224;_la_location_solidaire"
+            id="accorderie_type_service_sous_categorie_eligibilite_a_la_location_solidaire"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -132,36 +126,33 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_commande" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroup&#233;" />
+            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroupe" />
             <field name="nom">Commande</field>
             <field name="sous_categorie_service">A</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_pr&#234;t" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_pret" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_cr&#233;dit_solidaire" />
+            <field name="categorie" ref="accorderie_type_service_categorie_credit_solidaire" />
             <field name="nom">Pr&#234;t</field>
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_&#233;change_d_objet"
+            id="accorderie_type_service_sous_categorie_echange_d_objet"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_service_d_&#233;change_d_objets" />
+            <field name="categorie" ref="accorderie_type_service_categorie_service_d_echange_d_objets" />
             <field name="nom">&#201;change d'objet</field>
             <field name="sous_categorie_service">A</field>
         </record>
-        <record
-            id="accorderie_type_service_sous_categorie_pr&#234;t_accordi"
-            model="accorderie.type.service.sous.categorie"
-        >
+        <record id="accorderie_type_service_sous_categorie_pret_accordi" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_accordi" />
             <field name="nom">Pr&#234;t AccOrdi</field>
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_participation_r&#233;seau_d_entraide_vers_l_emploi"
+            id="accorderie_type_service_sous_categorie_participation_reseau_d_entraide_vers_l_emploi"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -170,7 +161,7 @@
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_participation_&#224;_la_location_solidaire"
+            id="accorderie_type_service_sous_categorie_participation_a_la_location_solidaire"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -183,12 +174,12 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Administration et accueil</field>
             <field name="sous_categorie_service">A</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_promotions_sp&#233;ciales"
+            id="accorderie_type_service_sous_categorie_promotions_speciales"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -201,7 +192,7 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Administration</field>
             <field name="sous_categorie_service">A</field>
         </record>
@@ -214,10 +205,7 @@
             <field name="nom">Accompagnement pour courses et magasinage</field>
             <field name="sous_categorie_service">B</field>
         </record>
-        <record
-            id="accorderie_type_service_sous_categorie_comptabilit&#233;"
-            model="accorderie.type.service.sous.categorie"
-        >
+        <record id="accorderie_type_service_sous_categorie_comptabilite" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_administration_/_emploi_/_organisation" />
             <field name="nom">Comptabilit&#233;</field>
@@ -233,11 +221,11 @@
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_transport_de_mat&#233;riel"
+            id="accorderie_type_service_sous_categorie_transport_de_materiel"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Transport de mat&#233;riel</field>
             <field name="sous_categorie_service">B</field>
         </record>
@@ -251,7 +239,7 @@
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_cuisines_du_monde_et_sp&#233;cialis&#233;es"
+            id="accorderie_type_service_sous_categorie_cuisines_du_monde_et_specialisees"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -264,25 +252,25 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_v&#234;tements" />
+            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_vetements" />
             <field name="nom">Bijoux et joaillerie</field>
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_traduction_et_interpr&#233;tation"
+            id="accorderie_type_service_sous_categorie_traduction_et_interpretation"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litt&#233;rature" />
+            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litterature" />
             <field name="nom">Traduction et interpr&#233;tation</field>
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_musique_et_interpr&#233;tation"
+            id="accorderie_type_service_sous_categorie_musique_et_interpretation"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Musique et interpr&#233;tation</field>
             <field name="sous_categorie_service">B</field>
         </record>
@@ -296,23 +284,20 @@
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_m&#233;decines_alternatives_et_soins"
+            id="accorderie_type_service_sous_categorie_medecines_alternatives_et_soins"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">M&#233;decines alternatives et soins</field>
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_s&#233;jours_et_vacances"
+            id="accorderie_type_service_sous_categorie_sejours_et_vacances"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_h&#233;bergement_/_voyage" />
+            <field name="categorie" ref="accorderie_type_service_categorie_hebergement_/_voyage" />
             <field name="nom">S&#233;jours et vacances</field>
             <field name="sous_categorie_service">B</field>
         </record>
@@ -321,25 +306,25 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroup&#233;" />
+            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroupe" />
             <field name="nom">Administration du groupe d'achats</field>
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_administration_du_cr&#233;dit_solidaire"
+            id="accorderie_type_service_sous_categorie_administration_du_credit_solidaire"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_cr&#233;dit_solidaire" />
+            <field name="categorie" ref="accorderie_type_service_categorie_credit_solidaire" />
             <field name="nom">Administration du cr&#233;dit solidaire</field>
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_administration_du_service_d_&#233;change_d_objet"
+            id="accorderie_type_service_sous_categorie_administration_du_service_d_echange_d_objet"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_service_d_&#233;change_d_objets" />
+            <field name="categorie" ref="accorderie_type_service_categorie_service_d_echange_d_objets" />
             <field name="nom">Administration du service d'&#233;change d'objet</field>
             <field name="sous_categorie_service">B</field>
         </record>
@@ -375,7 +360,7 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Animation et formation</field>
             <field name="sous_categorie_service">B</field>
         </record>
@@ -390,12 +375,12 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_outils" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Outils</field>
             <field name="sous_categorie_service">B</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_accompagnement_pour_loisirs_et_activit&#233;s"
+            id="accorderie_type_service_sous_categorie_accompagnement_pour_loisirs_et_activites"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -404,7 +389,7 @@
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_imp&#244;t_et_finances_personnelles"
+            id="accorderie_type_service_sous_categorie_impot_et_finances_personnelles"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -422,16 +407,16 @@
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_main_d_oeuvre_pour_d&#233;m&#233;nagement"
+            id="accorderie_type_service_sous_categorie_main_d_oeuvre_pour_demenagement"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Main-d'oeuvre pour d&#233;m&#233;nagement</field>
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_construction_et_r&#233;novation"
+            id="accorderie_type_service_sous_categorie_construction_et_renovation"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -449,11 +434,11 @@
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_couture_et_v&#234;tements"
+            id="accorderie_type_service_sous_categorie_couture_et_vetements"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_v&#234;tements" />
+            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_vetements" />
             <field name="nom">Couture et v&#234;tements</field>
             <field name="sous_categorie_service">C</field>
         </record>
@@ -462,21 +447,21 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litt&#233;rature" />
+            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litterature" />
             <field name="nom">Formation en langues et conversation</field>
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_th&#233;&#226;tre,_cin&#233;ma_et_vid&#233;o"
+            id="accorderie_type_service_sous_categorie_theatre,_cinema_et_video"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Th&#233;&#226;tre, cin&#233;ma et vid&#233;o</field>
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_activit&#233;s_de_plein_air"
+            id="accorderie_type_service_sous_categorie_activites_de_plein_air"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -485,14 +470,11 @@
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_massoth&#233;rapie_et_bien_&#234;tre"
+            id="accorderie_type_service_sous_categorie_massotherapie_et_bien_etre"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">Massoth&#233;rapie et bien-&#234;tre</field>
             <field name="sous_categorie_service">C</field>
         </record>
@@ -501,7 +483,7 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_h&#233;bergement_/_voyage" />
+            <field name="categorie" ref="accorderie_type_service_categorie_hebergement_/_voyage" />
             <field name="nom">Tourisme local</field>
             <field name="sous_categorie_service">C</field>
         </record>
@@ -510,30 +492,30 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroup&#233;" />
+            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroupe" />
             <field name="nom">Animation du groupe d'achats</field>
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_comit&#233;_de_pr&#234;t"
+            id="accorderie_type_service_sous_categorie_comite_de_pret"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_cr&#233;dit_solidaire" />
+            <field name="categorie" ref="accorderie_type_service_categorie_credit_solidaire" />
             <field name="nom">Comit&#233; de pr&#234;t</field>
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_animation_du_service_d_&#233;change_d_objet"
+            id="accorderie_type_service_sous_categorie_animation_du_service_d_echange_d_objet"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_service_d_&#233;change_d_objets" />
+            <field name="categorie" ref="accorderie_type_service_categorie_service_d_echange_d_objets" />
             <field name="nom">Animation du service d'&#233;change d'objet</field>
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_comit&#233;_de_pr&#234;t_accordi"
+            id="accorderie_type_service_sous_categorie_comite_de_pret_accordi"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -542,7 +524,7 @@
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_animation_r&#233;seau_d_entraide_vers_l_emploi"
+            id="accorderie_type_service_sous_categorie_animation_reseau_d_entraide_vers_l_emploi"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -560,11 +542,11 @@
             <field name="sous_categorie_service">C</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_comit&#233;_d_&#233;change_de_services"
+            id="accorderie_type_service_sous_categorie_comite_d_echange_de_services"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Comit&#233; d'&#233;change de services</field>
             <field name="sous_categorie_service">C</field>
         </record>
@@ -574,12 +556,9 @@
             <field name="nom">Annulation</field>
             <field name="sous_categorie_service">C</field>
         </record>
-        <record
-            id="accorderie_type_service_sous_categorie_d&#233;marrage"
-            model="accorderie.type.service.sous.categorie"
-        >
+        <record id="accorderie_type_service_sous_categorie_demarrage" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">D&#233;marrage</field>
             <field name="sous_categorie_service">C</field>
         </record>
@@ -593,7 +572,7 @@
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_aide_&#224;_l_emploi"
+            id="accorderie_type_service_sous_categorie_aide_a_l_emploi"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -602,7 +581,7 @@
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_installation_de_logiciels_et_d&#233;pannage"
+            id="accorderie_type_service_sous_categorie_installation_de_logiciels_et_depannage"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -611,16 +590,16 @@
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_qu&#233;bec"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_quebec"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de Qu&#233;bec</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_am&#233;nagement_int&#233;rieur_et_d&#233;coration"
+            id="accorderie_type_service_sous_categorie_amenagement_interieur_et_decoration"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -642,25 +621,25 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_v&#234;tements" />
+            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_vetements" />
             <field name="nom">Tricot, crochet et tissage</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_litt&#233;rature_et_po&#233;sie"
+            id="accorderie_type_service_sous_categorie_litterature_et_poesie"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litt&#233;rature" />
+            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litterature" />
             <field name="nom">Litt&#233;rature et po&#233;sie</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_arts_de_la_sc&#232;ne_et_du_cirque"
+            id="accorderie_type_service_sous_categorie_arts_de_la_scene_et_du_cirque"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Arts de la sc&#232;ne et du cirque</field>
             <field name="sous_categorie_service">D</field>
         </record>
@@ -671,43 +650,40 @@
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_maternit&#233;/paternit&#233;_et_sant&#233;_f&#233;minine"
+            id="accorderie_type_service_sous_categorie_maternite/paternite_et_sante_feminine"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">Maternit&#233;/paternit&#233; et sant&#233; f&#233;minine</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_voyages" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_h&#233;bergement_/_voyage" />
+            <field name="categorie" ref="accorderie_type_service_categorie_hebergement_/_voyage" />
             <field name="nom">Voyages</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_autres_t&#226;ches_du_groupe_d_achats"
+            id="accorderie_type_service_sous_categorie_autres_taches_du_groupe_d_achats"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroup&#233;" />
+            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroupe" />
             <field name="nom">Autres t&#226;ches du groupe d'achats</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_autres_t&#226;ches_du_service_d_&#233;change_d_objet"
+            id="accorderie_type_service_sous_categorie_autres_taches_du_service_d_echange_d_objet"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_service_d_&#233;change_d_objets" />
+            <field name="categorie" ref="accorderie_type_service_categorie_service_d_echange_d_objets" />
             <field name="nom">Autres t&#226;ches du service d'&#233;change d'objet</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_t&#226;ches_techniques_accordi"
+            id="accorderie_type_service_sous_categorie_taches_techniques_accordi"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -716,7 +692,7 @@
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_autres_t&#226;ches_de_la_location_solidaire"
+            id="accorderie_type_service_sous_categorie_autres_taches_de_la_location_solidaire"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -725,17 +701,17 @@
             <field name="sous_categorie_service">D</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_autres_t&#226;ches"
+            id="accorderie_type_service_sous_categorie_autres_taches"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Autres t&#226;ches</field>
             <field name="sous_categorie_service">D</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_recherche" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Recherche</field>
             <field name="sous_categorie_service">D</field>
         </record>
@@ -749,7 +725,7 @@
             <field name="sous_categorie_service">E</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_aide_&#224;_l_organisation"
+            id="accorderie_type_service_sous_categorie_aide_a_l_organisation"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -758,7 +734,7 @@
             <field name="sous_categorie_service">E</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_r&#233;paration_et_entretien_d_ordinateurs"
+            id="accorderie_type_service_sous_categorie_reparation_et_entretien_d_ordinateurs"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -767,11 +743,11 @@
             <field name="sous_categorie_service">E</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_trois_rivi&#232;res"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_trois_rivieres"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de Trois-Rivi&#232;res</field>
             <field name="sous_categorie_service">E</field>
         </record>
@@ -786,7 +762,7 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_photographie" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Photographie</field>
             <field name="sous_categorie_service">E</field>
         </record>
@@ -800,29 +776,26 @@
             <field name="sous_categorie_service">E</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_coiffure_et_esth&#233;tique"
+            id="accorderie_type_service_sous_categorie_coiffure_et_esthetique"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">Coiffure et esth&#233;tique</field>
             <field name="sous_categorie_service">E</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_comit&#233;_de_financement"
+            id="accorderie_type_service_sous_categorie_comite_de_financement"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Comit&#233; de financement</field>
             <field name="sous_categorie_service">E</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_promotion" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Promotion</field>
             <field name="sous_categorie_service">E</field>
         </record>
@@ -836,7 +809,7 @@
             <field name="sous_categorie_service">F</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_propri&#233;t&#233;_et_gestion_immobili&#232;re"
+            id="accorderie_type_service_sous_categorie_propriete_et_gestion_immobiliere"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -845,7 +818,7 @@
             <field name="sous_categorie_service">F</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_utilisation_de_mat&#233;riel_bureautique"
+            id="accorderie_type_service_sous_categorie_utilisation_de_materiel_bureautique"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -854,16 +827,16 @@
             <field name="sous_categorie_service">F</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_montr&#233;al"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_montreal"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de Montr&#233;al</field>
             <field name="sous_categorie_service">F</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_v&#233;hicules_motoris&#233;s"
+            id="accorderie_type_service_sous_categorie_vehicules_motorises"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -876,12 +849,12 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Graphisme et calligraphie</field>
             <field name="sous_categorie_service">F</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_animation,_f&#234;tes_et_&#233;v&#233;nements"
+            id="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -894,25 +867,22 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">Produits de soins corporels</field>
             <field name="sous_categorie_service">F</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_comit&#233;_contact_communautaire"
+            id="accorderie_type_service_sous_categorie_comite_contact_communautaire"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Comit&#233; contact communautaire</field>
             <field name="sous_categorie_service">F</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_formation" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Formation</field>
             <field name="sous_categorie_service">F</field>
         </record>
@@ -935,7 +905,7 @@
             <field name="sous_categorie_service">G</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_r&#233;paration_et_entretien_de_mat&#233;riel_bureautique"
+            id="accorderie_type_service_sous_categorie_reparation_et_entretien_de_materiel_bureautique"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -948,12 +918,12 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage intra-urbain</field>
             <field name="sous_categorie_service">G</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_v&#233;lo_et_v&#233;hicules_non_motoris&#233;s"
+            id="accorderie_type_service_sous_categorie_velo_et_vehicules_non_motorises"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -966,21 +936,21 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Dessin, peinture et arts visuels</field>
             <field name="sous_categorie_service">G</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_comit&#233;_jardin_collectif"
+            id="accorderie_type_service_sous_categorie_comite_jardin_collectif"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Comit&#233; jardin collectif</field>
             <field name="sous_categorie_service">G</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_aide_&#224;_l_int&#233;gration_des_personnes_immigrantes"
+            id="accorderie_type_service_sous_categorie_aide_a_l_integration_des_personnes_immigrantes"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -989,7 +959,7 @@
             <field name="sous_categorie_service">H</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_r&#233;seautique_et_s&#233;curit&#233;_informatique"
+            id="accorderie_type_service_sous_categorie_reseautique_et_securite_informatique"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -998,11 +968,11 @@
             <field name="sous_categorie_service">H</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_shawinigan"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_shawinigan"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de Shawinigan</field>
             <field name="sous_categorie_service">H</field>
         </record>
@@ -1020,21 +990,21 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Culture et histoire</field>
             <field name="sous_categorie_service">H</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_caf&#233;_populaire_de_l_accorderie"
+            id="accorderie_type_service_sous_categorie_cafe_populaire_de_l_accorderie"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Caf&#233; populaire de L'Accorderie</field>
             <field name="sous_categorie_service">H</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_effac&#233;!_103_i_covoiturage_interurbain_d&#233;parts_de_matane"
+            id="accorderie_type_service_sous_categorie_efface!_103_i_covoiturage_interurbain_departs_de_matane"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="active">False</field>
@@ -1053,16 +1023,16 @@
             <field name="sous_categorie_service">I</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_matane"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_matane"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de Matane</field>
             <field name="sous_categorie_service">I</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_am&#233;nagement_et_entretien_de_terrain"
+            id="accorderie_type_service_sous_categorie_amenagement_et_entretien_de_terrain"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
@@ -1071,20 +1041,20 @@
             <field name="sous_categorie_service">I</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_&#233;ducation_et_formation"
+            id="accorderie_type_service_sous_categorie_education_et_formation"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">&#201;ducation et formation</field>
             <field name="sous_categorie_service">I</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_soutien_&#224;_la_communaut&#233;"
+            id="accorderie_type_service_sous_categorie_soutien_a_la_communaute"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Soutien &#224; la communaut&#233;</field>
             <field name="sous_categorie_service">I</field>
         </record>
@@ -1098,11 +1068,11 @@
             <field name="sous_categorie_service">J</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_la_r&#233;gion_de_lac_m&#233;gantic"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_lac_megantic"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Lac-M&#233;gantic</field>
             <field name="sous_categorie_service">J</field>
         </record>
@@ -1111,7 +1081,7 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Arts du livre et du papier</field>
             <field name="sous_categorie_service">J</field>
         </record>
@@ -1120,63 +1090,63 @@
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Soutien aux individus</field>
             <field name="sous_categorie_service">J</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_la_r&#233;gion_de_portneuf"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_portneuf"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Portneuf</field>
             <field name="sous_categorie_service">K</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_sherbrooke"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_sherbrooke"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de Sherbrooke</field>
             <field name="sous_categorie_service">L</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_la_r&#233;gion_de_la_manicouagan_(c&#244;te_nord)"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field
                 name="nom"
             >Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Manicouagan (C&#244;te-Nord)</field>
             <field name="sous_categorie_service">M</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_la_r&#233;gion_de_rimouski"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_rimouski"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de Rimouski</field>
             <field name="sous_categorie_service">N</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_d&#233;parts_de_la_r&#233;gion_de_la_matap&#233;dia"
+            id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_matapedia"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Matap&#233;dia</field>
             <field name="sous_categorie_service">O</field>
         </record>
         <record
-            id="accorderie_type_service_sous_categorie_autres_t&#226;ches_1"
+            id="accorderie_type_service_sous_categorie_autres_taches_1"
             model="accorderie.type.service.sous.categorie"
         >
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Autres t&#226;ches</field>
             <field name="sous_categorie_service">O</field>
         </record>
@@ -1200,7 +1170,7 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_2" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_d&#233;m&#233;nagement" />
+            <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
@@ -1218,19 +1188,19 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_10" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_v&#234;tements" />
+            <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_vetements" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_13" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litt&#233;rature" />
+            <field name="categorie" ref="accorderie_type_service_categorie_langues_/_litterature" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_4" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_&#233;ducation" />
+            <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
@@ -1242,16 +1212,13 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_14" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field
-                name="categorie"
-                ref="accorderie_type_service_categorie_sant&#233;_/_maternit&#233;_/_esth&#233;tique"
-            />
+            <field name="categorie" ref="accorderie_type_service_categorie_sante_/_maternite_/_esthetique" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_15" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_h&#233;bergement_/_voyage" />
+            <field name="categorie" ref="accorderie_type_service_categorie_hebergement_/_voyage" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
@@ -1263,25 +1230,25 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_16" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroup&#233;" />
+            <field name="categorie" ref="accorderie_type_service_categorie_achat_regroupe" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_17" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_cr&#233;dit_solidaire" />
+            <field name="categorie" ref="accorderie_type_service_categorie_credit_solidaire" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_18" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_service_d_&#233;change_d_objets" />
+            <field name="categorie" ref="accorderie_type_service_categorie_service_d_echange_d_objets" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_7" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_&#233;changes_associatifs" />
+            <field name="categorie" ref="accorderie_type_service_categorie_echanges_associatifs" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>
@@ -1293,7 +1260,7 @@
         </record>
         <record id="accorderie_type_service_sous_categorie_divers_11" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
-            <field name="categorie" ref="accorderie_type_service_categorie_r&#233;seau_accorderie" />
+            <field name="categorie" ref="accorderie_type_service_categorie_reseau_accorderie" />
             <field name="nom">Divers</field>
             <field name="sous_categorie_service">Z</field>
         </record>

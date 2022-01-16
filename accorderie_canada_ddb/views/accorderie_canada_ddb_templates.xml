@@ -128,6 +128,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -203,6 +205,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="accorderie.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="accorderie.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="accorderie.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="accorderie.courriel" />
@@ -420,6 +440,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -495,6 +517,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="arrondissement.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="arrondissement.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="arrondissement.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="arrondissement.courriel" />
@@ -1828,6 +1868,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -1903,6 +1945,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="occupation.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="occupation.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="occupation.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="occupation.courriel" />
@@ -2219,6 +2279,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -2294,6 +2356,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="origine.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="origine.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="origine.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="origine.courriel" />
@@ -2638,6 +2718,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -2713,6 +2795,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="point_service.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="point_service.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="point_service.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="point_service.courriel" />
@@ -2923,6 +3023,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -2998,6 +3100,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="provenance.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="provenance.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="provenance.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="provenance.courriel" />
@@ -3215,6 +3335,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -3290,6 +3412,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="quartier.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="quartier.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="quartier.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="quartier.courriel" />
@@ -3504,6 +3644,7 @@
                                         <th>Groupe d'achats des administrateurs</th>
                                         <th>Groupe d'achats membre</th>
                                         <th>Logo</th>
+                                        <th>Membre</th>
                                         <th>Message d'accueil</th>
                                         <th>Message groupe d'achats</th>
                                         <th>Nom</th>
@@ -3550,6 +3691,15 @@
                                             alt="logo"
                                             class="img img-fluid d-block mx-auto"
                                         />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="region.membre" t-as="mem">
+                                            <a
+                                                t-attf-href="/my/accorderie_membre/#{mem.id}"
+                                                t-field="mem.nom_complet"
+                                            />
+                                            <br t-if="not mem_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-raw="region.message_accueil" />
@@ -3610,6 +3760,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -3685,6 +3837,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="region.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="region.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="region.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="region.courriel" />
@@ -3857,14 +4027,41 @@
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Accorderie</th>
+                                        <th>Arrondissement</th>
                                         <th>Code</th>
+                                        <th>Membre</th>
                                         <th>Nom</th>
                                         <th>R&#233;gion</th>
                                     </tr>
                                 </thead>
                                 <tr t-foreach="accorderie_region.ville" t-as="region">
                                     <td>
+                                        <t t-foreach="region.accorderie" t-as="acc">
+                                            <a t-attf-href="/my/accorderie_accorderie/#{acc.id}" t-field="acc.nom" />
+                                            <br t-if="not acc_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="region.arrondissement" t-as="arr">
+                                            <a
+                                                t-attf-href="/my/accorderie_arrondissement/#{arr.id}"
+                                                t-field="arr.nom"
+                                            />
+                                            <br t-if="not arr_last" />
+                                        </t>
+                                    </td>
+                                    <td>
                                         <t t-esc="region.code" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="region.membre" t-as="mem">
+                                            <a
+                                                t-attf-href="/my/accorderie_membre/#{mem.id}"
+                                                t-field="mem.nom_complet"
+                                            />
+                                            <br t-if="not mem_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="region.nom" />
@@ -3922,6 +4119,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -3997,6 +4196,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="revenu_familial.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="revenu_familial.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="revenu_familial.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="revenu_familial.courriel" />
@@ -4207,6 +4424,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -4282,6 +4501,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="situation_maison.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="situation_maison.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="situation_maison.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="situation_maison.courriel" />
@@ -4495,6 +4732,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -4570,6 +4809,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="type_communication.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="type_communication.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="type_communication.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="type_communication.courriel" />
@@ -4998,6 +5255,7 @@
                                         <th>Cat&#233;gorie</th>
                                         <th>Nom</th>
                                         <th>Sous-cat&#233;gorie</th>
+                                        <th>Type Service</th>
                                     </tr>
                                 </thead>
                                 <tr
@@ -5021,6 +5279,15 @@
                                     </td>
                                     <td>
                                         <t t-esc="categorie.sous_categorie_service" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="categorie.type_service" t-as="typ">
+                                            <a
+                                                t-attf-href="/my/accorderie_type_service/#{typ.id}"
+                                                t-field="typ.nom_complet"
+                                            />
+                                            <br t-if="not typ_last" />
+                                        </t>
                                     </td>
                                 </tr>
                             </table>
@@ -5170,6 +5437,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -5245,6 +5514,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="telephone_type_1.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="telephone_type_1.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="telephone_type_1.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="telephone_type_1.courriel" />
@@ -5426,6 +5713,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -5501,6 +5790,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="telephone_type_3.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="telephone_type_3.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="telephone_type_3.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="telephone_type_3.courriel" />
@@ -5682,6 +5989,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -5757,6 +6066,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="telephone_type_2.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="telephone_type_2.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="telephone_type_2.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="telephone_type_2.courriel" />
@@ -5978,6 +6305,7 @@
                                         <th>Groupe d'achats des administrateurs</th>
                                         <th>Groupe d'achats membre</th>
                                         <th>Logo</th>
+                                        <th>Membre</th>
                                         <th>Message d'accueil</th>
                                         <th>Message groupe d'achats</th>
                                         <th>Nom</th>
@@ -6024,6 +6352,15 @@
                                             alt="logo"
                                             class="img img-fluid d-block mx-auto"
                                         />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="ville.membre" t-as="mem">
+                                            <a
+                                                t-attf-href="/my/accorderie_membre/#{mem.id}"
+                                                t-field="mem.nom_complet"
+                                            />
+                                            <br t-if="not mem_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-raw="ville.message_accueil" />
@@ -6075,11 +6412,21 @@
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Membre</th>
                                         <th>Nom</th>
                                         <th>Ville</th>
                                     </tr>
                                 </thead>
                                 <tr t-foreach="accorderie_ville.arrondissement" t-as="ville">
+                                    <td>
+                                        <t t-foreach="ville.membre" t-as="mem">
+                                            <a
+                                                t-attf-href="/my/accorderie_membre/#{mem.id}"
+                                                t-field="mem.nom_complet"
+                                            />
+                                            <br t-if="not mem_last" />
+                                        </t>
+                                    </td>
                                     <td>
                                         <t t-esc="ville.nom" />
                                     </td>
@@ -6107,6 +6454,8 @@
                                         <th>Bottin courriel</th>
                                         <th>Bottin t&#233;l&#233;phone</th>
                                         <th>Codepostal</th>
+                                        <th>Commentaire</th>
+                                        <th>Commentaire Ids</th>
                                         <th>Courriel</th>
                                         <th>Date de l'adh&#233;sion</th>
                                         <th>Derni&#232;re mise &#224; jour</th>
@@ -6182,6 +6531,24 @@
                                     </td>
                                     <td>
                                         <t t-esc="ville.codepostal" />
+                                    </td>
+                                    <td>
+                                        <t t-foreach="ville.commentaire" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="ville.commentaire_ids" t-as="com">
+                                            <a
+                                                t-attf-href="/my/accorderie_commentaire/#{com.id}"
+                                                t-field="com.nom_complet"
+                                            />
+                                            <br t-if="not com_last" />
+                                        </t>
                                     </td>
                                     <td>
                                         <t t-esc="ville.courriel" />

@@ -7,13 +7,13 @@
         <record id="accorderie_revenu_familial_moins_de_10_000$" model="accorderie.revenu.familial">
             <field name="nom">Moins de 10 000$</field>
         </record>
-        <record id="accorderie_revenu_familial_de_10_001$_&#224;_20_000$" model="accorderie.revenu.familial">
+        <record id="accorderie_revenu_familial_de_10_001$_a_20_000$" model="accorderie.revenu.familial">
             <field name="nom">De 10 001$ &#224; 20 000$</field>
         </record>
-        <record id="accorderie_revenu_familial_de_20_001$_&#224;_30_000$" model="accorderie.revenu.familial">
+        <record id="accorderie_revenu_familial_de_20_001$_a_30_000$" model="accorderie.revenu.familial">
             <field name="nom">De 20 001$ &#224; 30 000$</field>
         </record>
-        <record id="accorderie_revenu_familial_de_30_001$_&#224;_50_000$" model="accorderie.revenu.familial">
+        <record id="accorderie_revenu_familial_de_30_001$_a_50_000$" model="accorderie.revenu.familial">
             <field name="nom">De 30 001$ &#224; 50 000$</field>
         </record>
         <record id="accorderie_revenu_familial_de_50_001$_et_plus" model="accorderie.revenu.familial">
