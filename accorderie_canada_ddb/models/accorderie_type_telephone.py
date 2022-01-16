@@ -18,12 +18,14 @@ class AccorderieTypeTelephone(models.Model):
     membre_2_ids = fields.One2many(
         comodel_name="accorderie.membre",
         inverse_name="telephone_type_3",
+        string="Membre 2",
         help="Membre 2 Ids relation",
     )
 
     membre_ids = fields.One2many(
         comodel_name="accorderie.membre",
         inverse_name="telephone_type_2",
+        string="Membre",
         help="Membre Ids relation",
     )
 

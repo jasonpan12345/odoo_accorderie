@@ -67,6 +67,8 @@ def post_init_hook(cr, e):
         value["force_generic_template_wizard_view"] = False
         value["enable_template_website_snippet_view"] = False
         value["enable_sync_template"] = True
+        value["enable_cg_generate_portal"] = True
+        value["enable_cg_portal_enable_create"] = True
         value["ignore_fields"] = ""
         value["post_init_hook_show"] = True
         value["uninstall_hook_show"] = True

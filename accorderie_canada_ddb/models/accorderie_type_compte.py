@@ -38,9 +38,7 @@ class AccorderieTypeCompte(models.Model):
                 "/my/accorderie_type_compte/%s" % accorderie_type_compte.id
             )
 
-    @api.depends(
-        "membre",
-    )
+    @api.depends("membre")
     def _compute_nom_complet(self):
         for rec in self:
             value = ""

@@ -2478,6 +2478,7 @@ def post_init_hook(cr, e):
             {
                 "code_generator_id": code_generator_id.id,
                 "enable_generate_all": True,
+                "portal_enable_create": True,
             }
         )
 

@@ -44,9 +44,7 @@ class AccorderieDroitsAdmin(models.Model):
                 "/my/accorderie_droits_admin/%s" % accorderie_droits_admin.id
             )
 
-    @api.depends(
-        "membre",
-    )
+    @api.depends("membre")
     def _compute_nom_complet(self):
         for rec in self:
             if rec.membre:

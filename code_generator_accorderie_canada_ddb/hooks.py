@@ -13,7 +13,7 @@ def post_init_hook(cr, e):
         env = api.Environment(cr, SUPERUSER_ID, {})
 
         # The path of the actual file
-        # path_module_generate = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
+        path_module_generate = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 
         short_name = MODULE_NAME.replace("_", " ").title()
 
@@ -31,7 +31,7 @@ def post_init_hook(cr, e):
             "website": "",
             "application": True,
             "enable_sync_code": True,
-            # "path_sync_code": path_module_generate,
+            "path_sync_code": path_module_generate,
             "icon": os.path.join(
                 os.path.dirname(__file__),
                 "static",

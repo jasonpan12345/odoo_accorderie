@@ -47,10 +47,7 @@ class AccorderieDemandeAdhesion(models.Model):
 
     telephone = fields.Char(string="Téléphone")
 
-    transferer = fields.Boolean(
-        string="Transféré",
-        default=False,
-    )
+    transferer = fields.Boolean(string="Transféré")
 
     def _compute_access_url(self):
         super(AccorderieDemandeAdhesion, self)._compute_access_url()

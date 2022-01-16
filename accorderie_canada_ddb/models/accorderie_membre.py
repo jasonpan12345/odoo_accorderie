@@ -51,6 +51,7 @@ class AccorderieMembre(models.Model):
     commentaire_ids = fields.One2many(
         comodel_name="accorderie.commentaire",
         inverse_name="membre_viser",
+        string="Commentaire",
         help="Commentaire Ids relation",
     )
 

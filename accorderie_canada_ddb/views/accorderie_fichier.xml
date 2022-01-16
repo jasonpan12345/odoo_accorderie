@@ -156,7 +156,7 @@
                     name="date_mise_a_jour"
                     string="Derni&#232;re mise &#224; jour"
                 />
-                <filter domain="[('fichier','!=',False)]" name="fichier" string="fichier" />
+                <filter domain="[('fichier','!=',False)]" name="fichier" />
                 <filter
                     domain="[('si_accorderie_local_seulement','=',True)]"
                     name="si_accorderie_local_seulement"
