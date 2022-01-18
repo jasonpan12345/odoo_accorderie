@@ -31,6 +31,7 @@ def post_init_hook(cr, e):
         # TODO HUMAN: enable your functionality to generate
         value["enable_template_code_generator_demo"] = False
         value["template_model_name"] = ""
+        value["template_inherit_model_name"] = ""
         value["enable_template_wizard_view"] = False
         value["force_generic_template_wizard_view"] = False
         value["enable_template_website_snippet_view"] = False

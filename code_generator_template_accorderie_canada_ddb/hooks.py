@@ -63,6 +63,7 @@ def post_init_hook(cr, e):
  accorderie.type.service.sous.categorie;
  accorderie.type.telephone;
  accorderie.ville"""
+        value["template_inherit_model_name"] = ""
         value["enable_template_wizard_view"] = True
         value["force_generic_template_wizard_view"] = False
         value["enable_template_website_snippet_view"] = False
