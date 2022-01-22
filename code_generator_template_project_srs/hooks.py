@@ -38,6 +38,8 @@ def post_init_hook(cr, e):
         value[
             "template_model_name"
         ] = "project.srs;project.srs.role;project.srs.analyse_non_fonctionnelle;project.srs.exigence_non_fonctionnelle;project.srs.exigence_fonctionnelle;project.srs.exigence_fonctionnelle.categorie;project.srs.fct_contrainte;project.srs.exigence_fonctionnelle.composante"
+
+        value["template_inherit_model_name"] = ""
         value["enable_template_wizard_view"] = True
         value["force_generic_template_wizard_view"] = True
         value["enable_template_website_snippet_view"] = False

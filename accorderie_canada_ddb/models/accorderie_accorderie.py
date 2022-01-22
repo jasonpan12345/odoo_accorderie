@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieAccorderie(models.Model):
@@ -9,6 +9,11 @@ class AccorderieAccorderie(models.Model):
         " messages d'une Accorderie."
     )
     _rec_name = "nom"
+
+    nom = fields.Char(
+        required=True,
+        help="Nom de l'Accorderie",
+    )
 
     active = fields.Boolean(
         string="Actif",
@@ -71,14 +76,9 @@ class AccorderieAccorderie(models.Model):
         help="Message à afficher pour les groupes d'achats.",
     )
 
-    nom = fields.Char(
-        required=True,
-        help="Nom de l'Accorderie",
-    )
-
     region = fields.Many2one(
-        string="Région administrative",
         comodel_name="accorderie.region",
+        string="Région administrative",
         help="Nom de la région administrative de l'Accorderie",
     )
 

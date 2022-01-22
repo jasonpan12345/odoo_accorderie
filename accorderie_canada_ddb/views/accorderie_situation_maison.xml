@@ -73,8 +73,8 @@
         <field name="model">accorderie.situation.maison</field>
         <field name="arch" type="xml">
             <search string="Accorderie situation maison">
-                <filter name="nom" string="Situation" domain="[('nom','!=',False)]" />
-                <filter name="membre" string="Membre" domain="[('membre','!=',False)]" />
+                <filter domain="[('nom','!=',False)]" name="nom" string="Situation" />
+                <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
             </search>
         </field>
     </record>
@@ -94,6 +94,6 @@
         id="accorderie_situation_maison_situation_maison_action_window"
         name="Situation maison"
         res_model="accorderie.situation.maison"
-        view_mode="kanban,pivot,list,graph,form"
+        view_mode="kanban,tree,pivot,graph,form"
     />
 </odoo>

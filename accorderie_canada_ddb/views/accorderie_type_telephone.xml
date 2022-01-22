@@ -91,10 +91,10 @@
         <field name="model">accorderie.type.telephone</field>
         <field name="arch" type="xml">
             <search string="Accorderie type telephone">
-                <filter name="nom" string="Nom" domain="[('nom','!=',False)]" />
-                <filter name="membre" string="Membre" domain="[('membre','!=',False)]" />
-                <filter name="membre_2_ids" string="Membre 2 Ids" domain="[('membre_2_ids','!=',False)]" />
-                <filter name="membre_ids" string="Membre Ids" domain="[('membre_ids','!=',False)]" />
+                <filter domain="[('nom','!=',False)]" name="nom" string="Nom" />
+                <filter domain="[('membre','!=',False)]" name="membre" string="Membre 1" />
+                <filter domain="[('membre_2_ids','!=',False)]" name="membre_2_ids" string="Membre 3" />
+                <filter domain="[('membre_ids','!=',False)]" name="membre_ids" string="Membre 2" />
             </search>
         </field>
     </record>
@@ -113,9 +113,9 @@
     </record>
 
     <act_window
-        id="accorderie_type_telephone_type_de_t&#233;l&#233;phones_action_window"
+        id="accorderie_type_telephone_type_de_telephones_action_window"
         name="Type de t&#233;l&#233;phones"
         res_model="accorderie.type.telephone"
-        view_mode="kanban,pivot,list,graph,form"
+        view_mode="kanban,tree,pivot,graph,form"
     />
 </odoo>

@@ -35,12 +35,45 @@ def post_init_hook(cr, e):
 
         # TODO HUMAN: enable your functionality to generate
         value["enable_template_code_generator_demo"] = False
-        value["template_model_name"] = ""
-        value["enable_template_wizard_view"] = False
+        value[
+            "template_model_name"
+        ] = """accorderie.accorderie;
+ accorderie.arrondissement;
+ accorderie.commentaire;
+ accorderie.demande.adhesion;
+ accorderie.demande.service;
+ accorderie.droits.admin;
+ accorderie.echange.service;
+ accorderie.fichier;
+ accorderie.membre;
+ accorderie.occupation;
+ accorderie.offre.service;
+ accorderie.origine;
+ accorderie.point.service;
+ accorderie.provenance;
+ accorderie.quartier;
+ accorderie.region;
+ accorderie.revenu.familial;
+ accorderie.situation.maison;
+ accorderie.type.communication;
+ accorderie.type.compte;
+ accorderie.type.fichier;
+ accorderie.type.service;
+ accorderie.type.service.categorie;
+ accorderie.type.service.sous.categorie;
+ accorderie.type.telephone;
+ accorderie.ville"""
+        value["template_inherit_model_name"] = ""
+        value["enable_template_wizard_view"] = True
         value["force_generic_template_wizard_view"] = False
         value["enable_template_website_snippet_view"] = False
-        value["enable_sync_template"] = False
+        value["enable_sync_template"] = True
+        value["enable_cg_generate_portal"] = True
+        value["enable_cg_portal_enable_create"] = True
         value["ignore_fields"] = ""
+        value[
+            "template_module_path_generated_extension"
+        ] = "'..', 'TechnoLibre_odoo_accorderie'"
         value["post_init_hook_show"] = True
         value["uninstall_hook_show"] = True
         value["post_init_hook_feature_code_generator"] = True

@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieVille(models.Model):
@@ -6,6 +6,8 @@ class AccorderieVille(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Ville"
     _rec_name = "nom"
+
+    nom = fields.Char()
 
     accorderie = fields.One2many(
         comodel_name="accorderie.accorderie",
@@ -30,11 +32,9 @@ class AccorderieVille(models.Model):
         help="Membre relation",
     )
 
-    nom = fields.Char()
-
     region = fields.Many2one(
-        string="Région",
         comodel_name="accorderie.region",
+        string="Région",
     )
 
     def _compute_access_url(self):

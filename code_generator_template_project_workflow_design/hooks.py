@@ -38,6 +38,7 @@ def post_init_hook(cr, e):
         value[
             "template_model_name"
         ] = "project.workflow.design;project.workflow.design.faiblesse;project.workflow.design.force;project.workflow.design.menace;project.workflow.design.objectif;project.workflow.design.opportunite;project.workflow.design.volet;project.workflow.design.volet.box;project.workflow.design.volet.liaison"
+        value["template_inherit_model_name"] = ""
         value["enable_template_wizard_view"] = True
         value["force_generic_template_wizard_view"] = True
         value["enable_template_website_snippet_view"] = False

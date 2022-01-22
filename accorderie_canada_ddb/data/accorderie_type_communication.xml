@@ -10,7 +10,7 @@
         <record id="accorderie_type_communication_courrier_traditionnel" model="accorderie.type.communication">
             <field name="nom">Courrier traditionnel</field>
         </record>
-        <record id="accorderie_type_communication_courrier_porte_&#224;_porte" model="accorderie.type.communication">
+        <record id="accorderie_type_communication_courrier_porte_a_porte" model="accorderie.type.communication">
             <field name="nom">Courrier porte &#224; porte</field>
         </record>
     </data>

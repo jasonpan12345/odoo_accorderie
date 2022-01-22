@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieEchangeService(models.Model):
@@ -7,23 +7,29 @@ class AccorderieEchangeService(models.Model):
     _description = "Accorderie Echange Service"
     _rec_name = "nom_complet"
 
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
+
     commentaire = fields.Char()
 
     date_echange = fields.Date(string="Date de l'échange")
 
     demande_service = fields.Many2one(
-        string="Demande de services",
         comodel_name="accorderie.demande.service",
+        string="Demande de services",
     )
 
     membre_acheteur = fields.Many2one(
-        string="Membre acheteur",
         comodel_name="accorderie.membre",
+        string="Membre acheteur",
     )
 
     membre_vendeur = fields.Many2one(
-        string="Membre vendeur",
         comodel_name="accorderie.membre",
+        string="Membre vendeur",
     )
 
     nb_heure = fields.Float(
@@ -31,20 +37,14 @@ class AccorderieEchangeService(models.Model):
         help="Nombre d'heure effectué au moment de l'échange.",
     )
 
-    nom_complet = fields.Char(
-        string="Nom complet",
-        compute="_compute_nom_complet",
-        store=True,
-    )
-
     offre_service = fields.Many2one(
-        string="Offre de services",
         comodel_name="accorderie.offre.service",
+        string="Offre de services",
     )
 
     point_service = fields.Many2one(
-        string="Point de services",
         comodel_name="accorderie.point.service",
+        string="Point de services",
     )
 
     remarque = fields.Char()
@@ -73,9 +73,9 @@ class AccorderieEchangeService(models.Model):
             value = ""
             if rec.type_echange:
                 value += rec.type_echange
-            if rec.type_echange and rec.point_service:
-                value += " - "
-            if rec.point_service:
+            if rec.point_service and rec.point_service.nom:
+                if rec.type_echange:
+                    value += " - "
                 value += rec.point_service.nom
             if not value:
                 value = False

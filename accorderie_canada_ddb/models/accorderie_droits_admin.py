@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieDroitsAdmin(models.Model):
@@ -6,6 +6,12 @@ class AccorderieDroitsAdmin(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Droits Admin"
     _rec_name = "nom_complet"
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     consulter_etat_compte = fields.Boolean(string="Consulter état de compte")
 
@@ -27,12 +33,6 @@ class AccorderieDroitsAdmin(models.Model):
 
     membre = fields.Many2one(comodel_name="accorderie.membre")
 
-    nom_complet = fields.Char(
-        string="Nom complet",
-        compute="_compute_nom_complet",
-        store=True,
-    )
-
     saisie_echange = fields.Boolean(string="Saisie échange")
 
     validation = fields.Boolean()
@@ -44,9 +44,7 @@ class AccorderieDroitsAdmin(models.Model):
                 "/my/accorderie_droits_admin/%s" % accorderie_droits_admin.id
             )
 
-    @api.depends(
-        "membre",
-    )
+    @api.depends("membre")
     def _compute_nom_complet(self):
         for rec in self:
             if rec.membre:

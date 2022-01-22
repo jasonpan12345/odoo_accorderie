@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieDemandeService(models.Model):
@@ -6,6 +6,8 @@ class AccorderieDemandeService(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Demande Service"
     _rec_name = "titre"
+
+    titre = fields.Char()
 
     accorderie = fields.Many2one(comodel_name="accorderie.accorderie")
 
@@ -36,8 +38,6 @@ class AccorderieDemandeService(models.Model):
     description = fields.Char()
 
     membre = fields.Many2one(comodel_name="accorderie.membre")
-
-    titre = fields.Char()
 
     def _compute_access_url(self):
         super(AccorderieDemandeService, self)._compute_access_url()

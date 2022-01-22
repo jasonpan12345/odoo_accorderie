@@ -7,7 +7,7 @@
             <form string="Titre">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
                             <field name="active" widget="boolean_button" />
                         </button>
                     </div>
@@ -65,10 +65,10 @@
                                         </strong>
                                     </li>
                                     <li class="text-success float-right mb4" t-if="record.approuver.raw_value">
-                                        <i class="fa fa-circle" role="img" aria-label="Ok" title="Ok" />
+                                        <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
                                     </li>
                                     <li class="text-danger float-right mb4" t-if="!record.approuver.raw_value">
-                                        <i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid" />
+                                        <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
                                     </li>
                                     <li class="mb4">
                                         <strong>
@@ -112,20 +112,20 @@
         <field name="model">accorderie.type.service.sous.categorie</field>
         <field name="arch" type="xml">
             <search string="Accorderie type service sous categorie">
-                <filter name="nom" string="Nom" domain="[('nom','!=',False)]" />
+                <filter domain="[('nom','!=',False)]" name="nom" string="Nom" />
                 <filter
+                    domain="[('active','=',False)]"
                     name="Inactive"
                     string="Inactive Accorderie type service sous categorie"
-                    domain="[('active','=',False)]"
                 />
-                <filter name="approuver" string="Approuv&#233;" domain="[('approuver','=',True)]" />
-                <filter name="categorie" string="Cat&#233;gorie" domain="[('categorie','!=',False)]" />
+                <filter domain="[('approuver','=',True)]" name="approuver" string="Approuv&#233;" />
+                <filter domain="[('categorie','!=',False)]" name="categorie" string="Cat&#233;gorie" />
                 <filter
+                    domain="[('sous_categorie_service','!=',False)]"
                     name="sous_categorie_service"
                     string="Sous-cat&#233;gorie"
-                    domain="[('sous_categorie_service','!=',False)]"
                 />
-                <filter name="type_service" string="Type Service" domain="[('type_service','!=',False)]" />
+                <filter domain="[('type_service','!=',False)]" name="type_service" string="Type Service" />
             </search>
         </field>
     </record>
@@ -145,9 +145,9 @@
     </record>
 
     <act_window
-        id="accorderie_type_service_sous_categorie_sous_cat&#233;gorie_de_services_action_window"
+        id="accorderie_type_service_sous_categorie_sous_categorie_de_services_action_window"
         name="Sous-cat&#233;gorie de services"
         res_model="accorderie.type.service.sous.categorie"
-        view_mode="kanban,pivot,list,graph,form"
+        view_mode="kanban,tree,pivot,graph,form"
     />
 </odoo>

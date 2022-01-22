@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieDemandeAdhesion(models.Model):
@@ -6,6 +6,12 @@ class AccorderieDemandeAdhesion(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Demande Adhesion"
     _rec_name = "nom_complet"
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     accorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
@@ -35,22 +41,13 @@ class AccorderieDemandeAdhesion(models.Model):
 
     nom = fields.Char()
 
-    nom_complet = fields.Char(
-        string="Nom complet",
-        compute="_compute_nom_complet",
-        store=True,
-    )
-
     poste = fields.Char()
 
     prenom = fields.Char(string="Prénom")
 
     telephone = fields.Char(string="Téléphone")
 
-    transferer = fields.Boolean(
-        string="Transféré",
-        default=False,
-    )
+    transferer = fields.Boolean(string="Transféré")
 
     def _compute_access_url(self):
         super(AccorderieDemandeAdhesion, self)._compute_access_url()

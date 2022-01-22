@@ -4,19 +4,19 @@
         <record id="accorderie_occupation_choisir" model="accorderie.occupation">
             <field name="nom">Choisir</field>
         </record>
-        <record id="accorderie_occupation_&#233;tudiant" model="accorderie.occupation">
+        <record id="accorderie_occupation_etudiant" model="accorderie.occupation">
             <field name="nom">&#201;tudiant</field>
         </record>
-        <record id="accorderie_occupation_propri&#233;taire_d_une_entreprise" model="accorderie.occupation">
+        <record id="accorderie_occupation_proprietaire_d_une_entreprise" model="accorderie.occupation">
             <field name="nom">Propri&#233;taire d'une entreprise</field>
         </record>
-        <record id="accorderie_occupation_salari&#233;" model="accorderie.occupation">
+        <record id="accorderie_occupation_salarie" model="accorderie.occupation">
             <field name="nom">Salari&#233;</field>
         </record>
         <record id="accorderie_occupation_sans_emploi" model="accorderie.occupation">
             <field name="nom">Sans-emploi</field>
         </record>
-        <record id="accorderie_occupation_retrait&#233;" model="accorderie.occupation">
+        <record id="accorderie_occupation_retraite" model="accorderie.occupation">
             <field name="nom">Retrait&#233;</field>
         </record>
         <record id="accorderie_occupation_travailleur_autonome" model="accorderie.occupation">

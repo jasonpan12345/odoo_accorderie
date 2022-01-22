@@ -73,8 +73,8 @@
         <field name="model">accorderie.origine</field>
         <field name="arch" type="xml">
             <search string="Accorderie origine">
-                <filter name="nom" string="Origine" domain="[('nom','!=',False)]" />
-                <filter name="membre" string="Membre" domain="[('membre','!=',False)]" />
+                <filter domain="[('nom','!=',False)]" name="nom" string="Origine" />
+                <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
             </search>
         </field>
     </record>
@@ -94,6 +94,6 @@
         id="accorderie_origine_origine_action_window"
         name="Origine"
         res_model="accorderie.origine"
-        view_mode="kanban,pivot,list,graph,form"
+        view_mode="kanban,tree,pivot,graph,form"
     />
 </odoo>

@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieMembre(models.Model):
@@ -6,6 +6,12 @@ class AccorderieMembre(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Membre"
     _rec_name = "nom_complet"
+
+    nom_complet = fields.Char(
+        string="Nom complet",
+        compute="_compute_nom_complet",
+        store=True,
+    )
 
     accorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
@@ -39,13 +45,15 @@ class AccorderieMembre(models.Model):
     commentaire = fields.One2many(
         comodel_name="accorderie.commentaire",
         inverse_name="membre_source",
-        help="Commentaire relation",
+        string="Commentaire membre source",
+        help="Commentaire membre source relation",
     )
 
     commentaire_ids = fields.One2many(
         comodel_name="accorderie.commentaire",
         inverse_name="membre_viser",
-        help="Commentaire Ids relation",
+        string="Commentaire membre visé",
+        help="Commentaire membre visé relation",
     )
 
     courriel = fields.Char()
@@ -73,12 +81,6 @@ class AccorderieMembre(models.Model):
 
     nom = fields.Char()
 
-    nom_complet = fields.Char(
-        string="Nom complet",
-        compute="_compute_nom_complet",
-        store=True,
-    )
-
     nom_utilisateur = fields.Char(string="Nom du compte")
 
     occupation = fields.Many2one(comodel_name="accorderie.occupation")
@@ -90,8 +92,8 @@ class AccorderieMembre(models.Model):
     pas_communication = fields.Boolean(string="Pas de communication")
 
     point_service = fields.Many2one(
-        string="Point de service",
         comodel_name="accorderie.point.service",
+        string="Point de service",
         help="Point de service associé",
     )
 
@@ -110,14 +112,14 @@ class AccorderieMembre(models.Model):
     )
 
     region = fields.Many2one(
-        string="Région",
         comodel_name="accorderie.region",
+        string="Région",
         required=True,
     )
 
     revenu_familial = fields.Many2one(
-        string="Revenu familial",
         comodel_name="accorderie.revenu.familial",
+        string="Revenu familial",
     )
 
     sexe = fields.Selection(
@@ -125,8 +127,8 @@ class AccorderieMembre(models.Model):
     )
 
     situation_maison = fields.Many2one(
-        string="Situation maison",
         comodel_name="accorderie.situation.maison",
+        string="Situation maison",
     )
 
     telephone_1 = fields.Char(string="1er téléphone")
@@ -142,28 +144,28 @@ class AccorderieMembre(models.Model):
     telephone_poste_3 = fields.Char(string="3 poste téléphone")
 
     telephone_type_1 = fields.Many2one(
-        string="1er type de téléphones",
         comodel_name="accorderie.type.telephone",
+        string="1er type de téléphones",
     )
 
     telephone_type_2 = fields.Many2one(
-        string="2e type de téléphones",
         comodel_name="accorderie.type.telephone",
+        string="2e type de téléphones",
     )
 
     telephone_type_3 = fields.Many2one(
-        string="3e type de téléphones",
         comodel_name="accorderie.type.telephone",
+        string="3e type de téléphones",
     )
 
     transfert_accorderie = fields.Many2one(
-        string="Transfert d'une Accorderie",
         comodel_name="accorderie.accorderie",
+        string="Transfert d'une Accorderie",
     )
 
     type_communication = fields.Many2one(
-        string="Type de communications",
         comodel_name="accorderie.type.communication",
+        string="Type de communications",
     )
 
     ville = fields.Many2one(

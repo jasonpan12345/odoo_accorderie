@@ -13,7 +13,7 @@
         <record id="accorderie_type_telephone_cellulaire" model="accorderie.type.telephone">
             <field name="nom">Cellulaire</field>
         </record>
-        <record id="accorderie_type_telephone_t&#233;l&#233;avertisseur_(pagette)" model="accorderie.type.telephone">
+        <record id="accorderie_type_telephone_teleavertisseur_(pagette)" model="accorderie.type.telephone">
             <field name="nom">T&#233;l&#233;avertisseur (pagette)</field>
         </record>
     </data>

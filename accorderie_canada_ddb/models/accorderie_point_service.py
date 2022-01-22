@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderiePointService(models.Model):
@@ -6,6 +6,8 @@ class AccorderiePointService(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Point Service"
     _rec_name = "nom"
+
+    nom = fields.Char(help="Nom du point de service")
 
     accorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
@@ -28,8 +30,6 @@ class AccorderiePointService(models.Model):
         inverse_name="point_service",
         help="Membre relation",
     )
-
-    nom = fields.Char(help="Nom du point de service")
 
     sequence = fields.Integer(
         string="Séquence",

@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieArrondissement(models.Model):
@@ -7,13 +7,13 @@ class AccorderieArrondissement(models.Model):
     _description = "Ensemble des arrondissement des Accorderies"
     _rec_name = "nom"
 
+    nom = fields.Char()
+
     membre = fields.One2many(
         comodel_name="accorderie.membre",
         inverse_name="arrondissement",
         help="Membre relation",
     )
-
-    nom = fields.Char()
 
     ville = fields.Many2one(comodel_name="accorderie.ville")
 

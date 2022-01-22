@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class AccorderieFichier(models.Model):
@@ -6,6 +6,8 @@ class AccorderieFichier(models.Model):
     _inherit = "portal.mixin"
     _description = "Accorderie Fichier"
     _rec_name = "nom"
+
+    nom = fields.Char(required=True)
 
     accorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
@@ -17,12 +19,7 @@ class AccorderieFichier(models.Model):
         help="Date de la dernière mise à jour",
     )
 
-    fichier = fields.Binary(
-        string="fichier",
-        required=True,
-    )
-
-    nom = fields.Char(required=True)
+    fichier = fields.Binary(required=True)
 
     si_accorderie_local_seulement = fields.Boolean(
         string="Accorderie local seulement"
@@ -33,8 +30,8 @@ class AccorderieFichier(models.Model):
     si_disponible = fields.Boolean(string="Disponible")
 
     type_fichier = fields.Many2one(
-        string="Type fichier",
         comodel_name="accorderie.type.fichier",
+        string="Type fichier",
         required=True,
     )
 
