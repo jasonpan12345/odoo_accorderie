@@ -9,7 +9,6 @@
     "depends": [
         "code_generator",
         "code_generator_hook",
-        "portal",
     ],
     "installable": True,
     "post_init_hook": "post_init_hook",

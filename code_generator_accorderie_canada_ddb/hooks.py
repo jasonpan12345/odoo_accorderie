@@ -5954,6 +5954,7 @@ for accorderie_ville in self:
                     "code_generator_id": code_generator_id.id,
                     "name": "Occupation",
                     "id_name": "occupation",
+                    "sequence": 10,
                     "parent_id_name": (
                         "accorderie_canada_ddb.group_statistique"
                     ),

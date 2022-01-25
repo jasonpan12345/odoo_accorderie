@@ -3,7 +3,7 @@ import logging
 
 import werkzeug
 
-import odoo.http as http
+from odoo import http
 from odoo.http import request
 
 _logger = logging.getLogger(__name__)
