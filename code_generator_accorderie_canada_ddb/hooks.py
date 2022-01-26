@@ -1787,7 +1787,6 @@ for accorderie_occupation in self:
                 "code_generator_tree_view_sequence": 19,
                 "field_description": "Dernière mise à jour",
                 "help": "Date de la dernière mise à jour",
-                "required": True,
                 "ttype": "datetime",
             },
             "description": {
@@ -35047,6 +35046,15 @@ for accorderie_ville in self:
                 "res_id": access_id.id,
             }
         )
+
+        # Generate snippet
+        value_snippet = {
+            "code_generator_id": code_generator_id.id,
+            "enable_javascript": True,
+            "model_name": "accorderie.echange.service",
+            "snippet_type": "structure",
+        }
+        env["code.generator.snippet"].create(value_snippet)
 
         # Generate module
         value = {"code_generator_ids": code_generator_id.ids}

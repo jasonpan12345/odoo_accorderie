@@ -5,7 +5,10 @@
     "author": "TechnoLibre",
     "license": "AGPL-3",
     "application": True,
-    "depends": ["portal"],
+    "depends": [
+        "portal",
+        "website",
+    ],
     "data": [
         "security/ir.model.access.csv",
         "views/accorderie_accorderie.xml",
@@ -51,6 +54,7 @@
         "data/accorderie_type_telephone.xml",
         "views/accorderie_ville.xml",
         "views/menu.xml",
+        "views/snippets.xml",
     ],
     "installable": True,
 }
