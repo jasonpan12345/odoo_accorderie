@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Snippets -->
+    <template id="s_accorderie_canada_ddb" name="Accorderie Canada Ddb">
+        <section class="o_accorderie_canada_ddb oe_snippet_body">
+            <div class="container">
+                <div class="row mt16 mb16">
+                    commentaire :
+                    <div class="text-center commentaire_value" />
+                    <h3 class="o_h3 text-center commentaire_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    date_echange :
+                    <div class="text-center date_echange_value" />
+                    <h3 class="o_h3 text-center date_echange_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    demande_service :
+                    <div class="text-center demande_service_value" />
+                    <h3 class="o_h3 text-center demande_service_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    membre_acheteur :
+                    <div class="text-center membre_acheteur_value" />
+                    <h3 class="o_h3 text-center membre_acheteur_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    membre_vendeur :
+                    <div class="text-center membre_vendeur_value" />
+                    <h3 class="o_h3 text-center membre_vendeur_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    nb_heure :
+                    <div class="text-center nb_heure_value" />
+                    <h3 class="o_h3 text-center nb_heure_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    nom_complet :
+                    <div class="text-center nom_complet_value" />
+                    <h3 class="o_h3 text-center nom_complet_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    offre_service :
+                    <div class="text-center offre_service_value" />
+                    <h3 class="o_h3 text-center offre_service_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    point_service :
+                    <div class="text-center point_service_value" />
+                    <h3 class="o_h3 text-center point_service_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    remarque :
+                    <div class="text-center remarque_value" />
+                    <h3 class="o_h3 text-center remarque_value" />
+                </div>
+                <div class="row mt16 mb16">
+                    type_echange :
+                    <div class="text-center type_echange_value" />
+                    <h3 class="o_h3 text-center type_echange_value" />
+                </div>
+            </div>
+        </section>
+    </template>
+    <!-- Add snippets to menu -->
+    <template id="snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+            <t
+                t-snippet="accorderie_canada_ddb.s_accorderie_canada_ddb"
+                t-thumbnail="/accorderie_canada_ddb/static/description/icon.png"
+            />
+        </xpath>
+    </template>
+    <!-- Add stylesheet and Javascript -->
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb.scss"
+            />
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.animation.js"
+            />
+        </xpath>
+    </template>
+</odoo>

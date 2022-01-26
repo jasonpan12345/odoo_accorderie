@@ -11,6 +11,25 @@ _logger = logging.getLogger(__name__)
 
 class AccorderieCanadaDdbController(http.Controller):
     @http.route(
+        ["/accorderie_canada_ddb/helloworld"],
+        type="json",
+        auth="public",
+        website=True,
+        methods=["POST", "GET"],
+        csrf=False,
+    )
+    def hello_world(self):
+        data_id = http.request.env["accorderie.echange.service"].search([])
+        dct_value = {}
+        if data_id:
+            dct_value["commentaire"] = data_id.commentaire
+            dct_value["date_echange"] = data_id.date_echange
+            dct_value["nb_heure"] = data_id.nb_heure
+            dct_value["nom_complet"] = data_id.nom_complet
+            dct_value["remarque"] = data_id.remarque
+        return dct_value
+
+    @http.route(
         "/new/accorderie_accorderie", type="http", auth="user", website=True
     )
     def create_new_accorderie_accorderie(self, **kw):

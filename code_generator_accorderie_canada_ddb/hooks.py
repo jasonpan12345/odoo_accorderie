@@ -48,6 +48,14 @@ def post_init_hook(cr, e):
         }
 
         # TODO HUMAN: enable your functionality to generate
+        value["enable_generate_website_snippet"] = True
+        value["enable_generate_website_snippet_javascript"] = True
+        value[
+            "generate_website_snippet_generic_model"
+        ] = "accorderie.echange.service"
+        value[
+            "generate_website_snippet_type"
+        ] = "structure"  # content,effect,feature,structure
         value["enable_sync_template"] = True
         value["ignore_fields"] = ""
         value["post_init_hook_show"] = False
