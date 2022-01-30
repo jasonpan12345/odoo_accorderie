@@ -57,7 +57,6 @@ class AccorderieOffreService(models.Model):
 
     date_mise_a_jour = fields.Datetime(
         string="Dernière mise à jour",
-        required=True,
         help="Date de la dernière mise à jour",
     )
 
