@@ -1,65 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
+    <template id="accorderie_liste_service_offert" name="Liste service offert">
+        <t t-ignore="true">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 s_col_no_bgcolor pb24">
+                        <div class="row" t-if="offres">
+                            <div t-foreach="offres" t-as="offre">
+                                <a t-if="offre" t-att-href="'/offre/%d' % offre.id">
+                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
+                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon"/>
+                                        <div class="s_features_grid_content">
+                                            <h4 t-if="offre.description" class="o_default_snippet_text"
+                                                t-field="offre.description"/>
+                                            <h4 t-if="not offre.description" class="o_default_snippet_text">DESCRIPTION
+                                                VIDE
+                                            </h4>
+                                            <p t-if="offre.condition" class="o_default_snippet_text"
+                                               t-field="offre.condition"/>
+                                            <p t-if="offre.membre and offre.membre.nom_complet" class="o_default_snippet_text"
+                                               t-field="offre.membre.nom_complet"/>
+                                            <p t-if="offre_index &lt; len(lst_time)" class="o_default_snippet_text"
+                                               t-raw="lst_time[offre_index]"/>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" t-if="not offres">
+                            Aucune offre disponible.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
     <!-- Snippets -->
     <template id="s_accorderie_canada_ddb" name="Accorderie Canada Ddb">
         <section class="o_accorderie_canada_ddb oe_snippet_body">
             <div class="container">
-                <div class="row mt16 mb16">
-                    commentaire :
-                    <div class="text-center commentaire_value" />
-                    <h3 class="o_h3 text-center commentaire_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    date_echange :
-                    <div class="text-center date_echange_value" />
-                    <h3 class="o_h3 text-center date_echange_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    demande_service :
-                    <div class="text-center demande_service_value" />
-                    <h3 class="o_h3 text-center demande_service_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    membre_acheteur :
-                    <div class="text-center membre_acheteur_value" />
-                    <h3 class="o_h3 text-center membre_acheteur_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    membre_vendeur :
-                    <div class="text-center membre_vendeur_value" />
-                    <h3 class="o_h3 text-center membre_vendeur_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    nb_heure :
-                    <div class="text-center nb_heure_value" />
-                    <h3 class="o_h3 text-center nb_heure_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    nom_complet :
-                    <div class="text-center nom_complet_value" />
-                    <h3 class="o_h3 text-center nom_complet_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    offre_service :
-                    <div class="text-center offre_service_value" />
-                    <h3 class="o_h3 text-center offre_service_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    point_service :
-                    <div class="text-center point_service_value" />
-                    <h3 class="o_h3 text-center point_service_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    remarque :
-                    <div class="text-center remarque_value" />
-                    <h3 class="o_h3 text-center remarque_value" />
-                </div>
-                <div class="row mt16 mb16">
-                    type_echange :
-                    <div class="text-center type_echange_value" />
-                    <h3 class="o_h3 text-center type_echange_value" />
-                </div>
+                Aucune offre disponible
             </div>
         </section>
     </template>
