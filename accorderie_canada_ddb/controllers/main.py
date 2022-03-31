@@ -1,12 +1,12 @@
 import base64
 import logging
+from datetime import datetime
 
+import humanize
 import werkzeug
 
 from odoo import http
 from odoo.http import request
-from datetime import datetime
-import humanize
 
 _logger = logging.getLogger(__name__)
 

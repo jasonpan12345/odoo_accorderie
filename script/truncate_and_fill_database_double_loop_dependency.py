@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-import pymysql
 from collections import defaultdict
+
+import pymysql
 
 SECRET_PASSWORD = ""
 
