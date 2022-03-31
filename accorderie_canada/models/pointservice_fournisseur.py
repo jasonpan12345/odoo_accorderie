@@ -1,4 +1,4 @@
-from odoo import _, api, models, fields
+from odoo import _, api, fields, models
 
 
 class PointserviceFournisseur(models.Model):

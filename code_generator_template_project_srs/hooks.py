@@ -1,5 +1,6 @@
-from odoo import _, api, models, fields, SUPERUSER_ID
 import os
+
+from odoo import SUPERUSER_ID, _, api, fields, models
 
 # TODO HUMAN: change my module_name to create a specific demo functionality
 MODULE_NAME = "code_generator_project_srs"
