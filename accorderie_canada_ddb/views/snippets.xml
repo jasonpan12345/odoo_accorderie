@@ -46,7 +46,7 @@
         </section>
     </template>
     <!-- Add snippets to menu -->
-    <template id="snippets" inherit_id="website.snippets">
+    <template id="snippet_structure" inherit_id="website.snippets">
         <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
             <t
                 t-snippet="accorderie_canada_ddb.s_accorderie_canada_ddb"

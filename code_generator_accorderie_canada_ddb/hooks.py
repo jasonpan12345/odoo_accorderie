@@ -48,14 +48,6 @@ def post_init_hook(cr, e):
         }
 
         # TODO HUMAN: enable your functionality to generate
-        value["enable_generate_website_snippet"] = True
-        value["enable_generate_website_snippet_javascript"] = True
-        value[
-            "generate_website_snippet_generic_model"
-        ] = "accorderie.echange.service"
-        value[
-            "generate_website_snippet_type"
-        ] = "structure"  # content,effect,feature,structure
         value["enable_sync_template"] = True
         value["ignore_fields"] = ""
         value["post_init_hook_show"] = False
@@ -35055,6 +35047,15 @@ for accorderie_ville in self:
                 "res_id": access_id.id,
             }
         )
+
+        # Generate snippet
+        value_snippet = {
+            "code_generator_id": code_generator_id.id,
+            "enable_javascript": True,
+            "model_name": "accorderie.echange.service",
+            "snippet_type": "structure",
+        }
+        env["code.generator.snippet"].create(value_snippet)
 
         # Generate module
         value = {"code_generator_ids": code_generator_id.ids}
