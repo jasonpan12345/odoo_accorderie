@@ -61,6 +61,7 @@ def post_init_hook(cr, e):
 
         # Add dependencies
         code_generator_id.add_module_dependency("portal")
+        code_generator_id.add_module_dependency("website")
 
         # Add/Update Accorderie Accorderie
         model_model = "accorderie.accorderie"
@@ -1787,7 +1788,6 @@ for accorderie_occupation in self:
                 "code_generator_tree_view_sequence": 19,
                 "field_description": "Dernière mise à jour",
                 "help": "Date de la dernière mise à jour",
-                "required": True,
                 "ttype": "datetime",
             },
             "description": {
@@ -35051,8 +35051,40 @@ for accorderie_ville in self:
         # Generate snippet
         value_snippet = {
             "code_generator_id": code_generator_id.id,
+            "controller_feature": "model_show_item_list",
             "enable_javascript": True,
+            "limitation_item": 3,
             "model_name": "accorderie.echange.service",
+            "model_short_name": "echange_service",
+            "name": "liste echange service",
+            "show_diff_time": True,
+            "show_recent_item": True,
+            "snippet_type": "structure",
+        }
+        env["code.generator.snippet"].create(value_snippet)
+
+        value_snippet = {
+            "code_generator_id": code_generator_id.id,
+            "controller_feature": "model_show_item_list",
+            "enable_javascript": True,
+            "limitation_item": 3,
+            "model_name": "accorderie.demande.service",
+            "model_short_name": "demande_service",
+            "name": "liste demande service",
+            "show_diff_time": True,
+            "show_recent_item": True,
+            "snippet_type": "structure",
+        }
+        env["code.generator.snippet"].create(value_snippet)
+
+        value_snippet = {
+            "code_generator_id": code_generator_id.id,
+            "controller_feature": "model_show_item_list",
+            "enable_javascript": True,
+            "model_name": "accorderie.demande.service",
+            "model_short_name": "type_service_categorie",
+            "name": "liste type service categorie",
+            "show_diff_time": True,
             "snippet_type": "structure",
         }
         env["code.generator.snippet"].create(value_snippet)
