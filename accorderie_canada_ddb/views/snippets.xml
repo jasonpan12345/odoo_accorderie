@@ -2,8 +2,8 @@
 <!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <!-- Snippets -->
-    <template id="s_accorderie_canada_ddb_liste_echange_service" name="Accorderie Canada Ddb Liste Echange Service">
-        <section class="o_accorderie_canada_ddb_liste_echange_service oe_snippet_body">
+    <template id="s_accorderie_canada_ddb_liste_offre_service" name="Accorderie Canada Ddb Liste Offre Service">
+        <section class="o_accorderie_canada_ddb_liste_offre_service oe_snippet_body">
             <div class="container" />
         </section>
     </template>
@@ -24,7 +24,7 @@
     <template id="snippet_structure" inherit_id="website.snippets">
         <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
             <t
-                t-snippet="accorderie_canada_ddb.s_accorderie_canada_ddb_liste_echange_service"
+                t-snippet="accorderie_canada_ddb.s_accorderie_canada_ddb_liste_offre_service"
                 t-thumbnail="/accorderie_canada_ddb/static/description/icon.png"
             />
             <t
@@ -43,7 +43,7 @@
             <link
                 rel="stylesheet"
                 type="text/scss"
-                href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_liste_echange_service.scss"
+                href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_liste_offre_service.scss"
             />
             <link
                 rel="stylesheet"
@@ -59,7 +59,7 @@
         <xpath expr="//script[last()]" position="after">
             <script
                 type="text/javascript"
-                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb_liste_echange_service.animation.js"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb_liste_offre_service.animation.js"
             />
             <script
                 type="text/javascript"

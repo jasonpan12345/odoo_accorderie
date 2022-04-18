@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <template id="accorderie_echange_service_unit" name="Echange_Service">
+    <template id="accorderie_offre_service_unit_liste_offre_service" name="Offre_Service">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure">
-                    <section class="pt32 pb32" t-if="not echange_service">
+                    <section class="pt32 pb32" t-if="not offre_service">
                         <div class="container">
                             <div class="row s_nb_column_fixed">
                                 <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
@@ -17,7 +17,7 @@
                         </div>
                     </section>
                     <section
-                        t-if="echange_service"
+                        t-if="offre_service"
                         class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
                         data-scroll-background-ratio="1"
                         style="background-image: none;"
@@ -32,137 +32,174 @@
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-field="echange_service.name"
-                                        t-if="echange_service.name"
+                                        t-field="offre_service.description"
+                                        t-if="offre_service.description"
                                     />
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-if="not echange_service.name"
+                                        t-if="not offre_service.description"
                                     >
                                         EMPTY
                                     </h1>
                                 </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="echange_service.commentaire"
-                                >
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.accompli">
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.commentaire"
+                                        t-field="offre_service.accompli"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.date_echange"
+                                    t-if="offre_service.accorderie"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.date_echange"
+                                        t-field="offre_service.accorderie"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.active">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.active"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.approuve">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.approuve"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.condition">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.condition"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.demande_service"
+                                    t-if="offre_service.condition_autre"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.demande_service"
+                                        t-field="offre_service.condition_autre"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.membre_acheteur"
+                                    t-if="offre_service.date_affichage"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.membre_acheteur"
+                                        t-field="offre_service.date_affichage"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.membre_vendeur"
+                                    t-if="offre_service.date_debut"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.membre_vendeur"
+                                        t-field="offre_service.date_debut"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.date_fin">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.date_fin"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.nb_heure"
-                                >
-                                    <p class="lead o_default_snippet_text" style="text-align: center;">
-                                        <span
-                                            t-field="echange_service.nb_heure"
-                                            t-options="{&quot;widget&quot;: &quot;duration&quot;, &quot;unit&quot;: &quot;hour&quot;, &quot;round&quot;: &quot;minute&quot;}"
-                                        />
-                                    </p>
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="echange_service.nom_complet"
+                                    t-if="offre_service.date_mise_a_jour"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.nom_complet"
+                                        t-field="offre_service.date_mise_a_jour"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.offre_service"
+                                    t-if="offre_service.disponibilite"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.offre_service"
+                                        t-field="offre_service.disponibilite"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.membre">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.membre"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.point_service"
+                                    t-if="offre_service.nb_consultation"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.point_service"
+                                        t-field="offre_service.nb_consultation"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.remarque"
+                                    t-if="offre_service.nom_offre_special"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.remarque"
+                                        t-field="offre_service.nom_offre_special"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="echange_service.type_echange"
+                                    t-if="offre_service.offre_special"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="echange_service.type_echange"
+                                        t-field="offre_service.offre_special"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="offre_service.tarif">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.tarif"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="offre_service.type_service_id"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="offre_service.type_service_id"
                                     />
                                 </div>
                             </div>
@@ -172,101 +209,130 @@
             </div>
         </t>
     </template>
-    <template id="accorderie_echange_service_list" name="List Echange_Service">
+    <template id="accorderie_offre_service_list_liste_offre_service" name="List Offre_Service">
         <t t-ignore="true">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 s_col_no_bgcolor pb24">
-                        <div class="row" t-if="echange_services">
-                            <div t-foreach="echange_services" t-as="echange_service">
+                        <div class="row" t-if="offre_services">
+                            <div t-foreach="offre_services" t-as="offre_service">
                                 <a
-                                    t-if="echange_service"
-                                    t-att-href="'/accorderie_canada_ddb/echange_service/%d' % echange_service.id"
+                                    t-if="offre_service"
+                                    t-att-href="'/accorderie_canada_ddb/offre_service/%d' % offre_service.id"
                                 >
                                     <div class="col-lg-12 pt16 pb16" data-name="Box">
                                         <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
                                         <div class="s_features_grid_content">
                                             <h4
-                                                t-if="echange_service.name"
+                                                t-if="offre_service.description"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.name"
+                                                t-field="offre_service.description"
                                             />
-                                            <h4 t-if="not echange_service.name" class="o_default_snippet_text">
+                                            <h4 t-if="not offre_service.description" class="o_default_snippet_text">
                                                 EMPTY
                                             </h4>
                                             <p
-                                                t-if="echange_service.commentaire"
+                                                t-if="offre_service.accompli"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.commentaire"
+                                                t-field="offre_service.accompli"
                                             />
                                             <p
-                                                t-if="echange_service.date_echange"
+                                                t-if="offre_service.accorderie"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.date_echange"
+                                                t-field="offre_service.accorderie"
                                             />
                                             <p
-                                                t-if="echange_service.demande_service"
+                                                t-if="offre_service.active"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.demande_service"
+                                                t-field="offre_service.active"
                                             />
                                             <p
-                                                t-if="echange_service.membre_acheteur"
+                                                t-if="offre_service.approuve"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.membre_acheteur"
+                                                t-field="offre_service.approuve"
                                             />
                                             <p
-                                                t-if="echange_service.membre_vendeur"
+                                                t-if="offre_service.condition"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.membre_vendeur"
-                                            />
-                                            <div>
-                                                <span
-                                                    t-field="echange_service.nb_heure"
-                                                    t-options="{&quot;widget&quot;: &quot;duration&quot;, &quot;unit&quot;: &quot;hour&quot;, &quot;round&quot;: &quot;minute&quot;}"
-                                                />
-                                            </div>
-                                            <p
-                                                t-if="echange_service.nom_complet"
-                                                class="o_default_snippet_text"
-                                                t-field="echange_service.nom_complet"
+                                                t-field="offre_service.condition"
                                             />
                                             <p
-                                                t-if="echange_service.offre_service"
+                                                t-if="offre_service.condition_autre"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.offre_service"
+                                                t-field="offre_service.condition_autre"
                                             />
                                             <p
-                                                t-if="echange_service.point_service"
+                                                t-if="offre_service.date_affichage"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.point_service"
+                                                t-field="offre_service.date_affichage"
                                             />
                                             <p
-                                                t-if="echange_service.remarque"
+                                                t-if="offre_service.date_debut"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.remarque"
+                                                t-field="offre_service.date_debut"
                                             />
                                             <p
-                                                t-if="echange_service.type_echange"
+                                                t-if="offre_service.date_fin"
                                                 class="o_default_snippet_text"
-                                                t-field="echange_service.type_echange"
+                                                t-field="offre_service.date_fin"
                                             />
                                             <p
-                                                t-if="len(lst_time) >= echange_service_index"
+                                                t-if="offre_service.date_mise_a_jour"
                                                 class="o_default_snippet_text"
-                                                t-raw="lst_time[echange_service_index]"
+                                                t-field="offre_service.date_mise_a_jour"
+                                            />
+                                            <p
+                                                t-if="offre_service.disponibilite"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.disponibilite"
+                                            />
+                                            <p
+                                                t-if="offre_service.membre"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.membre"
+                                            />
+                                            <p
+                                                t-if="offre_service.nb_consultation"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.nb_consultation"
+                                            />
+                                            <p
+                                                t-if="offre_service.nom_offre_special"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.nom_offre_special"
+                                            />
+                                            <p
+                                                t-if="offre_service.offre_special"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.offre_special"
+                                            />
+                                            <p
+                                                t-if="offre_service.tarif"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.tarif"
+                                            />
+                                            <p
+                                                t-if="offre_service.type_service_id"
+                                                class="o_default_snippet_text"
+                                                t-field="offre_service.type_service_id"
+                                            />
+                                            <p
+                                                t-if="len(lst_time) >= offre_service_index"
+                                                class="o_default_snippet_text"
+                                                t-raw="lst_time[offre_service_index]"
                                             />
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="row" t-if="not echange_services">Aucune echange_service disponible.</div>
+                        <div class="row" t-if="not offre_services">Aucune offre_service disponible.</div>
                     </div>
                 </div>
             </div>
         </t>
     </template>
-    <template id="accorderie_demande_service_unit" name="Demande_Service">
+    <template id="accorderie_demande_service_unit_liste_demande_service" name="Demande_Service">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure">
@@ -297,13 +363,13 @@
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-field="demande_service.name"
-                                        t-if="demande_service.name"
+                                        t-field="demande_service.titre"
+                                        t-if="demande_service.titre"
                                     />
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-if="not demande_service.name"
+                                        t-if="not demande_service.titre"
                                     >
                                         EMPTY
                                     </h1>
@@ -388,13 +454,6 @@
                                         t-field="demande_service.membre"
                                     />
                                 </div>
-                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="demande_service.titre">
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="demande_service.titre"
-                                    />
-                                </div>
                             </div>
                         </div>
                     </section>
@@ -402,7 +461,7 @@
             </div>
         </t>
     </template>
-    <template id="accorderie_demande_service_list" name="List Demande_Service">
+    <template id="accorderie_demande_service_list_liste_demande_service" name="List Demande_Service">
         <t t-ignore="true">
             <div class="container">
                 <div class="row align-items-center">
@@ -417,11 +476,11 @@
                                         <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
                                         <div class="s_features_grid_content">
                                             <h4
-                                                t-if="demande_service.name"
+                                                t-if="demande_service.titre"
                                                 class="o_default_snippet_text"
-                                                t-field="demande_service.name"
+                                                t-field="demande_service.titre"
                                             />
-                                            <h4 t-if="not demande_service.name" class="o_default_snippet_text">
+                                            <h4 t-if="not demande_service.titre" class="o_default_snippet_text">
                                                 EMPTY
                                             </h4>
                                             <p
@@ -465,11 +524,6 @@
                                                 t-field="demande_service.membre"
                                             />
                                             <p
-                                                t-if="demande_service.titre"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.titre"
-                                            />
-                                            <p
                                                 t-if="len(lst_time) >= demande_service_index"
                                                 class="o_default_snippet_text"
                                                 t-raw="lst_time[demande_service_index]"
@@ -485,7 +539,7 @@
             </div>
         </t>
     </template>
-    <template id="accorderie_demande_service_unit" name="Type_Service_Categorie">
+    <template id="accorderie_demande_service_unit_liste_type_service_categorie" name="Type_Service_Categorie">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure">
@@ -516,13 +570,13 @@
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-field="type_service_categorie.name"
-                                        t-if="type_service_categorie.name"
+                                        t-field="type_service_categorie.titre"
+                                        t-if="type_service_categorie.titre"
                                     />
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-if="not type_service_categorie.name"
+                                        t-if="not type_service_categorie.titre"
                                     >
                                         EMPTY
                                     </h1>
@@ -615,17 +669,6 @@
                                         t-field="type_service_categorie.membre"
                                     />
                                 </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="type_service_categorie.titre"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="type_service_categorie.titre"
-                                    />
-                                </div>
                             </div>
                         </div>
                     </section>
@@ -633,7 +676,7 @@
             </div>
         </t>
     </template>
-    <template id="accorderie_demande_service_list" name="List Type_Service_Categorie">
+    <template id="accorderie_demande_service_list_liste_type_service_categorie" name="List Type_Service_Categorie">
         <t t-ignore="true">
             <div class="container">
                 <div class="row align-items-center">
@@ -648,11 +691,11 @@
                                         <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
                                         <div class="s_features_grid_content">
                                             <h4
-                                                t-if="type_service_categorie.name"
+                                                t-if="type_service_categorie.titre"
                                                 class="o_default_snippet_text"
-                                                t-field="type_service_categorie.name"
+                                                t-field="type_service_categorie.titre"
                                             />
-                                            <h4 t-if="not type_service_categorie.name" class="o_default_snippet_text">
+                                            <h4 t-if="not type_service_categorie.titre" class="o_default_snippet_text">
                                                 EMPTY
                                             </h4>
                                             <p
@@ -694,11 +737,6 @@
                                                 t-if="type_service_categorie.membre"
                                                 class="o_default_snippet_text"
                                                 t-field="type_service_categorie.membre"
-                                            />
-                                            <p
-                                                t-if="type_service_categorie.titre"
-                                                class="o_default_snippet_text"
-                                                t-field="type_service_categorie.titre"
                                             />
                                             <p
                                                 t-if="len(lst_time) >= type_service_categorie_index"
