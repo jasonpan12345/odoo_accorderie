@@ -177,21 +177,7 @@ class AccorderieCanadaDdbController(http.Controller):
             type_service_categorie_ids
         )
 
-        lst_time_diff = []
-        timedate_now = datetime.now()
-        # fr_CA not exist
-        # check .venv/lib/python3.7/site-packages/humanize/locale/
-        _t = humanize.i18n.activate("fr_FR")
-        for type_service_categorie in type_service_categories:
-            diff_time = timedate_now - type_service_categorie.create_date
-            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
-            lst_time_diff.append(str_diff_time)
-        humanize.i18n.deactivate()
-
-        dct_value = {
-            "type_service_categories": type_service_categories,
-            "lst_time": lst_time_diff,
-        }
+        dct_value = {"type_service_categories": type_service_categories}
 
         # Render page
         return request.env["ir.ui.view"].render_template(
@@ -3217,6 +3203,11 @@ class AccorderieCanadaDdbController(http.Controller):
             vals["approuve"] = kw.get("approuve") == "True"
         elif default_approuve:
             vals["approuve"] = False
+
+        if kw.get("icon"):
+            lst_file_icon = request.httprequest.files.getlist("icon")
+            if lst_file_icon:
+                vals["icon"] = base64.b64encode(lst_file_icon[-1].read())
 
         if kw.get("nocategorie"):
             nocategorie_value = kw.get("nocategorie")

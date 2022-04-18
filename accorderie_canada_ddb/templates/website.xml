@@ -606,6 +606,18 @@
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
+                                    t-if="type_service_categorie.icon"
+                                >
+                                    <img
+                                        t-if="type_service_categorie.icon"
+                                        t-att-src="image_data_uri(type_service_categorie.icon)"
+                                        alt="icon"
+                                        class="img img-fluid d-block mx-auto"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
                                     t-if="type_service_categorie.nocategorie"
                                 >
                                     <p
@@ -667,6 +679,14 @@
                                                 class="o_default_snippet_text"
                                                 t-field="type_service_categorie.approuve"
                                             />
+                                            <div>
+                                                <img
+                                                    t-if="type_service_categorie.icon"
+                                                    t-att-src="image_data_uri(type_service_categorie.icon)"
+                                                    alt="icon"
+                                                    class="img img-fluid d-block mx-auto"
+                                                />
+                                            </div>
                                             <p
                                                 t-if="type_service_categorie.nocategorie"
                                                 class="o_default_snippet_text"
@@ -676,11 +696,6 @@
                                                 t-if="type_service_categorie.type_service_sous_categorie"
                                                 class="o_default_snippet_text"
                                                 t-field="type_service_categorie.type_service_sous_categorie"
-                                            />
-                                            <p
-                                                t-if="len(lst_time) >= type_service_categorie_index"
-                                                class="o_default_snippet_text"
-                                                t-raw="lst_time[type_service_categorie_index]"
                                             />
                                         </div>
                                     </div>

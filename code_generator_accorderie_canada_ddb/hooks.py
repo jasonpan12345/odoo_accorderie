@@ -2631,10 +2631,19 @@ for accorderie_type_service in self:
                 "help": "Permet d'approuver cette catégorie.",
                 "ttype": "boolean",
             },
-            "nocategorie": {
+            "icon": {
                 "code_generator_form_simple_view_sequence": 13,
                 "code_generator_sequence": 7,
                 "code_generator_tree_view_sequence": 12,
+                "field_description": "Icon",
+                "force_widget": "image",
+                "help": "Icon représentant la catégorie",
+                "ttype": "binary",
+            },
+            "nocategorie": {
+                "code_generator_form_simple_view_sequence": 14,
+                "code_generator_sequence": 8,
+                "code_generator_tree_view_sequence": 13,
                 "field_description": "Nocategorie",
                 "required": True,
                 "ttype": "integer",
@@ -35084,7 +35093,6 @@ for accorderie_ville in self:
             "model_name": "accorderie.type.service.categorie",
             "model_short_name": "type_service_categorie",
             "name": "liste type service categorie",
-            "show_diff_time": True,
             "snippet_type": "structure",
         }
         env["code.generator.snippet"].create(value_snippet)

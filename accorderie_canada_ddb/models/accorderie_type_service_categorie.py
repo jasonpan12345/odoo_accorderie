@@ -23,6 +23,8 @@ class AccorderieTypeServiceCategorie(models.Model):
         help="Permet d'approuver cette catégorie.",
     )
 
+    icon = fields.Binary(help="Icon représentant la catégorie")
+
     nocategorie = fields.Integer(required=True)
 
     type_service_sous_categorie = fields.One2many(
