@@ -13,64 +13,62 @@ _logger = logging.getLogger(__name__)
 
 class AccorderieCanadaDdbController(http.Controller):
     @http.route(
-        [
-            "/offre/<int:offre_id>",
-        ],
+        ["/accorderie_canada_ddb/echange_service/<int:echange_service_id>"],
         type="http",
         auth="public",
         website=True,
     )
-    def offre(self, offre_id=None, **kwargs):
+    def get_page_echange_service(self, echange_service_id=None):
         env = request.env(context=dict(request.env.context))
 
-        Offre = env["accorderie.offre.service"]
-        if offre_id:
-            offre_ids = offre_id
-            offres = Offre.sudo().browse(offre_ids).exists()
+        Echange_Service = env["accorderie.echange.service"]
+        if echange_service_id:
+            echange_service_ids = (
+                Echange_Service.sudo().browse(echange_service_id).exists()
+            )
         else:
-            offres = None
-
-        dct_value = {"offre": offres}
+            echange_service_ids = None
+        dct_value = {"echange_service": echange_service_ids}
 
         # Render page
         return request.render(
-            "accorderie_canada_ddb.offre_service_unit", dct_value
+            "accorderie_canada_ddb.accorderie_echange_service_unit", dct_value
         )
 
     @http.route(
-        [
-            "/offre_list",
-        ],
+        ["/accorderie_canada_ddb/echange_service_list"],
         type="json",
         auth="public",
         website=True,
     )
-    def offre_list(self, **kwargs):
+    def get_echange_service_list(self):
         env = request.env(context=dict(request.env.context))
 
-        Offre = env["accorderie.offre.service"]
-        offre_ids = Offre.search([], order="create_date desc", limit=3).ids
-        offres = Offre.sudo().browse(offre_ids)
+        Echange_Service = env["accorderie.echange.service"]
+        echange_service_ids = Echange_Service.search(
+            [], order="create_date desc", limit=3
+        ).ids
+        echange_services = Echange_Service.sudo().browse(echange_service_ids)
 
         lst_time_diff = []
         timedate_now = datetime.now()
         # fr_CA not exist
         # check .venv/lib/python3.7/site-packages/humanize/locale/
         _t = humanize.i18n.activate("fr_FR")
-        for offre in offres:
-            if offre.date_mise_a_jour:
-                diff_time = timedate_now - offre.date_mise_a_jour
-            else:
-                diff_time = timedate_now - offre.create_date
+        for echange_service in echange_services:
+            diff_time = timedate_now - echange_service.create_date
             str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
             lst_time_diff.append(str_diff_time)
         humanize.i18n.deactivate()
 
-        dct_value = {"offres": offres, "lst_time": lst_time_diff}
+        dct_value = {
+            "echange_services": echange_services,
+            "lst_time": lst_time_diff,
+        }
 
         # Render page
         return request.env["ir.ui.view"].render_template(
-            "accorderie_canada_ddb.accorderie_liste_service_offert", dct_value
+            "accorderie_canada_ddb.accorderie_echange_service_list", dct_value
         )
 
     @http.route(

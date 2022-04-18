@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="accorderie_echange_service_unit" name="Echange_Service">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section class="pt32 pb32" t-if="not echange_service">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                    <h1 class="s_title_default">
+                                        <font style="font-size: 62px;">Offre non existante</font>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        t-if="echange_service"
+                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
+                        data-scroll-background-ratio="1"
+                        style="background-image: none;"
+                    >
+                        <span
+                            class="s_parallax_bg oe_img_bg oe_custom_bg"
+                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
+                        />
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title" data-name="Title">
+                                    <h1
+                                        class="s_title_thin"
+                                        style="font-size: 62px; text-align: center;"
+                                        t-field="echange_service.name"
+                                        t-if="echange_service.name"
+                                    />
+                                    <h1
+                                        class="s_title_thin"
+                                        style="font-size: 62px; text-align: center;"
+                                        t-if="not echange_service.name"
+                                    >
+                                        EMPTY
+                                    </h1>
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.commentaire"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.commentaire"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.date_echange"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.date_echange"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.demande_service"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.demande_service"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.membre_acheteur"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.membre_acheteur"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.membre_vendeur"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.membre_vendeur"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.nb_heure"
+                                >
+                                    <p class="lead o_default_snippet_text" style="text-align: center;">
+                                        <span
+                                            t-field="echange_service.nb_heure"
+                                            t-options="{&quot;widget&quot;: &quot;duration&quot;, &quot;unit&quot;: &quot;hour&quot;, &quot;round&quot;: &quot;minute&quot;}"
+                                        />
+                                    </p>
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.nom_complet"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.nom_complet"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.offre_service"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.offre_service"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.point_service"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.point_service"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.remarque"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.remarque"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="echange_service.type_echange"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="echange_service.type_echange"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="accorderie_echange_service_list" name="List Echange_Service">
+        <t t-ignore="true">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 s_col_no_bgcolor pb24">
+                        <div class="row" t-if="echange_services">
+                            <div t-foreach="echange_services" t-as="echange_service">
+                                <a
+                                    t-if="echange_service"
+                                    t-att-href="'/accorderie_canada_ddb/echange_service/%d' % echange_service.id"
+                                >
+                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
+                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
+                                        <div class="s_features_grid_content">
+                                            <h4
+                                                t-if="echange_service.name"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.name"
+                                            />
+                                            <h4 t-if="not echange_service.name" class="o_default_snippet_text">
+                                                EMPTY
+                                            </h4>
+                                            <p
+                                                t-if="echange_service.commentaire"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.commentaire"
+                                            />
+                                            <p
+                                                t-if="echange_service.date_echange"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.date_echange"
+                                            />
+                                            <p
+                                                t-if="echange_service.demande_service"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.demande_service"
+                                            />
+                                            <p
+                                                t-if="echange_service.membre_acheteur"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.membre_acheteur"
+                                            />
+                                            <p
+                                                t-if="echange_service.membre_vendeur"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.membre_vendeur"
+                                            />
+                                            <div>
+                                                <span
+                                                    t-field="echange_service.nb_heure"
+                                                    t-options="{&quot;widget&quot;: &quot;duration&quot;, &quot;unit&quot;: &quot;hour&quot;, &quot;round&quot;: &quot;minute&quot;}"
+                                                />
+                                            </div>
+                                            <p
+                                                t-if="echange_service.nom_complet"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.nom_complet"
+                                            />
+                                            <p
+                                                t-if="echange_service.offre_service"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.offre_service"
+                                            />
+                                            <p
+                                                t-if="echange_service.point_service"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.point_service"
+                                            />
+                                            <p
+                                                t-if="echange_service.remarque"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.remarque"
+                                            />
+                                            <p
+                                                t-if="echange_service.type_echange"
+                                                class="o_default_snippet_text"
+                                                t-field="echange_service.type_echange"
+                                            />
+                                            <p
+                                                t-if="len(lst_time) >= echange_service_index"
+                                                class="o_default_snippet_text"
+                                                t-raw="lst_time[echange_service_index]"
+                                            />
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" t-if="not echange_services">Aucune echange_service disponible.</div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="accorderie_demande_service_unit" name="Demande_Service">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section class="pt32 pb32" t-if="not demande_service">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                    <h1 class="s_title_default">
+                                        <font style="font-size: 62px;">Offre non existante</font>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        t-if="demande_service"
+                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
+                        data-scroll-background-ratio="1"
+                        style="background-image: none;"
+                    >
+                        <span
+                            class="s_parallax_bg oe_img_bg oe_custom_bg"
+                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
+                        />
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title" data-name="Title">
+                                    <h1
+                                        class="s_title_thin"
+                                        style="font-size: 62px; text-align: center;"
+                                        t-field="demande_service.name"
+                                        t-if="demande_service.name"
+                                    />
+                                    <h1
+                                        class="s_title_thin"
+                                        style="font-size: 62px; text-align: center;"
+                                        t-if="not demande_service.name"
+                                    >
+                                        EMPTY
+                                    </h1>
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="demande_service.accorderie"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.accorderie"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="demande_service.active">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.active"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="demande_service.approuver"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.approuver"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="demande_service.commentaire"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.commentaire"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="demande_service.date_debut"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.date_debut"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="demande_service.date_fin"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.date_fin"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="demande_service.description"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.description"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="demande_service.membre">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.membre"
+                                    />
+                                </div>
+                                <div class="col-lg-12 s_text pt16 pb16" data-name="Text" t-if="demande_service.titre">
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="demande_service.titre"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="accorderie_demande_service_list" name="List Demande_Service">
+        <t t-ignore="true">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 s_col_no_bgcolor pb24">
+                        <div class="row" t-if="demande_services">
+                            <div t-foreach="demande_services" t-as="demande_service">
+                                <a
+                                    t-if="demande_service"
+                                    t-att-href="'/accorderie_canada_ddb/demande_service/%d' % demande_service.id"
+                                >
+                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
+                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
+                                        <div class="s_features_grid_content">
+                                            <h4
+                                                t-if="demande_service.name"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.name"
+                                            />
+                                            <h4 t-if="not demande_service.name" class="o_default_snippet_text">
+                                                EMPTY
+                                            </h4>
+                                            <p
+                                                t-if="demande_service.accorderie"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.accorderie"
+                                            />
+                                            <p
+                                                t-if="demande_service.active"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.active"
+                                            />
+                                            <p
+                                                t-if="demande_service.approuver"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.approuver"
+                                            />
+                                            <p
+                                                t-if="demande_service.commentaire"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.commentaire"
+                                            />
+                                            <p
+                                                t-if="demande_service.date_debut"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.date_debut"
+                                            />
+                                            <p
+                                                t-if="demande_service.date_fin"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.date_fin"
+                                            />
+                                            <p
+                                                t-if="demande_service.description"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.description"
+                                            />
+                                            <p
+                                                t-if="demande_service.membre"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.membre"
+                                            />
+                                            <p
+                                                t-if="demande_service.titre"
+                                                class="o_default_snippet_text"
+                                                t-field="demande_service.titre"
+                                            />
+                                            <p
+                                                t-if="len(lst_time) >= demande_service_index"
+                                                class="o_default_snippet_text"
+                                                t-raw="lst_time[demande_service_index]"
+                                            />
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" t-if="not demande_services">Aucune demande_service disponible.</div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="accorderie_demande_service_unit" name="Type_Service_Categorie">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section class="pt32 pb32" t-if="not type_service_categorie">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                    <h1 class="s_title_default">
+                                        <font style="font-size: 62px;">Offre non existante</font>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        t-if="type_service_categorie"
+                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
+                        data-scroll-background-ratio="1"
+                        style="background-image: none;"
+                    >
+                        <span
+                            class="s_parallax_bg oe_img_bg oe_custom_bg"
+                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
+                        />
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title" data-name="Title">
+                                    <h1
+                                        class="s_title_thin"
+                                        style="font-size: 62px; text-align: center;"
+                                        t-field="type_service_categorie.name"
+                                        t-if="type_service_categorie.name"
+                                    />
+                                    <h1
+                                        class="s_title_thin"
+                                        style="font-size: 62px; text-align: center;"
+                                        t-if="not type_service_categorie.name"
+                                    >
+                                        EMPTY
+                                    </h1>
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.accorderie"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.accorderie"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.active"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.active"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.approuver"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.approuver"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.commentaire"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.commentaire"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.date_debut"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.date_debut"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.date_fin"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.date_fin"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.description"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.description"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.membre"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.membre"
+                                    />
+                                </div>
+                                <div
+                                    class="col-lg-12 s_text pt16 pb16"
+                                    data-name="Text"
+                                    t-if="type_service_categorie.titre"
+                                >
+                                    <p
+                                        class="lead o_default_snippet_text"
+                                        style="text-align: center;"
+                                        t-field="type_service_categorie.titre"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="accorderie_demande_service_list" name="List Type_Service_Categorie">
+        <t t-ignore="true">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 s_col_no_bgcolor pb24">
+                        <div class="row" t-if="type_service_categories">
+                            <div t-foreach="type_service_categories" t-as="type_service_categorie">
+                                <a
+                                    t-if="type_service_categorie"
+                                    t-att-href="'/accorderie_canada_ddb/type_service_categorie/%d' % type_service_categorie.id"
+                                >
+                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
+                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
+                                        <div class="s_features_grid_content">
+                                            <h4
+                                                t-if="type_service_categorie.name"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.name"
+                                            />
+                                            <h4 t-if="not type_service_categorie.name" class="o_default_snippet_text">
+                                                EMPTY
+                                            </h4>
+                                            <p
+                                                t-if="type_service_categorie.accorderie"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.accorderie"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.active"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.active"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.approuver"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.approuver"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.commentaire"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.commentaire"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.date_debut"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.date_debut"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.date_fin"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.date_fin"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.description"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.description"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.membre"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.membre"
+                                            />
+                                            <p
+                                                t-if="type_service_categorie.titre"
+                                                class="o_default_snippet_text"
+                                                t-field="type_service_categorie.titre"
+                                            />
+                                            <p
+                                                t-if="len(lst_time) >= type_service_categorie_index"
+                                                class="o_default_snippet_text"
+                                                t-raw="lst_time[type_service_categorie_index]"
+                                            />
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" t-if="not type_service_categories">
+                            Aucune type_service_categorie disponible.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
