@@ -55,6 +55,7 @@
         "views/accorderie_ville.xml",
         "views/menu.xml",
         "views/snippets.xml",
+        "templates/website.xml",
     ],
     "installable": True,
 }
