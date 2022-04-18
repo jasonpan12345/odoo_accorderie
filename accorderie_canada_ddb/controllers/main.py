@@ -145,7 +145,7 @@ class AccorderieCanadaDdbController(http.Controller):
     def get_page_type_service_categorie(self, type_service_categorie_id=None):
         env = request.env(context=dict(request.env.context))
 
-        Type_Service_Categorie = env["accorderie.demande.service"]
+        Type_Service_Categorie = env["accorderie.type.service.categorie"]
         if type_service_categorie_id:
             type_service_categorie_ids = (
                 Type_Service_Categorie.sudo()
@@ -158,7 +158,7 @@ class AccorderieCanadaDdbController(http.Controller):
 
         # Render page
         return request.render(
-            "accorderie_canada_ddb.accorderie_demande_service_unit_liste_type_service_categorie",
+            "accorderie_canada_ddb.accorderie_type_service_categorie_unit_liste_type_service_categorie",
             dct_value,
         )
 
@@ -171,7 +171,7 @@ class AccorderieCanadaDdbController(http.Controller):
     def get_type_service_categorie_list(self):
         env = request.env(context=dict(request.env.context))
 
-        Type_Service_Categorie = env["accorderie.demande.service"]
+        Type_Service_Categorie = env["accorderie.type.service.categorie"]
         type_service_categorie_ids = Type_Service_Categorie.search([]).ids
         type_service_categories = Type_Service_Categorie.sudo().browse(
             type_service_categorie_ids
@@ -195,7 +195,7 @@ class AccorderieCanadaDdbController(http.Controller):
 
         # Render page
         return request.env["ir.ui.view"].render_template(
-            "accorderie_canada_ddb.accorderie_demande_service_list_liste_type_service_categorie",
+            "accorderie_canada_ddb.accorderie_type_service_categorie_list_liste_type_service_categorie",
             dct_value,
         )
 

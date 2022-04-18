@@ -35081,7 +35081,7 @@ for accorderie_ville in self:
             "code_generator_id": code_generator_id.id,
             "controller_feature": "model_show_item_list",
             "enable_javascript": True,
-            "model_name": "accorderie.demande.service",
+            "model_name": "accorderie.type.service.categorie",
             "model_short_name": "type_service_categorie",
             "name": "liste type service categorie",
             "show_diff_time": True,
