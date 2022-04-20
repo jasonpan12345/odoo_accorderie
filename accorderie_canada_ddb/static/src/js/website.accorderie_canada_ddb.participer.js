@@ -45,6 +45,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         self.on_click(ev, -1);
                     });
             });
+            var form_choice = this._super.apply(this.arguments).then(function () {
+                $('.buttons_form_container > input')
+                    .off('click')
+                    .click(function (ev) {
+                        self.verifRadioChosen()
+                    });
+            });
             self.showTab(currentTab); // Display the current tab
             return res;
         },
@@ -56,8 +63,22 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             var $button = $(ev.currentTarget).closest('[type="submit"]');
             var post = {};
         },
+        // Verify that at least one radio button is chosen on the current tab
+        verifRadioChosen: function () {
+            console.log("clicked");
+            var x = document.getElementsByClassName("tab");
+            var inputName = x[currentTab].getElementsByTagName("input")[0];
+
+            if ($("input[name=" + inputName.name + "]:checked").length > 0) {
+                document.getElementById("nextBtn").style.backgroundColor = "orange";
+                return true;
+            }
+            document.getElementById("nextBtn").style.backgroundColor = "lightgray";
+            return false;
+        },
         showTab: function (n) {
             console.log("showtab");
+            this.verifRadioChosen();
             // This function will display the specified tab of the form ...
             var x = document.getElementsByClassName("tab");
             x[n].style.display = "flex";
@@ -70,7 +91,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             if (n == (x.length - 1)) {
                 document.getElementById("nextBtn").innerHTML = "Submit";
             } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
+                document.getElementById("nextBtn").innerHTML = "Suivant";
             }
             // ... and run a function that displays the correct step indicator:
             //fixStepIndicator(n)
@@ -81,19 +102,23 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
             //if (n == 1 && !validateForm()) return false;
+            if (n == 1 && !this.verifRadioChosen()) {
+                return false;
+            }
             // Hide the current tab:
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
             currentTab = currentTab + n;
-            /*
+
             // if you have reached the end of the form... :
             if (currentTab >= x.length) {
                 //...the form gets submitted:
                 document.getElementById("regForm").submit();
                 return false;
-            }*/
+            }
             // Otherwise, display the correct tab:
             this.showTab(currentTab);
+
         },
     });
 
