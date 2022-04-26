@@ -2924,43 +2924,263 @@
                                 <div class="txt_question">
                                     <h1>Que souhaitez-vous faire ?</h1>
                                 </div>
-                                <div class="buttons_form_container">
-                                    <div class="button_form btn">
-                                        <h5>Publier une offre de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
+                                <form id="participer_form" method="GET" action="/publier-offre">
+                                    <div class="buttons_form_container tab">
+                                        <input type="radio" id="pub_offre" name="pub" value="1" required="required" />
+                                        <label for="pub_offre" class="button_form btn">
+                                            <h5>Publier une offre de service</h5>
+                                            <p>
+                                                Vous souhaitez offrir votre service?
+                                                <br />
+                                                Cliquez ici
+                                            </p>
+                                        </label>
+                                        <input type="radio" id="pub_demande" name="pub" value="2" />
+                                        <label for="pub_demande" class="button_form btn">
+                                            <h5>Publier une demande de service</h5>
+                                            <p>
+                                                Vous souhaitez offrir votre service?
+                                                <br />
+                                                Cliquez ici
+                                            </p>
+                                        </label>
+                                        <input type="radio" id="creer_entente" name="pub" value="3" />
+                                        <label for="creer_entente" class="button_form btn">
+                                            <h5>Publier une demande de service</h5>
+                                            <p>
+                                                Vous souhaitez offrir votre service?
+                                                <br />
+                                                Cliquez ici
+                                            </p>
+                                        </label>
+                                        <input type="radio" id="valider_service" name="pub" value="4" />
+                                        <label for="valider_service" class="button_form btn">
+                                            <h5>Publier une demande de service</h5>
+                                            <p>
+                                                Vous souhaitez offrir votre service?
+                                                <br />
+                                                Cliquez ici
+                                            </p>
+                                        </label>
                                     </div>
-                                    <div class="button_form btn">
-                                        <h5>Publier une offre de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
+                                    <div class="buttons_form_container tab">
+                                        <input type="radio" id="offre_indiv" name="offre" value="1" />
+                                        <label for="offre_indiv" class="button_form btn">
+                                            <h5>Individuelle</h5>
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="offre" value="2" />
+                                        <label for="offre_coll" class="button_form btn">
+                                            <h5>Collective</h5>
+                                            <p>Si vous offrez une activit&#233; collective
+                                <br />
+                            (cours en groupe, ateliers, conf&#233;rence, achats group&#233;s, ...)
+                            
+                            </p>
+                                        </label>
                                     </div>
-                                    <div class="button_form btn">
-                                        <h5>Publier une offre de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
+                                    <div class="buttons_form_container tab">
+                                        <input type="radio" id="cat_1" name="offre_cat" value="1" />
+                                        <label for="cat_1" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_2" name="offre_cat" value="1" />
+                                        <label for="cat_2" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_3" name="offre_cat" value="1" />
+                                        <label for="cat_3" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_4" name="offre_cat" value="1" />
+                                        <label for="cat_4" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_5" name="offre_cat" value="1" />
+                                        <label for="cat_5" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_6" name="offre_cat" value="1" />
+                                        <label for="cat_6" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_7" name="offre_cat" value="1" />
+                                        <label for="cat_7" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_8" name="offre_cat" value="1" />
+                                        <label for="cat_8" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_9" name="offre_cat" value="1" />
+                                        <label for="cat_9" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_10" name="offre_cat" value="1" />
+                                        <label for="cat_10" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_11" name="offre_cat" value="1" />
+                                        <label for="cat_11" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_12" name="offre_cat" value="1" />
+                                        <label for="cat_12" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_13" name="offre_cat" value="1" />
+                                        <label for="cat_13" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_14" name="offre_cat" value="1" />
+                                        <label for="cat_14" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_15" name="offre_cat" value="1" />
+                                        <label for="cat_15" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
+                                        <input type="radio" id="cat_16" name="offre_cat" value="1" />
+                                        <label for="cat_16" class="cat button_form btn">
+                                            <img src="/web/image/479/Categorie-Animaux.png" class="img img-fluid mx-auto" alt="ERPLibre &#8226; Image et Texte" />
+                                            <p>Si vous offrez un service &#224; une personne particuli&#232;re
+                                
+                            </p>
+                                        </label>
                                     </div>
-                                    <div class="button_form btn">
-                                        <h5>Publier une offre de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
+                                    <div class="buttons_form_container tab">
+                                        <input type="radio" id="accompagnement" name="sub_cat" value="1" />
+                                        <label for="accompagnement" class="button_form btn small">
+                                            <p>Accompagnement</p>
+                                        </label>
+                                        <input type="radio" id="gardiennage" name="sub_cat" value="2" />
+                                        <label for="gardiennage" class="button_form btn small">
+                                            <p>Gardiennage</p>
+                                        </label>
+                                        <input type="radio" id="animaux" name="sub_cat" value="2" />
+                                        <label for="animaux" class="button_form btn small">
+                                            <p>Animaux</p>
+                                        </label>
+                                    </div>
+                                    <div class="buttons_form_container tab">
+                                        <input type="radio" id="rdv_demarches" name="sub_cat_2" value="1" />
+                                        <label for="rdv_demarches" class="button_form btn small">
+                                            <p>Rendez-vous ou d&#233;marches
+                            </p>
+                                        </label>
+                                        <input type="radio" id="courses_mag" name="sub_cat_2" value="2" />
+                                        <label for="courses_mag" class="button_form btn small">
+                                            <p>Courses et magasinage</p>
+                                        </label>
+                                        <input type="radio" id="loisirs_act" name="sub_cat_2" value="2" />
+                                        <label for="loisirs_act" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
+                                    </div>
+                                    <div class="buttons_form_container tab scroll">
+                                        <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />
+                                        <label for="rdv_divers" class="button_form btn small">
+                                            <p>Rendez-vous divers</p>
+                                        </label>
+                                        <input type="radio" id="rdv_med" name="sub_cat_3" value="2" />
+                                        <label for="rdv_med" class="button_form btn small">
+                                            <p>Rendez-vous m&#233;dicaux
+                            </p>
+                                        </label>
+                                        <input type="radio" id="pers_immigrantes" name="sub_cat_3" value="2" />
+                                        <label for="pers_immigrantes" class="button_form btn small">
+                                            <p>Personnes immigrantes</p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Recherche logement</p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
+                                        <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                        <label for="offre_coll" class="button_form btn small">
+                                            <p>Loisirs et activit&#233;s
+                            </p>
+                                        </label>
                                     </div>
                                     <div class="submit_container">
-                                        <div class="submit_btn btn">Suivant</div>
+                                        <input id="prevBtn" type="submit" value="Retour" class="prev submit_btn btn" style="display: none;" />
+                                        <input id="nextBtn" type="submit" value="Suivant" class="submit_btn btn" />
                                     </div>
-                                </div>
+                                    <div />
+                                    <div />
+                                </form>
                             </section>
                         </div>
                     </t>
@@ -2968,6 +3188,85 @@
             </field>
             <field name="key">website.participer</field>
             <field name="name">Participer</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_publier_offre" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t t-name="website.publier-offre">
+                    <t t-call="website.layout">
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <section class="s_cover parallax s_parallax_is_fixed s_parallax_no_overflow_hidden pt152 pb152" data-scroll-background-ratio="1" style="background-image: none;">
+                                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/538/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;); background-position: 50% 0px;" />
+                            </section>
+                            <section class="s_pub_offre_desc pb80">
+                                <div class="desc_container">
+                                    <h3>Titre</h3>
+                                    <textarea />
+                                </div>
+                                <div class="desc_container">
+                                    <h3>Description</h3>
+                                    <textarea />
+                                </div>
+                                <div class="desc_container">
+                                    <h3>Mat&#233;riel n&#233;cessaire</h3>
+                                    <div class="desc">
+                                        <ul>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="desc_container">
+                                    <h3>Conditions</h3>
+                                    <div class="desc">
+                                        <ul>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="desc_container">
+                                    <h3>D&#233;placement</h3>
+                                    <div class="desc">
+                        Je me d&#233;place
+                    </div>
+                                    <div class="desc">
+                        Accepte de me d&#233;placer
+                    </div>
+                                    <div class="desc">
+                        Destination sp&#233;cifique
+                    </div>
+                                </div>
+                                <div class="desc_container">
+                                    <h3>Entente tarifiaire</h3>
+                                    <div class="desc">Selon le tarif de l'accorderie: 1h = 1h</div>
+                                    <div class="desc">
+                        Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais
+                    </div>
+                                </div>
+                                <div class="desc_container">
+                                    <h3>Disponibili&#233;s</h3>
+                                    <div class="desc">
+                                        <ul>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                            <li>Lorem Ipsum dolor sit amet</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="submit_container">
+                                <input id="prevBtn visible" type="submit" value="Retour" class="prev submit_btn btn" />
+                                <input id="nextBtn" type="submit" value="Valider mon offre de service" class="submit_btn btn" />
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.publier-offre</field>
+            <field name="name">Publier offre</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_evenement" model="ir.ui.view">
