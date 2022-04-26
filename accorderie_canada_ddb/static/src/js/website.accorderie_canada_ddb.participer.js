@@ -89,7 +89,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
+                document.getElementById("nextBtn").value = "Submit";
             } else {
                 document.getElementById("nextBtn").innerHTML = "Suivant";
             }
@@ -113,7 +113,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // if you have reached the end of the form... :
             if (currentTab >= x.length) {
                 //...the form gets submitted:
-                document.getElementById("regForm").submit();
+                document.getElementById("participer_form").submit();
                 return false;
             }
             // Otherwise, display the correct tab:
