@@ -73,6 +73,10 @@
                 type="text/javascript"
                 src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.participer.js"
             />
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.modal.js"
+            />
         </xpath>
     </template>
 </odoo>

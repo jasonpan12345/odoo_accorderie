@@ -56,6 +56,7 @@
         "views/menu.xml",
         "views/snippets.xml",
         "templates/website.xml",
+        "views/accorderie_menu_modal.xml",
     ],
     "installable": True,
 }
