@@ -11,6 +11,8 @@
         "data/ir_ui_view.xml",
         "data/website_page.xml",
         "data/website_menu.xml",
+        "views/portal_templates.xml",
+        "views/webclient_templates.xml",
     ],
     "installable": True,
     "pre_init_hook": "pre_init_hook",

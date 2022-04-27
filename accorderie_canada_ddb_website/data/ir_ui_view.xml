@@ -3190,6 +3190,105 @@
             <field name="name">Participer</field>
             <field name="type">qweb</field>
         </record>
+        <record id="ir_ui_view_footer" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <data inherit_id="website.layout" name="Footer">
+                    <xpath expr="//div[@id='footer']" position="replace">
+                        <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                            <section class="s_text_block" style="">
+                                <div class="footer_container">
+                                    <div class="row footer_row">
+                                        <div class="col-lg-2 footer_menu btn">
+                                            <a href="/" class="img bottom_menu_icon fa fa-search"
+                                               style="text-decoration:none;"/>
+                                            <h5>Explorer</h5>
+                                            <a href="/" class="footer_link">Accueil</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Les offres de services</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Les demandes de service</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Les cat&#233;gories d'offres de service</a>
+                                        </div>
+                                        <div class="col-lg-2 footer_menu btn">
+                                            <a href="/communaute/actualite"
+                                               class="img bottom_menu_icon fa fa-comments-o"
+                                               style="text-decoration:none;"/>
+                                            <h5>La communaut&#233;</h5>
+                                            <a href="/" class="footer_link">Actualit&#233;</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">&#201;v&#232;nements</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Membres</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Groupes</a>
+                                        </div>
+                                        <div class="col-lg-2 footer_menu btn">
+                                            <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle"
+                                               style="text-decoration:none;"/>
+                                            <h5>Participer</h5>
+                                            <a href="/" class="footer_link">Publier une offre de service</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Publier une demande de service</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Cr&#233;er une entente de service</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Valider une service</a>
+                                        </div>
+                                        <div class="col-lg-2 footer_menu btn">
+                                            <a href="/monprofil" class="img bottom_menu_icon fa fa-user-circle-o"
+                                               style="text-decoration:none;"/>
+                                            <h5>Mon profil</h5>
+                                            <a href="/" class="footer_link">Ma pr&#233;sentation publique</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Mes informations personnelles</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Mes annonces</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Mes favoris</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">param&#232;tres</a>
+                                        </div>
+                                        <div class="col-lg-2 footer_menu btn">
+                                            <a href="/monactivite" class="img bottom_menu_icon fa fa-search"
+                                               style="text-decoration:none;"/>
+                                            <h5>
+                                                Mon activit&#233;
+                                            </h5>
+                                            <a href="/" class="footer_link">Bilan</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Accordages</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Mon r&#233;seau</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Mes groupes</a>
+                                        </div>
+                                        <div class="col-lg-2 footer_aide btn">
+                                            <span class="img bottom_menu_icon fa fa-search" style=""
+                                                  data-original-title="" title="" aria-describedby="tooltip857350"/>
+                                            <h5>Aides</h5>
+                                            <a href="/" class="footer_link">Mentor</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Tutoriel</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">F.A.Q.</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Guides d'utilisation</a>
+                                            <br/>
+                                            <a href="/" class="footer_link">Contacter l'accorderie</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+            <field name="inherit_id" ref="website.layout"/>
+            <field name="key">website.footer_custom</field>
+            <field name="name">Footer</field>
+            <field name="type">qweb</field>
+        </record>
         <record id="ir_ui_view_publier_offre" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t t-name="website.publier-offre">
