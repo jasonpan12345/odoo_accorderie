@@ -62,11 +62,99 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" role="menu_item" href="/#">
-                                    <span class="fa fa-2x fa-heart-o" data-oe-model="website.menu" data-oe-id="7"
-                                          data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
+                                    <span class="fa fa-2x fa-heart" data-oe-model="website.menu" data-oe-id="7"
+                                          data-oe-field="name" data-oe-type="char"
+                                          data-oe-expression="submenu.name"></span>
                                 </a>
+
+
+                                <div class="dropdown-menu submenu shadow" role="menu">
+                                    <h2>Mes favoris</h2>
+                                    <div class="dropdown-nav">
+                                        <button>Offres</button>
+                                        <button>Demandes</button>
+                                        <button>Membres</button>
+                                    </div>
+                                    <div class="dropdown-cat">
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Publier une offre de service</h4>
+                                            Vous souhaitez offrir votre service?
+                                            <br/>
+                                            Cliquez ici
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Publier une demande de service</h4>
+                                            Vous avez besoin d'un service?
+                                            <br/>
+                                            Faites nous part de votre besoin en créant une demande ici
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Créer une entente de service</h4>
+                                            Créer une entente de service avec un autre accordeur pour vous mettre
+                                            d'accord sur les modalités?
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Valider un service donné ou reçu</h4>
+                                            Vous avez donné ou reçu un service?
+                                            <br/>
+                                            Valider la transaction ici pour donner ou recevoir votre rénumération
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-cat">
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Publier une offre de service</h4>
+                                            Vous souhaitez offrir votre service?
+                                            <br/>
+                                            Cliquez ici
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Publier une demande de service</h4>
+                                            Vous avez besoin d'un service?
+                                            <br/>
+                                            Faites nous part de votre besoin en créant une demande ici
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Créer une entente de service</h4>
+                                            Créer une entente de service avec un autre accordeur pour vous mettre
+                                            d'accord sur les modalités?
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Valider un service donné ou reçu</h4>
+                                            Vous avez donné ou reçu un service?
+                                            <br/>
+                                            Valider la transaction ici pour donner ou recevoir votre rénumération
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-cat">
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Publier une offre de service</h4>
+                                            Vous souhaitez offrir votre service?
+                                            <br/>
+                                            Cliquez ici
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Publier une demande de service</h4>
+                                            Vous avez besoin d'un service?
+                                            <br/>
+                                            Faites nous part de votre besoin en créant une demande ici
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Créer une entente de service</h4>
+                                            Créer une entente de service avec un autre accordeur pour vous mettre
+                                            d'accord sur les modalités?
+                                        </a>
+                                        <a role="menuitem" href="/participer" class="dropdown-item">
+                                            <h4>Valider un service donné ou reçu</h4>
+                                            Vous avez donné ou reçu un service?
+                                            <br/>
+                                            Valider la transaction ici pour donner ou recevoir votre rénumération
+                                        </a>
+                                    </div>
+                                </div>
+
+
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/monprofil/messages">
@@ -81,12 +169,39 @@
                                           data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" role="menu_item" href="/#">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
                                     <span class="fa fa-2x fa-edit" data-oe-model="website.menu" data-oe-id="10"
-                                          data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
+                                          data-oe-field="name" data-oe-type="char"
+                                          data-oe-expression="submenu.name"></span>
                                     <span style="font-size:15px;margin-left: 10px;float:right">Publier</span>
                                 </a>
+                                <div class="dropdown-menu submenu shadow" role="menu">
+                                    <h2>Publier</h2>
+                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
+                                        <h4>Publier une offre de service</h4>
+                                        Vous souhaitez offrir votre service?
+                                        <br/>
+                                        Cliquez ici
+                                    </a>
+                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
+                                        <h4>Publier une demande de service</h4>
+                                        Vous avez besoin d'un service?
+                                        <br/>
+                                        Faites nous part de votre besoin en créant une demande ici
+                                    </a>
+                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
+                                        <h4>Créer une entente de service</h4>
+                                        Créer une entente de service avec un autre accordeur pour vous mettre d'accord
+                                        sur les modalités?
+                                    </a>
+                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
+                                        <h4>Valider un service donné ou reçu</h4>
+                                        Vous avez donné ou reçu un service?
+                                        <br/>
+                                        Valider la transaction ici pour donner ou recevoir votre rénumération
+                                    </a>
+                                </div>
                             </li>
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
