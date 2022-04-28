@@ -59,9 +59,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             ev.preventDefault();
             ev.stopPropagation();
             this.nextPrev(nextPrev);
-            var $form = $(ev.currentTarget).closest('form');
-            var $button = $(ev.currentTarget).closest('[type="submit"]');
-            var post = {};
         },
         // Verify that at least one radio button is chosen on the current tab
         verifRadioChosen: function () {
@@ -93,15 +90,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             } else {
                 document.getElementById("nextBtn").innerHTML = "Suivant";
             }
-            // ... and run a function that displays the correct step indicator:
-            //fixStepIndicator(n)
         },
         nextPrev: function (n) {
             console.log("nextprev");
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
-            //if (n == 1 && !validateForm()) return false;
             if (n == 1 && !this.verifRadioChosen()) {
                 return false;
             }
