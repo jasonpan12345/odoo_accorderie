@@ -1133,6 +1133,22 @@ actualité
   .s_buttons_form .txt_question > * {
     color: black;
   }
+  .buttons_form_container {
+    padding: 5%;
+  }
+  .buttons_form_container .btn.small {
+    min-height: 10vh;
+  }
+  .submit_container .submit_btn {
+    width: 30%;
+    margin: 5%;
+  }
+  .txt_question {
+    padding: 5% 10%;
+  }
+  #participer_form {
+    padding-bottom: 5vh;
+  }
 }
 
 /*
@@ -1455,11 +1471,11 @@ actualité
 }
 
 .event_container
-  .informations_container
-  .info-2
-  .contact-list
-  .contact
-  .user_pic {
+.informations_container
+.info-2
+.contact-list
+.contact
+.user_pic {
   background-size: cover;
   aspect-ratio: 1/1;
   height: 70%;
