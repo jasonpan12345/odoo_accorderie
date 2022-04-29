@@ -1075,7 +1075,7 @@
                             </section>
                             <section class="s_activites_recentes">
                                 <div class="container_lists">
-                                    <div class="row activites_list">
+                                    <div class="row activites_list col-lg-6">
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size: 2rem; float:left;"> Offres r&#233;centes </font>
@@ -1106,7 +1106,7 @@
                                             <h5 class="activite_distance">2 km</h5>
                                         </div>
                                     </div>
-                                    <div class="row activites_list">
+                                    <div class="row activites_list col-lg-6">
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size: 2rem; float:left;"> Demandes r&#233;centes </font>

@@ -442,7 +442,7 @@ actualité
 }
 
 .activites_list {
-  padding: 0 5%;
+  padding: 0 5% !important;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -463,11 +463,12 @@ actualité
 
 .activite.btn {
   max-width: 100%;
-  max-height: 250px;
-  padding: 5% 0 5%;
+  max-height: 160px;
+  padding: 5% 0;
   border-top: 1px solid #d6d6d6;
   overflow: hidden;
   text-align: left;
+  white-space: normal;
 }
 
 .activite.btn .activite_img {
