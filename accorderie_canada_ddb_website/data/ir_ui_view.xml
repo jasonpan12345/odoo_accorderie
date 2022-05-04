@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="ir_ui_view_/web/static/src/scss/bootstrap_overridden_frontend_custom_web_assets_frontend_scss" model="ir.ui.view">
-            <field name="arch" type="xml">
-                <data inherit_id="web._assets_frontend_helpers" name="/web/static/src/scss/bootstrap_overridden_frontend.custom.web.assets_frontend.scss">
-                    <xpath expr="//link[@href='/web/static/src/scss/bootstrap_overridden_frontend.scss']" position="attributes">
-                        <attribute name="href">/web/static/src/scss/bootstrap_overridden_frontend.custom.web.assets_frontend.scss</attribute>
-                    </xpath>
-                </data>
-            </field>
-            <field name="inherit_id" ref="web._assets_frontend_helpers" />
-            <field name="key">web_editor.scss_64f622</field>
-            <field name="name">/web/static/src/scss/bootstrap_overridden_frontend.custom.web.assets_frontend.scss</field>
-            <field name="type">qweb</field>
-        </record>
-        <record id="ir_ui_view_/website/static/src/scss/options/colors/user_color_palette_custom_web_assets_common_scss" model="ir.ui.view">
-            <field name="arch" type="xml">
-                <data inherit_id="website._assets_primary_variables" name="/website/static/src/scss/options/colors/user_color_palette.custom.web.assets_common.scss">
-                    <xpath expr="//link[@href='/website/static/src/scss/options/colors/user_color_palette.scss']" position="attributes">
-                        <attribute name="href">/website/static/src/scss/options/colors/user_color_palette.custom.web.assets_common.scss</attribute>
-                    </xpath>
-                </data>
-            </field>
-            <field name="inherit_id" ref="website._assets_primary_variables" />
-            <field name="key">web_editor.scss_db0692</field>
-            <field name="name">/website/static/src/scss/options/colors/user_color_palette.custom.web.assets_common.scss</field>
-            <field name="type">qweb</field>
-        </record>
-        <record id="ir_ui_view_/website/static/src/scss/options/colors/user_theme_color_palette_custom_web_assets_common_scss" model="ir.ui.view">
-            <field name="arch" type="xml">
-                <data inherit_id="website._assets_primary_variables" name="/website/static/src/scss/options/colors/user_theme_color_palette.custom.web.assets_common.scss">
-                    <xpath expr="//link[@href='/website/static/src/scss/options/colors/user_theme_color_palette.scss']" position="attributes">
-                        <attribute name="href">/website/static/src/scss/options/colors/user_theme_color_palette.custom.web.assets_common.scss</attribute>
-                    </xpath>
-                </data>
-            </field>
-            <field name="inherit_id" ref="website._assets_primary_variables" />
-            <field name="key">web_editor.scss_73ac3a</field>
-            <field name="name">/website/static/src/scss/options/colors/user_theme_color_palette.custom.web.assets_common.scss</field>
-            <field name="type">qweb</field>
-        </record>
-        <record id="ir_ui_view_/website/static/src/scss/website_custom_web_assets_frontend_scss" model="ir.ui.view">
-            <field name="arch" type="xml">
-                <data inherit_id="website.assets_frontend" name="/website/static/src/scss/website.custom.web.assets_frontend.scss">
-                    <xpath expr="//link[@href='/website/static/src/scss/website.scss']" position="attributes">
-                        <attribute name="href">/website/static/src/scss/website.custom.web.assets_frontend.scss</attribute>
-                    </xpath>
-                </data>
-            </field>
-            <field name="inherit_id" ref="website.assets_frontend" />
-            <field name="key">web_editor.scss_3991ed</field>
-            <field name="name">/website/static/src/scss/website.custom.web.assets_frontend.scss</field>
-            <field name="type">qweb</field>
-        </record>
         <record id="ir_ui_view_accordages" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus">

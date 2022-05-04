@@ -1,5 +1,3 @@
-import os
-
 from odoo import SUPERUSER_ID, _, api, fields, models
 
 
