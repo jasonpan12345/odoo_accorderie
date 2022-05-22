@@ -10,9 +10,11 @@ from odoo.osv.expression import OR
 from odoo.tools import groupby as groupbyelem
 
 
-class CustomerPortal(CustomerPortal):
+class AccorderieCanadaDdbController(CustomerPortal):
     def _prepare_portal_layout_values(self):
-        values = super(CustomerPortal, self)._prepare_portal_layout_values()
+        values = super(
+            AccorderieCanadaDdbController, self
+        )._prepare_portal_layout_values()
         values["accorderie_accorderie_count"] = request.env[
             "accorderie.accorderie"
         ].search_count([])

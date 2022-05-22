@@ -3,7 +3,7 @@
 SQL_PATH=/accorderie_canada/Intranet/accorder_AccorderieIntranet_20200826.sql
 
 echo "Create database and user"
-sudo mysql -u root << EOF
+mysql -u root << EOF
 DROP DATABASE IF EXISTS accorderie_log_2019;
 CREATE USER IF NOT EXISTS 'accorderie'@'localhost' IDENTIFIED BY 'accorderie';
 GRANT ALL PRIVILEGES ON *.* TO 'accorderie'@'localhost' IDENTIFIED BY 'accorderie';

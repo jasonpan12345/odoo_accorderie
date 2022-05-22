@@ -1,7 +1,8 @@
-from odoo import _, api, models, fields, SUPERUSER_ID
-import os
 import logging
+import os
 import time
+
+from odoo import SUPERUSER_ID, _, api, fields, models
 
 _logger = logging.getLogger(__name__)
 

@@ -121,6 +121,7 @@
         id="occupation"
         name="Occupation"
         action="accorderie_occupation_occupation_action_window"
+        sequence="10"
         parent="group_statistique"
     />
 
