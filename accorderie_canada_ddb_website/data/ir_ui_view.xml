@@ -3372,5 +3372,101 @@
             <field name="name">&#201;v&#232;nement</field>
             <field name="type">qweb</field>
         </record>
+        <record id="ir_ui_view_mes_annonces_publiees" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="About us" t-name="website.aboutus">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_search_short">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <div class="search_bar" style="margin:0 auto;width:100%">
+                                                        <p class="search_txt">Que cherchez-vous ?</p>
+                                                        <div class="search_category">
+                                                            <p class="search_txt">
+                                                                <font style="font-size:14px;">Type de recherche</font>
+                                                            </p>
+                                                            <div class="search_send btn btn-primary rounded-circle"
+                                                                 style="">
+                                                                <i class="fa fa-magnifying-glass float-left"/>
+                                                                <p style="">
+                                                                    <font style="font-size: 18px;" class="text-epsilon">
+                                                                        <span class="img img-fluid mx-auto fa fa-search"
+                                                                              style=""/>
+                                                                        Rechercher
+
+
+                                                                    </font>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text"></input>
+                                                    </div>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div style="text-align: left;"/>
+                                <section class="s_vertical_list_lg pt0">
+                                    <div class="container_lists">
+                                        <div class="row vertical_list">
+                                            <div class="list_title s_title pb40">
+                                                <h1>
+                                                    <font style="float:left;">Offres de service</font>
+                                                </h1>
+                                                <span class="filter_btn btn">
+                                                    <span class="img img-fluid mx-auto fa fa-filter" style=""/>
+                                                    Filtrer et trier
+                                                </span>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid"
+                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
+                                                    </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid"
+                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Mercredi 16 août</h4>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">Faire visiter une maison à louer</h5>
+                                                </div>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid"
+                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Mercredi 16 août</h4>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">Faire visiter une maison à louer</h5>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.mes-annonces-publiees</field>
+            <field name="name">Mes annonces publi&#233;es</field>
+            <field name="type">qweb</field>
+        </record>
     </data>
 </odoo>
