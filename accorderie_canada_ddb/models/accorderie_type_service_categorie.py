@@ -40,3 +40,7 @@ class AccorderieTypeServiceCategorie(models.Model):
                 "/my/accorderie_type_service_categorie/%s"
                 % accorderie_type_service_categorie.id
             )
+
+    @api.model
+    def _get_html_nom(self):
+        return "<br/>".join([a.strip() for a in self.nom.split("/")]) + "<br/>"

@@ -678,7 +678,7 @@
                                     class="offre_img"
                             />
                             <div class="offre_desc" t-if="type_service_categorie.nom"
-                                 t-field="type_service_categorie.nom"/>
+                                 t-raw="type_service_categorie._get_html_nom()"/>
                         </a>
                     </div>
                 </div>
