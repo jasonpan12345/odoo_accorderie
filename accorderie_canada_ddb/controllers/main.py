@@ -46,9 +46,11 @@ class AccorderieCanadaDdbController(http.Controller):
         env = request.env(context=dict(request.env.context))
 
         Offre_Service = env["accorderie.offre.service"]
-        offre_service_ids = Offre_Service.search(
-            [], order="create_date desc", limit=3
-        ).ids
+        offre_service_ids = (
+            Offre_Service.sudo()
+            .search([], order="create_date desc", limit=3)
+            .ids
+        )
         offre_services = Offre_Service.sudo().browse(offre_service_ids)
 
         lst_time_diff = []
@@ -107,9 +109,11 @@ class AccorderieCanadaDdbController(http.Controller):
         env = request.env(context=dict(request.env.context))
 
         Demande_Service = env["accorderie.demande.service"]
-        demande_service_ids = Demande_Service.search(
-            [], order="create_date desc", limit=3
-        ).ids
+        demande_service_ids = (
+            Demande_Service.sudo()
+            .search([], order="create_date desc", limit=3)
+            .ids
+        )
         demande_services = Demande_Service.sudo().browse(demande_service_ids)
 
         lst_time_diff = []
@@ -172,7 +176,9 @@ class AccorderieCanadaDdbController(http.Controller):
         env = request.env(context=dict(request.env.context))
 
         Type_Service_Categorie = env["accorderie.type.service.categorie"]
-        type_service_categorie_ids = Type_Service_Categorie.search([]).ids
+        type_service_categorie_ids = (
+            Type_Service_Categorie.sudo().search([]).ids
+        )
         type_service_categories = Type_Service_Categorie.sudo().browse(
             type_service_categorie_ids
         )
