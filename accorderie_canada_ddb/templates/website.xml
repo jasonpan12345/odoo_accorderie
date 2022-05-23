@@ -649,62 +649,37 @@
         name="List Type_Service_Categorie"
     >
         <t t-ignore="true">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 s_col_no_bgcolor pb24">
-                        <div class="row" t-if="type_service_categories">
-                            <div t-foreach="type_service_categories" t-as="type_service_categorie">
-                                <a
-                                    t-if="type_service_categorie"
-                                    t-att-href="'/accorderie_canada_ddb/type_service_categorie/%d' % type_service_categorie.id"
-                                >
-                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
-                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
-                                        <div class="s_features_grid_content">
-                                            <h4
-                                                t-if="type_service_categorie.nom"
-                                                class="o_default_snippet_text"
-                                                t-field="type_service_categorie.nom"
-                                            />
-                                            <h4 t-if="not type_service_categorie.nom" class="o_default_snippet_text">
-                                                EMPTY
-                                            </h4>
-                                            <p
-                                                t-if="type_service_categorie.active"
-                                                class="o_default_snippet_text"
-                                                t-field="type_service_categorie.active"
-                                            />
-                                            <p
-                                                t-if="type_service_categorie.approuve"
-                                                class="o_default_snippet_text"
-                                                t-field="type_service_categorie.approuve"
-                                            />
-                                            <div>
-                                                <img
-                                                    t-if="type_service_categorie.icon"
-                                                    t-att-src="image_data_uri(type_service_categorie.icon)"
-                                                    alt="icon"
-                                                    class="img img-fluid d-block mx-auto"
-                                                />
-                                            </div>
-                                            <p
-                                                t-if="type_service_categorie.nocategorie"
-                                                class="o_default_snippet_text"
-                                                t-field="type_service_categorie.nocategorie"
-                                            />
-                                            <p
-                                                t-if="type_service_categorie.type_service_sous_categorie"
-                                                class="o_default_snippet_text"
-                                                t-field="type_service_categorie.type_service_sous_categorie"
-                                            />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row" t-if="not type_service_categories">
-                            Aucune type_service_categorie disponible.
-                        </div>
+            <div t-if="not type_service_categories">
+                <div class="row">
+                    Aucune catégorie de service est disponible.
+                </div>
+            </div>
+            <div t-if="type_service_categories">
+                <div class="list_title s_title">
+                    <h1>
+                        <font style="font-size: 2rem; float:left;">Explorer les offres</font>
+                        <span>
+                            <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)
+                            </font>
+                        </span>
+                    </h1>
+                </div>
+                <div class="offres_list">
+                    <div class="offre_box btn" t-foreach="type_service_categories"
+                         t-as="type_service_categorie">
+                        <a
+                                t-if="type_service_categorie"
+                                t-att-href="'/accorderie_canada_ddb/type_service_categorie/%d' % type_service_categorie.id"
+                        >
+                            <img
+                                    t-if="type_service_categorie.icon"
+                                    t-att-src="image_data_uri(type_service_categorie.icon)"
+                                    alt="icon"
+                                    class="offre_img"
+                            />
+                            <div class="offre_desc" t-if="type_service_categorie.nom"
+                                 t-field="type_service_categorie.nom"/>
+                        </a>
                     </div>
                 </div>
             </div>
