@@ -373,7 +373,7 @@
                 </t>
             </field>
             <field name="key">website.communaute</field>
-            <field name="name">Communaut&#233;</field>
+            <field name="name">Communaut&#233; actualit&#233;</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_communaute_1" model="ir.ui.view">
@@ -546,7 +546,7 @@
                 </t>
             </field>
             <field name="key">website.communaute_3038b2</field>
-            <field name="name">Communaut&#233;</field>
+            <field name="name">Communaut&#233; &#233;v&#232;nement</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_communaute_2" model="ir.ui.view">
@@ -718,7 +718,7 @@
                 </t>
             </field>
             <field name="key">website.communaute_3038b2_2f2620</field>
-            <field name="name">Communaut&#233;</field>
+            <field name="name">Communaut&#233; membre</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_contact_us" model="ir.ui.view">
