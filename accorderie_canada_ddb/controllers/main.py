@@ -140,25 +140,29 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
-            "/accorderie_canada_ddb/type_service_categorie/<int:type_service_categorie_id>"
+            "/accorderie_canada_ddb/type_service_categorie/<int:type_service_categorie>"
         ],
         type="http",
         auth="public",
         website=True,
     )
-    def get_page_type_service_categorie(self, type_service_categorie_id=None):
+    def get_page_type_service_categorie(self, type_service_categorie=None):
         env = request.env(context=dict(request.env.context))
 
-        Type_Service_Categorie = env["accorderie.type.service.categorie"]
-        if type_service_categorie_id:
-            type_service_categorie_ids = (
-                Type_Service_Categorie.sudo()
-                .browse(type_service_categorie_id)
+        accorderie_type_service_categorie_cls = env[
+            "accorderie.type.service.categorie"
+        ]
+        if type_service_categorie:
+            accorderie_type_service_categorie_id = (
+                accorderie_type_service_categorie_cls.sudo()
+                .browse(type_service_categorie)
                 .exists()
             )
         else:
-            type_service_categorie_ids = None
-        dct_value = {"type_service_categorie": type_service_categorie_ids}
+            accorderie_type_service_categorie_id = None
+        dct_value = {
+            "accorderie_type_service_categorie_id": accorderie_type_service_categorie_id
+        }
 
         # Render page
         return request.render(
@@ -175,12 +179,16 @@ class AccorderieCanadaDdbController(http.Controller):
     def get_type_service_categorie_list(self):
         env = request.env(context=dict(request.env.context))
 
-        Type_Service_Categorie = env["accorderie.type.service.categorie"]
-        type_service_categorie_ids = (
-            Type_Service_Categorie.sudo().search([]).ids
+        accorderie_type_service_categorie_cls = env[
+            "accorderie.type.service.categorie"
+        ]
+        accorderie_type_service_categorie_ids = (
+            accorderie_type_service_categorie_cls.sudo().search([]).ids
         )
-        type_service_categories = Type_Service_Categorie.sudo().browse(
-            type_service_categorie_ids
+        type_service_categories = (
+            accorderie_type_service_categorie_cls.sudo().browse(
+                accorderie_type_service_categorie_ids
+            )
         )
 
         dct_value = {"type_service_categories": type_service_categories}
