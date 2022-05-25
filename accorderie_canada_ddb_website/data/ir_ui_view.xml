@@ -875,6 +875,7 @@
                                                             </p>
                                                         </div>
                                                     </div>
+                                                    <input type="text" placeholder="Entrez votre mot clé ici"></input>
                                                 </div>
                                             </h1>
                                         </div>

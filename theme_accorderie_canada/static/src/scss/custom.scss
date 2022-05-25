@@ -253,7 +253,6 @@ searchbar
 
 .s_offres {
   padding: 0 14%;
-  height: 800px;
 }
 
 .offres_list {
@@ -264,6 +263,7 @@ searchbar
 .offre_box.btn {
   padding: 0;
   text-align: left;
+  max-height:140px;
 
   .offre_img {
     height: 88%;
