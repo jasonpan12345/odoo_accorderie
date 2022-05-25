@@ -868,7 +868,7 @@
                                                         <div class="search_send btn btn-primary rounded-circle" style="">
                                                             <i class="fa fa-magnifying-glass float-left" />
                                                             <p style="">
-                                                                <font style="font-size: 18px;" class="text-epsilon">
+                                                                <font style="font-size: 18px;" class="text-alpha">
                                                                     <span class="img img-fluid mx-auto fa fa-search" style="" />
                                                                     Rechercher
                                                                 </font>
@@ -954,7 +954,7 @@
                                 <div class="banner-bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_309423704_preview_jpeg/AdobeStock_309423704_Preview.jpeg&quot;); background-position: 50% 0px; background-size:cover">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
-                                            <div class="jumbotron pt32 bg-alpha col-lg-6 pb40" data-name="Box" style="border-radius:10px">
+                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" data-name="Box" style="border-radius:10px">
                                                 <div class="row">
                                                     <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
                                                         <h1 class="s_title_thin" style="text-align: center;">
@@ -983,13 +983,13 @@
                                                         </p>
                                                     </div>
                                                     <div class="banner_btn s_btn col-lg-5 text-center" data-name="Button" style="">
-                                                        <a href="#" class="btn btn-epsilon rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376" style="">
-                                                            <font class="text-alpha" style="" data-original-title="" title="" aria-describedby="tooltip195285">Publier une offre</font>
+                                                        <a href="#" class="btn btn-alpha rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376" style="">
+                                                            <font class="text-primary" style="" data-original-title="" title="" aria-describedby="tooltip195285">Publier une offre</font>
                                                         </a>
                                                     </div>
                                                     <div class="banner_btn s_btn text-center col-lg-5" data-name="Button">
-                                                        <a href="#" class="btn btn-epsilon rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376">
-                                                            <font class="text-alpha" style="">En savoir plus</font>
+                                                        <a href="#" class="btn btn-alpha rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376">
+                                                            <font class="text-primary" style="">En savoir plus</font>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1086,11 +1086,16 @@
                                     </div>
                                 </div>
                                 <div class="container_accordage">
-                                    <div class="img" style="background-size:cover; background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_147894347_preview_jpeg/AdobeStock_147894347_Preview.jpeg&quot;); background-position:70%" />
-                                    <div class="info">
+                                    <div class="img"
+                                         style="background-size:cover; background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_147894347_preview_jpeg/AdobeStock_147894347_Preview.jpeg&quot;); background-position:70%"/>
+                                    <div class="info bg-primary">
                                         <h1>Vous venez de donner ou recevoir un service?</h1>
-                                        <h5>Vous pouvez d&#233;j&#224; &#224; pr&#233;sent valider votre accordage en allant dans le section contribuer ou en cliquant sur le bouton ci-dessous</h5>
-                                        <div class="btn btn-epsilon rounded-circle">Valider mon accordage</div>
+                                        <h5>Vous pouvez déjà à présent valider votre accordage en allant dans le section
+                                            contribuer ou en cliquant sur le bouton ci-dessous
+                                        </h5>
+                                        <div class="btn btn-alpha rounded-circle">
+                                            <font class="text-primary">Valider mon accordage</font>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
@@ -1098,7 +1103,7 @@
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="padding-bottom:16px;background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_map_02_png/Map-02.png&quot;);" />
                                 <div class="container container_communaute">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="jumbotron bg-alpha col-lg-6 pt96 pb56" data-name="Box" style="border-radius:10px">
+                                        <div class="jumbotron bg-primary col-lg-6 pt96 pb56" data-name="Box" style="border-radius:10px">
                                             <div class="row">
                                                 <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
                                                     <h1 class="s_title_thin" style="text-align: center;">
@@ -1124,13 +1129,13 @@
                                                     </p>
                                                 </div>
                                                 <div class="s_btn pt16 pb0 text-center col-lg-6" data-name="Button" style="">
-                                                    <a href="#" class="btn btn-epsilon rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376" style="">
-                                                        <font class="text-alpha" style="">D&#233;couvrir les membres</font>
+                                                    <a href="#" class="btn btn-alpha rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376" style="">
+                                                        <font class="text-primary" style="">D&#233;couvrir les membres</font>
                                                     </a>
                                                 </div>
                                                 <div class="s_btn pt16 pb16 text-center col-lg-4" data-name="Button">
-                                                    <a href="#" class="btn btn-epsilon rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376">
-                                                        <font class="text-alpha" style="">D&#233;couvrir les groupes&amp;nbsp;</font>
+                                                    <a href="#" class="btn btn-alpha rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376">
+                                                        <font class="text-primary" style="">D&#233;couvrir les groupes&amp;nbsp;</font>
                                                     </a>
                                                 </div>
                                             </div>
@@ -1165,8 +1170,8 @@
                                                     <br />
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6, QC&amp;nbsp;</font>
                                                 </h6>
-                                                <div class="item_btn btn btn-alpha">
-                                                    <font class="text-beta" style="">Je participe</font>
+                                                <div class="item_btn btn btn-primary">
+                                                    <font class="text-alpha" style="">Je participe</font>
                                                 </div>
                                             </div>
                                         </div>
@@ -1186,8 +1191,8 @@
                                                     <br />
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6, QC&amp;nbsp;</font>
                                                 </h6>
-                                                <div class="item_btn btn btn-alpha">
-                                                    <font class="text-beta" style="">Je participe</font>
+                                                <div class="item_btn btn btn-primary">
+                                                    <font class="text-alpha" style="">Je participe</font>
                                                 </div>
                                             </div>
                                         </div>
@@ -1207,8 +1212,8 @@
                                                     <br />
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6, QC&amp;nbsp;</font>
                                                 </h6>
-                                                <div class="item_btn btn btn-alpha">
-                                                    <font class="text-beta" style="">Je participe</font>
+                                                <div class="item_btn btn btn-primary">
+                                                    <font class="text-alpha" style="">Je participe</font>
                                                 </div>
                                             </div>
                                         </div>
@@ -1228,8 +1233,8 @@
                                                     <br />
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6, QC&amp;nbsp;</font>
                                                 </h6>
-                                                <div class="item_btn btn btn-alpha">
-                                                    <font class="text-beta" style="">Je participe</font>
+                                                <div class="item_btn btn btn-primary">
+                                                    <font class="text-alpha" style="">Je participe</font>
                                                 </div>
                                             </div>
                                         </div>
@@ -1249,8 +1254,8 @@
                                                     <br />
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6, QC&amp;nbsp;</font>
                                                 </h6>
-                                                <div class="item_btn btn btn-alpha">
-                                                    <font class="text-beta" style="">Je participe</font>
+                                                <div class="item_btn btn btn-primary">
+                                                    <font class="text-alpha" style="">Je participe</font>
                                                 </div>
                                             </div>
                                         </div>
@@ -1264,26 +1269,26 @@
                                         <div class="col-lg-12 s_title" data-name="Title">
                                             <h1 class="s_title_thin" style="font-size: 62px;">
                                                 <b>
-                                                    <font class="text-beta" style="">Avez-vous</font>
+                                                    <font class="text-alpha" style="">Avez-vous</font>
                                                 </b>
                                             </h1>
                                             <h1 class="s_title_thin" style="font-size: 62px;">
                                                 <b>
-                                                    <font class="text-beta" style="">besoin d'aide ?</font>
+                                                    <font class="text-alpha" style="">besoin d'aide ?</font>
                                                 </b>
                                             </h1>
                                         </div>
                                         <div class="s_text pt16 col-lg-5 pb0" data-name="Text">
                                             <p class="lead" style="text-align: left;">
-                                                <font class="text-beta" style="">Vous ne savez pas comment fonctionne l'Accorderie ou vous avez des difficult&#233;s &#224; utiliser votre espace membre? Ne vous inqui&#233;tez pas, nous sommes tous d&#233;j&#224; pass&#233; par l&#224;. Nous sommes l&#224; pour vous aider.</font>
+                                                <font class="text-alpha" style="">Vous ne savez pas comment fonctionne l'Accorderie ou vous avez des difficult&#233;s &#224; utiliser votre espace membre? Ne vous inqui&#233;tez pas, nous sommes tous d&#233;j&#224; pass&#233; par l&#224;. Nous sommes l&#224; pour vous aider.</font>
                                             </p>
                                         </div>
                                         <div class="col-lg-12 pb16 pt16 s_btn text-left" data-name="Buttons">
-                                            <a href="/aboutus" class="aide_btn rounded-circle btn btn-alpha rounded-circle" data-original-title="" title="" aria-describedby="tooltip233358">
-                                                <font id="aide_btn_txt" class="text-epsilon" style="" data-original-title="" title="" aria-describedby="tooltip200172">Consulter l'aide</font>
+                                            <a href="/aboutus" class="aide_btn btn btn-primary rounded-circle" data-original-title="" title="" aria-describedby="tooltip233358">
+                                                <font id="aide_btn_txt" class="text-alpha" style="" data-original-title="" title="" aria-describedby="tooltip200172">Consulter l'aide</font>
                                             </a>
                                             <a href="/contactus" class="aide_btn btn btn-primary rounded-circle" data-original-title="" title="" aria-describedby="tooltip608562">
-                                                <font id="aide_btn_txt" class="text-beta" style="">Contacter un mentor</font>
+                                                <font id="aide_btn_txt" class="text-alpha" style="">Contacter un mentor</font>
                                                 <br />
                                             </a>
                                         </div>
