@@ -539,23 +539,25 @@
             </div>
         </t>
     </template>
-    <template id="accorderie_type_service_categorie_unit_liste_type_service_categorie" name="Type_Service_Categorie">
+    <template id="accorderie_type_service_categorie_unit_liste_type_service_categorie" name="Type Service Categorie">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure">
-                    <section class="pt32 pb32" t-if="not type_service_categorie">
+                    <section class="pt32 pb32" t-if="not accorderie_type_service_categorie_id">
                         <div class="container">
                             <div class="row s_nb_column_fixed">
                                 <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                     <h1 class="s_title_default">
-                                        <font style="font-size: 62px;">Offre non existante</font>
+                                        <font style="font-size: 62px;">
+                                            accorderie_type_service_categorie_id non existante
+                                        </font>
                                     </h1>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section
-                        t-if="type_service_categorie"
+                        t-if="accorderie_type_service_categorie_id"
                         class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
                         data-scroll-background-ratio="1"
                         style="background-image: none;"
@@ -570,13 +572,13 @@
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-field="type_service_categorie.nom"
-                                        t-if="type_service_categorie.nom"
+                                        t-field="accorderie_type_service_categorie_id.nom"
+                                        t-if="accorderie_type_service_categorie_id.nom"
                                     />
                                     <h1
                                         class="s_title_thin"
                                         style="font-size: 62px; text-align: center;"
-                                        t-if="not type_service_categorie.nom"
+                                        t-if="not accorderie_type_service_categorie_id.nom"
                                     >
                                         EMPTY
                                     </h1>
@@ -584,33 +586,33 @@
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="type_service_categorie.active"
+                                    t-if="accorderie_type_service_categorie_id.active"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="type_service_categorie.active"
+                                        t-field="accorderie_type_service_categorie_id.active"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="type_service_categorie.approuve"
+                                    t-if="accorderie_type_service_categorie_id.approuve"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="type_service_categorie.approuve"
+                                        t-field="accorderie_type_service_categorie_id.approuve"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="type_service_categorie.icon"
+                                    t-if="accorderie_type_service_categorie_id.icon"
                                 >
                                     <img
-                                        t-if="type_service_categorie.icon"
-                                        t-att-src="image_data_uri(type_service_categorie.icon)"
+                                        t-if="accorderie_type_service_categorie_id.icon"
+                                        t-att-src="image_data_uri(accorderie_type_service_categorie_id.icon)"
                                         alt="icon"
                                         class="img img-fluid d-block mx-auto"
                                     />
@@ -618,23 +620,23 @@
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="type_service_categorie.nocategorie"
+                                    t-if="accorderie_type_service_categorie_id.nocategorie"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="type_service_categorie.nocategorie"
+                                        t-field="accorderie_type_service_categorie_id.nocategorie"
                                     />
                                 </div>
                                 <div
                                     class="col-lg-12 s_text pt16 pb16"
                                     data-name="Text"
-                                    t-if="type_service_categorie.type_service_sous_categorie"
+                                    t-if="accorderie_type_service_categorie_id.type_service_sous_categorie"
                                 >
                                     <p
                                         class="lead o_default_snippet_text"
                                         style="text-align: center;"
-                                        t-field="type_service_categorie.type_service_sous_categorie"
+                                        t-field="accorderie_type_service_categorie_id.type_service_sous_categorie"
                                     />
                                 </div>
                             </div>
@@ -646,7 +648,7 @@
     </template>
     <template
         id="accorderie_type_service_categorie_list_liste_type_service_categorie"
-        name="List Type_Service_Categorie"
+        name="Type Service Categorie List"
     >
         <t t-ignore="true">
             <div t-if="not type_service_categories">
