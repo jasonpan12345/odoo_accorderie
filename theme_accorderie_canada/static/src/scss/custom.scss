@@ -234,15 +234,16 @@ searchbar
   }
   .search_bar {
     height: 6vh;
+
+    input{
+        margin-top:10px;
+    }
   }
   .search_category {
-    visibility: hidden;
+    display:none;
   }
   .search_txt {
-    text-align: center;
-    font-size: 2vh;
-    float: none;
-    padding-top: 4%;
+    display:none;
   }
 }
 
@@ -1580,7 +1581,6 @@ actualité
   }
 
   .activite.btn {
-    max-height: 200px;
     padding: 1.5% 0 1.5%;
     border-bottom: 1px solid #d6d6d6;
     border-top: none;
@@ -1597,6 +1597,7 @@ actualité
     .infos {
       display: flex;
       flex-direction: column;
+      margin-right:15%;
 
       .activite_title {
         width: 100%;
@@ -1604,6 +1605,15 @@ actualité
       .activite_desc{
           color:gray;
       }
+    }
+    .infos.right{
+        margin-left:auto;
+        margin-right:unset;
+
+        .fa{
+            margin-top:auto;
+            font-size:1.5rem;
+        }
     }
   }
 }
