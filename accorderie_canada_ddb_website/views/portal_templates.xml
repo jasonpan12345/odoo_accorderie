@@ -64,7 +64,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
-                                    <span class="fa fa-2x fa-heart" data-oe-model="website.menu" data-oe-id="7"
+                                    <span class="fa fa-2x fa-heart text-primary" data-oe-model="website.menu" data-oe-id="7"
                                           data-oe-field="name" data-oe-type="char"
                                           data-oe-expression="submenu.name"></span>
                                 </a>
@@ -158,18 +158,18 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/monprofil/messages">
-                                    <span class="fa fa-2x fa-comments-o" data-oe-model="website.menu" data-oe-id="8"
+                                    <span class="fa fa-2x fa-comments-o text-primary" data-oe-model="website.menu" data-oe-id="8"
                                           data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/#">
-                                    <span class="fa fa-2x fa-question-circle-o" data-oe-model="website.menu"
+                                    <span class="fa fa-2x fa-question-circle-o text-primary" data-oe-model="website.menu"
                                           data-oe-id="9"
                                           data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown bg-primary">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
                                     <span class="fa fa-2x fa-edit" data-oe-model="website.menu" data-oe-id="10"
                                           data-oe-field="name" data-oe-type="char"
