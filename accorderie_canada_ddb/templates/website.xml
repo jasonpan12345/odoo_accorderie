@@ -695,10 +695,10 @@
                 <div class="list_title s_title">
                     <h1>
                         <font style="font-size: 2rem; float:left;">Explorer les offres</font>
-                        <span>
+                        <a href="/offresservice">
                             <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)
                             </font>
-                        </span>
+                        </a>
                     </h1>
                 </div>
                 <div class="offres_list">
