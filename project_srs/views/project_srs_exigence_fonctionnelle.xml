@@ -27,7 +27,7 @@
                         <field name="categorie" />
                     </group>
                     <group>
-                        <field name="composante" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="composante" widget="many2many_tags" options="{'no_create': True}" />
                     </group>
                     <group>
                         <field name="note" />
@@ -36,16 +36,16 @@
                         <field name="feature_url" />
                     </group>
                     <group>
-                        <field name="srs_depend" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="srs_depend" widget="many2many_tags" options="{'no_create': True}" />
                     </group>
                     <group>
-                        <field name="srs_depended" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="srs_depended" widget="many2many_tags" options="{'no_create': True}" />
                     </group>
                     <group>
-                        <field name="srs_relate" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="srs_relate" widget="many2many_tags" options="{'no_create': True}" />
                     </group>
                     <group>
-                        <field name="srs_related" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="srs_related" widget="many2many_tags" options="{'no_create': True}" />
                     </group>
                     <group>
                         <field name="srs" />
@@ -101,7 +101,7 @@
                                         <field name="categorie" />
                                     </li>
                                     <li class="mb4">
-                                        <field name="composante" widget="many2many_tags"/>
+                                        <field name="composante" widget="many2many_tags" />
                                     </li>
                                     <li class="mb4">
                                         <field name="etat" />
@@ -119,16 +119,16 @@
                                         <field name="srs" />
                                     </li>
                                     <li class="mb4">
-                                        <field name="srs_depend" widget="many2many_tags"/>
+                                        <field name="srs_depend" widget="many2many_tags" />
                                     </li>
                                     <li class="mb4">
-                                        <field name="srs_depended" widget="many2many_tags"/>
+                                        <field name="srs_depended" widget="many2many_tags" />
                                     </li>
                                     <li class="mb4">
-                                        <field name="srs_relate" widget="many2many_tags"/>
+                                        <field name="srs_relate" widget="many2many_tags" />
                                     </li>
                                     <li class="mb4">
-                                        <field name="srs_related" widget="many2many_tags"/>
+                                        <field name="srs_related" widget="many2many_tags" />
                                     </li>
                                 </ul>
                             </div>

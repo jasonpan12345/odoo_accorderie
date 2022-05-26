@@ -687,35 +687,34 @@
     >
         <t t-ignore="true">
             <div t-if="not type_service_categories">
-                <div class="row">
-                    Aucune catégorie de service est disponible.
-                </div>
+                <div class="row">Aucune catégorie de service est disponible.</div>
             </div>
             <div t-if="type_service_categories">
                 <div class="list_title s_title">
                     <h1>
                         <font style="font-size: 2rem; float:left;">Explorer les offres</font>
                         <a href="/offresservice">
-                            <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)
-                            </font>
+                            <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)</font>
                         </a>
                     </h1>
                 </div>
                 <div class="offres_list">
-                    <div class="offre_box btn" t-foreach="type_service_categories"
-                         t-as="type_service_categorie">
+                    <div class="offre_box btn" t-foreach="type_service_categories" t-as="type_service_categorie">
                         <a
-                                t-if="type_service_categorie"
-                                t-att-href="'/accorderie_canada_ddb/type_service_categorie/%d' % type_service_categorie.id"
+                            t-if="type_service_categorie"
+                            t-att-href="'/accorderie_canada_ddb/type_service_categorie/%d' % type_service_categorie.id"
                         >
                             <img
-                                    t-if="type_service_categorie.icon"
-                                    t-att-src="image_data_uri(type_service_categorie.icon)"
-                                    alt="icon"
-                                    class="offre_img"
+                                t-if="type_service_categorie.icon"
+                                t-att-src="image_data_uri(type_service_categorie.icon)"
+                                alt="icon"
+                                class="offre_img"
                             />
-                            <div class="offre_desc" t-if="type_service_categorie.nom"
-                                 t-raw="type_service_categorie._get_html_nom()"/>
+                            <div
+                                class="offre_desc"
+                                t-if="type_service_categorie.nom"
+                                t-raw="type_service_categorie._get_html_nom()"
+                            />
                         </a>
                     </div>
                 </div>

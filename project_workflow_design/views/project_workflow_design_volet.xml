@@ -14,7 +14,7 @@
                     form_view_ref="project_workflow_design_volet_box_view_form"
                 >
                     <field name="name" />
-                    <field name="select_color" invisible="1"/>
+                    <field name="select_color" invisible="1" />
                 </node>
                 <arrow
                     object="project.workflow.design.volet.liaison"
@@ -27,10 +27,7 @@
                     <field name="volet_box_dst" />
                     <field name="name" />
                 </arrow>
-                <label
-                    string="Créer vos relations."
-                    for=""
-                />
+                <label string="Créer vos relations." for="" />
             </diagram>
         </field>
     </record>
