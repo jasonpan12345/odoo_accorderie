@@ -62,19 +62,18 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         },
         // Verify that at least one radio button is chosen on the current tab
         verifRadioChosen: function () {
-            console.log("clicked");
             var x = document.getElementsByClassName("tab");
             var inputName = x[currentTab].getElementsByTagName("input")[0];
+            var primaryColor = getComputedStyle(document.body).getPropertyValue('--primary');
 
             if ($("input[name=" + inputName.name + "]:checked").length > 0) {
-                document.getElementById("nextBtn").style.backgroundColor = "#ff956b";
+                document.getElementById("nextBtn").style.backgroundColor = primaryColor;
                 return true;
             }
             document.getElementById("nextBtn").style.backgroundColor = "lightgray";
             return false;
         },
         showTab: function (n) {
-            console.log("showtab");
             this.verifRadioChosen();
             // This function will display the specified tab of the form ...
             var x = document.getElementsByClassName("tab");
@@ -92,7 +91,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         },
         nextPrev: function (n) {
-            console.log("nextprev");
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
