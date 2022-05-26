@@ -67,7 +67,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             var inputName = x[currentTab].getElementsByTagName("input")[0];
 
             if ($("input[name=" + inputName.name + "]:checked").length > 0) {
-                document.getElementById("nextBtn").style.backgroundColor = "orange";
+                document.getElementById("nextBtn").style.backgroundColor = "#ff956b";
                 return true;
             }
             document.getElementById("nextBtn").style.backgroundColor = "lightgray";
