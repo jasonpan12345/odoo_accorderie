@@ -35063,7 +35063,9 @@ for accorderie_ville in self:
             "controller_feature": "model_show_item_list",
             "enable_javascript": True,
             "limitation_item": 3,
-            "model_name": "accorderie.offre.service;accorderie.demande.service",
+            "model_name": (
+                "accorderie.offre.service;accorderie.demande.service"
+            ),
             "model_short_name": "offre_service;demande_service",
             "name": "liste offre et demande service",
             "show_diff_time": True,

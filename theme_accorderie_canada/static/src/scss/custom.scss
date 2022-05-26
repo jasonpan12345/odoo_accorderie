@@ -4,10 +4,10 @@
 
 $font-size-base: $o-theme-font-size-base;
 $search_bar-height: 65px;
-$primary-color: theme-color('primary') !default;
-$secondary-color: theme-color('secondary') !default;; //navy blue
-$tertiary-color: theme-color('delta') !default;; //cloud blue
-$alpha: theme-color('epsilon') !default;; //cyan-ish
+$primary-color: theme-color("primary") !default;
+$secondary-color: theme-color("secondary") !default; //navy blue
+$tertiary-color: theme-color("delta") !default; //cloud blue
+$alpha: theme-color("epsilon") !default; //cyan-ish
 $beta: #d6d6d6; //light-grey (mainly for borders)
 $delta: #f4feff;
 $gamma: #dbe8ea;
@@ -42,6 +42,9 @@ $text-beta: black;
 
 .list_title {
   padding-bottom: 50px;
+  a font {
+    text-decoration: underline;
+  }
 }
 
 a {
@@ -243,15 +246,15 @@ searchbar
   .search_bar {
     height: 6vh;
 
-    input{
-        margin-top:10px;
+    input {
+      margin-top: 10px;
     }
   }
   .search_category {
-    display:none;
+    display: none;
   }
   .search_txt {
-    display:none;
+    display: none;
   }
 }
 
@@ -271,10 +274,10 @@ searchbar
 .offre_box.btn {
   padding: 0;
   text-align: left;
-  max-height:140px;
+  max-height: 140px;
 
-  a{
-      color: $text-beta;
+  a {
+    color: $text-beta;
   }
 
   .offre_img {
@@ -1609,7 +1612,7 @@ actualité
     .infos {
       display: flex;
       flex-direction: column;
-      margin-right:15%;
+      margin-right: 15%;
 
       .activite_title {
         width: 100%;
@@ -1618,14 +1621,14 @@ actualité
         color: gray;
       }
     }
-    .infos.right{
-        margin-left:auto;
-        margin-right:unset;
+    .infos.right {
+      margin-left: auto;
+      margin-right: unset;
 
-        .fa{
-            margin-top:auto;
-            font-size:1.5rem;
-        }
+      .fa {
+        margin-top: auto;
+        font-size: 1.5rem;
+      }
     }
   }
 }
