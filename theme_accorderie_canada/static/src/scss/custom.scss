@@ -20,7 +20,7 @@ $text-beta: black;
 }
 
 .navbar-light {
-  background-color: orange;
+  background-color: $primary-color;
 }
 
 @media only screen and (max-width: 890px) {
@@ -42,6 +42,10 @@ $text-beta: black;
 
 .list_title {
   padding-bottom: 50px;
+}
+
+a {
+  color: $text-beta;
 }
 
 /*
@@ -270,7 +274,7 @@ searchbar
   max-height:140px;
 
   a{
-      color:black;
+      color: $text-beta;
   }
 
   .offre_img {
@@ -605,17 +609,17 @@ actualité
   }
 
   .activite_title {
-    color: black;
+    color: $text-beta;
   }
 
   .activite_auteur {
     margin-bottom: 0;
-    color: black;
+    color: $text-beta;
   }
 
   .activite_distance {
     margin-bottom: 0;
-    color: black;
+    color: $text-beta;
   }
 }
 
@@ -1082,7 +1086,7 @@ actualité
 
     .nbr {
       font-size: 1.5rem;
-      color: black;
+      color: $text-beta;
     }
 
     .txt {
@@ -1359,7 +1363,7 @@ actualité
   }
 
   .prev {
-    background-color: orange;
+    background-color: $primary-color;
     float: left;
     margin: 1% 0 0 5%;
   }
@@ -1382,7 +1386,7 @@ actualité
       margin-top: 10%;
 
       > * {
-        color: black;
+        color: $text-beta;
       }
 
       .buttons_form_container {
@@ -1499,7 +1503,7 @@ actualité
 
       .txt {
         font-size: 1rem;
-        color: black;
+        color: $text-beta;
         font-weight: bold;
       }
     }
