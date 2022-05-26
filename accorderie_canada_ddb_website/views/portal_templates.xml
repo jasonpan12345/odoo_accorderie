@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="layout" name="Main layout" inherit_id="portal.frontend_layout">
         <!--        <xpath expr="//nav" position="attributes">-->
@@ -9,66 +9,110 @@
             <header>
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">
                     <a href="/" class="navbar-brand logo">
-                        <img t-att-src="'/logo.png?company=%s' % res_company.id"
-                             t-att-alt="'Logo of %s' % res_company.name"
-                             t-att-title="res_company.name"/>
+                        <img
+                            t-att-src="'/logo.png?company=%s' % res_company.id"
+                            t-att-alt="'Logo of %s' % res_company.name"
+                            t-att-title="res_company.name"
+                        />
                     </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse"
-                            data-target="#top_menu_collapse">
-                        <span class="navbar-toggler-icon"/>
+                    <button
+                        type="button"
+                        class="navbar-toggler"
+                        data-toggle="collapse"
+                        data-target="#top_menu_collapse"
+                    >
+                        <span class="navbar-toggler-icon" />
                     </button>
                     <div class="collapse navbar-collapse" id="top_menu_collapse">
                         <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
                         <ul class="nav navbar-nav text-right" id="top_menu">
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/">
-                                    <span data-oe-model="website.menu" data-oe-id="1" data-oe-field="name"
-                                          data-oe-type="char" data-oe-expression="submenu.name">Explorer
+                                    <span
+                                        data-oe-model="website.menu"
+                                        data-oe-id="1"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    >
+                                        Explorer
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/communaute/actualite">
-                                    <span data-oe-model="website.menu" data-oe-id="2" data-oe-field="name"
-                                          data-oe-type="char" data-oe-expression="submenu.name">Communaut&#233;
+                                    <span
+                                        data-oe-model="website.menu"
+                                        data-oe-id="2"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    >Communaut&#233;
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/participer">
-                                    <span data-oe-model="website.menu" data-oe-id="3" data-oe-field="name"
-                                          data-oe-type="char" data-oe-expression="submenu.name">Participer
+                                    <span
+                                        data-oe-model="website.menu"
+                                        data-oe-id="3"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    >
+                                        Participer
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/monactivite">
-                                    <span data-oe-model="website.menu" data-oe-id="4" data-oe-field="name"
-                                          data-oe-type="char" data-oe-expression="submenu.name">Mon activit&#233;
+                                    <span
+                                        data-oe-model="website.menu"
+                                        data-oe-id="4"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    >Mon activit&#233;
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/monprofil">
-                                    <span data-oe-model="website.menu" data-oe-id="5" data-oe-field="name"
-                                          data-oe-type="char" data-oe-expression="submenu.name">Mon profil
+                                    <span
+                                        data-oe-model="website.menu"
+                                        data-oe-id="5"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    >
+                                        Mon profil
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/#">
-                                    <span data-oe-model="website.menu" data-oe-id="6" data-oe-field="name"
-                                          data-oe-type="char" data-oe-expression="submenu.name">Aides
+                                    <span
+                                        data-oe-model="website.menu"
+                                        data-oe-id="6"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    >
+                                        Aides
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
-                                    <span class="fa fa-2x fa-heart text-primary" data-oe-model="website.menu" data-oe-id="7"
-                                          data-oe-field="name" data-oe-type="char"
-                                          data-oe-expression="submenu.name"></span>
+                                    <span
+                                        class="fa fa-2x fa-heart text-primary"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="7"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
                                 </a>
-
 
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <h2>Mes favoris</h2>
@@ -81,13 +125,13 @@
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Publier une offre de service</h4>
                                             Vous souhaitez offrir votre service?
-                                            <br/>
+                                            <br />
                                             Cliquez ici
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Publier une demande de service</h4>
                                             Vous avez besoin d'un service?
-                                            <br/>
+                                            <br />
                                             Faites nous part de votre besoin en créant une demande ici
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
@@ -98,7 +142,7 @@
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Valider un service donné ou reçu</h4>
                                             Vous avez donné ou reçu un service?
-                                            <br/>
+                                            <br />
                                             Valider la transaction ici pour donner ou recevoir votre rénumération
                                         </a>
                                     </div>
@@ -106,13 +150,13 @@
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Publier une offre de service</h4>
                                             Vous souhaitez offrir votre service?
-                                            <br/>
+                                            <br />
                                             Cliquez ici
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Publier une demande de service</h4>
                                             Vous avez besoin d'un service?
-                                            <br/>
+                                            <br />
                                             Faites nous part de votre besoin en créant une demande ici
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
@@ -123,7 +167,7 @@
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Valider un service donné ou reçu</h4>
                                             Vous avez donné ou reçu un service?
-                                            <br/>
+                                            <br />
                                             Valider la transaction ici pour donner ou recevoir votre rénumération
                                         </a>
                                     </div>
@@ -131,13 +175,13 @@
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Publier une offre de service</h4>
                                             Vous souhaitez offrir votre service?
-                                            <br/>
+                                            <br />
                                             Cliquez ici
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Publier une demande de service</h4>
                                             Vous avez besoin d'un service?
-                                            <br/>
+                                            <br />
                                             Faites nous part de votre besoin en créant une demande ici
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
@@ -148,32 +192,46 @@
                                         <a role="menuitem" href="/participer" class="dropdown-item">
                                             <h4>Valider un service donné ou reçu</h4>
                                             Vous avez donné ou reçu un service?
-                                            <br/>
+                                            <br />
                                             Valider la transaction ici pour donner ou recevoir votre rénumération
                                         </a>
                                     </div>
                                 </div>
-
-
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/monprofil/messages">
-                                    <span class="fa fa-2x fa-comments-o text-primary" data-oe-model="website.menu" data-oe-id="8"
-                                          data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
+                                    <span
+                                        class="fa fa-2x fa-comments-o text-primary"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="8"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" role="menu_item" href="/#">
-                                    <span class="fa fa-2x fa-question-circle-o text-primary" data-oe-model="website.menu"
-                                          data-oe-id="9"
-                                          data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name"/>
+                                    <span
+                                        class="fa fa-2x fa-question-circle-o text-primary"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="9"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
                                 </a>
                             </li>
                             <li class="nav-item dropdown bg-primary">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
-                                    <span class="fa fa-2x fa-edit" data-oe-model="website.menu" data-oe-id="10"
-                                          data-oe-field="name" data-oe-type="char"
-                                          data-oe-expression="submenu.name"></span>
+                                    <span
+                                        class="fa fa-2x fa-edit"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="10"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
                                     <span style="font-size:15px;margin-left: 10px;float:right">Publier</span>
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
@@ -181,13 +239,13 @@
                                     <a role="menuitem" href="/participer" class="dropdown-item pub">
                                         <h4>Publier une offre de service</h4>
                                         Vous souhaitez offrir votre service?
-                                        <br/>
+                                        <br />
                                         Cliquez ici
                                     </a>
                                     <a role="menuitem" href="/participer" class="dropdown-item pub">
                                         <h4>Publier une demande de service</h4>
                                         Vous avez besoin d'un service?
-                                        <br/>
+                                        <br />
                                         Faites nous part de votre besoin en créant une demande ici
                                     </a>
                                     <a role="menuitem" href="/participer" class="dropdown-item pub">
@@ -198,7 +256,7 @@
                                     <a role="menuitem" href="/participer" class="dropdown-item pub">
                                         <h4>Valider un service donné ou reçu</h4>
                                         Vous avez donné ou reçu un service?
-                                        <br/>
+                                        <br />
                                         Valider la transaction ici pour donner ou recevoir votre rénumération
                                     </a>
                                 </div>
@@ -206,12 +264,19 @@
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                     <b>
-                                        <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                        <span
+                                            t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"
+                                        />
                                     </b>
                                 </a>
                                 <div class="dropdown-menu js_usermenu" role="menu">
-                                    <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/"
-                                       role="menuitem">Logout
+                                    <a
+                                        id="o_logout"
+                                        class="dropdown-item"
+                                        t-attf-href="/web/session/logout?redirect=/"
+                                        role="menuitem"
+                                    >
+                                        Logout
                                     </a>
                                 </div>
                             </li>

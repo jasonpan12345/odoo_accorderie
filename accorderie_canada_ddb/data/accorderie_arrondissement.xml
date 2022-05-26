@@ -89,10 +89,7 @@
             <field name="nom">Outremont</field>
             <field name="ville" ref="accorderie_ville_montreal" />
         </record>
-        <record
-            id="accorderie_arrondissement_l_ile_bizard_sainte_genevieve_sainte_anne_de_bel"
-            model="accorderie.arrondissement"
-        >
+        <record id="accorderie_arrondissement_l_ile_bizard_sainte_genevieve_sainte_anne_de_bel" model="accorderie.arrondissement">
             <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve--Sainte-Anne-de-Bel</field>
             <field name="ville" ref="accorderie_ville_montreal" />
         </record>
@@ -108,10 +105,7 @@
             <field name="nom">Anjou</field>
             <field name="ville" ref="accorderie_ville_montreal" />
         </record>
-        <record
-            id="accorderie_arrondissement_cote_saint_luc_hampstead_montreal_ouest"
-            model="accorderie.arrondissement"
-        >
+        <record id="accorderie_arrondissement_cote_saint_luc_hampstead_montreal_ouest" model="accorderie.arrondissement">
             <field name="nom">C&#244;te-Saint-Luc--Hampstead--Montr&#233;al-Ouest</field>
             <field name="ville" ref="accorderie_ville_montreal" />
         </record>
@@ -187,10 +181,7 @@
             <field name="nom">L'&#206;le-Bizard--Sainte-Genevi&#232;ve</field>
             <field name="ville" ref="accorderie_ville_montreal" />
         </record>
-        <record
-            id="accorderie_arrondissement_riviere_des_prairies_pointe_aux_trembles"
-            model="accorderie.arrondissement"
-        >
+        <record id="accorderie_arrondissement_riviere_des_prairies_pointe_aux_trembles" model="accorderie.arrondissement">
             <field name="nom">Rivi&#232;re-des-Prairies--Pointe-aux-Trembles</field>
             <field name="ville" ref="accorderie_ville_montreal" />
         </record>

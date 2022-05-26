@@ -119,7 +119,11 @@
         <field name="arch" type="xml">
             <search string="Project Srs fonction de contrainte">
                 <filter name="name" string="Contrainte" domain="[('name','!=',False)]" />
-                <filter name="Inactive" string="Inactive Project Srs fonction de contrainte" domain="[('active','=',False)]" />
+                <filter
+                    name="Inactive"
+                    string="Inactive Project Srs fonction de contrainte"
+                    domain="[('active','=',False)]"
+                />
                 <filter name="etat" string="&#201;tat" domain="[('etat','!=',False)]" />
                 <filter name="identifiant" string="ID" domain="[('identifiant','!=',False)]" />
                 <filter name="project_srs" string="SRS" domain="[('project_srs','!=',False)]" />
