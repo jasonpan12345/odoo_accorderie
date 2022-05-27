@@ -4,7 +4,7 @@
         <record id="accorderie_type_communication_choisir" model="accorderie.type.communication">
             <field name="nom">Choisir</field>
         </record>
-        <record id="accorderie_type_communication_courriel_(email)" model="accorderie.type.communication">
+        <record id="accorderie_type_communication_courriel_email" model="accorderie.type.communication">
             <field name="nom">Courriel (Email)</field>
         </record>
         <record id="accorderie_type_communication_courrier_traditionnel" model="accorderie.type.communication">

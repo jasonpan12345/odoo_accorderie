@@ -16,7 +16,7 @@
         <record id="accorderie_situation_maison_couple_sans_enfant" model="accorderie.situation.maison">
             <field name="nom">Couple sans enfant</field>
         </record>
-        <record id="accorderie_situation_maison_couple_avec_enfant(s)" model="accorderie.situation.maison">
+        <record id="accorderie_situation_maison_couple_avec_enfants" model="accorderie.situation.maison">
             <field name="nom">Couple avec enfant(s)</field>
         </record>
     </data>

@@ -470,7 +470,7 @@
             <field name="numero">13</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_accompagnement_pour_loisirs_et_activites" />
         </record>
-        <record id="accorderie_type_service_100_c_14_accompagnement_moto_(passager)" model="accorderie.type.service">
+        <record id="accorderie_type_service_100_c_14_accompagnement_moto_passager" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Accompagnement comme passager pour randonn&#233;e en moto</field>
             <field name="identifiant">100-C-14</field>
@@ -542,14 +542,14 @@
             <field name="numero">2</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_gardiennage_divers" />
         </record>
-        <record id="accorderie_type_service_100_f_1_garde_de_maison_(home_sitting)" model="accorderie.type.service">
+        <record id="accorderie_type_service_100_f_1_garde_de_maison_home_sitting" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Garde de maison ou d'appartement en demeurant sur place (home-sitting)</field>
             <field name="identifiant">100-F-1</field>
             <field name="nom">Garde de maison (home-sitting)</field>
             <field name="nom_complet">100-F-1 - Garde de maison (home-sitting)</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux,_animaux,_plantes" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux_animaux_plantes" />
         </record>
         <record id="accorderie_type_service_100_f_2_visite_maison_lors_d_absence" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -558,7 +558,7 @@
             <field name="nom">Visite maison lors d'absence</field>
             <field name="nom_complet">100-F-2 - Visite maison lors d'absence</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux,_animaux,_plantes" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux_animaux_plantes" />
         </record>
         <record id="accorderie_type_service_100_f_3_garde_d_animaux_a_ma_maison" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -567,7 +567,7 @@
             <field name="nom">Garde d'animaux &#224; ma maison</field>
             <field name="nom_complet">100-F-3 - Garde d'animaux &#224; ma maison</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux,_animaux,_plantes" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux_animaux_plantes" />
         </record>
         <record id="accorderie_type_service_100_f_4_garde_d_animaux_a_votre_maison" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -576,7 +576,7 @@
             <field name="nom">Garde d'animaux &#224; votre maison</field>
             <field name="nom_complet">100-F-4 - Garde d'animaux &#224; votre maison</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux,_animaux,_plantes" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux_animaux_plantes" />
         </record>
         <record id="accorderie_type_service_100_f_5_garde_de_plantes_chez_moi" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -585,7 +585,7 @@
             <field name="nom">Garde de plantes chez moi</field>
             <field name="nom_complet">100-F-5 - Garde de plantes chez moi</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux,_animaux,_plantes" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_garde_de_lieux_animaux_plantes" />
         </record>
         <record id="accorderie_type_service_100_g_1_promenade_chien" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -1056,7 +1056,7 @@
             <field name="numero">1</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_reparation_et_entretien_d_ordinateurs" />
         </record>
-        <record id="accorderie_type_service_102_e_2_ajout_de_composantes_(hardware)" model="accorderie.type.service">
+        <record id="accorderie_type_service_102_e_2_ajout_de_composantes_hardware" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Aide pour monter ou d&#233;monter un ordinateur pour ajouter des composantes</field>
             <field name="identifiant">102-E-2</field>
@@ -1443,12 +1443,9 @@
             <field name="numero">1</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_amenagement_interieur_et_decoration" />
         </record>
-        <record id="accorderie_type_service_104_d_2_mesure_et_installation_store,_rideau,_persienne" model="accorderie.type.service">
+        <record id="accorderie_type_service_104_d_2_mesure_et_installation_store_rideau_persienne" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Prise de mesure et installation pour : store horizontal ou vertical, rideau et valance de rideau,
-                persienne californienne
-            </field>
+            <field name="description">Prise de mesure et installation pour : store horizontal ou vertical, rideau et valance de rideau, persienne californienne</field>
             <field name="identifiant">104-D-2</field>
             <field name="nom">Mesure et installation store, rideau, persienne</field>
             <field name="nom_complet">104-D-2 - Mesure et installation store, rideau, persienne</field>
@@ -1527,7 +1524,7 @@
             <field name="numero">21</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_meubles_et_appareils" />
         </record>
-        <record id="accorderie_type_service_104_e_22_nettoyage_de_magnetoscope_(video)" model="accorderie.type.service">
+        <record id="accorderie_type_service_104_e_22_nettoyage_de_magnetoscope_video" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Nettoyage de magn&#233;toscope (vid&#233;o)</field>
             <field name="identifiant">104-E-22</field>
@@ -2103,7 +2100,7 @@
             <field name="numero">4</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_artisanat_et_bricolage" />
         </record>
-        <record id="accorderie_type_service_106_a_5_fabrication_&quot;seche_sac&quot;_pour_sacs_zip_lock" model="accorderie.type.service">
+        <record id="accorderie_type_service_106_a_5_fabrication_seche_sac_pour_sacs_zip_lock" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Fabrication de "s&#232;che-sac" &#224; &#233;pingles pour les sacs de type zip-lock r&#233;cup&#233;r&#233;s</field>
             <field name="identifiant">106-A-5</field>
@@ -2141,10 +2138,7 @@
         </record>
         <record id="accorderie_type_service_106_a_23_initiation_tissage_de_cadres_en_laine" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Initiation au tissage de cadres en laine selon la technique d'artisanat colombien "cuadros tejidos en
-                lana"
-            </field>
+            <field name="description">Initiation au tissage de cadres en laine selon la technique d'artisanat colombien "cuadros tejidos en lana"</field>
             <field name="identifiant">106-A-23</field>
             <field name="nom">Initiation tissage de cadres en laine</field>
             <field name="nom_complet">106-A-23 - Initiation tissage de cadres en laine</field>
@@ -2268,7 +2262,7 @@
             <field name="numero">22</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_couture_et_vetements" />
         </record>
-        <record id="accorderie_type_service_106_c_23_reparation_coussins,_rideaux,_housses_douillettes" model="accorderie.type.service">
+        <record id="accorderie_type_service_106_c_23_reparation_coussins_rideaux_housses_douillettes" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">R&#233;pare des coussins, rideaux, housses de douillettes, et divers objets semblables</field>
             <field name="identifiant">106-C-23</field>
@@ -2312,7 +2306,7 @@
             <field name="nom">Fabrication v&#234;tements en tricot</field>
             <field name="nom_complet">106-D-1 - Fabrication v&#234;tements en tricot</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_2_reparation_tricots" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2321,7 +2315,7 @@
             <field name="nom">R&#233;paration tricots</field>
             <field name="nom_complet">106-D-2 - R&#233;paration tricots</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_3_tricot_vetements_pour_bebe_ou_jeune_enfant" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2330,7 +2324,7 @@
             <field name="nom">Tricot v&#234;tements pour b&#233;b&#233; ou jeune enfant</field>
             <field name="nom_complet">106-D-3 - Tricot v&#234;tements pour b&#233;b&#233; ou jeune enfant</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_4_fabrication_vetements_au_crochet" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2339,7 +2333,7 @@
             <field name="nom">Fabrication v&#234;tements au crochet</field>
             <field name="nom_complet">106-D-4 - Fabrication v&#234;tements au crochet</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_5_reparation_dentelles_et_broderies" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2348,7 +2342,7 @@
             <field name="nom">R&#233;paration dentelles et broderies</field>
             <field name="nom_complet">106-D-5 - R&#233;paration dentelles et broderies</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_10_fabrication_objets_utilitaires_en_tricot" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2357,7 +2351,7 @@
             <field name="nom">Fabrication objets utilitaires en tricot</field>
             <field name="nom_complet">106-D-10 - Fabrication objets utilitaires en tricot</field>
             <field name="numero">10</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_11_tissage_objets_utilitaires" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2366,7 +2360,7 @@
             <field name="nom">Tissage objets utilitaires</field>
             <field name="nom_complet">106-D-11 - Tissage objets utilitaires</field>
             <field name="numero">11</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_12_tissage_cadres_en_laine" model="accorderie.type.service">
             <field name="active">False</field>
@@ -2376,7 +2370,7 @@
             <field name="nom">Tissage cadres en laine</field>
             <field name="nom_complet">106-D-12 - Tissage cadres en laine</field>
             <field name="numero">12</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_20_lecons_de_tricot" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2385,7 +2379,7 @@
             <field name="nom">Le&#231;ons de tricot</field>
             <field name="nom_complet">106-D-20 - Le&#231;ons de tricot</field>
             <field name="numero">20</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_21_lecons_de_crochet" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2394,7 +2388,7 @@
             <field name="nom">Le&#231;ons de crochet</field>
             <field name="nom_complet">106-D-21 - Le&#231;ons de crochet</field>
             <field name="numero">21</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_22_initiation_tricotin" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2403,7 +2397,7 @@
             <field name="nom">Initiation tricotin</field>
             <field name="nom_complet">106-D-22 - Initiation tricotin</field>
             <field name="numero">22</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_107_a_1_redaction_textes_en_francais" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -2594,7 +2588,7 @@
             <field name="numero">3</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_formation_en_langues_et_conversation" />
         </record>
-        <record id="accorderie_type_service_107_c_8_apprentissage_langue_des_signes_du_quebec_(lsq)" model="accorderie.type.service">
+        <record id="accorderie_type_service_107_c_8_apprentissage_langue_des_signes_du_quebec_lsq" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Apprentissage de la langue des signes du Qu&#233;bec (LSQ)</field>
             <field name="identifiant">107-C-8</field>
@@ -3015,7 +3009,7 @@
             <field name="nom">R&#233;plique pour pratique r&#244;le</field>
             <field name="nom_complet">108-C-1 - R&#233;plique pour pratique r&#244;le</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_2_figurant_ou_comedien_amateur" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3024,7 +3018,7 @@
             <field name="nom">Figurant ou com&#233;dien amateur</field>
             <field name="nom_complet">108-C-2 - Figurant ou com&#233;dien amateur</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_3_rechauffement_theatral" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3033,7 +3027,7 @@
             <field name="nom">R&#233;chauffement th&#233;&#226;tral</field>
             <field name="nom_complet">108-C-3 - R&#233;chauffement th&#233;&#226;tral</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_4_coaching_acteurs_pour_audition" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3042,7 +3036,7 @@
             <field name="nom">Coaching acteurs pour audition</field>
             <field name="nom_complet">108-C-4 - Coaching acteurs pour audition</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_10_cameraman" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3051,16 +3045,16 @@
             <field name="nom">Cam&#233;raman</field>
             <field name="nom_complet">108-C-10 - Cam&#233;raman</field>
             <field name="numero">10</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
-        <record id="accorderie_type_service_108_c_11_figuration_video_d_art,_court_metrage,_photo" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_c_11_figuration_video_d_art_court_metrage_photo" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Figuration pour vid&#233;o d'art, court-m&#233;trage, photographie</field>
             <field name="identifiant">108-C-11</field>
             <field name="nom">Figuration vid&#233;o d'art, court-m&#233;trage, photo</field>
             <field name="nom_complet">108-C-11 - Figuration vid&#233;o d'art, court-m&#233;trage, photo</field>
             <field name="numero">11</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_12_film_evenements_speciaux" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3069,7 +3063,7 @@
             <field name="nom">Film &#233;v&#233;nements sp&#233;ciaux</field>
             <field name="nom_complet">108-C-12 - Film &#233;v&#233;nements sp&#233;ciaux</field>
             <field name="numero">12</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_13_montage_images_evenements_speciaux" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3078,7 +3072,7 @@
             <field name="nom">Montage images &#233;v&#233;nements sp&#233;ciaux</field>
             <field name="nom_complet">108-C-13 - Montage images &#233;v&#233;nements sp&#233;ciaux</field>
             <field name="numero">13</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_14_transfert_vhs_a_dvd" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3087,7 +3081,7 @@
             <field name="nom">Transfert VHS &#224; DVD</field>
             <field name="nom_complet">108-C-14 - Transfert VHS &#224; DVD</field>
             <field name="numero">14</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_d_1_mise_en_scene_et_mise_en_forme_spectacle" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3233,7 +3227,7 @@
             <field name="numero">1</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_graphisme_et_calligraphie" />
         </record>
-        <record id="accorderie_type_service_108_f_2_graphisme_affiches,_cartes_d_affaires,_logos" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_f_2_graphisme_affiches_cartes_d_affaires_logos" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Graphisme d'affiches, cartes d'affaires, cr&#233;ation de logos</field>
             <field name="identifiant">108-F-2</field>
@@ -3251,7 +3245,7 @@
             <field name="numero">3</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_graphisme_et_calligraphie" />
         </record>
-        <record id="accorderie_type_service_108_f_4_ecographisme_(qui_respecte_environnement)" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_f_4_ecographisme_qui_respecte_environnement" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Service d'&#233;cographisme: conception graphique ax&#233;e sur le respect de l'environnement</field>
             <field name="identifiant">108-F-4</field>
@@ -3278,7 +3272,7 @@
             <field name="numero">10</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_graphisme_et_calligraphie" />
         </record>
-        <record id="accorderie_type_service_108_f_11_confection_affiches,_bannieres,_pancartes" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_f_11_confection_affiches_bannieres_pancartes" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Vous aide ou fait pour vous des affiches, banni&#232;res, pancartes, etc.</field>
             <field name="identifiant">108-F-11</field>
@@ -3296,7 +3290,7 @@
             <field name="numero">12</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_graphisme_et_calligraphie" />
         </record>
-        <record id="accorderie_type_service_108_f_13_confection_cartons_d&amp;#8217;invitation,_remerciement" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_f_13_confection_cartons_d&amp;#8217;invitation_remerciement" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Fait cartons d'invitation, de remerciement, faire-part de mariage, etc.</field>
             <field name="identifiant">108-F-13</field>
@@ -3330,7 +3324,7 @@
             <field name="nom">Initiation dessin</field>
             <field name="nom_complet">108-G-1 - Initiation dessin</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_g_2_initiation_aquarelle" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3339,7 +3333,7 @@
             <field name="nom">Initiation aquarelle</field>
             <field name="nom_complet">108-G-2 - Initiation aquarelle</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_g_3_caricaturiste" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3348,7 +3342,7 @@
             <field name="nom">Caricaturiste</field>
             <field name="nom_complet">108-G-3 - Caricaturiste</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_h_1_organisation_evenements_culturels" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3628,7 +3622,7 @@
             <field name="nom">Animation f&#234;tes d'enfants</field>
             <field name="nom_complet">109-F-1 - Animation f&#234;tes d'enfants</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_2_clown_pour_fetes_d_enfants_ou_evenements" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3637,7 +3631,7 @@
             <field name="nom">Clown pour f&#234;tes d'enfants ou &#233;v&#233;nements</field>
             <field name="nom_complet">109-F-2 - Clown pour f&#234;tes d'enfants ou &#233;v&#233;nements</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_3_maquillage_evenements_speciaux" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3646,16 +3640,16 @@
             <field name="nom">Maquillage &#233;v&#233;nements sp&#233;ciaux</field>
             <field name="nom_complet">109-F-3 - Maquillage &#233;v&#233;nements sp&#233;ciaux</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
-        <record id="accorderie_type_service_109_f_4_disc_jockey_(dj)" model="accorderie.type.service">
+        <record id="accorderie_type_service_109_f_4_disc_jockey_dj" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">DJ pour animer vos soir&#233;es</field>
             <field name="identifiant">109-F-4</field>
             <field name="nom">Disc-jockey (DJ)</field>
             <field name="nom_complet">109-F-4 - Disc-jockey (DJ)</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_5_maitre_d_hotel_et_serveur" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3664,7 +3658,7 @@
             <field name="nom">Ma&#238;tre d'h&#244;tel et serveur</field>
             <field name="nom_complet">109-F-5 - Ma&#238;tre d'h&#244;tel et serveur</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_6_barmaid_/_barman" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3673,7 +3667,7 @@
             <field name="nom">Barmaid / barman</field>
             <field name="nom_complet">109-F-6 - Barmaid / barman</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_20_decoration_evenement_special" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3682,7 +3676,7 @@
             <field name="nom">D&#233;coration &#233;v&#233;nement sp&#233;cial</field>
             <field name="nom_complet">109-F-20 - D&#233;coration &#233;v&#233;nement sp&#233;cial</field>
             <field name="numero">20</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_21_organisation_fete_d_enfants" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3691,7 +3685,7 @@
             <field name="nom">Organisation f&#234;te d'enfants</field>
             <field name="nom_complet">109-F-21 - Organisation f&#234;te d'enfants</field>
             <field name="numero">21</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_f_22_organisation_petits_evenements" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -3700,9 +3694,9 @@
             <field name="nom">Organisation petits &#233;v&#233;nements</field>
             <field name="nom_complet">109-F-22 - Organisation petits &#233;v&#233;nements</field>
             <field name="numero">22</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
-        <record id="accorderie_type_service_109_z_1_initiation_grimpe_urbaine_(parkour)" model="accorderie.type.service">
+        <record id="accorderie_type_service_109_z_1_initiation_grimpe_urbaine_parkour" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Initiation &#224; la grimpe urbaine, ou l'art du d&#233;placement (le Parkour, art de rue)</field>
             <field name="identifiant">109-Z-1</field>
@@ -3747,7 +3741,7 @@
             <field name="numero">1</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_informations_et_ressources_en_sante" />
         </record>
-        <record id="accorderie_type_service_110_a_2_comprehension_maladie,_corps,_medicament" model="accorderie.type.service">
+        <record id="accorderie_type_service_110_a_2_comprehension_maladie_corps_medicament" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Approfondit avec vous votre compr&#233;hension d'une maladie, du fonctionnement biologique de votre corps, d'un m&#233;dicament, etc. - Personne form&#233;e dans le domaine m&#233;dical</field>
             <field name="identifiant">110-A-2</field>
@@ -4549,7 +4543,7 @@
             <field name="numero">1</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_autres_taches_du_service_d_echange_d_objet" />
         </record>
-        <record id="accorderie_type_service_500_c_1_rencontre_avec_promoteur(s)_d_une_accorderie" model="accorderie.type.service">
+        <record id="accorderie_type_service_500_c_1_rencontre_avec_promoteurs_d_une_accorderie" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Rencontre avec des promoteurs en vue du d&#233;marrage d'une nouvelle Accorderie</field>
             <field name="identifiant">500-C-1</field>
@@ -4592,7 +4586,7 @@
             <field name="nom">Initiation acrylique</field>
             <field name="nom_complet">108-G-4 - Initiation acrylique</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_g_5_initiation_gouache" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4601,7 +4595,7 @@
             <field name="nom">Initiation gouache</field>
             <field name="nom_complet">108-G-5 - Initiation gouache</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_a_20_apprentissage_du_trombone" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4621,7 +4615,7 @@
             <field name="numero">21</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_apprentissage_de_la_musique" />
         </record>
-        <record id="accorderie_type_service_108_a_22_apprentissage_du_bariton_(euphonium)" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_a_22_apprentissage_du_bariton_euphonium" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Vous apprend &#224; jouer du bariton (euphonium)</field>
             <field name="identifiant">108-A-22</field>
@@ -4646,7 +4640,7 @@
             <field name="nom">Illustration</field>
             <field name="nom_complet">108-G-6 - Illustration</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_c_5_voix_pour_film_ou_creation_artistique" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4655,7 +4649,7 @@
             <field name="nom">Voix pour film ou cr&#233;ation artistique</field>
             <field name="nom_complet">108-C-5 - Voix pour film ou cr&#233;ation artistique</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_z_3_message_chante" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4790,7 +4784,7 @@
             <field name="nom">Cr&#233;ation murales</field>
             <field name="nom_complet">108-G-7 - Cr&#233;ation murales</field>
             <field name="numero">7</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_g_8_modele_vivant" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4799,7 +4793,7 @@
             <field name="nom">Mod&#232;le vivant</field>
             <field name="nom_complet">108-G-8 - Mod&#232;le vivant</field>
             <field name="numero">8</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_104_f_5_travail_sur_carosserie_auto" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -4846,7 +4840,7 @@
             <field name="numero">1</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_outils" />
         </record>
-        <record id="accorderie_type_service_500_b_2_developpement_charte,_convention_et_manuel" model="accorderie.type.service">
+        <record id="accorderie_type_service_500_b_2_developpement_charte_convention_et_manuel" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">D&#233;veloppement de la Charte des Accorderies, de la Convention de franchise sociale et du Manuel d'op&#233;ration</field>
             <field name="identifiant">500-B-2</field>
@@ -5017,7 +5011,7 @@
             <field name="numero">5</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_cuisines_du_monde_et_specialisees" />
         </record>
-        <record id="accorderie_type_service_102_a_7_initiation_sig_(cartographie)" model="accorderie.type.service">
+        <record id="accorderie_type_service_102_a_7_initiation_sig_cartographie" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Initiation au programme SIG, Syst&#232;me d'information g&#233;ographique, utile pour la cartographie</field>
             <field name="identifiant">102-A-7</field>
@@ -5112,7 +5106,7 @@
             <field name="nom">Initiation bricolage artistique</field>
             <field name="nom_complet">108-G-9 - Initiation bricolage artistique</field>
             <field name="numero">9</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_110_c_19_initiation_pilates" model="accorderie.type.service">
             <field name="active">False</field>
@@ -5247,7 +5241,7 @@
             <field name="nom">Initiation collage</field>
             <field name="nom_complet">108-G-10 - Initiation collage</field>
             <field name="numero">10</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_111_c_20_tour_guide_sur_le_mont_royal" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5400,7 +5394,7 @@
             <field name="nom">Portraitiste</field>
             <field name="nom_complet">108-G-11 - Portraitiste</field>
             <field name="numero">11</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_101_e_6_classement_documents" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5643,7 +5637,7 @@
             <field name="nom">Initiation sculpture</field>
             <field name="nom_complet">108-G-12 - Initiation sculpture</field>
             <field name="numero">12</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_h_4_histoire_de_l_art" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5697,7 +5691,7 @@
             <field name="nom">Animation f&#234;tes et &#233;v&#233;nements</field>
             <field name="nom_complet">109-F-7 - Animation f&#234;tes et &#233;v&#233;nements</field>
             <field name="numero">7</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_110_e_12_maquillage" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -5850,7 +5844,7 @@
             <field name="nom">Le&#231;ons de dentelle</field>
             <field name="nom_complet">106-D-19 - Le&#231;ons de dentelle</field>
             <field name="numero">19</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_108_e_8_prise_de_photos_objets" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6014,7 +6008,7 @@
             <field name="nom">Animation &#233;veil musical pour enfants</field>
             <field name="nom_complet">109-F-8 - Animation &#233;veil musical pour enfants</field>
             <field name="numero">8</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_101_e_7_aide_planification_mariage" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6068,7 +6062,7 @@
             <field name="nom">Le&#231;ons de broderie</field>
             <field name="nom_complet">106-D-18 - Le&#231;ons de broderie</field>
             <field name="numero">18</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_104_c_18_conseils_pour_construction_ecologique" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6286,7 +6280,7 @@
             <field name="nom">Formation th&#233;&#226;tre</field>
             <field name="nom_complet">108-C-6 - Formation th&#233;&#226;tre</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_106_a_14_peinture_sur_ceramique_ou_porcelaine" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6433,7 +6427,7 @@
             <field name="numero">3</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_loisirs_et_jeux_divers" />
         </record>
-        <record id="accorderie_type_service_102_e_3_optimisation_systeme_d_exploitation_(software)" model="accorderie.type.service">
+        <record id="accorderie_type_service_102_e_3_optimisation_systeme_d_exploitation_software" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Optimise les performances de votre syst&#232;me d'exploitation</field>
             <field name="identifiant">102-E-3</field>
@@ -6442,7 +6436,7 @@
             <field name="numero">3</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_reparation_et_entretien_d_ordinateurs" />
         </record>
-        <record id="accorderie_type_service_102_e_4_optimisation_materiel_informatique_(hardware)" model="accorderie.type.service">
+        <record id="accorderie_type_service_102_e_4_optimisation_materiel_informatique_hardware" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Optimise les performances de votre mat&#233;riel informatique</field>
             <field name="identifiant">102-E-4</field>
@@ -6521,7 +6515,7 @@
             <field name="nom">Transfert miniDV &#224; DVD</field>
             <field name="nom_complet">108-C-15 - Transfert miniDV &#224; DVD</field>
             <field name="numero">15</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_e_22_transfert_diapos_et_negatifs_35_mm_en_numerique" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6539,7 +6533,7 @@
             <field name="nom">Initiation peinture &#224; l'huile</field>
             <field name="nom_complet">108-G-13 - Initiation peinture &#224; l'huile</field>
             <field name="numero">13</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_104_e_26_nettoyage_appareils_audiovisuels" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6648,7 +6642,7 @@
             <field name="nom">Animation groupe d'enfants</field>
             <field name="nom_complet">109-F-9 - Animation groupe d'enfants</field>
             <field name="numero">9</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_100_d_6_garde_d_enfants_et_animation_interieure/exterieure" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6666,7 +6660,7 @@
             <field name="nom">Preneur de son</field>
             <field name="nom_complet">108-C-9 - Preneur de son</field>
             <field name="numero">9</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_102_b_21_montage_sonore_numerique" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -6927,7 +6921,7 @@
             <field name="nom">R&#233;alisation court-m&#233;trage avec groupe d'enfants</field>
             <field name="nom_complet">108-C-16 - R&#233;alisation court-m&#233;trage avec groupe d'enfants</field>
             <field name="numero">16</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_100_g_14_conseils_pour_lapin" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7001,7 +6995,7 @@
             <field name="numero">5</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_divers_6" />
         </record>
-        <record id="accorderie_type_service_108_d_9_initiation_imitation_(humour)" model="accorderie.type.service">
+        <record id="accorderie_type_service_108_d_9_initiation_imitation_humour" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Initiation et conseils pour faire des imitations humoristiques</field>
             <field name="identifiant">108-D-9</field>
@@ -7107,7 +7101,7 @@
             <field name="nom">Initiation cardage et filage de la laine</field>
             <field name="nom_complet">106-D-23 - Initiation cardage et filage de la laine</field>
             <field name="numero">23</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_111_d_12_conseils_preparation_voyage_au_maroc" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7263,7 +7257,7 @@
             <field name="numero">13</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_formation_et_initiation_a_l_informatique" />
         </record>
-        <record id="accorderie_type_service_102_f_1_transcription_enregistrement_audio_(verbatim)" model="accorderie.type.service">
+        <record id="accorderie_type_service_102_f_1_transcription_enregistrement_audio_verbatim" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Utilise les outils appropri&#233;s pour effectuer la transcription fid&#232;le, le verbatim, d'un enregistrement audio (exemple: entrevue, conf&#233;rence, dict&#233;e, etc.)</field>
             <field name="identifiant">102-F-1</field>
@@ -7485,7 +7479,7 @@
             <field name="nom">Montage vid&#233;o en temps r&#233;el</field>
             <field name="nom_complet">108-C-17 - Montage vid&#233;o en temps r&#233;el</field>
             <field name="numero">17</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_102_b_9_conception_animation_2_d" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7512,7 +7506,7 @@
             <field name="nom">R&#233;alisation tableau &#224; l'acrylique</field>
             <field name="nom_complet">108-G-40 - R&#233;alisation tableau &#224; l'acrylique</field>
             <field name="numero">40</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_105_a_35_preparation_sautes" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7548,7 +7542,7 @@
             <field name="nom">Le&#231;ons de petit point sur canevas</field>
             <field name="nom_complet">106-D-17 - Le&#231;ons de petit point sur canevas</field>
             <field name="numero">17</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_100_c_18_accompagnement_jeux_de_societe" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7566,7 +7560,7 @@
             <field name="nom">Initiation feutrage de la laine</field>
             <field name="nom_complet">106-D-24 - Initiation feutrage de la laine</field>
             <field name="numero">24</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_101_e_9_aide_conception_de_formation_ou_conference" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7927,7 +7921,7 @@
             <field name="nom">Confection dentelles</field>
             <field name="nom_complet">106-D-6 - Confection dentelles</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_b_7_travaux_broderie_x_mal_placee_106_d_7" model="accorderie.type.service">
             <field name="active">False</field>
@@ -7946,7 +7940,7 @@
             <field name="nom">Travaux broderie</field>
             <field name="nom_complet">106-D-7 - Travaux broderie</field>
             <field name="numero">7</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_108_g_41_realisation_tableau_a_l_aquarelle" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -7955,7 +7949,7 @@
             <field name="nom">R&#233;alisation tableau &#224; l'aquarelle</field>
             <field name="nom_complet">108-G-41 - R&#233;alisation tableau &#224; l'aquarelle</field>
             <field name="numero">41</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_106_a_16_peinture_sur_soie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8076,10 +8070,7 @@
         </record>
         <record id="accorderie_type_service_109_a_40_officiel_mineur_hockey" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Officiel mineur pour le hockey sur glace et/ou hockey cosom (tableau indicateur, feuille de joute,
-                indiquer si le but est bon, etc.)
-            </field>
+            <field name="description">Officiel mineur pour le hockey sur glace et/ou hockey cosom (tableau indicateur, feuille de joute, indiquer si le but est bon, etc.)</field>
             <field name="identifiant">109-A-40</field>
             <field name="nom">Officiel mineur hockey</field>
             <field name="nom_complet">109-A-40 - Officiel mineur hockey</field>
@@ -8151,10 +8142,7 @@
         </record>
         <record id="accorderie_type_service_109_a_61_annonceur_maison_soccer" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Annonceur au micro pour parties de soccer (buts, aides, cartons jaunes / rouges, alignements partants,
-                etc.)
-            </field>
+            <field name="description">Annonceur au micro pour parties de soccer (buts, aides, cartons jaunes / rouges, alignements partants, etc.)</field>
             <field name="identifiant">109-A-61</field>
             <field name="nom">Annonceur-maison soccer</field>
             <field name="nom_complet">109-A-61 - Annonceur-maison soccer</field>
@@ -8172,10 +8160,7 @@
         </record>
         <record id="accorderie_type_service_109_a_63_annonceur_maison_baseball_/_balle_molle" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Annonceur au micro pour parties de baseball ou balle-molle (prochain frappeur, alignements partants,
-                pointage, etc.)
-            </field>
+            <field name="description">Annonceur au micro pour parties de baseball ou balle-molle (prochain frappeur, alignements partants, pointage, etc.)</field>
             <field name="identifiant">109-A-63</field>
             <field name="nom">Annonceur-maison baseball / balle-molle</field>
             <field name="nom_complet">109-A-63 - Annonceur-maison baseball / balle-molle</field>
@@ -8200,7 +8185,7 @@
             <field name="numero">25</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tourisme_local" />
         </record>
-        <record id="accorderie_type_service_111_c_26_tour_guide_outremont_(montreal)" model="accorderie.type.service">
+        <record id="accorderie_type_service_111_c_26_tour_guide_outremont_montreal" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Visite guid&#233;e de l'arrondissement Outremont &#224; Montr&#233;al</field>
             <field name="identifiant">111-C-26</field>
@@ -8209,7 +8194,7 @@
             <field name="numero">26</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tourisme_local" />
         </record>
-        <record id="accorderie_type_service_111_c_27_tour_guide_cote_des_neiges/notre_dame_de_grace_(montreal)" model="accorderie.type.service">
+        <record id="accorderie_type_service_111_c_27_tour_guide_cote_des_neiges/notre_dame_de_grace_montreal" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Visite guid&#233;e de l'arrondissement C&#244;te-des-Neiges/Notre-Dame-de-Gr&#226;ce &#224; Montr&#233;al</field>
             <field name="identifiant">111-C-27</field>
@@ -8218,7 +8203,7 @@
             <field name="numero">27</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tourisme_local" />
         </record>
-        <record id="accorderie_type_service_111_c_28_tour_guide_rosemont/petite_patrie_(montreal)" model="accorderie.type.service">
+        <record id="accorderie_type_service_111_c_28_tour_guide_rosemont/petite_patrie_montreal" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Visite guid&#233;e de l'arrondissement Rosemont/Petite-Patrie &#224; Montr&#233;al</field>
             <field name="identifiant">111-C-28</field>
@@ -8272,7 +8257,7 @@
             <field name="numero">3</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_montreal" />
         </record>
-        <record id="accorderie_type_service_109_e_41_animation_jeu_de_role_(maitre_de_jeu)" model="accorderie.type.service">
+        <record id="accorderie_type_service_109_e_41_animation_jeu_de_role_maitre_de_jeu" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Ma&#238;tre de jeu pour jeu de r&#244;le en petit groupe</field>
             <field name="identifiant">109-E-41</field>
@@ -8306,7 +8291,7 @@
             <field name="nom">Livraison anim&#233;e de fleurs ou ballons</field>
             <field name="nom_complet">109-F-10 - Livraison anim&#233;e de fleurs ou ballons</field>
             <field name="numero">10</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_109_b_17_initiation_course_a_pied" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8450,7 +8435,7 @@
             <field name="nom">Montage vid&#233;o</field>
             <field name="nom_complet">108-C-18 - Montage vid&#233;o</field>
             <field name="numero">18</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_105_b_19_cuisine_plats_armeniens" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8623,7 +8608,7 @@
             <field name="numero">19</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_initiation_aux_sports" />
         </record>
-        <record id="accorderie_type_service_107_c_47_apprentissage_du_khmer_(cambodgien)" model="accorderie.type.service">
+        <record id="accorderie_type_service_107_c_47_apprentissage_du_khmer_cambodgien" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Apprentissage du khmer, langue principale du Cambodge</field>
             <field name="identifiant">107-C-47</field>
@@ -8720,7 +8705,7 @@
             <field name="nom">Initiation dessin anim&#233; traditionnel</field>
             <field name="nom_complet">108-C-50 - Initiation dessin anim&#233; traditionnel</field>
             <field name="numero">50</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_g_14_initiation_poterie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8729,14 +8714,11 @@
             <field name="nom">Initiation poterie</field>
             <field name="nom_complet">108-G-14 - Initiation poterie</field>
             <field name="numero">14</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_110_c_22_initiation_qi_gong" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Initiation au qi gong, discipline traditionnelle chinoise associant mouvements lents, exercices
-                respiratoires et concentration
-            </field>
+            <field name="description">Initiation au qi gong, discipline traditionnelle chinoise associant mouvements lents, exercices respiratoires et concentration</field>
             <field name="identifiant">110-C-22</field>
             <field name="nom">Initiation qi gong</field>
             <field name="nom_complet">110-C-22 - Initiation qi gong</field>
@@ -8768,7 +8750,7 @@
             <field name="nom">Animation karaok&#233;</field>
             <field name="nom_complet">109-F-11 - Animation karaok&#233;</field>
             <field name="numero">11</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_108_g_15_initiation_creation_murale" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8777,7 +8759,7 @@
             <field name="nom">Initiation cr&#233;ation murale</field>
             <field name="nom_complet">108-G-15 - Initiation cr&#233;ation murale</field>
             <field name="numero">15</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_109_b_20_initiation_ski_alpin" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -8903,7 +8885,7 @@
             <field name="nom">Magicien</field>
             <field name="nom_complet">109-F-12 - Magicien</field>
             <field name="numero">12</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_108_d_23_initiation_tours_de_magie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9078,10 +9060,7 @@
         </record>
         <record id="accorderie_type_service_101_z_5_information_droits_des_consommateurs" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Vous fournit de l'information juridique, entre autres, sur les droits des consommateurs (par ex.: OPC,
-                Loi sur la protection du consommateur, droit des contrats, etc.)
-            </field>
+            <field name="description">Vous fournit de l'information juridique, entre autres, sur les droits des consommateurs (par ex.: OPC, Loi sur la protection du consommateur, droit des contrats, etc.)</field>
             <field name="identifiant">101-Z-5</field>
             <field name="nom">Information droits des consommateurs</field>
             <field name="nom_complet">101-Z-5 - Information droits des consommateurs</field>
@@ -9302,7 +9281,7 @@
             <field name="nom">R&#233;alisation vid&#233;o</field>
             <field name="nom_complet">108-C-19 - R&#233;alisation vid&#233;o</field>
             <field name="numero">19</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_e_23_restauration_cd_et_dvd" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9329,7 +9308,7 @@
             <field name="nom">Initiation dessin au fusain</field>
             <field name="nom_complet">108-G-16 - Initiation dessin au fusain</field>
             <field name="numero">16</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_108_g_17_initiation_dessin_au_pastel" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9338,7 +9317,7 @@
             <field name="nom">Initiation dessin au pastel</field>
             <field name="nom_complet">108-G-17 - Initiation dessin au pastel</field>
             <field name="numero">17</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_111_d_16_conseils_preparation_voyage_en_asie_du_sud_est" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9537,7 +9516,7 @@
             <field name="nom">Conseils et soutien fabrication v&#234;tement en tricot</field>
             <field name="nom_complet">106-D-25 - Conseils et soutien fabrication v&#234;tement en tricot</field>
             <field name="numero">25</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_109_b_23_initiation_planche_a_neige" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9594,7 +9573,7 @@
             <field name="numero">33</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_loisirs_et_jeux_divers" />
         </record>
-        <record id="accorderie_type_service_105_z_105_sommellerie_erreur,_voir_105_z_5" model="accorderie.type.service">
+        <record id="accorderie_type_service_105_z_105_sommellerie_erreur_voir_105_z_5" model="accorderie.type.service">
             <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">"Vous aide &#224; choisir vos vins et r&#233;pond &#224; vos questions sur les vins, leur choix, leur service et l'accord mets et vins "</field>
@@ -9604,7 +9583,7 @@
             <field name="numero">105</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_divers_3" />
         </record>
-        <record id="accorderie_type_service_105_z_105_sommellerie_autre_erreur,_voir_105_z_5" model="accorderie.type.service">
+        <record id="accorderie_type_service_105_z_105_sommellerie_autre_erreur_voir_105_z_5" model="accorderie.type.service">
             <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">"Vous aide &#224; choisir vos vins et r&#233;pond &#224; vos&#13;
@@ -9633,7 +9612,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">22</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_education_et_formation" />
         </record>
-        <record id="accorderie_type_service_105_a_38_confection_macarons_(patisserie)" model="accorderie.type.service">
+        <record id="accorderie_type_service_105_a_38_confection_macarons_patisserie" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Confection de macarons, petite p&#226;tisserie &#224; base de meringue et poudre d'amande</field>
             <field name="identifiant">105-A-38</field>
@@ -9676,7 +9655,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Sculpture de ballons</field>
             <field name="nom_complet">109-F-13 - Sculpture de ballons</field>
             <field name="numero">13</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" />
         </record>
         <record id="accorderie_type_service_105_c_33_initiation_cuisine_italienne" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -9886,7 +9865,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">11</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_aide_a_l_organisation" />
         </record>
-        <record id="accorderie_type_service_106_a_18_initiation_vannerie_(tressage)_coublon_voir_106_a_30" model="accorderie.type.service">
+        <record id="accorderie_type_service_106_a_18_initiation_vannerie_tressage_coublon_voir_106_a_30" model="accorderie.type.service">
             <field name="active">False</field>
             <field name="approuve">True</field>
             <field name="description">Initiation &#224; la vannerie, diff&#233;rents types de tressage en mati&#232;re v&#233;g&#233;tale pour faire des objets divers: paniers, objets d&#233;coratifs, etc.</field>
@@ -9905,7 +9884,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">74</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_artisanat_et_bricolage" />
         </record>
-        <record id="accorderie_type_service_106_a_30_initiation_vannerie_(tressage)" model="accorderie.type.service">
+        <record id="accorderie_type_service_106_a_30_initiation_vannerie_tressage" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Initiation &#224; la vannerie, diff&#233;rents types de tressage en mati&#232;re v&#233;g&#233;tale pour faire des objets divers: paniers, objets d&#233;coratifs, etc.</field>
             <field name="identifiant">106-A-30</field>
@@ -10002,7 +9981,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">R&#233;vision de sc&#233;nario</field>
             <field name="nom_complet">108-C-21 - R&#233;vision de sc&#233;nario</field>
             <field name="numero">21</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_c_51_initiation_creation_de_scenario" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -10011,7 +9990,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Initiation cr&#233;ation de sc&#233;nario</field>
             <field name="nom_complet">108-C-51 - Initiation cr&#233;ation de sc&#233;nario</field>
             <field name="numero">51</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_108_e_24_retouche_photos" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -10328,7 +10307,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">8</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_amenagement_et_entretien_de_terrain" />
         </record>
-        <record id="accorderie_type_service_104_c_8_aide_installation_garage_de_toile_(tempo)" model="accorderie.type.service">
+        <record id="accorderie_type_service_104_c_8_aide_installation_garage_de_toile_tempo" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Aide pour monter ou d&#233;monter votre garage de toile, ou "abri tempo"</field>
             <field name="identifiant">104-C-8</field>
@@ -10780,7 +10759,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Cr&#233;ation oeuvre d'art en direct</field>
             <field name="nom_complet">108-G-42 - Cr&#233;ation oeuvre d'art en direct</field>
             <field name="numero">42</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_300_d_8_transport_pour_l_accorderie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -10906,7 +10885,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Initiation r&#233;alisation vid&#233;o</field>
             <field name="nom_complet">108-C-52 - Initiation r&#233;alisation vid&#233;o</field>
             <field name="numero">52</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_theatre_cinema_et_video" />
         </record>
         <record id="accorderie_type_service_106_a_76_confection_cartes_de_souhait_artisanales" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -10996,7 +10975,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Initiation dessin 3D / perspective</field>
             <field name="nom_complet">108-G-18 - Initiation dessin 3D / perspective</field>
             <field name="numero">18</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" />
         </record>
         <record id="accorderie_type_service_106_a_33_initiation_origami" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11140,7 +11119,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Covoiturage de la Manicouagan vers Qu&#233;bec</field>
             <field name="nom_complet">103-M-1 - Covoiturage de la Manicouagan vers Qu&#233;bec</field>
             <field name="numero">1</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" />
         </record>
         <record id="accorderie_type_service_103_m_2_covoiturage_de_la_manicouagan_vers_montreal" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11149,7 +11128,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Covoiturage de la Manicouagan vers Montr&#233;al</field>
             <field name="nom_complet">103-M-2 - Covoiturage de la Manicouagan vers Montr&#233;al</field>
             <field name="numero">2</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" />
         </record>
         <record id="accorderie_type_service_103_m_3_covoiturage_de_la_manicouagan_vers_sept_iles" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11158,7 +11137,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Covoiturage de la Manicouagan vers Sept-Iles</field>
             <field name="nom_complet">103-M-3 - Covoiturage de la Manicouagan vers Sept-Iles</field>
             <field name="numero">3</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" />
         </record>
         <record id="accorderie_type_service_103_m_4_covoiturage_de_la_manicouagan_vers_matane" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11167,7 +11146,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Covoiturage de la Manicouagan vers Matane</field>
             <field name="nom_complet">103-M-4 - Covoiturage de la Manicouagan vers Matane</field>
             <field name="numero">4</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" />
         </record>
         <record id="accorderie_type_service_103_m_5_covoiturage_de_la_manicouagan_vers_rimouski" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11176,7 +11155,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Covoiturage de la Manicouagan vers Rimouski</field>
             <field name="nom_complet">103-M-5 - Covoiturage de la Manicouagan vers Rimouski</field>
             <field name="numero">5</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" />
         </record>
         <record id="accorderie_type_service_103_m_6_covoiturage_de_la_manicouagan_vers_chicoutimi" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11185,7 +11164,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Covoiturage de la Manicouagan vers Chicoutimi</field>
             <field name="nom_complet">103-M-6 - Covoiturage de la Manicouagan vers Chicoutimi</field>
             <field name="numero">6</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" />
         </record>
         <record id="accorderie_type_service_109_e_42_conseils_jeux_de_societe_enfants" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11437,7 +11416,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Fabrication jouets au crochet</field>
             <field name="nom_complet">106-D-12 - Fabrication jouets au crochet</field>
             <field name="numero">12</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_111_d_27_conseils_preparation_voyage_au_yukon" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11455,7 +11434,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Fabrication articles de b&#233;b&#233; au crochet</field>
             <field name="nom_complet">106-D-13 - Fabrication articles de b&#233;b&#233; au crochet</field>
             <field name="numero">13</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_14_fabrication_objets_utilitaires_au_crochet" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11464,7 +11443,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Fabrication objets utilitaires au crochet</field>
             <field name="nom_complet">106-D-14 - Fabrication objets utilitaires au crochet</field>
             <field name="numero">14</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_109_e_6_initiation_jeu_de_go" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11511,7 +11490,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">2</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_utilisation_de_materiel_bureautique" />
         </record>
-        <record id="accorderie_type_service_109_b_29_initiation_planche_a_roulettes_(skateboard)" model="accorderie.type.service">
+        <record id="accorderie_type_service_109_b_29_initiation_planche_a_roulettes_skateboard" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Initiation &#224; la planche &#224; roulettes ou skateboard</field>
             <field name="identifiant">109-B-29</field>
@@ -11520,7 +11499,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">29</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_initiation_aux_sports" />
         </record>
-        <record id="accorderie_type_service_195_a_1_accordeure_inscrite_a_la_location_solidaire_(a_titre_d_information)" model="accorderie.type.service">
+        <record id="accorderie_type_service_195_a_1_accordeure_inscrite_a_la_location_solidaire_a_titre_d_information" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">Offre &#224; ne pas utiliser pour les transactions - informe que l'AccordeurE a eu la formation pour utiliser le service collectif de location solidaire</field>
             <field name="identifiant">195-A-1</field>
@@ -11547,7 +11526,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="numero">2</field>
             <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_participation_a_la_location_solidaire" />
         </record>
-        <record id="accorderie_type_service_205_a_3_pret_d_objet_(penalite_de_retard)_location_solidaire" model="accorderie.type.service">
+        <record id="accorderie_type_service_205_a_3_pret_d_objet_penalite_de_retard_location_solidaire" model="accorderie.type.service">
             <field name="approuve">True</field>
             <field name="description">P&#233;nalit&#233; pour retour en retard d'un objet emprunt&#233; avec la location solidaire</field>
             <field name="identifiant">205-A-3</field>
@@ -11780,7 +11759,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Fabrication objets en macram&#233;</field>
             <field name="nom_complet">106-D-8 - Fabrication objets en macram&#233;</field>
             <field name="numero">8</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_26_formation_metier_a_tisser" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11789,7 +11768,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Formation m&#233;tier &#224; tisser</field>
             <field name="nom_complet">106-D-26 - Formation m&#233;tier &#224; tisser</field>
             <field name="numero">26</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_106_d_27_montage_de_metier_a_tisser" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -11798,7 +11777,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
             <field name="nom">Montage de m&#233;tier &#224; tisser</field>
             <field name="nom_complet">106-D-27 - Montage de m&#233;tier &#224; tisser</field>
             <field name="numero">27</field>
-            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" />
+            <field name="sous_categorie_id" ref="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" />
         </record>
         <record id="accorderie_type_service_109_c_13_initiation_astronomie" model="accorderie.type.service">
             <field name="approuve">True</field>
@@ -12009,10 +11988,7 @@ questions sur les vins, leur choix, leur service et l'accord mets et vins "</fie
         </record>
         <record id="accorderie_type_service_300_j_1_soutien_en_informatique" model="accorderie.type.service">
             <field name="approuve">True</field>
-            <field name="description">
-                Soutien en informatique pour favoriser la participation sociale dans le cadre de la crise de la
-                COVID-19.
-            </field>
+            <field name="description">Soutien en informatique pour favoriser la participation sociale dans le cadre de la crise de la COVID-19.</field>
             <field name="identifiant">300-J-1</field>
             <field name="nom">Soutien en informatique</field>
             <field name="nom_complet">300-J-1 - Soutien en informatique</field>
