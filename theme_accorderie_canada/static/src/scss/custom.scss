@@ -42,6 +42,7 @@ $text-beta: black;
 
 .list_title {
   padding-bottom: 50px;
+
   a font {
     text-decoration: underline;
   }
@@ -111,10 +112,6 @@ a {
 
   :nth-child(7) {
     margin-left: auto;
-
-    * {
-      color: $primary-color;
-    }
   }
 
   :nth-child(8) * {
@@ -171,12 +168,61 @@ header .nav-link {
 }
 
 /*
+    navbar dropdown menu
+*/
+.dropdown-menu.submenu {
+  padding: 1.5rem;
+  max-width: 480px;
+  min-width: 465px;
+
+  .pub {
+    padding: 1.5rem;
+    border: 1px solid $beta;
+    border-radius: 5px;
+    margin-top: 1rem;
+    white-space: normal;
+  }
+}
+
+.dropdown-nav {
+  border-bottom: 1px solid $beta;
+
+  button {
+    background-color: white;
+    border: none;
+    padding: 1rem 1rem 1rem 0;
+  }
+  button:hover {
+    box-shadow: inset 0 -2px $primary-color;
+  }
+}
+
+.cat.activite.btn {
+  min-height: unset;
+
+  img {
+    height: 65px;
+  }
+}
+.cat.activite.btn-primary {
+  text-align: center;
+  display: block;
+  padding: 0.75rem;
+  margin-top: 5%;
+}
+
+.dropdown-cat .dropdown-item {
+  padding: 0;
+}
+
+/*
 searchbar
 */
 .s_search {
   padding-bottom: 600px;
   background-position-x: center;
 }
+
 .s_search_short {
   background-color: $tertiary-color;
 }
@@ -197,6 +243,7 @@ searchbar
     width: 45%;
     border: none;
   }
+
   input:focus {
     outline: none;
   }
@@ -598,10 +645,10 @@ actualité
   max-width: 100%;
   max-height: 160px;
   padding: 5% 0;
-  border-top: 1px solid #d6d6d6;
   overflow: hidden;
   text-align: left;
   white-space: normal;
+  display: flex;
 
   .activite_img {
     float: left;
@@ -623,6 +670,18 @@ actualité
   .activite_distance {
     margin-bottom: 0;
     color: $text-beta;
+  }
+
+  .infos.right {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    color: $text-beta;
+
+    .fa {
+      margin-top: auto;
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -1171,7 +1230,7 @@ actualité
   flex-wrap: nowrap;
 
   .list_title {
-    border-bottom: 1px solid #d6d6d6;
+    border-bottom: 1px solid $beta;
     margin-top: 75px;
   }
 
@@ -1180,7 +1239,7 @@ actualité
     padding: 1.5% 0 1.5%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #d6d6d6;
+    border-bottom: 1px solid $beta;
     border-top: none;
 
     .activite_img {
@@ -1223,7 +1282,7 @@ actualité
       left: 0px;
       top: 30%;
       height: 40%;
-      border-left: 1px solid #becfd1;
+      border-left: 1px solid $gamma;
       border-radius: 2px;
     }
   }
@@ -1457,26 +1516,6 @@ actualité
 }
 
 /*
-    navbar dropdown menu
-*/
-.dropdown-menu.submenu {
-  padding: 1.5rem;
-  min-width: 465px;
-
-  .pub {
-    padding: 1.5rem;
-    border: 1px solid $beta;
-    border-radius: 5px;
-    margin-top: 1rem;
-    white-space: normal;
-  }
-}
-
-.dropdown-cat {
-  //display:none;
-}
-
-/*
     Page ma présentation
 */
 .s_mes_informations {
@@ -1617,10 +1656,12 @@ actualité
       .activite_title {
         width: 100%;
       }
+
       .activite_desc {
         color: gray;
       }
     }
+
     .infos.right {
       margin-left: auto;
       margin-right: unset;
