@@ -123,77 +123,71 @@
                                     </div>
                                     <div class="dropdown-cat">
                                         <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Publier une offre de service</h4>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
+                                            <div class="cat activite btn " data-name="Box">
+                                                <img
+                                                    class="activite_img img-fluid"
+                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                />
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Faire mon épicerie</h4>
+                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                </div>
+                                            </div>
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Publier une demande de service</h4>
-                                            Vous avez besoin d'un service?
-                                            <br />
-                                            Faites nous part de votre besoin en créant une demande ici
+                                            <div class="cat activite btn" data-name="Box">
+                                                <img
+                                                    class="activite_img img-fluid"
+                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                />
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Faire mon épicerie</h4>
+                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                </div>
+                                            </div>
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Créer une entente de service</h4>
-                                            Créer une entente de service avec un autre accordeur pour vous mettre
-                                            d'accord sur les modalités?
+                                            <div class="cat activite btn" data-name="Box">
+                                                <img
+                                                    class="activite_img img-fluid"
+                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                />
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Faire mon épicerie</h4>
+                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                </div>
+                                            </div>
                                         </a>
                                         <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Valider un service donné ou reçu</h4>
-                                            Vous avez donné ou reçu un service?
-                                            <br />
-                                            Valider la transaction ici pour donner ou recevoir votre rénumération
+                                            <div class="cat activite btn" data-name="Box">
+                                                <img
+                                                    class="activite_img img-fluid"
+                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                />
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Faire mon épicerie</h4>
+                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                </div>
+                                            </div>
                                         </a>
-                                    </div>
-                                    <div class="dropdown-cat">
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Publier une offre de service</h4>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Publier une demande de service</h4>
-                                            Vous avez besoin d'un service?
-                                            <br />
-                                            Faites nous part de votre besoin en créant une demande ici
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Créer une entente de service</h4>
-                                            Créer une entente de service avec un autre accordeur pour vous mettre
-                                            d'accord sur les modalités?
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Valider un service donné ou reçu</h4>
-                                            Vous avez donné ou reçu un service?
-                                            <br />
-                                            Valider la transaction ici pour donner ou recevoir votre rénumération
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-cat">
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Publier une offre de service</h4>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Publier une demande de service</h4>
-                                            Vous avez besoin d'un service?
-                                            <br />
-                                            Faites nous part de votre besoin en créant une demande ici
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Créer une entente de service</h4>
-                                            Créer une entente de service avec un autre accordeur pour vous mettre
-                                            d'accord sur les modalités?
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <h4>Valider un service donné ou reçu</h4>
-                                            Vous avez donné ou reçu un service?
-                                            <br />
-                                            Valider la transaction ici pour donner ou recevoir votre rénumération
+                                        <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
+                                            <div class="cat activite btn btn-primary" data-name="Box">
+                                                <font class="text-gamma" style="font-size: 1rem;">
+                                                    Voir toutes mes offres favorites
+                                                </font>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>

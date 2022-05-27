@@ -997,68 +997,104 @@
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size: 2rem; float:left;">Offres r&#233;centes</font>
-                                                <span>
+                                                <a href="/offresservice">
                                                     <font style="float:right; font-size:1.25rem; margin-top:10px;">
                                                         Voir
                                                         Tout (+500)
                                                     </font>
-                                                </span>
+                                                </a>
                                             </h1>
                                         </div>
                                         <a class="activite btn" data-name="Box" href="/offre">
                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                            <h4 class="activite_title">Faire visiter une maison &#224; louer</h4>
-                                            <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                            <h5 class="activite_distance">2 km</h5>
+                                            <div class="infos">
+                                                <h4 class="activite_title">Faire visiter une maison &#224; louer</h4>
+                                                <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                <h5 class="activite_distance">2 km</h5>
+                                            </div>
+                                            <div class="infos right">
+                                                <h5>5m</h5>
+                                                <h2 class="fa fa-heart-o text-epsilon" />
+                                            </div>
                                         </a>
                                         <div class="activite btn" data-name="Box">
                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip663589" />
-                                            <h4 class="activite_title">Je vous fait d&#233;couvrir la ville et toutes
+                                            <div class="infos">
+                                                <h4 class="activite_title">Je vous fait d&#233;couvrir la ville et toutes
                                                 les bonnes choses &#224; savoir.
                                                 <br />
                                             </h4>
-                                            <h5 class="activite_auteur">
-                                                Alice Poitier
-                                                <br />
-                                            </h5>
-                                            <h5 class="activite_distance">2 km</h5>
+                                                <h5 class="activite_auteur">
+                                                    Alice Poitier
+                                                    <br />
+                                                </h5>
+                                                <h5 class="activite_distance">2 km</h5>
+                                            </div>
+                                            <div class="infos right">
+                                                <h5>5m</h5>
+                                                <h2 class="fa fa-heart-o text-epsilon" />
+                                            </div>
                                         </div>
                                         <div class="activite btn" data-name="Box">
                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_jean_louis_aubert_l49iaamlmdc_unsplash_jpg/jean-louis-aubert-L49iaAmLMDc-unsplash.jpg" />
-                                            <h4 class="activite_title">Cours de violon</h4>
-                                            <h5 class="activite_auteur">Martin Bergeron</h5>
-                                            <h5 class="activite_distance">2 km</h5>
+                                            <div class="infos">
+                                                <h4 class="activite_title">Cours de violon</h4>
+                                                <h5 class="activite_auteur">Martin Bergeron</h5>
+                                                <h5 class="activite_distance">2 km</h5>
+                                            </div>
+                                            <div class="infos right">
+                                                <h5>5m</h5>
+                                                <h2 class="fa fa-heart-o text-epsilon" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row activites_list col-lg-6">
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size: 2rem; float:left;">Demandes r&#233;centes</font>
-                                                <span>
+                                                <a href="/offresservice">
                                                     <font style="float:right; font-size:1.25rem; margin-top:10px;">
                                                         Voir
                                                         Tout (+40)
                                                     </font>
-                                                </span>
+                                                </a>
                                             </h1>
                                         </div>
                                         <div class="activite btn" data-name="Box">
                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg" />
-                                            <h4 class="activite_title">Faire mon &#233;picerie</h4>
-                                            <h5 class="activite_auteur">Denise Tr&#233;panier</h5>
-                                            <h5 class="activite_distance">2 km</h5>
+                                            <div class="infos">
+                                                <h4 class="activite_title">Faire mon &#233;picerie</h4>
+                                                <h5 class="activite_auteur">Denise Tr&#233;panier</h5>
+                                                <h5 class="activite_distance">2 km</h5>
+                                            </div>
+                                            <div class="infos right">
+                                                <h5>5m</h5>
+                                                <h2 class="fa fa-heart-o text-epsilon" />
+                                            </div>
                                         </div>
                                         <div class="activite btn" data-name="Box">
                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_kemper_cbzh3kapxre_unsplash_jpg/jonathan-kemper-CbZh3kaPxrE-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip663589" />
-                                            <h4 class="activite_title">M'aider avec le jardin</h4>
-                                            <h5 class="activite_auteur">Christine Lalibert&#233;</h5>
-                                            <h5 class="activite_distance">2 km</h5>
+                                            <div class="infos">
+                                                <h4 class="activite_title">M'aider avec le jardin</h4>
+                                                <h5 class="activite_auteur">Christine Lalibert&#233;</h5>
+                                                <h5 class="activite_distance">2 km</h5>
+                                            </div>
+                                            <div class="infos right">
+                                                <h5>5m</h5>
+                                                <h2 class="fa fa-heart-o text-epsilon" />
+                                            </div>
                                         </div>
                                         <div class="activite btn" data-name="Box">
                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
-                                            <h4 class="activite_title">Cours de math&#233;matique pour ma fille</h4>
-                                            <h5 class="activite_auteur">Yannick Delmonde</h5>
-                                            <h5 class="activite_distance">2 km</h5>
+                                            <div class="infos">
+                                                <h4 class="activite_title">Cours de math&#233;matique pour ma fille</h4>
+                                                <h5 class="activite_auteur">Yannick Delmonde</h5>
+                                                <h5 class="activite_distance">2 km</h5>
+                                            </div>
+                                            <div class="infos right">
+                                                <h5>5m</h5>
+                                                <h2 class="fa fa-heart-o text-epsilon" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
