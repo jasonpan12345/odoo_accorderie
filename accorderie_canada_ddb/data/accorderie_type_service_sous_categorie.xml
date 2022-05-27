@@ -313,7 +313,7 @@
             <field name="nom">Formation en langues et conversation</field>
             <field name="sous_categorie_service">C</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_theatre,_cinema_et_video" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_theatre_cinema_et_video" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Th&#233;&#226;tre, cin&#233;ma et vid&#233;o</field>
@@ -427,7 +427,7 @@
             <field name="nom">Conseils et trucs en alimentation</field>
             <field name="sous_categorie_service">D</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_tricot,_crochet_et_tissage" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_tricot_crochet_et_tissage" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_artisanat_/_couture_/_vetements" />
             <field name="nom">Tricot, crochet et tissage</field>
@@ -559,7 +559,7 @@
             <field name="nom">Promotion</field>
             <field name="sous_categorie_service">E</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_garde_de_lieux,_animaux,_plantes" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_garde_de_lieux_animaux_plantes" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_accompagnement_/_gardiennage_/_animaux" />
             <field name="nom">Garde de lieux, animaux, plantes</field>
@@ -595,7 +595,7 @@
             <field name="nom">Graphisme et calligraphie</field>
             <field name="sous_categorie_service">F</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_animation,_fetes_et_evenements" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_animation_fetes_et_evenements" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_sports_/_loisirs_/_animation" />
             <field name="nom">Animation, f&#234;tes et &#233;v&#233;nements</field>
@@ -649,7 +649,7 @@
             <field name="nom">V&#233;lo et v&#233;hicules non motoris&#233;s</field>
             <field name="sous_categorie_service">G</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_dessin,_peinture_et_arts_visuels" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_dessin_peinture_et_arts_visuels" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_arts_/_culture_/_education" />
             <field name="nom">Dessin, peinture et arts visuels</field>
@@ -770,7 +770,7 @@
             <field name="nom">Covoiturage interurbain - D&#233;parts de Sherbrooke</field>
             <field name="sous_categorie_service">L</field>
         </record>
-        <record id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_(cote_nord)" model="accorderie.type.service.sous.categorie">
+        <record id="accorderie_type_service_sous_categorie_covoiturage_interurbain_departs_de_la_region_de_la_manicouagan_cote_nord" model="accorderie.type.service.sous.categorie">
             <field name="approuver">True</field>
             <field name="categorie" ref="accorderie_type_service_categorie_transport_/_demenagement" />
             <field name="nom">Covoiturage interurbain - D&#233;parts de la r&#233;gion de la Manicouagan (C&#244;te-Nord)</field>
