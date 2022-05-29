@@ -94,6 +94,20 @@ class AccorderieCanadaDdbController(http.Controller):
         offre_services = accorderie_offre_service_cls.sudo().browse(
             accorderie_offre_service_ids
         )
+        offre_services_count = (
+            accorderie_offre_service_cls.sudo().search_count([])
+        )
+        lst_icon_offre_service = []
+        for offre in offre_services:
+            icon = None
+            if (
+                offre.type_service_id
+                and offre.type_service_id.sous_categorie_id
+                and offre.type_service_id.sous_categorie_id.categorie
+                and offre.type_service_id.sous_categorie_id.categorie.icon
+            ):
+                icon = offre.type_service_id.sous_categorie_id.categorie.icon
+            lst_icon_offre_service.append(icon)
 
         accorderie_demande_service_cls = env["accorderie.demande.service"]
         accorderie_demande_service_ids = (
@@ -104,6 +118,20 @@ class AccorderieCanadaDdbController(http.Controller):
         demande_services = accorderie_demande_service_cls.sudo().browse(
             accorderie_demande_service_ids
         )
+        demande_services_count = (
+            accorderie_demande_service_cls.sudo().search_count([])
+        )
+        lst_icon_demande_service = []
+        for demande in demande_services:
+            icon = None
+            # if (
+            #     demande.type_service_id
+            #     and demande.type_service_id.sous_categorie_id
+            #     and demande.type_service_id.sous_categorie_id.categorie
+            #     and demande.type_service_id.sous_categorie_id.categorie.icon
+            # ):
+            #     icon = demande.type_service_id.sous_categorie_id.categorie.icon
+            lst_icon_demande_service.append(icon)
 
         lst_time_diff_offre_service = []
         lst_time_diff_demande_service = []
@@ -125,9 +153,13 @@ class AccorderieCanadaDdbController(http.Controller):
 
         dct_value = {
             "offre_services": offre_services,
+            "offre_services_count": offre_services_count,
+            "lst_icon_offre_service": lst_icon_offre_service,
             "lst_time_offre_service": lst_time_diff_offre_service,
             "demande_services": demande_services,
             "lst_time_demande_service": lst_time_diff_demande_service,
+            "demande_services_count": demande_services_count,
+            "lst_icon_demande_service": lst_icon_demande_service,
         }
 
         # Render page

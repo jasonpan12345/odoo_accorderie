@@ -153,6 +153,9 @@
                         <field name="type_communication" />
                     </group>
                     <group>
+                        <field name="user_id" />
+                    </group>
+                    <group>
                         <field name="ville" />
                     </group>
                     <group>
@@ -218,6 +221,7 @@
                 <field name="telephone_type_3" type="row" />
                 <field name="transfert_accorderie" type="row" />
                 <field name="type_communication" type="row" />
+                <field name="user_id" type="row" />
                 <field name="ville" type="row" />
             </graph>
         </field>
@@ -275,6 +279,7 @@
                 <field name="telephone_type_3" />
                 <field name="transfert_accorderie" />
                 <field name="type_communication" />
+                <field name="user_id" />
                 <field name="ville" />
                 <field name="commentaire" />
                 <field name="commentaire_ids" />
@@ -545,6 +550,11 @@
                                     </li>
                                     <li class="mb4">
                                         <strong>
+                                            <field name="user_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
                                             <field name="ville" />
                                         </strong>
                                     </li>
@@ -619,6 +629,7 @@
                 <field name="telephone_type_3" type="row" />
                 <field name="transfert_accorderie" type="row" />
                 <field name="type_communication" type="row" />
+                <field name="user_id" type="row" />
                 <field name="ville" type="row" />
             </pivot>
         </field>
@@ -745,6 +756,7 @@
                     name="type_communication"
                     string="Type de communications"
                 />
+                <filter domain="[('user_id','!=',False)]" name="user_id" string="Utilisateur" />
                 <filter domain="[('ville','!=',False)]" name="ville" string="Ville" />
                 <filter domain="[('commentaire','!=',False)]" name="commentaire" string="Commentaire membre source" />
                 <filter
@@ -798,6 +810,7 @@
                 <field name="telephone_type_3" />
                 <field name="transfert_accorderie" />
                 <field name="type_communication" />
+                <field name="user_id" />
                 <field name="ville" />
                 <field name="commentaire" />
                 <field name="commentaire_ids" />

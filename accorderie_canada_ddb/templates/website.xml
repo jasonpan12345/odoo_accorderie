@@ -381,194 +381,128 @@
         name="Offre Service Accorderie Offre Service And Demande Service Accorderie Demande Service List"
     >
         <t t-ignore="true">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 s_col_no_bgcolor pb24">
-                        <div class="row" t-if="offre_services">
-                            <div t-foreach="offre_services" t-as="offre_service">
-                                <a
-                                    t-if="offre_service"
-                                    t-att-href="'/accorderie_canada_ddb/accorderie_offre_service/%d' % offre_service.id"
-                                >
-                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
-                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
-                                        <div class="s_features_grid_content">
-                                            <h4
-                                                t-if="offre_service.description"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.description"
-                                            />
-                                            <h4 t-if="not offre_service.description" class="o_default_snippet_text">
-                                                EMPTY
-                                            </h4>
-                                            <p
-                                                t-if="offre_service.accompli"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.accompli"
-                                            />
-                                            <p
-                                                t-if="offre_service.accorderie"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.accorderie"
-                                            />
-                                            <p
-                                                t-if="offre_service.active"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.active"
-                                            />
-                                            <p
-                                                t-if="offre_service.approuve"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.approuve"
-                                            />
-                                            <p
-                                                t-if="offre_service.condition"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.condition"
-                                            />
-                                            <p
-                                                t-if="offre_service.condition_autre"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.condition_autre"
-                                            />
-                                            <p
-                                                t-if="offre_service.date_affichage"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.date_affichage"
-                                            />
-                                            <p
-                                                t-if="offre_service.date_debut"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.date_debut"
-                                            />
-                                            <p
-                                                t-if="offre_service.date_fin"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.date_fin"
-                                            />
-                                            <p
-                                                t-if="offre_service.date_mise_a_jour"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.date_mise_a_jour"
-                                            />
-                                            <p
-                                                t-if="offre_service.disponibilite"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.disponibilite"
-                                            />
-                                            <p
-                                                t-if="offre_service.membre"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.membre"
-                                            />
-                                            <p
-                                                t-if="offre_service.nb_consultation"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.nb_consultation"
-                                            />
-                                            <p
-                                                t-if="offre_service.nom_offre_special"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.nom_offre_special"
-                                            />
-                                            <p
-                                                t-if="offre_service.offre_special"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.offre_special"
-                                            />
-                                            <p
-                                                t-if="offre_service.tarif"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.tarif"
-                                            />
-                                            <p
-                                                t-if="offre_service.type_service_id"
-                                                class="o_default_snippet_text"
-                                                t-field="offre_service.type_service_id"
-                                            />
-                                            <p
-                                                t-if="len(lst_time_offre_service) >= offre_service_index"
-                                                class="o_default_snippet_text"
-                                                t-raw="lst_time_offre_service[offre_service_index]"
-                                            />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+            <div class="container_lists">
+                <div class="row activites_list col-lg-6">
+                    <div class="list_title s_title">
+                        <h1>
+                            <font style="font-size: 2rem; float:left;">Offres r&#233;centes</font>
+                            <a t-if="offre_services_count" href="/offresservice">
+                                <font style="float:right; font-size:1.25rem; margin-top:10px;">
+                                    Voir Tout (+
+                                    <span t-raw="offre_services_count" />
+                                    )
+                                </font>
+                            </a>
+                        </h1>
+                    </div>
+                    <div t-if="offre_services">
+                        <div t-foreach="offre_services" t-as="offre_service">
+                            <a
+                                class="activite btn"
+                                t-if="offre_service"
+                                data-name="Box"
+                                t-att-href="'/accorderie_canada_ddb/accorderie_offre_service/%d' % offre_service.id"
+                            >
+                                <img
+                                    t-if="lst_icon_offre_service[offre_service_index]"
+                                    t-att-src="image_data_uri(lst_icon_offre_service[offre_service_index])"
+                                    alt="icon"
+                                    class="activite_img img-fluid"
+                                />
+                                <span
+                                    t-if="not lst_icon_offre_service[offre_service_index]"
+                                    class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
+                                />
+                                <div class="infos">
+                                    <h4
+                                        class="activite_title"
+                                        t-if="offre_service.description"
+                                        t-field="offre_service.description"
+                                    />
+                                    <h4 class="activite_title" t-if="not offre_service.description">
+                                        Description vide...
+                                    </h4>
+                                    <h5
+                                        class="activite_auteur"
+                                        t-if="offre_service.membre"
+                                        t-field="offre_service.membre"
+                                    />
+                                    <!--                                    <h5 class="activite_distance">2 km</h5>-->
+                                </div>
+                                <div class="infos right">
+                                    <h5
+                                        t-if="len(lst_time_offre_service) >= offre_service_index"
+                                        t-raw="lst_time_offre_service[offre_service_index]"
+                                    />
+                                    <!--<h2 class="fa fa-heart-o text-epsilon" />-->
+                                </div>
+                            </a>
                         </div>
-                        <div class="row" t-if="not offre_services">Aucune offre_service disponible.</div>
+                    </div>
+                    <div class="row" t-if="not offre_services">
+                        Aucune offre de services sont disponible pour cette accorderie.
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-lg-6 s_col_no_bgcolor pb24">
-                        <div class="row" t-if="demande_services">
-                            <div t-foreach="demande_services" t-as="demande_service">
-                                <a
-                                    t-if="demande_service"
-                                    t-att-href="'/accorderie_canada_ddb/accorderie_demande_service/%d' % demande_service.id"
-                                >
-                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
-                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
-                                        <div class="s_features_grid_content">
-                                            <h4
-                                                t-if="demande_service.titre"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.titre"
-                                            />
-                                            <h4 t-if="not demande_service.titre" class="o_default_snippet_text">
-                                                EMPTY
-                                            </h4>
-                                            <p
-                                                t-if="demande_service.accorderie"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.accorderie"
-                                            />
-                                            <p
-                                                t-if="demande_service.active"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.active"
-                                            />
-                                            <p
-                                                t-if="demande_service.approuver"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.approuver"
-                                            />
-                                            <p
-                                                t-if="demande_service.commentaire"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.commentaire"
-                                            />
-                                            <p
-                                                t-if="demande_service.date_debut"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.date_debut"
-                                            />
-                                            <p
-                                                t-if="demande_service.date_fin"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.date_fin"
-                                            />
-                                            <p
-                                                t-if="demande_service.description"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.description"
-                                            />
-                                            <p
-                                                t-if="demande_service.membre"
-                                                class="o_default_snippet_text"
-                                                t-field="demande_service.membre"
-                                            />
-                                            <p
-                                                t-if="len(lst_time_demande_service) >= demande_service_index"
-                                                class="o_default_snippet_text"
-                                                t-raw="lst_time_demande_service[demande_service_index]"
-                                            />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                <div class="row activites_list col-lg-6">
+                    <div class="list_title s_title">
+                        <h1>
+                            <font style="font-size: 2rem; float:left;">Demandes r&#233;centes</font>
+                            <a t-if="demande_services_count" href="/offresservice">
+                                <font style="float:right; font-size:1.25rem; margin-top:10px;">
+                                    Voir Tout (+
+                                    <span t-raw="demande_services_count" />
+                                    )
+                                </font>
+                            </a>
+                        </h1>
+                    </div>
+                    <div t-if="demande_services">
+                        <div t-foreach="demande_services" t-as="demande_service">
+                            <a
+                                class="activite btn"
+                                t-if="demande_service"
+                                data-name="Box"
+                                t-att-href="'/accorderie_canada_ddb/accorderie_demande_service/%d' % demande_service.id"
+                            >
+                                <img
+                                    t-if="lst_icon_demande_service[demande_service_index]"
+                                    t-att-src="image_data_uri(lst_icon_demande_service[demande_service_index])"
+                                    alt="icon"
+                                    class="activite_img img-fluid"
+                                />
+                                <span
+                                    t-if="not lst_icon_demande_service[demande_service_index]"
+                                    class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
+                                    style=""
+                                />
+                                <div class="infos">
+                                    <h4
+                                        class="activite_title"
+                                        t-if="demande_service.description"
+                                        t-field="demande_service.description"
+                                    />
+                                    <h4 class="activite_title" t-if="not demande_service.description">
+                                        Description vide...
+                                    </h4>
+                                    <h5
+                                        class="activite_auteur"
+                                        t-if="demande_service.membre"
+                                        t-field="demande_service.membre"
+                                    />
+                                    <!--                                    <h5 class="activite_distance">2 km</h5>-->
+                                </div>
+                                <div class="infos right">
+                                    <h5
+                                        t-if="len(lst_time_demande_service) >= demande_service_index"
+                                        t-raw="lst_time_demande_service[demande_service_index]"
+                                    />
+                                    <!--<h2 class="fa fa-heart-o text-epsilon" />-->
+                                </div>
+                            </a>
                         </div>
-                        <div class="row" t-if="not demande_services">Aucune demande_service disponible.</div>
+                    </div>
+                    <div class="row" t-if="not demande_services">
+                        Aucune demande de services sont disponible pour cette accorderie.
                     </div>
                 </div>
             </div>
