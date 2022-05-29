@@ -2,239 +2,172 @@
 <!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <template id="accorderie_offre_service_unit_liste_offre_et_demande_service" name="Offre Service">
-        <t t-call="website.layout">
-            <div id="wrap">
-                <div class="oe_structure">
-                    <section class="pt32 pb32" t-if="not accorderie_offre_service_id">
-                        <div class="container">
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                    <h1 class="s_title_default">
-                                        <font style="font-size: 62px;">accorderie_offre_service_id non existante</font>
-                                    </h1>
+        <t name="About us" t-name="website.aboutus">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <section class="pt32 pb32" t-if="not accorderie_offre_service_id">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                        <h1 class="s_title_default">
+                                            <font style="font-size: 62px;">Offre de service non existante</font>
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <section
-                        t-if="accorderie_offre_service_id"
-                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
-                        data-scroll-background-ratio="1"
-                        style="background-image: none;"
-                    >
-                        <span
-                            class="s_parallax_bg oe_img_bg oe_custom_bg"
-                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
-                        />
-                        <div class="container">
+                        </section>
+                        <section
+                            class="oe_img_bg pt120 pb120 oe_custom_bg"
+                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
+                        >
                             <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title" data-name="Title">
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-field="accorderie_offre_service_id.description"
-                                        t-if="accorderie_offre_service_id.description"
-                                    />
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-if="not accorderie_offre_service_id.description"
-                                    >
-                                        EMPTY
-                                    </h1>
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.accompli"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.accompli"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.accorderie"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.accorderie"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.active"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.active"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.approuve"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.approuve"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.condition"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.condition"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.condition_autre"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.condition_autre"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.date_affichage"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.date_affichage"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.date_debut"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.date_debut"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.date_fin"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.date_fin"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.date_mise_a_jour"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.date_mise_a_jour"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.disponibilite"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.disponibilite"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.membre"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.membre"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.nb_consultation"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.nb_consultation"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.nom_offre_special"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.nom_offre_special"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.offre_special"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.offre_special"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.tarif"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.tarif"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_offre_service_id.type_service_id"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_offre_service_id.type_service_id"
-                                    />
+                                <div class="col-lg-12 s_title pt16 pb48" style="text-align: center;">
+                                    <h1 class="s_title_default" style="text-align: left;" />
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+
+                        <section class="event_head">
+                            <div class="event_info info-1">
+                                <h1>Je vous fait d&#233;couvrir la ville et toutes les bonnes
+                                    choses &#224; savoir
+                                </h1>
+                                <div class="infos">
+                                    <div class="distance">
+                                        <span class="fa fa-map-marker" />
+                                        &#192; 1.2 km de votre domicile
+                                    </div>
+                                    <div class="adresse">
+                                        <span class="fa fa-home" />
+                                        Vieux Nord, Sherbrooke, QC, Canada
+                                    </div>
+                                    <div class="pubdate">
+                                        <span class="fa fa-clock-o" />
+                                        Publi&#233;e il y a 11 jours
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="s_evenement pt80 pb160" t-if="accorderie_offre_service_id">
+                            <div class="event_container">
+                                <div class="informations_container">
+                                    <div class="event_info info-2">
+                                        <div class="description" t-if="accorderie_offre_service_id.description">
+                                            <h2>Description</h2>
+                                            <span>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis
+                                                commodo
+                                                odio aenean sed adipiscing diam donec.
+                                                <br />
+                                                <br />
+                                                Habitasse platea dictumst
+                                                vestibulum rhoncus est pellentesque elit. Urna neque viverra
+                                                justo
+                                                nec ultrices. Posuere lorem ipsum dolor sit amet consectetur
+                                                adipiscing elit duis. Proin libero nunc consequat interdum
+                                                varius
+                                                sit amet mattis vulputate.
+                                            </span>
+                                        </div>
+                                        <div class="info">
+                                            <h2>Quoi apporter</h2>
+                                            <span>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis
+                                                commodo
+                                                odio aenean sed adipiscing diam donec.
+                                            </span>
+                                        </div>
+                                        <div class="conditions" t-if="accorderie_offre_service_id.condition">
+                                            <h2>Conditions</h2>
+                                            <input type="checkbox" />
+                                            <span>Pour des raisons sanitaire, &#234;tre arriv&#233; au
+                                                Qu&#233;bec depuis 14 jours au moins pour la covid
+                                            </span>
+                                        </div>
+                                        <div class="deplacement">
+                                            <h2>D&#233;placement</h2>
+                                            <input type="checkbox" />
+                                            <span>Je me d&#233;place: En voiture</span>
+                                            <br />
+                                            <input type="checkbox" />
+                                            <span>Accepte de me d&#233;placer: En r&#233;gion</span>
+                                        </div>
+                                        <div class="tarif">
+                                            <h2>Entente tarifiaire</h2>
+                                            <input type="checkbox" />
+                                            <span>Selon le tarif de l'accorderie: 1h = 1h</span>
+                                            <br />
+                                            <input type="checkbox" />
+                                            <span>Les achats suppl&#233;mentaires n&#233;cessaires au service
+                                                sont &#224; vos frais.
+                                            </span>
+                                        </div>
+                                        <div class="dispo">
+                                            <h2>Disponilibit&#233;s habituelles</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right_cards_container">
+                                    <div class="card info-3" />
+                                    <div class="card info-4" t-if="accorderie_offre_service_id.membre">
+                                        <div
+                                            class="img rounded-circle"
+                                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);"
+                                        />
+                                        <h4>Votre accordeuse:</h4>
+                                        <h4 t-field="accorderie_offre_service_id.membre.nom_complet" />
+                                        <div class="stats">
+                                            <h6>
+                                                <span class="fa fa-user-circle" />
+                                                Membre depuis mars 2019
+                                            </h6>
+                                            <h6>
+                                                <span class="fa fa-shield" />
+                                                Ant&#233;c&#233;dents judiciaires v&#233;rifi&#233;s
+                                            </h6>
+                                            <h6>
+                                                <span class="fa fa-user-circle" />
+                                                3 offres de service
+                                            </h6>
+                                            <h6>
+                                                <span class="fa fa-clock-o" />
+                                                15h de service &#224; son actif
+                                            </h6>
+                                        </div>
+                                        <div class="summary">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                            nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                            odio aenean sed adipiscing diam donec.
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="btn btn-primary rounded-circle">
+                                                En savoir plus sur
+                                                Alice
+                                            </div>
+                                            <div class="btn btn-primary rounded-circle">La contacter</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </t>
         </t>
     </template>
     <template id="accorderie_demande_service_unit_liste_offre_et_demande_service" name="Demande Service">
