@@ -168,6 +168,8 @@ class AccorderieMembre(models.Model):
         string="Type de communications",
     )
 
+    user_id = fields.Many2one("res.users", string="User")
+
     ville = fields.Many2one(
         comodel_name="accorderie.ville",
         required=True,
