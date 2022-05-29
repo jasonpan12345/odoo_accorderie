@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_membre_martin_petit" model="accorderie.membre">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="nom">Petit</field>
+            <field name="prenom">Martin</field>
+            <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
+            <field name="ville" ref="accorderie_canada_ddb.accorderie_ville_grosse_ile" />
+        </record>
+    </data>
+</odoo>

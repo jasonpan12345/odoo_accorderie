@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_demande_service_garder_mon_chien_svp" model="accorderie.demande.service">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="membre" ref="accorderie_membre_martin_petit" />
+            <field name="titre">Garder mon chien svp!</field>
+        </record>
+    </data>
+</odoo>
