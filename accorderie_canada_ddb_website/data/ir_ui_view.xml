@@ -3181,7 +3181,7 @@
                             <section class="s_cover parallax s_parallax_is_fixed s_parallax_no_overflow_hidden pt152 pb152" data-scroll-background-ratio="1" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/538/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;); background-position: 50% 0px;" />
                             </section>
-                            <section class="s_pub_offre_desc pb80">
+                            <section id="pub_form" class="s_pub_offre_desc pb80">
                                 <div class="desc_container">
                                     <h3>Titre</h3>
                                     <textarea />
@@ -3243,7 +3243,25 @@
                             </section>
                             <div class="submit_container">
                                 <input id="prevBtn visible" type="submit" value="Retour" class="prev submit_btn btn" />
-                                <input id="nextBtn" type="submit" value="Valider mon offre de service" class="submit_btn btn" />
+                                <input id="submitBtn" type="submit" value="Valider mon offre de service" class="submit_btn btn" data-toggle="modal" data-target=".modal_pub_offre" />
+                            </div>
+                            <div t-name="accorderie_canada_ddb.accorderie_pub_offre_modal" class="modal fade modal_pub_offre modal_shown" backdrop="static" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div id="s_media_block_modal" class="modal-content">
+                                        <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
+                                        <div class="modal-body" role="form">
+                                            <h2>Félicitation votre offre de service a été publié!</h2>
+                                        </div>
+                                        <!-- modal-body -->
+                                        <a href="/">
+                                            <button id="voir_offre" data-dismiss="modal" class="btn btn-primary text-gamma">Voir mon offre</button>
+                                        </a>
+                                        <font style="font-size:1rem">OU</font>
+                                        <a href="/">
+                                            <button id="retour_accueil" data-dismiss="modal" class="btn btn-primary text-gamma">Retourner sur l'accueil</button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </t>
