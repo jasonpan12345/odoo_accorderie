@@ -56,7 +56,6 @@
         "views/menu.xml",
         "views/snippets.xml",
         "templates/website.xml",
-        "views/accorderie_pub_offre_modal.xml",
     ],
     "installable": True,
 }

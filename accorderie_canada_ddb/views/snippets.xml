@@ -60,7 +60,7 @@
             />
             <script
                 type="text/javascript"
-                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.modal.js"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.pub_offre.js"
             />
         </xpath>
     </template>

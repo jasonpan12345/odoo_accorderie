@@ -1417,7 +1417,7 @@ actualité
   .submit_btn {
     width: 15%;
     height: 50px;
-    background-color: $beta;
+    background-color: $primary-color;
     float: right;
     margin: 1% 5%;
     border-radius: 5px;
@@ -1476,7 +1476,7 @@ actualité
 }
 
 /*
-
+  page publier offre
 */
 
 .s_pub_offre_desc {
@@ -1513,6 +1513,27 @@ actualité
 .visible {
   display: block !important;
   visibility: visible !important;
+}
+
+.modal_pub_offre {
+  background-color: rgba(42, 140, 170, 0.5);
+
+  .modal-dialog{
+    margin-top: 5%;
+  }
+  .modal-content{
+    padding: 15% 25%;
+    text-align: center;
+  }
+  button {
+    padding: .75rem;
+    font-size: 1.2rem;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  font {
+    margin-top: 1.5rem;
+  }
 }
 
 /*
