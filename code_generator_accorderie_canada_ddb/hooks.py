@@ -60,8 +60,8 @@ def post_init_hook(cr, e):
         code_generator_id = env["code.generator.module"].create(value)
 
         # Add dependencies
-        code_generator_id.add_module_dependency("portal")
-        code_generator_id.add_module_dependency("website")
+        lst_depend_module = ["portal", "website"]
+        code_generator_id.add_module_dependency(lst_depend_module)
 
         # Add/Update Accorderie Accorderie
         model_model = "accorderie.accorderie"
@@ -1594,10 +1594,18 @@ for accorderie_fichier in self:
                 "relation": "accorderie.type.communication",
                 "ttype": "many2one",
             },
-            "ville": {
+            "user_id": {
                 "code_generator_form_simple_view_sequence": 58,
                 "code_generator_sequence": 54,
                 "code_generator_tree_view_sequence": 47,
+                "field_description": "User",
+                "relation": "res.users",
+                "ttype": "many2one",
+            },
+            "ville": {
+                "code_generator_form_simple_view_sequence": 59,
+                "code_generator_sequence": 55,
+                "code_generator_tree_view_sequence": 48,
                 "field_description": "Ville",
                 "relation": "accorderie.ville",
                 "required": True,
