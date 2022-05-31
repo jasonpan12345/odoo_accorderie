@@ -548,4 +548,204 @@
             </div>
         </t>
     </template>
+    <template id="accorderie_type_service_categorie_list_publication" name="Publication List">
+        <t t-ignore="true">
+            <t name="About us" t-name="website.aboutus">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="oe_structure" />
+                        <section class="s_buttons_form">
+                            <div class="txt_question">
+                                <h1>Que souhaitez-vous faire ?</h1>
+                            </div>
+                            <form id="participer_form" method="GET" action="/publier-offre">
+                                <div class="buttons_form_container tab">
+                                    <input type="radio" id="pub_offre" name="pub" value="1" required="required" />
+                                    <label for="pub_offre" class="button_form btn">
+                                        <h5>Publier une offre de service</h5>
+                                        <p>
+                                            Vous souhaitez offrir votre service?
+                                            <br />
+                                            Cliquez ici
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="pub_demande" name="pub" value="2" />
+                                    <label for="pub_demande" class="button_form btn">
+                                        <h5>Publier une demande de service</h5>
+                                        <p>
+                                            Vous souhaitez offrir votre service?
+                                            <br />
+                                            Cliquez ici
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="creer_entente" name="pub" value="3" />
+                                    <label for="creer_entente" class="button_form btn">
+                                        <h5>Publier une demande de service</h5>
+                                        <p>
+                                            Vous souhaitez offrir votre service?
+                                            <br />
+                                            Cliquez ici
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="valider_service" name="pub" value="4" />
+                                    <label for="valider_service" class="button_form btn">
+                                        <h5>Publier une demande de service</h5>
+                                        <p>
+                                            Vous souhaitez offrir votre service?
+                                            <br />
+                                            Cliquez ici
+                                        </p>
+                                    </label>
+                                </div>
+                                <div class="buttons_form_container tab">
+                                    <input type="radio" id="offre_indiv" name="offre" value="1" />
+                                    <label for="offre_indiv" class="button_form btn">
+                                        <h5>Individuelle</h5>
+                                        <p>Si vous offrez un service &#224; une personne particuli&#232;re
+
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="offre" value="2" />
+                                    <label for="offre_coll" class="button_form btn">
+                                        <h5>Collective</h5>
+                                        <p>Si vous offrez une activit&#233; collective
+                                            <br />
+                                            (cours en groupe, ateliers, conf&#233;rence, achats group&#233;s, ...)
+
+                                        </p>
+                                    </label>
+                                </div>
+                                <div class="buttons_form_container tab">
+                                    <div t-if="not type_service_categories">
+                                        <div class="row">Aucune catégorie de service est disponible.</div>
+                                    </div>
+                                    <t t-if="type_service_categories">
+                                        <t
+                                            class="offre_box btn"
+                                            t-foreach="type_service_categories"
+                                            t-as="type_service_categorie"
+                                        >
+                                            <input
+                                                type="radio"
+                                                t-att-id="'cat_%s' % str(type_service_categorie_index + 1)"
+                                                name="type_service_categorie"
+                                                t-att-value="type_service_categorie.id"
+                                            />
+                                            <label
+                                                t-att-for="'cat_%s' % str(type_service_categorie_index + 1)"
+                                                class="cat button_form btn"
+                                            >
+                                                <img
+                                                    t-if="type_service_categorie.icon"
+                                                    t-att-src="image_data_uri(type_service_categorie.icon)"
+                                                    alt="icon"
+                                                    class="offre_img"
+                                                />
+                                                <p
+                                                    class="offre_desc"
+                                                    t-if="type_service_categorie.nom"
+                                                    t-raw="type_service_categorie._get_html_nom()"
+                                                />
+                                            </label>
+                                        </t>
+                                    </t>
+                                </div>
+                                <div class="buttons_form_container tab">
+                                    <input type="radio" id="accompagnement" name="sub_cat" value="1" />
+                                    <label for="accompagnement" class="button_form btn small">
+                                        <p>Accompagnement</p>
+                                    </label>
+                                    <input type="radio" id="gardiennage" name="sub_cat" value="2" />
+                                    <label for="gardiennage" class="button_form btn small">
+                                        <p>Gardiennage</p>
+                                    </label>
+                                    <input type="radio" id="animaux" name="sub_cat" value="2" />
+                                    <label for="animaux" class="button_form btn small">
+                                        <p>Animaux</p>
+                                    </label>
+                                </div>
+                                <div class="buttons_form_container tab">
+                                    <input type="radio" id="rdv_demarches" name="sub_cat_2" value="1" />
+                                    <label for="rdv_demarches" class="button_form btn small">
+                                        <p>Rendez-vous ou d&#233;marches
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="courses_mag" name="sub_cat_2" value="2" />
+                                    <label for="courses_mag" class="button_form btn small">
+                                        <p>Courses et magasinage</p>
+                                    </label>
+                                    <input type="radio" id="loisirs_act" name="sub_cat_2" value="2" />
+                                    <label for="loisirs_act" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                </div>
+                                <div class="buttons_form_container tab scroll">
+                                    <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />
+                                    <label for="rdv_divers" class="button_form btn small">
+                                        <p>Rendez-vous divers</p>
+                                    </label>
+                                    <input type="radio" id="rdv_med" name="sub_cat_3" value="2" />
+                                    <label for="rdv_med" class="button_form btn small">
+                                        <p>Rendez-vous m&#233;dicaux
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="pers_immigrantes" name="sub_cat_3" value="2" />
+                                    <label for="pers_immigrantes" class="button_form btn small">
+                                        <p>Personnes immigrantes</p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Recherche logement</p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
+                                    <label for="offre_coll" class="button_form btn small">
+                                        <p>Loisirs et activit&#233;s
+                                        </p>
+                                    </label>
+                                </div>
+                                <div class="submit_container">
+                                    <input
+                                        id="prevBtn"
+                                        type="submit"
+                                        value="Retour"
+                                        class="prev submit_btn btn"
+                                        style="display: none;"
+                                    />
+                                    <input id="nextBtn" type="submit" value="Suivant" class="submit_btn btn" />
+                                </div>
+                                <div />
+                                <div />
+                            </form>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
 </odoo>

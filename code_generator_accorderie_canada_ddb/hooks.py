@@ -35093,6 +35093,18 @@ for accorderie_ville in self:
         }
         env["code.generator.snippet"].create(value_snippet)
 
+        value_snippet = {
+            "code_generator_id": code_generator_id.id,
+            "controller_feature": "model_show_item_list",
+            "enable_javascript": True,
+            "model_name": "accorderie.type.service.categorie",
+            "name": "Publication offre, demande, accordage",
+            "model_short_name": "publication",
+            "name": "Publication",
+            "snippet_type": "structure",
+        }
+        env["code.generator.snippet"].create(value_snippet)
+
         # Generate module
         value = {"code_generator_ids": code_generator_id.ids}
         env["code.generator.writer"].create(value)

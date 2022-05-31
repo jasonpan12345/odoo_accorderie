@@ -97,6 +97,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             if (n === 1 && !this.verifRadioChosen()) {
                 return false;
             }
+            console.debug("click nextPrev, tab # " + currentTab);
+            console.debug(x);
+            console.debug(x[currentTab]);
+            if (currentTab === 2) {
+                let inputName = x[currentTab].getElementsByTagName("input")[0];
+                let lst_radio = $("input[name=" + inputName.name + "]:checked");
+                console.debug(lst_radio);
+            }
             // Hide the current tab:
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
