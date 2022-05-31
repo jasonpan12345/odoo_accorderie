@@ -10,14 +10,14 @@
                                 <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
+                                            <p class="s_title_default" style="text-align: left;">
                                                 <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
                                                     activit&#233;
                                                 </font>
                                                 <font style="color: rgb(0, 0, 0); font-size: 48px;">
                                                     <br />
                                                 </font>
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -50,10 +50,10 @@
                                 <section class="pb0 pt0">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb4" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;margin-left:14%;">
+                                            <p class="s_title_default" style="text-align: left;margin-left:14%; font-size:2rem;">
                                                 Mes accordages
                                                 <br />
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -61,14 +61,14 @@
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
                                             <div class="list_title s_title pb40">
-                                                <h1>
+                                                <p>
                                                     <font style="font-size: 2rem; float:left;">D&#233;cembre 2021</font>
                                                     <span>
                                                         <font style="float:right; font-size:1.25rem; margin-top:10px;">
                                                             &#192; venir
                                                         </font>
                                                     </span>
-                                                </h1>
+                                                </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
@@ -2496,14 +2496,11 @@
                                 <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
+                                            <p class="s_title_default" style="text-align: left;">
                                                 <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
                                                     activit&#233;
                                                 </font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -2562,43 +2559,50 @@
                                     <div class="container_lists">
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
-                                                <h1>
+                                                <p>
                                                     <font style="font-size: 2rem; float:left;">Offres r&#233;centes
                                                     </font>
                                                     <span>
                                                         <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)</font>
                                                     </span>
-                                                </h1>
+                                                </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <h4 class="activite_title">Faire visiter une maison &#224; louer</h4>
-                                                <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                <h5 class="activite_distance">2 km</h5>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Faire visiter une maison &#224; louer
+                                                    </h4>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">2 km</h5>
+                                                </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip663589" />
-                                                <h4 class="activite_title">Je vous fait d&#233;couvrir la ville et
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Je vous fait d&#233;couvrir la ville et
                                                     toutes les bonnes choses &#224; savoir.
                                                     <br />
                                                 </h4>
-                                                <h5 class="activite_auteur">
-                                                    Alice Poitier
-                                                    <br />
-                                                </h5>
-                                                <h5 class="activite_distance">2 km</h5>
+                                                    <h5 class="activite_auteur">
+                                                        Alice Poitier
+                                                        <br />
+                                                    </h5>
+                                                    <h5 class="activite_distance">2 km</h5>
+                                                </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_jean_louis_aubert_l49iaamlmdc_unsplash_jpg/jean-louis-aubert-L49iaAmLMDc-unsplash.jpg" />
-                                                <h4 class="activite_title">Cours de violon</h4>
-                                                <h5 class="activite_auteur">Martin Bergeron</h5>
-                                                <h5 class="activite_distance">2 km</h5>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Cours de violon</h4>
+                                                    <h5 class="activite_auteur">Martin Bergeron</h5>
+                                                    <h5 class="activite_distance">2 km</h5>
+                                                </div>
                                             </div>
                                             <div class="lg-btn btn">Voir mon agenda</div>
                                         </div>
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
-                                                <h1>
+                                                <p>
                                                     <font style="font-size: 2rem; float:left;">
                                                         Messages et
                                                         notifications
@@ -2606,27 +2610,35 @@
                                                     <span>
                                                         <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+40)</font>
                                                     </span>
-                                                </h1>
+                                                </p>
                                             </div>
                                             <div class="activite btn small" data-name="Box">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg" />
-                                                <h4 class="activite_title">Alice Poitier</h4>
-                                                <h5 class="activite_auteur">Lorem ipsum</h5>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Alice Poitier</h4>
+                                                    <h5 class="activite_auteur">Lorem ipsum</h5>
+                                                </div>
                                             </div>
                                             <div class="activite btn small" data-name="Box">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_kemper_cbzh3kapxre_unsplash_jpg/jonathan-kemper-CbZh3kaPxrE-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip663589" />
-                                                <h4 class="activite_title">Yannick Lalibert&#233;</h4>
-                                                <h5 class="activite_auteur">Lorem Ipsum</h5>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Yannick Lalibert&#233;</h4>
+                                                    <h5 class="activite_auteur">Lorem Ipsum</h5>
+                                                </div>
                                             </div>
                                             <div class="activite btn small" data-name="Box">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
-                                                <h4 class="activite_title">Yannick Delmonde</h4>
-                                                <h5 class="activite_auteur">Lorem Ipsum</h5>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Yannick Delmonde</h4>
+                                                    <h5 class="activite_auteur">Lorem Ipsum</h5>
+                                                </div>
                                             </div>
                                             <div class="activite btn small" data-name="Box">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
-                                                <h4 class="activite_title">Drice Hygara</h4>
-                                                <h5 class="activite_auteur">Lorem Ipsum</h5>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">Drice Hygara</h4>
+                                                    <h5 class="activite_auteur">Lorem Ipsum</h5>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2649,14 +2661,11 @@
                                 <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
+                                            <p class="s_title_default" style="text-align: left;">
                                                 <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
                                                     activit&#233;
                                                 </font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -2689,13 +2698,13 @@
                                 <section class="s_event_list small-cards">
                                     <div class="list_head">
                                         <div class="list_title s_title">
-                                            <h1>
+                                            <p>
                                                 <font style="font-size:2rem;">Mon r&#233;seau</font>
                                                 <span class="filter_btn btn">
                                                     <span class="img img-fluid mx-auto fa fa-filter" style="" />
                                                     Filtrer et trier
                                                 </span>
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
@@ -3004,9 +3013,7 @@
                                 <section class="oe_img_bg pt104 pb104 oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
-                                                <br />
-                                            </h1>
+                                            <br />
                                         </div>
                                     </div>
                                 </section>

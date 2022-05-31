@@ -117,78 +117,182 @@
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <h2>Mes favoris</h2>
                                     <div class="dropdown-nav">
-                                        <button>Offres</button>
-                                        <button>Demandes</button>
-                                        <button>Membres</button>
+                                        <button id="BtnTabOffres">Offres</button>
+                                        <button id="BtnTabDemandes">Demandes</button>
+                                        <button id="BtnTabMembres">Membres</button>
                                     </div>
                                     <div class="dropdown-cat">
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <div class="cat activite btn " data-name="Box">
-                                                <img
-                                                    class="activite_img img-fluid"
-                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Faire mon épicerie</h4>
-                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                        <div id="tabOffres" class="navbar-tab">
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Faire mon épicerie</span>
+                                                        <span class="activite_auteur">Denise Trépanier</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <span>5m</span>
+                                                    </div>
                                                 </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
+                                            </a>
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Faire mon épicerie</span>
+                                                        <span class="activite_auteur">Denise Trépanier</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <span>5m</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <div class="cat activite btn" data-name="Box">
-                                                <img
-                                                    class="activite_img img-fluid"
-                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Faire mon épicerie</h4>
-                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                            </a>
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Faire mon épicerie</span>
+                                                        <span class="activite_auteur">Denise Trépanier</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <span>5m</span>
+                                                    </div>
                                                 </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
+                                            </a>
+                                            <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
+                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                    <font class="text-gamma" style="font-size: 1rem;">
+                                                        Voir toutes mes offres favorites
+                                                    </font>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <div class="cat activite btn" data-name="Box">
-                                                <img
-                                                    class="activite_img img-fluid"
-                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Faire mon épicerie</h4>
-                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                            </a>
+                                        </div>
+                                        <div id="tabDemandes" class="navbar-tab" style="display:none;">
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Vous souhaitez acheter</span>
+                                                        <span class="activite_auteur">Martin Bergeron</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <span>5m</span>
+                                                    </div>
                                                 </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
+                                            </a>
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Test</span>
+                                                        <span class="activite_auteur">Mike Wazowski</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <span>5m</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a role="menuitem" href="/participer" class="dropdown-item">
-                                            <div class="cat activite btn" data-name="Box">
-                                                <img
-                                                    class="activite_img img-fluid"
-                                                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Faire mon épicerie</h4>
-                                                    <h5 class="activite_auteur">Denise Trépanier</h5>
+                                            </a>
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">item 3</span>
+                                                        <span class="activite_auteur">Joe</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <span>5m</span>
+                                                    </div>
                                                 </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
+                                            </a>
+                                            <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
+                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                    <font class="text-gamma" style="font-size: 1rem;">
+                                                        Voir toutes mes demandes favorites
+                                                    </font>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                            <div class="cat activite btn btn-primary" data-name="Box">
-                                                <font class="text-gamma" style="font-size: 1rem;">
-                                                    Voir toutes mes offres favorites
-                                                </font>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        <div id="tabMembres" class="navbar-tab" style="display:none;">
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid rounded-circle"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Helena Cartier</span>
+                                                        <span class="activite_auteur">Lorem ispum</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <i
+                                                            class="fa fa-2x fa-heart text-epsilon"
+                                                            style="margin:unset;"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid rounded-circle"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Helena Cartier</span>
+                                                        <span class="activite_auteur">Lorem ispum</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <i
+                                                            class="fa fa-2x fa-heart text-epsilon"
+                                                            style="margin:unset;"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <div class="cat activite btn " data-name="Box">
+                                                    <img
+                                                        class="activite_img img-fluid rounded-circle"
+                                                        src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
+                                                    />
+                                                    <div class="infos">
+                                                        <span class="activite_title">Helena Cartier</span>
+                                                        <span class="activite_auteur">Lorem ispum</span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <i
+                                                            class="fa fa-2x fa-heart text-epsilon"
+                                                            style="margin:unset;"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
+                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                    <font class="text-gamma" style="font-size: 1rem;">
+                                                        Voir tous mes membres favoris
+                                                    </font>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
