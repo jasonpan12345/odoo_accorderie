@@ -657,6 +657,10 @@ actualité
     border-radius: 5px;
     margin-right: 5%;
   }
+  .infos {
+    display: flex;
+    flex-direction: column;
+  }
 
   .activite_title {
     color: $text-beta;
@@ -664,7 +668,7 @@ actualité
   }
 
   .activite_auteur {
-    margin-bottom: 0;
+    margin-top: auto;
     color: $text-beta;
   }
 
