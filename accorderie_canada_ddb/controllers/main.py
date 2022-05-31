@@ -240,6 +240,35 @@ class AccorderieCanadaDdbController(http.Controller):
         )
 
     @http.route(
+        ["/participer"],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_page_participer(self, **kw):
+        env = request.env(context=dict(request.env.context))
+
+        accorderie_type_service_categorie_cls = env[
+            "accorderie.type.service.categorie"
+        ]
+        accorderie_type_service_categorie_ids = (
+            accorderie_type_service_categorie_cls.sudo().search([]).ids
+        )
+        type_service_categories = (
+            accorderie_type_service_categorie_cls.sudo().browse(
+                accorderie_type_service_categorie_ids
+            )
+        )
+
+        dct_value = {"type_service_categories": type_service_categories}
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication",
+            dct_value,
+        )
+
+    @http.route(
         "/new/accorderie_accorderie", type="http", auth="user", website=True
     )
     def create_new_accorderie_accorderie(self, **kw):

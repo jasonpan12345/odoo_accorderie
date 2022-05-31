@@ -44,6 +44,11 @@
                 type="text/scss"
                 href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_liste_type_service_categorie.scss"
             />
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_publication.scss"
+            />
         </xpath>
         <xpath expr="//script[last()]" position="after">
             <script
@@ -53,6 +58,10 @@
             <script
                 type="text/javascript"
                 src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb_liste_type_service_categorie.animation.js"
+            />
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb_publication.animation.js"
             />
             <script
                 type="text/javascript"
