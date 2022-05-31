@@ -615,7 +615,7 @@
                                         </p>
                                     </label>
                                 </div>
-                                <div class="buttons_form_container tab">
+                                <div class="buttons_form_container tab" style="align-content:unset;">
                                     <div t-if="not type_service_categories">
                                         <div class="row">Aucune catégorie de service est disponible.</div>
                                     </div>
