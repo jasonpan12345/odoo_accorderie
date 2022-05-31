@@ -3,7 +3,32 @@
     <data noupdate="1">
         <record id="accorderie_membre_martin_petit" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="adresse">3800 Chem. Queen Mary, Montréal, QC H3V 1H6</field>
             <field name="nom">Petit</field>
+            <field name="prenom">Martin</field>
+            <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
+            <field name="ville" ref="accorderie_canada_ddb.accorderie_ville_grosse_ile" />
+        </record>
+        <record id="accorderie_membre_denis_lemarchand" model="accorderie.membre">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="adresse">2150 A. des Laurentides, Laval, QC H7T 2T8</field>
+            <field name="nom">Lemarchand</field>
+            <field name="prenom">Denis</field>
+            <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
+            <field name="ville" ref="accorderie_canada_ddb.accorderie_ville_grosse_ile" />
+        </record>
+        <record id="accorderie_membre_alice_poitier" model="accorderie.membre">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="adresse">6400 16e Avenue, Montréal, QC H1X 2S9</field>
+            <field name="nom">Poitier</field>
+            <field name="prenom">Alice</field>
+            <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
+            <field name="ville" ref="accorderie_canada_ddb.accorderie_ville_grosse_ile" />
+        </record>
+        <record id="accorderie_membre_martin_bergeron" model="accorderie.membre">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="adresse">4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3</field>
+            <field name="nom">Bergeron</field>
             <field name="prenom">Martin</field>
             <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb.accorderie_ville_grosse_ile" />

@@ -30,21 +30,19 @@
 
                         <section class="event_head">
                             <div class="event_info info-1">
-                                <h1>Je vous fait d&#233;couvrir la ville et toutes les bonnes
-                                    choses &#224; savoir
-                                </h1>
+                                <h1 t-field="accorderie_offre_service_id.titre" />
                                 <div class="infos">
                                     <div class="distance">
-                                        <span class="fa fa-map-marker" />
+                                        <i class="fa fa-map-marker text-primary icon_padding_right" />
                                         &#192; 1.2 km de votre domicile
                                     </div>
                                     <div class="adresse">
-                                        <span class="fa fa-home" />
-                                        Vieux Nord, Sherbrooke, QC, Canada
+                                        <i class="fa fa-home text-primary icon_padding_right" />
+                                        <t t-esc="accorderie_offre_service_id.membre.adresse" />
                                     </div>
                                     <div class="pubdate">
-                                        <span class="fa fa-clock-o" />
-                                        Publi&#233;e il y a 11 jours
+                                        <i class="fa fa-clock-o text-primary icon_padding_right" />
+                                        <t t-esc="str_diff_time" />
                                     </div>
                                 </div>
                             </div>
@@ -56,66 +54,27 @@
                                     <div class="event_info info-2">
                                         <div class="description" t-if="accorderie_offre_service_id.description">
                                             <h2>Description</h2>
-                                            <span>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis
-                                                commodo
-                                                odio aenean sed adipiscing diam donec.
-                                                <br />
-                                                <br />
-                                                Habitasse platea dictumst
-                                                vestibulum rhoncus est pellentesque elit. Urna neque viverra
-                                                justo
-                                                nec ultrices. Posuere lorem ipsum dolor sit amet consectetur
-                                                adipiscing elit duis. Proin libero nunc consequat interdum
-                                                varius
-                                                sit amet mattis vulputate.
-                                            </span>
+                                            <t t-raw="accorderie_offre_service_id.description" />
                                         </div>
-                                        <div class="info">
+                                        <div class="info" t-if="accorderie_offre_service_id.quoi_apporter">
                                             <h2>Quoi apporter</h2>
-                                            <span>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis
-                                                commodo
-                                                odio aenean sed adipiscing diam donec.
-                                            </span>
+                                            <t t-raw="accorderie_offre_service_id.quoi_apporter" />
                                         </div>
                                         <div class="conditions" t-if="accorderie_offre_service_id.condition">
                                             <h2>Conditions</h2>
-                                            <input type="checkbox" />
-                                            <span>Pour des raisons sanitaire, &#234;tre arriv&#233; au
-                                                Qu&#233;bec depuis 14 jours au moins pour la covid
-                                            </span>
+                                            <t t-raw="accorderie_offre_service_id.condition" />
                                         </div>
-                                        <div class="deplacement">
+                                        <div class="deplacement" t-if="accorderie_offre_service_id.deplacement">
                                             <h2>D&#233;placement</h2>
-                                            <input type="checkbox" />
-                                            <span>Je me d&#233;place: En voiture</span>
-                                            <br />
-                                            <input type="checkbox" />
-                                            <span>Accepte de me d&#233;placer: En r&#233;gion</span>
+                                            <t t-raw="accorderie_offre_service_id.deplacement" />
                                         </div>
-                                        <div class="tarif">
+                                        <div class="tarif" t-if="accorderie_offre_service_id.entente_tarifiaire">
                                             <h2>Entente tarifiaire</h2>
-                                            <input type="checkbox" />
-                                            <span>Selon le tarif de l'accorderie: 1h = 1h</span>
-                                            <br />
-                                            <input type="checkbox" />
-                                            <span>Les achats suppl&#233;mentaires n&#233;cessaires au service
-                                                sont &#224; vos frais.
-                                            </span>
+                                            <t t-raw="accorderie_offre_service_id.entente_tarifiaire" />
                                         </div>
-                                        <div class="dispo">
+                                        <div class="dispo" t-if="accorderie_offre_service_id.disponibilite">
                                             <h2>Disponilibit&#233;s habituelles</h2>
+                                            <t t-raw="accorderie_offre_service_id.disponibilite" />
                                         </div>
                                     </div>
                                 </div>
@@ -347,27 +306,28 @@
                                     class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
                                 />
                                 <div class="infos">
-                                    <h4
+                                    <div
                                         class="activite_title"
-                                        t-if="offre_service.description"
-                                        t-field="offre_service.description"
+                                        t-if="offre_service.titre"
+                                        t-field="offre_service.titre"
                                     />
-                                    <h4 class="activite_title" t-if="not offre_service.description">
-                                        Description vide...
-                                    </h4>
-                                    <h5
+                                    <div class="activite_title" t-if="not offre_service.titre">
+                                        Titre vide...
+                                        <!-- TODO mettre un titre par défaut en lien avec la catégorie -->
+                                    </div>
+                                    <div
                                         class="activite_auteur"
                                         t-if="offre_service.membre"
                                         t-field="offre_service.membre"
                                     />
-                                    <!--                                    <h5 class="activite_distance">2 km</h5>-->
+                                    <!--                                    <span class="activite_distance">2 km</span>-->
                                 </div>
                                 <div class="infos right">
-                                    <h5
+                                    <div
                                         t-if="len(lst_time_offre_service) >= offre_service_index"
                                         t-raw="lst_time_offre_service[offre_service_index]"
                                     />
-                                    <!--<h2 class="fa fa-heart-o text-epsilon" />-->
+                                    <!--<i class="fa fa-heart-o text-epsilon" />-->
                                 </div>
                             </a>
                         </div>
