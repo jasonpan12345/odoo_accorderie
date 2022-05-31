@@ -1374,7 +1374,7 @@ actualité
   display: none;
   flex-direction: row;
   gap: 20px;
-  padding: 5% 15% 0 15%;
+  padding: 5% 10% 0 10%;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
@@ -1399,6 +1399,7 @@ actualité
   .cat.button_form {
     width: 45%;
     max-height: 10%;
+    white-space: nowrap;
   }
 
   .small {
