@@ -2,14 +2,14 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
     'use strict';
 
     require('web_editor.ready');
-    var ParticiperForm = require('website.accorderie_canada_ddb.participer');
+    let ParticiperForm = require('website.accorderie_canada_ddb.participer');
 
-    var $form = $('#participer_form');
+    let $form = $('#participer_form');
     if (!$form.length) {
         return null;
     }
 
-    var instance = new ParticiperForm();
+    let instance = new ParticiperForm();
     return instance.appendTo($form).then(function () {
         return instance;
     });
@@ -19,33 +19,33 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
 
 odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
-    var ajax = require('web.ajax');
-    var core = require('web.core');
-    var Widget = require('web.Widget');
+    let ajax = require('web.ajax');
+    let core = require('web.core');
+    let Widget = require('web.Widget');
 
-    var _t = core._t;
+    let _t = core._t;
 
-    var currentTab = 0; // Current tab is set to be the first tab (0)
+    let currentTab = 0; // Current tab is set to be the first tab (0)
 
-// Catch registration form event, because of JS for attendee details
-    var ParticiperForm = Widget.extend({
+    // Catch registration form event, because of JS for attendee details
+    let ParticiperForm = Widget.extend({
         start: function () {
-            var self = this;
-            var res = this._super.apply(this.arguments).then(function () {
+            let self = this;
+            let res = this._super.apply(this.arguments).then(function () {
                 $('#participer_form .submit_container .submit_btn')
                     .off('click')
                     .click(function (ev) {
                         self.on_click(ev, 1);
                     });
             });
-            var prev = this._super.apply(this.arguments).then(function () {
+            let prev = this._super.apply(this.arguments).then(function () {
                 $('#participer_form .submit_container .prev')
                     .off('click')
                     .click(function (ev) {
                         self.on_click(ev, -1);
                     });
             });
-            var form_choice = this._super.apply(this.arguments).then(function () {
+            let form_choice = this._super.apply(this.arguments).then(function () {
                 $('.buttons_form_container > input')
                     .off('click')
                     .click(function (ev) {
@@ -62,9 +62,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         },
         // Verify that at least one radio button is chosen on the current tab
         verifRadioChosen: function () {
-            var x = document.getElementsByClassName("tab");
-            var inputName = x[currentTab].getElementsByTagName("input")[0];
-            var primaryColor = getComputedStyle(document.body).getPropertyValue('--primary');
+            let x = document.getElementsByClassName("tab");
+            let inputName = x[currentTab].getElementsByTagName("input")[0];
+            let primaryColor = getComputedStyle(document.body).getPropertyValue('--primary');
 
             if ($("input[name=" + inputName.name + "]:checked").length > 0) {
                 document.getElementById("nextBtn").style.backgroundColor = primaryColor;
@@ -76,15 +76,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         showTab: function (n) {
             this.verifRadioChosen();
             // This function will display the specified tab of the form ...
-            var x = document.getElementsByClassName("tab");
+            let x = document.getElementsByClassName("tab");
             x[n].style.display = "flex";
             // ... and fix the Previous/Next buttons:
-            if (n == 0) {
+            if (n === 0) {
                 document.getElementById("prevBtn").style.display = "none";
             } else {
                 document.getElementById("prevBtn").style.display = "inline";
             }
-            if (n == (x.length - 1)) {
+            if (n === (x.length - 1)) {
                 document.getElementById("nextBtn").value = "Submit";
             } else {
                 document.getElementById("nextBtn").innerHTML = "Suivant";
@@ -92,9 +92,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         },
         nextPrev: function (n) {
             // This function will figure out which tab to display
-            var x = document.getElementsByClassName("tab");
+            let x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
-            if (n == 1 && !this.verifRadioChosen()) {
+            if (n === 1 && !this.verifRadioChosen()) {
                 return false;
             }
             // Hide the current tab:

@@ -2,14 +2,14 @@ odoo.define('website.accorderie_canada_ddb.pub_offre.instance', function (requir
     'use strict';
 
     require('web_editor.ready');
-    var PublierForm = require('website.accorderie_canada_ddb.pub_offre');
+    let PublierForm = require('website.accorderie_canada_ddb.pub_offre');
 
-    var $form = $('#pub_form');
+    let $form = $('#pub_form');
     if (!$form.length) {
         return null;
     }
 
-    var instance = new PublierForm();
+    let instance = new PublierForm();
     return instance.appendTo($form).then(function () {
         return instance;
     });
@@ -19,15 +19,14 @@ odoo.define('website.accorderie_canada_ddb.pub_offre.instance', function (requir
 
 odoo.define("website.accorderie_canada_ddb.pub_offre", function (require) {
 
-    var ajax = require('web.ajax');
-    var Widget = require('web.Widget');
+    let ajax = require('web.ajax');
+    let Widget = require('web.Widget');
 
-
-// Catch registration form event, because of JS for attendee details
-    var PublierForm = Widget.extend({
+    // Catch registration form event, because of JS for attendee details
+    let PublierForm = Widget.extend({
         start: function () {
-            var self = this;
-            var res = this._super.apply(this.arguments).then(function () {
+            let self = this;
+            let res = this._super.apply(this.arguments).then(function () {
                 $('.submit_container .submit_btn')
                     .off('click')
                     .click(function (ev) {
@@ -44,8 +43,8 @@ odoo.define("website.accorderie_canada_ddb.pub_offre", function (require) {
 
         showModal: function () {
 
-            var target = $('#submitBtn').attr('data-target');
-            console.log(target);
+            let target = $('#submitBtn').attr('data-target');
+            console.debug(target);
             $(target).attr("aria-hidden", "false");
             $(target).css("display", "block");
             $(target).addClass("show");
