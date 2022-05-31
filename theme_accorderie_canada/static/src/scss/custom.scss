@@ -660,6 +660,7 @@ actualité
 
   .activite_title {
     color: $text-beta;
+    font-weight: bold;
   }
 
   .activite_auteur {
@@ -1768,6 +1769,10 @@ actualité
 .event_container {
   display: flex;
   flex-direction: row;
+}
+
+.icon_padding_right {
+  padding-right: 10px;
 }
 
 .event_head {

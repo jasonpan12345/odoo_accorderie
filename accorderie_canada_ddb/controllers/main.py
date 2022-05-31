@@ -23,6 +23,7 @@ class AccorderieCanadaDdbController(http.Controller):
     def get_page_offre_service(self, offre_service=None):
         env = request.env(context=dict(request.env.context))
 
+        str_diff_time = "Temps indéterminé"
         accorderie_offre_service_cls = env["accorderie.offre.service"]
         if offre_service:
             accorderie_offre_service_id = (
@@ -30,10 +31,19 @@ class AccorderieCanadaDdbController(http.Controller):
                 .browse(offre_service)
                 .exists()
             )
+            timedate_now = datetime.now()
+            # fr_CA not exist
+            # check .venv/lib/python3.7/site-packages/humanize/locale/
+            _t = humanize.i18n.activate("fr_FR")
+            diff_time = timedate_now - accorderie_offre_service_id.create_date
+            str_diff_time = f"Publiée {humanize.naturaltime(diff_time)}"
+            humanize.i18n.deactivate()
         else:
             accorderie_offre_service_id = None
+
         dct_value = {
-            "accorderie_offre_service_id": accorderie_offre_service_id
+            "accorderie_offre_service_id": accorderie_offre_service_id,
+            "str_diff_time": str_diff_time,
         }
 
         # Render page
