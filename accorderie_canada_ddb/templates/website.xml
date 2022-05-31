@@ -680,7 +680,7 @@
                                         </p>
                                     </label>
                                 </div>
-                                <div class="buttons_form_container tab scroll">
+                                <div class="buttons_form_container tab scroll" style="flex-direction:column;">
                                     <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />
                                     <label for="rdv_divers" class="button_form btn small">
                                         <p>Rendez-vous divers</p>
