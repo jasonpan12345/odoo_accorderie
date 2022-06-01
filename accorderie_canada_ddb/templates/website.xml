@@ -276,16 +276,18 @@
             <div class="container_lists">
                 <div class="row activites_list col-lg-6">
                     <div class="list_title s_title">
-                        <h1>
+                        <p>
                             <font style="font-size: 2rem; float:left;">Offres r&#233;centes</font>
-                            <a t-if="offre_services_count" href="/offresservice">
-                                <font style="float:right; font-size:1.25rem; margin-top:10px;">
-                                    Voir Tout (+
-                                    <span t-raw="offre_services_count" />
-                                    )
-                                </font>
+                            <a
+                                t-if="offre_services_count"
+                                href="/offresservice"
+                                style="float:right; font-size:1.25rem; margin-top:10px;"
+                            >
+                                Voir Tout (+
+                                <span t-raw="offre_services_count" />
+                                )
                             </a>
-                        </h1>
+                        </p>
                     </div>
                     <div t-if="offre_services">
                         <div t-foreach="offre_services" t-as="offre_service">
@@ -342,16 +344,18 @@
                 </div>
                 <div class="row activites_list col-lg-6">
                     <div class="list_title s_title">
-                        <h1>
+                        <p>
                             <font style="font-size: 2rem; float:left;">Demandes r&#233;centes</font>
-                            <a t-if="demande_services_count" href="/offresservice">
-                                <font style="float:right; font-size:1.25rem; margin-top:10px;">
-                                    Voir Tout (+
-                                    <span t-raw="demande_services_count" />
-                                    )
-                                </font>
+                            <a
+                                t-if="demande_services_count"
+                                href="/offresservice"
+                                style="float:right; font-size:1.25rem; margin-top:10px;"
+                            >
+                                Voir Tout (+
+                                <span t-raw="demande_services_count" />
+                                )
                             </a>
-                        </h1>
+                        </p>
                     </div>
                     <div t-if="demande_services">
                         <div t-foreach="demande_services" t-as="demande_service">
@@ -526,12 +530,12 @@
             </div>
             <div t-if="type_service_categories">
                 <div class="list_title s_title">
-                    <h1>
+                    <p>
                         <font style="font-size: 2rem; float:left;">Explorer les offres</font>
-                        <a href="/offresservice">
-                            <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)</font>
+                        <a href="/offresservice" style="float:right; font-size:1.25rem; margin-top:10px;">
+                            Voir Tout (+500)
                         </a>
-                    </h1>
+                    </p>
                 </div>
                 <div class="offres_list">
                     <div class="offre_box btn" t-foreach="type_service_categories" t-as="type_service_categorie">
