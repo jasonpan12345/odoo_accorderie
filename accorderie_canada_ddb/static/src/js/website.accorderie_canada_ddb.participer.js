@@ -19,9 +19,10 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
 
 odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
-    let ajax = require('web.ajax');
-    let core = require('web.core');
-    let Widget = require('web.Widget');
+    var ajax = require('web.ajax');
+    var core = require('web.core');
+    var session = require('web.session');
+    var Widget = require('web.Widget');
 
     let _t = core._t;
 
@@ -66,7 +67,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             let inputName = x[currentTab].getElementsByTagName("input")[0];
             let primaryColor = getComputedStyle(document.body).getPropertyValue('--primary');
 
-            if ($("input[name=" + inputName.name + "]:checked").length > 0) {
+            let inputClick = $("input[name=" + inputName.name + "]:checked");
+            console.debug(inputClick);
+            if (inputClick.length > 0) {
                 document.getElementById("nextBtn").style.backgroundColor = primaryColor;
                 return true;
             }
@@ -103,22 +106,47 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             if (currentTab === 2) {
                 let inputName = x[currentTab].getElementsByTagName("input")[0];
                 let lst_radio = $("input[name=" + inputName.name + "]:checked");
-                console.debug(lst_radio);
-            }
-            // Hide the current tab:
-            x[currentTab].style.display = "none";
-            // Increase or decrease the current tab by 1:
-            currentTab = currentTab + n;
+                let self = this;
+                this.tab_sous_categorie = document.getElementsByClassName("tab_sous_categorie");
+                let categorie_id = lst_radio[0].value;
+                ajax.rpc("/accorderie_canada_ddb/type_service_sous_categorie_list/" + categorie_id, {}).then(function (data) {
+                    if (data.error) {
+                        return;
+                    }
 
-            // if you have reached the end of the form... :
-            if (currentTab >= x.length) {
+                    if (_.isEmpty(data)) {
+                        return;
+                    }
+
+                    self.tab_sous_categorie[0].innerHTML = data;
+                    $('.buttons_form_container > input')
+                        .off('click')
+                        .click(function (ev) {
+                            self.verifRadioChosen()
+                        });
+
+                    // Hide the current tab:
+                    x[currentTab].style.display = "none";
+                    // Increase or decrease the current tab by 1:
+                    currentTab = currentTab + n;
+
+                    // Otherwise, display the correct tab:
+                    self.showTab(currentTab);
+                });
+            } else if (currentTab >= x.length - 1) {
+                // if you have reached the end of the form... :
                 //...the form gets submitted:
                 document.getElementById("participer_form").submit();
                 return false;
-            }
-            // Otherwise, display the correct tab:
-            this.showTab(currentTab);
+            } else {
+                // Hide the current tab:
+                x[currentTab].style.display = "none";
+                // Increase or decrease the current tab by 1:
+                currentTab = currentTab + n;
 
+                // Otherwise, display the correct tab:
+                this.showTab(currentTab);
+            }
         },
     });
 

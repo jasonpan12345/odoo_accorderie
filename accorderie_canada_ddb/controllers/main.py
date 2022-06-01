@@ -20,7 +20,7 @@ class AccorderieCanadaDdbController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_page_offre_service(self, offre_service=None):
+    def get_page_offre_service(self, offre_service=None, **kw):
         env = request.env(context=dict(request.env.context))
 
         str_diff_time = "Temps indéterminé"
@@ -60,7 +60,7 @@ class AccorderieCanadaDdbController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_page_demande_service(self, demande_service=None):
+    def get_page_demande_service(self, demande_service=None, **kw):
         env = request.env(context=dict(request.env.context))
 
         accorderie_demande_service_cls = env["accorderie.demande.service"]
@@ -91,7 +91,7 @@ class AccorderieCanadaDdbController(http.Controller):
         website=True,
     )
     def get_offre_service_accorderie_offre_service_and_demande_service_accorderie_demande_service_list(
-        self,
+        self, **kw
     ):
         env = request.env(context=dict(request.env.context))
 
@@ -186,7 +186,9 @@ class AccorderieCanadaDdbController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_page_type_service_categorie(self, type_service_categorie=None):
+    def get_page_type_service_categorie(
+        self, type_service_categorie=None, **kw
+    ):
         env = request.env(context=dict(request.env.context))
 
         accorderie_type_service_categorie_cls = env[
@@ -216,7 +218,7 @@ class AccorderieCanadaDdbController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_type_service_categorie_list(self):
+    def get_type_service_categorie_list(self, **kw):
         env = request.env(context=dict(request.env.context))
 
         accorderie_type_service_categorie_cls = env[
@@ -265,6 +267,51 @@ class AccorderieCanadaDdbController(http.Controller):
         # Render page
         return request.env["ir.ui.view"].render_template(
             "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication",
+            dct_value,
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/type_service_sous_categorie_list",
+            "/accorderie_canada_ddb/type_service_sous_categorie_list/<int:categorie_id>",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_type_service_sous_categorie_list(self, categorie_id=None, **kw):
+        env = request.env(context=dict(request.env.context))
+
+        accorderie_type_service_sous_categorie_cls = env[
+            "accorderie.type.service.sous.categorie"
+        ]
+        if categorie_id:
+            accorderie_type_service_sous_categorie = (
+                accorderie_type_service_sous_categorie_cls.sudo().search(
+                    [("categorie", "=", categorie_id)]
+                )
+            )
+        else:
+            accorderie_type_service_sous_categorie = (
+                accorderie_type_service_sous_categorie_cls.sudo().search([])
+            )
+
+        accorderie_type_service_sous_categorie_ids = (
+            accorderie_type_service_sous_categorie.ids
+        )
+        type_service_sous_categories = (
+            accorderie_type_service_sous_categorie_cls.sudo().browse(
+                accorderie_type_service_sous_categorie_ids
+            )
+        )
+
+        dct_value = {
+            "type_service_sous_categories": type_service_sous_categories
+        }
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication_sous_categorie",
             dct_value,
         )
 
