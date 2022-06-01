@@ -1,14 +1,80 @@
 import base64
 import logging
+import urllib.parse
 from datetime import datetime
 
 import humanize
+import requests
 import werkzeug
 
 from odoo import http
 from odoo.http import request
 
 _logger = logging.getLogger(__name__)
+OSRM_URL = ""
+
+
+def get_latitude_longitude(str_address):
+    if not str_address:
+        return "", ""
+    nominatim_url = f"https://nominatim.openstreetmap.org/search/?q={urllib.parse.quote(str_address)}&limit=5&format=jsonv2&addressdetails=1&countrycodes=ca"
+    try:
+        r = requests.get(nominatim_url)
+    except Exception:
+        r = None
+    if r and r.status_code == 200:
+        lst_res = r.json()
+        if lst_res:
+            dct_res = lst_res[0]
+            return dct_res["lat"], dct_res["lon"]
+    return "", ""
+
+
+def get_distance_osrm(lon1, lat1, lon2, lat2):
+    distance = ""
+    if not lon1 or not lon2 or not lat1 or not lat2:
+        return distance
+    i_distance = -1
+    osrm_url = f"{OSRM_URL}/route/v1/driving/{lon1},{lat1};{lon2},{lat2}?alternatives=true"
+    try:
+        r = requests.get(osrm_url)
+    except Exception:
+        r = None
+    if r and r.status_code == 200:
+        dct_res = r.json()
+        if dct_res and dct_res.get("code") == "Ok":
+            lst_routes = dct_res["routes"]
+            if lst_routes:
+                i_distance = lst_routes[0]["distance"]
+    if i_distance > -1:
+        # Transform it
+        if i_distance > 1000.0:
+            distance = f"{i_distance / 1000.:.3f} km"
+        else:
+            distance = f"{i_distance} m"
+    return distance
+
+
+def find_distance_from_user(env, str_address):
+    distance = ""
+    if not env.user or not env.user.active or not OSRM_URL or not str_address:
+        # TODO Propose to open gps
+        return ""
+    accorderie_membre_cls = env["accorderie.membre"]
+    membre_id = accorderie_membre_cls.search([("user_id", "=", env.user.id)])
+    if not membre_id:
+        return ""
+    if not membre_id.adresse:
+        return "<font color='#FF0000'>Adresse non configuré</font>"
+    lat2, lon2 = get_latitude_longitude(str_address)
+    if lon2 and lat2:
+        lat1, lon1 = get_latitude_longitude(membre_id.adresse)
+        if lat1 and lon1:
+            distance = get_distance_osrm(lon1, lat1, lon2, lat2)
+        else:
+            return "<font color='#FF0000'>Adresse non configuré</font>"
+
+    return distance
 
 
 class AccorderieCanadaDdbController(http.Controller):
@@ -22,6 +88,7 @@ class AccorderieCanadaDdbController(http.Controller):
     )
     def get_page_offre_service(self, offre_service=None, **kw):
         env = request.env(context=dict(request.env.context))
+        str_distance = "? km"
 
         str_diff_time = "Temps indéterminé"
         accorderie_offre_service_cls = env["accorderie.offre.service"]
@@ -38,12 +105,21 @@ class AccorderieCanadaDdbController(http.Controller):
             diff_time = timedate_now - accorderie_offre_service_id.create_date
             str_diff_time = f"Publiée {humanize.naturaltime(diff_time)}"
             humanize.i18n.deactivate()
+
+            if (
+                accorderie_offre_service_id
+                and accorderie_offre_service_id.membre
+            ):
+                str_distance = find_distance_from_user(
+                    env, accorderie_offre_service_id.membre.adresse
+                )
         else:
             accorderie_offre_service_id = None
 
         dct_value = {
             "accorderie_offre_service_id": accorderie_offre_service_id,
             "str_diff_time": str_diff_time,
+            "str_distance": str_distance,
         }
 
         # Render page
@@ -108,6 +184,7 @@ class AccorderieCanadaDdbController(http.Controller):
             accorderie_offre_service_cls.sudo().search_count([])
         )
         lst_icon_offre_service = []
+        lst_distance_offre_service = []
         for offre in offre_services:
             icon = None
             if (
@@ -118,6 +195,11 @@ class AccorderieCanadaDdbController(http.Controller):
             ):
                 icon = offre.type_service_id.sous_categorie_id.categorie.icon
             lst_icon_offre_service.append(icon)
+
+            distance = None
+            if offre.membre:
+                distance = find_distance_from_user(env, offre.membre.adresse)
+            lst_distance_offre_service.append(distance)
 
         accorderie_demande_service_cls = env["accorderie.demande.service"]
         accorderie_demande_service_ids = (
@@ -132,6 +214,7 @@ class AccorderieCanadaDdbController(http.Controller):
             accorderie_demande_service_cls.sudo().search_count([])
         )
         lst_icon_demande_service = []
+        lst_distance_demande_service = []
         for demande in demande_services:
             icon = None
             # if (
@@ -142,6 +225,8 @@ class AccorderieCanadaDdbController(http.Controller):
             # ):
             #     icon = demande.type_service_id.sous_categorie_id.categorie.icon
             lst_icon_demande_service.append(icon)
+            distance = None
+            lst_distance_demande_service.append(distance)
 
         lst_time_diff_offre_service = []
         lst_time_diff_demande_service = []
@@ -165,11 +250,13 @@ class AccorderieCanadaDdbController(http.Controller):
             "offre_services": offre_services,
             "offre_services_count": offre_services_count,
             "lst_icon_offre_service": lst_icon_offre_service,
+            "lst_distance_offre_service": lst_distance_offre_service,
             "lst_time_offre_service": lst_time_diff_offre_service,
             "demande_services": demande_services,
             "lst_time_demande_service": lst_time_diff_demande_service,
             "demande_services_count": demande_services_count,
             "lst_icon_demande_service": lst_icon_demande_service,
+            "lst_distance_demande_service": lst_distance_demande_service,
         }
 
         # Render page
