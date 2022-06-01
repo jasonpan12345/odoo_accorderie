@@ -24,7 +24,7 @@ $text-beta: black;
 }
 
 @media only screen and (max-width: 890px) {
-  .list_title h1 {
+  .list_title {
     * {
       margin: 0 !important;
     }
@@ -34,16 +34,21 @@ $text-beta: black;
       float: left;
     }
 
+    a {
+      font-size: 4vw !important;
+    }
+
     span * {
       font-size: 4vw !important;
     }
+
   }
 }
 
 .list_title {
   padding-bottom: 50px;
 
-  a font {
+  a {
     text-decoration: underline;
   }
 }
@@ -278,6 +283,7 @@ searchbar
 
     input {
       margin-top: 10px;
+      width: 85%;
     }
   }
   .search_category {
@@ -328,12 +334,6 @@ searchbar
   .s_offres {
     padding: 0 5%;
     height: auto;
-
-    .list_title * {
-      font-size: 5vw !important;
-      font-size: clamp(12px, 5vw, 30px) !important;
-      margin: 0 !important;
-    }
   }
   .offres_list {
     grid-template-columns: repeat(5, 270px);
@@ -668,6 +668,7 @@ actualité
     display: flex;
     flex-direction: column;
     color: $text-beta;
+    width: min-content;
 
     .fa {
       margin-top: auto;
@@ -679,6 +680,7 @@ actualité
 @media only screen and (max-width: 990px) {
   .s_activites_recentes {
     height: 1200px;
+    padding: 5% 0;
   }
   .container_lists {
     flex-direction: column;
@@ -691,16 +693,16 @@ actualité
       padding: 2% 0 2%;
 
       .activite_img {
-        height: 10vh;
+        height: 8vh;
       }
 
       .activite_title {
-        font-size: 1.6vh;
+        font-size: 1.8vh;
       }
 
       .activite_auteur,
       .activite_distance {
-        font-size: 1.3vh;
+        font-size: 1.5vh;
       }
     }
   }
@@ -848,8 +850,7 @@ actualité
   }
 
   .footer_aide {
-    width: 0 !important;
-    padding: 0 !important;
+    display: none;
   }
   #wrapwrap {
     padding-bottom: 6vh;
@@ -1698,10 +1699,6 @@ actualité
 .activite {
   padding: 20px 0 20px;
   border-bottom: 1px solid #d6d6d6;
-  min-height: 120px;
-
-  .item_title {
-  }
 
   .item_desc {
     font-weight: 350;
