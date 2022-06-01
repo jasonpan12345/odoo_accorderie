@@ -3,7 +3,7 @@
     <data noupdate="1">
         <record id="accorderie_membre_martin_petit" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="adresse">3800 Chem. Queen Mary, Montréal, QC H3V 1H6</field>
+            <field name="adresse">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>
             <field name="nom">Petit</field>
             <field name="prenom">Martin</field>
             <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
@@ -11,7 +11,7 @@
         </record>
         <record id="accorderie_membre_denis_lemarchand" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="adresse">2150 A. des Laurentides, Laval, QC H7T 2T8</field>
+            <field name="adresse">2150 Autoroute des Laurentides laval</field>
             <field name="nom">Lemarchand</field>
             <field name="prenom">Denis</field>
             <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
@@ -19,11 +19,12 @@
         </record>
         <record id="accorderie_membre_alice_poitier" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="adresse">6400 16e Avenue, Montréal, QC H1X 2S9</field>
+            <field name="adresse">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie, Montreal, Urban agglomeration of Montreal, Montreal (06), Quebec, H1X 1J5, Canada</field>
             <field name="nom">Poitier</field>
             <field name="prenom">Alice</field>
             <field name="region" ref="accorderie_canada_ddb.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb.accorderie_ville_grosse_ile" />
+            <field name="user_id" ref="base.user_admin" />
         </record>
         <record id="accorderie_membre_martin_bergeron" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
