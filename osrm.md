@@ -56,6 +56,12 @@ Tester avec frontend :
 docker run -p 9966:9966 osrm/osrm-frontend
 ```
 
+Tester avec frontend en changeant l'adresse du backend :
+
+```bash
+docker run -p 9966:9966 -e OSRM_BACKEND='http://localhost:5001' osrm/osrm-frontend
+```
+
 Ouvrir le lien et changer le layer pour OpenStreetMap :
 
 - http://127.0.0.1:9966/?z=13&center=45.510618%2C-73.512011&loc=45.557798%2C-73.551646&loc=45.504587%2C-73.612996&hl=fr&alt=0
