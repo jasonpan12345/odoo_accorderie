@@ -620,19 +620,15 @@
                                         <div class="row">Aucune catégorie de service est disponible.</div>
                                     </div>
                                     <t t-if="type_service_categories">
-                                        <t
-                                            class="offre_box btn"
-                                            t-foreach="type_service_categories"
-                                            t-as="type_service_categorie"
-                                        >
+                                        <t t-foreach="type_service_categories" t-as="type_service_categorie">
                                             <input
                                                 type="radio"
-                                                t-att-id="'cat_%s' % str(type_service_categorie_index + 1)"
+                                                t-att-id="'cat_%s' % str(type_service_categorie.id)"
                                                 name="type_service_categorie"
                                                 t-att-value="type_service_categorie.id"
                                             />
                                             <label
-                                                t-att-for="'cat_%s' % str(type_service_categorie_index + 1)"
+                                                t-att-for="'cat_%s' % str(type_service_categorie.id)"
                                                 class="cat button_form btn"
                                             >
                                                 <img
@@ -650,36 +646,10 @@
                                         </t>
                                     </t>
                                 </div>
-                                <div class="buttons_form_container tab">
-                                    <input type="radio" id="accompagnement" name="sub_cat" value="1" />
-                                    <label for="accompagnement" class="button_form btn small">
-                                        <p>Accompagnement</p>
-                                    </label>
-                                    <input type="radio" id="gardiennage" name="sub_cat" value="2" />
-                                    <label for="gardiennage" class="button_form btn small">
-                                        <p>Gardiennage</p>
-                                    </label>
-                                    <input type="radio" id="animaux" name="sub_cat" value="2" />
-                                    <label for="animaux" class="button_form btn small">
-                                        <p>Animaux</p>
-                                    </label>
-                                </div>
-                                <div class="buttons_form_container tab">
-                                    <input type="radio" id="rdv_demarches" name="sub_cat_2" value="1" />
-                                    <label for="rdv_demarches" class="button_form btn small">
-                                        <p>Rendez-vous ou d&#233;marches
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="courses_mag" name="sub_cat_2" value="2" />
-                                    <label for="courses_mag" class="button_form btn small">
-                                        <p>Courses et magasinage</p>
-                                    </label>
-                                    <input type="radio" id="loisirs_act" name="sub_cat_2" value="2" />
-                                    <label for="loisirs_act" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                </div>
+                                <div
+                                    class="buttons_form_container tab tab_sous_categorie scroll"
+                                    style="flex-direction:column;"
+                                />
                                 <div class="buttons_form_container tab scroll" style="flex-direction:column;">
                                     <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />
                                     <label for="rdv_divers" class="button_form btn small">
@@ -745,6 +715,31 @@
                         </section>
                     </div>
                 </t>
+            </t>
+        </t>
+    </template>
+    <template
+        id="accorderie_type_service_categorie_list_publication_sous_categorie"
+        name="Publication List - sous categorie"
+    >
+        <div t-if="not type_service_sous_categories">
+            <div class="row">Aucune catégorie de service est disponible.</div>
+        </div>
+        <t t-if="type_service_sous_categories">
+            <t t-foreach="type_service_sous_categories" t-as="type_service_sous_categorie">
+                <input
+                    type="radio"
+                    t-att-id="'sous_cat_%s' % str(type_service_sous_categorie.id)"
+                    name="type_service_sous_categorie"
+                    t-att-value="type_service_sous_categorie.id"
+                />
+                <label t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)" class="button_form btn small">
+                    <p
+                        class="offre_desc"
+                        t-if="type_service_sous_categorie.nom"
+                        t-raw="type_service_sous_categorie.nom"
+                    />
+                </label>
             </t>
         </t>
     </template>
