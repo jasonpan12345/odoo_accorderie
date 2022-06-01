@@ -32,17 +32,18 @@
                             <div class="event_info info-1">
                                 <h1 t-field="accorderie_offre_service_id.titre" />
                                 <div class="infos">
-                                    <div class="distance"><i
-                                            class="fa fa-map-marker text-primary icon_padding_right"
-                                        /><t t-if="str_distance">&#192; <t
-                                                t-raw="str_distance"
-                                            /> de votre domicile</t></div>
-                                    <div class="adresse"><i class="fa fa-home text-primary icon_padding_right" /><t
-                                            t-esc="accorderie_offre_service_id.membre.adresse"
-                                        /></div>
-                                    <div class="pubdate"><i class="fa fa-clock-o text-primary icon_padding_right" /><t
-                                            t-esc="str_diff_time"
-                                        /></div>
+                                    <div class="distance">
+                                        <i class="fa fa-map-marker text-primary icon_padding_right" />
+                                        <t t-if="str_distance">&#192; <t t-raw="str_distance" /> de votre domicile</t>
+                                    </div>
+                                    <div class="adresse">
+                                        <i class="fa fa-home text-primary icon_padding_right" />
+                                        <t t-esc="accorderie_offre_service_id.membre.adresse" />
+                                    </div>
+                                    <div class="pubdate">
+                                        <i class="fa fa-clock-o text-primary icon_padding_right" />
+                                        <t t-esc="str_diff_time" />
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -278,9 +279,11 @@
                         <h1>
                             <font style="font-size: 2rem; float:left;">Offres r&#233;centes</font>
                             <a t-if="offre_services_count" href="/offresservice">
-                                <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+<span
-                                        t-raw="offre_services_count"
-                                    />)</font>
+                                <font style="float:right; font-size:1.25rem; margin-top:10px;">
+                                    Voir Tout (+
+                                    <span t-raw="offre_services_count" />
+                                    )
+                                </font>
                             </a>
                         </h1>
                     </div>
@@ -342,9 +345,11 @@
                         <h1>
                             <font style="font-size: 2rem; float:left;">Demandes r&#233;centes</font>
                             <a t-if="demande_services_count" href="/offresservice">
-                                <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+<span
-                                        t-raw="demande_services_count"
-                                    />)</font>
+                                <font style="float:right; font-size:1.25rem; margin-top:10px;">
+                                    Voir Tout (+
+                                    <span t-raw="demande_services_count" />
+                                    )
+                                </font>
                             </a>
                         </h1>
                     </div>

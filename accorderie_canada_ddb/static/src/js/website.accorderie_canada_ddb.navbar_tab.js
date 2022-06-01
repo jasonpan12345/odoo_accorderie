@@ -26,7 +26,7 @@ odoo.define("website.accorderie_canada_ddb.navbar_tabs", function (require) {
     let PublierForm = Widget.extend({
         start: function () {
             let self = this;
-            let btnOffres = this._super.apply(this.arguments).then(function () {
+            this._super.apply(this.arguments).then(function () {
                 $('#BtnTabOffres')
                     .off('click')
                     .click(function (ev) {
@@ -34,7 +34,7 @@ odoo.define("website.accorderie_canada_ddb.navbar_tabs", function (require) {
                         self.showTab("tabOffres");
                     });
             });
-            let btnDemandes = this._super.apply(this.arguments).then(function () {
+            this._super.apply(this.arguments).then(function () {
                 $('#BtnTabDemandes')
                     .off('click')
                     .click(function (ev) {
@@ -42,12 +42,28 @@ odoo.define("website.accorderie_canada_ddb.navbar_tabs", function (require) {
                         self.showTab("tabDemandes");
                     });
             });
-            let btnMembres = this._super.apply(this.arguments).then(function () {
+            this._super.apply(this.arguments).then(function () {
                 $('#BtnTabMembres')
                     .off('click')
                     .click(function (ev) {
                         self.on_click(ev);
                         self.showTab("tabMembres");
+                    });
+            });
+            this._super.apply(this.arguments).then(function () {
+                $('#BtnTabMessages')
+                    .off('click')
+                    .click(function (ev) {
+                        self.on_click(ev);
+                        self.showTab("tabMessages");
+                    });
+            });
+            this._super.apply(this.arguments).then(function () {
+                $('#BtnTabNotifications')
+                    .off('click')
+                    .click(function (ev) {
+                        self.on_click(ev);
+                        self.showTab("tabNotifications");
                     });
             });
         },
@@ -57,9 +73,9 @@ odoo.define("website.accorderie_canada_ddb.navbar_tabs", function (require) {
         },
 
         showTab: function (tab) {
-            let i;
-            let x = document.getElementsByClassName("navbar-tab");
-            for (i = 0; i < x.length; i++) {
+            let x = $('#' + tab).siblings();
+
+            for (let i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
             }
             document.getElementById(tab).style.display = "block";
