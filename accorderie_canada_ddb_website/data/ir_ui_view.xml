@@ -7,16 +7,11 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <p class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
-                                                    activit&#233;
-                                                </font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Mon activit&#233;
                                             </p>
                                         </div>
                                     </div>
@@ -181,15 +176,12 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Accorderie de Sherbrooke</font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Accorderie de Sherbrooke
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -220,9 +212,9 @@
                                 <section class="s_actualite">
                                     <div class="container_actualite">
                                         <div class="list_title s_title">
-                                            <h1>
+                                            <p>
                                                 <font style="font-size: 2rem; margin-left:10%">Actualit&#233;</font>
-                                            </h1>
+                                            </p>
                                         </div>
                                         <input class="search_bar_rectangle" type="text" placeholder="Chercher une actualit&#233;" />
                                         <span class="btn" style="border-radius:7px;float:right;border:1px solid #1d95a2;padding:1rem">Filtrer et trier</span>
@@ -319,9 +311,9 @@
                                     </div>
                                     <div class="container_actualite" style="float:right;width: 35%;margin-right: 10%;margin-left: 0;">
                                         <div class="list_title s_title">
-                                            <h1>
+                                            <p>
                                                 <font style="font-size: 2rem; margin-left:10%">&#192; la une</font>
-                                            </h1>
+                                            </p>
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
@@ -430,15 +422,12 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Accorderie de Sherbrooke</font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Accorderie de Sherbrooke
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -625,15 +614,12 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Accorderie de Sherbrooke</font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Accorderie de Sherbrooke
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -1057,7 +1043,7 @@
                             <section class="s_actualite">
                                 <div class="container_actualite">
                                     <div class="list_title s_title">
-                                        <h1>
+                                        <p>
                                             <font style="font-size: 2rem; margin-left:10%">Derni&#232;res Actualit&#233;s</font>
                                             <span>
                                                 <font style="float:right; font-size:1.25rem;margin-top:10px;">
@@ -1065,7 +1051,7 @@
                                                     (+10)
                                                 </font>
                                             </span>
-                                        </h1>
+                                        </p>
                                     </div>
                                     <div class="box_actualite">
                                         <div class="actualite_head">
@@ -1495,15 +1481,12 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Accorderie de Sherbrooke</font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Accorderie de Sherbrooke
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -1890,17 +1873,12 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
-                                                    activit&#233;
-                                                </font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Mon activit&#233;
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -2266,12 +2244,9 @@
                                 <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
+                                            <p class="s_title_default" style="text-align: left;">
                                                 <font style="font-size: 48px;margin-left:10%" class="text-gamma">Messages et notifications</font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -2350,12 +2325,9 @@
                                 <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
+                                            <p class="s_title_default" style="text-align: left;">
                                                 <font style="font-size: 48px;margin-left:10%" class="text-gamma">Messages et notifications</font>
-                                                <font style="color: rgb(0, 0, 0); font-size: 48px;">
-                                                    <br />
-                                                </font>
-                                            </h1>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -2431,18 +2403,17 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pb4 pt0" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pb4 pt0" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pb24 pt32" style="text-align: center;">
-                                            <h1 class="s_title_default" style="text-align: left;">
+                                        <div class="col-lg-12 s_title pb24 pt32">
+                                            <p class="s_title_default" style="text-align: left;">
                                                 <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);" />
                                                 <font style="font-size: 48px;margin-left:5%" class="text-gamma">
-                                                    Mon
-                                                    profil
+                                                    Mon profil
                                                 </font>
-                                                <span class="profile_btn btn disconnect">Se d&#233;connecter</span>
-                                                <span class="profile_btn btn accorderie">Mon accorderie: Sherbrooke</span>
-                                            </h1>
+                                                <span class="profile_btn btn disconnect text-gamma">Se d&#233;connecter</span>
+                                                <span class="profile_btn btn accorderie text-gamma">Mon accorderie: Sherbrooke</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -2493,13 +2464,11 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <p class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
-                                                    activit&#233;
-                                                </font>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Mon activit&#233;
                                             </p>
                                         </div>
                                     </div>
@@ -2658,13 +2627,11 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <p class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Mon
-                                                    activit&#233;
-                                                </font>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Mon activit&#233;
                                             </p>
                                         </div>
                                     </div>

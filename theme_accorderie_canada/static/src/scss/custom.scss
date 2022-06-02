@@ -14,6 +14,10 @@ $gamma: #dbe8ea;
 $text-alpha: white;
 $text-beta: black;
 
+body {
+  overflow-x: hidden;
+}
+
 // Adapt navbar
 .navbar {
   padding: 0 !important;
@@ -41,7 +45,6 @@ $text-beta: black;
     span * {
       font-size: 4vw !important;
     }
-
   }
 }
 
@@ -199,7 +202,7 @@ header .nav-link {
   padding: 0;
 }
 .tab-items-container {
-  max-height:500px;
+  max-height: 500px;
   overflow-y: scroll;
 }
 
@@ -282,8 +285,10 @@ searchbar
     height: 6vh;
 
     input {
-      margin-top: 10px;
+      margin-top: 0;
       width: 85%;
+      height: 6vh;
+      border-radius: 50%;
     }
   }
   .search_category {
@@ -340,6 +345,7 @@ searchbar
     grid-template-rows: repeat(3, 100px);
     overflow-x: scroll;
     overflow-y: hidden;
+    width: 100%;
   }
 }
 
@@ -358,6 +364,20 @@ searchbar
   margin: auto;
   max-width: none !important;
   padding-top: 16px;
+}
+
+.container_communaute {
+  .row {
+    width: 100%;
+  }
+}
+
+.s_title_banner {
+  padding: 10vw;
+
+  p {
+    font-size: 3rem;
+  }
 }
 
 @media only screen and (max-width: 890px) {
@@ -388,15 +408,12 @@ searchbar
     }
   }
   .container_communaute {
-    max-width: 100% !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-    padding-bottom: 0 !important;
+    max-width: 100%;
+    padding: 0;
 
     .row {
-      width: 100%;
-      margin-right: 0 !important;
-      margin-left: 0 !important;
+      margin-right: 0;
+      margin-left: 0;
     }
   }
 
@@ -418,6 +435,10 @@ searchbar
   }
   #aide_btn_txt {
     color: $primary-color !important;
+  }
+
+  .s_title_banner p {
+    font-size: 4vh;
   }
 }
 
@@ -679,11 +700,11 @@ actualité
 
 @media only screen and (max-width: 990px) {
   .s_activites_recentes {
-    height: 1200px;
     padding: 5% 0;
   }
   .container_lists {
     flex-direction: column;
+    gap: 5rem;
   }
   .row.activites_list {
     width: 100%;
@@ -698,6 +719,8 @@ actualité
 
       .activite_title {
         font-size: 1.8vh;
+        max-height: 3rem;
+        overflow: hidden;
       }
 
       .activite_auteur,
@@ -1103,7 +1126,6 @@ actualité
   height: 150px;
   aspect-ratio: 1/1;
   float: left;
-  margin-left: 10%;
   background-size: cover;
 }
 
@@ -1171,7 +1193,7 @@ actualité
 
   .logout {
     background-color: black;
-    visibility: hidden;
+    display: none;
     border: none;
     text-align: center;
 
@@ -1197,13 +1219,13 @@ actualité
         font-size: clamp(15px, 1.2vw, 1.2vw) !important;
       }
     }
+    .logout {
+      display: block;
+    }
   }
 
-  .logout {
-    visibility: visible !important;
-  }
   .profile_btn.disconnect {
-    visibility: hidden;
+    display: none;
     padding: 0;
   }
 }
@@ -1542,7 +1564,6 @@ actualité
     grid-template-rows: 0.7fr repeat(3, 1fr) 2fr;
     grid-column-gap: 30px;
     grid-row-gap: 30px;
-    height: 1900px;
     padding: 0 10% 5% 10%;
 
     .information {
@@ -1616,9 +1637,26 @@ actualité
 }
 
 @media only screen and (max-width: 990px) {
-  .s_mes_informations .informations_container {
-    display: flex;
-    flex-direction: column;
+  .s_mes_informations {
+    background-color: unset;
+
+    .informations_container {
+      display: flex;
+      flex-direction: column;
+
+      .information {
+        background-color: unset;
+        padding: 0 0 20% 0;
+      }
+
+      .information-1 {
+        flex-direction: column;
+
+        .nbr {
+          text-align: center;
+        }
+      }
+    }
   }
 }
 
@@ -1627,10 +1665,9 @@ actualité
     Page monprofil/mesfavoris
 */
 .s_vertical_list_lg {
-  max-height: 2000px;
   height: auto;
   padding-top: 0;
-  padding: 5% 10%;
+  padding: 0 10%;
 }
 
 .vertical_list {
@@ -1685,6 +1722,32 @@ actualité
         margin-top: auto;
         font-size: 1.5rem;
       }
+    }
+  }
+}
+@media only screen and (max-width: 990px) {
+  .s_vertical_list_lg {
+    padding: 0;
+  }
+  .activite.btn {
+    padding: 2% 0 2%;
+
+    .activite_img {
+      height: 8vh;
+    }
+
+    .activite_title {
+      font-size: 1.8vh;
+      max-height: 3rem;
+      overflow: hidden;
+    }
+
+    .activite_auteur,
+    .activite_distance {
+      font-size: 1.5vh;
+    }
+    .activite_desc {
+      display: none;
     }
   }
 }
