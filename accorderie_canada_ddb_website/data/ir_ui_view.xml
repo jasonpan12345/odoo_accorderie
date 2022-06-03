@@ -216,15 +216,20 @@
                                                 <font style="font-size: 2rem; margin-left:10%">Actualit&#233;</font>
                                             </p>
                                         </div>
-                                        <input class="search_bar_rectangle" type="text" placeholder="Chercher une actualit&#233;" />
-                                        <span class="btn" style="border-radius:7px;float:right;border:1px solid #1d95a2;padding:1rem">Filtrer et trier</span>
+                                        <div class="actualite_search">
+                                            <input class="search_bar_rectangle" type="text" placeholder="Chercher une actualit&#233;" />
+                                            <div class="btn">
+                                                <i class="fa fa-sliders text-epsilon" />
+                                                Filtrer et trier
+                                            </div>
+                                        </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
                                                 <div class="pub_pfp" />
                                                 <div class="pub_user pub_info">
-                                                    <h3>
+                                                    <p>
                                                         <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                    </h3>
+                                                    </p>
                                                 </div>
                                                 <div class="pub_date pub_info">
                                                     <h4>
@@ -2403,17 +2408,19 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_title_banner oe_img_bg oe_custom_bg pb4 pt0" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pb24 pt32">
-                                            <p class="s_title_default" style="text-align: left;">
-                                                <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);" />
-                                                <font style="font-size: 48px;margin-left:5%" class="text-gamma">
-                                                    Mon profil
-                                                </font>
-                                                <span class="profile_btn btn disconnect text-gamma">Se d&#233;connecter</span>
-                                                <span class="profile_btn btn accorderie text-gamma">Mon accorderie: Sherbrooke</span>
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                    <div class="row s_nb_column_fixed banner_profile">
+                                        <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);" />
+                                        <div class="profile_banner_info">
+                                            <p class="profile_name text-gamma">Mon profil</p>
+                                            <p class="profile_hrs text-gamma">
+                                                <i class="fa fa-clock-o" />15 heures
                                             </p>
+                                        </div>
+                                        <div class="profile_btn btn accorderie text-gamma">Mon accorderie:
+                                            Sherbrooke
+                                        </div>
+                                        <div class="profile_btn btn disconnect text-gamma">Se d&#233;connecter
                                         </div>
                                     </div>
                                 </section>
