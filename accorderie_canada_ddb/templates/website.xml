@@ -282,11 +282,7 @@
                                 t-if="offre_services_count"
                                 href="/offresservice"
                                 style="float:right; font-size:1.25rem; margin-top:10px;"
-                            >
-                                Voir Tout (+
-                                <span t-raw="offre_services_count" />
-                                )
-                            </a>
+                            >Voir Tout (+<t t-raw="offre_services_count" />)</a>
                         </p>
                     </div>
                     <div t-if="offre_services">
@@ -350,11 +346,7 @@
                                 t-if="demande_services_count"
                                 href="/offresservice"
                                 style="float:right; font-size:1.25rem; margin-top:10px;"
-                            >
-                                Voir Tout (+
-                                <span t-raw="demande_services_count" />
-                                )
-                            </a>
+                            >Voir Tout (+<t t-raw="demande_services_count" />)</a>
                         </p>
                     </div>
                     <div t-if="demande_services">

@@ -30,7 +30,7 @@ body {
 @media only screen and (max-width: 890px) {
   .list_title {
     * {
-      margin: 0 !important;
+      margin-top: 0 !important;
     }
 
     font {
@@ -53,6 +53,8 @@ body {
 
   a {
     text-decoration: underline;
+    margin-left: auto;
+    white-space: nowrap;
   }
 }
 
@@ -438,7 +440,7 @@ searchbar
   }
 
   .s_title_banner p {
-    font-size: 4vh;
+    font-size: 6vh;
   }
 }
 
@@ -448,7 +450,7 @@ actualité
 
 .s_actualite {
   padding-bottom: 256px;
-  height: 1600px;
+  overflow-y: auto;
 }
 
 .container_actualite {
@@ -462,7 +464,7 @@ actualité
   overflow: hidden;
   float: right;
   margin: 0 10% 0 5%;
-  height: 100%;
+  height: 1300px;
   width: 32%;
 
   .img {
@@ -602,7 +604,7 @@ actualité
 
 @media only screen and (max-width: 1050px) {
   .container_accordage {
-    visibility: hidden;
+    display: none;
   }
   .container_actualite {
     margin: auto !important;
@@ -642,6 +644,10 @@ actualité
 
   .list_title {
     padding-bottom: 10%;
+
+    p {
+      display: flex;
+    }
   }
 }
 
@@ -895,12 +901,21 @@ actualité
   }
 }
 
-.search_bar_rectangle {
-  border-radius: 7px;
-  margin: 0 0 2% 10%;
-  width: 65%;
-  padding: 1rem;
-  border: 1px solid #1d95a2;
+.actualite_search {
+  padding: 2% 0 2% 10%;
+
+  .search_bar_rectangle {
+    border-radius: 7px;
+    width: 65%;
+    padding: 1rem;
+    border: 1px solid $alpha;
+  }
+  .btn {
+    border-radius: 7px;
+    float: right;
+    border: 1px solid $alpha;
+    padding: 1rem;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -919,10 +934,24 @@ actualité
   }
 }
 
-@media only screen and (max-width: 990px) {
-  .search_bar_rectangle {
-    margin: 0;
-    width: 55%;
+@media only screen and (max-width: 1050px) {
+  .actualite_search {
+    padding-left: 0;
+
+    .search_bar_rectangle {
+      margin: 0;
+      width: 75%;
+    }
+
+    .btn {
+      border: none;
+      font-size: 0;
+
+      i {
+        font-size: 2rem;
+        line-height: 1rem;
+      }
+    }
   }
 }
 
@@ -1117,6 +1146,11 @@ actualité
 /*
     Page mon profil
 */
+.banner_profile {
+  gap: 2rem;
+  align-items: center;
+}
+
 .s_informations {
   margin-top: 100px;
   margin-bottom: 100px;
@@ -1128,19 +1162,28 @@ actualité
   float: left;
   background-size: cover;
 }
+.profile_banner_info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
 
-.profile_btn.btn {
-  border: 1px solid grey;
-  float: right;
-  margin-right: 20px;
-  color: $text-alpha;
-  padding: 20px;
-  font-size: 1.5rem;
-  margin-top: 2%;
+  .profile_name {
+    font-size: 3rem;
+  }
+  .profile_hrs {
+    font-size: 2.5rem;
+  }
 }
 
-.profile_btn.disconnect {
-  margin-right: 10%;
+.profile_btn.btn {
+  border: 1px solid $beta;
+  color: $text-alpha;
+  padding: 1rem;
+  font-size: 1.5rem;
+  white-space: normal;
+}
+.profile_btn.accorderie {
+  margin-left: auto;
 }
 
 .informations_container {
@@ -1204,6 +1247,9 @@ actualité
 }
 
 @media only screen and (max-width: 990px) {
+  .profile_pic {
+    height: 12vh;
+  }
   .informations_container {
     display: flex;
     flex-direction: column;
@@ -1223,10 +1269,22 @@ actualité
       display: block;
     }
   }
+  .profile_banner_info {
+    .profile_name {
+      font-size: 4vh;
+    }
+    .profile_hrs {
+      font-size: 3.5vh;
+    }
+  }
 
   .profile_btn.disconnect {
     display: none;
     padding: 0;
+  }
+  .profile_btn.accorderie {
+    width: 100%;
+    margin: 5rem 0 0;
   }
 }
 
@@ -1465,10 +1523,19 @@ actualité
 
       > * {
         color: $text-beta;
+        width: 80%;
+        font-size: 3vh;
       }
 
+      .txt_question {
+        padding: 5% 10%;
+      }
+    }
+    #participer_form {
+      padding-bottom: 5vh;
+
       .buttons_form_container {
-        padding: 5%;
+        padding: 5% 0;
       }
 
       .buttons_form_container .btn.small {
@@ -1478,14 +1545,6 @@ actualité
       .submit_container .submit_btn {
         width: 30%;
         margin: 5%;
-      }
-
-      .txt_question {
-        padding: 5% 10%;
-      }
-
-      #participer_form {
-        padding-bottom: 5vh;
       }
     }
   }
