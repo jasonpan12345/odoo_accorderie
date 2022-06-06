@@ -102,6 +102,16 @@
                                     </span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link debug_not_implemented" role="menu_item">
+                                    <span class="fa fa-2x fa-bug text-primary"
+                                          data-oe-model="website.menu"
+                                          data-oe-id="9"
+                                          data-oe-field="name"
+                                          data-oe-type="char"
+                                          data-oe-expression="submenu.name"/>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
                                     <span
