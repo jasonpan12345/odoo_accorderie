@@ -2531,16 +2531,16 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_activites_recentes">
+                                <section class="s_activites_recentes activites_messages">
                                     <div class="container_lists">
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem; float:left;">Offres r&#233;centes
                                                     </font>
-                                                    <span>
-                                                        <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)</font>
-                                                    </span>
+                                                    <a style="float:right; font-size:1.25rem; margin-top:10px;">Voir
+                                                        Tout (+500)
+                                                    </a>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -2583,9 +2583,9 @@
                                                         Messages et
                                                         notifications
                                                     </font>
-                                                    <span>
-                                                        <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+40)</font>
-                                                    </span>
+                                                    <a style="float:right; font-size:1.25rem; margin-top:10px;">Voir
+                                                        Tout (+40)
+                                                    </a>
                                                 </p>
                                             </div>
                                             <div class="activite btn small" data-name="Box">

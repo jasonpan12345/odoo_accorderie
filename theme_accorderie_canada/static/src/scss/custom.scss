@@ -36,6 +36,7 @@ body {
     font {
       font-size: 5vw !important;
       float: left;
+      margin-left: 0 !important;
     }
 
     a {
@@ -149,7 +150,7 @@ header .nav-link {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .collapse.navbar-collapse {
     height: auto;
   }
@@ -206,6 +207,11 @@ header .nav-link {
 .tab-items-container {
   max-height: 500px;
   overflow-y: scroll;
+}
+@media only screen and (max-width: 767px) {
+  .dropdown-menu.submenu {
+    min-width: 100vw;
+  }
 }
 
 /*
@@ -802,7 +808,8 @@ actualité
 @media only screen and (max-width: 1510px) {
   .horizontal_list {
     overflow-x: auto;
-    white-space: no;
+    white-space: normal;
+    width: 100%;
   }
   .list_item {
     min-width: 280px;
@@ -1371,7 +1378,6 @@ actualité
 
 @media only screen and (max-width: 990px) {
   .activites_list.lg .activite.btn {
-    display: block;
 
     .activite_title {
       float: none;
