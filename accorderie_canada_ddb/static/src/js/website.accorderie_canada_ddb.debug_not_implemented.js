@@ -50,7 +50,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
         ToggleNotImplemented: function (show) {
 
             let unimplementedClasses = ["s_actualite", "s_event_list", "s_activite_bilan", "s_mes_informations",
-                "s_vertical_list_lg", "s_pub_offre_desc", "activites_messages"];
+                "s_vertical_list_lg", "s_pub_offre_desc", "activites_messages", "mes_accordages"];
 
             for (let i = 0; i < unimplementedClasses.length; i++) {
                 let classes = document.getElementsByClassName(unimplementedClasses[i]);
