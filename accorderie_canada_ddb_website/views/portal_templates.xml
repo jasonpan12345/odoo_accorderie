@@ -6,7 +6,7 @@
         <!--        </xpath>-->
         <!-- Add nav-height-medium, remove "<div class="container">" and replace <li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/> by static list -->
         <xpath expr="//header" position="replace">
-            <header>
+            <header class="o_affix_enabled">
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">
                     <a href="/" class="navbar-brand logo">
                         <img
@@ -102,17 +102,25 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link debug_not_implemented" role="menu_item">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
                                     <span
                                         class="fa fa-2x fa-bug text-primary"
                                         data-oe-model="website.menu"
-                                        data-oe-id="9"
+                                        data-oe-id="10"
                                         data-oe-field="name"
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
                                     />
                                 </a>
+                                <div class="dropdown-menu submenu shadow" role="menu">
+                                    <div role="menuitem" class="dropdown-item highlight_not_implemented">
+                                        <p>Highlight</p>
+                                    </div>
+                                    <div role="menuitem" class="dropdown-item hide_not_implemented">
+                                        <p>Hide</p>
+                                    </div>
+                                </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">

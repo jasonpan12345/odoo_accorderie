@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_activites_recentes lg mes_accordages">
+                                <section class="s_activites_recentes lg debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
                                             <div class="list_title s_title pb40">
@@ -209,7 +209,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_actualite">
+                                <section class="s_actualite debug_unimplemented">
                                     <div class="container_actualite">
                                         <div class="list_title s_title">
                                             <p>
@@ -244,14 +244,14 @@
                                                     </h4>
                                                 </div>
                                                 <div class="pub_desc">
-                                                    <h5>
+                                                    <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                                                         enim ad minim veniam, quis nostrud exercitation ullamco laboris
                                                         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                                                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                         nulla pariatur.
-                                                    </h5>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
@@ -289,14 +289,14 @@
                                                     </h4>
                                                 </div>
                                                 <div class="pub_desc">
-                                                    <h5>
+                                                    <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                                                         enim ad minim veniam, quis nostrud exercitation ullamco laboris
                                                         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                                                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                         nulla pariatur.
-                                                    </h5>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
@@ -341,14 +341,14 @@
                                                     </h4>
                                                 </div>
                                                 <div class="pub_desc">
-                                                    <h5>
+                                                    <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                                                         enim ad minim veniam, quis nostrud exercitation ullamco laboris
                                                         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                                                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                         nulla pariatur.
-                                                    </h5>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
@@ -386,14 +386,14 @@
                                                     </h4>
                                                 </div>
                                                 <div class="pub_desc">
-                                                    <h5>
+                                                    <p>
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                                                         enim ad minim veniam, quis nostrud exercitation ullamco laboris
                                                         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                                                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                         nulla pariatur.
-                                                    </h5>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
@@ -460,7 +460,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg">
+                                <section class="s_event_list lg debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
                                             <h1>
@@ -652,7 +652,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg">
+                                <section class="s_event_list lg debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
                                             <h1>
@@ -1045,7 +1045,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_actualite">
+                            <section class="s_actualite debug_unimplemented">
                                 <div class="container_actualite">
                                     <div class="list_title s_title">
                                         <p>
@@ -1079,14 +1079,14 @@
                                                 </h4>
                                             </div>
                                             <div class="pub_desc">
-                                                <h5>
+                                                <p>
                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                                                     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                                     aliquip ex ea commodo consequat. Duis aute irure dolor in
                                                     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                                                     pariatur.
-                                                </h5>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="actualite_stats">
@@ -1124,14 +1124,14 @@
                                                 </h4>
                                             </div>
                                             <div class="pub_desc">
-                                                <h5>
+                                                <p>
                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                                                     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                                     aliquip ex ea commodo consequat. Duis aute irure dolor in
                                                     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                                                     pariatur.
-                                                </h5>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="actualite_stats">
@@ -1214,7 +1214,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_event_list">
+                            <section class="s_event_list debug_unimplemented">
                                 <div class="list_head">
                                     <div class="list_title s_title">
                                         <h1>
@@ -1362,19 +1362,14 @@
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title" data-name="Title">
-                                            <h1 class="s_title_thin" style="font-size: 62px;">
+                                            <p class="aide_title text-gamma">
                                                 <b>
-                                                    <font class="text-gamma" style="">Avez-vous</font>
+                                                    Avez-vous besoin d'aide ?
                                                 </b>
-                                            </h1>
-                                            <h1 class="s_title_thin" style="font-size: 62px;">
-                                                <b>
-                                                    <font class="text-gamma" style="">besoin d'aide ?</font>
-                                                </b>
-                                            </h1>
+                                            </p>
                                         </div>
                                         <div class="s_text pt16 col-lg-5 pb0" data-name="Text">
-                                            <p class="lead" style="text-align: left;">
+                                            <p class="lead">
                                                 <font class="text-gamma" style="">Vous ne savez pas comment fonctionne
                                                     l'Accorderie ou vous avez des difficult&#233;s &#224; utiliser votre
                                                     espace membre? Ne vous inqui&#233;tez pas, nous sommes tous d&#233;j&#224;
@@ -1382,16 +1377,15 @@
                                                 </font>
                                             </p>
                                         </div>
-                                        <div class="col-lg-12 pb16 pt16 s_btn text-left" data-name="Buttons">
+                                        <div class="col-lg-12 pb16 pt16 s_btn" data-name="Buttons">
                                             <a href="/aboutus" class="aide_btn btn btn-primary rounded-circle" data-original-title="" title="" aria-describedby="tooltip233358">
-                                                <font id="aide_btn_txt" class="text-gamma" style="" data-original-title="" title="" aria-describedby="tooltip200172">Consulter l'aide</font>
+                                                <font id="aide_btn_txt" class="text-gamma" data-original-title="" title="" aria-describedby="tooltip200172">Consulter l'aide</font>
                                             </a>
                                             <a href="/contactus" class="aide_btn btn btn-primary rounded-circle" data-original-title="" title="" aria-describedby="tooltip608562">
-                                                <font id="aide_btn_txt" class="text-gamma" style="">
+                                                <font id="aide_btn_txt" class="text-gamma">
                                                     Contacter un
                                                     mentor
                                                 </font>
-                                                <br />
                                             </a>
                                         </div>
                                     </div>
@@ -1418,7 +1412,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_mes_informations">
+                                <section class="s_mes_informations debug_unimplemented">
                                     <div class="informations_container">
                                         <div class="information information-1">
                                             <img class="profile_pic img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
@@ -1519,7 +1513,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list small-cards">
+                                <section class="s_event_list small-cards debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
                                             <h1>
@@ -1654,7 +1648,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
@@ -1769,7 +1763,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
@@ -1911,7 +1905,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list lg">
+                                <section class="s_event_list lg debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
                                             <h1>
@@ -2062,7 +2056,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
                                             <div class="activite" data-name="Box">
@@ -2149,7 +2143,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
                                             <div class="activite" data-name="Box">
@@ -2184,7 +2178,7 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_evenement pt80 pb160">
+                                <section class="s_evenement pt80 pb160 debug_unimplemented">
                                     <div class="event_container">
                                         <div class="informations_container">
                                             <div class="event_info chat_box" />
@@ -2269,7 +2263,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="activite message btn " onclick="window.location.href='/monprofil/messages/message';">
@@ -2350,7 +2344,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="activite message btn" data-name="Box">
@@ -2506,7 +2500,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_activite_bilan">
+                                <section class="s_activite_bilan debug_unimplemented">
                                     <div class="bilan_container">
                                         <div class="bilan bilan-1 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="txt">Soldes en heures:</span>
@@ -2531,7 +2525,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_activites_recentes activites_messages">
+                                <section class="s_activites_recentes debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
@@ -2669,7 +2663,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list small-cards">
+                                <section class="s_event_list small-cards debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
                                             <p>
@@ -2888,7 +2882,7 @@
                             <section class="s_cover parallax s_parallax_is_fixed s_parallax_no_overflow_hidden pt152 pb152" data-scroll-background-ratio="1" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/538/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;); background-position: 50% 0px;" />
                             </section>
-                            <section id="pub_form" class="s_pub_offre_desc pb80">
+                            <section id="pub_form" class="s_pub_offre_desc pb80 debug_unimplemented">
                                 <div class="desc_container">
                                     <h3>Titre</h3>
                                     <textarea />
@@ -3040,7 +3034,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_evenement pt80 pb160">
+                                <section class="s_evenement pt80 pb160 debug_unimplemented">
                                     <div class="event_container">
                                         <div class="informations_container">
                                             <div class="event_info info-2">
@@ -3209,7 +3203,7 @@
                                     </div>
                                 </section>
                                 <div style="text-align: left;" />
-                                <section class="s_vertical_list_lg pt0">
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
