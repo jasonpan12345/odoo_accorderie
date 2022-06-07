@@ -286,16 +286,16 @@ searchbar
 
 @media only screen and (max-width: 990px) {
   .s_search {
-    height: 50vh;
-    padding: 2vh 0 0 0 !important;
+    padding-bottom: 200px;
   }
   .search_bar {
-    height: 6vh;
+    height: 50px;
 
     input {
-      margin-top: 0;
-      width: 85%;
-      height: 6vh;
+      margin: 0;
+      padding: 0 5%;
+      width: 100%;
+      height: 50px;
       border-radius: 50%;
     }
   }
@@ -387,6 +387,9 @@ searchbar
     font-size: 3rem;
   }
 }
+.aide_title {
+  font-size: 4rem;
+}
 
 @media only screen and (max-width: 890px) {
   .banner-bg {
@@ -434,8 +437,17 @@ searchbar
       .row {
         background-color: $primary-color;
         padding: 30px 15px;
+
+        .s_btn {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
       }
     }
+  }
+  .aide_title {
+    font-size: 6vh;
   }
   .aide_btn {
     background-color: white !important;
@@ -532,6 +544,10 @@ actualité
 
 .actualite_content {
   padding: 3%;
+
+  .pub_desc {
+    font-size: 1rem;
+  }
 }
 
 .actualite_stats {
@@ -619,6 +635,12 @@ actualité
 
     .box_actualite {
       margin: 7% 0 0 0 !important;
+    }
+  }
+
+  .actualite_content {
+    .pub_desc {
+      font-size: 2vh;
     }
   }
 }
@@ -955,7 +977,7 @@ actualité
       font-size: 0;
 
       i {
-        font-size: 2rem;
+        font-size: 6vw;
         line-height: 1rem;
       }
     }
@@ -1378,7 +1400,6 @@ actualité
 
 @media only screen and (max-width: 990px) {
   .activites_list.lg .activite.btn {
-
     .activite_title {
       float: none;
     }
