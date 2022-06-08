@@ -103,7 +103,7 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
+                                <a class="nav-link debug-item" data-toggle="dropdown" role="menu_item" href="/#">
                                     <span
                                         class="fa fa-2x fa-bug text-primary"
                                         data-oe-model="website.menu"

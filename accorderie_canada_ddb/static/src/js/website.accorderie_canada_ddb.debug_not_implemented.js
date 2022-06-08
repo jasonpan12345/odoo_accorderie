@@ -4,7 +4,7 @@ odoo.define('website.accorderie_canada_ddb.debug_not_implemented.instance', func
     require('web_editor.ready');
     let Debug = require('website.accorderie_canada_ddb.debug_not_implemented');
 
-    let $debug = $('.highlight_not_implemented');
+    let $debug = $('.debug-item');
     if (!$debug.length) {
         return null;
     }
@@ -27,6 +27,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
             let self = this;
             let debugHighlighted = false;
             let debugHide = false;
+            let debugActive = false;
             this._super.apply(this.arguments).then(function () {
                 $('.highlight_not_implemented')
                     .click(function (ev) {
@@ -34,11 +35,15 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                         if(debugHighlighted) {
                             debugHighlighted = false;
                             self.HighlightNotImplemented(false);
+                            debugActive = false;
                         } else {
                             debugHighlighted = true;
-                            self.HighlightNotImplemented(true)
+                            self.HighlightNotImplemented(true);
+                            debugActive = true;
                         }
-
+                        debugHide = false;
+                        self.HideNotImplemented(false);
+                        self.ActivateDebug(debugActive);
                     });
             });
             this._super.apply(this.arguments).then(function () {
@@ -48,11 +53,15 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                         if(debugHide) {
                             debugHide = false;
                             self.HideNotImplemented(false);
+                            debugActive = false;
                         } else {
                             debugHide = true;
                             self.HideNotImplemented(true)
+                            debugActive = true;
                         }
-
+                        debugHighlighted = false;
+                        self.HighlightNotImplemented(false);
+                        self.ActivateDebug(debugActive);
                     });
             });
         },
@@ -62,7 +71,6 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
         },
 
         HighlightNotImplemented: function (show) {
-            console.log("debug");
 
             let classes = document.getElementsByClassName("debug_unimplemented");
 
@@ -75,7 +83,6 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
             }
         },
         HideNotImplemented: function (show) {
-            console.log("debug");
 
             let classes = document.getElementsByClassName("debug_unimplemented");
 
@@ -87,6 +94,14 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 }
             }
         },
+        ActivateDebug: function (debugActive) {
+            let debugBtn = document.getElementsByClassName("debug-item");
+            if(debugActive) {
+                debugBtn[0].style.backgroundColor = "grey";
+            } else {
+                debugBtn[0].style.backgroundColor = "unset";
+            }
+        }
     });
 
     return Debug;
