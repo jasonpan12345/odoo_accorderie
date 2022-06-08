@@ -27,7 +27,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
             let self = this;
             let debugHighlighted = false; //highlight mode
             let debugHide = false; //hide mode
-            
+
             $(document).on("click", '.highlight_not_implemented', function (ev) {
                 self.on_click(ev);
                 if (debugHighlighted) {

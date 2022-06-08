@@ -2006,12 +2006,6 @@ actualité
       }
     }
   }
-
-  .chat_box {
-    background-color: $tertiary-color;
-    border-radius: 7px;
-    height: 600px;
-  }
 }
 
 .right_cards_container {
@@ -2029,7 +2023,7 @@ actualité
   }
 
   .info-4 {
-    background-color: $tertiary-color;
+    background-color: $delta;
     border-radius: 7px;
     height: auto;
     padding: 8%;
@@ -2111,6 +2105,53 @@ actualité
       .info-4 {
         background-color: white;
         border-radius: 0;
+      }
+    }
+  }
+}
+
+/*
+  chat
+*/
+.chat_container {
+  display: flex;
+  flex-direction: row;
+  gap: 8%;
+}
+.chat_box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 2rem;
+  height: auto;
+  margin-left: 10%;
+  background-color: $delta;
+  border-radius: 7px;
+  border: 1px solid $beta;
+
+  .chat_footer {
+    margin-top: auto;
+    padding: 2rem;
+
+    .input_container {
+      display: flex;
+      border-radius: 7px;
+      border: 1px solid $beta;
+      width: 100%;
+      background-color: $text-alpha;
+
+      input {
+        border: none;
+        height: 3.5rem;
+        width: 80%;
+        outline: none;
+      }
+      span {
+        margin: auto;
+        font-size: 1.5rem;
+      }
+      span:hover {
+        cursor: pointer;
       }
     }
   }
