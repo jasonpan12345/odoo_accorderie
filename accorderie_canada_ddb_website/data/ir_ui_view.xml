@@ -2178,11 +2178,24 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_evenement pt80 pb160 debug_unimplemented">
-                                    <div class="event_container">
-                                        <div class="informations_container">
-                                            <div class="event_info chat_box" />
+                                <section class="s_chat pt80 pb160 debug_unimplemented">
+                                    <div class="chat_container">
+                                        <div class="chat_box">
+                                            <div class="chat_header">
+                                                <img />
+                                                <div class="">
+
+                                                </div>
+                                            </div>
+                                            <div class="chat_footer">
+                                                <div class="input_container">
+                                                    <span class="fa fa-camera" />
+                                                    <input type="text" placeholder="Écrire un message" />
+                                                    <span class="fa fa-send" />
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="right_cards_container">
                                             <div class="card info-4">
                                                 <div class="img rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
