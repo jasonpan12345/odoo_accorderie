@@ -27,44 +27,41 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
             let self = this;
             let debugHighlighted = false; //highlight mode
             let debugHide = false; //hide mode
-            this._super.apply(this.arguments).then(function () {
-                $('.highlight_not_implemented')
-                    .click(function (ev) {
-                        self.on_click(ev);
-                        if(debugHighlighted) {
-                            debugHighlighted = false;
-                            self.HighlightNotImplemented(false);
-                            self.ActivateDebug("highlight_not_implemented", false);
-                        } else {
-                            debugHighlighted = true;
-                            self.HighlightNotImplemented(true);
-                            self.ActivateDebug("highlight_not_implemented", true);
-                        }
-                        // turn off other mode
-                        debugHide = false;
-                        self.HideNotImplemented(false);
-                    });
-            });
-            this._super.apply(this.arguments).then(function () {
-                $('.hide_not_implemented')
-                    .click(function (ev) {
-                        self.on_click(ev);
-                        if(debugHide) {
-                            debugHide = false;
-                            self.HideNotImplemented(false);
-                            self.ActivateDebug("hide_not_implemented", false);
-                        } else {
-                            debugHide = true;
-                            self.HideNotImplemented(true);
-                            self.ActivateDebug("hide_not_implemented", true);
-                        }
-                        // turn off other mode
-                        debugHighlighted = false;
-                        self.HighlightNotImplemented(false);
-                    });
-            });
+            
+            $(document).on("click", '.highlight_not_implemented', function (ev) {
+                self.on_click(ev);
+                if (debugHighlighted) {
+                    debugHighlighted = false;
+                    self.HighlightNotImplemented(false);
+                    self.ActivateDebug("highlight_not_implemented", false);
+                } else {
+                    debugHighlighted = true;
+                    self.HighlightNotImplemented(true);
+                    self.ActivateDebug("highlight_not_implemented", true);
+                }
+                // turn off other mode
+                debugHide = false;
+                self.HideNotImplemented(false);
+            })
+
+            $(document).on("click", '.hide_not_implemented', function (ev) {
+                self.on_click(ev);
+                if (debugHide) {
+                    debugHide = false;
+                    self.HideNotImplemented(false);
+                    self.ActivateDebug("hide_not_implemented", false);
+                } else {
+                    debugHide = true;
+                    self.HideNotImplemented(true);
+                    self.ActivateDebug("hide_not_implemented", true);
+                }
+                // turn off other mode
+                debugHighlighted = false;
+                self.HighlightNotImplemented(false);
+            })
         },
         on_click: function (ev) {
+            console.log("onlcik");
             ev.preventDefault();
             ev.stopPropagation();
         },
@@ -102,12 +99,13 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 siblings[i].style.backgroundColor = "unset";
             }
             // activate/deactivate target button
-            if(debugActive) {
-                debugBtn[0].style.backgroundColor = "lightgrey";
-            } else {
-                debugBtn[0].style.backgroundColor = "unset";
+            for (let i = 0; i < debugBtn.length; i++) {
+                if (debugActive) {
+                    debugBtn[i].style.backgroundColor = "lightgrey";
+                } else {
+                    debugBtn[i].style.backgroundColor = "unset";
+                }
             }
-
         }
     });
 
