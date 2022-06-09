@@ -1774,21 +1774,21 @@
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
+                                                    <p class="activite_title">Mercredi 16 ao&#251;t</p>
+                                                    <p class="activite_auteur">Denis Lemarchand</p>
+                                                    <p class="activite_distance">Faire visiter une maison &#224;
                                                         louer
-                                                    </h5>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
+                                                    <p class="activite_title">Mercredi 16 ao&#251;t</p>
+                                                    <p class="activite_auteur">Denis Lemarchand</p>
+                                                    <p class="activite_distance">Faire visiter une maison &#224;
                                                         louer
-                                                    </h5>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -2182,9 +2182,63 @@
                                     <div class="chat_container">
                                         <div class="chat_box">
                                             <div class="chat_header">
-                                                <img />
-                                                <div class="">
-
+                                                <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                <div class="header_info">
+                                                    <p class="chat_contact">Yannick Gagnon</p>
+                                                    <p class="chat_title">Aide au déménagement</p>
+                                                    <p class="chat_desc">J'ai des bras fort et des sourires à partager
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="chat_body">
+                                                <div class="chat_msg">
+                                                    <div class="my_msg msg">
+                                                        Lorem ipsum dolor sit amet consectetuer Lorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
+                                                    </div>
+                                                </div>
+                                                <div class="chat_msg">
+                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                    <div class="their_msg msg">
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
+                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem
+                                                        loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem
+                                                        loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet l
+                                                        orem lorem lorem
+                                                    </div>
+                                                </div>
+                                                <div class="chat_msg">
+                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                    <div class="their_msg msg">
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
+                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    </div>
+                                                </div>
+                                                <div class="chat_msg">
+                                                    <div class="my_msg msg">
+                                                        Lorem ipsum dolor sit amet consectetuer Lorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
+                                                    </div>
+                                                </div>
+                                                <div class="chat_msg">
+                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                    <div class="their_msg msg">
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
+                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    </div>
+                                                </div>
+                                                <div class="chat_msg">
+                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                    <div class="their_msg msg">
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
+                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="chat_footer">
