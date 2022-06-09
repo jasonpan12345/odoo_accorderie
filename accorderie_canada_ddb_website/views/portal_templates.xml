@@ -388,7 +388,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
+                                            <a role="menuitem" href="/monprofil/messages" class="dropdown-item">
                                                 <div class="cat activite btn btn-primary" data-name="Box">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les messages
@@ -444,7 +444,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
+                                            <a role="menuitem" href="/monprofil/notifications" class="dropdown-item">
                                                 <div class="cat activite btn btn-primary" data-name="Box">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les notifications

@@ -13,6 +13,7 @@ $delta: #f4feff;
 $gamma: #dbe8ea;
 $text-alpha: white;
 $text-beta: black;
+$bg-alpha: white;
 
 body {
   overflow-x: hidden;
@@ -78,7 +79,7 @@ a {
   float: right;
   padding: 4% 2%;
   margin: 5% 10% 0 0;
-  background-color: white;
+  background-color: $bg-alpha;
 
   h1 {
     text-align: center;
@@ -177,7 +178,7 @@ header .nav-link {
   border-bottom: 1px solid $beta;
 
   button {
-    background-color: white;
+    background-color: $bg-alpha;
     border: none;
     padding: 1rem 0;
     margin-right: 1rem;
@@ -227,7 +228,7 @@ searchbar
 }
 
 .search_bar {
-  background-color: white;
+  background-color: $bg-alpha;
   height: $search_bar-height;
   width: 80%;
   border-radius: 50px;
@@ -450,8 +451,8 @@ searchbar
     font-size: 6vh;
   }
   .aide_btn {
-    background-color: white !important;
-    border-color: white !important;
+    background-color: $bg-alpha !important;
+    border-color: $bg-alpha !important;
   }
   #aide_btn_txt {
     color: $primary-color !important;
@@ -506,7 +507,7 @@ actualité
 }
 
 .box_actualite {
-  border: 1px solid #d6d6d6;
+  border: 1px solid $beta;
   border-radius: 7px;
   overflow-wrap: break-word;
   margin: 20px 0 0 10%;
@@ -539,7 +540,7 @@ actualité
   bottom: 0px;
   left: 3%;
   width: 94%;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid $beta;
 }
 
 .actualite_content {
@@ -577,7 +578,7 @@ actualité
   bottom: 0px;
   left: 3%;
   width: 94%;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid $beta;
 }
 
 .pub_actions {
@@ -590,7 +591,7 @@ actualité
     right: 0px;
     top: 0;
     height: 100%;
-    border-right: 1px solid #d6d6d6;
+    border-right: 1px solid $beta;
   }
 }
 
@@ -807,7 +808,7 @@ actualité
       .event_date {
         height: 55%;
         aspect-ratio: 1/1;
-        background-color: white;
+        background-color: $bg-alpha;
         border-radius: 5px;
       }
     }
@@ -950,7 +951,7 @@ actualité
 @media only screen and (max-width: 500px) {
   .sub-navbar .nav {
     flex-direction: row;
-    background-color: white;
+    background-color: $bg-alpha;
     border-bottom: 1px solid grey;
     padding: 0;
 
@@ -1545,7 +1546,7 @@ actualité
     }
 
     .txt_question {
-      background-color: white;
+      background-color: $bg-alpha;
       margin-top: 10%;
 
       > * {
@@ -1656,7 +1657,7 @@ actualité
       border-radius: 7px;
       padding: 10%;
       text-align: left;
-      background-color: white;
+      background-color: $bg-alpha;
       border: none;
       margin-top: -80px;
       margin-bottom: 80px;
@@ -1768,13 +1769,13 @@ actualité
   overflow: hidden;
 
   .list_title {
-    border-bottom: 1px solid #d6d6d6;
+    border-bottom: 1px solid $beta;
     margin-top: 75px;
   }
 
   .activite.btn {
     padding: 1.5% 0 1.5%;
-    border-bottom: 1px solid #d6d6d6;
+    border-bottom: 1px solid $beta;
     border-top: none;
     display: flex;
 
@@ -1790,6 +1791,7 @@ actualité
       display: flex;
       flex-direction: column;
       margin-right: 15%;
+      line-height: 1;
 
       .activite_title {
         width: 100%;
@@ -1847,7 +1849,7 @@ actualité
 
 .activite {
   padding: 20px 0 20px;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid $beta;
 
   .item_desc {
     font-weight: 350;
@@ -2103,7 +2105,7 @@ actualité
       }
 
       .info-4 {
-        background-color: white;
+        background-color: $bg-alpha;
         border-radius: 0;
       }
     }
@@ -2117,17 +2119,84 @@ actualité
   display: flex;
   flex-direction: row;
   gap: 8%;
+  max-height: 800px;
 }
 .chat_box {
   display: flex;
   flex-direction: column;
   width: 50%;
-  gap: 2rem;
   height: auto;
   margin-left: 10%;
   background-color: $delta;
   border-radius: 7px;
   border: 1px solid $beta;
+
+  .chat_header {
+    display: flex;
+    max-height: 18%;
+    padding: 2rem;
+    position: relative;
+    img {
+      height: 100%;
+      aspect-ratio: 1/1;
+    }
+    .header_info {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.75rem;
+      margin: auto 0 auto 2rem;
+
+      .chat_contact {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+      .chat_title {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .chat_header::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 2rem;
+    right: 2rem;
+    border-top: 1px solid $beta;
+  }
+  .chat_body {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    .chat_msg {
+      width: 100%;
+      height: auto;
+      white-space: normal;
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 1rem;
+
+      .msg {
+        padding: 0.5rem 1rem;
+        max-width: 75%;
+        background-color: $gamma;
+        width: fit-content;
+        height: fit-content;
+      }
+      .my_msg {
+        border-radius: 25px 25px 3px;
+        margin-left: auto;
+      }
+      .their_msg {
+        border-radius: 25px 25px 25px 3px;
+      }
+      .contact_pic {
+        aspect-ratio: 1/1;
+        height: 2.5rem;
+        margin-top: auto;
+      }
+    }
+  }
 
   .chat_footer {
     margin-top: auto;
@@ -2138,7 +2207,7 @@ actualité
       border-radius: 7px;
       border: 1px solid $beta;
       width: 100%;
-      background-color: $text-alpha;
+      background-color: $bg-alpha;
 
       input {
         border: none;
@@ -2147,12 +2216,49 @@ actualité
         outline: none;
       }
       span {
-        margin: auto;
+        margin: auto 1rem;
         font-size: 1.5rem;
+      }
+      .fa-send {
+        margin-left: auto;
       }
       span:hover {
         cursor: pointer;
       }
+    }
+  }
+}
+@media only screen and (max-width: 990px) {
+  .s_chat {
+    padding-top: 0 !important;
+  }
+  .right_cards_container {
+    display: none;
+  }
+  .chat_box {
+    width: 100%;
+    margin: 0;
+    background-color: $bg-alpha;
+    border: none;
+
+    .chat_header {
+      max-height: 10%;
+      padding: 1rem;
+      background-color: $bg-alpha;
+
+      .header_info {
+        .chat_desc {
+          display: none;
+        }
+      }
+    }
+
+    .chat_footer {
+      position: fixed;
+      bottom: 5vh;
+      width: 100%;
+      background-color: $bg-alpha;
+      padding: 1rem;
     }
   }
 }
