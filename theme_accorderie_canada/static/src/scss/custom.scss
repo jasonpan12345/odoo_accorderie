@@ -2145,13 +2145,30 @@ actualité
       flex-direction: column;
       line-height: 0.75rem;
       margin: auto 0 auto 2rem;
-
+      overflow: hidden;
+      p {
+        margin-bottom: 0.75rem;
+      }
       .chat_contact {
         font-size: 1.25rem;
         font-weight: bold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 1.5rem;
       }
       .chat_title {
         font-size: 1.1rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
+        height: 1.1rem;
+      }
+      .chat_desc {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   }
@@ -2175,6 +2192,7 @@ actualité
       padding: 1rem 2rem;
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
 
       .msg {
         padding: 0.5rem 1rem;
@@ -2194,6 +2212,12 @@ actualité
         aspect-ratio: 1/1;
         height: 2.5rem;
         margin-top: auto;
+      }
+      .msg_time {
+        flex-basis: 100%;
+        margin-left: 3.5rem;
+        color: $text-beta;
+        margin-top: -0.5rem;
       }
     }
   }
@@ -2230,10 +2254,13 @@ actualité
 }
 @media only screen and (max-width: 990px) {
   .s_chat {
-    padding-top: 0 !important;
+    padding: 0 !important;
   }
   .right_cards_container {
     display: none;
+  }
+  .chat_container {
+    max-height: calc(94vh - 154px);
   }
   .chat_box {
     width: 100%;
@@ -2242,15 +2269,22 @@ actualité
     border: none;
 
     .chat_header {
-      max-height: 10%;
+      max-height: 80px;
       padding: 1rem;
       background-color: $bg-alpha;
+      img {
+        border-radius: 50%;
+      }
 
       .header_info {
         .chat_desc {
           display: none;
         }
       }
+    }
+    .chat_header::after {
+      left: 1rem;
+      right: 1rem;
     }
 
     .chat_footer {
@@ -2259,6 +2293,17 @@ actualité
       width: 100%;
       background-color: $bg-alpha;
       padding: 1rem;
+
+      .input_container {
+        input {
+          height: 2.5rem;
+        }
+      }
     }
+  }
+}
+@media only screen and (max-width: 366px) {
+  .chat_container {
+    max-height: calc(94vh - 188.25px);
   }
 }
