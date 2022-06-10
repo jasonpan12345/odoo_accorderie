@@ -2197,6 +2197,9 @@
                                                         Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
                                                         Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
                                                     </div>
+                                                    <div class="msg_time text-right">
+                                                        3 semaines
+                                                    </div>
                                                 </div>
                                                 <div class="chat_msg">
                                                     <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
@@ -2208,6 +2211,9 @@
                                                         loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet l
                                                         orem lorem lorem
                                                     </div>
+                                                    <div class="msg_time">
+                                                        3 semaines
+                                                    </div>
                                                 </div>
                                                 <div class="chat_msg">
                                                     <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
@@ -2215,6 +2221,9 @@
                                                         Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
                                                         olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
                                                         Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    </div>
+                                                    <div class="msg_time">
+                                                        2 semaines
                                                     </div>
                                                 </div>
                                                 <div class="chat_msg">
@@ -2223,13 +2232,8 @@
                                                         Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
                                                         Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
                                                     </div>
-                                                </div>
-                                                <div class="chat_msg">
-                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                                    <div class="their_msg msg">
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
-                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    <div class="msg_time text-right">
+                                                        3 semaines
                                                     </div>
                                                 </div>
                                                 <div class="chat_msg">
@@ -2238,6 +2242,20 @@
                                                         Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
                                                         olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
                                                         Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    </div>
+                                                    <div class="msg_time">
+                                                        3 semaines
+                                                    </div>
+                                                </div>
+                                                <div class="chat_msg">
+                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                    <div class="their_msg msg">
+                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
+                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
+                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
+                                                    </div>
+                                                    <div class="msg_time">
+                                                        3 semaines
                                                     </div>
                                                 </div>
                                             </div>
