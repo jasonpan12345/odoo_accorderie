@@ -584,7 +584,7 @@
                                     </label>
                                     <input type="radio" id="creer_entente" name="pub" value="3" />
                                     <label for="creer_entente" class="button_form btn">
-                                        <h5>Publier une demande de service</h5>
+                                        <h5>S'accorder avec un autre accordeur</h5>
                                         <p>
                                             Vous souhaitez offrir votre service?
                                             <br />
@@ -593,7 +593,7 @@
                                     </label>
                                     <input type="radio" id="valider_service" name="pub" value="4" />
                                     <label for="valider_service" class="button_form btn">
-                                        <h5>Publier une demande de service</h5>
+                                        <h5>Valider un autre accordage</h5>
                                         <p>
                                             Vous souhaitez offrir votre service?
                                             <br />
