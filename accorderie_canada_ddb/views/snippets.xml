@@ -79,6 +79,10 @@
                 type="text/javascript"
                 src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.debug_not_implemented.js"
             />
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.messagerie_privee.js"
+            />
         </xpath>
     </template>
 </odoo>

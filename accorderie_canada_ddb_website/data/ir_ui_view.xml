@@ -2191,73 +2191,6 @@
                                                 </div>
                                             </div>
                                             <div class="chat_body">
-                                                <div class="chat_msg">
-                                                    <div class="my_msg msg">
-                                                        Lorem ipsum dolor sit amet consectetuer Lorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
-                                                    </div>
-                                                    <div class="msg_time text-right">
-                                                        3 semaines
-                                                    </div>
-                                                </div>
-                                                <div class="chat_msg">
-                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                                    <div class="their_msg msg">
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
-                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem
-                                                        loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem
-                                                        loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet l
-                                                        orem lorem lorem
-                                                    </div>
-                                                    <div class="msg_time">
-                                                        3 semaines
-                                                    </div>
-                                                </div>
-                                                <div class="chat_msg">
-                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                                    <div class="their_msg msg">
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
-                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
-                                                    </div>
-                                                    <div class="msg_time">
-                                                        2 semaines
-                                                    </div>
-                                                </div>
-                                                <div class="chat_msg">
-                                                    <div class="my_msg msg">
-                                                        Lorem ipsum dolor sit amet consectetuer Lorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem lorem
-                                                    </div>
-                                                    <div class="msg_time text-right">
-                                                        3 semaines
-                                                    </div>
-                                                </div>
-                                                <div class="chat_msg">
-                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                                    <div class="their_msg msg">
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
-                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
-                                                    </div>
-                                                    <div class="msg_time">
-                                                        3 semaines
-                                                    </div>
-                                                </div>
-                                                <div class="chat_msg">
-                                                    <img class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                                    <div class="their_msg msg">
-                                                        Lorem ipsum dolor sit amet lorem lorem lorem Lorem ipsum dolor sit amet lorem lorem loremLorem ipsum d
-                                                        olor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem loremLorem ipsum dolor sit amet lorem lorem lorem
-                                                        Lorem ipsum dolor sit amet lorem lorem loremLorem
-                                                    </div>
-                                                    <div class="msg_time">
-                                                        3 semaines
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="chat_footer">
                                                 <div class="input_container">
@@ -2325,11 +2258,11 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <p class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Messages et notifications</font>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Messages et notifications
                                             </p>
                                         </div>
                                     </div>
@@ -2406,11 +2339,11 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <p class="s_title_default" style="text-align: left;">
-                                                <font style="font-size: 48px;margin-left:10%" class="text-gamma">Messages et notifications</font>
+                                        <div class="col-lg-12 s_title pt16 pb16">
+                                            <p class="s_title_default text-gamma">
+                                                Messages et notifications
                                             </p>
                                         </div>
                                     </div>
