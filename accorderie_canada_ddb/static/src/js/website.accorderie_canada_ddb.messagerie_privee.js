@@ -6,6 +6,9 @@ odoo.define('website.accorderie_canada_ddb.messagerie_privee.instance', function
 
     let $messagerie = $('.chat_box');
     if (!$messagerie.length) {
+        $("body").bind("DOMNodeInserted", function () {
+            $(this).find('.o_thread_window.o_in_home_menu').addClass('d-none');
+        });
         return null;
     }
 
@@ -26,6 +29,7 @@ odoo.define("website.accorderie_canada_ddb.messagerie_privee", function (require
     let Messagerie = Widget.extend({
         start: function () {
             let self = this;
+            /*
             setInterval(function () {
 
                 console.log("generate");
@@ -35,8 +39,15 @@ odoo.define("website.accorderie_canada_ddb.messagerie_privee", function (require
                 } else {
                     self.generateTheirText();
                 }
-            }, 3000);
+            }, 3000);*/
 
+                console.log('no message');
+
+            $('body').on('DOMNodeInserted', '.o_thread_window', function () {
+                let liveChat = $('.o_thread_window.o_in_home_menu').detach().appendTo(".chat_body");
+                liveChat.removeClass("o_thread_window o_in_home_menu");
+                $('.o_thread_window_header').remove();
+            });
         },
 
         generateMyText: function () {
