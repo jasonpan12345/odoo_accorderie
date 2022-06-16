@@ -41,12 +41,45 @@ odoo.define("website.accorderie_canada_ddb.messagerie_privee", function (require
                 }
             }, 3000);*/
 
-                console.log('no message');
-
             $('body').on('DOMNodeInserted', '.o_thread_window', function () {
                 let liveChat = $('.o_thread_window.o_in_home_menu').detach().appendTo(".chat_body");
                 liveChat.removeClass("o_thread_window o_in_home_menu");
                 $('.o_thread_window_header').remove();
+
+            });
+
+            $('body').on('DOMNodeInserted', '.o_mail_thread_content', function () {
+                let myMessage = true;
+
+                let newMessage = $('.o_thread_message.o_mail_discussion');
+                newMessage.addClass('chat_msg');
+
+                newMessage.each(function (i) {
+
+                    let avatar = $(this).find('.o_thread_message_avatar');
+
+                    if(avatar.length > 0) {
+                        let attr = avatar.attr('data-oe-model');
+
+                        // check if our message our their message
+                        if (typeof attr !== 'undefined' && attr !== false) {
+                            myMessage = false;
+                        } else {
+                            myMessage = true;
+                        }
+                    }
+
+
+                    if (myMessage) {
+                        console.log($(this).find('.o_thread_message_avatar').attr('data-oe-model'));
+                        $(this).children('.o_thread_message_core').addClass('msg my_msg');
+                        $(this).children('.o_thread_message_sidebar').addClass('d-none');
+                    } else {
+                        $(this).children('.o_thread_message_core').addClass('msg their_msg');
+                        $(this).children('.o_thread_message_sidebar').addClass('contact_pic');
+                        console.log("theirs");
+                    }
+                });
             });
         },
 
