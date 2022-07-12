@@ -53,10 +53,25 @@ body {
 .list_title {
   padding-bottom: 50px;
 
+  p {
+    display: flex;
+  }
+
   a {
     text-decoration: underline;
     margin-left: auto;
     white-space: nowrap;
+  }
+
+  .nav_btn {
+    font-size: 1rem;
+    border: 1px solid $beta;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 35px;
+    text-align: center;
+    margin: auto 0 auto;
+    line-height: 1.8rem;
   }
 }
 
@@ -694,10 +709,6 @@ actualité
 
   .list_title {
     padding-bottom: 10%;
-
-    p {
-      display: flex;
-    }
   }
 }
 

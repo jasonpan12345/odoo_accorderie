@@ -1098,12 +1098,12 @@
                                     <div class="list_title s_title">
                                         <p>
                                             <font style="font-size: 2rem; margin-left:10%">Derni&#232;res Actualit&#233;s</font>
-                                            <span>
+                                            <a>
                                                 <font style="float:right; font-size:1.25rem;margin-top:10px;">
                                                     Voir Tout
                                                     (+10)
                                                 </font>
-                                            </span>
+                                            </a>
                                         </p>
                                     </div>
                                     <div class="box_actualite">
@@ -1289,15 +1289,16 @@
                             <section class="s_event_list debug_unimplemented">
                                 <div class="list_head">
                                     <div class="list_title s_title">
-                                        <h1>
+                                        <div style="display:flex;gap:1%">
                                             <font style="font-size:2rem;">&#201;v&#232;nements</font>
-                                            <span>
-                                                <font style="float:right; font-size:1.25rem;margin-top:10px;">
-                                                    Voir Tout
-                                                    (+10)
-                                                </font>
-                                            </span>
-                                        </h1>
+                                            <a href="" style="font-size:1.25rem;margin-top:10px;margin-right:3%">
+                                                Voir Tout
+                                                (+10)
+
+                                            </a>
+                                            <div class="nav_btn">❮</div>
+                                            <div class="nav_btn">❯</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="horizontal_list">
