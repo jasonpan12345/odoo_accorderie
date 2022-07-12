@@ -255,17 +255,29 @@
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
-                                                <span class="like_count">16</span>
-                                                <span class="view_count">10 vues</span>
+                                                <span class="like_count">
+                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
+                                                <span>&#8226;</span>
+                                                <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
-                                                <div class="like_btn">J'aime</div>
-                                                <div class="comment_btn">Commenter</div>
+                                                <div class="like_btn">
+                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                </div>
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <div class="profile_img" />
-                                                <div class="comment_bar">&#201;crivez un commentaire</div>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <div class="comment_bar">
+                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
+                                                    <icon class="fa fa-smile-o"/>
+                                                    <icon class="fa fa-camera"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="box_actualite">
@@ -300,17 +312,29 @@
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
-                                                <span class="like_count">16</span>
-                                                <span class="view_count">10 vues</span>
+                                                <span class="like_count">
+                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
+                                                <span>&#8226;</span>
+                                                <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
-                                                <div class="like_btn">J'aime</div>
-                                                <div class="comment_btn">Commenter</div>
+                                                <div class="like_btn">
+                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                </div>
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <div class="profile_img" />
-                                                <div class="comment_bar">&#201;crivez un commentaire</div>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <div class="comment_bar">
+                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
+                                                    <icon class="fa fa-smile-o"/>
+                                                    <icon class="fa fa-camera"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -352,17 +376,29 @@
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
-                                                <span class="like_count">16</span>
-                                                <span class="view_count">10 vues</span>
+                                                <span class="like_count">
+                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
+                                                <span>&#8226;</span>
+                                                <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
-                                                <div class="like_btn">J'aime</div>
-                                                <div class="comment_btn">Commenter</div>
+                                                <div class="like_btn">
+                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                </div>
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <div class="profile_img" />
-                                                <div class="comment_bar">&#201;crivez un commentaire</div>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <div class="comment_bar">
+                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
+                                                    <icon class="fa fa-smile-o"/>
+                                                    <icon class="fa fa-camera"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="box_actualite">
@@ -397,17 +433,29 @@
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
-                                                <span class="like_count">16</span>
-                                                <span class="view_count">10 vues</span>
+                                                <span class="like_count">
+                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
+                                                <span>&#8226;</span>
+                                                <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
-                                                <div class="like_btn">J'aime</div>
-                                                <div class="comment_btn">Commenter</div>
+                                                <div class="like_btn">
+                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                </div>
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <div class="profile_img" />
-                                                <div class="comment_bar">&#201;crivez un commentaire</div>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <div class="comment_bar">
+                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
+                                                    <icon class="fa fa-smile-o"/>
+                                                    <icon class="fa fa-camera"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1090,18 +1138,30 @@
                                             </div>
                                         </div>
                                         <div class="actualite_stats">
-                                            <span class="like_count">16</span>
-                                            <span class="view_count">10 vues</span>
-                                            <span class="comment_count">4 commentaires</span>
-                                        </div>
-                                        <div class="pub_actions">
-                                            <div class="like_btn">J'aime</div>
-                                            <div class="comment_btn">Commenter</div>
-                                        </div>
-                                        <div class="actualite_foot">
-                                            <div class="profile_img" />
-                                            <div class="comment_bar">&#201;crivez un commentaire</div>
-                                        </div>
+                                                <span class="like_count">
+                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                <span class="comment_count">4 commentaires</span>
+                                                <span>&#8226;</span>
+                                                <span class="view_count">10 vues</span>
+                                            </div>
+                                            <div class="pub_actions">
+                                                <div class="like_btn">
+                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                </div>
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                </div>
+                                            </div>
+                                            <div class="actualite_foot">
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <div class="comment_bar">
+                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
+                                                    <icon class="fa fa-smile-o"/>
+                                                    <icon class="fa fa-camera"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                </div>
+                                            </div>
                                     </div>
                                     <div class="box_actualite">
                                         <div class="actualite_head">
@@ -1135,18 +1195,30 @@
                                             </div>
                                         </div>
                                         <div class="actualite_stats">
-                                            <span class="like_count">16</span>
-                                            <span class="view_count">10 vues</span>
-                                            <span class="comment_count">4 commentaires</span>
-                                        </div>
-                                        <div class="pub_actions">
-                                            <div class="like_btn">J'aime</div>
-                                            <div class="comment_btn">Commenter</div>
-                                        </div>
-                                        <div class="actualite_foot">
-                                            <div class="profile_img" />
-                                            <div class="comment_bar">&#201;crivez un commentaire</div>
-                                        </div>
+                                                <span class="like_count">
+                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                <span class="comment_count">4 commentaires</span>
+                                                <span>&#8226;</span>
+                                                <span class="view_count">10 vues</span>
+                                            </div>
+                                            <div class="pub_actions">
+                                                <div class="like_btn">
+                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                </div>
+                                                <div class="comment_btn">
+                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                </div>
+                                            </div>
+                                            <div class="actualite_foot">
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <div class="comment_bar">
+                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
+                                                    <icon class="fa fa-smile-o"/>
+                                                    <icon class="fa fa-camera"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <icon class="fa fa-sticky-note-o"/>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="container_accordage">
