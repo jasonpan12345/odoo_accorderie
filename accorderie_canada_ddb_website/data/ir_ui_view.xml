@@ -524,26 +524,32 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                    <div class="event_date" />
+                                                    <div class="event_date_container lg">
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            1 <br/>
+                                                            OCT.
+                                                        </div>
+                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            2 <br/>
+                                                            OCT.
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">Caf&#233; concert au caf&#233; Baobab</h4>
-                                                    <h5 class="event_time">
-                                                        <font style="color: rgb(99, 99, 99);">
-                                                            <span class="img img-fluid mx-auto fa fa-clock-o" style="" />
-                                                            20h00 - 21h30&amp;nbsp;
-                                                        </font>
-                                                    </h5>
-                                                    <h6 class="event_loc">
-                                                        <font style="color: rgb(99, 99, 99);">
-                                                            <span class="img img-fluid mx-auto fa fa-map-marker" style="" /> &amp;nbsp;1551 Rue Dunant,&amp;nbsp;
-                                                        </font>
-                                                        <br />
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H
-                                                            5N6, QC&amp;nbsp;
-                                                        </font>
-                                                    </h6>
+                                                    <p class="item_title">Café concert au café Baobab</p>
+                                                    <p class="event_time">
+                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                    </p>
+                                                    <p class="event_loc">
+                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                    </p>
                                                     <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -552,24 +558,26 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_product_school_gajroen6m4_unsplash_jpg/product-school--GajrOEN6m4-unsplash.jpg&quot;">
-                                                    <div class="event_date" />
+                                                    <div class="event_date_container">
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            1 <br/>
+                                                            OCT.
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">Atelier conf&#233;rence pour pr&#233;parer sa
-                                                        retraite
-                                                    </h4>
-                                                    <h5 class="event_time">
-                                                        <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;
-                                                        </font>
-                                                    </h5>
-                                                    <h6 class="event_loc">
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                        <br />
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H
-                                                            5N6, QC&amp;nbsp;
-                                                        </font>
-                                                    </h6>
+                                                    <p class="item_title">Atelier conférence pour préparer sa retraite</p>
+                                                    <p class="event_time">
+                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                    </p>
+                                                    <p class="event_loc">
+                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                    </p>
                                                     <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -578,22 +586,32 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;">
-                                                    <div class="event_date" />
+                                                    <div class="event_date_container lg">
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            1 <br/>
+                                                            OCT.
+                                                        </div>
+                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            2 <br/>
+                                                            OCT.
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">Soir&#233;e au caf&#233; Baobab</h4>
-                                                    <h5 class="event_time">
-                                                        <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;
-                                                        </font>
-                                                    </h5>
-                                                    <h6 class="event_loc">
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                        <br />
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H
-                                                            5N6, QC&amp;nbsp;
-                                                        </font>
-                                                    </h6>
+                                                    <p class="item_title">Soirée au café Baobab</p>
+                                                    <p class="event_time">
+                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                    </p>
+                                                    <p class="event_loc">
+                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                    </p>
                                                     <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -602,25 +620,32 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                    <div class="event_date" />
+                                                    <div class="event_date_container lg">
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            1 <br/>
+                                                            OCT.
+                                                        </div>
+                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            2 <br/>
+                                                            OCT.
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">
-                                                        Vous avez toujours eu envie d'apprendre le
-                                                        tricot ?
-                                                    </h4>
-                                                    <h5 class="event_time">
-                                                        <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;
-                                                        </font>
-                                                    </h5>
-                                                    <h6 class="event_loc">
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                        <br />
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H
-                                                            5N6, QC&amp;nbsp;
-                                                        </font>
-                                                    </h6>
+                                                    <p class="item_title">Vous avez toujours eu envie d'apprendre le tricot?</p>
+                                                    <p class="event_time">
+                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                    </p>
+                                                    <p class="event_loc">
+                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                    </p>
                                                     <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -629,22 +654,32 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_nathan_dumlao_71u2foofi_u_unsplash_jpg/nathan-dumlao-71u2fOofI-U-unsplash.jpg&quot;">
-                                                    <div class="event_date" />
+                                                    <div class="event_date_container lg">
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            1 <br/>
+                                                            OCT.
+                                                        </div>
+                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date">
+                                                            MER. <br/>
+                                                            2 <br/>
+                                                            OCT.
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">Caf&#233; concert au caf&#233; Baobab</h4>
-                                                    <h5 class="event_time">
-                                                        <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;
-                                                        </font>
-                                                    </h5>
-                                                    <h6 class="event_loc">
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                        <br />
-                                                        <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H
-                                                            5N6, QC&amp;nbsp;
-                                                        </font>
-                                                    </h6>
+                                                    <p class="item_title">Café concert au café Baobab</p>
+                                                    <p class="event_time">
+                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                    </p>
+                                                    <p class="event_loc">
+                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                    </p>
                                                     <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -1305,27 +1340,36 @@
                                     <div class="list_item">
                                         <div class="item_card btn shadow" onclick="window.location.href='/evenement';">
                                             <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                <div class="event_date" />
+                                                <div class="event_date_container lg">
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        1
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                    <div class="event_date_separator"/>
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        2
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="item_desc">
-                                                <h4 class="item_title">Caf&#233; concert au caf&#233; Baobab</h4>
-                                                <h5 class="event_time">
-                                                    <font style="color: rgb(99, 99, 99);">
-                                                        <span class="img img-fluid mx-auto fa fa-clock-o" style="" />
-                                                        20h00 - 21h30&amp;nbsp;
-                                                    </font>
-                                                </h5>
-                                                <h6 class="event_loc">
-                                                    <font style="color: rgb(99, 99, 99);">
-                                                        <span class="img img-fluid mx-auto fa fa-map-marker" style="" />
-                                                        &amp;nbsp;1551 Rue Dunant,&amp;nbsp;
-                                                    </font>
-                                                    <br />
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6,
-                                                        QC&amp;nbsp;
-                                                    </font>
-                                                </h6>
+                                                <p class="item_title">Café concert au café Baobab</p>
+                                                <p class="event_time">
+                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                </p>
+                                                <p class="event_loc">
+                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                </p>
                                                 <div class="item_btn btn btn-primary">
+                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                     <font class="text-gamma" style="">Je participe</font>
                                                 </div>
                                             </div>
@@ -1334,23 +1378,28 @@
                                     <div class="list_item">
                                         <div class="item_card btn shadow">
                                             <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_product_school_gajroen6m4_unsplash_jpg/product-school--GajrOEN6m4-unsplash.jpg&quot;">
-                                                <div class="event_date" />
+                                                <div class="event_date_container">
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        1
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="item_desc">
-                                                <h4 class="item_title">Atelier conf&#233;rence pour pr&#233;parer sa
-                                                    retraite
-                                                </h4>
-                                                <h5 class="event_time">
-                                                    <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;</font>
-                                                </h5>
-                                                <h6 class="event_loc">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                    <br />
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6,
-                                                        QC&amp;nbsp;
-                                                    </font>
-                                                </h6>
+                                                <p class="item_title">Atelier conférence pour préparer sa retraite</p>
+                                                <p class="event_time">
+                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                    20h00 - 21h30
+                                                </p>
+                                                <p class="event_loc">
+                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                </p>
                                                 <div class="item_btn btn btn-primary">
+                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                     <font class="text-gamma" style="">Je participe</font>
                                                 </div>
                                             </div>
@@ -1359,21 +1408,36 @@
                                     <div class="list_item">
                                         <div class="item_card btn shadow">
                                             <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;">
-                                                <div class="event_date" />
+                                                <div class="event_date_container lg">
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        1
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                    <div class="event_date_separator"/>
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        2
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="item_desc">
-                                                <h4 class="item_title">Soir&#233;e au caf&#233; Baobab</h4>
-                                                <h5 class="event_time">
-                                                    <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;</font>
-                                                </h5>
-                                                <h6 class="event_loc">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                    <br />
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6,
-                                                        QC&amp;nbsp;
-                                                    </font>
-                                                </h6>
+                                                <p class="item_title">Soirée au café Baobab</p>
+                                                <p class="event_time">
+                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                </p>
+                                                <p class="event_loc">
+                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                </p>
                                                 <div class="item_btn btn btn-primary">
+                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                     <font class="text-gamma" style="">Je participe</font>
                                                 </div>
                                             </div>
@@ -1382,24 +1446,28 @@
                                     <div class="list_item">
                                         <div class="item_card btn shadow">
                                             <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
-                                                <div class="event_date" />
+                                                <div class="event_date_container">
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        1
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="item_desc">
-                                                <h4 class="item_title">
-                                                    Vous avez toujours eu envie d'apprendre le tricot
-                                                    ?
-                                                </h4>
-                                                <h5 class="event_time">
-                                                    <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;</font>
-                                                </h5>
-                                                <h6 class="event_loc">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                    <br />
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6,
-                                                        QC&amp;nbsp;
-                                                    </font>
-                                                </h6>
+                                                <p class="item_title">Vous avez toujours eu envie d'apprendre le tricot?</p>
+                                                <p class="event_time">
+                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                </p>
+                                                <p class="event_loc">
+                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                </p>
                                                 <div class="item_btn btn btn-primary">
+                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                     <font class="text-gamma" style="">Je participe</font>
                                                 </div>
                                             </div>
@@ -1408,21 +1476,36 @@
                                     <div class="list_item">
                                         <div class="item_card btn shadow">
                                             <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_nathan_dumlao_71u2foofi_u_unsplash_jpg/nathan-dumlao-71u2fOofI-U-unsplash.jpg&quot;">
-                                                <div class="event_date" />
+                                                <div class="event_date_container lg">
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        1
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                    <div class="event_date_separator"/>
+                                                    <div class="event_date">
+                                                        MER.
+                                                        <br/>
+                                                        2
+                                                        <br/>
+                                                        OCT.
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="item_desc">
-                                                <h4 class="item_title">Caf&#233; concert au caf&#233; Baobab</h4>
-                                                <h5 class="event_time">
-                                                    <font style="color: rgb(99, 99, 99);">20h00 - 21h30&amp;nbsp;</font>
-                                                </h5>
-                                                <h6 class="event_loc">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;1551 Rue Dunant,&amp;nbsp;</font>
-                                                    <br />
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;Sherbrooke, J1H 5N6,
-                                                        QC&amp;nbsp;
-                                                    </font>
-                                                </h6>
+                                                <p class="item_title">Café concert au café Baobab</p>
+                                                <p class="event_time">
+                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        20h00 - 21h30
+                                                </p>
+                                                <p class="event_loc">
+                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
+                                                </p>
                                                 <div class="item_btn btn btn-primary">
+                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
                                                     <font class="text-gamma" style="">Je participe</font>
                                                 </div>
                                             </div>
