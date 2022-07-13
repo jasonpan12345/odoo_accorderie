@@ -13,6 +13,7 @@ $delta: #f4feff;
 $gamma: #dbe8ea;
 $text-alpha: white;
 $text-beta: black;
+$text-gamma: #656565;
 $bg-alpha: white;
 
 body {
@@ -837,11 +838,26 @@ actualité
       padding: 5%;
       position: relative;
 
-      .event_date {
+      .event_date_container {
         height: 55%;
         aspect-ratio: 1/1;
         background-color: $bg-alpha;
         border-radius: 5px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+
+        .event_date {
+          flex: 1;
+        }
+        .event_date_separator {
+          background-color: $primary-color;
+          flex: .1;
+          height: 3px;
+        }
+      }
+      .lg {
+        aspect-ratio: 2/1;
       }
     }
 
@@ -849,6 +865,21 @@ actualité
       width: 100%;
       height: 60%;
       padding: 5%;
+
+      .item_title {
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+      .event_time {
+        color: $text-gamma;
+      }
+      .event_loc {
+        color: $text-gamma;
+        font-size: .8rem;
+      }
+      * > icon {
+        font-size: 1.2rem;
+      }
     }
 
     .item_btn {
