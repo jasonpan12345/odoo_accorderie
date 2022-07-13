@@ -885,11 +885,17 @@ actualité
       }
     }
 
-    .item_btn {
+    .btn_container {
+      display: flex;
       position: absolute;
       width: 90%;
       height: 10%;
       bottom: 4%;
+      gap: 5%;
+
+      .item_btn {
+        flex: 1;
+      }
     }
   }
 }
