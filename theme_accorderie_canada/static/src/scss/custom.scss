@@ -564,6 +564,9 @@ actualité
 
   .pub_desc {
     font-size: 1rem;
+    img {
+      max-width: 100%;
+    }
   }
 }
 
@@ -1010,6 +1013,30 @@ actualité
     padding: 1rem;
   }
 }
+.box_publication {
+  border: 1px solid $beta;
+  border-radius: 7px;
+  overflow-wrap: break-word;
+  margin: 20px 0 0 10%;
+  padding: 3%;
+
+  p {
+    font-size: 1.5rem;
+  }
+  .profile_img {
+    width: 10%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  input {
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    width: 84%;
+    margin-left: 5%;
+    font-size: 1.2rem;
+  }
+}
 
 @media only screen and (max-width: 500px) {
   .sub-navbar .nav {
@@ -1044,6 +1071,13 @@ actualité
         font-size: 6vw;
         line-height: 1rem;
       }
+    }
+  }
+  .box_publication {
+    margin: unset;
+    input {
+      width: 80%;
+      font-size: 3.5vw;
     }
   }
 }

@@ -223,6 +223,11 @@
                                                 Filtrer et trier
                                             </div>
                                         </div>
+                                        <div class="box_publication">
+                                            <p>Publications</p><br/>
+                                            <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                            <input type="text" placeholder="Vous pouvez écrire votre message ici"/>
+                                        </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
                                                 <div class="pub_pfp" />
@@ -309,6 +314,7 @@
                                                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                         nulla pariatur.
                                                     </p>
+                                                    <img src="/accorderie_canada_ddb_website/static/src/img/product-school--GajrOEN6m4-unsplash.jpg"/>
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
