@@ -520,8 +520,12 @@
                                             <h1>
                                                 <font style="font-size:2rem;">&#201;v&#232;nements</font>
                                                 <span class="filter_btn btn">
-                                                    <span class="img img-fluid mx-auto fa fa-filter" style="" />
+                                                    <icon class="fa fa-filter"/>&amp;nbsp;
                                                     Filtrer et trier
+                                                </span>
+                                                <span class="filter_btn btn" style="margin-right:15px">
+                                                    Catégorie &amp;nbsp;
+                                                    <icon class="fa fa-chevron-up"/>
                                                 </span>
                                             </h1>
                                         </div>
@@ -554,9 +558,14 @@
                                                         <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary">
+                                                            <font class="text-gamma" style="">En savoir plus</font>
+                                                        </div>
+                                                        <div class="item_btn btn btn-primary">
+                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <font class="text-gamma" style="">Je participe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -582,9 +591,14 @@
                                                         <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary">
+                                                            <font class="text-gamma" style="">En savoir plus</font>
+                                                        </div>
+                                                        <div class="item_btn btn btn-primary">
+                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <font class="text-gamma" style="">Je participe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -616,9 +630,14 @@
                                                         <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary">
+                                                            <font class="text-gamma" style="">En savoir plus</font>
+                                                        </div>
+                                                        <div class="item_btn btn btn-primary">
+                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <font class="text-gamma" style="">Je participe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -650,9 +669,14 @@
                                                         <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary">
+                                                            <font class="text-gamma" style="">En savoir plus</font>
+                                                        </div>
+                                                        <div class="item_btn btn btn-primary">
+                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <font class="text-gamma" style="">Je participe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -684,9 +708,14 @@
                                                         <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary">
+                                                            <font class="text-gamma" style="">En savoir plus</font>
+                                                        </div>
+                                                        <div class="item_btn btn btn-primary">
+                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <font class="text-gamma" style="">Je participe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1374,9 +1403,11 @@
                                                     <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
-                                                <div class="item_btn btn btn-primary">
-                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                    <font class="text-gamma" style="">Je participe</font>
+                                                <div class="btn_container">
+                                                    <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1404,9 +1435,11 @@
                                                     <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
-                                                <div class="item_btn btn btn-primary">
-                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                    <font class="text-gamma" style="">Je participe</font>
+                                                <div class="btn_container">
+                                                    <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1442,9 +1475,11 @@
                                                     <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
-                                                <div class="item_btn btn btn-primary">
-                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                    <font class="text-gamma" style="">Je participe</font>
+                                                <div class="btn_container">
+                                                    <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1472,9 +1507,11 @@
                                                     <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
-                                                <div class="item_btn btn btn-primary">
-                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                    <font class="text-gamma" style="">Je participe</font>
+                                                <div class="btn_container">
+                                                    <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1510,9 +1547,11 @@
                                                     <icon class="fa fa-map-marker"/>&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
-                                                <div class="item_btn btn btn-primary">
-                                                    <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
-                                                    <font class="text-gamma" style="">Je participe</font>
+                                                <div class="btn_container">
+                                                    <div class="item_btn btn btn-primary">
+                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <font class="text-gamma" style="">Je participe</font>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
