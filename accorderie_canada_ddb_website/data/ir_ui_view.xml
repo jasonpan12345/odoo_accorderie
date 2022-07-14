@@ -796,8 +796,13 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn locked lg">
+                                                            <font class="text-gamma">
+                                                                <icon class="fa fa-lock"/>&amp;nbsp;
+                                                                Groupe privé
+                                                            </font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -819,8 +824,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Rejoindre le groupe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -842,8 +849,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Rejoindre le groupe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -865,8 +874,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Rejoindre le groupe</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -888,8 +899,13 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn locked lg">
+                                                            <font class="text-gamma">
+                                                                <icon class="fa fa-lock"/>&amp;nbsp;
+                                                                Groupe privé
+                                                            </font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1717,22 +1733,27 @@
                                 <section class="s_event_list small-cards debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
-                                            <h1>
-                                                <font style="font-size:2rem;">Membres de la communaut&#233;</font>
-                                                <span class="filter_btn btn">
-                                                    <span class="img img-fluid mx-auto fa fa-filter" style="" />
-                                                    Filtrer et trier
-                                                </span>
-                                            </h1>
+                                            <font style="font-size:2rem;">Membres de la communaut&#233;</font>
+                                            <span class="filter_btn btn">
+                                                <icon class="fa fa-filter"/>&amp;nbsp;
+                                                Filtrer et trier
+                                            </span>
+                                            <span class="filter_btn btn" style="margin-right:15px">
+                                                Catégorie &amp;nbsp;
+                                                <icon class="fa fa-chevron-up"/>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_cosens_photography_9kdxgxfrmo8_unsplash_jpg/jonathan-cosens-photography-9kDXgXFRmO8-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -1749,9 +1770,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -1768,9 +1792,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -1787,9 +1814,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -1806,9 +1836,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -1822,6 +1855,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </section>
+                                <section class="s_map_btn pt32 pb32">
+                                    <div class="btn_map btn btn-primary rounded-circle text-gamma pt16 pb16">
+                                        <icon class="fa fa-map"/>
+                                        &amp;nbsp; Voir la carte
                                     </div>
                                 </section>
                             </div>
@@ -1973,33 +2012,41 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
                                                 <div class="infos">
-                                                    <p class="activite_title">Mercredi 16 ao&#251;t</p>
-                                                    <p class="activite_auteur">Denis Lemarchand</p>
-                                                    <p class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <p class="activite_title">Mercredi 16 ao&#251;t</p>
-                                                    <p class="activite_auteur">Denis Lemarchand</p>
-                                                    <p class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
                                                     </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                </div>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
+                                                    </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
                                                 </div>
                                             </div>
                                             <div class="list_title s_title pb40">
@@ -2011,33 +2058,60 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
                                                 <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
                                                     </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
                                                 <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
                                                     </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
                                                 <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
                                                     </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
                                                 </div>
                                             </div>
                                             <div class="list_title s_title pb40">
@@ -2046,13 +2120,41 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid round" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
                                                 <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
                                                     </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                </div>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <div class="infos">
+                                                    <h4 class="activite_title">
+                                                        Vous souhaitez acheter une maison à
+                                                        l"étranger?
+                                                    </h4>
+                                                    <h5 class="activite_desc">
+                                                        Vous êtes à l'étranger et vous cherchez
+                                                        une maison?
+                                                    </h5>
+                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
+                                                    <h5 class="activite_distance">300m</h5>
+                                                </div>
+                                                <div class="infos right">
+                                                    <h5>5m</h5>
+                                                    <h2 class="fa fa-heart-o text-epsilon"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -2132,8 +2234,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Entrer</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2155,8 +2259,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Entrer</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2178,8 +2284,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Entrer</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2201,8 +2309,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Entrer</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2224,8 +2334,10 @@
                                                             labore et dolore magna aliqua.
                                                         </font>
                                                     </h6>
-                                                    <div class="item_btn btn btn-primary">
-                                                        <font class="text-gamma" style="">Entrer</font>
+                                                    <div class="btn_container">
+                                                        <div class="item_btn btn btn-primary lg">
+                                                            <font class="text-gamma" style="">Entrer</font>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2623,46 +2735,59 @@
                             <div class="oe_structure">
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed banner_profile">
-                                        <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);" />
+                                        <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);">
+                                            <i class="fa fa-shield text-gamma"/>
+                                        </div>
                                         <div class="profile_banner_info">
                                             <p class="profile_name text-gamma">Mon profil</p>
                                             <p class="profile_hrs text-gamma">
-                                                <i class="fa fa-clock-o" />15 heures
+                                                <i class="fa fa-clock-o" />&amp;nbsp;15 heures
                                             </p>
                                         </div>
                                         <div class="profile_btn btn accorderie text-gamma">Mon accorderie:
-                                            Sherbrooke
+                                            Sherbrooke ❯
                                         </div>
-                                        <div class="profile_btn btn disconnect text-gamma">Se d&#233;connecter
+                                        <div class="profile_btn btn disconnect text-gamma">
+                                            <i class="fa fa-power-off"/>&amp;nbsp;Se d&#233;connecter
                                         </div>
                                     </div>
                                 </section>
                                 <section class="s_informations">
                                     <div class="informations_container">
                                         <a class="information information-1 btn" href="monprofil/mapresentation">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_presentation_png/Profil-Presentation.png"/>
+                                            <br />
                                             <span class="nbr">Ma pr&#233;sentation</span>
                                             <br />
-                                            <span class="txt">Lorem Ipsum dolor sit amet</span>
+                                            <span class="txt">Personnaliser la présentation affichée aux autres membres de l'accorderie.</span>
                                         </a>
                                         <a class="information information-2 btn" href="monprofil/mesinfos">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png"/>
+                                            <br />
                                             <span class="nbr">Mes informations personnelles</span>
                                             <br />
-                                            <span class="txt">Lorem Ipsum dolor sit amet</span>
+                                            <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
                                         </a>
                                         <a class="information information-3 btn" href="monprofil/mesannonces">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_annonces_png/Profil-Annonces.png"/>
+                                            <br />
                                             <span class="nbr">Mes annonces publi&#233;es</span>
                                             <br />
-                                            <span class="txt">Lorem Ipsum dolor sit amet</span>
+                                            <span class="txt">Voir et gérer les annonces que j'ai publié.</span>
                                         </a>
                                         <a class="information information-4 btn" href="monprofil/mesfavoris">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png"/>
+                                            <br />
                                             <span class="nbr">Mes favoris</span>
                                             <br />
-                                            <span class="txt">Lorem Ipsum dolor sit amet</span>
+                                            <span class="txt">Voir mes offres, demandes et membres favoris.</span>
                                         </a>
                                         <a class="information information-5 btn" href="monprofil/mespreferences">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_preferences_png/Profil-Preferences.png"/>
+                                            <br />
                                             <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
                                             <br />
-                                            <span class="txt">Lorem Ipsum dolor sit amet</span>
+                                            <span class="txt">Gérer les paramètres de votre espace membre (langues, moyens de communications, ...)</span>
                                         </a>
                                         <a class="information logout btn" href="/web/login">
                                             <span class="nbr">D&#233;connecter</span>
@@ -2885,22 +3010,27 @@
                                 <section class="s_event_list small-cards debug_unimplemented">
                                     <div class="list_head">
                                         <div class="list_title s_title">
-                                            <p>
-                                                <font style="font-size:2rem;">Mon r&#233;seau</font>
-                                                <span class="filter_btn btn">
-                                                    <span class="img img-fluid mx-auto fa fa-filter" style="" />
-                                                    Filtrer et trier
-                                                </span>
-                                            </p>
+                                            <font style="font-size:2rem;">Mon r&#233;seau</font>
+                                            <span class="filter_btn btn">
+                                                <icon class="fa fa-filter"/>&amp;nbsp;
+                                                Filtrer et trier
+                                            </span>
+                                            <span class="filter_btn btn" style="margin-right:15px">
+                                                Catégorie &amp;nbsp;
+                                                <icon class="fa fa-chevron-up"/>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_cosens_photography_9kdxgxfrmo8_unsplash_jpg/jonathan-cosens-photography-9kDXgXFRmO8-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -2917,9 +3047,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -2936,9 +3069,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -2955,9 +3091,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -2974,9 +3113,12 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <div class="name">
-                                                        <font style="color:white;font-size:20px">Alice Poitier</font>
+                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <div class="name text-gamma">
+                                                        Alice Poitier&amp;nbsp;
+                                                        <icon class="fa fa-shield"/>
                                                     </div>
+                                                    <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
                                                 <div class="item_desc centered">
                                                     <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
@@ -2990,6 +3132,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </section>
+                                <section class="s_map_btn pt32 pb32">
+                                    <div class="btn_map btn btn-primary rounded-circle text-gamma pt16 pb16">
+                                        <icon class="fa fa-map"/>
+                                        &amp;nbsp; Voir la carte
                                     </div>
                                 </section>
                             </div>
