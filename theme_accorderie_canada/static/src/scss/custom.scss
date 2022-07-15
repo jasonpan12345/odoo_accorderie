@@ -167,6 +167,18 @@ header .nav-link {
   }
 }
 
+.nav-item.account {
+  width: 15%;
+  text-align: center;
+  .nav_pic {
+    height: 45px;
+    aspect-ratio: 1/1;
+    float: left;
+    margin-left: 15px;
+  }
+}
+
+
 @media only screen and (max-width: 767px) {
   .collapse.navbar-collapse {
     height: auto;
@@ -1372,6 +1384,7 @@ actualité
     text-decoration: none;
     white-space: normal;
     max-height:300px;
+    overflow: hidden;
 
     img {
       max-height: 15%;
@@ -1431,12 +1444,16 @@ actualité
     .information {
       padding: 5%;
 
+      img, br {
+        display: none;
+      }
+
       .nbr {
         font-size: clamp(20px, 1.5vw, 1.5vw) !important;
       }
 
       .txt {
-        font-size: clamp(15px, 1.2vw, 1.2vw) !important;
+        display: none;
       }
     }
     .logout {
@@ -1458,7 +1475,6 @@ actualité
   }
   .profile_btn.accorderie {
     width: 100%;
-    margin: 5rem 0 0;
   }
 }
 
