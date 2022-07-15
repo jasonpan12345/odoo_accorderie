@@ -72,9 +72,16 @@
                                             <h2>Entente tarifiaire</h2>
                                             <t t-raw="accorderie_offre_service_id.entente_tarifiaire" />
                                         </div>
-                                        <div class="dispo" t-if="accorderie_offre_service_id.disponibilite">
-                                            <h2>Disponilibit&#233;s habituelles</h2>
-                                            <t t-raw="accorderie_offre_service_id.disponibilite" />
+                                        <div class="dispo">
+                                            <h2>Disponilibités habituelles</h2>
+                                            <t t-raw="accorderie_offre_service_id.disponibilite"/>
+                                        </div>
+                                        <div class="signaler">
+                                            <p>
+                                                <i class="fa fa-flag-o"/>
+                                                &amp;nbsp <a href=""><u>Signaler cette annonce</u></a>
+                                            </p>
+                                            <t t-raw="accorderie_offre_service_id.disponibilite"/>
                                         </div>
                                     </div>
                                 </div>

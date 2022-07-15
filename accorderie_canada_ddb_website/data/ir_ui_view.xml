@@ -2912,7 +2912,9 @@
                                                     <h5 class="activite_distance">2 km</h5>
                                                 </div>
                                             </div>
-                                            <div class="lg-btn btn">Voir mon agenda</div>
+                                            <div class="lg-btn btn">
+                                                <i class="fa fa-calendar"/> &amp;nbsp
+                                                Voir mon agenda</div>
                                         </div>
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
@@ -3345,10 +3347,22 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="oe_img_bg pt104 pb104 oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;);">
-                                    <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                            <br />
+                                <section class="s_event_banner oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;);">
+                                    <div class="event_date_container lg">
+                                        <div class="event_date">
+                                            MER.
+                                            <br/>
+                                            1
+                                            <br/>
+                                            OCT.
+                                        </div>
+                                        <div class="event_date_separator"/>
+                                        <div class="event_date">
+                                            MER.
+                                            <br/>
+                                            2
+                                            <br/>
+                                            OCT.
                                         </div>
                                     </div>
                                 </section>
@@ -3391,13 +3405,25 @@
                                         <h1>Soir&#233;e au caf&#233; Baobab</h1>
                                         <div class="infos">
                                             <div class="event_date">
-                                                <h3>Mercredi 1 octobre de 19h - 21h30</h3>
+                                                <h3>
+                                                    <i class="fa fa-calendar"/>&amp;nbsp
+                                                    Mercredi 1 octobre de 19h - 21h30
+                                                </h3>
                                             </div>
                                         </div>
                                         <div class="btn_container">
-                                            <div class="btn btn-primary">Inviter</div>
-                                            <div class="btn btn-primary">Je participe</div>
-                                            <div class="btn btn-primary">&#199;a m'int&#233;resse</div>
+                                            <div class="btn btn-primary">
+                                                <i class="fa fa-send-o"/>&amp;nbsp
+                                                Inviter
+                                            </div>
+                                            <div class="btn btn-primary">
+                                                <i class="fa fa-check-circle-o"/>&amp;nbsp
+                                                Je participe
+                                            </div>
+                                            <div class="btn btn-primary">
+                                                <i class="fa fa-star-o"/>&amp;nbsp
+                                                Ça m'intéresse
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
@@ -3467,11 +3493,9 @@
                                                 </div>
                                                 <div class="contact-list">
                                                     <h2>Inviter des amis</h2>
-                                                    <div class="search_box" />
-                                                    <div class="contact">
-                                                        <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
-                                                        <h4>Helena Cartier</h4>
-                                                        <div class="btn btn-primary">Inviter</div>
+                                                    <div class="search_box">
+                                                        <i class="fa fa-search"/>
+                                                        <input type="text" placeholder="Chercher un ami"/>
                                                     </div>
                                                     <div class="contact">
                                                         <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
@@ -3483,6 +3507,20 @@
                                                         <h4>Helena Cartier</h4>
                                                         <div class="btn btn-primary">Inviter</div>
                                                     </div>
+                                                    <div class="contact">
+                                                        <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
+                                                        <h4>Helena Cartier</h4>
+                                                        <div class="btn btn-primary">Inviter</div>
+                                                    </div>
+                                                </div>
+                                                <div class="signaler">
+                                                    <p>
+                                                        <i class="fa fa-flag-o"/>
+                                                        &amp;nbsp
+                                                        <a href="">
+                                                            <u>Signaler cette annonce</u>
+                                                        </a>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

@@ -822,6 +822,31 @@ actualité
   height: 90%;
 }
 
+.event_date_container {
+  height: 55%;
+  aspect-ratio: 1/1;
+  background-color: $bg-alpha;
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+
+  .event_date {
+    flex: 1;
+  }
+
+  .event_date_separator {
+    background-color: $primary-color;
+    flex: .1;
+    height: 3px;
+  }
+}
+
+.event_date_container.lg {
+  aspect-ratio: 2/1;
+}
+
 .list_item {
   height: 100%;
   flex: 1;
@@ -841,27 +866,6 @@ actualité
       padding: 5%;
       position: relative;
 
-      .event_date_container {
-        height: 55%;
-        aspect-ratio: 1/1;
-        background-color: $bg-alpha;
-        border-radius: 5px;
-        display: flex;
-        text-align: center;
-        align-items: center;
-
-        .event_date {
-          flex: 1;
-        }
-        .event_date_separator {
-          background-color: $primary-color;
-          flex: .1;
-          height: 3px;
-        }
-      }
-      .lg {
-        aspect-ratio: 2/1;
-      }
     }
 
     .item_desc {
@@ -2045,6 +2049,10 @@ actualité
 /*
     Page Évènement/Offre
 */
+.s_event_banner {
+  height: 35vh;
+  padding: 5% 10% 0;
+}
 
 .event_container {
   display: flex;
@@ -2124,6 +2132,27 @@ actualité
       display: flex;
       flex-direction: column;
       padding-right: 0;
+
+      .search_box {
+        height: 50px;
+        border-radius: 7px;
+        width: 50%;
+        border: 1px solid lightgray;
+        display: flex;
+        align-items: center;
+        margin: 5% 0;
+
+        i {
+          margin-left: 5%;
+        }
+        input {
+          border: none;
+          outline: none;
+          height: 100%;
+          width: 85%;
+          margin: auto;
+        }
+      }
 
       .contact {
         display: flex;
@@ -2209,6 +2238,9 @@ actualité
 }
 
 @media only screen and (max-width: 990px) {
+  .s_event_banner {
+    height: 25vh !important;
+  }
   .event_info .btn_container {
     float: none !important;
     width: auto !important;
@@ -2230,11 +2262,16 @@ actualité
       padding: 1rem 0 !important;
     }
   }
+
   .event_container {
     flex-direction: column;
 
     .informations_container {
       width: 100%;
+
+      .info-2 .contact-list .search_box {
+        width: 100%;
+      }
     }
 
     .right_cards_container {
@@ -2249,6 +2286,11 @@ actualité
         border-radius: 0;
       }
     }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .s_event_banner {
+    height: 20vh !important;
   }
 }
 
