@@ -28,6 +28,11 @@ body {
   }
 }
 
+// AngularJS
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 // Adapt navbar
 .navbar {
   padding: 0 !important;
@@ -1782,7 +1787,6 @@ actualité
 .buttons_form_container {
   width: 100%;
   height: 90%;
-  display: none;
   flex-direction: row;
   gap: 20px;
   padding: 5% 10% 0 10%;

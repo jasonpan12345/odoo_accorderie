@@ -598,166 +598,192 @@
         <t t-ignore="true">
             <t name="About us" t-name="website.aboutus">
                 <t t-call="website.layout">
-                    <div id="wrap">
+                    <div id="wrap" ng-app="AccorderieApp" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
                         <section class="s_buttons_form">
-                            <div class="txt_question">
-                                <h1>Que souhaitez-vous faire ?</h1>
+                            <div class="txt_question" ng-show="state.message">
+                                <div ng-show="stack_breadcrumb_state.length">{{label_breadcrumb()}}</div>
+                                <h1>{{state.message}}</h1>
                             </div>
-                            <form id="participer_form" method="GET" action="/publier-offre">
+                            <div ng-show="error">
+                                <h1>Erreur : {{error}}</h1>
+                            </div>
+                            <div id="participer_form">
                                 <div class="buttons_form_container tab">
-                                    <input type="radio" id="pub_offre" name="pub" value="1" required="required" />
-                                    <label for="pub_offre" class="button_form btn">
-                                        <h5>Publier une offre de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="pub_demande" name="pub" value="2" />
-                                    <label for="pub_demande" class="button_form btn">
-                                        <h5>Publier une demande de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="creer_entente" name="pub" value="3" />
-                                    <label for="creer_entente" class="button_form btn">
-                                        <h5>S'accorder avec un autre accordeur</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="valider_service" name="pub" value="4" />
-                                    <label for="valider_service" class="button_form btn">
-                                        <h5>Valider un autre accordage</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
+                                    <span ng-repeat="option in state.list">
+                                        <input type="radio" id="{{option.id}}" name="pub" ng-value="option.id" ng-model="$parent.selected_model" required="required" />
+                                        <label for="{{option.id}}" class="button_form btn">
+                                            <h5 ng-show="option.title">{{option.title}}</h5>
+                                            <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
+                                        </label>
+                                    </span>
                                 </div>
-                                <div class="buttons_form_container tab">
-                                    <input type="radio" id="offre_indiv" name="offre" value="1" />
-                                    <label for="offre_indiv" class="button_form btn">
-                                        <h5>Individuelle</h5>
-                                        <p>Si vous offrez un service &#224; une personne particuli&#232;re
-
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="offre" value="2" />
-                                    <label for="offre_coll" class="button_form btn">
-                                        <h5>Collective</h5>
-                                        <p>Si vous offrez une activit&#233; collective
-                                            <br />
-                                            (cours en groupe, ateliers, conf&#233;rence, achats group&#233;s, ...)
-
-                                        </p>
-                                    </label>
-                                </div>
-                                <div class="buttons_form_container tab" style="align-content:unset;">
-                                    <div t-if="not type_service_categories">
-                                        <div class="row">Aucune catégorie de service est disponible.</div>
-                                    </div>
-                                    <t t-if="type_service_categories">
-                                        <t t-foreach="type_service_categories" t-as="type_service_categorie">
-                                            <input
-                                                type="radio"
-                                                t-att-id="'cat_%s' % str(type_service_categorie.id)"
-                                                name="type_service_categorie"
-                                                t-att-value="type_service_categorie.id"
-                                            />
-                                            <label
-                                                t-att-for="'cat_%s' % str(type_service_categorie.id)"
-                                                class="cat button_form btn"
-                                            >
-                                                <img
-                                                    t-if="type_service_categorie.icon"
-                                                    t-att-src="image_data_uri(type_service_categorie.icon)"
-                                                    alt="icon"
-                                                    class="offre_img"
-                                                />
-                                                <p
-                                                    class="offre_desc"
-                                                    t-if="type_service_categorie.nom"
-                                                    t-raw="type_service_categorie._get_html_nom()"
-                                                />
-                                            </label>
-                                        </t>
-                                    </t>
-                                </div>
-                                <div
-                                    class="buttons_form_container tab tab_sous_categorie scroll"
-                                    style="flex-direction:column;"
-                                />
-                                <div class="buttons_form_container tab scroll" style="flex-direction:column;">
-                                    <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />
-                                    <label for="rdv_divers" class="button_form btn small">
-                                        <p>Rendez-vous divers</p>
-                                    </label>
-                                    <input type="radio" id="rdv_med" name="sub_cat_3" value="2" />
-                                    <label for="rdv_med" class="button_form btn small">
-                                        <p>Rendez-vous m&#233;dicaux
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="pers_immigrantes" name="sub_cat_3" value="2" />
-                                    <label for="pers_immigrantes" class="button_form btn small">
-                                        <p>Personnes immigrantes</p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Recherche logement</p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                </div>
-                                <div class="submit_container">
+                                <div class="submit_container" ng-show="is_show_button()">
                                     <input
                                         id="prevBtn"
-                                        type="submit"
+                                        type="button"
                                         value="Retour"
                                         class="prev submit_btn btn"
-                                        style="display: none;"
+                                        ng-show="is_show_previous()"
+                                        ng-click="previous_btn()"
                                     />
-                                    <input id="nextBtn" type="submit" value="Suivant" class="submit_btn btn" />
+                                    <input id="nextBtn" type="button" value="Suivant" class="submit_btn btn" ng-click="next_btn()"/>
                                 </div>
-                                <div />
-                                <div />
-                            </form>
+                            </div>
+<!--                            <form id="participer_form" method="GET" action="/publier-offre">-->
+<!--                                <div class="buttons_form_container tab">-->
+<!--                                    <input type="radio" id="pub_offre" name="pub" value="1" required="required" />-->
+<!--                                    <label for="pub_offre" class="button_form btn">-->
+<!--                                        <h5>Publier une offre de service</h5>-->
+<!--                                        <p>-->
+<!--                                            Vous souhaitez offrir votre service?-->
+<!--                                            <br />-->
+<!--                                            Cliquez ici-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="pub_demande" name="pub" value="2" />-->
+<!--                                    <label for="pub_demande" class="button_form btn">-->
+<!--                                        <h5>Publier une demande de service</h5>-->
+<!--                                        <p>-->
+<!--                                            Vous souhaitez offrir votre service?-->
+<!--                                            <br />-->
+<!--                                            Cliquez ici-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="creer_entente" name="pub" value="3" />-->
+<!--                                    <label for="creer_entente" class="button_form btn">-->
+<!--                                        <h5>S'accorder avec un autre accordeur</h5>-->
+<!--                                        <p>-->
+<!--                                            Vous souhaitez offrir votre service?-->
+<!--                                            <br />-->
+<!--                                            Cliquez ici-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="valider_service" name="pub" value="4" />-->
+<!--                                    <label for="valider_service" class="button_form btn">-->
+<!--                                        <h5>Valider un autre accordage</h5>-->
+<!--                                        <p>-->
+<!--                                            Vous souhaitez offrir votre service?-->
+<!--                                            <br />-->
+<!--                                            Cliquez ici-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                                <div class="buttons_form_container tab">-->
+<!--                                    <input type="radio" id="offre_indiv" name="offre" value="1" />-->
+<!--                                    <label for="offre_indiv" class="button_form btn">-->
+<!--                                        <h5>Individuelle</h5>-->
+<!--                                        <p>Si vous offrez un service &#224; une personne particuli&#232;re-->
+
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="offre" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn">-->
+<!--                                        <h5>Collective</h5>-->
+<!--                                        <p>Si vous offrez une activit&#233; collective-->
+<!--                                            <br />-->
+<!--                                            (cours en groupe, ateliers, conf&#233;rence, achats group&#233;s, ...)-->
+
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                                <div class="buttons_form_container tab" style="align-content:unset;">-->
+<!--                                    <div t-if="not type_service_categories">-->
+<!--                                        <div class="row">Aucune catégorie de service est disponible.</div>-->
+<!--                                    </div>-->
+<!--                                    <t t-if="type_service_categories">-->
+<!--                                        <t t-foreach="type_service_categories" t-as="type_service_categorie">-->
+<!--                                            <input-->
+<!--                                                type="radio"-->
+<!--                                                t-att-id="'cat_%s' % str(type_service_categorie.id)"-->
+<!--                                                name="type_service_categorie"-->
+<!--                                                t-att-value="type_service_categorie.id"-->
+<!--                                            />-->
+<!--                                            <label-->
+<!--                                                t-att-for="'cat_%s' % str(type_service_categorie.id)"-->
+<!--                                                class="cat button_form btn"-->
+<!--                                            >-->
+<!--                                                <img-->
+<!--                                                    t-if="type_service_categorie.icon"-->
+<!--                                                    t-att-src="image_data_uri(type_service_categorie.icon)"-->
+<!--                                                    alt="icon"-->
+<!--                                                    class="offre_img"-->
+<!--                                                />-->
+<!--                                                <p-->
+<!--                                                    class="offre_desc"-->
+<!--                                                    t-if="type_service_categorie.nom"-->
+<!--                                                    t-raw="type_service_categorie._get_html_nom()"-->
+<!--                                                />-->
+<!--                                            </label>-->
+<!--                                        </t>-->
+<!--                                    </t>-->
+<!--                                </div>-->
+<!--                                <div-->
+<!--                                    class="buttons_form_container tab tab_sous_categorie scroll"-->
+<!--                                    style="flex-direction:column;"-->
+<!--                                />-->
+<!--                                <div class="buttons_form_container tab scroll" style="flex-direction:column;">-->
+<!--                                    <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />-->
+<!--                                    <label for="rdv_divers" class="button_form btn small">-->
+<!--                                        <p>Rendez-vous divers</p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="rdv_med" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="rdv_med" class="button_form btn small">-->
+<!--                                        <p>Rendez-vous m&#233;dicaux-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="pers_immigrantes" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="pers_immigrantes" class="button_form btn small">-->
+<!--                                        <p>Personnes immigrantes</p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Recherche logement</p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Loisirs et activit&#233;s-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Loisirs et activit&#233;s-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Loisirs et activit&#233;s-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Loisirs et activit&#233;s-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Loisirs et activit&#233;s-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
+<!--                                    <label for="offre_coll" class="button_form btn small">-->
+<!--                                        <p>Loisirs et activit&#233;s-->
+<!--                                        </p>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                                <div class="submit_container">-->
+<!--                                    <input-->
+<!--                                        id="prevBtn"-->
+<!--                                        type="submit"-->
+<!--                                        value="Retour"-->
+<!--                                        class="prev submit_btn btn"-->
+<!--                                        style="display: none;"-->
+<!--                                    />-->
+<!--                                    <input id="nextBtn" type="submit" value="Suivant" class="submit_btn btn" />-->
+<!--                                </div>-->
+<!--                                <div />-->
+<!--                                <div />-->
+<!--                            </form>-->
                         </section>
                     </div>
                 </t>
