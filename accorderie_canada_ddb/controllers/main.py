@@ -359,6 +359,96 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_participer_workflow_data",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_workflow_data(self, **kw):
+        # List type
+        # A - Selection static
+        # B - Choix catégorie de service
+        # C - Choix membre
+        # D - Selection dynamique (option new, option id)
+        # E - Calendrier
+        # F - Temps + durée
+        # G - Formulaire (xml_item_id)
+        return {
+            "init": {
+                "message": "Que souhaitez-vous faire?",
+                "type": "selection_static",
+                "list": [
+                    {
+                        "id": "init.pos",
+                        "title": "Publier une offre de service",
+                        "html": (
+                            "Vous souhaitez offrir vos services?<br/>Cliquez"
+                            " ici pour publier votre offre en ligne."
+                        ),
+                        # "value": "Publier.Une offre de service",
+                    },
+                    {
+                        "id": "init.pds",
+                        "title": "Publier une demande de service",
+                        "html": (
+                            "Vous avez besoin d'un service?<br/>Faites part de"
+                            " votre besoin aux membres de l'Accorderie en"
+                            " créant une demande ici."
+                        ),
+                        # "value": "Publier.Une demande de service",
+                    },
+                    {
+                        "id": "init.saa",
+                        "title": "S'accorder avec un autre accordeur",
+                        "html": (
+                            "Vous accorder vous permet de vous mettre d'accord"
+                            " à l'avance sur les modalités exactes du service"
+                            " à donner ou recevoir."
+                        ),
+                        # "value": "S'accorder",
+                    },
+                    {
+                        "id": "init.va",
+                        "title": "Valider un accordage",
+                        "html": (
+                            "Vous avez donné ou reçu un service?<br/>Déclarer"
+                            " ici la transaction pour donner ou percevoir les"
+                            " heures d'Accorderie dues."
+                        ),
+                        # "value": "Valider un accordage",
+                    },
+                ],
+            },
+            "init.pos": {
+                "message": "Est-ce pour une offre de service :",
+                "show_breadcrumb": True,
+                "breadcrumb_value": "Publier.Une offre de service",
+                "type": "selection_static",
+                "list": [
+                    {
+                        "id": "init.pos.individuelle",
+                        "title": "Individuelle",
+                        "html": (
+                            "Si vous offrez un service destiné à une personne"
+                            " à la fois."
+                        ),
+                    },
+                    {
+                        "id": "init.pos.collective",
+                        "title": "Collective",
+                        "html": (
+                            "Si vous offrez un service destiné à plusieurs"
+                            " personnes à la fois (cours en groupe, ateliers,"
+                            " conférences, achats groupés, ...)"
+                        ),
+                    },
+                ],
+            },
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/type_service_sous_categorie_list",
             "/accorderie_canada_ddb/type_service_sous_categorie_list/<int:categorie_id>",
         ],
