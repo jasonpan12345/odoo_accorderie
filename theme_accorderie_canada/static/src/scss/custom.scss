@@ -178,7 +178,6 @@ header .nav-link {
   }
 }
 
-
 @media only screen and (max-width: 767px) {
   .collapse.navbar-collapse {
     height: auto;
@@ -850,7 +849,7 @@ actualité
 
   .event_date_separator {
     background-color: $primary-color;
-    flex: .1;
+    flex: 0.1;
     height: 3px;
   }
 }
@@ -877,7 +876,6 @@ actualité
       height: 40%;
       padding: 5%;
       position: relative;
-
     }
 
     .item_desc {
@@ -894,7 +892,7 @@ actualité
       }
       .event_loc {
         color: $text-gamma;
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
       * > icon {
         font-size: 1.2rem;
@@ -1188,13 +1186,14 @@ actualité
   text-align: center;
   padding: 8%;
   position: relative;
+}
 
-  .tag {
-    padding: 1% 5%;
-    background-color: #fff4f0;
-    color: $primary-color;
-    border-radius: 5px;
-  }
+.tag {
+  padding: 0.25rem 0.9rem;
+  background-color: #fff4f0;
+  color: $primary-color;
+  border-radius: 5px;
+  width: fit-content;
 }
 
 .item_foot:after {
@@ -1206,17 +1205,16 @@ actualité
   border-top: 1px solid $beta;
 }
 .s_map_btn .btn_map {
-    font-size: 1.2rem;
-    float: right;
-    margin-right: 10%;
+  font-size: 1.2rem;
+  float: right;
+  margin-right: 10%;
 }
 //clearfix
 .s_map_btn::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
-
 
 /*
     Page mon activité/Bilan
@@ -1383,11 +1381,11 @@ actualité
     border: 1px solid $beta;
     text-decoration: none;
     white-space: normal;
-    max-height:300px;
+    max-height: 300px;
     overflow: hidden;
 
     img {
-      max-height: 15%;
+      height: 15%;
     }
 
     .nbr {
@@ -1444,7 +1442,8 @@ actualité
     .information {
       padding: 5%;
 
-      img, br {
+      img,
+      br {
         display: none;
       }
 
@@ -1821,6 +1820,7 @@ actualité
       border: none;
       margin-top: -80px;
       margin-bottom: 80px;
+      max-height: unset;
 
       .nbr {
         font-size: 1.5rem;
@@ -1830,7 +1830,15 @@ actualité
         font-size: 1rem;
         color: $text-beta;
         font-weight: bold;
+        margin-bottom: 1rem;
       }
+    }
+    .information i {
+      font-size: 1.5rem;
+      margin-right: 2rem;
+      width: 1.5rem;
+      text-align: center;
+      color: $alpha;
     }
 
     .information-1 {
@@ -1841,10 +1849,11 @@ actualité
       gap: 8%;
 
       .profile_pic {
-        height: 200px;
+        height: 170px;
         float: left;
         border-radius: 50%;
         aspect-ratio: 1/1;
+        display: block;
       }
 
       .nbr {
@@ -1879,6 +1888,30 @@ actualité
 
     .information-4 {
       grid-area: 2 / 2 / 6 / 3;
+      display: flex;
+      flex-direction: column;
+
+      > * {
+        border-bottom: 1px solid $beta;
+        padding: 2rem 0;
+
+        .txt,
+        br {
+          display: inherit;
+        }
+      }
+      :last-child {
+        border: none;
+      }
+    }
+    .information-4 .vertical_list {
+      padding: 0;
+      * {
+        font-size: unset;
+      }
+      img {
+        display: block;
+      }
     }
   }
 }
@@ -1950,7 +1983,7 @@ actualité
     .infos {
       display: flex;
       flex-direction: column;
-      margin-right: 15%;
+      margin-right: 5%;
       line-height: 1;
 
       .activite_title {
