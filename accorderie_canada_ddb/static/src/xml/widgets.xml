@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <t t-name="accorderie_canada_ddb.AccorderieForm">
+        <form>
+            <div class="form-group">
+                <label for="model">Mon accorderie</label>
+                <select id="model" class="form-control">
+                    <option t-att-value="0" t-att-selected="new_channel">
+                        <field>Accorderie à afficher</field>
+                    </option>
+                </select>
+            </div>
+        </form>
+    </t>
+</template>

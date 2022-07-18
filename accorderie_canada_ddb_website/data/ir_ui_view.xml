@@ -224,9 +224,9 @@
                                             </div>
                                         </div>
                                         <div class="box_publication">
-                                            <p>Publications</p><br/>
-                                            <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
-                                            <input type="text" placeholder="Vous pouvez écrire votre message ici"/>
+                                            <p>Publications</p><br />
+                                            <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                            <input type="text" placeholder="Vous pouvez écrire votre message ici" />
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
@@ -261,27 +261,27 @@
                                             </div>
                                             <div class="actualite_stats">
                                                 <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
                                                 <span>&#8226;</span>
                                                 <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
                                                 <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
                                                 </div>
                                                 <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
-                                                    <icon class="fa fa-smile-o"/>
-                                                    <icon class="fa fa-camera"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
+                                                    <icon class="fa fa-smile-o" />
+                                                    <icon class="fa fa-camera" />
+                                                    <icon class="fa fa-sticky-note-o" />
+                                                    <icon class="fa fa-sticky-note-o" />
                                                 </div>
                                             </div>
                                         </div>
@@ -314,32 +314,32 @@
                                                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                         nulla pariatur.
                                                     </p>
-                                                    <img src="/accorderie_canada_ddb_website/static/src/img/product-school--GajrOEN6m4-unsplash.jpg"/>
+                                                    <img src="/accorderie_canada_ddb_website/static/src/img/product-school--GajrOEN6m4-unsplash.jpg" />
                                                 </div>
                                             </div>
                                             <div class="actualite_stats">
                                                 <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
                                                 <span>&#8226;</span>
                                                 <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
                                                 <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
                                                 </div>
                                                 <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
-                                                    <icon class="fa fa-smile-o"/>
-                                                    <icon class="fa fa-camera"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
+                                                    <icon class="fa fa-smile-o" />
+                                                    <icon class="fa fa-camera" />
+                                                    <icon class="fa fa-sticky-note-o" />
+                                                    <icon class="fa fa-sticky-note-o" />
                                                 </div>
                                             </div>
                                         </div>
@@ -383,27 +383,27 @@
                                             </div>
                                             <div class="actualite_stats">
                                                 <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
                                                 <span>&#8226;</span>
                                                 <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
                                                 <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
                                                 </div>
                                                 <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
-                                                    <icon class="fa fa-smile-o"/>
-                                                    <icon class="fa fa-camera"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
+                                                    <icon class="fa fa-smile-o" />
+                                                    <icon class="fa fa-camera" />
+                                                    <icon class="fa fa-sticky-note-o" />
+                                                    <icon class="fa fa-sticky-note-o" />
                                                 </div>
                                             </div>
                                         </div>
@@ -440,27 +440,27 @@
                                             </div>
                                             <div class="actualite_stats">
                                                 <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
                                                 <span>&#8226;</span>
                                                 <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
                                                 <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
                                                 </div>
                                                 <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
-                                                    <icon class="fa fa-smile-o"/>
-                                                    <icon class="fa fa-camera"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
+                                                    <icon class="fa fa-smile-o" />
+                                                    <icon class="fa fa-camera" />
+                                                    <icon class="fa fa-sticky-note-o" />
+                                                    <icon class="fa fa-sticky-note-o" />
                                                 </div>
                                             </div>
                                         </div>
@@ -520,12 +520,12 @@
                                             <h1>
                                                 <font style="font-size:2rem;">&#201;v&#232;nements</font>
                                                 <span class="filter_btn btn">
-                                                    <icon class="fa fa-filter"/>&amp;nbsp;
+                                                    <icon class="fa fa-filter" />&amp;nbsp;
                                                     Filtrer et trier
                                                 </span>
                                                 <span class="filter_btn btn" style="margin-right:15px">
                                                     Catégorie &amp;nbsp;
-                                                    <icon class="fa fa-chevron-up"/>
+                                                    <icon class="fa fa-chevron-up" />
                                                 </span>
                                             </h1>
                                         </div>
@@ -536,14 +536,14 @@
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
                                                     <div class="event_date_container lg">
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            1 <br/>
+                                                            MER. <br />
+                                                            1 <br />
                                                             OCT.
                                                         </div>
-                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date_separator" />
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            2 <br/>
+                                                            MER. <br />
+                                                            2 <br />
                                                             OCT.
                                                         </div>
                                                     </div>
@@ -551,11 +551,11 @@
                                                 <div class="item_desc">
                                                     <p class="item_title">Café concert au café Baobab</p>
                                                     <p class="event_time">
-                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                     </p>
                                                     <p class="event_loc">
-                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
                                                     <div class="btn_container">
@@ -563,7 +563,7 @@
                                                             <font class="text-gamma" style="">En savoir plus</font>
                                                         </div>
                                                         <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                             <font class="text-gamma" style="">Je participe</font>
                                                         </div>
                                                     </div>
@@ -575,8 +575,8 @@
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_product_school_gajroen6m4_unsplash_jpg/product-school--GajrOEN6m4-unsplash.jpg&quot;">
                                                     <div class="event_date_container">
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            1 <br/>
+                                                            MER. <br />
+                                                            1 <br />
                                                             OCT.
                                                         </div>
                                                     </div>
@@ -584,11 +584,11 @@
                                                 <div class="item_desc">
                                                     <p class="item_title">Atelier conférence pour préparer sa retraite</p>
                                                     <p class="event_time">
-                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                     </p>
                                                     <p class="event_loc">
-                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
                                                     <div class="btn_container">
@@ -596,7 +596,7 @@
                                                             <font class="text-gamma" style="">En savoir plus</font>
                                                         </div>
                                                         <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                             <font class="text-gamma" style="">Je participe</font>
                                                         </div>
                                                     </div>
@@ -608,14 +608,14 @@
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;">
                                                     <div class="event_date_container lg">
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            1 <br/>
+                                                            MER. <br />
+                                                            1 <br />
                                                             OCT.
                                                         </div>
-                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date_separator" />
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            2 <br/>
+                                                            MER. <br />
+                                                            2 <br />
                                                             OCT.
                                                         </div>
                                                     </div>
@@ -623,11 +623,11 @@
                                                 <div class="item_desc">
                                                     <p class="item_title">Soirée au café Baobab</p>
                                                     <p class="event_time">
-                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                     </p>
                                                     <p class="event_loc">
-                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
                                                     <div class="btn_container">
@@ -635,7 +635,7 @@
                                                             <font class="text-gamma" style="">En savoir plus</font>
                                                         </div>
                                                         <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                             <font class="text-gamma" style="">Je participe</font>
                                                         </div>
                                                     </div>
@@ -647,14 +647,14 @@
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_miti_vsws0g1kjxi_unsplash_jpg/miti-vSws0g1KjxI-unsplash.jpg&quot;">
                                                     <div class="event_date_container lg">
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            1 <br/>
+                                                            MER. <br />
+                                                            1 <br />
                                                             OCT.
                                                         </div>
-                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date_separator" />
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            2 <br/>
+                                                            MER. <br />
+                                                            2 <br />
                                                             OCT.
                                                         </div>
                                                     </div>
@@ -662,11 +662,11 @@
                                                 <div class="item_desc">
                                                     <p class="item_title">Vous avez toujours eu envie d'apprendre le tricot?</p>
                                                     <p class="event_time">
-                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                     </p>
                                                     <p class="event_loc">
-                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
                                                     <div class="btn_container">
@@ -674,7 +674,7 @@
                                                             <font class="text-gamma" style="">En savoir plus</font>
                                                         </div>
                                                         <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                             <font class="text-gamma" style="">Je participe</font>
                                                         </div>
                                                     </div>
@@ -686,14 +686,14 @@
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_nathan_dumlao_71u2foofi_u_unsplash_jpg/nathan-dumlao-71u2fOofI-U-unsplash.jpg&quot;">
                                                     <div class="event_date_container lg">
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            1 <br/>
+                                                            MER. <br />
+                                                            1 <br />
                                                             OCT.
                                                         </div>
-                                                        <div class="event_date_separator"/>
+                                                        <div class="event_date_separator" />
                                                         <div class="event_date">
-                                                            MER. <br/>
-                                                            2 <br/>
+                                                            MER. <br />
+                                                            2 <br />
                                                             OCT.
                                                         </div>
                                                     </div>
@@ -701,11 +701,11 @@
                                                 <div class="item_desc">
                                                     <p class="item_title">Café concert au café Baobab</p>
                                                     <p class="event_time">
-                                                        <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                        <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                     </p>
                                                     <p class="event_loc">
-                                                        <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                        <icon class="fa fa-map-marker" />&amp;nbsp;
                                                         1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                     </p>
                                                     <div class="btn_container">
@@ -713,7 +713,7 @@
                                                             <font class="text-gamma" style="">En savoir plus</font>
                                                         </div>
                                                         <div class="item_btn btn btn-primary">
-                                                            <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                            <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                             <font class="text-gamma" style="">Je participe</font>
                                                         </div>
                                                     </div>
@@ -799,7 +799,7 @@
                                                     <div class="btn_container">
                                                         <div class="item_btn btn locked lg">
                                                             <font class="text-gamma">
-                                                                <icon class="fa fa-lock"/>&amp;nbsp;
+                                                                <icon class="fa fa-lock" />&amp;nbsp;
                                                                 Groupe privé
                                                             </font>
                                                         </div>
@@ -902,7 +902,7 @@
                                                     <div class="btn_container">
                                                         <div class="item_btn btn locked lg">
                                                             <font class="text-gamma">
-                                                                <icon class="fa fa-lock"/>&amp;nbsp;
+                                                                <icon class="fa fa-lock" />&amp;nbsp;
                                                                 Groupe privé
                                                             </font>
                                                         </div>
@@ -1225,27 +1225,27 @@
                                         </div>
                                         <div class="actualite_stats">
                                                 <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
                                                 <span>&#8226;</span>
                                                 <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
                                                 <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
                                                 </div>
                                                 <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
-                                                    <icon class="fa fa-smile-o"/>
-                                                    <icon class="fa fa-camera"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
+                                                    <icon class="fa fa-smile-o" />
+                                                    <icon class="fa fa-camera" />
+                                                    <icon class="fa fa-sticky-note-o" />
+                                                    <icon class="fa fa-sticky-note-o" />
                                                 </div>
                                             </div>
                                     </div>
@@ -1282,27 +1282,27 @@
                                         </div>
                                         <div class="actualite_stats">
                                                 <span class="like_count">
-                                                    <icon class="fa fa-thumbs-up"/>&amp;nbsp;16</span>
+                                                    <icon class="fa fa-thumbs-up" />&amp;nbsp;16</span>
                                                 <span class="comment_count">4 commentaires</span>
                                                 <span>&#8226;</span>
                                                 <span class="view_count">10 vues</span>
                                             </div>
                                             <div class="pub_actions">
                                                 <div class="like_btn">
-                                                    <icon class="fa fa-thumbs-o-up"/>&amp;nbsp;J'aime
+                                                    <icon class="fa fa-thumbs-o-up" />&amp;nbsp;J'aime
                                                 </div>
                                                 <div class="comment_btn">
-                                                    <icon class="fa fa-comment-o"/>&amp;nbsp;Commenter
+                                                    <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
                                             <div class="actualite_foot">
-                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
-                                                    <input type="text" placeholder="&#201;crivez un commentaire"/>
-                                                    <icon class="fa fa-smile-o"/>
-                                                    <icon class="fa fa-camera"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
-                                                    <icon class="fa fa-sticky-note-o"/>
+                                                    <input type="text" placeholder="&#201;crivez un commentaire" />
+                                                    <icon class="fa fa-smile-o" />
+                                                    <icon class="fa fa-camera" />
+                                                    <icon class="fa fa-sticky-note-o" />
+                                                    <icon class="fa fa-sticky-note-o" />
                                                 </div>
                                             </div>
                                     </div>
@@ -1394,17 +1394,17 @@
                                                 <div class="event_date_container lg">
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         1
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
-                                                    <div class="event_date_separator"/>
+                                                    <div class="event_date_separator" />
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         2
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
                                                 </div>
@@ -1412,16 +1412,16 @@
                                             <div class="item_desc">
                                                 <p class="item_title">Café concert au café Baobab</p>
                                                 <p class="event_time">
-                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                 </p>
                                                 <p class="event_loc">
-                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
                                                 <div class="btn_container">
                                                     <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -1434,9 +1434,9 @@
                                                 <div class="event_date_container">
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         1
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
                                                 </div>
@@ -1444,16 +1444,16 @@
                                             <div class="item_desc">
                                                 <p class="item_title">Atelier conférence pour préparer sa retraite</p>
                                                 <p class="event_time">
-                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
                                                     20h00 - 21h30
                                                 </p>
                                                 <p class="event_loc">
-                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
                                                 <div class="btn_container">
                                                     <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -1466,17 +1466,17 @@
                                                 <div class="event_date_container lg">
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         1
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
-                                                    <div class="event_date_separator"/>
+                                                    <div class="event_date_separator" />
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         2
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
                                                 </div>
@@ -1484,16 +1484,16 @@
                                             <div class="item_desc">
                                                 <p class="item_title">Soirée au café Baobab</p>
                                                 <p class="event_time">
-                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                 </p>
                                                 <p class="event_loc">
-                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
                                                 <div class="btn_container">
                                                     <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -1506,9 +1506,9 @@
                                                 <div class="event_date_container">
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         1
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
                                                 </div>
@@ -1516,16 +1516,16 @@
                                             <div class="item_desc">
                                                 <p class="item_title">Vous avez toujours eu envie d'apprendre le tricot?</p>
                                                 <p class="event_time">
-                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                 </p>
                                                 <p class="event_loc">
-                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
                                                 <div class="btn_container">
                                                     <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -1538,17 +1538,17 @@
                                                 <div class="event_date_container lg">
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         1
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
-                                                    <div class="event_date_separator"/>
+                                                    <div class="event_date_separator" />
                                                     <div class="event_date">
                                                         MER.
-                                                        <br/>
+                                                        <br />
                                                         2
-                                                        <br/>
+                                                        <br />
                                                         OCT.
                                                     </div>
                                                 </div>
@@ -1556,16 +1556,16 @@
                                             <div class="item_desc">
                                                 <p class="item_title">Café concert au café Baobab</p>
                                                 <p class="event_time">
-                                                    <icon class="fa fa-clock-o"/>&amp;nbsp;
+                                                    <icon class="fa fa-clock-o" />&amp;nbsp;
                                                         20h00 - 21h30
                                                 </p>
                                                 <p class="event_loc">
-                                                    <icon class="fa fa-map-marker"/>&amp;nbsp;
+                                                    <icon class="fa fa-map-marker" />&amp;nbsp;
                                                     1551 Rue Dunant, Sherbrooke, J1H 5N6, QC
                                                 </p>
                                                 <div class="btn_container">
                                                     <div class="item_btn btn btn-primary">
-                                                        <icon class="fa fa-star-o text-gamma"/>&amp;nbsp;
+                                                        <icon class="fa fa-star-o text-gamma" />&amp;nbsp;
                                                         <font class="text-gamma" style="">Je participe</font>
                                                     </div>
                                                 </div>
@@ -1656,29 +1656,144 @@
                                             <br />
                                             <br />
                                             <span class="txt desc">
-                                                <span class="fa fa-map-marker" />
+                                                <i class="fa fa-map-marker" />
                                                 Habite &#224; 1.2km de votre domicile
                                             </span>
                                             <br />
                                             <span class="txt desc">
-                                                <span class="fa fa-home" />
+                                                <i class="fa fa-home" />
                                                 Vieux Nord, Sherbrooke, QC, Canada
                                             </span>
                                             <br />
                                             <span class="txt desc">
-                                                <span class="fa fa-shield" />
+                                                <i class="fa fa-shield" />
                                                 Ant&#233;c&#233;dents judificaires v&#233;rifi&#233;s
                                             </span>
                                             <br />
                                             <span class="txt desc">
-                                                <span class="fa fa-calendar" />
+                                                <i class="fa fa-calendar" />
                                                 Membre depuis avril 2020
                                             </span>
                                         </div>
                                         <div class="information information-4">
-                                            <span class="nbr">Mes favoris</span>
-                                            <br />
-                                            <span class="txt">Lorem Ipsum dolor sit amet</span>
+                                            <div>
+                                                <span class="txt">Ma description</span>
+
+                                                <span><br />Pellentesque feugiat arcu eu laoreet dignissim. Ut ut orci
+                                                    ullamcorper erat lacinia mattis ac aliquet leo. Fusce et dui quis
+                                                    odio pellentesque egestas sit amet in dui. Quisque elementum dapibus
+                                                    magna, sed varius neque pellentesque pulvinar. Aenean at cursus
+                                                    nibh. Praesent
+                                                    rhoncus ex purus, quis ultricies eros tristique sed. Mauris augue
+                                                    dolor,
+                                                    euismod sed maximus nec, bibendum et nunc. Morbi condimentum, nulla
+                                                    commodo
+                                                    pretium ullamcorper, magna neque pharetra ante, ullamcorper iaculis
+                                                    lectus lectus eu nulla.
+                                                    <br />
+                                                    <br />
+                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
+                                                    euismod malesuada.
+                                                    Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                                                    per inceptos
+                                                    himenaeos. Etiam et quam eu sem lobortis ornare pretium non mi. In
+                                                    non felis eget ipsum
+                                                    sollicitudin lacinia. Duis vel tortor eu elit mollis facilisis. Ut
+                                                    pretium sodales sapien,
+                                                    sit amet pretium massa consectetur eu. Donec lorem ipsum, efficitur
+                                                    imperdiet dui vitae, c
+                                                    ommodo varius justo.
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span class="txt">Mes centres d'intérêt</span>
+                                                <br />
+                                                <div class="d-flex" style="gap:1%">
+
+                                                    <div class="tag">Marche</div>
+                                                    <div class="tag">Jardinage</div>
+                                                    <div class="tag">Tricot</div>
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <span class="txt">Pourquoi suis-je membre de l'Accorderie?</span>
+                                                <span>
+                                                    Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
+                                                    euismod malesuada.
+                                                    Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                                                    per inceptos
+                                                    himenaeos. Etiam et quam eu sem lobortis ornare pretium non mi. In
+                                                    non felis eget ipsum
+                                                    sollicitudin lacinia. Duis vel tortor eu elit mollis facilisis. Ut
+                                                    pretium sodales sapien,
+                                                    sit amet pretium massa consectetur eu. Donec lorem ipsum, efficitur
+                                                    imperdiet dui vitae, c
+                                                    ommodo varius justo.
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span class="txt">Les langues que je parle</span>
+                                                <span><i class="fa fa-commenting" />Français</span>
+                                                <br />
+                                                <span><i class="fa fa-commenting" />Anglais</span>
+                                            </div>
+                                            <div>
+                                                <span class="txt">Mes offres de service
+                                                    <a href="" style="float:right; font-weight:lighter">
+                                                        <u>Voir tout (6)</u>
+                                                    </a>
+                                                </span>
+                                                <div class="row vertical_list">
+                                                    <div class="activite btn" data-name="Box">
+                                                        <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                        <div class="infos">
+                                                            <p class="activite_title">
+                                                                Vous souhaitez acheter une maison à
+                                                                l"étranger?
+                                                            </p>
+                                                            <p class="activite_desc">
+                                                                Vous êtes à l'étranger et vous cherchez
+                                                                une maison?
+                                                            </p>
+                                                        </div>
+                                                        <div class="infos right">
+                                                            <p>5m</p>
+                                                            <p class="fa fa-heart-o text-epsilon" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="activite btn" data-name="Box">
+                                                        <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                        <div class="infos">
+                                                            <p class="activite_title">
+                                                                Vous souhaitez acheter une maison à
+                                                                l"étranger?
+                                                            </p>
+                                                            <p class="activite_desc">
+                                                                Vous êtes à l'étranger et vous cherchez
+                                                                une maison?
+                                                            </p>
+                                                        </div>
+                                                        <div class="infos right">
+                                                            <p>5m</p>
+                                                            <p class="fa fa-heart-o text-epsilon" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="txt">Mes demandes de service</span>
+                                                <span>Aucune demande de service en cours actuellement.</span>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    <icon class="fa fa-flag-o" />
+                                                    &amp;nbsp
+                                                    <a href="">
+                                                        <u>Signaler cet utilisateur</u>
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
@@ -1735,12 +1850,12 @@
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Membres de la communaut&#233;</font>
                                             <span class="filter_btn btn">
-                                                <icon class="fa fa-filter"/>&amp;nbsp;
+                                                <icon class="fa fa-filter" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
                                             <span class="filter_btn btn" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
-                                                <icon class="fa fa-chevron-up"/>
+                                                <icon class="fa fa-chevron-up" />
                                             </span>
                                         </div>
                                     </div>
@@ -1748,10 +1863,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_cosens_photography_9kdxgxfrmo8_unsplash_jpg/jonathan-cosens-photography-9kDXgXFRmO8-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -1770,10 +1885,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -1792,10 +1907,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -1814,10 +1929,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -1836,10 +1951,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -1859,7 +1974,7 @@
                                 </section>
                                 <section class="s_map_btn pt32 pb32">
                                     <div class="btn_map btn btn-primary rounded-circle text-gamma pt16 pb16">
-                                        <icon class="fa fa-map"/>
+                                        <icon class="fa fa-map" />
                                         &amp;nbsp; Voir la carte
                                     </div>
                                 </section>
@@ -2012,7 +2127,7 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2027,11 +2142,11 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2046,7 +2161,7 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                             <div class="list_title s_title pb40">
@@ -2058,7 +2173,7 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2073,11 +2188,11 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2092,11 +2207,11 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2111,7 +2226,7 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                             <div class="list_title s_title pb40">
@@ -2120,7 +2235,7 @@
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2135,11 +2250,11 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
                                                         Vous souhaitez acheter une maison à
@@ -2154,7 +2269,7 @@
                                                 </div>
                                                 <div class="infos right">
                                                     <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon"/>
+                                                    <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
                                         </div>
@@ -2736,7 +2851,7 @@
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed banner_profile">
                                         <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);">
-                                            <i class="fa fa-shield text-gamma"/>
+                                            <i class="fa fa-shield text-gamma" />
                                         </div>
                                         <div class="profile_banner_info">
                                             <p class="profile_name text-gamma">Mon profil</p>
@@ -2748,42 +2863,42 @@
                                             Sherbrooke ❯
                                         </div>
                                         <div class="profile_btn btn disconnect text-gamma">
-                                            <i class="fa fa-power-off"/>&amp;nbsp;Se d&#233;connecter
+                                            <i class="fa fa-power-off" />&amp;nbsp;Se d&#233;connecter
                                         </div>
                                     </div>
                                 </section>
                                 <section class="s_informations">
                                     <div class="informations_container">
                                         <a class="information information-1 btn" href="monprofil/mapresentation">
-                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_presentation_png/Profil-Presentation.png"/>
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_presentation_png/Profil-Presentation.png" />
                                             <br />
                                             <span class="nbr">Ma pr&#233;sentation</span>
                                             <br />
                                             <span class="txt">Personnaliser la présentation affichée aux autres membres de l'accorderie.</span>
                                         </a>
                                         <a class="information information-2 btn" href="monprofil/mesinfos">
-                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png"/>
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
                                             <br />
                                             <span class="nbr">Mes informations personnelles</span>
                                             <br />
                                             <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
                                         </a>
                                         <a class="information information-3 btn" href="monprofil/mesannonces">
-                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_annonces_png/Profil-Annonces.png"/>
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
                                             <br />
                                             <span class="nbr">Mes annonces publi&#233;es</span>
                                             <br />
                                             <span class="txt">Voir et gérer les annonces que j'ai publié.</span>
                                         </a>
                                         <a class="information information-4 btn" href="monprofil/mesfavoris">
-                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png"/>
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png" />
                                             <br />
                                             <span class="nbr">Mes favoris</span>
                                             <br />
                                             <span class="txt">Voir mes offres, demandes et membres favoris.</span>
                                         </a>
                                         <a class="information information-5 btn" href="monprofil/mespreferences">
-                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_preferences_png/Profil-Preferences.png"/>
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
                                             <br />
                                             <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
                                             <br />
@@ -2913,7 +3028,7 @@
                                                 </div>
                                             </div>
                                             <div class="lg-btn btn">
-                                                <i class="fa fa-calendar"/> &amp;nbsp
+                                                <i class="fa fa-calendar" /> &amp;nbsp
                                                 Voir mon agenda</div>
                                         </div>
                                         <div class="row activites_list">
@@ -3014,12 +3129,12 @@
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Mon r&#233;seau</font>
                                             <span class="filter_btn btn">
-                                                <icon class="fa fa-filter"/>&amp;nbsp;
+                                                <icon class="fa fa-filter" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
                                             <span class="filter_btn btn" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
-                                                <icon class="fa fa-chevron-up"/>
+                                                <icon class="fa fa-chevron-up" />
                                             </span>
                                         </div>
                                     </div>
@@ -3027,10 +3142,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_cosens_photography_9kdxgxfrmo8_unsplash_jpg/jonathan-cosens-photography-9kDXgXFRmO8-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -3049,10 +3164,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -3071,10 +3186,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -3093,10 +3208,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -3115,10 +3230,10 @@
                                         <div class="list_item">
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma"/>
+                                                    <icon class="fa fa-heart text-gamma" />
                                                     <div class="name text-gamma">
                                                         Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield"/>
+                                                        <icon class="fa fa-shield" />
                                                     </div>
                                                     <div class="infos text-gamma">35 ans - 200 m</div>
                                                 </div>
@@ -3138,7 +3253,7 @@
                                 </section>
                                 <section class="s_map_btn pt32 pb32">
                                     <div class="btn_map btn btn-primary rounded-circle text-gamma pt16 pb16">
-                                        <icon class="fa fa-map"/>
+                                        <icon class="fa fa-map" />
                                         &amp;nbsp; Voir la carte
                                     </div>
                                 </section>
@@ -3351,17 +3466,17 @@
                                     <div class="event_date_container lg">
                                         <div class="event_date">
                                             MER.
-                                            <br/>
+                                            <br />
                                             1
-                                            <br/>
+                                            <br />
                                             OCT.
                                         </div>
-                                        <div class="event_date_separator"/>
+                                        <div class="event_date_separator" />
                                         <div class="event_date">
                                             MER.
-                                            <br/>
+                                            <br />
                                             2
-                                            <br/>
+                                            <br />
                                             OCT.
                                         </div>
                                     </div>
@@ -3406,22 +3521,22 @@
                                         <div class="infos">
                                             <div class="event_date">
                                                 <h3>
-                                                    <i class="fa fa-calendar"/>&amp;nbsp
+                                                    <i class="fa fa-calendar" />&amp;nbsp
                                                     Mercredi 1 octobre de 19h - 21h30
                                                 </h3>
                                             </div>
                                         </div>
                                         <div class="btn_container">
                                             <div class="btn btn-primary">
-                                                <i class="fa fa-send-o"/>&amp;nbsp
+                                                <i class="fa fa-send-o" />&amp;nbsp
                                                 Inviter
                                             </div>
                                             <div class="btn btn-primary">
-                                                <i class="fa fa-check-circle-o"/>&amp;nbsp
+                                                <i class="fa fa-check-circle-o" />&amp;nbsp
                                                 Je participe
                                             </div>
                                             <div class="btn btn-primary">
-                                                <i class="fa fa-star-o"/>&amp;nbsp
+                                                <i class="fa fa-star-o" />&amp;nbsp
                                                 Ça m'intéresse
                                             </div>
                                         </div>
@@ -3494,8 +3609,8 @@
                                                 <div class="contact-list">
                                                     <h2>Inviter des amis</h2>
                                                     <div class="search_box">
-                                                        <i class="fa fa-search"/>
-                                                        <input type="text" placeholder="Chercher un ami"/>
+                                                        <i class="fa fa-search" />
+                                                        <input type="text" placeholder="Chercher un ami" />
                                                     </div>
                                                     <div class="contact">
                                                         <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
@@ -3515,7 +3630,7 @@
                                                 </div>
                                                 <div class="signaler">
                                                     <p>
-                                                        <i class="fa fa-flag-o"/>
+                                                        <i class="fa fa-flag-o" />
                                                         &amp;nbsp
                                                         <a href="">
                                                             <u>Signaler cette annonce</u>
