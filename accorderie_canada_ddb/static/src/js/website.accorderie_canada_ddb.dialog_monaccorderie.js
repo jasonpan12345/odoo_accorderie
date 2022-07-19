@@ -3,9 +3,8 @@ odoo.define('website.accorderie_canada_ddb.dialog_monaccorderie', function (requ
 
     var ajax = require("web.ajax");
     var core = require('web.core');
-    var widget = require("web_editor.widget");
     var _t = core._t;
-    var Dialog = widget.Dialog;
+    var Dialog = require('web.Dialog');
 
     var result = $.Deferred(),
         _templates_loaded = ajax.loadXML(
@@ -22,15 +21,24 @@ odoo.define('website.accorderie_canada_ddb.dialog_monaccorderie', function (requ
          *
          * @param {Object} parent Widget where this dialog is attached
          * @param {Object} options Dialog creation options
-         * @param {Object} rooms rooms list
-         * @param {String} chosen Prechosen model
          * @returns {Dialog} New Dialog object
          */
         init: function (parent, options) {
 
             var _options = $.extend({}, {
                 title: _t("Mon accorderie"),
-                size: "small",
+                size: "large",
+                dialogClass: "modal_accorderie",
+                buttons: [{
+                    text: _t("Annuler"),
+                    close: true,
+                    classes: 'btn-primary btn_accorderie_cancel'
+                    },
+                    {
+                        text: _t("Enregistrer"),
+                        close: true,
+                        classes: 'btn-primary btn_accorderie_save'
+                    }]
             }, options);
             return this._super(parent, _options);
         },
@@ -58,7 +66,9 @@ odoo.define('website.accorderie_canada_ddb.dialog_monaccorderie', function (requ
         let optionsDialog = new AccorderieForm(
             $(""), {}
         );
+
         optionsDialog.open();
+
     })
 
 });
