@@ -9,6 +9,7 @@ import werkzeug
 
 from odoo import http
 from odoo.http import request
+from odoo.tools.image import image_data_uri
 
 _logger = logging.getLogger(__name__)
 OSRM_URL = ""
@@ -364,83 +365,128 @@ class AccorderieCanadaDdbController(http.Controller):
     )
     def get_participer_workflow_data(self, **kw):
         # List type
-        # A - Selection static
-        # B - Choix catégorie de service
+        # A - Selection static : selection_static
+        # B - Choix catégorie de service : choix_categorie_de_service
         # C - Choix membre
         # D - Selection dynamique (option new, option id)
         # E - Calendrier
         # F - Temps + durée
-        # G - Formulaire (xml_item_id)
+        # G - Formulaire (xml_item_id) : form
+        env = request.env(context=dict(request.env.context))
+        accorderie_type_service_categorie_ids = (
+            env["accorderie.type.service.categorie"].sudo().search([])
+        )
+        lst_type_service_categorie = [
+            {
+                "id": a.id,
+                "html": a._get_html_nom(),
+                "title": a._get_separate_list_nom(),
+                "icon": image_data_uri(a.icon) if a.icon else "",
+                "sub_list": [
+                    {
+                        "id": b.id,
+                        "html": b.nom,
+                        "title": b.nom,
+                        "sub_list": [
+                            {"html": c.nom, "title": c.nom, "id": c.id}
+                            for c in b.type_service
+                        ],
+                    }
+                    for b in a.type_service_sous_categorie
+                ],
+            }
+            for a in accorderie_type_service_categorie_ids
+        ]
         return {
-            "init": {
-                "message": "Que souhaitez-vous faire?",
-                "type": "selection_static",
-                "list": [
-                    {
-                        "id": "init.pos",
-                        "title": "Publier une offre de service",
-                        "html": (
-                            "Vous souhaitez offrir vos services?<br/>Cliquez"
-                            " ici pour publier votre offre en ligne."
-                        ),
-                        # "value": "Publier.Une offre de service",
-                    },
-                    {
-                        "id": "init.pds",
-                        "title": "Publier une demande de service",
-                        "html": (
-                            "Vous avez besoin d'un service?<br/>Faites part de"
-                            " votre besoin aux membres de l'Accorderie en"
-                            " créant une demande ici."
-                        ),
-                        # "value": "Publier.Une demande de service",
-                    },
-                    {
-                        "id": "init.saa",
-                        "title": "S'accorder avec un autre accordeur",
-                        "html": (
-                            "Vous accorder vous permet de vous mettre d'accord"
-                            " à l'avance sur les modalités exactes du service"
-                            " à donner ou recevoir."
-                        ),
-                        # "value": "S'accorder",
-                    },
-                    {
-                        "id": "init.va",
-                        "title": "Valider un accordage",
-                        "html": (
-                            "Vous avez donné ou reçu un service?<br/>Déclarer"
-                            " ici la transaction pour donner ou percevoir les"
-                            " heures d'Accorderie dues."
-                        ),
-                        # "value": "Valider un accordage",
-                    },
-                ],
-            },
-            "init.pos": {
-                "message": "Est-ce pour une offre de service :",
-                "show_breadcrumb": True,
-                "breadcrumb_value": "Publier.Une offre de service",
-                "type": "selection_static",
-                "list": [
-                    {
-                        "id": "init.pos.individuelle",
-                        "title": "Individuelle",
-                        "html": (
-                            "Si vous offrez un service destiné à une personne"
-                            " à la fois."
-                        ),
-                    },
-                    {
-                        "id": "init.pos.collective",
-                        "title": "Collective",
-                        "html": (
-                            "Si vous offrez un service destiné à plusieurs"
-                            " personnes à la fois (cours en groupe, ateliers,"
-                            " conférences, achats groupés, ...)"
-                        ),
-                    },
-                ],
+            "data": {"type_service_categorie": lst_type_service_categorie},
+            "workflow": {
+                "init": {
+                    "message": "Que souhaitez-vous faire?",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.pos",
+                            "title": "Publier une offre de service",
+                            "html": (
+                                "Vous souhaitez offrir vos"
+                                " services?<br/>Cliquez ici pour publier votre"
+                                " offre en ligne."
+                            ),
+                            # "value": "Publier.Une offre de service",
+                        },
+                        {
+                            "id": "init.pds",
+                            "title": "Publier une demande de service",
+                            "html": (
+                                "Vous avez besoin d'un service?<br/>Faites"
+                                " part de votre besoin aux membres de"
+                                " l'Accorderie en créant une demande ici."
+                            ),
+                            # "value": "Publier.Une demande de service",
+                        },
+                        {
+                            "id": "init.saa",
+                            "title": "S'accorder avec un autre accordeur",
+                            "html": (
+                                "Vous accorder vous permet de vous mettre"
+                                " d'accord à l'avance sur les modalités"
+                                " exactes du service à donner ou recevoir."
+                            ),
+                            # "value": "S'accorder",
+                        },
+                        {
+                            "id": "init.va",
+                            "title": "Valider un accordage",
+                            "html": (
+                                "Vous avez donné ou reçu un"
+                                " service?<br/>Déclarer ici la transaction"
+                                " pour donner ou percevoir les heures"
+                                " d'Accorderie dues."
+                            ),
+                            # "value": "Valider un accordage",
+                        },
+                    ],
+                },
+                "init.pos": {
+                    "message": "Est-ce pour une offre de service :",
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Publier.Une offre de service",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.pos.individuelle",
+                            "title": "Individuelle",
+                            "html": (
+                                "Si vous offrez un service destiné à une"
+                                " personne à la fois."
+                            ),
+                        },
+                        {
+                            "id": "init.pos.collective",
+                            "title": "Collective",
+                            "html": (
+                                "Si vous offrez un service destiné à plusieurs"
+                                " personnes à la fois (cours en groupe,"
+                                " ateliers, conférences, achats groupés, ...)"
+                            ),
+                        },
+                    ],
+                },
+                "init.pos.individuelle": {
+                    "message": (
+                        "Dans quelle catégorie s'inscrit votre offre de"
+                        " service?"
+                    ),
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Individuelle",
+                    "type": "choix_categorie_de_service",
+                    "data": "type_service_categorie",
+                    "next_id": "init.pos.individuelle.formulaire",
+                },
+                "init.pos.individuelle.formulaire": {
+                    "message": "Formulaire",
+                    "type": "form",
+                },
             },
         }
 

@@ -29,7 +29,12 @@ body {
 }
 
 // AngularJS
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
   display: none !important;
 }
 
@@ -1847,6 +1852,10 @@ actualité
     margin: 1rem 5% 5rem;
     border-radius: 5px;
     color: $text-alpha;
+  }
+
+  .submit_btn_disable {
+    background-color: #d3d3d3;
   }
 
   .prev {
