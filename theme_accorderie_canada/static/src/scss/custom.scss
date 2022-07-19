@@ -269,6 +269,7 @@ searchbar
     font-size: 1rem;
     width: 45%;
     border: none;
+    background-color: white;
   }
 
   input:focus {
@@ -1938,6 +1939,40 @@ actualité
       }
     }
   }
+}
+
+/*
+    Dialog mon accorderie
+*/
+.accorderie_form {
+  padding: 5% 10%;
+
+  .form_title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .radio_container {
+    display: flex;
+    border-bottom: 1px solid $beta;
+    padding: 1rem 0;
+    font-weight: normal;
+
+    .form_title {
+      font-size: 2rem;
+    }
+
+    input {
+      margin-left: auto;
+    }
+  }
+}
+.modal-footer{
+  padding: 1rem 10%;
+
+}
+.modal-footer .btn_accorderie_save {
+  margin-left: auto;
+  background-color: $primary-color;
 }
 
 /*
