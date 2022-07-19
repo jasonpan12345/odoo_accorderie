@@ -602,7 +602,7 @@
                         <div class="oe_structure" />
                         <section class="s_buttons_form">
                             <div class="txt_question" ng-show="state.message">
-                                <div ng-show="stack_breadcrumb_state.length">{{label_breadcrumb()}}</div>
+                                <div ng-show="!_.isEmpty(stack_breadcrumb_state)">{{label_breadcrumb()}}</div>
                                 <h1>{{state.message}}</h1>
                             </div>
                             <div ng-show="error">
@@ -631,10 +631,10 @@
                                     ng-if="state.type == 'choix_categorie_de_service'"
                                 >
                                     <div
-                                        ng-if="!state.data.length"
+                                        ng-if="_.isEmpty(state.data)"
                                     >Aucune catégorie de service, veuillez communiquer avec votre administrateur.</div>
                                     <div
-                                        ng-if="actual_inner_state_name.length"
+                                        ng-if="!_.isEmpty(actual_inner_state_name)"
                                         ng-click="previous_inner_state_btn()"
                                     >0- {{actual_inner_state_name}}</div>
                                     <span ng-repeat="option in state_get_data()">
@@ -653,7 +653,7 @@
                                             ng-click="click_choix_categorie_de_service(option)"
                                         >
                                             <img
-                                                ng-if="option.icon.length"
+                                                ng-if="!_.isEmpty(option.icon)"
                                                 ng-src="{{option.icon}}"
                                                 alt="icon"
                                                 class="offre_img"
@@ -682,7 +682,7 @@
                                         class="submit_btn btn"
                                         ng-show="is_show_next()"
                                         ng-click="next_btn()"
-                                        ng-class="{'submit_btn_disable': !selected_model.length}"
+                                        ng-class="{'submit_btn_disable': _.isEmpty(selected_model)}"
                                     />
                                 </div>
                             </div>
