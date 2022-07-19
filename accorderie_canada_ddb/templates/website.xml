@@ -609,16 +609,64 @@
                                 <h1>Erreur : {{error}}</h1>
                             </div>
                             <div id="participer_form">
-                                <div class="buttons_form_container tab">
+                                <div class="buttons_form_container tab" ng-if="state.type == 'selection_static'">
                                     <span ng-repeat="option in state.list">
-                                        <input type="radio" id="{{option.id}}" name="pub" ng-value="option.id" ng-model="$parent.selected_model" required="required" />
+                                        <input
+                                            type="radio"
+                                            id="{{option.id}}"
+                                            name="pub"
+                                            ng-value="option.id"
+                                            ng-model="$parent.$parent.selected_model"
+                                            required="required"
+                                        />
                                         <label for="{{option.id}}" class="button_form btn">
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
                                         </label>
                                     </span>
                                 </div>
-                                <div class="submit_container" ng-show="is_show_button()">
+                                <div
+                                    class="buttons_form_container tab"
+                                    style="align-content:unset;"
+                                    ng-if="state.type == 'choix_categorie_de_service'"
+                                >
+                                    <div
+                                        ng-if="!state.data.length"
+                                    >Aucune catégorie de service, veuillez communiquer avec votre administrateur.</div>
+                                    <div
+                                        ng-if="actual_inner_state_name.length"
+                                        ng-click="previous_inner_state_btn()"
+                                    >0- {{actual_inner_state_name}}</div>
+                                    <span ng-repeat="option in state_get_data()">
+                                        <!-- TODO do we need input radio for css? else remove this -->
+                                        <input
+                                            type="radio"
+                                            id="{{option.id}}"
+                                            name="pub"
+                                            ng-value="option.id"
+                                            ng-model="$parent.$parent.selected_model_inner_state"
+                                            required="required"
+                                        />
+                                        <label
+                                            class="cat button_form btn"
+                                            for="{{option.id}}"
+                                            ng-click="click_choix_categorie_de_service(option)"
+                                        >
+                                            <img
+                                                ng-if="option.icon.length"
+                                                ng-src="{{option.icon}}"
+                                                alt="icon"
+                                                class="offre_img"
+                                            />
+                                            <p
+                                                class="offre_desc"
+                                                ng-show="option.html"
+                                                ng-bind-html="option.html | unsafe"
+                                            />
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="submit_container">
                                     <input
                                         id="prevBtn"
                                         type="button"
@@ -627,7 +675,15 @@
                                         ng-show="is_show_previous()"
                                         ng-click="previous_btn()"
                                     />
-                                    <input id="nextBtn" type="button" value="Suivant" class="submit_btn btn" ng-click="next_btn()"/>
+                                    <input
+                                        id="nextBtn"
+                                        type="button"
+                                        value="Suivant"
+                                        class="submit_btn btn"
+                                        ng-show="is_show_next()"
+                                        ng-click="next_btn()"
+                                        ng-class="{'submit_btn_disable': !selected_model.length}"
+                                    />
                                 </div>
                             </div>
 <!--                            <form id="participer_form" method="GET" action="/publier-offre">-->

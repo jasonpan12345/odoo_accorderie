@@ -44,3 +44,7 @@ class AccorderieTypeServiceCategorie(models.Model):
     @api.model
     def _get_html_nom(self):
         return "<br/>".join([a.strip() for a in self.nom.split("/")]) + "<br/>"
+
+    @api.model
+    def _get_separate_list_nom(self):
+        return ", ".join([a.strip() for a in self.nom.split("/")])
