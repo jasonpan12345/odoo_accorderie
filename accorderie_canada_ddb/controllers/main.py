@@ -341,15 +341,12 @@ class AccorderieCanadaDdbController(http.Controller):
             "accorderie.type.service.categorie"
         ]
         accorderie_type_service_categorie_ids = (
-            accorderie_type_service_categorie_cls.sudo().search([]).ids
-        )
-        type_service_categories = (
-            accorderie_type_service_categorie_cls.sudo().browse(
-                accorderie_type_service_categorie_ids
-            )
+            accorderie_type_service_categorie_cls.sudo().search([])
         )
 
-        dct_value = {"type_service_categories": type_service_categories}
+        dct_value = {
+            "type_service_categories": accorderie_type_service_categorie_ids
+        }
 
         # Render page
         return request.env["ir.ui.view"].render_template(
@@ -473,17 +470,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 accorderie_type_service_sous_categorie_cls.sudo().search([])
             )
 
-        accorderie_type_service_sous_categorie_ids = (
-            accorderie_type_service_sous_categorie.ids
-        )
-        type_service_sous_categories = (
-            accorderie_type_service_sous_categorie_cls.sudo().browse(
-                accorderie_type_service_sous_categorie_ids
-            )
-        )
-
         dct_value = {
-            "type_service_sous_categories": type_service_sous_categories
+            "type_service_sous_categories": accorderie_type_service_sous_categorie
         }
 
         # Render page
