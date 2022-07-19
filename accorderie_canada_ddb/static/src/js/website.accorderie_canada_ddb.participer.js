@@ -5,7 +5,7 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
     let ParticiperForm = require('website.accorderie_canada_ddb.participer');
 
     let $form = $('#participer_form');
-    if (!$form.length) {
+    if (_.isEmpty($form)) {
         return null;
     }
 
@@ -55,6 +55,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.state = {};
                 $scope.data = {};
             } else {
+                // Init controller or call change_state_name(name)
                 $scope.error = "";
                 $scope.workflow = data.workflow;
                 $scope.state = $scope.workflow[INIT_STATE];
@@ -72,7 +73,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         })
 
         $scope.is_show_previous = function () {
-            return $scope.stack_breadcrumb_state.length
+            return !_.isEmpty($scope.stack_breadcrumb_state)
         }
 
         $scope.is_show_next = function () {
@@ -127,33 +128,41 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.stack_breadcrumb_state.pop();
                 if (_.isEmpty($scope.stack_breadcrumb_state)) {
                     // Force return to init
-                    $scope.state = $scope.workflow[INIT_STATE];
+                    $scope.change_state_name(INIT_STATE);
                 } else {
-                    $scope.state = $scope.stack_breadcrumb_state.at(-1);
+
+                    $scope.change_state_index(-1);
                 }
-                $scope.update_state();
-                $scope.selected_model = "";
             } else {
-                console.error("Cannot previous when " + INIT_STATE + ".");
+                $scope.change_state_name(INIT_STATE);
             }
+        }
+
+        $scope.change_state_name = function (stateName) {
+            $scope.state = $scope.workflow[stateName];
+            $scope.update_state();
+        }
+
+        $scope.change_state_index = function (idx) {
+            $scope.state = $scope.stack_breadcrumb_state.at(idx);
+            $scope.update_state();
         }
 
         $scope.next_btn = function () {
             console.debug("next click");
             console.debug($scope.selected_model);
-            if (!$scope.selected_model.length) {
+            if (_.isEmpty($scope.selected_model)) {
                 console.error("Cannot find selected model");
             } else {
                 $scope.state = $scope.workflow[$scope.selected_model];
-                $scope.stack_breadcrumb_state.push($scope.state);
-                $scope.update_state();
-                console.debug($scope.state);
                 if (_.isUndefined($scope.state)) {
                     $scope.error = "Cannot find " + $scope.selected_model;
                 } else {
                     $scope.error = "";
                 }
-                $scope.selected_model = "";
+                $scope.stack_breadcrumb_state.push($scope.state);
+                $scope.update_state();
+                console.debug($scope.state);
             }
         }
 
@@ -180,6 +189,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // Force delete stack inner state
             $scope.stack_breadcrumb_inner_state = [];
             $scope.actual_inner_state_name = "";
+            $scope.selected_model = "";
         }
 
         $scope.label_breadcrumb = function () {
@@ -189,7 +199,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 if (!_.isUndefined(state.breadcrumb_value) && !_.isEmpty(state.breadcrumb_value)) {
                     let lst_breadcrumb = state.breadcrumb_value.split(".");
                     for (let j = 0; j < lst_breadcrumb.length; j++) {
-                        if (label.length) {
+                        if (!_.isEmpty(label)) {
                             label += " > "
                         }
                         label += lst_breadcrumb[j];
