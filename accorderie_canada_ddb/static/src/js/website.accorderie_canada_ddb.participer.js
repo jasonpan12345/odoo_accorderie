@@ -31,6 +31,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         return $sce.trustAsHtml;
     });
     app.controller('ParticiperController', function ($scope) {
+        $scope._ = _;
         $scope.error = "";
         $scope.workflow = {};
         $scope.state = {};
