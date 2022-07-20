@@ -2905,7 +2905,9 @@
                                             <span class="txt">Gérer les paramètres de votre espace membre (langues, moyens de communications, ...)</span>
                                         </a>
                                         <a class="information logout btn" href="/web/login">
-                                            <span class="nbr">D&#233;connecter</span>
+                                            <span class="nbr">
+                                                <i class="fa fa-power-off"/>&amp;nbsp;D&#233;connecter
+                                            </span>
                                         </a>
                                     </div>
                                 </section>

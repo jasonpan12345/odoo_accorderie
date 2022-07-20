@@ -32,12 +32,12 @@ odoo.define('website.accorderie_canada_ddb.dialog_monaccorderie', function (requ
                 buttons: [{
                     text: _t("Annuler"),
                     close: true,
-                    classes: 'btn-primary btn_accorderie_cancel'
+                    classes: 'btn-primary btn_accorderie'
                     },
                     {
                         text: _t("Enregistrer"),
                         close: true,
-                        classes: 'btn-primary btn_accorderie_save'
+                        classes: 'btn-primary btn_accorderie save'
                     }]
             }, options);
             return this._super(parent, _options);
@@ -64,10 +64,17 @@ odoo.define('website.accorderie_canada_ddb.dialog_monaccorderie', function (requ
 
     $(document).on("click", '.profile_btn.accorderie', function (ev) {
         let optionsDialog = new AccorderieForm(
-            $(""), {}
+            $(".accorderie_dialog"), {}
         );
+        console.log(typeof optionsDialog);
+        console.log(optionsDialog);
+        //
+        // let container = document.getElementsByClassName("accorderie_dialog");
+        // container[0].appendChild(optionsDialog);
+        $(".accorderie_dialog").append(optionsDialog);
 
         optionsDialog.open();
+
 
     })
 
