@@ -638,7 +638,6 @@
                                         ng-click="previous_inner_state_btn()"
                                     >0- {{actual_inner_state_name}}</div>
                                     <span ng-repeat="option in state_get_data()">
-                                        <!-- TODO do we need input radio for css? else remove this -->
                                         <input
                                             type="radio"
                                             id="{{option.id}}"
