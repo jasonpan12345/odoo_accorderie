@@ -168,13 +168,26 @@ header .nav-link {
 }
 
 .nav-item.account {
-  width: 15%;
-  text-align: center;
+  display: flex;
+  width: auto;
+  padding: 20px 20px 0;
+  max-height: var(--nav-height);
+
   .nav_pic {
     height: 45px;
-    aspect-ratio: 1/1;
-    float: left;
-    margin-left: 15px;
+    aspect-ratio: 1;
+  }
+  .nav-link {
+    padding: 0 .5rem;
+
+    .hours {
+      text-align: left;
+    }
+
+  }
+
+  .dropdown-toggle::after {
+    display: none;
   }
 }
 
@@ -325,7 +338,7 @@ searchbar
       padding: 0 5%;
       width: 100%;
       height: 50px;
-      border-radius: 50%;
+      border-radius: 50px;
     }
   }
   .search_category {
@@ -1966,14 +1979,23 @@ actualité
     }
   }
 }
+.modal-content {
+  border-radius: 7px;
+}
 .modal-footer{
   padding: 1rem 10%;
 
+  .btn_accorderie {
+    background-color: $primary-color !important;
+    border-radius: 5px !important;
+    padding: .5rem 1.5rem !important;
+    border: none;
+  }
+  .save {
+    margin-left: auto;
+  }
 }
-.modal-footer .btn_accorderie_save {
-  margin-left: auto;
-  background-color: $primary-color;
-}
+
 
 /*
     Page monprofil/mesannonces
