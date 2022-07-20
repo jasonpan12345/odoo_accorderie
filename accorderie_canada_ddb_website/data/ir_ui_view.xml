@@ -2906,7 +2906,7 @@
                                         </a>
                                         <a class="information logout btn" href="/web/login">
                                             <span class="nbr">
-                                                <i class="fa fa-power-off"/>&amp;nbsp;D&#233;connecter
+                                                <i class="fa fa-power-off" />&amp;nbsp;D&#233;connecter
                                             </span>
                                         </a>
                                     </div>
