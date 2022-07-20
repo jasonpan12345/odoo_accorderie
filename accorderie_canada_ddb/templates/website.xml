@@ -650,7 +650,7 @@
                                         <label
                                             class="cat button_form btn"
                                             for="{{option.id}}"
-                                            ng-click="click_choix_categorie_de_service(option)"
+                                            ng-click="click_inner_state_option(option)"
                                         >
                                             <img
                                                 ng-if="!_.isEmpty(option.icon)"

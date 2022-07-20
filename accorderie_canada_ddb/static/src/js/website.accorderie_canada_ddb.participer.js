@@ -60,7 +60,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.workflow = data.workflow;
                 $scope.state = $scope.workflow[INIT_STATE];
                 $scope.data = data.data;
-                // Update relation workflow with data
+                // Update relation workflow with data, use by click_inner_state
                 for (const [key, value] of Object.entries($scope.workflow)) {
                     if (!_.isEmpty(value.data)) {
                         $scope.workflow[key].data = $scope.data[value.data];
@@ -72,53 +72,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.$digest();
         })
 
+        // State
         $scope.is_show_previous = function () {
             return !_.isEmpty($scope.stack_breadcrumb_state)
         }
 
         $scope.is_show_next = function () {
             return !$scope.in_multiple_inner_state
-        }
-
-        $scope.click_choix_categorie_de_service = function (option) {
-            console.debug(option);
-            // copy object state with option, add it to stack
-            // EDIT ignore it, previous will ignore this inner state
-            // $scope.state = JSON.parse(JSON.stringify($scope.state));
-            // // Ignore breadcrumb in this processing
-            // $scope.state.breadcrumb_value = "";
-            // $scope.state.option = option;
-            // $scope.state.last_item = option.title;
-            // $scope.stack_breadcrumb_state.push($scope.state);
-            if ($scope.in_multiple_inner_state) {
-                $scope.stack_breadcrumb_inner_state.push(option);
-                $scope.actual_inner_state_name = option.title;
-                $scope.update_inner_state(option);
-            } else {
-                $scope.selected_model = $scope.state.next_id;
-            }
-        }
-
-        $scope.previous_inner_state_btn = function () {
-            console.debug("previous inner state click");
-            $scope.error = "";
-            if (!_.isEmpty($scope.stack_breadcrumb_state)) {
-                $scope.stack_breadcrumb_inner_state.pop();
-                $scope.selected_model_inner_state = "";
-                if (!_.isEmpty($scope.stack_breadcrumb_state)) {
-                    let option = $scope.stack_breadcrumb_inner_state.at(-1);
-                    if (!_.isUndefined(option)) {
-                        $scope.actual_inner_state_name = $scope.stack_breadcrumb_inner_state.at(-1).title;
-                        $scope.update_inner_state(option);
-                    } else {
-                        $scope.actual_inner_state_name = "";
-                    }
-                } else {
-                    $scope.actual_inner_state_name = "";
-                }
-            } else {
-                console.error("Cannot previous inner state.");
-            }
         }
 
         $scope.previous_btn = function () {
@@ -130,7 +90,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // Force return to init
                     $scope.change_state_name(INIT_STATE);
                 } else {
-
                     $scope.change_state_index(-1);
                 }
             } else {
@@ -171,17 +130,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 let option = $scope.stack_breadcrumb_inner_state.at(-1);
                 // $scope.update_inner_state(option);
                 return option.sub_list;
-            } else if (!_.isUndefined($scope.state.option)) {
-                return $scope.state.option.sub_list;
             } else {
                 return $scope.state.data;
             }
-        }
-
-        $scope.update_inner_state = function (option) {
-            // validate if inner workflow continue, check if contains sub_list
-            $scope.in_multiple_inner_state = !_.isUndefined(option.sub_list) && !_.isUndefined(option.sub_list.at(-1).sub_list);
-            $scope.selected_model = "";
         }
 
         $scope.update_state = function () {
@@ -192,6 +143,47 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.selected_model = "";
         }
 
+        // Inner state
+        $scope.click_inner_state_option = function (option) {
+            console.debug(option);
+            if ($scope.in_multiple_inner_state) {
+                $scope.stack_breadcrumb_inner_state.push(option);
+                $scope.actual_inner_state_name = option.title;
+                $scope.update_inner_state(option);
+            } else {
+                $scope.selected_model = $scope.state.next_id;
+            }
+        }
+
+        $scope.previous_inner_state_btn = function () {
+            console.debug("previous inner state click");
+            $scope.error = "";
+            if (!_.isEmpty($scope.stack_breadcrumb_state)) {
+                $scope.stack_breadcrumb_inner_state.pop();
+                $scope.selected_model_inner_state = "";
+                if (!_.isEmpty($scope.stack_breadcrumb_state)) {
+                    let option = $scope.stack_breadcrumb_inner_state.at(-1);
+                    if (!_.isUndefined(option)) {
+                        $scope.actual_inner_state_name = $scope.stack_breadcrumb_inner_state.at(-1).title;
+                        $scope.update_inner_state(option);
+                    } else {
+                        $scope.actual_inner_state_name = "";
+                    }
+                } else {
+                    $scope.actual_inner_state_name = "";
+                }
+            } else {
+                console.error("Cannot previous inner state.");
+            }
+        }
+
+        $scope.update_inner_state = function (option) {
+            // validate if inner workflow continue, check if contains sub_list
+            $scope.in_multiple_inner_state = !_.isUndefined(option.sub_list) && !_.isUndefined(option.sub_list.at(-1).sub_list);
+            $scope.selected_model = "";
+        }
+
+        // Breadcrumb
         $scope.label_breadcrumb = function () {
             let label = "";
             for (let i = 0; i < $scope.stack_breadcrumb_state.length; i++) {
