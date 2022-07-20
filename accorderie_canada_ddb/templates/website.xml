@@ -601,12 +601,17 @@
                     <div id="wrap" ng-app="AccorderieApp" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
                         <section class="s_buttons_form">
-                            <div class="txt_question" ng-show="state.message">
-                                <div ng-show="!_.isEmpty(stack_breadcrumb_state)">{{label_breadcrumb()}}</div>
-                                <h1>{{state.message}}</h1>
-                            </div>
-                            <div ng-show="error">
-                                <h1>Erreur : {{error}}</h1>
+                            <div class="txt_question">
+                                <div><span
+                                        ng-repeat="link in lst_label_breadcrumb"
+                                        ng-click="change_breadcrumb_index(link.index)"
+                                        style="cursor:pointer;"
+                                    >{{link.text}}</span><br /></div>
+                                <h1 ng-show="state.message">{{state.message}}</h1>
+                                <div ng-show="!_.isEmpty(error)">
+                                    <br />
+                                    <h1>Erreur : {{error}}</h1>
+                                </div>
                             </div>
                             <div id="participer_form">
                                 <div class="buttons_form_container tab" ng-if="state.type == 'selection_static'">
@@ -666,6 +671,14 @@
                                     </span>
                                 </div>
                                 <div class="submit_container">
+                                    <input
+                                        id="reloadBtn"
+                                        type="button"
+                                        value="Recharger"
+                                        class="submit_btn btn"
+                                        ng-show="error"
+                                        ng-click="init_controller()"
+                                    />
                                     <input
                                         id="prevBtn"
                                         type="button"
