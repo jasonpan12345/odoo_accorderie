@@ -217,7 +217,10 @@
                                             </p>
                                         </div>
                                         <div class="actualite_search">
-                                            <input class="search_bar_rectangle" type="text" placeholder="Chercher une actualit&#233;" />
+                                            <div class="search_bar_rectangle">
+                                                <i class="fa fa-search" />
+                                                <input type="text" placeholder="Chercher une actualité" />
+                                            </div>
                                             <div class="btn">
                                                 <i class="fa fa-sliders text-epsilon" />
                                                 Filtrer et trier
@@ -230,17 +233,16 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <div class="pub_pfp" />
-                                                <div class="pub_user pub_info">
-                                                    <p>
-                                                        <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                    </p>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>Accorderie de Sherbrooke</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée il y a 1 j</p>
+                                                    </div>
                                                 </div>
-                                                <div class="pub_date pub_info">
-                                                    <h4>
-                                                        <font style="margin-left:4%;">Publi&#233;e il y a 1 j</font>
-                                                    </h4>
-                                                </div>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -287,17 +289,16 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <div class="pub_pfp" />
-                                                <div class="pub_user pub_info">
-                                                    <h3>
-                                                        <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                    </h3>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>Accorderie de Sherbrooke</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée il y a 1 j</p>
+                                                    </div>
                                                 </div>
-                                                <div class="pub_date pub_info">
-                                                    <h4>
-                                                        <font style="margin-left:4%;">Publi&#233;e il y a 1 j</font>
-                                                    </h4>
-                                                </div>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -352,17 +353,16 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <div class="pub_pfp" />
-                                                <div class="pub_user pub_info">
-                                                    <h3>
-                                                        <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                    </h3>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>Accorderie de Sherbrooke</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée il y a 1 j</p>
+                                                    </div>
                                                 </div>
-                                                <div class="pub_date pub_info">
-                                                    <h4>
-                                                        <font style="margin-left:4%;">Publi&#233;e il y a 1 j</font>
-                                                    </h4>
-                                                </div>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -409,17 +409,16 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <div class="pub_pfp" />
-                                                <div class="pub_user pub_info">
-                                                    <h3>
-                                                        <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                    </h3>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>Accorderie de Sherbrooke</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée il y a 1 j</p>
+                                                    </div>
                                                 </div>
-                                                <div class="pub_date pub_info">
-                                                    <h4>
-                                                        <font style="margin-left:4%;">Publi&#233;e il y a 1 j</font>
-                                                    </h4>
-                                                </div>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -1096,13 +1095,10 @@
                                                     <div class="search_category">
                                                         <p class="search_txt  text-epsilon">Type de recherche</p>
                                                         <div class="search_send btn btn-primary rounded-circle">
-                                                            <i class="fa fa-magnifying-glass float-left" />
-                                                            <p style="">
-                                                                <font style="font-size: 18px;" class="text-gamma">
-                                                                    <span class="img img-fluid mx-auto fa fa-search" />
-                                                                    Rechercher
-                                                                </font>
-                                                            </p>
+                                                            <font style="font-size: 18px;" class="text-gamma">
+                                                                <i class="img img-fluid mx-auto fa fa-search" />
+                                                                Rechercher
+                                                            </font>
                                                         </div>
                                                     </div>
                                                     <input type="text" placeholder="Entrez votre mot clé ici" />
@@ -1194,18 +1190,17 @@
                                     </div>
                                     <div class="box_actualite">
                                         <div class="actualite_head">
-                                            <div class="pub_pfp" />
-                                            <div class="pub_user pub_info">
-                                                <h3>
-                                                    <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                </h3>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>Accorderie de Sherbrooke</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée il y a 1 j</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
-                                            <div class="pub_date pub_info">
-                                                <h4>
-                                                    <font style="margin-left:4%;">Publi&#233;e il y a 1 j</font>
-                                                </h4>
-                                            </div>
-                                        </div>
                                         <div class="actualite_content">
                                             <div class="pub_title">
                                                 <h4>
@@ -1251,18 +1246,17 @@
                                     </div>
                                     <div class="box_actualite">
                                         <div class="actualite_head">
-                                            <div class="pub_pfp" />
-                                            <div class="pub_user pub_info">
-                                                <h3>
-                                                    <font style="margin-left:4%;">Accorderie de Sherbrooke</font>
-                                                </h3>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <div class="pub_info">
+                                                    <div class="pub_user">
+                                                        <p>Accorderie de Sherbrooke</p>
+                                                    </div>
+                                                    <div class="pub_date">
+                                                        <p>Publiée il y a 1 j</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
-                                            <div class="pub_date pub_info">
-                                                <h4>
-                                                    <font style="margin-left:4%;">Publi&#233;e il y a 1 j</font>
-                                                </h4>
-                                            </div>
-                                        </div>
                                         <div class="actualite_content">
                                             <div class="pub_title">
                                                 <h4>
@@ -2635,22 +2629,22 @@
                                                 <h4>Votre accordeuse:</h4>
                                                 <h4>Alice Poitier</h4>
                                                 <div class="stats">
-                                                    <h6>
-                                                        <span class="fa fa-user-circle" />
+                                                    <p>
+                                                        <i class="fa fa-user-circle" />
                                                         Membre depuis mars 2019
-                                                    </h6>
-                                                    <h6>
-                                                        <span class="fa fa-shield" />
-                                                        Ant&#233;c&#233;dents judiciaires v&#233;rifi&#233;s
-                                                    </h6>
-                                                    <h6>
-                                                        <span class="fa fa-user-circle" />
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-shield" />
+                                                        Antécédents judiciaires vérifiés
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-user-circle" />
                                                         3 offres de service
-                                                    </h6>
-                                                    <h6>
-                                                        <span class="fa fa-clock-o" />
-                                                        15h de serivce &#224; son actif
-                                                    </h6>
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-clock-o" />
+                                                        15h de serivce à son actif
+                                                    </p>
                                                 </div>
                                                 <div class="summary">
                                                     Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -3482,6 +3476,12 @@
                                             OCT.
                                         </div>
                                     </div>
+                                    <div class="event_banner_action bg-primary">
+                                        <div class="btn btn-primary">
+                                            <i class="fa fa-share-alt" />
+                                            Partager
+                                        </div>
+                                    </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav text-right">
@@ -3548,26 +3548,32 @@
                                     <div class="event_container">
                                         <div class="informations_container">
                                             <div class="event_info info-2">
-                                                <div class="description">
-                                                    <h2>Description</h2>
-                                                    <span>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                        sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                        aliqua.
-                                                        Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                        Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                        nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis
-                                                        commodo
-                                                        odio aenean sed adipiscing diam donec.
-                                                        <br />
-                                                        <br />
-                                                        Habitasse platea dictumst
-                                                        vestibulum rhoncus est pellentesque elit. Urna neque viverra
-                                                        justo
-                                                        nec ultrices. Posuere lorem ipsum dolor sit amet consectetur
-                                                        adipiscing elit duis. Proin libero nunc consequat interdum
-                                                        varius
-                                                        sit amet mattis vulputate.
+                                                <div class="resume">
+                                                    <h2>Résumé</h2>
+                                                    <br />
+                                                    <br />
+                                                    <span class="desc">
+                                                        <i class="fa fa-user-circle-o text-epsilon" />
+                                                        <b>Participants:&amp;emsp;</b>
+                                                        8
+                                                    </span>
+                                                    <br />
+                                                    <span class="desc">
+                                                        <i class="fa fa-star-o text-epsilon" />
+                                                        <b>Intéressés:&amp;emsp;</b>
+                                                        0
+                                                    </span>
+                                                    <br />
+                                                    <span class="desc">
+                                                        <i class="fa fa-clock-o text-epsilon" />
+                                                        <b>Durée:&amp;emsp;</b>
+                                                        2 heure
+                                                    </span>
+                                                    <br />
+                                                    <span class="desc">
+                                                        <i class="fa fa-user-circle-o text-epsilon" />
+                                                        <b>Public:&amp;emsp;</b>
+                                                        Adultes
                                                     </span>
                                                 </div>
                                                 <div class="info">
@@ -3611,23 +3617,23 @@
                                                 <div class="contact-list">
                                                     <h2>Inviter des amis</h2>
                                                     <div class="search_box">
-                                                        <i class="fa fa-search" />
+                                                        <i class="fa fa-search text-epsilon" />
                                                         <input type="text" placeholder="Chercher un ami" />
                                                     </div>
                                                     <div class="contact">
                                                         <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                         <h4>Helena Cartier</h4>
-                                                        <div class="btn btn-primary">Inviter</div>
+                                                        <div class="btn btn-epsilon">Inviter</div>
                                                     </div>
                                                     <div class="contact">
                                                         <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                         <h4>Helena Cartier</h4>
-                                                        <div class="btn btn-primary">Inviter</div>
+                                                        <div class="btn btn-epsilon">Inviter</div>
                                                     </div>
                                                     <div class="contact">
                                                         <div class="user_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                         <h4>Helena Cartier</h4>
-                                                        <div class="btn btn-primary">Inviter</div>
+                                                        <div class="btn btn-epsilon">Inviter</div>
                                                     </div>
                                                 </div>
                                                 <div class="signaler">
@@ -3648,24 +3654,22 @@
                                                 <h4>Votre organisatrice:</h4>
                                                 <h4>Alice Poitier</h4>
                                                 <div class="stats">
-                                                    <h6>
-                                                        <span class="fa fa-user-circle" />
+                                                    <p>
+                                                        <i class="fa fa-user-circle" />
                                                         Membre depuis mars 2019
-                                                    </h6>
-                                                    <h6>
-                                                        <span class="fa fa-shield" />
-                                                        Ant&#233;c&#233;dents judiciaires v&#233;rifi&#233;s
-
-                                                    </h6>
-                                                    <h6>
-                                                        <span class="fa fa-user-circle" />
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-shield" />
+                                                        Antécédents judiciaires vérifiés
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-user-circle" />
                                                         3 offres de service
-                                                    </h6>
-                                                    <h6>
-                                                        <span class="fa fa-clock-o" />
-                                                        15h de serivce &#224; son actif
-
-                                                    </h6>
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-clock-o" />
+                                                        15h de serivce à son actif
+                                                    </p>
                                                 </div>
                                                 <div class="summary">
                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
