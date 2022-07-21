@@ -218,8 +218,8 @@
                                         </div>
                                         <div class="actualite_search">
                                             <div class="search_bar_rectangle">
-                                                <i class="fa fa-search"/>
-                                                <input type="text" placeholder="Chercher une actualité"/>
+                                                <i class="fa fa-search" />
+                                                <input type="text" placeholder="Chercher une actualité" />
                                             </div>
                                             <div class="btn">
                                                 <i class="fa fa-sliders text-epsilon" />
@@ -233,8 +233,7 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="pub_info">
                                                     <div class="pub_user">
                                                         <p>Accorderie de Sherbrooke</p>
@@ -243,7 +242,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack"/>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -290,8 +289,7 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="pub_info">
                                                     <div class="pub_user">
                                                         <p>Accorderie de Sherbrooke</p>
@@ -300,7 +298,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack"/>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -355,8 +353,7 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="pub_info">
                                                     <div class="pub_user">
                                                         <p>Accorderie de Sherbrooke</p>
@@ -365,7 +362,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack"/>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -412,8 +409,7 @@
                                         </div>
                                         <div class="box_actualite">
                                             <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="pub_info">
                                                     <div class="pub_user">
                                                         <p>Accorderie de Sherbrooke</p>
@@ -422,7 +418,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack"/>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -1100,7 +1096,7 @@
                                                         <p class="search_txt  text-epsilon">Type de recherche</p>
                                                         <div class="search_send btn btn-primary rounded-circle">
                                                             <font style="font-size: 18px;" class="text-gamma">
-                                                                <i class="img img-fluid mx-auto fa fa-search"/>
+                                                                <i class="img img-fluid mx-auto fa fa-search" />
                                                                 Rechercher
                                                             </font>
                                                         </div>
@@ -1194,8 +1190,7 @@
                                     </div>
                                     <div class="box_actualite">
                                         <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="pub_info">
                                                     <div class="pub_user">
                                                         <p>Accorderie de Sherbrooke</p>
@@ -1204,7 +1199,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack"/>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                         <div class="actualite_content">
                                             <div class="pub_title">
@@ -1251,8 +1246,7 @@
                                     </div>
                                     <div class="box_actualite">
                                         <div class="actualite_head">
-                                                <img class="pub_pfp rounded-circle"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
+                                                <img class="pub_pfp rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="pub_info">
                                                     <div class="pub_user">
                                                         <p>Accorderie de Sherbrooke</p>
@@ -1261,7 +1255,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack"/>
+                                                <i class="fa fa-thumb-tack" />
                                             </div>
                                         <div class="actualite_content">
                                             <div class="pub_title">
@@ -2636,19 +2630,19 @@
                                                 <h4>Alice Poitier</h4>
                                                 <div class="stats">
                                                     <p>
-                                                        <i class="fa fa-user-circle"/>
+                                                        <i class="fa fa-user-circle" />
                                                         Membre depuis mars 2019
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-shield"/>
+                                                        <i class="fa fa-shield" />
                                                         Antécédents judiciaires vérifiés
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-user-circle"/>
+                                                        <i class="fa fa-user-circle" />
                                                         3 offres de service
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-clock-o"/>
+                                                        <i class="fa fa-clock-o" />
                                                         15h de serivce à son actif
                                                     </p>
                                                 </div>
@@ -3484,7 +3478,7 @@
                                     </div>
                                     <div class="event_banner_action bg-primary">
                                         <div class="btn btn-primary">
-                                            <i class="fa fa-share-alt"/>
+                                            <i class="fa fa-share-alt" />
                                             Partager
                                         </div>
                                     </div>
@@ -3556,28 +3550,28 @@
                                             <div class="event_info info-2">
                                                 <div class="resume">
                                                     <h2>Résumé</h2>
-                                                    <br/>
-                                                    <br/>
+                                                    <br />
+                                                    <br />
                                                     <span class="desc">
-                                                        <i class="fa fa-user-circle-o text-epsilon"/>
+                                                        <i class="fa fa-user-circle-o text-epsilon" />
                                                         <b>Participants:&amp;emsp;</b>
                                                         8
                                                     </span>
-                                                    <br/>
+                                                    <br />
                                                     <span class="desc">
-                                                        <i class="fa fa-star-o text-epsilon"/>
+                                                        <i class="fa fa-star-o text-epsilon" />
                                                         <b>Intéressés:&amp;emsp;</b>
                                                         0
                                                     </span>
-                                                    <br/>
+                                                    <br />
                                                     <span class="desc">
-                                                        <i class="fa fa-clock-o text-epsilon"/>
+                                                        <i class="fa fa-clock-o text-epsilon" />
                                                         <b>Durée:&amp;emsp;</b>
                                                         2 heure
                                                     </span>
-                                                    <br/>
+                                                    <br />
                                                     <span class="desc">
-                                                        <i class="fa fa-user-circle-o text-epsilon"/>
+                                                        <i class="fa fa-user-circle-o text-epsilon" />
                                                         <b>Public:&amp;emsp;</b>
                                                         Adultes
                                                     </span>
@@ -3661,19 +3655,19 @@
                                                 <h4>Alice Poitier</h4>
                                                 <div class="stats">
                                                     <p>
-                                                        <i class="fa fa-user-circle"/>
+                                                        <i class="fa fa-user-circle" />
                                                         Membre depuis mars 2019
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-shield"/>
+                                                        <i class="fa fa-shield" />
                                                         Antécédents judiciaires vérifiés
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-user-circle"/>
+                                                        <i class="fa fa-user-circle" />
                                                         3 offres de service
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-clock-o"/>
+                                                        <i class="fa fa-clock-o" />
                                                         15h de serivce à son actif
                                                     </p>
                                                 </div>

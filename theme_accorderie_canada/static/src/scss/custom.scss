@@ -701,7 +701,8 @@ actualité
   border-top: 1px solid $beta;
 }
 @media only screen and (max-width: 990px) {
-  .actualite_foot, .fa-thumb-tack {
+  .actualite_foot,
+  .fa-thumb-tack {
     display: none;
   }
 }

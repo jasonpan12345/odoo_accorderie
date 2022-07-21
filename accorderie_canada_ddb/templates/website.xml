@@ -17,17 +17,19 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="s_event_banner oe_img_bg oe_custom_bg"
-                                 style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);">
+                        <section
+                            class="s_event_banner oe_img_bg oe_custom_bg"
+                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
+                        >
 
                             <div class="event_banner_action bg-primary">
                                 <div class="btn btn-primary">
-                                    <i class="fa fa-share-alt"/>
+                                    <i class="fa fa-share-alt" />
                                     Partager
                                 </div>
-                                <div class="divider"/>
+                                <div class="divider" />
                                 <div class="btn btn-primary">
-                                    <i class="fa fa-heart-o"/>
+                                    <i class="fa fa-heart-o" />
                                     Ajouter à mes favoris
                                 </div>
                             </div>
