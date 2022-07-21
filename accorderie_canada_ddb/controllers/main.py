@@ -401,6 +401,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "data": {"type_service_categorie": lst_type_service_categorie},
             "workflow": {
                 "init": {
+                    "id": "init",
                     "message": "Que souhaitez-vous faire?",
                     "type": "selection_static",
                     "list": [
@@ -448,6 +449,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     ],
                 },
                 "init.pos": {
+                    "id": "init.pos",
                     "message": "Est-ce pour une offre de service :",
                     "show_breadcrumb": True,
                     "breadcrumb_value": "Publier.Une offre de service",
@@ -473,6 +475,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     ],
                 },
                 "init.pos.individuelle": {
+                    "id": "init.pos.individuelle",
                     "message": (
                         "Dans quelle catégorie s'inscrit votre offre de"
                         " service?"
@@ -484,6 +487,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "next_id": "init.pos.individuelle.formulaire",
                 },
                 "init.pos.individuelle.formulaire": {
+                    "id": "init.pos.individuelle.formulaire",
                     "message": "Formulaire",
                     "type": "form",
                 },
