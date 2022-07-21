@@ -19,6 +19,7 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
 
 odoo.define("website.accorderie_canada_ddb.participer", function (require) {
     const INIT_STATE = "init";
+    const PARAM_STATE_NAME = "state";
     let ajax = require('web.ajax');
     let core = require('web.core');
     let session = require('web.session');
@@ -30,7 +31,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // This allows html generation in view
         return $sce.trustAsHtml;
     });
-    app.controller('ParticiperController', function ($scope) {
+    app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
         $scope.error = "";
         $scope.workflow = {};
@@ -61,8 +62,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.error = "";
                 $scope.workflow = data.workflow;
                 $scope.data = data.data;
-                // $scope.state = $scope.workflow[INIT_STATE];
-                $scope.init_controller();
 
                 // Update relation workflow with data, use by click_inner_state
                 for (const [key, value] of Object.entries($scope.workflow)) {
@@ -70,11 +69,56 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         $scope.workflow[key].data = $scope.data[value.data];
                     }
                 }
+
+                // fill $scope.state with change_from_url
+                $scope.change_from_url($location.search());
             }
 
             // Process all the angularjs watchers
             $scope.$digest();
         })
+
+        $scope.init_controller = function (state = INIT_STATE) {
+            $scope.stack_breadcrumb_state = [];
+            if (state !== INIT_STATE) {
+                let lstState = state.split('.');
+
+                let stateName = "";
+                for (let i = 0; i < lstState.length - 1; i++) {
+                    // Ignore last state, will be added after when load
+                    if (_.isEmpty(stateName)) {
+                        stateName = lstState[i];
+                    } else {
+                        stateName += "." + lstState[i];
+                    }
+                    console.log("Load state '" + stateName + "'");
+                    let searchedState = $scope.workflow[stateName];
+                    if (!_.isUndefined(searchedState)) {
+                        $scope.stack_breadcrumb_state.push(searchedState);
+                    } else {
+                        console.error("Missing state " + stateName);
+                    }
+                }
+            }
+            $scope.change_state_name(state);
+        }
+
+        // History
+        $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
+            // Check this is not call before ajax to fill $scope.workflow
+            if (!_.isEmpty($scope.workflow)) {
+                $scope.change_from_url($location.search());
+            }
+        });
+
+        $scope.change_from_url = function (search_params) {
+            let paramSelectedModel = search_params[PARAM_STATE_NAME];
+            if (_.isEmpty(paramSelectedModel)) {
+                $scope.init_controller();
+            } else {
+                $scope.init_controller(paramSelectedModel);
+            }
+        }
 
         // State
         $scope.is_show_previous = function () {
@@ -85,12 +129,34 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return !$scope.in_multiple_inner_state && !$scope.error;
         }
 
+        $scope.change_state_name = function (stateName) {
+            // console.debug("call change_state_name : " + stateName);
+            let state = $scope.workflow[stateName];
+            $scope.update_state(state, "change_state_name '" + stateName + "'");
+        }
+
+        $scope.change_state_index = function (idx) {
+            // console.debug("Change state to index " + idx);
+            let state = $scope.stack_breadcrumb_state.at(idx);
+            $scope.update_state(state, "fct change_state_index stack_breadcrumb_state index '" + idx + "'");
+        }
+
+        $scope.next_btn = function () {
+            // console.debug("call next_btn");
+            console.debug($scope.selected_model);
+            if (_.isEmpty($scope.selected_model)) {
+                console.error("Cannot find selected model");
+            } else {
+                let state = $scope.workflow[$scope.selected_model];
+                $scope.update_state(state, "next_btn '" + $scope.selected_model + "'");
+            }
+        }
+
         $scope.previous_btn = function () {
             // console.debug("call previous_btn");
             $scope.error = "";
             if (!_.isEmpty($scope.stack_breadcrumb_state)) {
                 $scope.stack_breadcrumb_state.pop();
-                $scope.update_breadcrumb();
                 if (_.isEmpty($scope.stack_breadcrumb_state)) {
                     // Force return to init
                     $scope.change_state_name(INIT_STATE);
@@ -102,61 +168,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
-        $scope.init_controller = function () {
-            $scope.stack_breadcrumb_state = [];
-            $scope.change_state_name(INIT_STATE);
-            $scope.update_breadcrumb();
-            $scope.error = "";
-        }
-
-        $scope.change_state_name = function (stateName) {
-            // console.debug("call change_state_name : " + stateName);
-            $scope.state = $scope.workflow[stateName];
-            $scope.update_state();
-        }
-
-        $scope.change_state_index = function (idx) {
-            // console.debug("Change state to index " + idx);
-            $scope.state = $scope.stack_breadcrumb_state.at(idx);
-            $scope.update_state();
-        }
-
-        $scope.change_breadcrumb_index = function (idx) {
-            // console.debug("Change state to index " + idx);
-            // Delete all breadcrumb (when -1) or pop index
-            if (idx === -1) {
-                $scope.init_controller();
-            } else {
-                for (let i = 0; i < idx + 1; i++) {
-                    $scope.stack_breadcrumb_state.pop();
-                }
-                $scope.change_state_index(idx);
-                $scope.update_breadcrumb();
-            }
-        }
-
-        $scope.next_btn = function () {
-            // console.debug("call next_btn");
-            console.debug($scope.selected_model);
-            if (_.isEmpty($scope.selected_model)) {
-                console.error("Cannot find selected model");
-            } else {
-                $scope.state = $scope.workflow[$scope.selected_model];
-                if (_.isUndefined($scope.state)) {
-                    $scope.error = "Cannot find " + $scope.selected_model;
-                } else {
-                    $scope.error = "";
-                    $scope.stack_breadcrumb_state.push($scope.state);
-                    console.debug($scope.state);
-                    $scope.update_breadcrumb();
-                    $scope.update_state();
-                }
-            }
-        }
-
         $scope.state_get_data = function () {
             // console.debug("call state_get_data");
             if (!_.isEmpty($scope.stack_breadcrumb_inner_state)) {
+                // Show data from inner workflow
                 let option = $scope.stack_breadcrumb_inner_state.at(-1);
                 // $scope.update_inner_state(option);
                 return option.sub_list;
@@ -165,16 +180,32 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
-        $scope.update_state = function () {
+        $scope.update_state = function (state, debugFromInfo) {
             // console.debug("call update_state");
-            $scope.in_multiple_inner_state = $scope.state.type === "choix_categorie_de_service" && !_.isUndefined($scope.state.data);
-            // Force delete stack inner state
-            $scope.stack_breadcrumb_inner_state = [];
-            $scope.actual_inner_state_name = "";
-            $scope.selected_model = "";
+            if (_.isUndefined(state)) {
+                $scope.error = "Cannot find state from " + debugFromInfo;
+                console.error($scope.error);
+            } else {
+                console.debug(state);
+                $scope.error = "";
+                // Update URL parameters
+                if (state.id === INIT_STATE) {
+                    $location.search(PARAM_STATE_NAME, null);
+                } else {
+                    $location.search(PARAM_STATE_NAME, state.id);
+                }
+                $scope.state = state;
+                $scope.stack_breadcrumb_state.push(state);
+                $scope.update_breadcrumb();
+                $scope.in_multiple_inner_state = state.type === "choix_categorie_de_service" && !_.isUndefined(state.data);
+                // Force delete stack inner state
+                $scope.stack_breadcrumb_inner_state = [];
+                $scope.actual_inner_state_name = "";
+                $scope.selected_model = "";
+            }
         }
 
-        // Inner state
+        // Inner state, temporary internal state
         $scope.click_inner_state_option = function (option) {
             console.debug("call click_inner_state_option");
             console.debug(option);
@@ -183,6 +214,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.actual_inner_state_name = option.title;
                 $scope.update_inner_state(option);
             } else {
+                // Affect global state
                 $scope.selected_model = $scope.state.next_id;
             }
         }
@@ -190,19 +222,16 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.previous_inner_state_btn = function () {
             // console.debug("call previous_inner_state_btn");
             $scope.error = "";
-            if (!_.isEmpty($scope.stack_breadcrumb_state)) {
+            $scope.actual_inner_state_name = "";
+            if (!_.isEmpty($scope.stack_breadcrumb_inner_state)) {
                 $scope.stack_breadcrumb_inner_state.pop();
                 $scope.selected_model_inner_state = "";
-                if (!_.isEmpty($scope.stack_breadcrumb_state)) {
+                if (!_.isEmpty($scope.stack_breadcrumb_inner_state)) {
                     let option = $scope.stack_breadcrumb_inner_state.at(-1);
                     if (!_.isUndefined(option)) {
-                        $scope.actual_inner_state_name = $scope.stack_breadcrumb_inner_state.at(-1).title;
+                        $scope.actual_inner_state_name = option.title;
                         $scope.update_inner_state(option);
-                    } else {
-                        $scope.actual_inner_state_name = "";
                     }
-                } else {
-                    $scope.actual_inner_state_name = "";
                 }
             } else {
                 console.error("Cannot previous inner state.");
@@ -217,6 +246,20 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         // Breadcrumb
+        $scope.change_breadcrumb_index = function (idx) {
+            // console.debug("Change state to index " + idx);
+            if (idx === 0) {
+                $scope.init_controller();
+            } else {
+                let reverse_index = $scope.stack_breadcrumb_state.length - idx;
+                for (let i = 0; i < reverse_index; i++) {
+                    $scope.stack_breadcrumb_state.pop();
+                }
+                // - 1 to reverse 1 step
+                $scope.change_state_index(idx - 1);
+            }
+        }
+
         $scope.update_breadcrumb = function () {
             console.debug("call update_breadcrumb");
             let lst_label = [];
@@ -233,7 +276,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         label += lst_breadcrumb[j];
                     }
                     global_label += label;
-                    lst_label.push({"index": i - 1, "text": label})
+                    lst_label.push({"index": i, "text": label})
                 }
             }
             // Special decoration
@@ -242,7 +285,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
             $scope.lst_label_breadcrumb = lst_label;
         }
-    });
+    }]);
 
 
     // let currentTab = 0; // Current tab is set to be the first tab (0)
