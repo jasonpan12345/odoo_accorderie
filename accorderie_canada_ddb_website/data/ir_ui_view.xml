@@ -1612,8 +1612,8 @@
                                     <div class="informations_container">
                                         <div class="information information-1">
                                             <div class="profile_pic">
-                                                <img class="img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"/>
-                                                <i class="fa fa-shield text-epsilon"/>
+                                                <img class="img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <i class="fa fa-shield text-epsilon" />
                                             </div>
                                             <span class="nbr">
                                                 Bonjour je m'appelle
@@ -1980,7 +1980,7 @@
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes annonces publiées
-                                            <br/>
+                                            <br />
                                         </h1>
                                     </div>
                                 </section>
@@ -2094,7 +2094,7 @@
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes favoris
-                                            <br/>
+                                            <br />
                                         </h1>
                                     </div>
                                 </section>
@@ -2459,7 +2459,7 @@
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes informations personnelles
-                                            <br/>
+                                            <br />
                                         </h1>
                                     </div>
                                 </section>
@@ -2544,7 +2544,7 @@
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes préférences générales
-                                            <br/>
+                                            <br />
                                         </h1>
                                     </div>
                                 </section>
@@ -2837,9 +2837,9 @@
                                             </p>
                                         </div>
                                         <div class="profile_btn btn accorderie text-gamma">
-                                            <i class="fa fa-smile-o"/>
+                                            <i class="fa fa-smile-o" />
                                             Mon accorderie: Sherbrooke
-                                            <i class="fa fa-chevron-right"/>
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                         <div class="profile_btn btn disconnect text-gamma">
                                             <i class="fa fa-power-off" />&amp;nbsp;Se d&#233;connecter
@@ -2911,7 +2911,7 @@
                                             Mon activité
                                         </p>
                                         <div class="solde_container text-gamma">
-                                            <div class="txt">Solde de mon compte<i class="fa fa-question-circle-o"/></div>
+                                            <div class="txt">Solde de mon compte<i class="fa fa-question-circle-o" /></div>
                                             <div class="solde">+ 1H30</div>
                                         </div>
                                     </div>
@@ -2979,8 +2979,7 @@
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab
                                                     </h4>
@@ -2990,8 +2989,7 @@
                                                 <div class="status">- 3H00</div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
                                                     <h5 class="activite_auteur">19h00 - 22h00</h5>
@@ -3000,8 +2998,7 @@
                                                 <div class="event">ÉVÈNEMENT</div>
                                             </div>
                                             <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid"
-                                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
                                                     <h5 class="activite_auteur">19h00 - 22h00</h5>
@@ -3635,16 +3632,16 @@
                                         </div>
                                         <div class="right_cards_container">
                                             <div class="card info-3">
-                                                <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"/>
+                                                <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg" />
                                                 <div>
                                                     <p>
                                                         <b>Adresse</b>
-                                                        <br/>
+                                                        <br />
                                                         1551 Rue Dunant, Sherbrooke, J1H QN5, QC
                                                     </p>
                                                     <p>
                                                         <b>Détails pour vous y rendre</b>
-                                                        <br/>
+                                                        <br />
                                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                                         sed do eiusmod tempor incididunt ut labore et dolore magna
                                                         aliqua.

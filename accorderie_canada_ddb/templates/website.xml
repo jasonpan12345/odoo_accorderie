@@ -93,16 +93,18 @@
                                 </div>
                                 <div class="right_cards_container">
                                     <div class="card info-3">
-                                        <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"/>
+                                        <img
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"
+                                        />
                                         <div>
                                             <p>
                                                 <b>Adresse</b>
-                                                <br/>
+                                                <br />
                                                 1551 Rue Dunant, Sherbrooke, J1H QN5, QC
                                             </p>
                                             <p>
                                                 <b>Détails pour vous y rendre</b>
-                                                <br/>
+                                                <br />
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                                 sed do eiusmod tempor incididunt ut labore et dolore magna
                                                 aliqua.
@@ -120,19 +122,19 @@
                                         <div class="stats">
                                             <div class="stats">
                                                 <p>
-                                                    <i class="fa fa-user-circle"/>
+                                                    <i class="fa fa-user-circle" />
                                                     Membre depuis mars 2019
                                                 </p>
                                                 <p>
-                                                    <i class="fa fa-shield"/>
+                                                    <i class="fa fa-shield" />
                                                     Antécédents judiciaires vérifiés
                                                 </p>
                                                 <p>
-                                                    <i class="fa fa-user-circle"/>
+                                                    <i class="fa fa-user-circle" />
                                                     3 offres de service
                                                 </p>
                                                 <p>
-                                                    <i class="fa fa-clock-o"/>
+                                                    <i class="fa fa-clock-o" />
                                                     15h de serivce à son actif
                                                 </p>
                                             </div>
