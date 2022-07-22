@@ -601,12 +601,12 @@
                     <div id="wrap" ng-app="AccorderieApp" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
                         <section class="s_buttons_form">
-                            <div class="txt_question">
+                            <div class="txt_question" ng-if="!state.disable_question">
                                 <div><span
                                         ng-repeat="link in lst_label_breadcrumb"
                                         ng-click="change_breadcrumb_index(link.index)"
                                         style="cursor:pointer;"
-                                    >{{link.text}}</span><br /></div>
+                                    >{{link.text}}</span></div>
                                 <h1 ng-show="state.message">{{state.message}}</h1>
                                 <div ng-show="!_.isEmpty(error)">
                                     <br />
@@ -669,6 +669,20 @@
                                             />
                                         </label>
                                     </span>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.pos.individuelle.formulaire'"
+                                >
+                                    <div><b>Catégorie:</b><span
+                                            ng-repeat="link in lst_label_breadcrumb"
+                                            ng-click="change_breadcrumb_index(link.index)"
+                                            style="cursor:pointer;"
+                                        >{{link.text}}</span>&gt;</div>
+                                    <h1>Titre</h1>
+                                    <textarea />
+                                    <h1>Description</h1>
+                                    <textarea />
                                 </div>
                                 <div class="submit_container">
                                     <input

@@ -44,6 +44,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             next_id: undefined,
             show_breadcrumb: false,
             data: undefined,
+            breadcrumb_show_only_last_item: false,
+            breadcrumb_show_value_last_item: false,
         };
         $scope.stack_breadcrumb_state = [];
         $scope.stack_breadcrumb_inner_state = [];
@@ -131,7 +133,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         // State
         $scope.is_show_previous = function () {
-            return !_.isEmpty($scope.stack_breadcrumb_state)
+            return $scope.stack_breadcrumb_state.length > 1
         }
 
         $scope.is_show_next = function () {
@@ -279,7 +281,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     let lst_breadcrumb = state.breadcrumb_value.split(".");
                     let label = "";
                     for (let j = 0; j < lst_breadcrumb.length; j++) {
-                        if (!_.isEmpty(global_label) || !_.isEmpty(label)) {
+                        if (!$scope.state.breadcrumb_show_only_last_item && (!_.isEmpty(global_label) || !_.isEmpty(label))) {
                             label += " > "
                         }
                         label += lst_breadcrumb[j];
@@ -289,10 +291,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 }
             }
             // Special decoration
-            if (!_.isEmpty(lst_label) && global_label.indexOf(" > ") === -1) {
+            if (!$scope.state.breadcrumb_show_only_last_item && !_.isEmpty(lst_label) && global_label.indexOf(" > ") === -1) {
                 lst_label.at(-1).text += " > ..."
             }
-            $scope.lst_label_breadcrumb = lst_label;
+            if ($scope.state.breadcrumb_show_only_last_item) {
+                $scope.lst_label_breadcrumb = [lst_label.at(-1)];
+            } else {
+                $scope.lst_label_breadcrumb = lst_label;
+            }
         }
     }]);
 

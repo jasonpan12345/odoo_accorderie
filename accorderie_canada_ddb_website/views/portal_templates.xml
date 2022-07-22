@@ -481,28 +481,23 @@
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <h2>Publier</h2>
-                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
+                                    <a role="menuitem" href="/participer#!?state=init.pos" class="dropdown-item pub">
                                         <h4>Publier une offre de service</h4>
-                                        Vous souhaitez offrir votre service?
+                                        Vous souhaitez offrir vos services?
                                         <br />
-                                        Cliquez ici
+                                        Cliquez ici pour publier votre offre en ligne.
                                     </a>
-                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
+                                    <a role="menuitem" href="/participer#!?state=init.pds" class="dropdown-item pub">
                                         <h4>Publier une demande de service</h4>
-                                        Vous avez besoin d'un service?
-                                        <br />
-                                        Faites nous part de votre besoin en créant une demande ici
+                                        Vous avez besoin d'un service? Faites part de votre besoin aux membres de l'Accorderie en créant une demande ici.
                                     </a>
-                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
-                                        <h4>Créer une entente de service</h4>
-                                        Créer une entente de service avec un autre accordeur pour vous mettre d'accord
-                                        sur les modalités?
+                                    <a role="menuitem" href="/participer#!?state=init.saa" class="dropdown-item pub">
+                                        <h4>S'accorder avec un autre accordeur</h4>
+                                        Vous accorder vous permet de vous mettre d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.
                                     </a>
-                                    <a role="menuitem" href="/participer" class="dropdown-item pub">
-                                        <h4>Valider un service donné ou reçu</h4>
-                                        Vous avez donné ou reçu un service?
-                                        <br />
-                                        Valider la transaction ici pour donner ou recevoir votre rénumération
+                                    <a role="menuitem" href="/participer#!?state=init.va" class="dropdown-item pub">
+                                        <h4>Valider un accordage</h4>
+                                        Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.
                                     </a>
                                 </div>
                             </li>
