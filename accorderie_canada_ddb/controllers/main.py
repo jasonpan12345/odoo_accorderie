@@ -419,9 +419,9 @@ class AccorderieCanadaDdbController(http.Controller):
                             "id": "init.pds",
                             "title": "Publier une demande de service",
                             "html": (
-                                "Vous avez besoin d'un service?<br/>Faites"
-                                " part de votre besoin aux membres de"
-                                " l'Accorderie en créant une demande ici."
+                                "Vous avez besoin d'un service? Faites part de"
+                                " votre besoin aux membres de l'Accorderie en"
+                                " créant une demande ici."
                             ),
                             # "value": "Publier.Une demande de service",
                         },
@@ -439,10 +439,9 @@ class AccorderieCanadaDdbController(http.Controller):
                             "id": "init.va",
                             "title": "Valider un accordage",
                             "html": (
-                                "Vous avez donné ou reçu un"
-                                " service?<br/>Déclarer ici la transaction"
-                                " pour donner ou percevoir les heures"
-                                " d'Accorderie dues."
+                                "Vous avez donné ou reçu un service? Déclarer"
+                                " ici la transaction pour donner ou percevoir"
+                                " les heures d'Accorderie dues."
                             ),
                             # "value": "Valider un accordage",
                         },
@@ -487,9 +486,104 @@ class AccorderieCanadaDdbController(http.Controller):
                     "next_id": "init.pos.individuelle.formulaire",
                 },
                 "init.pos.individuelle.formulaire": {
+                    "show_breadcrumb": True,
+                    "breadcrumb_show_only_last_item": True,
+                    "breadcrumb_show_value_last_item": True,
                     "id": "init.pos.individuelle.formulaire",
                     "message": "Formulaire",
                     "type": "form",
+                    "disable_question": True,
+                },
+                "init.pds": {
+                    "id": "init.pds",
+                    "message": "Est-ce pour une demande de service :",
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Publier.Une demande de service",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.pds.individuelle",
+                            "title": "Individuelle",
+                            "html": (
+                                "Si vous demandez un service destiné à une"
+                                " personne à la fois."
+                            ),
+                        },
+                        {
+                            "id": "init.pds.collective",
+                            "title": "Collective",
+                            "html": (
+                                "Si vous demandez un service destiné à"
+                                " plusieurs personnes à la fois (cours en"
+                                " groupe, ateliers, conférences, achats"
+                                " groupés, ...)"
+                            ),
+                        },
+                    ],
+                },
+                "init.saa": {
+                    "id": "init.saa",
+                    "message": "Que voulez-vous?",
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "S'accorder",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.saa.offrir",
+                            "title": "Je veux offrir un service",
+                        },
+                        {
+                            "id": "init.saa.recevoir",
+                            "title": "Je veux recevoir un service",
+                        },
+                    ],
+                },
+                "init.va": {
+                    "id": "init.va",
+                    "message": (
+                        "Avez-vous créer une demande de service pour cette"
+                        " accordage?"
+                    ),
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Valider un accordage",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.va.oui",
+                            "title": "Oui",
+                        },
+                        {
+                            "id": "init.va.non",
+                            "title": "Non",
+                        },
+                    ],
+                },
+                "init.va.oui": {
+                    "id": "init.va.oui",
+                    "message": (
+                        "Quel est votre accordage?"
+                    ),
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Avec une demande de service",
+                },
+                "init.va.non": {
+                    "id": "init.va.non",
+                    "message": (
+                        "Qui êtes-vous?"
+                    ),
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Sans demande",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.va.non.offert",
+                            "title": "Je suis la personne qui a offert le service",
+                        },
+                        {
+                            "id": "init.va.non.recu",
+                            "title": "Je suis la personne qui a reçu le service",
+                        },
+                    ],
                 },
             },
         }
