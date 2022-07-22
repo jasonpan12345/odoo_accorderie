@@ -379,16 +379,23 @@ class AccorderieCanadaDdbController(http.Controller):
         lst_type_service_categorie = [
             {
                 "id": a.id,
+                "tree_id": f"{a.id}",
                 "html": a._get_html_nom(),
                 "title": a._get_separate_list_nom(),
                 "icon": image_data_uri(a.icon) if a.icon else "",
                 "sub_list": [
                     {
                         "id": b.id,
+                        "tree_id": f"{a.id}.{b.id}",
                         "html": b.nom,
                         "title": b.nom,
                         "sub_list": [
-                            {"html": c.nom, "title": c.nom, "id": c.id}
+                            {
+                                "html": c.nom,
+                                "title": c.nom,
+                                "id": c.id,
+                                "tree_id": f"{a.id}.{b.id}.{c.id}",
+                            }
                             for c in b.type_service
                         ],
                     }
@@ -482,6 +489,8 @@ class AccorderieCanadaDdbController(http.Controller):
                     "show_breadcrumb": True,
                     "breadcrumb_value": "Individuelle",
                     "type": "choix_categorie_de_service",
+                    "model_field_name_alias": "categorie",
+                    "model_field_name": "categorie_id",
                     "data": "type_service_categorie",
                     "next_id": "init.pos.individuelle.formulaire",
                 },
@@ -560,28 +569,28 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
                 "init.va.oui": {
                     "id": "init.va.oui",
-                    "message": (
-                        "Quel est votre accordage?"
-                    ),
+                    "message": "Quel est votre accordage?",
                     "show_breadcrumb": True,
                     "breadcrumb_value": "Avec une demande de service",
                 },
                 "init.va.non": {
                     "id": "init.va.non",
-                    "message": (
-                        "Qui êtes-vous?"
-                    ),
+                    "message": "Qui êtes-vous?",
                     "show_breadcrumb": True,
                     "breadcrumb_value": "Sans demande",
                     "type": "selection_static",
                     "list": [
                         {
                             "id": "init.va.non.offert",
-                            "title": "Je suis la personne qui a offert le service",
+                            "title": (
+                                "Je suis la personne qui a offert le service"
+                            ),
                         },
                         {
                             "id": "init.va.non.recu",
-                            "title": "Je suis la personne qui a reçu le service",
+                            "title": (
+                                "Je suis la personne qui a reçu le service"
+                            ),
                         },
                     ],
                 },
