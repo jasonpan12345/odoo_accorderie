@@ -621,7 +621,7 @@
                                             id="{{option.id}}"
                                             name="pub"
                                             ng-value="option.id"
-                                            ng-model="$parent.$parent.selected_model"
+                                            ng-model="$parent.$parent.state.next_id"
                                             required="required"
                                         />
                                         <label for="{{option.id}}" class="button_form btn">
@@ -648,7 +648,7 @@
                                             id="{{option.id}}"
                                             name="pub"
                                             ng-value="option.id"
-                                            ng-model="$parent.$parent.selected_model_inner_state"
+                                            ng-model="$parent.$parent.state.selected_id"
                                             required="required"
                                         />
                                         <label
@@ -708,7 +708,7 @@
                                         class="submit_btn btn"
                                         ng-show="is_show_next()"
                                         ng-click="next_btn()"
-                                        ng-class="{'submit_btn_disable': _.isEmpty(selected_model)}"
+                                        ng-class="{'submit_btn_disable': is_disable_next()}"
                                     />
                                 </div>
                             </div>

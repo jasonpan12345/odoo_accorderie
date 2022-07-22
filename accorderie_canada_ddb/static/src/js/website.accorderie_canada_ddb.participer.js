@@ -44,15 +44,20 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             next_id: undefined,
             show_breadcrumb: false,
             data: undefined,
+            breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
             breadcrumb_show_value_last_item: false,
+            selected_value: undefined,
+            selected_id: undefined,
+            selected_tree_id: undefined,
+            model_field_name_alias: undefined,
+            model_field_name: undefined,
         };
         $scope.stack_breadcrumb_state = [];
         $scope.stack_breadcrumb_inner_state = [];
         $scope.actual_inner_state_name = "";
         $scope.in_multiple_inner_state = false; // true when a state need multiple interaction before show next
-        $scope.selected_model = "";
-        $scope.selected_model_inner_state = "";
+        $scope.is_inner_state = false; // true when a state need multiple interaction
         $scope.lst_label_breadcrumb = [];
 
         ajax.rpc("/accorderie_canada_ddb/get_participer_workflow_data/", {}).then(function (data) {
@@ -140,6 +145,17 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return !$scope.in_multiple_inner_state && !$scope.error;
         }
 
+        $scope.is_disable_next = function () {
+            // disable when not next_id, or when next_id but not selected_value from inner_state
+            if (_.isEmpty($scope.workflow)) {
+                return true;
+            }
+            if (_.isEmpty($scope.state.next_id)) {
+                return true;
+            }
+            return !!($scope.is_inner_state && _.isEmpty($scope.state.selected_value));
+        }
+
         $scope.change_state_name = function (stateName) {
             // console.debug("call change_state_name : " + stateName);
             let state = $scope.workflow[stateName];
@@ -154,12 +170,17 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.next_btn = function () {
             // console.debug("call next_btn");
-            console.debug($scope.selected_model);
-            if (_.isEmpty($scope.selected_model)) {
-                console.error("Cannot find selected model");
+            if (_.isUndefined($scope.state.next_id) || _.isEmpty($scope.state.next_id)) {
+                console.error("Cannot find next state, next_id variable is undefined or empty.");
+                console.debug($scope.state);
             } else {
-                let state = $scope.workflow[$scope.selected_model];
-                $scope.update_state(state, "next_btn '" + $scope.selected_model + "'");
+                if (!_.isUndefined($scope.state.model_field_name_alias) && (!_.isUndefined($scope.state.selected_id))) {
+                    $location.search($scope.state.model_field_name_alias, $scope.state.selected_id);
+                } else if (!_.isUndefined($scope.state.model_field_name) && (!_.isUndefined($scope.state.selected_id))) {
+                    $location.search($scope.state.model_field_name, $scope.state.selected_id);
+                }
+                let state = $scope.workflow[$scope.state.next_id];
+                $scope.update_state(state, "next_btn '" + $scope.state.next_id + "'");
             }
         }
 
@@ -167,14 +188,17 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // console.debug("call previous_btn");
             $scope.error = "";
             if (!_.isEmpty($scope.stack_breadcrumb_state)) {
-                $scope.stack_breadcrumb_state.pop();
-                if (_.isEmpty($scope.stack_breadcrumb_state)) {
-                    // Force return to init
-                    $scope.change_state_name(INIT_STATE);
-                } else {
-                    $scope.change_state_index(-1);
-                }
+                $scope.change_breadcrumb_index($scope.stack_breadcrumb_state.length - 1);
+                // $scope.stack_breadcrumb_state.pop();
+                // if (_.isEmpty($scope.stack_breadcrumb_state)) {
+                //     // Force return to init
+                //     $scope.change_state_name(INIT_STATE);
+                // } else {
+                //     $scope.change_state_index(-1);
+                // }
             } else {
+                // Not suppose to call here, internal bug
+                console.error("Bug, the user can press previous button when the stack_breadcrumb_state is not empty.");
                 $scope.change_state_name(INIT_STATE);
             }
         }
@@ -209,10 +233,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.stack_breadcrumb_state.push(state);
                 $scope.update_breadcrumb();
                 $scope.in_multiple_inner_state = state.type === "choix_categorie_de_service" && !_.isUndefined(state.data);
+                $scope.is_inner_state = state.type === "choix_categorie_de_service";
                 // Force delete stack inner state
                 $scope.stack_breadcrumb_inner_state = [];
                 $scope.actual_inner_state_name = "";
-                $scope.selected_model = "";
             }
         }
 
@@ -220,13 +244,18 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.click_inner_state_option = function (option) {
             console.debug("call click_inner_state_option");
             console.debug(option);
-            if ($scope.in_multiple_inner_state) {
-                $scope.stack_breadcrumb_inner_state.push(option);
-                $scope.actual_inner_state_name = option.title;
-                $scope.update_inner_state(option);
-            } else {
-                // Affect global state
-                $scope.selected_model = $scope.state.next_id;
+            if ($scope.is_inner_state) {
+                if ($scope.in_multiple_inner_state) {
+                    $scope.stack_breadcrumb_inner_state.push(option);
+                    $scope.actual_inner_state_name = option.title;
+                    $scope.update_inner_state(option);
+                    console.debug("CHeck here");
+                } else {
+                    $scope.state.selected_value = option.title;
+                    // option.id is set by ng-model
+                    // $scope.state.selected_id = option.id;
+                    $scope.state.selected_tree_id = option.tree_id;
+                }
             }
         }
 
@@ -236,7 +265,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.actual_inner_state_name = "";
             if (!_.isEmpty($scope.stack_breadcrumb_inner_state)) {
                 $scope.stack_breadcrumb_inner_state.pop();
-                $scope.selected_model_inner_state = "";
                 if (!_.isEmpty($scope.stack_breadcrumb_inner_state)) {
                     let option = $scope.stack_breadcrumb_inner_state.at(-1);
                     if (!_.isUndefined(option)) {
@@ -253,19 +281,35 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // console.debug("call update_inner_state");
             // validate if inner workflow continue, check if contains sub_list
             $scope.in_multiple_inner_state = !_.isUndefined(option.sub_list) && !_.isUndefined(option.sub_list.at(-1).sub_list);
-            $scope.selected_model = "";
         }
 
         // Breadcrumb
         $scope.change_breadcrumb_index = function (idx) {
             // console.debug("Change state to index " + idx);
             if (idx === 0) {
+                // TODO maybe not, need to delete some variable
                 $scope.init_controller();
             } else {
                 let reverse_index = $scope.stack_breadcrumb_state.length - idx;
                 for (let i = 0; i < reverse_index; i++) {
-                    $scope.stack_breadcrumb_state.pop();
+                    // Remove variable from inner state
+                    let state = $scope.stack_breadcrumb_state.pop();
+                    // if (!_.isUndefined(state.selected_id)) {
+                    //     state.selected_id = undefined;
+                    //     state.selected_value = undefined;
+                    // }
+                    if (!_.isUndefined(state.model_field_name_alias)) {
+                        $location.search(state.model_field_name_alias, null);
+                    } else if (!_.isUndefined(state.model_field_name)) {
+                        $location.search(state.model_field_name, null);
+                    }
                 }
+                // Remove variable from actual state
+                // let state = $scope.stack_breadcrumb_state.at(-1);
+                // if (!_.isUndefined(state) && !_.isUndefined(state.selected_id)) {
+                //         state.selected_id = undefined;
+                //         state.selected_value = undefined;
+                //     }
                 // - 1 to reverse 1 step
                 $scope.change_state_index(idx - 1);
             }
@@ -277,6 +321,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             let global_label = "";
             for (let i = 0; i < $scope.stack_breadcrumb_state.length; i++) {
                 let state = $scope.stack_breadcrumb_state[i];
+                let lastState = $scope.stack_breadcrumb_state[i - 1];
                 if (!_.isUndefined(state.breadcrumb_value) && !_.isEmpty(state.breadcrumb_value)) {
                     let lst_breadcrumb = state.breadcrumb_value.split(".");
                     let label = "";
@@ -286,6 +331,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         }
                         label += lst_breadcrumb[j];
                     }
+                    global_label += label;
+                    lst_label.push({"index": i, "text": label})
+                } else if (state.breadcrumb_show_value_last_item && !_.isUndefined(lastState) && !_.isUndefined(lastState.selected_value) && !_.isEmpty(lastState.selected_value)) {
+                    let label = lastState.selected_value;
                     global_label += label;
                     lst_label.push({"index": i, "text": label})
                 }
