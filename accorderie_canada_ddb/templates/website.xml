@@ -92,7 +92,26 @@
                                     </div>
                                 </div>
                                 <div class="right_cards_container">
-                                    <div class="card info-3" />
+                                    <div class="card info-3">
+                                        <img
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"
+                                        />
+                                        <div>
+                                            <p>
+                                                <b>Adresse</b>
+                                                <br />
+                                                1551 Rue Dunant, Sherbrooke, J1H QN5, QC
+                                            </p>
+                                            <p>
+                                                <b>Détails pour vous y rendre</b>
+                                                <br />
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            </p>
+                                        </div>
+                                    </div>
                                     <div class="card info-4" t-if="accorderie_offre_service_id.membre">
                                         <div
                                             class="img rounded-circle"
@@ -101,22 +120,24 @@
                                         <h4>Votre accordeuse:</h4>
                                         <h4 t-field="accorderie_offre_service_id.membre.nom_complet" />
                                         <div class="stats">
-                                            <h6>
-                                                <span class="fa fa-user-circle" />
-                                                Membre depuis mars 2019
-                                            </h6>
-                                            <h6>
-                                                <span class="fa fa-shield" />
-                                                Ant&#233;c&#233;dents judiciaires v&#233;rifi&#233;s
-                                            </h6>
-                                            <h6>
-                                                <span class="fa fa-user-circle" />
-                                                3 offres de service
-                                            </h6>
-                                            <h6>
-                                                <span class="fa fa-clock-o" />
-                                                15h de service &#224; son actif
-                                            </h6>
+                                            <div class="stats">
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    Membre depuis mars 2019
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-shield" />
+                                                    Antécédents judiciaires vérifiés
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    3 offres de service
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-clock-o" />
+                                                    15h de serivce à son actif
+                                                </p>
+                                            </div>
                                         </div>
                                         <div class="summary">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
