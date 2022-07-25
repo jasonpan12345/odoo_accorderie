@@ -3824,43 +3824,42 @@
                                                 <font style="font-weight:bold;">
                                                     Mon accordage à venir avec
                                                 </font>
-                                                <br/>
+                                                <br />
                                                 Alice Poitier
                                             </span>
                                             <div class="btn btn-primary ml-auto text-gamma">
-                                                <i class="fa fa-check"/>
+                                                <i class="fa fa-check" />
                                                 <span>Déclarer l'accordage comme effectué</span>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma">
-                                                <i class="fa fa-pencil"/>
+                                                <i class="fa fa-pencil" />
                                                 <span>Modifier l'entente</span>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma">
-                                                <i class="fa fa-times-circle"/>
+                                                <i class="fa fa-times-circle" />
                                                 <span>Annuler l'entente</span>
                                             </div>
                                         </div>
                                         <div class="information information-2">
-                                            <div class="img rounded-circle"
-                                                 style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);"/>
+                                            <div class="img rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                             <h4>Votre accordeuse:</h4>
                                             <h4>Test</h4>
                                             <div class="stats">
                                                 <div class="stats">
                                                     <p>
-                                                        <i class="fa fa-user-circle"/>
+                                                        <i class="fa fa-user-circle" />
                                                         Membre depuis mars 2019
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-shield"/>
+                                                        <i class="fa fa-shield" />
                                                         Antécédents judiciaires vérifiés
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-user-circle"/>
+                                                        <i class="fa fa-user-circle" />
                                                         3 offres de service
                                                     </p>
                                                     <p>
-                                                        <i class="fa fa-clock-o"/>
+                                                        <i class="fa fa-clock-o" />
                                                         15h de serivce à son actif
                                                     </p>
                                                 </div>
@@ -3881,9 +3880,9 @@
                                                 <div class="btn btn-primary rounded-circle">La contacter</div>
                                             </div>
                                         </div>
-                                        <div class="information information-3"></div>
-                                        <div class="information information-4"></div>
-                                        <div class="information information-5"></div>
+                                        <div class="information information-3" />
+                                        <div class="information information-4" />
+                                        <div class="information information-5" />
                                     </div>
                                 </section>
                             </div>

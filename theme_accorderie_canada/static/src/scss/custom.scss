@@ -2341,13 +2341,13 @@ actualité
     flex-direction: column;
 
     h2 {
-      margin-bottom:1.5rem;
+      margin-bottom: 1.5rem;
     }
     .fa-check {
       border: 1px solid $beta;
-      padding: .5rem;
+      padding: 0.5rem;
       border-radius: 5px;
-      margin: .5rem 1rem 0 0;
+      margin: 0.5rem 1rem 0 0;
     }
 
     > * {
@@ -2369,7 +2369,7 @@ actualité
       font-size: 1rem;
 
       p {
-        width: 45%
+        width: 45%;
       }
     }
 
@@ -2764,7 +2764,7 @@ actualité
 
 .s_accordage_informations .informations_container {
   display: grid;
-  grid-template-columns: .5fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 5%;
   grid-row-gap: 3%;
@@ -2789,7 +2789,7 @@ actualité
       align-items: center;
       text-align: left;
       gap: 1rem;
-      padding: .5rem 1.5rem;
+      padding: 0.5rem 1.5rem;
 
       i {
         font-size: 1.5rem;
@@ -2808,5 +2808,4 @@ actualité
   .information-5 {
     grid-area: 4 / 2 / 6 / 3;
   }
-
 }
