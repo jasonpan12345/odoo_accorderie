@@ -24,12 +24,12 @@
 
                             <div class="event_banner_action bg-primary">
                                 <div class="btn btn-primary">
-                                    <i class="fa fa-share-alt" />
+                                    <i class="fa fa-share-alt icon_paddding_right" />
                                     Partager
                                 </div>
                                 <div class="divider" />
                                 <div class="btn btn-primary">
-                                    <i class="fa fa-heart-o" />
+                                    <i class="fa fa-heart-o icon_padding_right" />
                                     Ajouter à mes favoris
                                 </div>
                             </div>
@@ -81,7 +81,15 @@
                                         </div>
                                         <div class="dispo">
                                             <h2>Disponilibités habituelles</h2>
-                                            <t t-raw="accorderie_offre_service_id.disponibilite" />
+                                            <div class="dates_container">
+                                                <p>LUNDI</p><p>08H00 - 19H00</p>
+                                                <p>MARDI</p><p>08H00 - 19H00</p>
+                                                <p>MERCREDI</p><p>08H00 - 19H00</p>
+                                                <p>JEUDI</p><p>08H00 - 19H00</p>
+                                                <p>VENDREDI</p><p>08H00 - 19H00</p>
+                                                <p>SAMEDI</p><p>08H00 - 19H00</p>
+                                                <p>DIMANCHE</p><p>08H00 - 19H00</p>
+                                            </div>
                                         </div>
                                         <div class="signaler">
                                             <p>

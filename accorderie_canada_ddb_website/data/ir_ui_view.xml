@@ -2944,26 +2944,26 @@
                                 </nav>
                                 <section class="s_activite_bilan debug_unimplemented">
                                     <div class="bilan_container">
-                                        <div class="bilan bilan-1 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
+                                        <a href="/monactivite/accordages" class="bilan bilan-1 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="txt">Soldes en heures:</span>
                                             <span class="nbr">+1 HEURE 30</span>
-                                        </div>
-                                        <div class="bilan bilan-2 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
+                                        </a>
+                                        <a href="/monactivite/accordageavenir" class="bilan bilan-2 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
                                             <span class="nbr">1</span>
                                             <span class="txt">accordage &#224; venir</span>
-                                        </div>
-                                        <div class="bilan bilan-3 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
+                                        </a>
+                                        <a href="/monactivite/accordages" class="bilan bilan-3 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="nbr">+1h</span>
                                             <span class="txt">ce mois-ci</span>
-                                        </div>
-                                        <div class="bilan bilan-4 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
+                                        </a>
+                                        <a href="/monprofil/mapresentation" class="bilan bilan-4 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="nbr">1</span>
                                             <span class="txt">nouveau contact</span>
-                                        </div>
-                                        <div class="bilan bilan-5 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
+                                        </a>
+                                        <a href="/evenement" class="bilan bilan-5 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
                                             <span class="nbr">1</span>
                                             <span class="txt">évènement</span>
-                                        </div>
+                                        </a>
                                     </div>
                                 </section>
                                 <section class="s_activites_recentes debug_unimplemented">
@@ -3461,7 +3461,7 @@
                                     </div>
                                     <div class="event_banner_action bg-primary">
                                         <div class="btn btn-primary">
-                                            <i class="fa fa-share-alt" />
+                                            <i class="fa fa-share-alt icon_padding_right" />
                                             Partager
                                         </div>
                                     </div>
@@ -3809,6 +3809,89 @@
             </field>
             <field name="key">website.offres-de-service</field>
             <field name="name">Offres de service</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_accordage_a_venir" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="Accordage à venir" t-name="website.accordageavenir">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_accordage_informations pt72">
+                                    <div class="informations_container">
+                                        <div class="information information-1">
+                                            <span class="nbr">
+                                                <font style="font-weight:bold;">
+                                                    Mon accordage à venir avec
+                                                </font>
+                                                <br />
+                                                Alice Poitier
+                                            </span>
+                                            <div class="btn btn-primary ml-auto text-gamma">
+                                                <i class="fa fa-check" />
+                                                <span>Déclarer l'accordage comme effectué</span>
+                                            </div>
+                                            <div class="btn btn-epsilon text-gamma">
+                                                <i class="fa fa-pencil" />
+                                                <span>Modifier l'entente</span>
+                                            </div>
+                                            <div class="btn btn-epsilon text-gamma">
+                                                <i class="fa fa-times-circle" />
+                                                <span>Annuler l'entente</span>
+                                            </div>
+                                        </div>
+                                        <div class="information information-2">
+                                            <div class="img rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
+                                            <h4>Votre accordeuse:</h4>
+                                            <h4>Test</h4>
+                                            <div class="stats">
+                                                <div class="stats">
+                                                    <p>
+                                                        <i class="fa fa-user-circle" />
+                                                        Membre depuis mars 2019
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-shield" />
+                                                        Antécédents judiciaires vérifiés
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-user-circle" />
+                                                        3 offres de service
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa fa-clock-o" />
+                                                        15h de serivce à son actif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="summary">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                                odio aenean sed adipiscing diam donec.
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="btn btn-primary rounded-circle">
+                                                    En savoir plus sur
+                                                    Alice
+                                                </div>
+                                                <div class="btn btn-primary rounded-circle">La contacter</div>
+                                            </div>
+                                        </div>
+                                        <div class="information information-3" />
+                                        <div class="information information-4" />
+                                        <div class="information information-5" />
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.contactus</field>
+            <field name="name">Contact Us</field>
             <field name="type">qweb</field>
         </record>
     </data>

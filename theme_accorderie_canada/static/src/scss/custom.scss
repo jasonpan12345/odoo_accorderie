@@ -1365,6 +1365,12 @@ actualité
     grid-column-gap: 15px;
     grid-row-gap: 15px;
 
+    .bilan {
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+    }
+
     .bilan-1 {
       grid-area: 1 / 1 / 2 / 3;
       padding: 10%;
@@ -1961,7 +1967,6 @@ actualité
       .modif_btn {
         padding: 1% 2%;
         color: $text-alpha;
-        float: right;
       }
     }
 
@@ -2335,6 +2340,16 @@ actualité
     display: flex;
     flex-direction: column;
 
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+    .fa-check {
+      border: 1px solid $beta;
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin: 0.5rem 1rem 0 0;
+    }
+
     > * {
       padding: 5% 5% 5% 0;
       border-top: 1px solid $beta;
@@ -2344,6 +2359,17 @@ actualité
 
       i {
         width: 1.8rem;
+      }
+    }
+
+    .dispo .dates_container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 40%;
+      font-size: 1rem;
+
+      p {
+        width: 45%;
       }
     }
 
@@ -2726,5 +2752,60 @@ actualité
 @media only screen and (max-width: 366px) {
   .chat_container {
     max-height: calc(94vh - 188.25px);
+  }
+}
+/*
+  Page Mon accordage à venir
+*/
+
+.s_accordage_informations {
+  background-color: $gamma;
+}
+
+.s_accordage_informations .informations_container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 5%;
+  grid-row-gap: 3%;
+
+  .information {
+    background-color: $bg-alpha;
+    border: none;
+  }
+
+  .information-1 {
+    grid-area: 1 / 1 / 2 / 3;
+    padding: 1% 4%;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+
+    .btn {
+      max-width: 250px;
+      min-height: 3.8rem;
+      white-space: normal;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      gap: 1rem;
+      padding: 0.5rem 1.5rem;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .information-2 {
+    grid-area: 2 / 1 / 5 / 2;
+  }
+  .information-3 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .information-4 {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+  .information-5 {
+    grid-area: 4 / 2 / 6 / 3;
   }
 }

@@ -3,9 +3,9 @@
     <data noupdate="1">
         <record id="accorderie_offre_service_cours_de_violon" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="condition">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
-            <field name="deplacement">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
-            <field name="entente_tarifiaire">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
+            <field name="condition">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
+            <field name="deplacement">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
+            <field name="entente_tarifiaire">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
             <field name="titre">Cours de violon</field>
             <field name="description">Je suis professeur depuis 40 ans en violon, j'offre des cours pour débutant</field>
             <field name="quoi_apporter">Votre violon</field>
@@ -14,9 +14,9 @@
         </record>
         <record id="accorderie_offre_service_je_vous_fais_decouvrir_la_ville_et_toutes_les_bonnes_choses_a_savoir" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="condition">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
-            <field name="deplacement">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
-            <field name="entente_tarifiaire">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
+            <field name="condition">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
+            <field name="deplacement">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
+            <field name="entente_tarifiaire">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
             <field name="titre">Je vous fais découvrir la ville et toutes les bonnes choses à savoir.</field>
             <field name="description">Je connais très bien la ville, c'est ma ville natale!</field>
             <field name="membre" ref="accorderie_membre_alice_poitier" />
@@ -24,9 +24,9 @@
         </record>
         <record id="accorderie_offre_service_faire_visiter_une_maison_a_louer" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="condition">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
-            <field name="entente_tarifiaire">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
-            <field name="deplacement">&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check text-primary icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
+            <field name="condition">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
+            <field name="entente_tarifiaire">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
+            <field name="deplacement">&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
             <field name="titre">Faire visiter une maison à louer</field>
             <field name="description">Je peux visiter vos maisons à louer, je suis expert immobilier et j'adore faire cette activité dans mes temps libres.</field>
             <field name="membre" ref="accorderie_membre_denis_lemarchand" />
