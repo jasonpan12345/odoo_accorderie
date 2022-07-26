@@ -1474,7 +1474,7 @@ actualité
 
   .information {
     border-radius: 7px;
-    padding: 10%;
+    padding: 2.5rem;
     text-align: left;
     border: 1px solid $beta;
     text-decoration: none;
@@ -2765,13 +2765,17 @@ actualité
 .s_accordage_informations .informations_container {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 5%;
-  grid-row-gap: 3%;
+  grid-auto-rows: auto;
 
   .information {
     background-color: $bg-alpha;
     border: none;
+    max-height: unset;
+
+    .info_title {
+      font-size: 2rem;
+    }
   }
 
   .information-1 {
@@ -2798,14 +2802,85 @@ actualité
   }
   .information-2 {
     grid-area: 2 / 1 / 5 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: fit-content;
+    font-size: 1rem;
+
+    img {
+      width: 6rem;
+      height: 6rem;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+    .stats i {
+      width: 2rem;
+      color: #5e95aa;
+      font-size: 1rem;
+    }
   }
   .information-3 {
     grid-area: 2 / 2 / 3 / 3;
+
+    .divider {
+      border: 1px solid $beta;
+      margin: 0 3rem;
+    }
   }
   .information-4 {
     grid-area: 3 / 2 / 4 / 3;
+    height: fit-content;
+
+    .vertical_list {
+      padding: 1rem 0 0;
+
+      .activite.btn {
+        border: none;
+      }
+    }
   }
   .information-5 {
     grid-area: 4 / 2 / 6 / 3;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .condition_desc {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      margin-top: 1rem;
+    }
+
+    .condition .bar_time {
+      margin-top: 3rem;
+      background-color: $gamma;
+      padding: 1rem 5%;
+      font-size: 1.5rem;
+      display: flex;
+      border-radius: 5px;
+
+      :last-child {
+        margin-left: auto;
+      }
+    }
+    .condition .fa-check {
+      border: 1px solid $beta;
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin: 0.5rem 1rem 0 0;
+    }
+    .condition_txt {
+      margin: 1rem 0 0;
+    }
+    divider {
+      border-top: 1px solid $beta;
+    }
+  }
+}
+@media only screen and (max-width: 990px) {
+  .s_accordage_informations .informations_container {
+    display: flex;
   }
 }
