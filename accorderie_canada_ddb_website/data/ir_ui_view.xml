@@ -3817,52 +3817,54 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_accordage_informations pt72">
+                                <section class="s_accordage_informations pt72 pb72">
                                     <div class="informations_container">
                                         <div class="information information-1">
-                                            <span class="nbr">
+                                            <span class="info_title">
                                                 <font style="font-weight:bold;">
                                                     Mon accordage à venir avec
                                                 </font>
-                                                <br />
+                                                <br/>
                                                 Alice Poitier
                                             </span>
                                             <div class="btn btn-primary ml-auto text-gamma">
-                                                <i class="fa fa-check" />
+                                                <i class="fa fa-check"/>
                                                 <span>Déclarer l'accordage comme effectué</span>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma">
-                                                <i class="fa fa-pencil" />
+                                                <i class="fa fa-pencil"/>
                                                 <span>Modifier l'entente</span>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma">
-                                                <i class="fa fa-times-circle" />
+                                                <i class="fa fa-times-circle"/>
                                                 <span>Annuler l'entente</span>
                                             </div>
                                         </div>
                                         <div class="information information-2">
-                                            <div class="img rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
-                                            <h4>Votre accordeuse:</h4>
-                                            <h4>Test</h4>
+                                            <img class="img rounded-circle"
+                                                 src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg"/>
+                                            <p class="nbr text-center">
+                                                <font style="font-weight:bold;">Votre accordeur :</font>
+                                                <br/>
+                                                Yannick Gagnon
+                                            </p>
                                             <div class="stats">
-                                                <div class="stats">
-                                                    <p>
-                                                        <i class="fa fa-user-circle" />
-                                                        Membre depuis mars 2019
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-shield" />
-                                                        Antécédents judiciaires vérifiés
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-user-circle" />
-                                                        3 offres de service
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-clock-o" />
-                                                        15h de serivce à son actif
-                                                    </p>
-                                                </div>
+                                                <p>
+                                                    <i class="fa fa-user-circle"/>
+                                                    Membre depuis mars 2019
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-shield"/>
+                                                    Antécédents judiciaires vérifiés
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-user-circle"/>
+                                                    3 offres de service
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-clock-o"/>
+                                                    15h de serivce à son actif
+                                                </p>
                                             </div>
                                             <div class="summary">
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -3873,16 +3875,117 @@
                                                 odio aenean sed adipiscing diam donec.
                                             </div>
                                             <div class="buttons">
-                                                <div class="btn btn-primary rounded-circle">
+                                                <div class="btn btn-primary rounded-circle text-gamma">
                                                     En savoir plus sur
                                                     Alice
                                                 </div>
-                                                <div class="btn btn-primary rounded-circle">La contacter</div>
+                                                <div class="btn btn-primary rounded-circle text-gamma">Le contacter
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="information information-3" />
-                                        <div class="information information-4" />
-                                        <div class="information information-5" />
+                                        <div class="information information-3">
+                                            <span class="info_title">
+                                                <p style="font-weight:bold;">
+                                                    Date prévue du service
+                                                </p>
+                                                <br/>
+                                                <span>
+                                                    Mercredi 6 juin 2022
+                                                </span>
+                                                <span class="divider"/>
+                                                <span>
+                                                    09h00 - 12h00
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="information information-4">
+                                            <span class="info_title">
+                                                <font style="font-weight:bold;">
+                                                    Offre de service
+                                                </font>
+                                            </span>
+                                            <div class="row vertical_list">
+                                                <div class="activite btn" data-name="Box">
+                                                    <img class="activite_img img-fluid"
+                                                         src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"/>
+                                                    <div class="infos">
+                                                        <p class="activite_title">
+                                                            Vous souhaitez acheter une maison à
+                                                            l"étranger?
+                                                        </p>
+                                                        <span class="activite_auteur">
+                                                            Yannick Gagnon
+                                                            <br/>
+                                                            2.3km
+                                                        </span>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <p>5m</p>
+                                                        <p class="fa fa-heart-o text-epsilon"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="information information-5">
+                                            <span class="info_title">
+                                                <font style="font-weight:bold;">
+                                                    Conditions de l'entente
+                                                </font>
+                                            </span>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Coût possible supplémentaire à prévoir
+                                                </b>
+                                                <p class="condition_desc">Frais pour trajet de</p>
+                                                <p>2.3km</p>
+                                                <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
+                                                    de service
+                                                    <a href="" class="float-right text-primary">Voir la liste</a>
+                                                </p>
+                                            </div>
+                                            <divider/>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Estimation de la durée de service
+                                                </b>
+                                                <p class="condition_desc">Nombre d'heures estimé pour le service</p>
+                                                <p>02h50</p>
+                                                <p class="condition_desc">Durée du traget estimée à effectuer</p>
+                                                <p>00h10</p>
+                                                <div class="bar_time">
+                                                    <b>
+                                                        Montant total de temps estimé:
+                                                    </b>
+                                                    <span>
+                                                        03h00
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <divider/>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Respectez-vous les conditions suivantes :
+                                                </b>
+                                                <p>
+                                                    <i class="fa fa-check text-epsilon"/>
+                                                    Il doit y avoir au moins 4 personnes pout le déménagement
+                                                </p>
+                                            </div>
+                                            <divider/>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Mise en garde
+                                                </b>
+                                                <p class="condition_txt">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                                    Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                                    nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                                    odio aenean sed adipiscing diam donec.
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </section>
                             </div>
@@ -3890,8 +3993,8 @@
                     </t>
                 </t>
             </field>
-            <field name="key">website.contactus</field>
-            <field name="name">Contact Us</field>
+            <field name="key">website.accordage-a-venir</field>
+            <field name="name">Accordage à venir</field>
             <field name="type">qweb</field>
         </record>
     </data>
