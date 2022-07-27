@@ -754,7 +754,7 @@ actualité
   overflow: hidden;
 
   .list_title {
-    padding-bottom: 10%;
+    padding-bottom: 3rem;
   }
 }
 
@@ -801,8 +801,24 @@ actualité
     border-radius: 50px;
     height: fit-content;
     padding: 0.5rem 1rem;
-    color: red;
     margin: 0 0 auto auto;
+    font-weight: bold;
+  }
+  .status.red {
+    color: white;
+    background-color: #fd7878;
+    border: none;
+  }
+  .status.red-o {
+    color: #fd7878;
+  }
+  .status.blue {
+    color: white;
+    background-color: $alpha;
+    border: none;
+  }
+  .status.blue-o {
+    color: $alpha;
   }
   .event {
     margin: 0 0 auto auto;
@@ -1192,7 +1208,7 @@ actualité
 .filter_btn.btn {
   border-radius: 50px;
   float: right;
-  border: 1px solid black;
+  border: 1px solid $alpha;
   padding: 0.75rem 2rem;
 }
 
@@ -1345,8 +1361,6 @@ actualité
 }
 
 .lg-btn.btn {
-  background-color: $primary-color;
-  color: $text-alpha;
   max-width: 100%;
   height: 10%;
   padding: 1.3rem;
@@ -1594,58 +1608,50 @@ actualité
   }
 
   .activite.btn {
-    max-height: 150px;
-    padding: 1.5% 0 1.5%;
+    height: 150px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $beta;
-    border-top: none;
 
     .activite_img {
       max-height: 150px;
     }
 
+    .activite_infos {
+      display: flex;
+      width: 60%;
+      height: 100%;
+      align-items: center;
+    }
+
     .activite_title {
-      width: 20%;
-      flex: 1;
+      width: 30%;
     }
 
     .details {
-      flex: 1.5;
       position: relative;
-      padding: 5%;
+      padding: 0 10%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
-    .end {
-      flex: 1;
-
-      .details_link {
-        float: left;
-      }
-
-      .status {
-        float: right;
-        border: 1px solid $alpha;
-        border-radius: 50px;
-        padding: 5px 10px;
-        color: $alpha;
-      }
+    .status {
+      margin: auto 0 auto auto;
     }
 
     .details::after {
       content: "";
       position: absolute;
       left: 0px;
-      top: 30%;
-      height: 40%;
-      border-left: 1px solid $gamma;
+      top: 20%;
+      height: 60%;
+      border-left: 1px solid $beta;
       border-radius: 2px;
     }
   }
 }
 
 .medium-btn.btn {
-  background-color: $primary-color;
   color: $text-alpha;
   max-width: 30%;
   padding: 1.5%;
@@ -1655,15 +1661,25 @@ actualité
 
 @media only screen and (max-width: 990px) {
   .activites_list.lg .activite.btn {
-    .activite_title {
-      float: none;
-    }
+    .activite_infos {
+      flex-direction: column;
+      align-items: unset;
+      justify-content: center;
 
-    .details {
-      float: none;
-    }
+      .activite_title {
+        width: auto;
+      }
 
-    .end {
+      .time {
+        display: none;
+      }
+      .details {
+        padding: 0;
+        position: unset;
+        height: auto;
+      }
+    }
+    .details_link {
       display: none;
     }
   }
