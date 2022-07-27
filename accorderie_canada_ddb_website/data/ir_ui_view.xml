@@ -55,109 +55,102 @@
                                 <section class="s_activites_recentes lg debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
-                                            <div class="list_title s_title pb40">
+                                            <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">D&#233;cembre 2021</font>
-                                                    <span>
-                                                        <font style="float:right; font-size:1.25rem; margin-top:10px;">
-                                                            &#192; venir
-                                                        </font>
-                                                    </span>
+                                                    <font style="font-size: 2rem; float:left;">Décembre 2021</font>
+                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                <div class="details">
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
                                                 </div>
-                                                <div class="end">
-                                                    <h5 class="status">En attente</h5>
-                                                    <a class="details_link" href="/">Voir les d&#233;tails</a>
-                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status red-o">-3h00 à valider</p>
                                             </div>
 
-                                            <div class="list_title s_title pb40">
-                                                <h1>
+                                            <div class="list_title s_title">
+                                                <p>
                                                     <font style="font-size: 2rem; float:left;">Novembre 2021</font>
-                                                    <span>
-                                                        <font style="float:right; font-size:1.25rem; margin-top:10px;">
-                                                            &#192; venir
-                                                        </font>
-                                                    </span>
-                                                </h1>
+                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
+                                                </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                <div class="details">
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
                                                 </div>
-                                                <div class="end">
-                                                    <h5 class="status">En attente</h5>
-                                                    <a class="details_link" href="/">Voir les d&#233;tails</a>
-                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status red">- 1h00</p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                <div class="details">
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
                                                 </div>
-                                                <div class="end">
-                                                    <h5 class="status">En attente</h5>
-                                                    <a class="details_link" href="/">Voir les d&#233;tails</a>
-                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status blue">+ 1h00</p>
                                             </div>
 
-                                            <div class="list_title s_title pb40">
-                                                <h1>
+                                            <div class="list_title s_title">
+                                                <p>
                                                     <font style="font-size: 2rem; float:left;">Octobre 2021</font>
-                                                    <span>
-                                                        <font style="float:right; font-size:1.25rem; margin-top:10px;">
-                                                            &#192; venir
-                                                        </font>
-                                                    </span>
-                                                </h1>
+                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
+                                                </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                <div class="details">
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
                                                 </div>
-                                                <div class="end">
-                                                    <h5 class="status">En attente</h5>
-                                                    <a class="details_link" href="/">Voir les d&#233;tails</a>
-                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status blue">+ 1h00</p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                <div class="details">
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
                                                 </div>
-                                                <div class="end">
-                                                    <h5 class="status">En attente</h5>
-                                                    <a class="details_link" href="/">Voir les d&#233;tails</a>
-                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status blue">+ 1h00</p>
                                             </div>
-                                            <div class="medium-btn btn">Voir les transactions plus anciennes</div>
+                                            <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
                                         </div>
                                     </div>
                                 </section>
@@ -519,12 +512,12 @@
                                             <h1>
                                                 <font style="font-size:2rem;">&#201;v&#232;nements</font>
                                                 <span class="filter_btn btn">
-                                                    <icon class="fa fa-filter" />&amp;nbsp;
+                                                    <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                     Filtrer et trier
                                                 </span>
                                                 <span class="filter_btn btn" style="margin-right:15px">
                                                     Catégorie &amp;nbsp;
-                                                    <icon class="fa fa-chevron-up" />
+                                                    <icon class="fa fa-chevron-up text-epsilon" />
                                                 </span>
                                             </h1>
                                         </div>
@@ -1832,12 +1825,12 @@
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Membres de la communaut&#233;</font>
                                             <span class="filter_btn btn">
-                                                <icon class="fa fa-filter" />&amp;nbsp;
+                                                <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
                                             <span class="filter_btn btn" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
-                                                <icon class="fa fa-chevron-up" />
+                                                <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
                                         </div>
                                     </div>
@@ -2070,7 +2063,7 @@
                                                     </h5>
                                                 </div>
                                             </div>
-                                            <div class="medium-btn btn">Voir les transactions plus anciennes</div>
+                                            <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
                                         </div>
                                     </div>
                                 </section>
@@ -2971,10 +2964,9 @@
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">Activités à venir
-                                                    </font>
-                                                    <a style="float:right; font-size:1.25rem; margin-top:10px;">Voir
-                                                        Tout (+500)
+                                                    <font style="font-size: 2rem; float:left;">Activités à venir</font>
+                                                    <a href="/monactivite/monagenda" style="float:right; font-size:1.25rem; margin-top:10px;">Voir
+                                                        tout (+500)
                                                     </a>
                                                 </p>
                                             </div>
@@ -3006,7 +2998,7 @@
                                                 </div>
                                                 <div class="event">ÉVÈNEMENT</div>
                                             </div>
-                                            <div class="lg-btn btn">
+                                            <div class="lg-btn btn btn-primary text-gamma">
                                                 <i class="fa fa-calendar" /> &amp;nbsp
                                                 Voir mon agenda</div>
                                         </div>
@@ -3108,12 +3100,12 @@
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Mon r&#233;seau</font>
                                             <span class="filter_btn btn">
-                                                <icon class="fa fa-filter" />&amp;nbsp;
+                                                <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
                                             <span class="filter_btn btn" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
-                                                <icon class="fa fa-chevron-up" />
+                                                <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
                                         </div>
                                     </div>
@@ -3737,10 +3729,13 @@
                                                     <font style="float:left;">Offres de service</font>
                                                 </h1>
                                                 <span class="filter_btn btn">
-                                                    <span class="img img-fluid mx-auto fa fa-filter" />
+                                                    <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                     Filtrer et trier
                                                 </span>
-                                                <span class="filter_btn btn" style="margin-right:15px">Catégorie</span>
+                                                <span class="filter_btn btn" style="margin-right:15px">
+                                                    Catégorie &amp;nbsp;
+                                                    <icon class="fa fa-chevron-up text-epsilon" />
+                                                </span>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
@@ -3993,6 +3988,140 @@
             </field>
             <field name="key">website.accordage-a-venir</field>
             <field name="name">Accordage à venir</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_mon_agenda" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="Mon agenda" t-name="website.mon_agenda">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_page_title pb24 pt88 s" style="padding:14%;">
+                                    <p>Mon profil &gt; Mes informations personnelles</p>
+                                    <div class="pt8 pb4 " style="text-align: center;">
+                                        <h1 class="s_title_default" style="text-align: left;">
+                                            Mon agenda
+                                            <span class="filter_btn btn">
+                                                <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
+                                                Filtrer et trier
+                                            </span>
+                                            <span class="filter_btn btn" style="margin-right:15px">
+                                                Catégorie &amp;nbsp;
+                                                <icon class="fa fa-chevron-up text-epsilon" />
+                                            </span>
+                                            <br />
+                                        </h1>
+                                    </div>
+                                </section>
+                                <section class="s_activites_recentes lg debug_unimplemented">
+                                    <div class="container_lists">
+                                        <div class="row activites_list lg">
+                                            <div class="list_title s_title">
+                                                <p>
+                                                    <font style="font-size: 2rem; float:left;">Décembre 2021</font>
+                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
+                                                </p>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
+                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status red-o">-3h00 à valider</p>
+                                            </div>
+
+                                            <div class="list_title s_title">
+                                                <p>
+                                                    <font style="font-size: 2rem; float:left;">Novembre 2021</font>
+                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
+                                                </p>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
+                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status red">- 1h00</p>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
+                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status blue">+ 1h00</p>
+                                            </div>
+
+                                            <div class="list_title s_title">
+                                                <p>
+                                                    <font style="font-size: 2rem; float:left;">Octobre 2021</font>
+                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
+                                                </p>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
+                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status blue">+ 1h00</p>
+                                            </div>
+                                            <div class="activite btn" data-name="Box">
+                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                <div class="activite_infos">
+                                                    <div class="activite_title">
+                                                        <p>Mercredi 16 août</p>
+                                                        <p class="time">11h00 - 12h00</p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
+                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                    </div>
+                                                </div>
+                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
+                                                <p class="status blue">+ 1h00</p>
+                                            </div>
+                                            <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.mon_agenda</field>
+            <field name="name">Mon agenda</field>
             <field name="type">qweb</field>
         </record>
     </data>
