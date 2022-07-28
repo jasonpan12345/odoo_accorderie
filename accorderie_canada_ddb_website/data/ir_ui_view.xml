@@ -20,17 +20,17 @@
                                     <ul class="nav navbar-nav text-right">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite" data-original-title="" title="">
-                                                <span data-original-title="" title="" aria-describedby="tooltip634422">Bilan</span>
+                                                <span>Bilan</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite/accordages">
-                                                <span data-original-title="" title="" aria-describedby="tooltip469978">Accordages</span>
+                                            <a class="nav-link active" role="menu_item" href="/monactivite/accordages">
+                                                <span>Accordages</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
-                                                <span data-original-title="" title="" aria-describedby="tooltip172507">
+                                                <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
@@ -42,7 +42,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="pb0 pt0">
+                                <section class="pb0 pt0 mobile-display-none">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb4" style="text-align: center;">
                                             <p class="s_title_default" style="text-align: left;margin-left:14%; font-size:2rem;">
@@ -52,6 +52,16 @@
                                         </div>
                                     </div>
                                 </section>
+                                <div class="actualite_search d-none">
+                                    <div class="search_bar_rectangle">
+                                        <i class="fa fa-search" />
+                                        <input type="text" placeholder="Chercher un évènement" />
+                                    </div>
+                                    <div class="btn">
+                                        <i class="fa fa-sliders text-epsilon" />
+                                        Filtrer et trier
+                                    </div>
+                                </div>
                                 <section class="s_activites_recentes lg debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
@@ -181,7 +191,7 @@
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav text-right">
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/actualite">
+                                            <a class="nav-link active" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
@@ -204,7 +214,7 @@
                                 </nav>
                                 <section class="s_actualite debug_unimplemented">
                                     <div class="container_actualite">
-                                        <div class="list_title s_title">
+                                        <div class="list_title s_title mobile-display-none">
                                             <p>
                                                 <font style="font-size: 2rem; margin-left:10%">Actualit&#233;</font>
                                             </p>
@@ -490,7 +500,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/evenements">
+                                            <a class="nav-link active" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
                                         </li>
@@ -507,7 +517,7 @@
                                     </ul>
                                 </nav>
                                 <section class="s_event_list lg debug_unimplemented">
-                                    <div class="list_head">
+                                    <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size:2rem;">&#201;v&#232;nements</font>
@@ -520,6 +530,16 @@
                                                     <icon class="fa fa-chevron-up text-epsilon" />
                                                 </span>
                                             </h1>
+                                        </div>
+                                    </div>
+                                    <div class="actualite_search d-none">
+                                        <div class="search_bar_rectangle">
+                                            <i class="fa fa-search" />
+                                            <input type="text" placeholder="Chercher un évènement" />
+                                        </div>
+                                        <div class="btn">
+                                            <i class="fa fa-sliders text-epsilon" />
+                                            Filtrer et trier
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
@@ -756,18 +776,28 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/groupes">
+                                            <a class="nav-link active" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
                                 <section class="s_event_list lg debug_unimplemented">
-                                    <div class="list_head">
+                                    <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size:2rem;">Groupes</font>
                                             </h1>
+                                        </div>
+                                    </div>
+                                    <div class="actualite_search d-none">
+                                        <div class="search_bar_rectangle">
+                                            <i class="fa fa-search" />
+                                            <input type="text" placeholder="Chercher un évènement" />
+                                        </div>
+                                        <div class="btn">
+                                            <i class="fa fa-sliders text-epsilon" />
+                                            Filtrer et trier
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
@@ -1809,7 +1839,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/communaute/membres">
+                                            <a class="nav-link active" role="menu_item" href="/communaute/membres">
                                                 <span>Membres</span>
                                             </a>
                                         </li>
@@ -1821,7 +1851,7 @@
                                     </ul>
                                 </nav>
                                 <section class="s_event_list small-cards debug_unimplemented">
-                                    <div class="list_head">
+                                    <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Membres de la communaut&#233;</font>
                                             <span class="filter_btn btn">
@@ -1832,6 +1862,16 @@
                                                 Catégorie &amp;nbsp;
                                                 <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
+                                        </div>
+                                    </div>
+                                    <div class="actualite_search d-none">
+                                        <div class="search_bar_rectangle">
+                                            <i class="fa fa-search" />
+                                            <input type="text" placeholder="Chercher un évènement" />
+                                        </div>
+                                        <div class="btn">
+                                            <i class="fa fa-sliders text-epsilon" />
+                                            Filtrer et trier
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
@@ -2290,14 +2330,14 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
+                                            <a class="nav-link active" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
                                 <section class="s_event_list lg debug_unimplemented">
-                                    <div class="list_head">
+                                    <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <h1>
                                                 <font style="font-size:2rem;">Mes groupes</font>
@@ -2820,14 +2860,16 @@
                             <div class="oe_structure">
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="banner_profile">
-                                        <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);">
-                                            <i class="fa fa-shield text-gamma" />
-                                        </div>
-                                        <div class="profile_banner_info">
-                                            <p class="profile_name text-gamma">Mon profil</p>
-                                            <p class="profile_hrs text-gamma">
-                                                <i class="fa fa-clock-o" />&amp;nbsp;15 heures
-                                            </p>
+                                        <div class="profile_infos">
+                                            <div class="profile_pic rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;);">
+                                                <i class="fa fa-shield text-gamma" />
+                                            </div>
+                                            <div class="profile_banner_info">
+                                                <p class="profile_name text-gamma">Mon profil</p>
+                                                <p class="profile_hrs text-gamma">
+                                                    <i class="fa fa-clock-o" />&amp;nbsp;15 heures
+                                                </p>
+                                            </div>
                                         </div>
                                         <div class="profile_btn btn accorderie text-gamma">
                                             <i class="fa fa-smile-o" />
@@ -2835,7 +2877,7 @@
                                             <i class="fa fa-chevron-right" />
                                         </div>
                                         <div class="profile_btn btn disconnect text-gamma">
-                                            <i class="fa fa-power-off" />&amp;nbsp;Se d&#233;connecter
+                                            <i class="fa fa-power-off" />&amp;nbsp;Se déconnecter
                                         </div>
                                     </div>
                                 </section>
@@ -2912,18 +2954,18 @@
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav text-right">
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite" data-original-title="" title="">
-                                                <span data-original-title="" title="" aria-describedby="tooltip634422">Bilan</span>
+                                            <a class="nav-link active" role="menu_item" href="/monactivite">
+                                                <span>Bilan</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite/accordages">
-                                                <span data-original-title="" title="" aria-describedby="tooltip469978">Accordages</span>
+                                                <span>Accordages</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
-                                                <span data-original-title="" title="" aria-describedby="tooltip172507">
+                                                <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
@@ -3072,18 +3114,18 @@
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav text-right">
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite" data-original-title="" title="">
-                                                <span data-original-title="" title="" aria-describedby="tooltip634422">Bilan</span>
+                                            <a class="nav-link" role="menu_item" href="/monactivite">
+                                                <span>Bilan</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite/accordages">
-                                                <span data-original-title="" title="" aria-describedby="tooltip469978">Accordages</span>
+                                                <span>Accordages</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
-                                                <span data-original-title="" title="" aria-describedby="tooltip172507">
+                                            <a class="nav-link active" role="menu_item" href="/monactivite/monreseau">
+                                                <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
@@ -3096,7 +3138,7 @@
                                     </ul>
                                 </nav>
                                 <section class="s_event_list small-cards debug_unimplemented">
-                                    <div class="list_head">
+                                    <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Mon r&#233;seau</font>
                                             <span class="filter_btn btn">
@@ -3461,7 +3503,7 @@
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav text-right">
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="#" style="box-shadow: inset 0 -2px orange;">
+                                            <a class="nav-link active" role="menu_item" href="#">
                                                 <span>Mer 1 oct</span>
                                             </a>
                                         </li>
@@ -3996,8 +4038,8 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_page_title pb24 pt88 s" style="padding:14%;">
-                                    <p>Mon profil &gt; Mes informations personnelles</p>
+                                <section class="s_page_title pb24 pt88 s" style="margin:0 14%;">
+                                    <p>Mon activité &gt; Mon agenda</p>
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mon agenda
@@ -4019,7 +4061,15 @@
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem; float:left;">Décembre 2021</font>
-                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
+                                                    <span class="agenda_btns">
+                                                        <span class="btn btn-gamma">
+                                                            <i class="fa fa-calendar" />
+                                                        </span>
+                                                        <divider />
+                                                        <span class="btn btn-gamma text-epsilon">
+                                                            <i class="fa fa-list" />
+                                                        </span>
+                                                    </span>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -4030,18 +4080,16 @@
                                                         <p class="time">11h00 - 12h00</p>
                                                     </div>
                                                     <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                                        <span class="activite_auteur mt-auto">Évènement</span>
+                                                        <span class="mb-auto">Soirée au café Baobab</span>
                                                     </div>
                                                 </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status red-o">-3h00 à valider</p>
+                                                <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
 
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem; float:left;">Novembre 2021</font>
-                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -4056,8 +4104,7 @@
                                                         <span class="mb-auto">Faire visiter une maison à louer</span>
                                                     </div>
                                                 </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status red">- 1h00</p>
+                                                <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
@@ -4071,14 +4118,12 @@
                                                         <span class="mb-auto">Faire visiter une maison à louer</span>
                                                     </div>
                                                 </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status blue">+ 1h00</p>
+                                                <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
 
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem; float:left;">Octobre 2021</font>
-                                                    <a href="" style="float:right; font-size:1.25rem; margin-top:10px;">À venir</a>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -4093,8 +4138,7 @@
                                                         <span class="mb-auto">Faire visiter une maison à louer</span>
                                                     </div>
                                                 </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status blue">+ 1h00</p>
+                                                <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
@@ -4108,8 +4152,7 @@
                                                         <span class="mb-auto">Faire visiter une maison à louer</span>
                                                     </div>
                                                 </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status blue">+ 1h00</p>
+                                                <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
                                             <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
                                         </div>
