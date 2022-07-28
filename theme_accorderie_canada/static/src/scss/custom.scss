@@ -19,6 +19,14 @@ $bg-alpha: white;
 body {
   overflow-x: hidden;
 }
+/*
+  Global
+*/
+@media only screen and (max-width: 990px) {
+  .mobile-display-none {
+    display: none !important;
+  }
+}
 
 // Adapt navbar
 .navbar {
@@ -1084,11 +1092,14 @@ actualité
     .nav-link {
       padding: 1rem 0;
     }
+    .nav-link.active {
+      box-shadow: inset 0 -2px $primary-color;
+    }
   }
 }
 
 .actualite_search {
-  padding: 2% 0 2% 10%;
+  padding: 1rem 0 2rem 10%;
   display: flex;
 
   .search_bar_rectangle {
@@ -1160,6 +1171,7 @@ actualité
 @media only screen and (max-width: 1050px) {
   .actualite_search {
     padding-left: 0;
+    display: flex !important;
 
     .search_bar_rectangle {
       margin: 0;
@@ -1434,6 +1446,11 @@ actualité
       line-height: 3rem;
     }
   }
+  .profile_infos {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
 }
 
 .s_informations {
@@ -1457,7 +1474,7 @@ actualité
 .profile_banner_info {
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  margin-left: 10%;
 
   .profile_name {
     font-size: 3rem;
@@ -1544,6 +1561,12 @@ actualité
 }
 
 @media only screen and (max-width: 990px) {
+  .banner_profile {
+    flex-direction: column;
+    .profile_infos {
+      width: 100%;
+    }
+  }
   .profile_pic {
     height: 12vh;
   }
@@ -1590,7 +1613,7 @@ actualité
 }
 
 /*
-    Page Mon activité/Accordages
+    Page Mon activité/Accordages, Mon activité/Mon agenda
 */
 .s_activites_recentes.lg {
   max-height: 2000px;
@@ -1605,6 +1628,25 @@ actualité
   .list_title {
     border-bottom: 1px solid $beta;
     margin-top: 75px;
+  }
+  .agenda_btns {
+    margin-left: auto;
+    border: 1px solid #d6d6d6;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+
+    .btn {
+      padding: 1rem;
+      line-height: 1rem;
+      font-size: 1.5rem;
+      border-radius: 7px;
+      color: $beta;
+    }
+    divider {
+      border-left: 1px solid $beta;
+      height: 1.5rem;
+    }
   }
 
   .activite.btn {
