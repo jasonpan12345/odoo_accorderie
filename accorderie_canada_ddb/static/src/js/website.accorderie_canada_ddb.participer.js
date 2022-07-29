@@ -259,6 +259,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
+        $scope.is_not_implemented = function (option) {
+            return !Object.keys($scope.workflow).includes(option.id);
+        }
+
         $scope.previous_inner_state_btn = function () {
             // console.debug("call previous_inner_state_btn");
             $scope.error = "";

@@ -615,7 +615,7 @@
                             </div>
                             <div id="participer_form">
                                 <div class="buttons_form_container tab" ng-if="state.type == 'selection_static'">
-                                    <span ng-repeat="option in state.list">
+                                    <span ng-repeat="option in state.list" ng-class="{'debug_unimplemented': is_not_implemented(option)}">
                                         <input
                                             type="radio"
                                             id="{{option.id}}"
@@ -624,7 +624,7 @@
                                             ng-model="$parent.$parent.state.next_id"
                                             required="required"
                                         />
-                                        <label for="{{option.id}}" class="button_form btn">
+                                        <label for="{{option.id}}" class="button_form btn" ng-dblclick="next_btn()">
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
                                         </label>
@@ -655,6 +655,7 @@
                                             class="cat button_form btn"
                                             for="{{option.id}}"
                                             ng-click="click_inner_state_option(option)"
+                                            ng-dblclick="next_btn()"
                                         >
                                             <img
                                                 ng-if="!_.isEmpty(option.icon)"
