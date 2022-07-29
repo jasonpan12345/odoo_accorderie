@@ -510,7 +510,7 @@ searchbar
   }
 
   .s_title_banner p {
-    font-size: 6vh;
+    font-size: 4vh;
   }
 }
 
@@ -811,6 +811,7 @@ actualité
     padding: 0.5rem 1rem;
     margin: 0 0 auto auto;
     font-weight: bold;
+    white-space: nowrap;
   }
   .status.red {
     color: white;
@@ -1163,7 +1164,7 @@ actualité
       text-align: center;
       padding: 0;
       font-size: 3.5vw;
-      flex: 1;
+      margin: auto;
     }
   }
 }
@@ -1308,6 +1309,12 @@ actualité
   display: table;
 }
 
+@media only screen and (max-width: 990px) {
+  .s_event_list.small-cards {
+    padding: 0 5%;
+  }
+}
+
 /*
     Page mon activité/Bilan
 */
@@ -1317,10 +1324,9 @@ actualité
 .bilan_container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  height: 450px;
   padding: 0 10%;
 
   .bilan {
@@ -1332,6 +1338,7 @@ actualité
     white-space: normal;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     .nbr {
       font-size: clamp(30px, 3vw, 3vw) !important;
@@ -1563,8 +1570,12 @@ actualité
 @media only screen and (max-width: 990px) {
   .banner_profile {
     flex-direction: column;
+    align-items: unset;
     .profile_infos {
       width: 100%;
+    }
+    .solde_container {
+      display: none;
     }
   }
   .profile_pic {
@@ -1609,6 +1620,11 @@ actualité
   }
   .profile_btn.accorderie {
     width: 100%;
+    font-size: 5vw;
+
+    i {
+      display: none;
+    }
   }
 }
 
@@ -1725,8 +1741,8 @@ actualité
       display: none;
     }
   }
-  .activites_list.lg .medium-btn {
-    max-width: 90%;
+  .medium-btn.btn {
+    max-width: 100%;
     margin: 5% auto;
     font-size: clamp(0.75rem, 2.5vw, 1rem);
     padding: 2.5%;
@@ -2423,7 +2439,7 @@ actualité
     .dispo .dates_container {
       display: flex;
       flex-wrap: wrap;
-      width: 40%;
+      width: 65%;
       font-size: 1rem;
 
       p {
@@ -2593,6 +2609,10 @@ actualité
       width: 100%;
 
       .info-2 .contact-list .search_box {
+        width: 100%;
+      }
+
+      .info-2 .dispo .dates_container {
         width: 100%;
       }
     }
@@ -2939,6 +2959,28 @@ actualité
 }
 @media only screen and (max-width: 990px) {
   .s_accordage_informations .informations_container {
+    display: flex;
+  }
+}
+
+/*
+  Section mobile filter
+*/
+.s_mobile_filter {
+  display: none;
+  font-size: 2vh;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  .btn {
+    border-radius: 50px;
+    background-color: lightgrey;
+    padding: 0.5rem 1rem;
+    font-size: 2vh;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .s_mobile_filter {
     display: flex;
   }
 }
