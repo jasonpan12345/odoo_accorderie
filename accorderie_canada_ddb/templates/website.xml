@@ -615,7 +615,10 @@
                             </div>
                             <div id="participer_form">
                                 <div class="buttons_form_container tab" ng-if="state.type == 'selection_static'">
-                                    <span ng-repeat="option in state.list" ng-class="{'debug_unimplemented': is_not_implemented(option)}">
+                                    <div
+                                        ng-repeat="option in state.list"
+                                        ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                    >
                                         <input
                                             type="radio"
                                             id="{{option.id}}"
@@ -628,7 +631,7 @@
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
                                         </label>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
