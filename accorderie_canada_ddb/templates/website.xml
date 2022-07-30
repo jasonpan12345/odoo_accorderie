@@ -688,6 +688,21 @@
                                     <h1>Description</h1>
                                     <textarea />
                                 </div>
+                                <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
+                                    <input
+                                        id="chooseMember"
+                                        type="search"
+                                        dir="ltr"
+                                        spellcheck="false"
+                                        autocorrect="off"
+                                        autocomplete="off"
+                                        autocapitalize="off"
+                                        maxlength="2048"
+                                        tabindex="1"
+                                        placeholder="{{chooseMemberPlaceholder}}"
+                                    />
+                                    {{ load_member() }}
+                                </div>
                                 <div class="submit_container">
                                     <input
                                         id="reloadBtn"

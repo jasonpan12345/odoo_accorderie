@@ -39,6 +39,11 @@
                 type="text/scss"
                 href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_liste_offre_et_demande_service.scss"
             />
+<!--            <link-->
+<!--                rel="stylesheet"-->
+<!--                type="text/scss"-->
+<!--                href="https://cdnjs.cloudflare.com/ajax/libs/tarekraafat-autocomplete.js/10.2.7/css/autoComplete.min.css"-->
+<!--            />-->
             <link
                 rel="stylesheet"
                 type="text/scss"
@@ -55,6 +60,10 @@
             <script
                 type="text/javascript"
                 src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-sanitize.min.js"
+            />
+            <script
+                type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/tarekraafat-autocomplete.js/10.2.7/autoComplete.js"
             />
             <script
                 type="text/javascript"

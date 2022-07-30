@@ -547,6 +547,13 @@ class AccorderieCanadaDdbController(http.Controller):
                         },
                     ],
                 },
+                "init.saa.recevoir": {
+                    "id": "init.saa.recevoir",
+                    "message": "Quel est votre accordage?",
+                    "show_breadcrumb": True,
+                    "type": "choix_membre",
+                    "breadcrumb_value": "Avec une demande de service",
+                },
                 "init.va": {
                     "id": "init.va",
                     "message": (
@@ -596,6 +603,20 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
             },
         }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_member",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_member_from_accorderie(self, **kw):
+        # TODO filter get member from accorderie
+        env = request.env(context=dict(request.env.context))
+        accorderie_membre_ids = env["accorderie.membre"].sudo().search([])
+        return {"list": accorderie_membre_ids.mapped("nom_complet")}
 
     @http.route(
         [
