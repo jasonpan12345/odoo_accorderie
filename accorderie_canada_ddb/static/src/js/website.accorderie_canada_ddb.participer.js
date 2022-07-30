@@ -59,6 +59,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.in_multiple_inner_state = false; // true when a state need multiple interaction before show next
         $scope.is_inner_state = false; // true when a state need multiple interaction
         $scope.lst_label_breadcrumb = [];
+        $scope.autoCompleteJS = undefined;
+        $scope.originChooseMemberPlaceholder = "Nom de la personne";
+        $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
 
         ajax.rpc("/accorderie_canada_ddb/get_participer_workflow_data/", {}).then(function (data) {
             console.debug("AJAX receive get_participer_workflow_data");
@@ -117,6 +120,86 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 }
             }
             $scope.change_state_name(state);
+        }
+
+        // Member
+        $scope._load_member = function (data) {
+            $scope.autoCompleteJS = new autoComplete(
+                {
+                    selector: "#chooseMember",
+                    // placeHolder: "Nom de la personne",
+                    data: {
+                        src: data
+                    },
+                    resultItem: {
+                        highlight: true,
+                    },
+                    events: {
+                        input: {
+                            selection: (event) => {
+                                $scope.autoCompleteJS.input.value = event.detail.selection.value;
+                            },
+                            focus() {
+                                const inputValue = $scope.autoCompleteJS.input.value;
+                                if (inputValue.length) $scope.autoCompleteJS.start();
+                            },
+                            open() {
+                                const position =
+                                    $scope.autoCompleteJS.input.getBoundingClientRect().bottom + $scope.autoCompleteJS.list.getBoundingClientRect().height >
+                                    (window.innerHeight || document.documentElement.clientHeight);
+
+                                if (position) {
+                                    $scope.autoCompleteJS.list.style.bottom = $scope.autoCompleteJS.input.offsetHeight + 8 + "px";
+                                } else {
+                                    $scope.autoCompleteJS.list.style.bottom = -$scope.autoCompleteJS.list.offsetHeight - 8 + "px";
+                                }
+                            },
+                        }
+                    },
+                    resultsList: {
+                        element: (list, data) => {
+                            const message = document.createElement("div");
+                            if (!data.results.length) {
+                                // Create "No Results" message list element
+                                message.setAttribute("class", "no_result");
+                                // Add message text content
+                                message.innerHTML = `<span>Aucun résultat trouvé pour "${data.query}"</span>`;
+                            } else {
+                                message.innerHTML = `<strong>${data.results.length}</strong> sur <strong>${data.matches.length}</strong> résultats`;
+                            }
+                            // Add message list element to the list
+                            list.prepend(message);
+                        },
+                        noResults: true,
+                        highlight: true,
+                    },
+                    // searchEngine: "loose",
+                    searchEngine: "strict",
+                },
+            );
+        }
+
+        $scope.load_member = function () {
+            // Need this function to detect state type is choix_membre and finish render before instance autoComplete
+            if (_.isUndefined($scope.autoCompleteJS) && $scope.state.type === 'choix_membre' && $scope.chooseMemberPlaceholder !== "En attente...") {
+                $scope.chooseMemberPlaceholder = "En attente..."
+                console.debug("waiting after get_member");
+                ajax.rpc("/accorderie_canada_ddb/get_member/", {}).then(function (data) {
+                    console.debug("AJAX receive get_member");
+                    if (data.error) {
+                        $scope.error = error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data get member";
+                    } else {
+                        $scope._load_member(data.list);
+                        $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
+                    }
+
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                })
+            }
+            return "";
         }
 
         // History
@@ -228,6 +311,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $location.search(PARAM_STATE_NAME, null);
                 } else {
                     $location.search(PARAM_STATE_NAME, state.id);
+                }
+                if (!_.isUndefined($scope.autoCompleteJS)) {
+                    // Clean autoCompleteJS when change state
+                    $scope.autoCompleteJS.unInit();
+                    $scope.autoCompleteJS = undefined;
                 }
                 $scope.state = state;
                 $scope.stack_breadcrumb_state.push(state);
