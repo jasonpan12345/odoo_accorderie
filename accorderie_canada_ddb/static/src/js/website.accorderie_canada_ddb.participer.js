@@ -48,6 +48,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             breadcrumb_show_only_last_item: false,
             breadcrumb_show_value_last_item: false,
             selected_value: undefined,
+            selected_obj_value: undefined,
             selected_id: undefined,
             selected_tree_id: undefined,
             model_field_name_alias: undefined,
@@ -130,19 +131,26 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     selector: "#chooseMember",
                     // placeHolder: "Nom de la personne",
                     data: {
-                        src: data
+                        src: data,
+                        keys: ["text"],
+                        cache: true,
                     },
                     resultItem: {
+                        element: (element, data) => {
+                            element.innerHTML = `<img style="width:50px" src="${data.value.img}" class="nav_pic rounded-circle"/>${data.match}`
+                        },
                         highlight: true,
                     },
                     events: {
                         input: {
                             selection: (event) => {
-                                let value = event.detail.selection.value;
-                                let index = event.detail.selection.index;
+                                let value = event.detail.selection.value.text;
+                                // let index = event.detail.selection.index;
                                 $scope.autoCompleteJS.input.value = value;
-                                $scope.state.selected_id = data_list[index].id;
+                                // $scope.state.selected_id = data_list[index].id;
+                                $scope.state.selected_id = event.detail.selection.value.id;
                                 $scope.state.selected_value = value;
+                                $scope.state.selected_obj_value = event.detail.selection.value;
                                 $scope.autoCompleteJS.unInit();
                                 // Process all the angularjs watchers
                                 $scope.$digest();
@@ -182,7 +190,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         },
                         maxResults: 10,
                         noResults: true,
-                        highlight: true,
+                        highlight: {
+                            render: true,
+                        },
                     },
                     // searchEngine: "loose",
                     searchEngine: "strict",
@@ -191,6 +201,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.load_member = function () {
+            if (!_.isUndefined($scope.state.data)) {
+                if (!_.isEmpty($scope.state.selected_value)) {
+                    document.getElementById("chooseMember").value = $scope.state.selected_value;
+                }
+                return;
+            }
             // Need this function to detect state type is choix_membre and finish render before instance autoComplete
             if (_.isUndefined($scope.autoCompleteJS) && $scope.state.type === 'choix_membre' && $scope.chooseMemberPlaceholder !== "En attente...") {
                 $scope.chooseMemberPlaceholder = "En attente..."
@@ -202,8 +218,39 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     } else if (_.isEmpty(data)) {
                         $scope.error = "Empty data get member";
                     } else {
-                        $scope._load_member(data.list);
+                        $scope.state.data = data.list;
                         $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
+
+                        // detect parameters
+                        let param_name;
+                        if (!_.isUndefined($scope.state.model_field_name_alias)) {
+                            param_name = $scope.state.model_field_name_alias;
+                        } else if (!_.isUndefined($scope.state.model_field_name)) {
+                            param_name = $scope.state.model_field_name;
+                        }
+
+                        // fill value if params
+                        if (!_.isUndefined(param_name)) {
+                            let obj_selected_value = parseInt($location.search()[param_name]);
+                            if (Number.isInteger(obj_selected_value)) {
+                                // TODO create a dict from list instead of iterate it
+                                for (let i = 0; i < $scope.state.data.length; i++) {
+                                    if ($scope.state.data[i].id === obj_selected_value) {
+                                        $scope.state.selected_obj_value = $scope.state.data[i];
+                                        $scope.state.selected_id = obj_selected_value;
+                                        $scope.state.selected_value = $scope.state.selected_obj_value.text;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (!_.isEmpty($scope.state.selected_value)) {
+                            // autoCompleteJS is unInit
+                            // $scope.autoCompleteJS.input.value = $scope.state.selected_value;
+                            document.getElementById("chooseMember").value = $scope.state.selected_value;
+                        } else {
+                            $scope._load_member(data.list);
+                        }
                     }
 
                     // Process all the angularjs watchers
@@ -215,9 +262,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.remove_member = function () {
             $scope.state.selected_id = undefined;
-            $scope.autoCompleteJS.init();
+            if (!_.isUndefined($scope.autoCompleteJS)) {
+                $scope.autoCompleteJS.init();
+            } else {
+                $scope._load_member($scope.state.data);
+            }
             $scope.autoCompleteJS.input.value = ""
             $scope.state.selected_value = ""
+            $scope.state.selected_obj_value = undefined
         }
 
         // History
@@ -333,7 +385,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 }
                 if (!_.isUndefined($scope.autoCompleteJS)) {
                     // Clean autoCompleteJS when change state
-                    $scope.autoCompleteJS.unInit();
+                    try {
+                        $scope.autoCompleteJS.unInit();
+                    } catch (e) {
+                        // ignore, unInit already called
+                    }
                     $scope.autoCompleteJS = undefined;
                 }
                 $scope.state = state;
