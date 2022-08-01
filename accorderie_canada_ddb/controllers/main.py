@@ -557,6 +557,16 @@ class AccorderieCanadaDdbController(http.Controller):
                     "breadcrumb_value": "Recevoir un service",
                     "next_id": "init.saa.recevoir.choix",
                 },
+                "init.saa.recevoir.choix": {
+                    "id": "init.saa.recevoir.choix",
+                    "message": "Choisir une de ses offres",
+                    "show_breadcrumb": True,
+                    # "type": "choix_membre",
+                    # "model_field_name_alias": "membre",
+                    # "model_field_name": "membre_id",
+                    # "breadcrumb_value": "Recevoir un service",
+                    # "next_id": "init.saa.recevoir.choix",
+                },
                 "init.va": {
                     "id": "init.va",
                     "message": (
@@ -619,7 +629,16 @@ class AccorderieCanadaDdbController(http.Controller):
         # TODO filter get member from accorderie
         env = request.env(context=dict(request.env.context))
         accorderie_membre_ids = env["accorderie.membre"].sudo().search([])
-        return {"list": accorderie_membre_ids.mapped("nom_complet")}
+        return {
+            "list": [
+                {
+                    "text": a.nom_complet,
+                    "id": a.id,
+                    "img": "/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg",
+                }
+                for a in accorderie_membre_ids
+            ]
+        }
 
     @http.route(
         [

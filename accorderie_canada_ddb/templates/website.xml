@@ -689,6 +689,7 @@
                                     <textarea />
                                 </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
+                                    <img style="width:50px" class="nav_pic rounded-circle" ng-src="{{state.selected_obj_value.img}}" ng-if="!_.isUndefined(state.selected_obj_value)"/>
                                     <input
                                         id="chooseMember"
                                         type="search"
