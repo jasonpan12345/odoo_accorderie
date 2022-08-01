@@ -58,6 +58,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.actual_inner_state_name = "";
         $scope.in_multiple_inner_state = false; // true when a state need multiple interaction before show next
         $scope.is_inner_state = false; // true when a state need multiple interaction
+        $scope.is_next_wait_value = false;
         $scope.lst_label_breadcrumb = [];
         $scope.autoCompleteJS = undefined;
         $scope.originChooseMemberPlaceholder = "Nom de la personne";
@@ -137,11 +138,20 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     events: {
                         input: {
                             selection: (event) => {
-                                $scope.autoCompleteJS.input.value = event.detail.selection.value;
+                                let value = event.detail.selection.value;
+                                let index = event.detail.selection.index;
+                                $scope.autoCompleteJS.input.value = value;
+                                $scope.state.selected_id = data_list[index].id;
+                                $scope.state.selected_value = value;
+                                $scope.autoCompleteJS.unInit();
+                                // Process all the angularjs watchers
+                                $scope.$digest();
                             },
                             focus() {
                                 const inputValue = $scope.autoCompleteJS.input.value;
-                                if (inputValue.length) $scope.autoCompleteJS.start();
+                                if (inputValue.length) {
+                                    $scope.autoCompleteJS.start();
+                                }
                             },
                             open() {
                                 const position =
@@ -170,6 +180,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             // Add message list element to the list
                             list.prepend(message);
                         },
+                        maxResults: 10,
                         noResults: true,
                         highlight: true,
                     },
@@ -200,6 +211,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 })
             }
             return "";
+        }
+
+        $scope.remove_member = function () {
+            $scope.state.selected_id = undefined;
+            $scope.autoCompleteJS.init();
+            $scope.autoCompleteJS.input.value = ""
+            $scope.state.selected_value = ""
         }
 
         // History
@@ -236,7 +254,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             if (_.isEmpty($scope.state.next_id)) {
                 return true;
             }
-            return !!($scope.is_inner_state && _.isEmpty($scope.state.selected_value));
+            return !!($scope.is_next_wait_value && _.isEmpty($scope.state.selected_value));
         }
 
         $scope.change_state_name = function (stateName) {
@@ -252,6 +270,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.next_btn = function () {
+            if ($scope.is_disable_next()) return;
             // console.debug("call next_btn");
             if (_.isUndefined($scope.state.next_id) || _.isEmpty($scope.state.next_id)) {
                 console.error("Cannot find next state, next_id variable is undefined or empty.");
@@ -322,6 +341,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.update_breadcrumb();
                 $scope.in_multiple_inner_state = state.type === "choix_categorie_de_service" && !_.isUndefined(state.data);
                 $scope.is_inner_state = state.type === "choix_categorie_de_service";
+                $scope.is_next_wait_value = $scope.is_inner_state || state.type === "choix_membre"
                 // Force delete stack inner state
                 $scope.stack_breadcrumb_inner_state = [];
                 $scope.actual_inner_state_name = "";

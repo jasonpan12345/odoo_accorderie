@@ -700,7 +700,11 @@
                                         maxlength="2048"
                                         tabindex="1"
                                         placeholder="{{chooseMemberPlaceholder}}"
-                                    />
+                                        ng-readonly="!_.isUndefined($parent.state.selected_id)"
+                                    /><button
+                                        ng-click="remove_member()"
+                                        ng-if="!_.isUndefined($parent.state.selected_id)"
+                                    >X</button>
                                     {{ load_member() }}
                                 </div>
                                 <div class="submit_container">
