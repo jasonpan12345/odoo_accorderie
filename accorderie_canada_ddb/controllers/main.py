@@ -549,10 +549,13 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
                 "init.saa.recevoir": {
                     "id": "init.saa.recevoir",
-                    "message": "Quel est votre accordage?",
+                    "message": "De qui souhaitez-vous recevoir le service?",
                     "show_breadcrumb": True,
                     "type": "choix_membre",
-                    "breadcrumb_value": "Avec une demande de service",
+                    "model_field_name_alias": "membre",
+                    "model_field_name": "membre_id",
+                    "breadcrumb_value": "Recevoir un service",
+                    "next_id": "init.saa.recevoir.choix",
                 },
                 "init.va": {
                     "id": "init.va",
