@@ -39,18 +39,13 @@ body {
 
 @media only screen and (max-width: 890px) {
   .list_title {
-    * {
-      margin-top: 0 !important;
-    }
-
     font {
       font-size: 5vw !important;
       float: left;
-      margin-left: 0 !important;
     }
 
     a {
-      font-size: 4vw !important;
+      font-size: 3vw !important;
     }
 
     span * {
@@ -64,6 +59,7 @@ body {
 
   p {
     display: flex;
+    align-items: center;
   }
 
   a {
@@ -708,12 +704,6 @@ actualité
   width: 94%;
   border-top: 1px solid $beta;
 }
-@media only screen and (max-width: 990px) {
-  .actualite_foot,
-  .fa-thumb-tack {
-    display: none;
-  }
-}
 
 @media only screen and (max-width: 1050px) {
   .container_accordage {
@@ -909,6 +899,7 @@ actualité
   text-align: center;
   align-items: center;
   overflow: hidden;
+  min-height: 75px;
 
   .event_date {
     flex: 1;
@@ -1643,7 +1634,7 @@ actualité
 
   .list_title {
     border-bottom: 1px solid $beta;
-    margin-top: 75px;
+    margin-top: 6vh;
   }
   .agenda_btns {
     margin-left: auto;
@@ -2182,7 +2173,7 @@ actualité
 
   .list_title {
     border-bottom: 1px solid $beta;
-    margin-top: 75px;
+    margin-top: 6vh;
   }
 
   .activite.btn {

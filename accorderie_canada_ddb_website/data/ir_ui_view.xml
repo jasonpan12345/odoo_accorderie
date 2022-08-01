@@ -68,7 +68,7 @@
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem;">Décembre 2021</font>
-                                                    <a class="text-epsilon" style="font-size:1.25rem; margin-top:10px;">
+                                                    <a class="text-epsilon" style="font-size:1.25rem;">
                                                         <i class="fa fa-clock-o" />
                                                         À venir
                                                     </a>
@@ -108,7 +108,7 @@
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem;">Novembre 2021</font>
-                                                    <a style="font-size:1.25rem; margin-top:10px;">
+                                                    <a style="font-size:1.25rem;">
                                                         <i class="fa fa-clock-o" />
                                                         0
                                                     </a>
@@ -148,7 +148,7 @@
                                             <div class="list_title s_title">
                                                 <p>
                                                     <font style="font-size: 2rem;">Octobre 2021</font>
-                                                    <a style="font-size:1.25rem; margin-top:10px;">
+                                                    <a style="font-size:1.25rem;">
                                                         <i class="fa fa-clock-o" />
                                                         + 2h30
                                                     </a>
@@ -269,7 +269,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack" />
+                                                <i class="fa fa-thumb-tack mobile-display-none" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -303,7 +303,7 @@
                                                     <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
-                                            <div class="actualite_foot">
+                                            <div class="actualite_foot mobile-display-none">
                                                 <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
                                                     <input type="text" placeholder="&#201;crivez un commentaire" />
@@ -325,7 +325,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack" />
+                                                <i class="fa fa-thumb-tack mobile-display-none" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -360,7 +360,7 @@
                                                     <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
-                                            <div class="actualite_foot">
+                                            <div class="actualite_foot mobile-display-none">
                                                 <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
                                                     <input type="text" placeholder="&#201;crivez un commentaire" />
@@ -389,7 +389,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack" />
+                                                <i class="fa fa-thumb-tack mobile-display-none" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -423,7 +423,7 @@
                                                     <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
-                                            <div class="actualite_foot">
+                                            <div class="actualite_foot mobile-display-none">
                                                 <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
                                                     <input type="text" placeholder="&#201;crivez un commentaire" />
@@ -445,7 +445,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack" />
+                                                <i class="fa fa-thumb-tack mobile-display-none" />
                                             </div>
                                             <div class="actualite_content">
                                                 <div class="pub_title">
@@ -479,7 +479,7 @@
                                                     <icon class="fa fa-comment-o" />&amp;nbsp;Commenter
                                                 </div>
                                             </div>
-                                            <div class="actualite_foot">
+                                            <div class="actualite_foot mobile-display-none">
                                                 <img class="profile_img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
                                                 <div class="comment_bar">
                                                     <input type="text" placeholder="&#201;crivez un commentaire" />
@@ -1213,7 +1213,7 @@
                                         <p>
                                             <font style="font-size: 2rem; margin-left:10%">Derni&#232;res Actualit&#233;s</font>
                                             <a>
-                                                <font style="float:right; font-size:1.25rem;margin-top:10px;">
+                                                <font style="font-size:1.25rem;">
                                                     Voir Tout
                                                     (+10)
                                                 </font>
@@ -1231,7 +1231,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack" />
+                                                <i class="fa fa-thumb-tack mobile-display-none" />
                                             </div>
                                         <div class="actualite_content">
                                             <div class="pub_title">
@@ -1287,7 +1287,7 @@
                                                         <p>Publiée il y a 1 j</p>
                                                     </div>
                                                 </div>
-                                                <i class="fa fa-thumb-tack" />
+                                                <i class="fa fa-thumb-tack mobile-display-none" />
                                             </div>
                                         <div class="actualite_content">
                                             <div class="pub_title">
@@ -1401,9 +1401,9 @@
                             <section class="s_event_list debug_unimplemented">
                                 <div class="list_head">
                                     <div class="list_title s_title">
-                                        <div style="display:flex;gap:1%">
+                                        <div style="display:flex;gap:1%;align-items:center;">
                                             <font style="font-size:2rem;">&#201;v&#232;nements</font>
-                                            <a href="" style="font-size:1.25rem;margin-top:10px;margin-right:3%">
+                                            <a href="" style="font-size:1.25rem;margin-right:3%">
                                                 Voir Tout
                                                 (+10)
 
@@ -2046,7 +2046,7 @@
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem; float:left;">Mes offres de service</font>
+                                                    <font style="font-size: 1.5rem;">Mes offres de service</font>
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -2091,7 +2091,7 @@
                                             </div>
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem; float:left;">
+                                                    <font style="font-size: 1.5rem;">
                                                         Mes demandes de
                                                         service
                                                     </font>
@@ -2160,7 +2160,7 @@
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem; float:left;">Les offres de service</font>
+                                                    <font style="font-size: 1.5rem;">Les offres de service</font>
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -2203,7 +2203,7 @@
                                             </div>
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem; float:left;">
+                                                    <font style="font-size: 1.5rem;">
                                                         Les demandes de
                                                         service
                                                     </font>
@@ -2268,7 +2268,7 @@
                                             </div>
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem; float:left;">Les membres</font>
+                                                    <font style="font-size: 1.5rem;">Les membres</font>
                                                 </h5>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -3030,8 +3030,8 @@
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">Activités à venir</font>
-                                                    <a href="/monactivite/monagenda" style="float:right; font-size:1.25rem; margin-top:10px;">Voir
+                                                    <font style="font-size: 2rem;">Activités à venir</font>
+                                                    <a href="/monactivite/monagenda" style="font-size:1.25rem;">Voir
                                                         tout (+500)
                                                     </a>
                                                 </p>
@@ -3071,11 +3071,11 @@
                                         <div class="row activites_list">
                                             <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">
+                                                    <font style="font-size: 2rem;">
                                                         Messages et
                                                         notifications
                                                     </font>
-                                                    <a href="/monprofil/messages" style="float:right; font-size:1.25rem; margin-top:10px;">Voir
+                                                    <a href="/monprofil/messages" style="font-size:1.25rem;">Voir
                                                         Tout (+40)
                                                     </a>
                                                 </p>
@@ -3800,18 +3800,28 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="list_title s_title pb40">
-                                                <h1>
-                                                    <font style="float:left;">Offres de service</font>
-                                                </h1>
-                                                <span class="filter_btn btn">
-                                                    <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
-                                                    Filtrer et trier
-                                                </span>
-                                                <span class="filter_btn btn" style="margin-right:15px">
-                                                    Catégorie &amp;nbsp;
-                                                    <icon class="fa fa-chevron-up text-epsilon" />
-                                                </span>
+                                            <div class="list_title s_title pb24">
+                                                <section class="s_mobile_filter">
+                                                    <div class="btn">
+                                                        Catégorie
+                                                        <i class="fa fa-chevron-down"/>
+                                                    </div>
+                                                    <div class="btn">
+                                                        <i class="fa fa-sliders"/>
+                                                        Filtrer et trier
+                                                    </div>
+                                                </section>
+                                                <p>
+                                                    <font style="font-size:2rem;">Offres de service</font>
+                                                    <span class="filter_btn btn" style="margin:auto 15px auto auto">
+                                                        Catégorie &amp;nbsp;
+                                                        <icon class="fa fa-chevron-up text-epsilon"/>
+                                                    </span>
+                                                    <span class="filter_btn btn">
+                                                        <icon class="fa fa-sliders text-epsilon"/>&amp;nbsp;
+                                                        Filtrer et trier
+                                                    </span>
+                                                </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
@@ -4092,9 +4102,19 @@
                                 <section class="s_activites_recentes lg debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
+                                            <section class="s_mobile_filter">
+                                                <div class="btn">
+                                                    Voir tous
+                                                    <i class="fa fa-chevron-down"/>
+                                                </div>
+                                                <div class="btn">
+                                                    <i class="fa fa-sliders"/>
+                                                    Filtrer et trier
+                                                </div>
+                                            </section>
                                             <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">Décembre 2021</font>
+                                                    <font style="font-size: 2rem;">Décembre 2021</font>
                                                     <span class="agenda_btns">
                                                         <span class="btn btn-gamma">
                                                             <i class="fa fa-calendar" />
@@ -4123,7 +4143,7 @@
 
                                             <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">Novembre 2021</font>
+                                                    <font style="font-size: 2rem;">Novembre 2021</font>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">
@@ -4157,7 +4177,7 @@
 
                                             <div class="list_title s_title">
                                                 <p>
-                                                    <font style="font-size: 2rem; float:left;">Octobre 2021</font>
+                                                    <font style="font-size: 2rem;">Octobre 2021</font>
                                                 </p>
                                             </div>
                                             <div class="activite btn" data-name="Box">

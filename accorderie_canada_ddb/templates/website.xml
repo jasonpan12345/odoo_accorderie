@@ -319,11 +319,11 @@
                 <div class="row activites_list col-lg-6">
                     <div class="list_title s_title">
                         <p>
-                            <font style="font-size: 2rem; float:left;">Offres r&#233;centes</font>
+                            <font style="font-size: 2rem;">Offres r&#233;centes</font>
                             <a
                                 t-if="offre_services_count"
                                 href="/offresservice"
-                                style="float:right; font-size:1.25rem; margin-top:10px;"
+                                style="font-size:1.25rem;"
                             >Voir Tout (+<t t-raw="offre_services_count" />)</a>
                         </p>
                     </div>
@@ -383,11 +383,11 @@
                 <div class="row activites_list col-lg-6">
                     <div class="list_title s_title">
                         <p>
-                            <font style="font-size: 2rem; float:left;">Demandes r&#233;centes</font>
+                            <font style="font-size: 2rem;">Demandes r&#233;centes</font>
                             <a
                                 t-if="demande_services_count"
                                 href="/offresservice"
-                                style="float:right; font-size:1.25rem; margin-top:10px;"
+                                style="font-size:1.25rem;"
                             >Voir Tout (+<t t-raw="demande_services_count" />)</a>
                         </p>
                     </div>
@@ -565,8 +565,8 @@
             <div t-if="type_service_categories">
                 <div class="list_title s_title">
                     <p>
-                        <font style="font-size: 2rem; float:left;">Explorer les offres</font>
-                        <a href="/offresservice" style="float:right; font-size:1.25rem; margin-top:10px;">
+                        <font style="font-size: 2rem;">Explorer les offres</font>
+                        <a href="/offresservice" style="font-size:1.25rem;">
                             Voir Tout (+500)
                         </a>
                     </p>
