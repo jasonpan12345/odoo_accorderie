@@ -1754,19 +1754,19 @@ actualité
     Participer
 */
 .s_buttons_form {
-  min-height: 900px;
-  max-height: 1000px;
+  max-height: calc(100vh - 126px);
   display: flex;
 }
 
 .txt_question {
   display: flex;
-  align-items: center;
   background-color: $alpha;
   width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
 
   h1 {
-    margin: auto;
     color: $text-alpha;
   }
 }
@@ -1790,20 +1790,17 @@ actualité
 }
 
 .buttons_form_container {
-  width: 100%;
-  height: 90%;
+  display: flex;
+  height: calc(100vh - 126px - 5rem);
   flex-direction: row;
   gap: 20px;
-  padding: 5% 10% 0 10%;
+  padding: 5% 10%;
   flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
   overflow-y: scroll;
 
   label {
-    max-height: 20%;
-    width: 80%;
-    margin: 0 auto;
+    min-height: 120px;
+    width: 100%;
     border: 1px solid $beta;
     border-radius: 5px;
     padding: 2%;
@@ -1815,11 +1812,23 @@ actualité
       width: 65px;
     }
   }
+  .button_form {
+    width: 80%;
+    margin: auto;
+  }
 
-  .cat.button_form {
-    width: 45%;
-    max-height: 10%;
+  .categorie {
+    max-height: 100px;
+    width: 47.5%;
+  }
+  .cat {
     white-space: nowrap;
+    min-height: unset;
+    height: 100px;
+    width: 100%;
+    padding: 1rem;
+    hyphens: auto;
+    white-space: normal;
   }
 
   .small {
@@ -1841,15 +1850,15 @@ actualité
 }
 
 .submit_container {
-  height: 10%;
+  height: 5rem;
   border-top: 2px solid $alpha;
 
   .submit_btn {
-    min-width: 15%;
+    width: 120px;
     height: 50px;
     background-color: $primary-color;
     float: right;
-    margin: 1rem 5% 5rem;
+    margin: 1rem 5%;
     border-radius: 5px;
     color: $text-alpha;
   }
@@ -1879,16 +1888,11 @@ actualité
 
     .txt_question {
       background-color: $bg-alpha;
-      margin-top: 10%;
+      padding: 5%;
 
-      > * {
+      h1 {
         color: $text-beta;
-        width: 80%;
         font-size: 3vh;
-      }
-
-      .txt_question {
-        padding: 5% 10%;
       }
     }
     #participer_form {

@@ -606,8 +606,9 @@
                                         ng-repeat="link in lst_label_breadcrumb"
                                         ng-click="change_breadcrumb_index(link.index)"
                                         style="cursor:pointer;"
-                                    >{{link.text}}</span></div>
-                                <h1 ng-show="state.message">{{state.message}}</h1>
+                                    >{{link.text}}</span>
+                                    <h1 ng-show="state.message">{{state.message}}</h1>
+                                </div>
                                 <div ng-show="!_.isEmpty(error)">
                                     <br />
                                     <h1>Erreur : {{error}}</h1>
@@ -618,6 +619,7 @@
                                     <div
                                         ng-repeat="option in state.list"
                                         ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                        class="button_form"
                                     >
                                         <input
                                             type="radio"
@@ -627,7 +629,7 @@
                                             ng-model="$parent.$parent.state.next_id"
                                             required="required"
                                         />
-                                        <label for="{{option.id}}" class="button_form btn" ng-dblclick="next_btn()">
+                                        <label for="{{option.id}}" class="btn" ng-dblclick="next_btn()">
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
                                         </label>
@@ -635,7 +637,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    style="align-content:unset;"
+                                    style="justify-content:space-between;"
                                     ng-if="state.type == 'choix_categorie_de_service'"
                                 >
                                     <div
@@ -645,7 +647,7 @@
                                         ng-if="!_.isEmpty(actual_inner_state_name)"
                                         ng-click="previous_inner_state_btn()"
                                     >0- {{actual_inner_state_name}}</div>
-                                    <span ng-repeat="option in state_get_data()">
+                                    <span ng-repeat="option in state_get_data()" class="categorie">
                                         <input
                                             type="radio"
                                             id="{{option.id}}"
@@ -655,7 +657,7 @@
                                             required="required"
                                         />
                                         <label
-                                            class="cat button_form btn"
+                                            class="cat btn"
                                             for="{{option.id}}"
                                             ng-click="click_inner_state_option(option)"
                                             ng-dblclick="next_btn()"
