@@ -10,7 +10,7 @@
             <field name="description">Je suis professeur depuis 40 ans en violon, j'offre des cours pour débutant</field>
             <field name="quoi_apporter">Votre violon</field>
             <field name="membre" ref="accorderie_membre_martin_bergeron" />
-            <field name="type_service_id" ref="accorderie_canada_ddb.accorderie_type_service_108_a_13_apprentissage_du_violon" />
+            <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_108_a_13_apprentissage_du_violon" />
         </record>
         <record id="accorderie_offre_service_je_vous_fais_decouvrir_la_ville_et_toutes_les_bonnes_choses_a_savoir" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -20,7 +20,7 @@
             <field name="titre">Je vous fais découvrir la ville et toutes les bonnes choses à savoir.</field>
             <field name="description">Je connais très bien la ville, c'est ma ville natale!</field>
             <field name="membre" ref="accorderie_membre_alice_poitier" />
-            <field name="type_service_id" ref="accorderie_canada_ddb.accorderie_type_service_111_c_2_guide_touristique_ville_de_quebec" />
+            <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_111_c_2_guide_touristique_ville_de_quebec" />
         </record>
         <record id="accorderie_offre_service_faire_visiter_une_maison_a_louer" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -30,7 +30,7 @@
             <field name="titre">Faire visiter une maison à louer</field>
             <field name="description">Je peux visiter vos maisons à louer, je suis expert immobilier et j'adore faire cette activité dans mes temps libres.</field>
             <field name="membre" ref="accorderie_membre_denis_lemarchand" />
-            <field name="type_service_id" ref="accorderie_canada_ddb.accorderie_type_service_101_f_4_conseils_valorisation_immobiliere" />
+            <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_101_f_4_conseils_valorisation_immobiliere" />
         </record>
     </data>
 </odoo>
