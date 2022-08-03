@@ -1808,7 +1808,6 @@ actualité
     white-space: normal;
 
     img {
-      float: left;
       width: 65px;
     }
   }
@@ -1822,13 +1821,15 @@ actualité
     width: 47.5%;
   }
   .cat {
-    white-space: nowrap;
     min-height: unset;
     height: 100px;
     width: 100%;
     padding: 1rem;
     hyphens: auto;
     white-space: normal;
+    display: flex;
+    gap: 5%;
+    align-items: center;
   }
 
   .small {
@@ -1840,6 +1841,29 @@ actualité
     > * {
       margin: 0;
     }
+  }
+  .search_member_container {
+    display: flex;
+    height: 4rem;
+    outline: none;
+    width: 100%;
+    border: 1px solid $beta;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0 5%;
+  }
+
+  .autoComplete_wrapper {
+    width: 100%;
+    height: 4rem;
+  }
+
+  #chooseMember {
+    height: 4rem;
+    outline: none;
+    border: none;
+    border-top: 1px solid $beta;
+    border-bottom: 1px solid $beta;
   }
 }
 
@@ -1892,14 +1916,20 @@ actualité
 
       h1 {
         color: $text-beta;
-        font-size: 3vh;
+        font-size: clamp(12px, 7vw, 1.75rem);
       }
     }
     #participer_form {
       padding-bottom: 5vh;
 
       .buttons_form_container {
-        padding: 5% 0;
+        padding: 5%;
+        gap: 0.5rem;
+
+        .cat {
+          padding: 0.5rem;
+          height: 100%;
+        }
       }
 
       .buttons_form_container .btn.small {
@@ -1910,6 +1940,16 @@ actualité
         width: 30%;
         margin: 5%;
       }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .cat {
+    .cat_desc {
+      font-size: 3vw;
+    }
+    .offre_img {
+      width: 10vw;
     }
   }
 }
