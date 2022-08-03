@@ -605,13 +605,13 @@
                                 <div><span
                                         ng-repeat="link in lst_label_breadcrumb"
                                         ng-click="change_breadcrumb_index(link.index)"
-                                        style="cursor:pointer;"
+                                        style="cursor:pointer; color:white"
                                     >{{link.text}}</span>
                                     <h1 ng-show="state.message">{{state.message}}</h1>
                                 </div>
                                 <div ng-show="!_.isEmpty(error)">
                                     <br />
-                                    <h1>Erreur : {{error}}</h1>
+                                    <span style="color:red;">Erreur : {{error}}</span>
                                 </div>
                             </div>
                             <div id="participer_form">
@@ -668,8 +668,8 @@
                                                 alt="icon"
                                                 class="offre_img"
                                             />
-                                            <p
-                                                class="offre_desc"
+                                            <span
+                                                class="cat_desc"
                                                 ng-show="option.html"
                                                 ng-bind-html="option.html | unsafe"
                                             />
@@ -679,6 +679,7 @@
                                 <div
                                     class="buttons_form_container tab"
                                     ng-if="state.type == 'form' &amp;&amp; state.id == 'init.pos.individuelle.formulaire'"
+                                    style="flex-direction:column;"
                                 >
                                     <div><b>Catégorie:</b><span
                                             ng-repeat="link in lst_label_breadcrumb"
@@ -691,24 +692,34 @@
                                     <textarea />
                                 </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
-                                    <img style="width:50px" class="nav_pic rounded-circle" ng-src="{{state.selected_obj_value.img}}" ng-if="!_.isUndefined(state.selected_obj_value)"/>
-                                    <input
-                                        id="chooseMember"
-                                        type="search"
-                                        dir="ltr"
-                                        spellcheck="false"
-                                        autocorrect="off"
-                                        autocomplete="off"
-                                        autocapitalize="off"
-                                        maxlength="2048"
-                                        tabindex="1"
-                                        placeholder="{{chooseMemberPlaceholder}}"
-                                        ng-readonly="!_.isUndefined($parent.state.selected_id)"
-                                    /><button
-                                        ng-click="remove_member()"
-                                        ng-if="!_.isUndefined($parent.state.selected_id)"
-                                    >X</button>
-                                    {{ load_member() }}
+                                    <div class="search_member_container">
+                                        <img
+                                            style="width:50px"
+                                            class="nav_pic rounded-circle"
+                                            ng-src="{{state.selected_obj_value.img}}"
+                                            ng-if="!_.isUndefined(state.selected_obj_value)"
+                                        />
+                                        <input
+                                            id="chooseMember"
+                                            type="search"
+                                            dir="ltr"
+                                            spellcheck="false"
+                                            autocorrect="off"
+                                            autocomplete="off"
+                                            autocapitalize="off"
+                                            maxlength="2048"
+                                            tabindex="1"
+                                            placeholder="{{chooseMemberPlaceholder}}"
+                                            ng-readonly="!_.isUndefined($parent.state.selected_id)"
+                                        />
+                                        <button
+                                            ng-click="remove_member()"
+                                            ng-if="!_.isUndefined($parent.state.selected_id)"
+                                        >X
+                                        </button>
+                                        {{ load_member() }}
+                                    </div>
+
                                 </div>
                                 <div class="submit_container">
                                     <input
