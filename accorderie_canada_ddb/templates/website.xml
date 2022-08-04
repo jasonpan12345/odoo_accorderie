@@ -687,14 +687,14 @@
                                             style="cursor:pointer;"
                                         >{{link.text}}</span>&gt;</div>
                                     <h1>Titre</h1>
-                                    <textarea />
+                                    <input type="text"/>
                                     <h1>Description</h1>
-                                    <textarea />
+                                    <input type="text"/>
                                 </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
-                                    <div class="search_member_container">
+                                    <div class="search_member_container mx-auto">
                                         <img
-                                            style="width:50px"
+                                            style="width:50px; aspect-ratio:1;"
                                             class="nav_pic rounded-circle"
                                             ng-src="{{state.selected_obj_value.img}}"
                                             ng-if="!_.isUndefined(state.selected_obj_value)"
@@ -713,10 +713,10 @@
                                             ng-readonly="!_.isUndefined($parent.state.selected_id)"
                                         />
                                         <button
+                                            class="fa fa-times-circle remove_member text-epsilon"
                                             ng-click="remove_member()"
                                             ng-if="!_.isUndefined($parent.state.selected_id)"
-                                        >X
-                                        </button>
+                                        />
                                         {{ load_member() }}
                                     </div>
 
