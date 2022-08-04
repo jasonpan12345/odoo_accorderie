@@ -137,7 +137,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     },
                     resultItem: {
                         element: (element, data) => {
-                            element.innerHTML = `<img style="width:50px" src="${data.value.img}" class="nav_pic rounded-circle"/>${data.match}`
+                            element.innerHTML = `<img style="width:50px; aspect-ratio: 1;" src="${data.value.img}" class="nav_pic rounded-circle"/>${data.match}`
                         },
                         highlight: true,
                     },
@@ -181,9 +181,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                                 // Create "No Results" message list element
                                 message.setAttribute("class", "no_result");
                                 // Add message text content
-                                message.innerHTML = `<span>Aucun résultat trouvé pour "${data.query}"</span>`;
+                                message.innerHTML = `<span>Aucun résultat trouvé pour &nbsp;"${data.query}"</span>`;
                             } else {
-                                message.innerHTML = `<strong>${data.results.length}</strong> sur <strong>${data.matches.length}</strong> résultats`;
+                                message.innerHTML = `<strong>${data.results.length}</strong>&nbsp; sur &nbsp;<strong>${data.matches.length}</strong> &nbsp; résultats`;
                             }
                             // Add message list element to the list
                             list.prepend(message);
