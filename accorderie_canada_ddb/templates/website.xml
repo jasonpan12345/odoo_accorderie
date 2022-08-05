@@ -679,17 +679,98 @@
                                 <div
                                     class="buttons_form_container tab"
                                     ng-if="state.type == 'form' &amp;&amp; state.id == 'init.pos.individuelle.formulaire'"
-                                    style="flex-direction:column;"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     <div><b>Catégorie:</b><span
                                             ng-repeat="link in lst_label_breadcrumb"
                                             ng-click="change_breadcrumb_index(link.index)"
                                             style="cursor:pointer;"
                                         >{{link.text}}</span>&gt;</div>
-                                    <h1>Titre</h1>
-                                    <input type="text"/>
-                                    <h1>Description</h1>
-                                    <input type="text"/>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.75rem">Titre</span>
+                                        </p>
+                                    </div>
+                                    <textarea class="form_titre"/>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.75rem">Description</span>
+                                        </p>
+                                    </div>
+                                    <textarea class="form_desc"/>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.75rem">Déplacement</span>
+                                            <i class="fa fa-trash text-alpha" style="margin-left:auto;font-size:1.5rem"/>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Je me déplace:</span>
+                                        <span>En voiture</span>
+                                        <i class="fa fa-chevron-right"/>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Accepte de me déplacer:</span>
+                                        <span>Dans la région</span>
+                                        <i class="fa fa-chevron-right"/>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Destination spécifique: </span>
+                                        <span>Aucune</span>
+                                        <i class="fa fa-chevron-right"/>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.75rem">Entente tarifiaire</span>
+                                            <i class="fa fa-trash text-alpha" style="margin-left:auto;font-size:1.5rem"/>
+                                        </p>
+                                    </div>
+                                    <div class="form_box flex-column" style="gap:1rem;">
+                                        <div class="d-flex align-items-center w-100">
+                                            <i class="fa fa-check text-epsilon checker mt-0" />
+                                            <span>Les aliments nécessaires pour la confection du dessert sont à vos frais</span>
+                                            <i class="fa fa-times text-alpha ml-auto" />
+                                        </div>
+                                        <div class="d-flex align-items-center w-100">
+                                            <i class="fa fa-plus rounded-dashed" />
+                                            <span>Ajouter un élément à la liste</span>
+                                        </div>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.75rem">Disponibilités</span>
+                                            <i class="fa fa-trash text-alpha" style="margin-left:auto;font-size:1.5rem"/>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <div class="dispo">
+                                            <div class="dates_container">
+                                                <p>LUNDI</p>
+                                                <p>-</p>
+                                                <p>MARDI</p>
+                                                <p>-</p>
+                                                <p>MERCREDI</p>
+                                                <p>08H00 - 19H00</p>
+                                                <p>JEUDI</p>
+                                                <p>-</p>
+                                                <p>VENDREDI</p>
+                                                <p>08H00 - 19H00</p>
+                                                <p>SAMEDI</p>
+                                                <p>08H00 - 19H00</p>
+                                                <p>DIMANCHE</p>
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa fa-chevron-right" />
+                                    </div>
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Matériel nécessaire</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Conditions</span>
+                                    </div>
                                 </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
                                     <div class="search_member_container mx-auto">

@@ -70,6 +70,7 @@ body {
   p {
     display: flex;
     align-items: center;
+    margin-bottom: 0;
   }
 
   a {
@@ -1845,6 +1846,32 @@ actualité
       margin: 0;
     }
   }
+
+  > *[class^="form_"] {
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid $beta;
+    padding: 1rem;
+  }
+  .form_titre {
+    min-height: 5rem;
+  }
+  .form_desc {
+    min-height: 10rem;
+  }
+  .form_box {
+    display: flex;
+    align-items: center;
+
+    > :nth-child(2) {
+      margin-left: auto;
+    }
+    > :nth-child(3) {
+      width: 2rem;
+      text-align: right;
+    }
+  }
   .search_member_container {
     display: flex;
     height: 5rem;
@@ -1950,6 +1977,10 @@ actualité
     .txt_question {
       background-color: $bg-alpha;
       padding: 5%;
+
+      > div {
+        padding: 0;
+      }
 
       h1 {
         color: $text-beta;
@@ -2482,6 +2513,19 @@ actualité
   }
 }
 
+.checker {
+  border: 1px solid $beta;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0.5rem 1rem 0 0;
+}
+.rounded-dashed {
+  border: 2px dashed $beta;
+  padding: 0.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
 .event_container .informations_container {
   display: flex;
   flex-direction: column;
@@ -2502,12 +2546,6 @@ actualité
     h2 {
       margin-bottom: 1.5rem;
     }
-    .fa-check {
-      border: 1px solid $beta;
-      padding: 0.5rem;
-      border-radius: 5px;
-      margin: 0.5rem 1rem 0 0;
-    }
 
     > * {
       padding: 5% 5% 5% 0;
@@ -2518,17 +2556,6 @@ actualité
 
       i {
         width: 1.8rem;
-      }
-    }
-
-    .dispo .dates_container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 65%;
-      font-size: 1rem;
-
-      p {
-        width: 45%;
       }
     }
 
@@ -2583,6 +2610,20 @@ actualité
         border: none;
       }
     }
+  }
+}
+
+.dispo .dates_container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 1rem;
+
+  :nth-child(odd) {
+    width: 25%;
+  }
+  :nth-child(even) {
+      width: 75%;
   }
 }
 
@@ -2696,10 +2737,6 @@ actualité
       .info-2 .contact-list .search_box {
         width: 100%;
       }
-
-      .info-2 .dispo .dates_container {
-        width: 100%;
-      }
     }
 
     .right_cards_container {
@@ -2713,6 +2750,16 @@ actualité
         background-color: $bg-alpha;
         border-radius: 0;
       }
+    }
+  }
+  .dispo .dates_container {
+    :nth-child(odd) {
+      width: 50%;
+    }
+
+    :nth-child(even) {
+      width: 50%;
+      text-align: center;
     }
   }
 }
@@ -3027,12 +3074,6 @@ actualité
       :last-child {
         margin-left: auto;
       }
-    }
-    .condition .fa-check {
-      border: 1px solid $beta;
-      padding: 0.5rem;
-      border-radius: 5px;
-      margin: 0.5rem 1rem 0 0;
     }
     .condition_txt {
       margin: 1rem 0 0;
