@@ -3804,10 +3804,10 @@
                                                 <section class="s_mobile_filter">
                                                     <div class="btn">
                                                         Catégorie
-                                                        <i class="fa fa-chevron-down"/>
+                                                        <i class="fa fa-chevron-down" />
                                                     </div>
                                                     <div class="btn">
-                                                        <i class="fa fa-sliders"/>
+                                                        <i class="fa fa-sliders" />
                                                         Filtrer et trier
                                                     </div>
                                                 </section>
@@ -3815,10 +3815,10 @@
                                                     <font style="font-size:2rem;">Offres de service</font>
                                                     <span class="filter_btn btn" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
-                                                        <icon class="fa fa-chevron-up text-epsilon"/>
+                                                        <icon class="fa fa-chevron-up text-epsilon" />
                                                     </span>
                                                     <span class="filter_btn btn">
-                                                        <icon class="fa fa-sliders text-epsilon"/>&amp;nbsp;
+                                                        <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                         Filtrer et trier
                                                     </span>
                                                 </p>
@@ -4046,7 +4046,7 @@
                                                     Respectez-vous les conditions suivantes :
                                                 </b>
                                                 <p>
-                                                    <i class="fa fa-check text-epsilon" />
+                                                    <i class="fa fa-check text-epsilon checker" />
                                                     Il doit y avoir au moins 4 personnes pout le déménagement
                                                 </p>
                                             </div>
@@ -4105,10 +4105,10 @@
                                             <section class="s_mobile_filter">
                                                 <div class="btn">
                                                     Voir tous
-                                                    <i class="fa fa-chevron-down"/>
+                                                    <i class="fa fa-chevron-down" />
                                                 </div>
                                                 <div class="btn">
-                                                    <i class="fa fa-sliders"/>
+                                                    <i class="fa fa-sliders" />
                                                     Filtrer et trier
                                                 </div>
                                             </section>
