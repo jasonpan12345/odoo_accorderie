@@ -773,6 +773,96 @@
                                         <span class="mr-auto ml-3">Conditions</span>
                                     </div>
                                 </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.offrir.nouveau'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Destinaire du service
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86537471"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86537471</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.offrir.existant'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Offre de service donné
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86537295"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86537295</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.oui'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Offre de service reçu
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86537849"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86537849</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.recevoir.choix.nouveau'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Destinataire du service
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86697719"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86697719</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.recevoir.choix.existant'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Offre de service demandé
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86588770"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86588770</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.offert.nouveau'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Destinataire du service
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86594545"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86594545</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.offert.existant'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Offre de service donnée
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86537980"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86537980</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.recu.nouveau'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    De qui avez-vous reçu le service?
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86609563"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86609563</a>
+                                </div>
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.recu.existant'"
+                                    style="flex-direction:column; flex-wrap:nowrap;"
+                                >
+                                    Offre de service reçu
+                                    <a
+                                        href="https://marvelapp.com/prototype/1773h559/screen/86608523"
+                                    >https://marvelapp.com/prototype/1773h559/screen/86608523</a>
+                                </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
                                     <div class="search_member_container mx-auto">
                                         <img
