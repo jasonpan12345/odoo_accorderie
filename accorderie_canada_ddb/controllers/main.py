@@ -547,6 +547,35 @@ class AccorderieCanadaDdbController(http.Controller):
                         },
                     ],
                 },
+                "init.saa.offrir": {
+                    "id": "init.saa.offrir",
+                    "message": "Choisir une de mes offres",
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Offrir un service",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.saa.offrir.nouveau",
+                            "title": "Nouveau",
+                        },
+                        {
+                            "id": "init.saa.offrir.existant",
+                            "title": "Existant",
+                        },
+                    ],
+                },
+                "init.saa.offrir.nouveau": {
+                    "show_breadcrumb": False,
+                    "id": "init.saa.offrir.nouveau",
+                    "message": "Offrir un service privé",
+                    "type": "form",
+                },
+                "init.saa.offrir.existant": {
+                    "show_breadcrumb": False,
+                    "id": "init.saa.offrir.existant",
+                    "message": "Offrir un service privé",
+                    "type": "form",
+                },
                 "init.saa.recevoir": {
                     "id": "init.saa.recevoir",
                     "message": "De qui souhaitez-vous recevoir le service?",
@@ -566,6 +595,29 @@ class AccorderieCanadaDdbController(http.Controller):
                     # "model_field_name": "membre_id",
                     # "breadcrumb_value": "Recevoir un service",
                     # "next_id": "init.saa.recevoir.choix",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.saa.recevoir.choix.nouveau",
+                            "title": "Nouveau",
+                        },
+                        {
+                            "id": "init.saa.recevoir.choix.existant",
+                            "title": "Existant",
+                        },
+                    ],
+                },
+                "init.saa.recevoir.choix.nouveau": {
+                    "show_breadcrumb": False,
+                    "id": "init.saa.recevoir.choix.nouveau",
+                    "message": "Description de la transaction",
+                    "type": "form",
+                },
+                "init.saa.recevoir.choix.existant": {
+                    "show_breadcrumb": False,
+                    "id": "init.saa.recevoir.choix.existant",
+                    "message": "Résumé de ma demande",
+                    "type": "form",
                 },
                 "init.va": {
                     "id": "init.va",
@@ -589,9 +641,11 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
                 "init.va.oui": {
                     "id": "init.va.oui",
-                    "message": "Quel est votre accordage?",
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Avec une demande de service",
+                    "message": "Déclaration de l'accordage effectué",
+                    # "message": "Quel est votre accordage?",
+                    "show_breadcrumb": False,
+                    # "breadcrumb_value": "Avec une demande de service",
+                    "type": "form",
                 },
                 "init.va.non": {
                     "id": "init.va.non",
@@ -613,6 +667,70 @@ class AccorderieCanadaDdbController(http.Controller):
                             ),
                         },
                     ],
+                },
+                "init.va.non.offert": {
+                    "id": "init.va.non.offert",
+                    "message": "Quel service avez-vous offert?",
+                    "show_breadcrumb": True,
+                    # "type": "choix_membre",
+                    # "model_field_name_alias": "membre",
+                    # "model_field_name": "membre_id",
+                    "breadcrumb_value": "J'ai offert un service",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.va.non.offert.nouveau",
+                            "title": "Nouveau",
+                        },
+                        {
+                            "id": "init.va.non.offert.existant",
+                            "title": "Existant",
+                        },
+                    ],
+                },
+                "init.va.non.offert.nouveau": {
+                    "show_breadcrumb": False,
+                    "id": "init.va.non.offert.nouveau",
+                    "message": "Déclaration de l'accordage effectué",
+                    "type": "form",
+                },
+                "init.va.non.offert.existant": {
+                    "show_breadcrumb": False,
+                    "id": "init.va.non.offert.existant",
+                    "message": "Résumé de ma demande",
+                    "type": "form",
+                },
+                "init.va.non.recu": {
+                    "id": "init.va.non.recu",
+                    "message": "Qui vous a offert le service?",
+                    "show_breadcrumb": True,
+                    # "type": "choix_membre",
+                    # "model_field_name_alias": "membre",
+                    # "model_field_name": "membre_id",
+                    "breadcrumb_value": "J'ai reçu un service",
+                    "type": "selection_static",
+                    "list": [
+                        {
+                            "id": "init.va.non.recu.nouveau",
+                            "title": "Nouveau",
+                        },
+                        {
+                            "id": "init.va.non.recu.existant",
+                            "title": "Existant",
+                        },
+                    ],
+                },
+                "init.va.non.recu.nouveau": {
+                    "show_breadcrumb": False,
+                    "id": "init.va.non.recu.nouveau",
+                    "message": "Déclaration de l'accordage effectué",
+                    "type": "form",
+                },
+                "init.va.non.recu.existant": {
+                    "show_breadcrumb": False,
+                    "id": "init.va.non.recu.existant",
+                    "message": "Déclaration de l'accordage effectué",
+                    "type": "form",
                 },
             },
         }
