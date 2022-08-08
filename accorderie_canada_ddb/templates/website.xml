@@ -647,7 +647,8 @@
                                     <div
                                         ng-if="!_.isEmpty(actual_inner_state_name)"
                                         ng-click="previous_inner_state_btn()"
-                                    >0- {{actual_inner_state_name}}</div>
+                                        style="width:100%;"
+                                    ><i class="fa fa-chevron-left" /> {{actual_inner_state_name}}</div>
                                     <span ng-repeat="option in state_get_data()" class="categorie">
                                         <input
                                             type="radio"
@@ -692,44 +693,51 @@
                                             <span style="font-size:1.75rem">Titre</span>
                                         </p>
                                     </div>
-                                    <textarea class="form_titre"/>
+                                    <textarea class="form_titre" />
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.75rem">Description</span>
                                         </p>
                                     </div>
-                                    <textarea class="form_desc"/>
+                                    <textarea class="form_desc" />
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.75rem">Déplacement</span>
-                                            <i class="fa fa-trash text-alpha" style="margin-left:auto;font-size:1.5rem"/>
+                                            <i
+                                                class="fa fa-trash text-alpha"
+                                                style="margin-left:auto;font-size:1.5rem"
+                                            />
                                         </p>
                                     </div>
                                     <div class="form_box">
                                         <span>Je me déplace:</span>
                                         <span>En voiture</span>
-                                        <i class="fa fa-chevron-right"/>
+                                        <i class="fa fa-chevron-right" />
                                     </div>
                                     <div class="form_box">
                                         <span>Accepte de me déplacer:</span>
                                         <span>Dans la région</span>
-                                        <i class="fa fa-chevron-right"/>
+                                        <i class="fa fa-chevron-right" />
                                     </div>
                                     <div class="form_box">
                                         <span>Destination spécifique: </span>
                                         <span>Aucune</span>
-                                        <i class="fa fa-chevron-right"/>
+                                        <i class="fa fa-chevron-right" />
                                     </div>
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.75rem">Entente tarifiaire</span>
-                                            <i class="fa fa-trash text-alpha" style="margin-left:auto;font-size:1.5rem"/>
+                                            <i
+                                                class="fa fa-trash text-alpha"
+                                                style="margin-left:auto;font-size:1.5rem"
+                                            />
                                         </p>
                                     </div>
                                     <div class="form_box flex-column" style="gap:1rem;">
                                         <div class="d-flex align-items-center w-100">
                                             <i class="fa fa-check text-epsilon checker mt-0" />
-                                            <span>Les aliments nécessaires pour la confection du dessert sont à vos frais</span>
+                                            <span
+                                            >Les aliments nécessaires pour la confection du dessert sont à vos frais</span>
                                             <i class="fa fa-times text-alpha ml-auto" />
                                         </div>
                                         <div class="d-flex align-items-center w-100">
@@ -740,7 +748,10 @@
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.75rem">Disponibilités</span>
-                                            <i class="fa fa-trash text-alpha" style="margin-left:auto;font-size:1.5rem"/>
+                                            <i
+                                                class="fa fa-trash text-alpha"
+                                                style="margin-left:auto;font-size:1.5rem"
+                                            />
                                         </p>
                                     </div>
                                     <div class="form_box">
@@ -782,6 +793,142 @@
                                     <a
                                         href="https://marvelapp.com/prototype/1773h559/screen/86537471"
                                     >https://marvelapp.com/prototype/1773h559/screen/86537471</a>
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Catégorie du service</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Yannick Gagnon</span>
+                                        <i class="fa fa-chevron-right" />
+                                    </div>
+
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span
+                                            style="font-size:1.75rem;font-weight:bold;"
+                                        >Description du service privé</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Catégorie du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Confections dessert pour événements</span>
+                                        <i class="fa fa-chevron-right" />
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Nom de votre service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Création d'un gateau de fête</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Description de votre offre de service</span>
+                                        </p>
+                                    </div>
+                                    <textarea class="form_desc" />
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Matériel nécessaire</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Conditions de l'échange de service</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Déplacements</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Entente tarifiaire</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <i class="fa fa-plus" />
+                                        <span class="mr-auto ml-3">Commentaires</span>
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Date prévue du service</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Date de l'échange du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Mercredi 6 août 2022</span>
+                                        <i class="fa fa-calendar" />
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Heure de début du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>14h00</span>
+                                        <i class="fa fa-chevron-down" />
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span
+                                            style="font-size:1.75rem;font-weight:bold;"
+                                        >Coût possibles supplémentaires à prévoir</span>
+                                    </div>
+                                    <div>
+                                        <div class="form_box float-left w-75">
+                                            <span>2.3</span>
+                                        </div>
+                                        <div class="form_box float-right" style="width:20%;">
+                                            <span>Km</span>
+                                            <i class="fa fa-chevron-down" />
+                                        </div>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span
+                                                style="font-size:1.5rem"
+                                            >Frais pour le matériel nécessaire à l'échange de service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box" style="align-self:start;">
+                                        <span>Importer une liste<i class="fa fa-download ml-3" /></span>
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span
+                                            style="font-size:1.75rem;font-weight:bold;"
+                                        >Estimation de la durée de service</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Temps de service estimé</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>1h50</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Temps de trajet estimé</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>00h10</span>
+                                    </div>
+                                    <div class="divider" />
+                                    <div class="bar_time">
+                                        <b>Montant total de temps estimé:</b>
+                                        <span>03h00</span>
+                                    </div>
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
@@ -791,7 +938,108 @@
                                     Offre de service donné
                                     <a
                                         href="https://marvelapp.com/prototype/1773h559/screen/86537295"
-                                    >https://marvelapp.com/prototype/1773h559/screen/86537295</a>
+                                    >https://marvelapp.com/prototype/1773h559/screen/86537295
+                                    </a>
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Offre de service donné</span>
+                                    </div>
+                                    <div class="activite">
+                                        <img
+                                            class="activite_img"
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                        />
+                                        <div class="infos">
+                                            Vous souhaitez acheter une maison à
+                                            l"étranger?
+                                        </div>
+                                        <div class="infos_right">
+                                            <p>10/03/21</p>
+                                            <p class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
+                                        </div>
+                                    </div>
+                                    <div class="divider" />
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Destinataire du service</span>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>Yannick Gagnon</span>
+                                        <i class="fa fa-chevron-right" />
+                                    </div>
+                                    <div class="divider" />
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Service</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Date de l'échange du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>mm - jj - aaaa</span>
+                                        <i class="fa fa-calendar" />
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Heure de début du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Durée de la réalisation du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Durée du trajet aller-retour</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+
+                                    <div class="divider" />
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Coûts monétaires
+                                            supplémentaires dû
+                                        </span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Frais pour trajet</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _</span>
+                                        <span>$</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Frais pour le matériel nécessaire à l'échange
+                                                de service
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _</span>
+                                        <span>$</span>
+                                    </div>
+                                    <div class="divider" />
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Commentaires</span>
+                                    </div>
+                                    <textarea class="form_desc" />
+                                    <div class="divider" />
+                                    <div class="bar_time">
+                                        <b>Montant total de temps à transférer:</b>
+                                        <span>_ _ - _ _</span>
+                                    </div>
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
@@ -801,7 +1049,99 @@
                                     Offre de service reçu
                                     <a
                                         href="https://marvelapp.com/prototype/1773h559/screen/86537849"
-                                    >https://marvelapp.com/prototype/1773h559/screen/86537849</a>
+                                    >https://marvelapp.com/prototype/1773h559/screen/86537849
+                                    </a>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Offre de service reçu</span>
+                                    </div>
+                                    <div class="activite">
+                                        <img
+                                            class="activite_img"
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                        />
+                                        <div class="infos">
+                                            Aide au déménagement
+                                        </div>
+                                        <div class="infos_right">
+                                            <p>2j</p>
+                                            <p class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
+                                        </div>
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Service</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Date de l'échange du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>mm - jj - aaaa</span>
+                                        <i class="fa fa-calendar" />
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Heure de début du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Durée de la réalisation du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Durée du trajet aller-retour</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Coûts monétaires
+                                            supplémentaires dû
+                                        </span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Frais pour trajet :</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _</span>
+                                        <span>$</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Frais pour le matériel nécessaire à l'échange
+                                                de service
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _</span>
+                                        <span>$</span>
+                                    </div>
+                                    <div class="divider" />
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Commentaires</span>
+                                    </div>
+                                    <textarea class="form_desc" />
+                                    <div class="divider" />
+                                    <div class="bar_time">
+                                        <b>Montant total de temps à transférer:</b>
+                                        <span>3h00</span>
+                                    </div>
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
@@ -862,6 +1202,97 @@
                                     <a
                                         href="https://marvelapp.com/prototype/1773h559/screen/86608523"
                                     >https://marvelapp.com/prototype/1773h559/screen/86608523</a>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Offre de service reçu</span>
+                                    </div>
+                                    <div class="activite">
+                                        <img
+                                            class="activite_img"
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                        />
+                                        <div class="infos">
+                                            Aide au déménagement
+                                        </div>
+                                        <div class="infos_right">
+                                            <p>2j</p>
+                                            <p class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
+                                        </div>
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Service</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Date de l'échange du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>mm - jj - aaaa</span>
+                                        <i class="fa fa-calendar" />
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Heure de début du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Durée de la réalisation du service</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Durée du trajet aller-retour</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _ - _ _</span>
+                                    </div>
+                                    <div class="divider" />
+
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Coûts monétaires
+                                            supplémentaires dû
+                                        </span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Frais pour trajet :</span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _</span>
+                                        <span>$</span>
+                                    </div>
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <p>
+                                            <span style="font-size:1.5rem">Frais pour le matériel nécessaire à l'échange
+                                                de service
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="form_box">
+                                        <span>_ _</span>
+                                        <span>$</span>
+                                    </div>
+                                    <div class="divider" />
+                                    <div class="list_title" style="padding:2rem 0 0">
+                                        <span style="font-size:1.75rem;font-weight:bold;">Commentaires</span>
+                                    </div>
+                                    <textarea class="form_desc" />
+                                    <div class="divider" />
+                                    <div class="bar_time">
+                                        <b>Montant total de temps à transférer:</b>
+                                        <span>3h00</span>
+                                    </div>
                                 </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
                                     <div class="search_member_container mx-auto">
@@ -905,14 +1336,15 @@
                                         ng-show="error"
                                         ng-click="init_controller()"
                                     />
-                                    <input
+                                    <a
                                         id="prevBtn"
                                         type="button"
                                         value="Retour"
-                                        class="prev submit_btn btn"
+                                        class="prev"
                                         ng-show="is_show_previous()"
                                         ng-click="previous_btn()"
-                                    />
+                                        href=""
+                                    >Retour</a>
                                     <input
                                         id="nextBtn"
                                         type="button"

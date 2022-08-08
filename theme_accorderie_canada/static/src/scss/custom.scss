@@ -1820,6 +1820,11 @@ actualité
     margin: auto;
   }
 
+  .divider {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+
   .categorie {
     max-height: 100px;
     width: 47.5%;
@@ -1863,6 +1868,9 @@ actualité
   .form_box {
     display: flex;
     align-items: center;
+    border-radius: 5px;
+    border: 1px solid $beta;
+    padding: 1rem;
 
     > :nth-child(2) {
       margin-left: auto;
@@ -1917,7 +1925,6 @@ actualité
     }
   }
   li[id^="autoComplete_result"] {
-
     border: 1px solid $beta;
     border-radius: 5px;
     padding: 1rem 2rem;
@@ -1927,6 +1934,31 @@ actualité
 
     img {
       margin-right: 5%;
+    }
+  }
+
+  .activite {
+    display: flex;
+    padding: 5%;
+    background-color: $tertiary-color;
+    border-radius: 5px;
+    border: 1px solid $alpha;
+    align-items: center;
+
+    .activite_img {
+      height: 100px;
+      aspect-ratio: 1;
+      border-radius: 5px;
+      margin-right: 5%;
+    }
+
+    .infos_right {
+      margin-left: auto;
+      height: 100%;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }
@@ -1956,9 +1988,9 @@ actualité
   }
 
   .prev {
-    background-color: $primary-color;
     float: left;
-    margin: 1rem 0 5rem 5%;
+    margin: 1.75rem 5%;
+    text-decoration: underline;
   }
 }
 
@@ -2623,7 +2655,7 @@ actualité
     width: 25%;
   }
   :nth-child(even) {
-      width: 75%;
+    width: 75%;
   }
 }
 
@@ -3063,24 +3095,26 @@ actualité
       margin-top: 1rem;
     }
 
-    .condition .bar_time {
-      margin-top: 3rem;
-      background-color: $gamma;
-      padding: 1rem 5%;
-      font-size: 1.5rem;
-      display: flex;
-      border-radius: 5px;
-
-      :last-child {
-        margin-left: auto;
-      }
-    }
     .condition_txt {
       margin: 1rem 0 0;
     }
     divider {
       border-top: 1px solid $beta;
     }
+  }
+}
+
+.bar_time {
+  margin-top: 3rem;
+  background-color: $gamma;
+  padding: 1rem 5%;
+  font-size: 1.5rem;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+
+  :last-child {
+    margin-left: auto;
   }
 }
 @media only screen and (max-width: 990px) {
