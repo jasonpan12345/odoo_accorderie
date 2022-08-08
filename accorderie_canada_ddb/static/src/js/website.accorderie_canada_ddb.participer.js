@@ -218,6 +218,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     } else if (_.isEmpty(data)) {
                         $scope.error = "Empty data get member";
                     } else {
+                        // TODO use data from get_participer_workflow_data instead of new request
                         $scope.state.data = data.list;
                         $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
 

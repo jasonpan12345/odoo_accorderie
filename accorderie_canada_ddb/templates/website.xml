@@ -603,6 +603,7 @@
                         <section class="s_buttons_form">
                             <div class="txt_question" ng-if="!state.disable_question">
                                 <div><span
+                                        ng-show="state.show_breadcrumb"
                                         ng-repeat="link in lst_label_breadcrumb"
                                         ng-click="change_breadcrumb_index(link.index)"
                                         style="cursor:pointer; color:white"
@@ -798,8 +799,11 @@
                                             ng-click="remove_member()"
                                             ng-if="!_.isUndefined($parent.state.selected_id)"
                                         />
-                                        {{ load_member() }}
                                     </div>
+                                    <div ng-if="_.isEmpty(state.data)">
+                                        Aucun membre existant, veuillez contacter votre administrateur.
+                                    </div>
+                                    {{ load_member() }}
 
                                 </div>
                                 <div class="submit_container">
