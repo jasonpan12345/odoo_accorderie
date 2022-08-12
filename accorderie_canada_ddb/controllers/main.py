@@ -552,7 +552,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "message": "Choisir une de mes offres",
                     "show_breadcrumb": True,
                     "breadcrumb_value": "Offrir un service",
-                    "type": "selection_static",
+                    "type": "selection_dynamique",
                     "list": [
                         {
                             "id": "init.saa.offrir.nouveau",

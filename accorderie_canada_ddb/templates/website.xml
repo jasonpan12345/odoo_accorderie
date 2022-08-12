@@ -636,6 +636,26 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="buttons_form_container tab" ng-if="state.type == 'selection_dynamique'">
+                                    <div
+                                        ng-repeat="option in state.list"
+                                        ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                        class="button_form"
+                                    >
+                                        <input
+                                            type="radio"
+                                            id="{{option.id}}"
+                                            name="pub"
+                                            ng-value="option.id"
+                                            ng-model="$parent.$parent.state.next_id"
+                                            required="required"
+                                        />
+                                        <label for="{{option.id}}" class="btn" ng-dblclick="next_btn()">
+                                            <h5 ng-show="option.title">{{option.title}}</h5>
+                                            <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
+                                        </label>
+                                    </div>
+                                </div>
                                 <div
                                     class="buttons_form_container tab"
                                     style="justify-content:space-between;"
