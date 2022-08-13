@@ -713,56 +713,58 @@
                                             <span style="font-size:1.75rem">Titre</span>
                                         </p>
                                     </div>
-                                    <textarea class="form_titre" />
+                                    <textarea class="form_titre" ng-model="form.titre" />
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.75rem">Description</span>
                                         </p>
                                     </div>
-                                    <textarea class="form_desc" />
-                                    <div class="list_title" style="padding:2rem 0 0">
-                                        <p>
-                                            <span style="font-size:1.75rem">Déplacement</span>
-                                            <i
-                                                class="fa fa-trash text-alpha"
-                                                style="margin-left:auto;font-size:1.5rem"
-                                            />
-                                        </p>
-                                    </div>
-                                    <div class="form_box">
-                                        <span>Je me déplace:</span>
-                                        <span>En voiture</span>
-                                        <i class="fa fa-chevron-right" />
-                                    </div>
-                                    <div class="form_box">
-                                        <span>Accepte de me déplacer:</span>
-                                        <span>Dans la région</span>
-                                        <i class="fa fa-chevron-right" />
-                                    </div>
-                                    <div class="form_box">
-                                        <span>Destination spécifique: </span>
-                                        <span>Aucune</span>
-                                        <i class="fa fa-chevron-right" />
-                                    </div>
-                                    <div class="list_title" style="padding:2rem 0 0">
-                                        <p>
-                                            <span style="font-size:1.75rem">Entente tarifiaire</span>
-                                            <i
-                                                class="fa fa-trash text-alpha"
-                                                style="margin-left:auto;font-size:1.5rem"
-                                            />
-                                        </p>
-                                    </div>
-                                    <div class="form_box flex-column" style="gap:1rem;">
-                                        <div class="d-flex align-items-center w-100">
-                                            <i class="fa fa-check text-epsilon checker mt-0" />
-                                            <span
-                                            >Les aliments nécessaires pour la confection du dessert sont à vos frais</span>
-                                            <i class="fa fa-times text-alpha ml-auto" />
+                                    <textarea class="form_desc" ng-model="form.description" />
+                                    <div class="debug_unimplemented">
+                                        <div class="list_title" style="padding:2rem 0 0">
+                                            <p>
+                                                <span style="font-size:1.75rem">Déplacement</span>
+                                                <i
+                                                    class="fa fa-trash text-alpha"
+                                                    style="margin-left:auto;font-size:1.5rem"
+                                                />
+                                            </p>
                                         </div>
-                                        <div class="d-flex align-items-center w-100">
-                                            <i class="fa fa-plus rounded-dashed" />
-                                            <span>Ajouter un élément à la liste</span>
+                                        <div class="form_box">
+                                            <span>Je me déplace:</span>
+                                            <span>En voiture</span>
+                                            <i class="fa fa-chevron-right" />
+                                        </div>
+                                        <div class="form_box">
+                                            <span>Accepte de me déplacer:</span>
+                                            <span>Dans la région</span>
+                                            <i class="fa fa-chevron-right" />
+                                        </div>
+                                        <div class="form_box">
+                                            <span>Destination spécifique: </span>
+                                            <span>Aucune</span>
+                                            <i class="fa fa-chevron-right" />
+                                        </div>
+                                        <div class="list_title" style="padding:2rem 0 0">
+                                            <p>
+                                                <span style="font-size:1.75rem">Entente tarifiaire</span>
+                                                <i
+                                                    class="fa fa-trash text-alpha"
+                                                    style="margin-left:auto;font-size:1.5rem"
+                                                />
+                                            </p>
+                                        </div>
+                                        <div class="form_box flex-column" style="gap:1rem;">
+                                            <div class="d-flex align-items-center w-100">
+                                                <i class="fa fa-check text-epsilon checker mt-0" />
+                                                <span
+                                                >Les aliments nécessaires pour la confection du dessert sont à vos frais</span>
+                                                <i class="fa fa-times text-alpha ml-auto" />
+                                            </div>
+                                            <div class="d-flex align-items-center w-100">
+                                                <i class="fa fa-plus rounded-dashed" />
+                                                <span>Ajouter un élément à la liste</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="list_title" style="padding:2rem 0 0">
@@ -795,13 +797,15 @@
                                         </div>
                                         <i class="fa fa-chevron-right" />
                                     </div>
-                                    <div class="form_box">
-                                        <i class="fa fa-plus" />
-                                        <span class="mr-auto ml-3">Matériel nécessaire</span>
-                                    </div>
-                                    <div class="form_box">
-                                        <i class="fa fa-plus" />
-                                        <span class="mr-auto ml-3">Conditions</span>
+                                    <div class="debug_unimplemented">
+                                        <div class="form_box">
+                                            <i class="fa fa-plus" />
+                                            <span class="mr-auto ml-3">Matériel nécessaire</span>
+                                        </div>
+                                        <div class="form_box">
+                                            <i class="fa fa-plus" />
+                                            <span class="mr-auto ml-3">Conditions</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div
@@ -1942,7 +1946,6 @@
                                     />
                                     <a
                                         id="prevBtn"
-                                        type="button"
                                         value="Retour"
                                         class="prev"
                                         ng-show="is_show_previous()"
@@ -1958,163 +1961,51 @@
                                         ng-click="next_btn()"
                                         ng-class="{'submit_btn_disable': is_disable_next()}"
                                     />
+                                    <input
+                                        id="submitBtn"
+                                        type="button"
+                                        ng-value="state.submit_button_text"
+                                        class="submit_btn btn"
+                                        ng-show="is_show_submit()"
+                                        ng-click="submit_form()"
+                                    />
                                 </div>
                             </div>
-<!--                            <form id="participer_form" method="GET" action="/publier-offre">-->
-<!--                                <div class="buttons_form_container tab">-->
-<!--                                    <input type="radio" id="pub_offre" name="pub" value="1" required="required" />-->
-<!--                                    <label for="pub_offre" class="button_form btn">-->
-<!--                                        <h5>Publier une offre de service</h5>-->
-<!--                                        <p>-->
-<!--                                            Vous souhaitez offrir votre service?-->
-<!--                                            <br />-->
-<!--                                            Cliquez ici-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="pub_demande" name="pub" value="2" />-->
-<!--                                    <label for="pub_demande" class="button_form btn">-->
-<!--                                        <h5>Publier une demande de service</h5>-->
-<!--                                        <p>-->
-<!--                                            Vous souhaitez offrir votre service?-->
-<!--                                            <br />-->
-<!--                                            Cliquez ici-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="creer_entente" name="pub" value="3" />-->
-<!--                                    <label for="creer_entente" class="button_form btn">-->
-<!--                                        <h5>S'accorder avec un autre accordeur</h5>-->
-<!--                                        <p>-->
-<!--                                            Vous souhaitez offrir votre service?-->
-<!--                                            <br />-->
-<!--                                            Cliquez ici-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="valider_service" name="pub" value="4" />-->
-<!--                                    <label for="valider_service" class="button_form btn">-->
-<!--                                        <h5>Valider un autre accordage</h5>-->
-<!--                                        <p>-->
-<!--                                            Vous souhaitez offrir votre service?-->
-<!--                                            <br />-->
-<!--                                            Cliquez ici-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                                <div class="buttons_form_container tab">-->
-<!--                                    <input type="radio" id="offre_indiv" name="offre" value="1" />-->
-<!--                                    <label for="offre_indiv" class="button_form btn">-->
-<!--                                        <h5>Individuelle</h5>-->
-<!--                                        <p>Si vous offrez un service &#224; une personne particuli&#232;re-->
-
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="offre" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn">-->
-<!--                                        <h5>Collective</h5>-->
-<!--                                        <p>Si vous offrez une activit&#233; collective-->
-<!--                                            <br />-->
-<!--                                            (cours en groupe, ateliers, conf&#233;rence, achats group&#233;s, ...)-->
-
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                                <div class="buttons_form_container tab" style="align-content:unset;">-->
-<!--                                    <div t-if="not type_service_categories">-->
-<!--                                        <div class="row">Aucune catégorie de service est disponible.</div>-->
-<!--                                    </div>-->
-<!--                                    <t t-if="type_service_categories">-->
-<!--                                        <t t-foreach="type_service_categories" t-as="type_service_categorie">-->
-<!--                                            <input-->
-<!--                                                type="radio"-->
-<!--                                                t-att-id="'cat_%s' % str(type_service_categorie.id)"-->
-<!--                                                name="type_service_categorie"-->
-<!--                                                t-att-value="type_service_categorie.id"-->
-<!--                                            />-->
-<!--                                            <label-->
-<!--                                                t-att-for="'cat_%s' % str(type_service_categorie.id)"-->
-<!--                                                class="cat button_form btn"-->
-<!--                                            >-->
-<!--                                                <img-->
-<!--                                                    t-if="type_service_categorie.icon"-->
-<!--                                                    t-att-src="image_data_uri(type_service_categorie.icon)"-->
-<!--                                                    alt="icon"-->
-<!--                                                    class="offre_img"-->
-<!--                                                />-->
-<!--                                                <p-->
-<!--                                                    class="offre_desc"-->
-<!--                                                    t-if="type_service_categorie.nom"-->
-<!--                                                    t-raw="type_service_categorie._get_html_nom()"-->
-<!--                                                />-->
-<!--                                            </label>-->
-<!--                                        </t>-->
-<!--                                    </t>-->
-<!--                                </div>-->
-<!--                                <div-->
-<!--                                    class="buttons_form_container tab tab_sous_categorie scroll"-->
-<!--                                    style="flex-direction:column;"-->
-<!--                                />-->
-<!--                                <div class="buttons_form_container tab scroll" style="flex-direction:column;">-->
-<!--                                    <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />-->
-<!--                                    <label for="rdv_divers" class="button_form btn small">-->
-<!--                                        <p>Rendez-vous divers</p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="rdv_med" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="rdv_med" class="button_form btn small">-->
-<!--                                        <p>Rendez-vous m&#233;dicaux-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="pers_immigrantes" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="pers_immigrantes" class="button_form btn small">-->
-<!--                                        <p>Personnes immigrantes</p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Recherche logement</p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Loisirs et activit&#233;s-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Loisirs et activit&#233;s-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Loisirs et activit&#233;s-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Loisirs et activit&#233;s-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Loisirs et activit&#233;s-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />-->
-<!--                                    <label for="offre_coll" class="button_form btn small">-->
-<!--                                        <p>Loisirs et activit&#233;s-->
-<!--                                        </p>-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                                <div class="submit_container">-->
-<!--                                    <input-->
-<!--                                        id="prevBtn"-->
-<!--                                        type="submit"-->
-<!--                                        value="Retour"-->
-<!--                                        class="prev submit_btn btn"-->
-<!--                                        style="display: none;"-->
-<!--                                    />-->
-<!--                                    <input id="nextBtn" type="submit" value="Suivant" class="submit_btn btn" />-->
-<!--                                </div>-->
-<!--                                <div />-->
-<!--                                <div />-->
-<!--                            </form>-->
                         </section>
+                        <div
+                            class="modal fade modal_pub_offre modal_shown show"
+                            style="display:block"
+                            ng-show="show_submit_modal"
+                        >
+                            <div class="modal-dialog">
+                                <div id="s_media_block_modal" class="modal-content">
+                                    <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
+                                    <div class="modal-body">
+                                        <h2>Félicitation votre offre de service a été publié!</h2>
+                                    </div>
+                                    <a href="{{submitted_url}}">
+                                        <button id="modal_voir_offre" class="btn btn-primary text-gamma">Voir mon offre
+                                        </button>
+                                    </a>
+                                    <a href="{{submitted_url}}">
+                                        <button
+                                            id="modal_voir_toutes_mes_offres"
+                                            class="btn btn-primary text-gamma"
+                                        >Voir toutes mes
+                                            annonces
+                                        </button>
+                                    </a>
+                                    <a href="/">
+                                        <button
+                                            id="modal_retour_accueil"
+                                            class="btn btn-primary text-gamma"
+                                        >Retourner sur
+                                            l'accueil
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </t>
             </t>

@@ -64,6 +64,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.autoCompleteJS = undefined;
         $scope.originChooseMemberPlaceholder = "Nom de la personne";
         $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
+        $scope.form = {};
+        $scope.show_submit_modal = false;
+        $scope.submitted_url = "";
 
         ajax.rpc("/accorderie_canada_ddb/get_participer_workflow_data/", {}).then(function (data) {
             console.debug("AJAX receive get_participer_workflow_data");
@@ -290,13 +293,38 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
+        // Form
+        $scope.submit_form = function () {
+            console.log($scope.form);
+            ajax.rpc("/submit/accorderie_offre_service", $scope.form).then(function (data) {
+                console.debug("AJAX receive submit_form");
+                console.debug(data);
+
+                if (data.error) {
+                    $scope.error = error;
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty data";
+                } else {
+                    $scope.show_submit_modal = true;
+                    $scope.submitted_url = `/accorderie_canada_ddb/accorderie_offre_service/${data.id}`;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+        }
+
+        $scope.is_show_submit = function () {
+            return !$scope.error && $scope.state.type === "form";
+        }
+
         // State
         $scope.is_show_previous = function () {
             return $scope.stack_breadcrumb_state.length > 1
         }
 
         $scope.is_show_next = function () {
-            return !$scope.in_multiple_inner_state && !$scope.error;
+            return !$scope.in_multiple_inner_state && !$scope.error && $scope.state.type !== "form";
         }
 
         $scope.is_disable_next = function () {

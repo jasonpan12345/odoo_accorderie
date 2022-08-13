@@ -502,6 +502,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "message": "Formulaire",
                     "type": "form",
                     "disable_question": True,
+                    "submit_button_text": "Valider mon offre de service",
                 },
                 "init.pds": {
                     "id": "init.pds",
@@ -734,6 +735,28 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
             },
         }
+
+    @http.route(
+        "/submit/accorderie_offre_service",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def new_accorderie_offre_service(self, **kw):
+        # Send from participer website
+        vals = {}
+
+        if kw.get("titre"):
+            vals["titre"] = kw.get("titre")
+
+        if kw.get("description"):
+            vals["description"] = kw.get("description")
+
+        new_accorderie_offre_service = (
+            request.env["accorderie.offre.service"].sudo().create(vals)
+        )
+        return {"id": new_accorderie_offre_service.id}
 
     @http.route(
         [
@@ -2978,7 +3001,7 @@ class AccorderieCanadaDdbController(http.Controller):
         if kw.get("active"):
             vals["active"] = kw.get("active") == "True"
         elif default_active:
-            vals["active"] = False
+            vals["active"] = default_active
 
         default_approuve = (
             http.request.env["accorderie.offre.service"]
