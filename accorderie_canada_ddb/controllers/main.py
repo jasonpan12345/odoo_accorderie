@@ -373,6 +373,15 @@ class AccorderieCanadaDdbController(http.Controller):
         # F - Temps + durée
         # G - Formulaire (xml_item_id) : form
         env = request.env(context=dict(request.env.context))
+        accorderie_membre_ids = env["accorderie.membre"].sudo().search([])
+        lst_membre = [
+            {
+                "title": a.nom_complet,
+                "id": a.id,
+                "img": "/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg",
+            }
+            for a in accorderie_membre_ids
+        ]
         accorderie_type_service_categorie_ids = (
             env["accorderie.type.service.categorie"].sudo().search([])
         )
@@ -413,7 +422,10 @@ class AccorderieCanadaDdbController(http.Controller):
                     ] = sub_sub_obj_data
 
         return {
-            "data": {"type_service_categorie": lst_type_service_categorie},
+            "data": {
+                "type_service_categorie": lst_type_service_categorie,
+                "membre": lst_membre,
+            },
             "inner_data": {
                 "type_service_categorie": dct_inner_data_type_service_categorie
             },
@@ -596,6 +608,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "model_field_name_alias": "membre",
                     "model_field_name": "membre_id",
                     "breadcrumb_value": "Recevoir un service",
+                    "data": "membre",
                     "next_id": "init.saa.recevoir.choix",
                 },
                 "init.saa.recevoir.choix": {
