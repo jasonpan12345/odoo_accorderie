@@ -27,6 +27,15 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
             let self = this;
             let debugHighlighted = false; //highlight mode
             let debugHide = false; //hide mode
+            let debugDebug = false; //hide mode
+
+            $( document ).ready(function() {
+                if (window.location.search.search("debug=") >= 0) {
+                    debugDebug = true;
+                    self.DebugDebug(false);
+                    self.ActivateDebug("btn_debug_debug", true);
+                }
+            });
 
             $(document).on("click", '.highlight_not_implemented', function (ev) {
                 self.on_click(ev);
@@ -59,9 +68,22 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 debugHighlighted = false;
                 self.HighlightNotImplemented(false);
             })
+
+            $(document).on("click", '.btn_debug_debug', function (ev) {
+                self.on_click(ev);
+                if (debugDebug) {
+                    debugDebug = false;
+                    self.DebugDebug(true);
+                    self.ActivateDebug("btn_debug_debug", false);
+                } else {
+                    debugDebug = true;
+                    self.DebugDebug(false);
+                    self.ActivateDebug("btn_debug_debug", true);
+                }
+            })
         },
         on_click: function (ev) {
-            console.log("onlcik");
+            console.log("onclick debug option");
             ev.preventDefault();
             ev.stopPropagation();
         },
@@ -87,6 +109,19 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
 
             for (let j = 0; j < classes.length; j++) {
                 if (show) {
+                    classes[j].style.display = "none";
+                } else {
+                    // TODO bug if the last style display wasn't block
+                    classes[j].style.display = "block";
+                }
+            }
+        },
+        DebugDebug: function (hide) {
+
+            let classes = document.getElementsByClassName("debug_debug");
+
+            for (let j = 0; j < classes.length; j++) {
+                if (hide) {
                     classes[j].style.display = "none";
                 } else {
                     // TODO bug if the last style display wasn't block

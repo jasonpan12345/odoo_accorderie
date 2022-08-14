@@ -120,6 +120,9 @@
                                     <div role="menuitem" class="dropdown-item hide_not_implemented">
                                         <p>Hide</p>
                                     </div>
+                                    <div role="menuitem" class="dropdown-item btn_debug_debug">
+                                        <p>Debug</p>
+                                    </div>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
