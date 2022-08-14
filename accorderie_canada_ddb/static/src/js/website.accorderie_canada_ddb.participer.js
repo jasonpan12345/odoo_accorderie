@@ -33,8 +33,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
     });
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
+        $scope.has_init = false;
         $scope.error = "";
         $scope.workflow = {};
+        $scope.data = {};
+        $scope.inner_data = {};
         $scope.state = {
             id: undefined,
             message: "",
@@ -44,6 +47,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             next_id: undefined,
             show_breadcrumb: false,
             data: undefined,
+            inner_data: undefined,
             breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
             breadcrumb_show_value_last_item: false,
@@ -81,16 +85,20 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.workflow = {};
                 $scope.state = {};
                 $scope.data = {};
+                $scope.inner_data = {};
             } else {
                 // Init controller or call change_state_name(name)
                 $scope.error = "";
                 $scope.workflow = data.workflow;
                 $scope.data = data.data;
+                $scope.inner_data = data.inner_data;
 
                 // Update relation workflow with data, use by click_inner_state
                 for (const [key, value] of Object.entries($scope.workflow)) {
                     if (!_.isEmpty(value.data)) {
-                        $scope.workflow[key].data = $scope.data[value.data];
+                        let data_name = value.data;
+                        $scope.workflow[key].data = $scope.data[data_name];
+                        $scope.workflow[key].inner_data = $scope.inner_data[data_name];
                     }
                 }
 
@@ -103,6 +111,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         })
 
         $scope.init_controller = function (state = INIT_STATE) {
+            // $scope.has_init = true;
             $scope.stack_breadcrumb_state = [];
             if (state !== INIT_STATE) {
                 let lstState = state.split('.');
@@ -119,6 +128,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     let searchedState = $scope.workflow[stateName];
                     if (!_.isUndefined(searchedState)) {
                         $scope.stack_breadcrumb_state.push(searchedState);
+                        $scope.reinit_state_model_field(searchedState);
+                        $scope.fill_model_form_from_state(searchedState);
                     } else {
                         console.error("Missing state " + stateName);
                     }
@@ -279,7 +290,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // History
         $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
             // Check this is not call before ajax to fill $scope.workflow
-            if (!_.isEmpty($scope.workflow)) {
+            // TODO has_init is always false
+            // TODO optimization, each time click next, $locationChangeSuccess and init_controller is recall
+            // TODO optimization, all variable is destroy and reconstruct with many loop
+            if (!_.isEmpty($scope.workflow) && !$scope.has_init) {
                 $scope.change_from_url($location.search());
             }
         });
@@ -312,6 +326,49 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 // Process all the angularjs watchers
                 $scope.$digest();
             })
+        }
+
+        $scope.reinit_state_model_field = function (state) {
+            // Fill state model from parameters
+            if (!_.isUndefined(state.model_field_name)) {
+                // if (!_.isUndefined(state.model_field_name) && (!_.isUndefined(state.selected_id))) {
+                let value;
+                if (!_.isUndefined(state.model_field_name_alias)) {
+                    value = $location.search()[state.model_field_name_alias];
+                } else if (!_.isUndefined(state.model_field_name)) {
+                    value = $location.search()[state.model_field_name];
+                }
+                if (jQuery.isNumeric(value)) {
+                    value = parseInt(value);
+                }
+                if (!_.isUndefined(value)) {
+                    if (!_.isUndefined(state.inner_data)) {
+                        let data = state.inner_data[value];
+                        $scope.form[state.model_field_name] = {id: data.id, value: data.title};
+                        state.selected_id = data.id;
+                        state.selected_value = data.title;
+                    } else if (!_.isUndefined(state.data)) {
+                        let data = state.data[value];
+                        $scope.form[state.model_field_name] = {id: data.id, value: data.title};
+                        state.selected_id = data.id;
+                        state.selected_value = data.title;
+                    } else {
+                        $scope.form[state.model_field_name] = value;
+                        state.selected_value = value;
+                    }
+                }
+                console.debug("help");
+            }
+        }
+
+        $scope.fill_model_form_from_state = function (state) {
+            // Fill models form
+            if (!_.isUndefined(state.model_field_name) && (!_.isUndefined(state.selected_id))) {
+                $scope.form[state.model_field_name] = {
+                    "id": state.selected_id,
+                    "value": state.selected_value
+                }
+            }
         }
 
         $scope.is_show_submit = function () {
@@ -357,6 +414,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 console.error("Cannot find next state, next_id variable is undefined or empty.");
                 console.debug($scope.state);
             } else {
+                // Fill URL parameters
                 if (!_.isUndefined($scope.state.model_field_name_alias) && (!_.isUndefined($scope.state.selected_id))) {
                     $location.search($scope.state.model_field_name_alias, $scope.state.selected_id);
                 } else if (!_.isUndefined($scope.state.model_field_name) && (!_.isUndefined($scope.state.selected_id))) {
@@ -412,6 +470,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 } else {
                     $location.search(PARAM_STATE_NAME, state.id);
                 }
+                // Fill models form
+                $scope.fill_model_form_from_state(state);
                 if (!_.isUndefined($scope.autoCompleteJS)) {
                     // Clean autoCompleteJS when change state
                     try {
@@ -442,7 +502,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.stack_breadcrumb_inner_state.push(option);
                     $scope.actual_inner_state_name = option.title;
                     $scope.update_inner_state(option);
-                    console.debug("CHeck here");
                 } else {
                     $scope.state.selected_value = option.title;
                     // option.id is set by ng-model
@@ -495,10 +554,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     //     state.selected_id = undefined;
                     //     state.selected_value = undefined;
                     // }
+                    // Remove parameters
                     if (!_.isUndefined(state.model_field_name_alias)) {
                         $location.search(state.model_field_name_alias, null);
                     } else if (!_.isUndefined(state.model_field_name)) {
                         $location.search(state.model_field_name, null);
+                    }
+                    // Remove form model
+                    if (!_.isUndefined(state.model_field_name) && $scope.form.hasOwnProperty(state.model_field_name)) {
+                        delete $scope.form[state.model_field_name];
                     }
                 }
                 // Remove variable from actual state

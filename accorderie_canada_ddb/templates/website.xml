@@ -600,6 +600,12 @@
                 <t t-call="website.layout">
                     <div id="wrap" ng-app="AccorderieApp" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
+                        <div class="debug_debug">
+                            Debug form: <span>{{form || json}}</span>
+                            <br />
+                            Debug state: <span>{{state || json}}</span>
+                            <br />
+                        </div>
                         <section class="s_buttons_form">
                             <div class="txt_question" ng-if="!state.disable_question">
                                 <div><span

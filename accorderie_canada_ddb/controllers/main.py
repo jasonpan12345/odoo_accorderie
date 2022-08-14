@@ -376,36 +376,47 @@ class AccorderieCanadaDdbController(http.Controller):
         accorderie_type_service_categorie_ids = (
             env["accorderie.type.service.categorie"].sudo().search([])
         )
-        lst_type_service_categorie = [
-            {
+        dct_inner_data_type_service_categorie = {}
+
+        lst_type_service_categorie = []
+        for a in accorderie_type_service_categorie_ids:
+            sub_list = []
+            obj_data = {
                 "id": a.id,
                 "tree_id": f"{a.id}",
                 "html": a._get_html_nom(),
                 "title": a._get_separate_list_nom(),
                 "icon": image_data_uri(a.icon) if a.icon else "",
-                "sub_list": [
-                    {
-                        "id": b.id,
-                        "tree_id": f"{a.id}.{b.id}",
-                        "html": b.nom,
-                        "title": b.nom,
-                        "sub_list": [
-                            {
-                                "html": c.nom,
-                                "title": c.nom,
-                                "id": c.id,
-                                "tree_id": f"{a.id}.{b.id}.{c.id}",
-                            }
-                            for c in b.type_service
-                        ],
-                    }
-                    for b in a.type_service_sous_categorie
-                ],
+                "sub_list": sub_list,
             }
-            for a in accorderie_type_service_categorie_ids
-        ]
+            lst_type_service_categorie.append(obj_data)
+            for b in a.type_service_sous_categorie:
+                sub_sub_list = []
+                sub_obj_data = {
+                    "id": b.id,
+                    "tree_id": f"{a.id}.{b.id}",
+                    "html": b.nom,
+                    "title": b.nom,
+                    "sub_list": sub_sub_list,
+                }
+                sub_list.append(sub_obj_data)
+                for c in b.type_service:
+                    sub_sub_obj_data = {
+                        "html": c.nom,
+                        "title": c.nom,
+                        "id": c.id,
+                        "tree_id": f"{a.id}.{b.id}.{c.id}",
+                    }
+                    sub_sub_list.append(sub_sub_obj_data)
+                    dct_inner_data_type_service_categorie[
+                        c.id
+                    ] = sub_sub_obj_data
+
         return {
             "data": {"type_service_categorie": lst_type_service_categorie},
+            "inner_data": {
+                "type_service_categorie": dct_inner_data_type_service_categorie
+            },
             "workflow": {
                 "init": {
                     "id": "init",
@@ -490,7 +501,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "breadcrumb_value": "Individuelle",
                     "type": "choix_categorie_de_service",
                     "model_field_name_alias": "categorie",
-                    "model_field_name": "categorie_id",
+                    "model_field_name": "type_service_id",
                     "data": "type_service_categorie",
                     "next_id": "init.pos.individuelle.formulaire",
                 },
@@ -752,6 +763,13 @@ class AccorderieCanadaDdbController(http.Controller):
 
         if kw.get("description"):
             vals["description"] = kw.get("description")
+
+        if kw.get("type_service_id"):
+            type_service_id = kw.get("type_service_id")
+            if type(type_service_id) is dict:
+                type_service_id_id = type_service_id.get("id")
+                if type_service_id_id:
+                    vals["type_service_id"] = type_service_id_id
 
         new_accorderie_offre_service = (
             request.env["accorderie.offre.service"].sudo().create(vals)
