@@ -47,7 +47,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             next_id: undefined,
             show_breadcrumb: false,
             data: undefined,
+            dct_data: undefined,
             inner_data: undefined,
+            dct_inner_data: undefined,
             breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
             breadcrumb_show_value_last_item: false,
@@ -97,8 +99,26 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 for (const [key, value] of Object.entries($scope.workflow)) {
                     if (!_.isEmpty(value.data)) {
                         let data_name = value.data;
-                        $scope.workflow[key].data = $scope.data[data_name];
-                        $scope.workflow[key].inner_data = $scope.inner_data[data_name];
+
+                        // data
+                        let lst_data = $scope.data[data_name]
+                        $scope.workflow[key].data = lst_data;
+                        let dct_data = {};
+                        for (let i = 0; i < lst_data.length - 1; i++) {
+                            dct_data[lst_data[i].id] = lst_data[i];
+                        }
+                        $scope.workflow[key].dct_data = dct_data;
+
+                        // inner_data
+                        let lst_data_inner = $scope.inner_data[data_name];
+                        if (!_.isUndefined(lst_data_inner)) {
+                            $scope.workflow[key].inner_data = lst_data_inner;
+                            let dct_data_inner = {};
+                            for (let i = 0; i < lst_data_inner.length - 1; i++) {
+                                dct_data_inner[lst_data_inner[i].id] = lst_data_inner[i];
+                            }
+                            $scope.workflow[key].dct_data_inner = dct_data_inner;
+                        }
                     }
                 }
 
@@ -146,7 +166,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // placeHolder: "Nom de la personne",
                     data: {
                         src: data,
-                        keys: ["text"],
+                        keys: ["title"],
                         cache: true,
                     },
                     resultItem: {
@@ -158,7 +178,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     events: {
                         input: {
                             selection: (event) => {
-                                let value = event.detail.selection.value.text;
+                                let value = event.detail.selection.value.title;
                                 // let index = event.detail.selection.index;
                                 $scope.autoCompleteJS.input.value = value;
                                 // $scope.state.selected_id = data_list[index].id;
@@ -215,64 +235,47 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.load_member = function () {
-            if (!_.isUndefined($scope.state.data)) {
-                if (!_.isEmpty($scope.state.selected_value)) {
-                    document.getElementById("chooseMember").value = $scope.state.selected_value;
-                }
-                return;
-            }
+            // if (!_.isEmpty($scope.state.selected_value)) {
+            //     document.getElementById("chooseMember").value = $scope.state.selected_value;
+            //     return;
+            // }
             // Need this function to detect state type is choix_membre and finish render before instance autoComplete
             if (_.isUndefined($scope.autoCompleteJS) && $scope.state.type === 'choix_membre' && $scope.chooseMemberPlaceholder !== "En attente...") {
                 $scope.chooseMemberPlaceholder = "En attente..."
-                console.debug("waiting after get_member");
-                ajax.rpc("/accorderie_canada_ddb/get_member/", {}).then(function (data) {
-                    console.debug("AJAX receive get_member");
-                    if (data.error) {
-                        $scope.error = error;
-                    } else if (_.isEmpty(data)) {
-                        $scope.error = "Empty data get member";
-                    } else {
-                        // TODO use data from get_participer_workflow_data instead of new request
-                        $scope.state.data = data.list;
-                        $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
+                $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
 
-                        // detect parameters
-                        let param_name;
-                        if (!_.isUndefined($scope.state.model_field_name_alias)) {
-                            param_name = $scope.state.model_field_name_alias;
-                        } else if (!_.isUndefined($scope.state.model_field_name)) {
-                            param_name = $scope.state.model_field_name;
-                        }
+                // detect parameters
+                let param_name;
+                if (!_.isUndefined($scope.state.model_field_name_alias)) {
+                    param_name = $scope.state.model_field_name_alias;
+                } else if (!_.isUndefined($scope.state.model_field_name)) {
+                    param_name = $scope.state.model_field_name;
+                }
 
-                        // fill value if params
-                        if (!_.isUndefined(param_name)) {
-                            let obj_selected_value = parseInt($location.search()[param_name]);
-                            if (Number.isInteger(obj_selected_value)) {
-                                // TODO create a dict from list instead of iterate it
-                                for (let i = 0; i < $scope.state.data.length; i++) {
-                                    if ($scope.state.data[i].id === obj_selected_value) {
-                                        $scope.state.selected_obj_value = $scope.state.data[i];
-                                        $scope.state.selected_id = obj_selected_value;
-                                        $scope.state.selected_value = $scope.state.selected_obj_value.text;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (!_.isEmpty($scope.state.selected_value)) {
-                            // autoCompleteJS is unInit
-                            // $scope.autoCompleteJS.input.value = $scope.state.selected_value;
-                            document.getElementById("chooseMember").value = $scope.state.selected_value;
+                // fill value if params
+                if (!_.isUndefined(param_name)) {
+                    let obj_selected_value = parseInt($location.search()[param_name]);
+                    if (Number.isInteger(obj_selected_value)) {
+                        let dct_data = $scope.state.dct_data[obj_selected_value];
+                        if (!_.isUndefined(dct_data)) {
+                            $scope.state.selected_id = obj_selected_value;
+                            $scope.state.selected_obj_value = dct_data;
+                            $scope.state.selected_value = dct_data.title;
                         } else {
-                            $scope._load_member(data.list);
+                            $scope.error = `Cannot find data 'membre' of ${obj_selected_value}`;
+                            console.error($scope.error);
                         }
                     }
+                }
 
-                    // Process all the angularjs watchers
-                    $scope.$digest();
-                })
+                if (!_.isEmpty($scope.state.selected_value)) {
+                    // autoCompleteJS is unInit
+                    // $scope.autoCompleteJS.input.value = $scope.state.selected_value;
+                    document.getElementById("chooseMember").value = $scope.state.selected_value;
+                } else {
+                    $scope._load_member($scope.state.data);
+                }
             }
-            return "";
         }
 
         $scope.remove_member = function () {
@@ -342,16 +345,26 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     value = parseInt(value);
                 }
                 if (!_.isUndefined(value)) {
-                    if (!_.isUndefined(state.inner_data)) {
-                        let data = state.inner_data[value];
-                        $scope.form[state.model_field_name] = {id: data.id, value: data.title};
-                        state.selected_id = data.id;
-                        state.selected_value = data.title;
-                    } else if (!_.isUndefined(state.data)) {
-                        let data = state.data[value];
-                        $scope.form[state.model_field_name] = {id: data.id, value: data.title};
-                        state.selected_id = data.id;
-                        state.selected_value = data.title;
+                    if (!_.isUndefined(state.dct_inner_data)) {
+                        let data = state.dct_inner_data[value];
+                        if (_.isUndefined(data)) {
+                            $scope.error = `Erreur avec la base de données 'inner_data' de  ${value}`;
+                            console.error($scope.error);
+                        } else {
+                            $scope.form[state.model_field_name] = {id: data.id, value: data.title};
+                            state.selected_id = data.id;
+                            state.selected_value = data.title;
+                        }
+                    } else if (!_.isUndefined(state.dct_data)) {
+                        let data = state.dct_data[value];
+                        if (_.isUndefined(data)) {
+                            $scope.error = `Erreur avec la base de données 'data' de ${value}`;
+                            console.error($scope.error);
+                        } else {
+                            $scope.form[state.model_field_name] = {id: data.id, value: data.title};
+                            state.selected_id = data.id;
+                            state.selected_value = data.title;
+                        }
                     } else {
                         $scope.form[state.model_field_name] = value;
                         state.selected_value = value;
