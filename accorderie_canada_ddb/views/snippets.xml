@@ -39,6 +39,11 @@
                 type="text/scss"
                 href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_liste_offre_et_demande_service.scss"
             />
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/accorderie_canada_ddb/static/src/scss/debug_not_implemented.scss"
+            />
 <!--            <link-->
 <!--                rel="stylesheet"-->
 <!--                type="text/scss"-->
