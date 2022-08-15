@@ -357,6 +357,28 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_personal_information",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_personal_information(self, **kw):
+        # TODO validate this getter
+        membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            "personal": {
+                "full_name": membre_id.nom_complet,
+                "actual_bank_hours": membre_id.bank_time,
+                "mon_accorderie": {
+                    "name": membre_id.accorderie.nom,
+                    "id": membre_id.accorderie.id,
+                },
+            }
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_participer_workflow_data",
         ],
         type="json",
@@ -785,8 +807,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 if type_service_id_id:
                     vals["type_service_id"] = type_service_id_id
 
-        author_id = http.request.env.user.partner_id.accorderie_membre_ids.id
-        vals["membre"] = author_id
+        membre_id = http.request.env.user.partner_id.accorderie_membre_ids.id
+        vals["membre"] = membre_id
 
         new_accorderie_offre_service = (
             request.env["accorderie.offre.service"].sudo().create(vals)

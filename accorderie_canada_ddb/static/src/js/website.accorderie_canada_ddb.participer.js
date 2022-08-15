@@ -31,6 +31,46 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // This allows html generation in view
         return $sce.trustAsHtml;
     });
+    app.controller('MainController', ['$scope', '$location', function ($scope, $location) {
+        $scope._ = _;
+        $scope.personal = {
+            // static
+            full_name: "-",
+            actual_bank_hours: 0,
+            mon_accorderie: {
+              name: "-",
+              id: 0,
+            },
+            // calculate
+            actual_bank_time_human: "0 heures",
+            actual_bank_time_diff: "00:00",
+        }
+
+        ajax.rpc("/accorderie_canada_ddb/get_personal_information/", {}).then(function (data) {
+            console.debug("AJAX receive get_personal_information");
+            if (data.error) {
+                $scope.error = error;
+                console.error($scope.error);
+            } else if (_.isEmpty(data)) {
+                $scope.error = "Empty 'get_personal_information' data";
+                console.error($scope.error);
+            } else {
+                $scope.error = "";
+                $scope.personal = data.personal;
+                $scope.update_personal_data();
+            }
+
+            // Process all the angularjs watchers
+            $scope.$digest();
+        })
+
+        $scope.update_personal_data = function () {
+            $scope.personal.actual_bank_time_human = $scope.personal.actual_bank_hours.toString() + " heures";
+            $scope.personal.actual_bank_time_diff = "+ " + `${$scope.personal.actual_bank_hours.toString()}:00`;
+        }
+
+    }])
+
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
         $scope.has_init = false;
