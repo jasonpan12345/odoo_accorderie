@@ -13,6 +13,12 @@ class AccorderieMembre(models.Model):
         store=True,
     )
 
+    membre_partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Membre",
+        track_visibility="onchange",
+    )
+
     accorderie = fields.Many2one(
         comodel_name="accorderie.accorderie",
         required=True,

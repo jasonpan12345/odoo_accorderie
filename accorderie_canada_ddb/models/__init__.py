@@ -27,4 +27,5 @@ from . import (
     accorderie_type_service_sous_categorie,
     accorderie_type_telephone,
     accorderie_ville,
+    res_partner,
 )
