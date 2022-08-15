@@ -37,9 +37,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // static
             full_name: "-",
             actual_bank_hours: 0,
+            introduction: "",
+            diff_humain_creation_membre: "",
+            antecedent_judiciaire_verifier: false,
             mon_accorderie: {
-              name: "-",
-              id: 0,
+                name: "-",
+                id: 0,
             },
             // calculate
             actual_bank_time_human: "0 heures",
@@ -48,8 +51,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         ajax.rpc("/accorderie_canada_ddb/get_personal_information/", {}).then(function (data) {
             console.debug("AJAX receive get_personal_information");
-            if (data.error) {
-                $scope.error = error;
+            if (data.error || !_.isUndefined(data.error)) {
+                $scope.error = data.error;
                 console.error($scope.error);
             } else if (_.isEmpty(data)) {
                 $scope.error = "Empty 'get_personal_information' data";
