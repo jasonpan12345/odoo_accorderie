@@ -598,7 +598,7 @@
         <t t-ignore="true">
             <t name="About us" t-name="website.aboutus">
                 <t t-call="website.layout">
-                    <div id="wrap" ng-app="AccorderieApp" ng-controller="ParticiperController" class="ng-cloak">
+                    <div id="wrap" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
                         <div class="debug_debug">
                             Debug form: <span>{{form || json}}</span>

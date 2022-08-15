@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="layout" name="Main layout" inherit_id="portal.frontend_layout">
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+          <attribute name="ng-app">AccorderieApp</attribute>
+          <attribute name="ng-controller">MainController</attribute>
+        </xpath>
         <!--        <xpath expr="//nav" position="attributes">-->
         <!--            <attribute name="class">navbar navbar-expand-md navbar-light bg-light nav-height-medium</attribute>-->
         <!--        </xpath>-->
@@ -520,7 +524,8 @@
                                         />
                                     </b>
                                     <br />
-                                    <p class="hours">+ 15:00</p>
+                                    <p class="hours">{{personal.actual_bank_time_diff}}</p>
+
                                 </a>
                                 <div class="dropdown-menu js_usermenu" role="menu">
                                     <a

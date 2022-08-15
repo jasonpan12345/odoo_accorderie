@@ -184,6 +184,17 @@ class AccorderieMembre(models.Model):
         required=True,
     )
 
+    bank_time = fields.Float(
+        string="Temps en banque", compute="_bank_time", store=True
+    )
+
+    @api.depends("membre_partner_id")
+    def _bank_time(self):
+        # TODO wrong dependency
+        # TODO calculate transaction difference
+        for rec in self:
+            rec.bank_time = 9
+
     def _compute_access_url(self):
         super(AccorderieMembre, self)._compute_access_url()
         for accorderie_membre in self:

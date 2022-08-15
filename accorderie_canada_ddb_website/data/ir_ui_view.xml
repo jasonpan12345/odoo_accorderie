@@ -2878,9 +2878,9 @@
         </record>
         <record id="ir_ui_view_mon_profil" model="ir.ui.view">
             <field name="arch" type="xml">
-                <t name="About http://localhost:8069/monprofil#us" t-name="website.aboutus">
+                <t name="About us" t-name="website.aboutus">
                     <t t-call="website.layout">
-                        <div id="wrap">
+                        <div id="wrap" ng-app="AccorderieApp" ng-controller="MainController">
                             <div class="oe_structure">
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="banner_profile">
@@ -2891,20 +2891,23 @@
                                             <div class="profile_banner_info">
                                                 <p class="profile_name text-gamma">Mon profil</p>
                                                 <p class="profile_hrs text-gamma">
-                                                    <i class="fa fa-clock-o" />&amp;nbsp;15 heures
+                                                    <i class="fa fa-clock-o" />&amp;nbsp;{{personal.actual_bank_time_human}}
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="profile_btn btn accorderie text-gamma">
                                             <i class="fa fa-smile-o" />
-                                            Mon accorderie: Sherbrooke
+                                            Mon accorderie: {{personal.mon_accorderie.name}}
                                             <i class="fa fa-chevron-right" />
                                         </div>
-                                        <div class="profile_btn btn disconnect text-gamma">
-                                            <i class="fa fa-power-off" />&amp;nbsp;Se déconnecter
-                                        </div>
+                                        <a href="web/session/logout?redirect=/">
+                                            <div class="profile_btn btn disconnect text-gamma">
+                                                <i class="fa fa-power-off" />&amp;nbsp;Se déconnecter
+                                            </div>
+                                        </a>
                                     </div>
                                 </section>
+
                                 <section class="s_informations">
                                     <div class="informations_container">
                                         <a class="information information-1 btn" href="monprofil/mapresentation">
