@@ -1655,19 +1655,19 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_mes_informations debug_unimplemented">
+                                <section class="s_mes_informations">
                                     <div class="informations_container">
                                         <div class="information information-1">
                                             <div class="profile_pic">
-                                                <img class="img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <i class="fa fa-shield text-epsilon" />
+                                                <img class="img img-fluid rounded-circle debug_unimplemented" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
+                                                <i class="fa fa-shield text-epsilon" ng-if="personal.antecedent_judiciaire_verifier"/>
                                             </div>
                                             <span class="nbr">
                                                 Bonjour je m'appelle
                                                 <br />
-                                                <font style="font-weight:bold;">Alice Poitier</font>
+                                                <font style="font-weight:bold;">{{personal.full_name}}</font>
                                             </span>
-                                            <div class="modif_btn btn btn-primary">
+                                            <div class="modif_btn btn btn-primary debug_unimplemented">
                                                 <span class="img img-fluid mx-auto fa fa-pencil" style="" />
                                                 Modifier le profil
                                             </div>
@@ -1676,36 +1676,35 @@
                                             <span class="txt">Intro</span>
                                             <br />
                                             <br />
-                                            <span class="nbr">"J'adore rencontrer de nouvelles personnes, n'h&#233;sitez-pas
-                                                &#224; me contacter"
-                                            </span>
+                                            <span class="nbr"><q>{{personal.introduction}}</q></span>
                                         </div>
                                         <div class="information information-3">
                                             <span class="txt">R&#233;sum&#233;</span>
                                             <br />
                                             <br />
-                                            <span class="txt desc">
+                                            <span class="txt desc debug_unimplemented">
                                                 <i class="fa fa-map-marker" />
                                                 Habite &#224; 1.2km de votre domicile
                                             </span>
                                             <br />
                                             <span class="txt desc">
                                                 <i class="fa fa-home" />
-                                                Vieux Nord, Sherbrooke, QC, Canada
+                                                {{personal.location}}
                                             </span>
                                             <br />
                                             <span class="txt desc">
                                                 <i class="fa fa-shield" />
-                                                Ant&#233;c&#233;dents judificaires v&#233;rifi&#233;s
+                                                <span ng-if="personal.antecedent_judiciaire_verifier">Ant&#233;c&#233;dents judificaires v&#233;rifi&#233;s</span>
+                                                <span ng-else="">Ant&#233;c&#233;dents judificaires non v&#233;rifi&#233;s</span>
                                             </span>
                                             <br />
                                             <span class="txt desc">
                                                 <i class="fa fa-calendar" />
-                                                Membre depuis avril 2020
+                                                Membre depuis {{personal.diff_humain_creation_membre}}
                                             </span>
                                         </div>
                                         <div class="information information-4">
-                                            <div>
+                                            <div class="debug_unimplemented">
                                                 <span class="txt">Ma description</span>
 
                                                 <span><br />Pellentesque feugiat arcu eu laoreet dignissim. Ut ut orci
@@ -1734,7 +1733,7 @@
                                                     ommodo varius justo.
                                                 </span>
                                             </div>
-                                            <div>
+                                            <div class="debug_unimplemented">
                                                 <span class="txt">Mes centres d'intérêt</span>
                                                 <br />
                                                 <div class="d-flex" style="gap:1%">
@@ -1745,7 +1744,7 @@
                                                 </div>
 
                                             </div>
-                                            <div>
+                                            <div class="debug_unimplemented">
                                                 <span class="txt">Pourquoi suis-je membre de l'Accorderie?</span>
                                                 <span>
                                                     Nam consectetur bibendum rutrum. Cras dapibus ligula vitae est
@@ -1761,7 +1760,7 @@
                                                     ommodo varius justo.
                                                 </span>
                                             </div>
-                                            <div>
+                                            <div class="debug_unimplemented">
                                                 <span class="txt">Les langues que je parle</span>
                                                 <span><i class="fa fa-commenting" />Français</span>
                                                 <br />
@@ -1814,7 +1813,7 @@
                                                 <span class="txt">Mes demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
                                             </div>
-                                            <div>
+                                            <div class="debug_unimplemented">
                                                 <p>
                                                     <icon class="fa fa-flag-o" />
                                                     &amp;nbsp

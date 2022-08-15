@@ -364,12 +364,24 @@ class AccorderieCanadaDdbController(http.Controller):
         website=True,
     )
     def get_personal_information(self, **kw):
-        # TODO validate this getter
+        # TODO validate this getter membre_id
         membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if not membre_id:
+            return {"error": "User not connected"}
+        timedate_now = datetime.now()
+        _t = humanize.i18n.activate("fr_FR")
+        diff_time_creation = timedate_now - membre_id.create_date
+        str_diff_time_creation = humanize.naturaltime(diff_time_creation)
+        humanize.i18n.deactivate()
+        # TODO update location with cartier et autre
         return {
             "personal": {
                 "full_name": membre_id.nom_complet,
                 "actual_bank_hours": membre_id.bank_time,
+                "introduction": membre_id.introduction,
+                "diff_humain_creation_membre": str_diff_time_creation,
+                "location": membre_id.ville.nom,
+                "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
                 "mon_accorderie": {
                     "name": membre_id.accorderie.nom,
                     "id": membre_id.accorderie.id,

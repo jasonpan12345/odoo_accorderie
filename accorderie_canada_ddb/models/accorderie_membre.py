@@ -184,6 +184,13 @@ class AccorderieMembre(models.Model):
         required=True,
     )
 
+    antecedent_judiciaire_verifier = fields.Boolean(
+        string="Antécédents judiciaires vérifiés",
+        help="Vérifier par l'organisation",
+    )
+
+    introduction = fields.Char(help="Un petit texte qui décrit le membre.")
+
     bank_time = fields.Float(
         string="Temps en banque", compute="_bank_time", store=True
     )
