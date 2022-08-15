@@ -5,12 +5,20 @@
           <attribute name="ng-app">AccorderieApp</attribute>
           <attribute name="ng-controller">MainController</attribute>
         </xpath>
+
+        <!-- Use to test compile outside ng-app -->
+        <!--        <xpath expr="//div[@id='wrapwrap']" position="before">-->
+        <!--          <div id="patate">{{personal.actual_bank_hours}}</div>-->
+        <!--        </xpath>-->
+
+        <!-- Add nav-height-medium, remove "<div class="container">" and replace <li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/> by static list -->
         <!--        <xpath expr="//nav" position="attributes">-->
         <!--            <attribute name="class">navbar navbar-expand-md navbar-light bg-light nav-height-medium</attribute>-->
         <!--        </xpath>-->
-        <!-- Add nav-height-medium, remove "<div class="container">" and replace <li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/> by static list -->
+
         <xpath expr="//header" position="replace">
-            <header class="o_affix_enabled">
+            <header class="">
+<!--            <header class="o_affix_enabled">-->
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">
                     <a href="/" class="navbar-brand logo">
                         <img
@@ -127,6 +135,9 @@
                                     <div role="menuitem" class="dropdown-item btn_debug_debug">
                                         <p>Debug</p>
                                     </div>
+<!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
+<!--                                        <p>Refresh AngularJS</p>-->
+<!--                                    </div>-->
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

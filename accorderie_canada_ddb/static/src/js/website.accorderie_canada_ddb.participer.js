@@ -15,22 +15,97 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
     });
 });
 
+// function compileAngularElement(elSelector) {
+//
+//     var elSelector = (typeof elSelector == 'string') ? elSelector : null;
+//     // The new element to be added
+//     if (elSelector != null) {
+//         var $div = $(elSelector);
+//
+//         // The parent of the new element
+//         var $target = $("[ng-app]");
+//
+//         angular.element($target).injector().invoke(['$compile', function ($compile) {
+//             var $scope = angular.element($target).scope();
+//             $compile($div)($scope);
+//             // Finally, refresh the watch expressions in the new element
+//             $scope.$apply();
+//         }]);
+//     }
+//
+// }
+
 //==============================================================================
 
 odoo.define("website.accorderie_canada_ddb.participer", function (require) {
-    const INIT_STATE = "init";
-    const PARAM_STATE_NAME = "state";
+    'use strict';
+
+    // For compile angularjs
+    // let sAnimation = require('website.content.snippets.animation');
+    // require('website.content.menu');
+
     let ajax = require('web.ajax');
     let core = require('web.core');
     let session = require('web.session');
     let Widget = require('web.Widget');
     let _t = core._t;
 
+    const INIT_STATE = "init";
+    const PARAM_STATE_NAME = "state";
+
     let app = angular.module('AccorderieApp', []);
     app.filter('unsafe', function ($sce) {
         // This allows html generation in view
         return $sce.trustAsHtml;
     });
+
+    // sAnimation.registry.affixMenu.include({
+    //     /**
+    //      * @override
+    //      */
+    //     start: function () {
+    //         var def = this._super.apply(this, arguments);
+    //         return def;
+    //     },
+    //
+    //     //--------------------------------------------------------------------------
+    //     // Handlers
+    //     //--------------------------------------------------------------------------
+    //
+    //     /**
+    //      * @override
+    //      */
+    //     _onWindowUpdate: function () {
+    //         this._super.apply(this, arguments);
+    //         if (this.$headerClone) {
+    //             // this.$headerClone.each(function () {
+    //             // this.$headers.each(function () {
+    //             //     let content = $(this);
+    //             var content = this.$headerClone;
+    //
+    //             var content = $("#patate");
+    //             var $target = $("[ng-app]");
+    //
+    //             angular.element($target).injector().invoke(['$compile', function ($compile) {
+    //                 var $scope = angular.element($target).scope();
+    //
+    //                 // $scope.personal.actual_bank_hours += 1;
+    //                 // $scope.update_personal_data();
+    //
+    //                 // let test = $("{{personal.actual_bank_hours}}")
+    //                 // $compile(test)($scope);
+    //
+    //                 $compile(content)($scope);
+    //                 // Finally, refresh the watch expressions in the new element
+    //                 $scope.$apply();
+    //                 console.debug(content);
+    //                 // console.debug(test);
+    //             }]);
+    //
+    //         }
+    //     },
+    // })
+
     app.controller('MainController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
         $scope.personal = {
@@ -66,6 +141,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // Process all the angularjs watchers
             $scope.$digest();
         })
+
+        // $scope.forceRefreshAngularJS = function () {
+        //     // console.debug("Force refresh AngularJS");
+        //     // $scope.$digest();
+        //     compileAngularElement(".o_affix_enabled");
+        // }
 
         $scope.update_personal_data = function () {
             $scope.personal.actual_bank_time_human = $scope.personal.actual_bank_hours.toString() + " heures";
