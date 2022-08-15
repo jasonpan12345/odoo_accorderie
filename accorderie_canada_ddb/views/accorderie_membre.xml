@@ -18,6 +18,9 @@
                         <field name="accorderie" />
                     </group>
                     <group>
+                        <field name="membre_partner_id" />
+                    </group>
+                    <group>
                         <field name="achat_regrouper" />
                     </group>
                     <group>

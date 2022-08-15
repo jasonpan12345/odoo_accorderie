@@ -775,7 +775,8 @@ class AccorderieCanadaDdbController(http.Controller):
             vals["titre"] = kw.get("titre")
 
         if kw.get("description"):
-            vals["description"] = kw.get("description")
+            description = kw.get("description").replace("\n", "<br/>")
+            vals["description"] = description
 
         if kw.get("type_service_id"):
             type_service_id = kw.get("type_service_id")
@@ -783,6 +784,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 type_service_id_id = type_service_id.get("id")
                 if type_service_id_id:
                     vals["type_service_id"] = type_service_id_id
+
+        author_id = http.request.env.user.partner_id.accorderie_membre_ids.id
+        vals["membre"] = author_id
 
         new_accorderie_offre_service = (
             request.env["accorderie.offre.service"].sudo().create(vals)

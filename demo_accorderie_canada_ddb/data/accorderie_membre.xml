@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
+        <record id="accorderie_membre_administrateur_mathieu_benoit" model="accorderie.membre">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="nom">Benoit</field>
+            <field name="prenom">Mathieu</field>
+            <field name="membre_partner_id" ref="base.partner_admin" />
+            <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
+            <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
+        </record>
         <record id="accorderie_membre_martin_petit" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
             <field name="adresse">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>

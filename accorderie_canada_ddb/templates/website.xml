@@ -719,7 +719,7 @@
                                             <span style="font-size:1.75rem">Titre</span>
                                         </p>
                                     </div>
-                                    <textarea class="form_titre" ng-model="form.titre" />
+                                    <input type="text" class="form_titre" ng-model="form.titre" />
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.75rem">Description</span>
