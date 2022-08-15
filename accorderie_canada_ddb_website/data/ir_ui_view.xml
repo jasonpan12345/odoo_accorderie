@@ -1660,7 +1660,7 @@
                                         <div class="information information-1">
                                             <div class="profile_pic">
                                                 <img class="img img-fluid rounded-circle debug_unimplemented" src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg" />
-                                                <i class="fa fa-shield text-epsilon" ng-if="personal.antecedent_judiciaire_verifier"/>
+                                                <i class="fa fa-shield text-epsilon" ng-if="personal.antecedent_judiciaire_verifier" />
                                             </div>
                                             <span class="nbr">
                                                 Bonjour je m'appelle
