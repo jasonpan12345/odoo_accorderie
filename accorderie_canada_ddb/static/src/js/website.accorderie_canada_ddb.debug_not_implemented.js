@@ -100,7 +100,9 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 document.head.appendChild(link);
             } else {
                 let unique_id = document.getElementById(unique_id_name);
-                unique_id.remove();
+                if (!_.isNull(unique_id)) {
+                    unique_id.remove();
+                }
             }
         },
         HideNotImplemented: function (show) {
@@ -111,8 +113,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 if (show) {
                     classes[j].style.display = "none";
                 } else {
-                    // TODO bug if the last style display wasn't block
-                    classes[j].style.display = "block";
+                    classes[j].style.display = "revert";
                 }
             }
         },
@@ -124,8 +125,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 if (hide) {
                     classes[j].style.display = "none";
                 } else {
-                    // TODO bug if the last style display wasn't block
-                    classes[j].style.display = "block";
+                    classes[j].style.display = "revert";
                 }
             }
         },
