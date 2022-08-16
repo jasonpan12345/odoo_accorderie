@@ -622,7 +622,28 @@
                                 </div>
                             </div>
                             <div id="participer_form">
-                                <div class="buttons_form_container tab" ng-if="state.type == 'selection_static'">
+                                <div
+                                    class="buttons_form_container tab"
+                                    ng-if="state.type == 'selection_static' || state.type == 'selection_dynamique'"
+                                >
+                                    <!-- !list_is_first_position -->
+                                    <!-- Update the duplicate, check ng-if="state.list_is_first_position" -->
+                                    <div
+                                        ng-repeat="option in state.data"
+                                        class="button_form"
+                                        ng-if="!state.list_is_first_position"
+                                    >
+                                        <div class="btn" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
+<!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
+<!--                                            <img-->
+<!--                                                class="activite_img img-fluid"-->
+<!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+<!--                                            />-->
+                                            <h5 ng-show="option.title">{{option.title}}</h5>
+                                            <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
+                                            <p ng-show="option.right_html" ng-bind-html="option.right_html | unsafe" />
+                                        </div>
+                                    </div>
                                     <div
                                         ng-repeat="option in state.list"
                                         ng-class="{'debug_unimplemented': is_not_implemented(option)}"
@@ -635,31 +656,30 @@
                                             ng-value="option.id"
                                             ng-model="$parent.$parent.state.next_id"
                                             required="required"
+                                            ng-click="click_statique(option)"
                                         />
                                         <label for="{{option.id}}" class="btn" ng-dblclick="next_btn()">
+                                            <i class="fa {{option.icon}}" ng-if="option.icon" />
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
                                         </label>
                                     </div>
-                                </div>
-                                <div class="buttons_form_container tab" ng-if="state.type == 'selection_dynamique'">
+                                    <!-- list_is_first_position -->
                                     <div
-                                        ng-repeat="option in state.list"
-                                        ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                        ng-repeat="option in state.data"
                                         class="button_form"
+                                        ng-if="state.list_is_first_position"
                                     >
-                                        <input
-                                            type="radio"
-                                            id="{{option.id}}"
-                                            name="pub"
-                                            ng-value="option.id"
-                                            ng-model="$parent.$parent.state.next_id"
-                                            required="required"
-                                        />
-                                        <label for="{{option.id}}" class="btn" ng-dblclick="next_btn()">
+                                        <div class="btn" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
+<!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
+<!--                                            <img-->
+<!--                                                class="activite_img img-fluid"-->
+<!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+<!--                                            />-->
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
-                                        </label>
+                                            <p ng-show="option.right_html" ng-bind-html="option.right_html | unsafe" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div
@@ -816,7 +836,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.offrir.nouveau'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.offrir.nouveau.categorie_service.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Destinaire du service
@@ -825,10 +845,14 @@
                                     >https://marvelapp.com/prototype/1773h559/screen/86537471</a>
 
                                     <div class="list_title" style="padding:2rem 0 0">
-                                        <span style="font-size:1.75rem;font-weight:bold;">Catégorie du service</span>
+                                        <span style="font-size:1.75rem;font-weight:bold;">Destinaire du service</span>
                                     </div>
-                                    <div class="form_box">
-                                        <span>Yannick Gagnon</span>
+                                    <div
+                                        class="form_box"
+                                        style="cursor: pointer;"
+                                        ng-click="change_state_name('init.saa.offrir.nouveau')"
+                                    >
+                                        <span>{{form.membre_id.value}}</span>
                                         <i class="fa fa-chevron-right" />
                                     </div>
 
@@ -844,8 +868,12 @@
                                             <span style="font-size:1.5rem">Catégorie du service</span>
                                         </p>
                                     </div>
-                                    <div class="form_box">
-                                        <span>Confections dessert pour événements</span>
+                                    <div
+                                        class="form_box"
+                                        style="cursor: pointer;"
+                                        ng-click="change_state_name('init.saa.offrir.nouveau.categorie_service')"
+                                    >
+                                        <span>{{form.type_service_id.value}}</span>
                                         <i class="fa fa-chevron-right" />
                                     </div>
                                     <div class="list_title" style="padding:2rem 0 0">
@@ -853,9 +881,7 @@
                                             <span style="font-size:1.5rem">Nom de votre service</span>
                                         </p>
                                     </div>
-                                    <div class="form_box">
-                                        <span>Création d'un gateau de fête</span>
-                                    </div>
+                                    <input type="text" id="titre" />
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <p>
                                             <span style="font-size:1.5rem">Description de votre offre de service</span>
@@ -962,7 +988,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.offrir.existant'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.offrir.existant.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Offre de service donné
@@ -993,7 +1019,7 @@
                                         <span style="font-size:1.75rem;font-weight:bold;">Destinataire du service</span>
                                     </div>
                                     <div class="form_box">
-                                        <span>Yannick Gagnon</span>
+                                        <span>{{form.membre_id.value}}</span>
                                         <i class="fa fa-search" />
                                     </div>
                                     <div class="divider" />
@@ -1186,11 +1212,7 @@
                                     <div class="list_title" style="padding:2rem 0 0">
                                         <span style="font-size:1.75rem;font-weight:bold;">Destinataire du service</span>
                                     </div>
-                                    <div
-                                        class="form_box"
-                                        ng-click="change_state_name('init.saa.recevoir')"
-                                        style="cursor:pointer; color:white"
-                                    >
+                                    <div class="form_box" ng-click="change_state_name('init.saa.recevoir')">
                                         <span>{{form.membre_id.value}}</span>
                                         <i class="fa fa-chevron-right" />
                                     </div>
@@ -1463,7 +1485,7 @@
                                         <span style="font-size:1.75rem;font-weight:bold;">Destinataire du service</span>
                                     </div>
                                     <div class="form_box">
-                                        <span>Yannick Gagnon</span>
+                                        <span>{{form.membre_id.value}}n</span>
                                         <i class="fa fa-chevron-right" />
                                     </div>
 
@@ -1605,7 +1627,7 @@
                                         <span style="font-size:1.75rem;font-weight:bold;">Destinataire du service</span>
                                     </div>
                                     <div class="form_box">
-                                        <span>Yannick Gagnon</span>
+                                        <span>{{form.membre_id.value}}</span>
                                         <i class="fa fa-chevron-right" />
                                     </div>
 
@@ -1702,7 +1724,7 @@
                                         </span>
                                     </div>
                                     <div class="form_box">
-                                        <span>Yannick Gagnon</span>
+                                        <span>{{form.membre_id.value}}</span>
                                         <i class="fa fa-search" />
                                     </div>
 

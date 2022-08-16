@@ -143,6 +143,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.error = "";
                 $scope.personal = data.personal;
                 $scope.update_personal_data();
+                console.debug($scope.personal);
             }
 
             // Process all the angularjs watchers
@@ -264,19 +265,21 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.error = "";
         $scope.workflow = {};
         $scope.data = {};
-        $scope.inner_data = {};
+        $scope.data_inner = {};
         $scope.state = {
             id: undefined,
             message: "",
             type: "",
             list: undefined,
+            list_is_first_position: undefined,
             disable_question: false,
             next_id: undefined,
+            next_id_data: undefined,
             show_breadcrumb: false,
             data: undefined,
             dct_data: undefined,
-            inner_data: undefined,
-            dct_inner_data: undefined,
+            data_inner: undefined,
+            dct_data_inner: undefined,
             breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
             breadcrumb_show_value_last_item: false,
@@ -314,13 +317,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.workflow = {};
                 $scope.state = {};
                 $scope.data = {};
-                $scope.inner_data = {};
+                $scope.data_inner = {};
             } else {
                 // Init controller or call change_state_name(name)
                 $scope.error = "";
                 $scope.workflow = data.workflow;
                 $scope.data = data.data;
-                $scope.inner_data = data.inner_data;
+                $scope.data_inner = data.data_inner;
 
                 // Update relation workflow with data, use by click_inner_state
                 for (const [key, value] of Object.entries($scope.workflow)) {
@@ -331,19 +334,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         let lst_data = $scope.data[data_name]
                         $scope.workflow[key].data = lst_data;
                         let dct_data = {};
-                        for (let i = 0; i < lst_data.length - 1; i++) {
+                        for (let i = 0; i < lst_data.length; i++) {
                             dct_data[lst_data[i].id] = lst_data[i];
                         }
                         $scope.workflow[key].dct_data = dct_data;
 
-                        // inner_data
-                        let lst_data_inner = $scope.inner_data[data_name];
-                        if (!_.isUndefined(lst_data_inner)) {
-                            $scope.workflow[key].inner_data = lst_data_inner;
-                            let dct_data_inner = {};
-                            for (let i = 0; i < lst_data_inner.length - 1; i++) {
-                                dct_data_inner[lst_data_inner[i].id] = lst_data_inner[i];
-                            }
+                        // data_inner
+                        let dct_data_inner = $scope.data_inner[data_name];
+                        if (!_.isUndefined(dct_data_inner)) {
                             $scope.workflow[key].dct_data_inner = dct_data_inner;
                         }
                     }
@@ -572,10 +570,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     value = parseInt(value);
                 }
                 if (!_.isUndefined(value)) {
-                    if (!_.isUndefined(state.dct_inner_data)) {
-                        let data = state.dct_inner_data[value];
+                    if (!_.isUndefined(state.dct_data_inner)) {
+                        let data = state.dct_data_inner[value];
                         if (_.isUndefined(data)) {
-                            $scope.error = `Erreur avec la base de données 'inner_data' de  ${value}`;
+                            $scope.error = `Erreur avec la base de données 'data_inner' de  ${value}`;
                             console.error($scope.error);
                         } else {
                             $scope.form[state.model_field_name] = {id: data.id, value: data.title};
@@ -731,6 +729,29 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.stack_breadcrumb_inner_state = [];
                 $scope.actual_inner_state_name = "";
             }
+        }
+
+        // Dynamique list
+        $scope.click_statique = function (option) {
+            console.debug("call click_statique");
+            // clean dynamique option
+            console.debug(option);
+
+            $scope.state.selected_id = undefined;
+            $scope.state.selected_obj_value = undefined;
+            $scope.state.selected_value = undefined;
+
+            // This is change by ng-model
+            // $scope.state.next_id = $scope.state.next_id_data;
+        }
+
+        $scope.click_dynamique = function (option) {
+            console.debug("call click_dynamique");
+            console.debug(option);
+            $scope.state.selected_id = option.id;
+            $scope.state.selected_obj_value = option;
+            $scope.state.selected_value = option.id;
+            $scope.state.next_id = $scope.state.next_id_data;
         }
 
         // Inner state, temporary internal state
