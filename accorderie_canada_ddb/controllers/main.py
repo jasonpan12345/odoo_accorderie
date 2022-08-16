@@ -376,14 +376,14 @@ class AccorderieCanadaDdbController(http.Controller):
         membre_id = http.request.env.user.partner_id.accorderie_membre_ids
         if not membre_id:
             return {"error": "User not connected"}
-        timedate_now = datetime.now()
-        _t = humanize.i18n.activate("fr_FR")
-        diff_time_creation = timedate_now - membre_id.create_date
-        str_diff_time_creation = humanize.naturaltime(diff_time_creation)
-        humanize.i18n.deactivate()
+
+        str_diff_time_creation = self._transform_str_diff_time_creation(
+            membre_id.create_date
+        )
 
         lst_offre_service = [
             {
+                "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
                 "diff_create_date": self._transform_str_diff_time_creation(
@@ -423,13 +423,22 @@ class AccorderieCanadaDdbController(http.Controller):
         # List type
         # A - Selection static : selection_static
         # B - Choix catégorie de service : choix_categorie_de_service
-        # C - Choix membre
-        # D - Selection dynamique (option new, option id)
+        # C - Choix membre : choix_membre
+        # D - Selection dynamique (option new, option id) : selection_dynamique
         # E - Calendrier
         # F - Temps + durée
         # G - Formulaire (xml_item_id) : form
+        membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if not membre_id:
+            return {"error": "User not connected"}
+
         env = request.env(context=dict(request.env.context))
-        accorderie_membre_ids = env["accorderie.membre"].sudo().search([])
+        # Remove itself member
+        accorderie_membre_ids = (
+            env["accorderie.membre"]
+            .sudo()
+            .search([("id", "!=", membre_id.id)])
+        )
         lst_membre = [
             {
                 "title": a.nom_complet,
@@ -441,7 +450,7 @@ class AccorderieCanadaDdbController(http.Controller):
         accorderie_type_service_categorie_ids = (
             env["accorderie.type.service.categorie"].sudo().search([])
         )
-        dct_inner_data_type_service_categorie = {}
+        dct_data_inner_type_service_categorie = {}
 
         lst_type_service_categorie = []
         for a in accorderie_type_service_categorie_ids:
@@ -473,17 +482,30 @@ class AccorderieCanadaDdbController(http.Controller):
                         "tree_id": f"{a.id}.{b.id}.{c.id}",
                     }
                     sub_sub_list.append(sub_sub_obj_data)
-                    dct_inner_data_type_service_categorie[
+                    dct_data_inner_type_service_categorie[
                         c.id
                     ] = sub_sub_obj_data
+
+        lst_mes_offre_de_service = [
+            {
+                "id": a.id,
+                # "html": a.description,
+                "right_html": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "title": a.titre,
+            }
+            for a in membre_id.offre_service_ids
+        ]
 
         return {
             "data": {
                 "type_service_categorie": lst_type_service_categorie,
                 "membre": lst_membre,
+                "mes_offres_de_service": lst_mes_offre_de_service,
             },
-            "inner_data": {
-                "type_service_categorie": dct_inner_data_type_service_categorie
+            "data_inner": {
+                "type_service_categorie": dct_data_inner_type_service_categorie
             },
             "workflow": {
                 "init": {
@@ -633,26 +655,72 @@ class AccorderieCanadaDdbController(http.Controller):
                     "show_breadcrumb": True,
                     "breadcrumb_value": "Offrir un service",
                     "type": "selection_dynamique",
+                    "model_field_name_alias": "offre_service",
+                    "model_field_name": "offre_service_id",
+                    "data": "mes_offres_de_service",
+                    "next_id_data": "init.saa.offrir.existant",
+                    "list_is_first_position": True,
                     "list": [
                         {
                             "id": "init.saa.offrir.nouveau",
-                            "title": "Nouveau",
-                        },
-                        {
-                            "id": "init.saa.offrir.existant",
-                            "title": "Existant",
+                            "html": (
+                                "Créer une offre de service"
+                                " privée<br/>(spécifiquement pour un autre"
+                                " accordeur)."
+                            ),
+                            "icon": "fa-plus-circle",
                         },
                     ],
                 },
                 "init.saa.offrir.nouveau": {
-                    "show_breadcrumb": False,
                     "id": "init.saa.offrir.nouveau",
+                    "show_breadcrumb": True,
+                    "type": "choix_membre",
+                    "message": "À qui souhaitez-vous offrir le service?",
+                    "breadcrumb_value": "Privé",
+                    "model_field_name_alias": "membre",
+                    "model_field_name": "membre_id",
+                    "data": "membre",
+                    "next_id": "init.saa.offrir.nouveau.categorie_service",
+                },
+                "init.saa.offrir.nouveau.categorie_service": {
+                    "id": "init.saa.offrir.nouveau.categorie_service",
+                    "message": (
+                        "Dans quelle catégorie s'inscrit votre offre de"
+                        " service privée?"
+                    ),
+                    "show_breadcrumb": True,
+                    "breadcrumb_value": "Pour 'membre'",
+                    "type": "choix_categorie_de_service",
+                    "model_field_name_alias": "categorie",
+                    "model_field_name": "type_service_id",
+                    "data": "type_service_categorie",
+                    "next_id": (
+                        "init.saa.offrir.nouveau.categorie_service.formulaire"
+                    ),
+                },
+                "init.saa.offrir.nouveau.categorie_service.formulaire": {
+                    "id": (
+                        "init.saa.offrir.nouveau.categorie_service.formulaire"
+                    ),
+                    "show_breadcrumb": False,
                     "message": "Offrir un service privé",
                     "type": "form",
                 },
                 "init.saa.offrir.existant": {
-                    "show_breadcrumb": False,
                     "id": "init.saa.offrir.existant",
+                    "show_breadcrumb": True,
+                    "type": "choix_membre",
+                    "message": "À qui souhaitez-vous offrir le service?",
+                    "breadcrumb_value": "Que j'ai publié",
+                    "model_field_name_alias": "membre",
+                    "model_field_name": "membre_id",
+                    "data": "membre",
+                    "next_id": "init.saa.offrir.existant.formulaire",
+                },
+                "init.saa.offrir.existant.formulaire": {
+                    "id": "init.saa.offrir.existant.formulaire",
+                    "show_breadcrumb": False,
                     "message": "Offrir un service privé",
                     "type": "form",
                 },
@@ -689,14 +757,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     ],
                 },
                 "init.saa.recevoir.choix.nouveau": {
-                    "show_breadcrumb": False,
                     "id": "init.saa.recevoir.choix.nouveau",
+                    "show_breadcrumb": False,
                     "message": "Description de la transaction",
                     "type": "form",
                 },
                 "init.saa.recevoir.choix.existant": {
-                    "show_breadcrumb": False,
                     "id": "init.saa.recevoir.choix.existant",
+                    "show_breadcrumb": False,
                     "message": "Résumé de ma demande",
                     "type": "form",
                 },
@@ -770,14 +838,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     ],
                 },
                 "init.va.non.offert.nouveau": {
-                    "show_breadcrumb": False,
                     "id": "init.va.non.offert.nouveau",
+                    "show_breadcrumb": False,
                     "message": "Déclaration de l'accordage effectué",
                     "type": "form",
                 },
                 "init.va.non.offert.existant": {
-                    "show_breadcrumb": False,
                     "id": "init.va.non.offert.existant",
+                    "show_breadcrumb": False,
                     "message": "Résumé de ma demande",
                     "type": "form",
                 },
@@ -802,14 +870,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     ],
                 },
                 "init.va.non.recu.nouveau": {
-                    "show_breadcrumb": False,
                     "id": "init.va.non.recu.nouveau",
+                    "show_breadcrumb": False,
                     "message": "Déclaration de l'accordage effectué",
                     "type": "form",
                 },
                 "init.va.non.recu.existant": {
-                    "show_breadcrumb": False,
                     "id": "init.va.non.recu.existant",
+                    "show_breadcrumb": False,
                     "message": "Déclaration de l'accordage effectué",
                     "type": "form",
                 },
