@@ -378,6 +378,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "personal": {
                 "full_name": membre_id.nom_complet,
                 "actual_bank_hours": membre_id.bank_time,
+                "actual_month_bank_hours": membre_id.bank_month_time,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
                 "location": membre_id.ville.nom,

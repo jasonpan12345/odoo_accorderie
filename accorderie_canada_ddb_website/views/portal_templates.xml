@@ -16,8 +16,12 @@
         <!--            <attribute name="class">navbar navbar-expand-md navbar-light bg-light nav-height-medium</attribute>-->
         <!--        </xpath>-->
 
+<!--        <xpath expr="//header" position="attributes">-->
+<!--            <attribute name="class">ng-cloak</attribute>-->
+<!--        </xpath>-->
         <xpath expr="//header" position="replace">
-            <header class="">
+            <header>
+<!--            <header class="ng-cloak">-->
 <!--            <header class="o_affix_enabled">-->
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">
                     <a href="/" class="navbar-brand logo">
@@ -535,7 +539,16 @@
                                         />
                                     </b>
                                     <br />
-                                    <p class="hours">{{personal.actual_bank_time_diff}}</p>
+                                    <b class="ng-cloak">
+                                        <p
+                                            class="hours"
+                                            ng-if="personal.actual_bank_sign"
+                                        >{{personal.actual_bank_time_diff}}</p>
+                                        <p
+                                            class="hours neg_time"
+                                            ng-if="!personal.actual_bank_sign"
+                                        >{{personal.actual_bank_time_diff}}</p>
+                                    </b>
 
                                 </a>
                                 <div class="dropdown-menu js_usermenu" role="menu">

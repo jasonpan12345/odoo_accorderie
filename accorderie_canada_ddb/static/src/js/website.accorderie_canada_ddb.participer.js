@@ -112,6 +112,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // static
             full_name: "-",
             actual_bank_hours: 0,
+            actual_month_bank_hours: 0,
             introduction: "",
             diff_humain_creation_membre: "",
             antecedent_judiciaire_verifier: false,
@@ -120,8 +121,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 id: 0,
             },
             // calculate
-            actual_bank_time_human: "0 heures",
+            actual_bank_sign: true,
             actual_bank_time_diff: "00:00",
+            actual_bank_time_human: "+ 0 heure",
+            actual_bank_time_human_short: "0h",
+            actual_bank_time_human_simplify: "0 heure",
+            actual_month_bank_time_human_short: "0h",
         }
 
         ajax.rpc("/accorderie_canada_ddb/get_personal_information/", {}).then(function (data) {
@@ -148,9 +153,105 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         //     compileAngularElement(".o_affix_enabled");
         // }
 
+        $scope.convertNumToTime = function (number, format = 0) {
+            // format 0 : 1.0 -> 1:00, 1.75 -> 1:45, -.75 -> -0:45
+            // format 1 : 1.0 -> +1:00, 1.75 -> +1:45, -.75 -> -0:45
+            // format 2 : 1.0 -> + 1:00, 1.75 -> + 1:45, -.75 -> - 0:45
+            // format 3 : 1.0 -> + 1h, 1.75 -> + 1h45, -.75 -> - 0h45
+            // format 4 : 1.0 -> 1h, 1.75 -> 1h45, -.75 -> -0h45
+            // format 5 : 2.0 -> + 2 heures, 1.75 -> + 1 heure 45, -.75 -> - 0 heure 45
+            // format 6 : 2.0 -> 2 heures, 1.75 -> 1 heure 45, -.75 -> - 0 heure 45
+
+            if (format > 6 || format < 0) {
+                format = 0;
+            }
+
+            // Check sign of given number
+            let sign = (number >= 0) ? 1 : -1;
+
+            // Set positive value of number of sign negative
+            number = number * sign;
+
+            // Separate the int from the decimal part
+            let hour = Math.floor(number);
+            let decPart = number - hour;
+
+            let min = 1 / 60;
+            // Round to nearest minute
+            decPart = min * Math.round(decPart / min);
+
+            let minute = Math.floor(decPart * 60) + '';
+
+            // Add padding if need
+            if (minute.length < 2) {
+                minute = '0' + minute;
+            }
+
+            // Add Sign in final result
+            if (format === 0) {
+                sign = sign === 1 ? '' : '-';
+            } else {
+                sign = sign === 1 ? '+' : '-';
+            }
+
+            // Concat hours and minutes
+            let newTime;
+            if (format === 0 || format === 1) {
+                newTime = sign + hour + ':' + minute;
+            } else if (format === 2) {
+                newTime = sign + ' ' + hour + ':' + minute;
+            } else if (format === 3 || format === 4) {
+                if (minute > 0) {
+                    if (format === 4 && sign === "+") {
+                        newTime = hour + 'h' + minute;
+                    } else {
+                        newTime = sign + ' ' + hour + 'h' + minute;
+                    }
+                } else {
+                    if (format === 4 && sign === "+") {
+                        newTime = hour + 'h';
+                    } else {
+                        newTime = sign + ' ' + hour + 'h';
+                    }
+                }
+            } else if (format === 5 || format === 6) {
+                let hour_str = _t("heure");
+                if (hour > 1) {
+                    hour_str += 's';
+                }
+                if (minute > 0) {
+                    if (format === 6 && sign === "+") {
+                        newTime = hour + ' ' + hour_str + ' ' + minute;
+                    } else {
+                        newTime = sign + ' ' + hour + ' ' + hour_str + ' ' + minute;
+                    }
+                } else {
+                    if (format === 6 && sign === "+") {
+                        newTime = hour + ' ' + hour_str;
+                    } else {
+                        newTime = sign + ' ' + hour + ' ' + hour_str;
+                    }
+                }
+            }
+
+            return newTime;
+        }
+
         $scope.update_personal_data = function () {
-            $scope.personal.actual_bank_time_human = $scope.personal.actual_bank_hours.toString() + " heures";
-            $scope.personal.actual_bank_time_diff = "+ " + `${$scope.personal.actual_bank_hours.toString()}:00`;
+            // Time management
+            // + 15:30 // format 2
+            // + 15h // format 3
+            // 15h // format 4
+            // + 15 heure 30 // format 5
+            // 15 heure 30 // format 6
+            let time_bank = $scope.personal.actual_bank_hours;
+            $scope.personal.actual_bank_sign = (time_bank >= 0);
+            $scope.personal.actual_bank_time_diff = $scope.convertNumToTime(time_bank, 2);
+            $scope.personal.actual_bank_time_human_short = $scope.convertNumToTime(time_bank, 3);
+            $scope.personal.actual_bank_time_human = $scope.convertNumToTime(time_bank, 5);
+            $scope.personal.actual_bank_time_human_simplify = $scope.convertNumToTime(time_bank, 6);
+
+            $scope.personal.actual_month_bank_time_human_short = $scope.convertNumToTime($scope.personal.actual_month_bank_hours, 4);
         }
 
     }])

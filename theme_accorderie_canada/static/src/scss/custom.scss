@@ -15,6 +15,8 @@ $text-alpha: white;
 $text-beta: black;
 $text-gamma: #656565;
 $bg-alpha: white;
+$bg-red-alert: #fd7878;
+$bg-red-2-alert: #9f0808;
 
 body {
   overflow-x: hidden;
@@ -36,6 +38,14 @@ body {
 .ng-cloak,
 .x-ng-cloak {
   display: none !important;
+}
+
+// Time
+.neg_time {
+  color: $bg-red-alert !important;
+}
+.neg_time_2 {
+  color: $bg-red-2-alert !important;
 }
 
 // Adapt navbar
@@ -816,11 +826,11 @@ actualité
   }
   .status.red {
     color: white;
-    background-color: #fd7878;
+    background-color: $bg-red-alert;
     border: none;
   }
   .status.red-o {
-    color: #fd7878;
+    color: $bg-red-alert;
   }
   .status.blue {
     color: white;
