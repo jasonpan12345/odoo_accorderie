@@ -1117,7 +1117,7 @@
                     <t t-call="website.layout">
                         <t t-set="pageName" t-value="'homepage'" />
                         <div id="wrap" class="oe_structure oe_empty">
-                            <section class="s_search oe_img_bg oe_custom_bg pt16" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_accueil_illustration_05@2x_png/Accueil-Illustration-05@2x.png&quot;);">
+                            <section class="s_search oe_img_bg oe_custom_bg pt16 debug_unimplemented" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_accueil_illustration_05@2x_png/Accueil-Illustration-05@2x.png&quot;);">
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
@@ -1189,14 +1189,13 @@
                                                         </p>
                                                     </div>
                                                     <div class="banner_btn s_btn col-lg-5 text-center" data-name="Button" style="">
-                                                        <a href="#" class="btn btn-gamma rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376" style="">
+                                                        <a href="/participer#!?state=init.pos" class="btn btn-gamma rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376" style="">
                                                             <font class="text-primary" style="" data-original-title="" title="" aria-describedby="tooltip195285">
-                                                                Publier une
-                                                                offre
+                                                                Publier une offre
                                                             </font>
                                                         </a>
                                                     </div>
-                                                    <div class="banner_btn s_btn text-center col-lg-5" data-name="Button">
+                                                    <div class="banner_btn s_btn text-center col-lg-5 debug_unimplemented" data-name="Button">
                                                         <a href="#" class="btn btn-gamma rounded-circle" data-original-title="" title="" aria-describedby="tooltip742376">
                                                             <font class="text-primary" style="">En savoir plus</font>
                                                         </a>
@@ -1207,8 +1206,8 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="s_actualite debug_unimplemented">
-                                <div class="container_actualite">
+                            <section class="s_actualite">
+                                <div class="container_actualite debug_unimplemented">
                                     <div class="list_title s_title">
                                         <p>
                                             <font style="font-size: 2rem; margin-left:10%">Derni&#232;res Actualit&#233;s</font>
@@ -1339,15 +1338,17 @@
                                         <h1>Vous venez de donner ou recevoir un service?</h1>
                                         <h5>
                                             Vous pouvez déjà à présent valider votre accordage en allant dans le section
-                                            contribuer ou en cliquant sur le bouton ci-dessous
+                                            contribuer ou en cliquant sur le bouton ci-dessous.
                                         </h5>
-                                        <div class="btn btn-gamma rounded-circle">
-                                            <font class="text-primary">Valider mon accordage</font>
-                                        </div>
+                                        <a href="/participer#!?state=init.va">
+                                            <div class="btn btn-gamma rounded-circle">
+                                                <font class="text-primary">Valider mon accordage</font>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </section>
-                            <section id="banner_communaute" class="s_banner parallax s_parallax_no_overflow_hidden pt200" data-scroll-background-ratio="0" style="background-image: none;">
+                            <section id="banner_communaute" class="s_banner parallax s_parallax_no_overflow_hidden pt200 debug_unimplemented" data-scroll-background-ratio="0" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="padding-bottom:16px;background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_map_02_png/Map-02.png&quot;);" />
                                 <div class="container container_communaute">
                                     <div class="row s_nb_column_fixed">
@@ -1600,7 +1601,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <section id="banner_aide" class="s_cover parallax s_parallax_no_overflow_hidden pb192 pt184" data-scroll-background-ratio="0" style="background-image: none;">
+                            <section id="banner_aide" class="s_cover parallax s_parallax_no_overflow_hidden pb192 pt184 debug_unimplemented" data-scroll-background-ratio="0" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_250064219_preview_jpeg/AdobeStock_250064219_Preview.jpeg&quot;); background-position: bottom right" />
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
@@ -3323,7 +3324,7 @@
                             <section class="s_text_block" style="">
                                 <div class="footer_container">
                                     <div class="row footer_row">
-                                        <div class="col-lg-2 footer_menu btn">
+                                        <div class="col-lg-2 footer_menu">
                                             <a href="/" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
                                             <h5>Explorer</h5>
                                             <a href="/" class="footer_link">Accueil</a>
@@ -3334,7 +3335,7 @@
                                             <br />
                                             <a href="/" class="footer_link">Les cat&#233;gories d'offres de service</a>
                                         </div>
-                                        <div class="col-lg-2 footer_menu btn">
+                                        <div class="col-lg-2 footer_menu">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
                                             <h5>La communaut&#233;</h5>
                                             <a href="/" class="footer_link">Actualit&#233;</a>
@@ -3345,18 +3346,18 @@
                                             <br />
                                             <a href="/" class="footer_link">Groupes</a>
                                         </div>
-                                        <div class="col-lg-2 footer_menu btn">
+                                        <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
                                             <h5>Participer</h5>
-                                            <a href="/" class="footer_link">Publier une offre de service</a>
+                                            <a href="/participer#!?state=init.pos" class="footer_link">Publier une offre de service</a>
                                             <br />
-                                            <a href="/" class="footer_link">Publier une demande de service</a>
+                                            <a href="/participer#!?state=init.pds" class="footer_link">Publier une demande de service</a>
                                             <br />
-                                            <a href="/" class="footer_link">Cr&#233;er une entente de service</a>
+                                            <a href="/participer#!?state=init.saa" class="footer_link">Cr&#233;er une entente de service</a>
                                             <br />
-                                            <a href="/" class="footer_link">Valider une service</a>
+                                            <a href="/participer#!?state=init.va" class="footer_link">Valider une service</a>
                                         </div>
-                                        <div class="col-lg-2 footer_menu btn">
+                                        <div class="col-lg-2 footer_menu">
                                             <a href="/monprofil" class="img bottom_menu_icon fa fa-user-circle-o" style="text-decoration:none;" />
                                             <h5>Mon profil</h5>
                                             <a href="/" class="footer_link">Ma pr&#233;sentation publique</a>
@@ -3367,9 +3368,9 @@
                                             <br />
                                             <a href="/" class="footer_link">Mes favoris</a>
                                             <br />
-                                            <a href="/" class="footer_link">param&#232;tres</a>
+                                            <a href="/" class="footer_link">Param&#232;tres</a>
                                         </div>
-                                        <div class="col-lg-2 footer_menu btn">
+                                        <div class="col-lg-2 footer_menu">
                                             <a href="/monactivite" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
                                             <h5>
                                                 Mon activit&#233;
@@ -3382,8 +3383,8 @@
                                             <br />
                                             <a href="/" class="footer_link">Mes groupes</a>
                                         </div>
-                                        <div class="col-lg-2 footer_aide btn">
-                                            <span class="img bottom_menu_icon fa fa-search" style="" data-original-title="" title="" aria-describedby="tooltip857350" />
+                                        <div class="col-lg-2 footer_aide">
+                                            <span class="img bottom_menu_icon fa fa-search" />
                                             <h5>Aides</h5>
                                             <a href="/" class="footer_link">Mentor</a>
                                             <br />
@@ -3775,7 +3776,7 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
-                                <section class="s_search_short">
+                                <section class="s_search_short debug_unimplemented">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
