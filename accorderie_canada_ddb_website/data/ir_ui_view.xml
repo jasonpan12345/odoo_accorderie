@@ -1767,50 +1767,31 @@
                                                 <br />
                                                 <span><i class="fa fa-commenting" />Anglais</span>
                                             </div>
-                                            <div>
+                                            <div ng-if="_.isEmpty(personal.lst_offre_service)">
+                                                <span class="txt">Mes offres de service</span>
+                                                <span>Aucune demande de service en cours actuellement.</span>
+                                            </div>
+                                            <div ng-if="!_.isEmpty(personal.lst_offre_service)">
                                                 <span class="txt">Mes offres de service
-                                                    <a href="" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout (6)</u>
+                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                        <u>Voir tout ({{personal.lst_offre_service.length}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box">
+                                                    <div class="activite btn" data-name="Box" ng-repeat="offre in personal.lst_offre_service">
                                                         <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                         <div class="infos">
-                                                            <p class="activite_title">
-                                                                Vous souhaitez acheter une maison à
-                                                                l"étranger?
-                                                            </p>
-                                                            <p class="activite_desc">
-                                                                Vous êtes à l'étranger et vous cherchez
-                                                                une maison?
-                                                            </p>
+                                                            <p class="activite_title">{{offre.title}}</p>
+                                                            <p class="activite_desc" ng-bind-html="offre.description | unsafe" />
                                                         </div>
                                                         <div class="infos right">
-                                                            <p>5m</p>
-                                                            <p class="fa fa-heart-o text-epsilon" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="activite btn" data-name="Box">
-                                                        <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                        <div class="infos">
-                                                            <p class="activite_title">
-                                                                Vous souhaitez acheter une maison à
-                                                                l"étranger?
-                                                            </p>
-                                                            <p class="activite_desc">
-                                                                Vous êtes à l'étranger et vous cherchez
-                                                                une maison?
-                                                            </p>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <p>5m</p>
-                                                            <p class="fa fa-heart-o text-epsilon" />
+                                                            <p>{{offre.diff_create_date}}</p>
+                                                            <p class="fa fa-heart-o text-epsilon debug_unimplemented" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div class="debug_unimplemented">
                                                 <span class="txt">Mes demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
                                             </div>
@@ -3005,28 +2986,34 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_activite_bilan debug_unimplemented">
+                                <section class="s_activite_bilan">
                                     <div class="bilan_container">
                                         <a href="/monactivite/accordages" class="bilan bilan-1 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="txt">Soldes en heures:</span>
                                             <span class="nbr">{{personal.actual_bank_time_human | uppercase}}</span>
                                         </a>
-                                        <a href="/monactivite/accordageavenir" class="bilan bilan-2 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
-                                            <span class="nbr">1</span>
-                                            <span class="txt">accordage &#224; venir</span>
-                                        </a>
+                                        <span class="debug_unimplemented">
+                                            <a href="/monactivite/accordageavenir" class="bilan bilan-2 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
+                                                <span class="nbr">1</span>
+                                                <span class="txt">accordage &#224; venir</span>
+                                            </a>
+                                        </span>
                                         <a href="/monactivite/accordages" class="bilan bilan-3 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="nbr">{{personal.actual_month_bank_time_human_short | uppercase}}</span>
                                             <span class="txt">ce mois-ci</span>
                                         </a>
-                                        <a href="/monprofil/mapresentation" class="bilan bilan-4 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
-                                            <span class="nbr">1</span>
-                                            <span class="txt">nouveau contact</span>
-                                        </a>
-                                        <a href="/evenement" class="bilan bilan-5 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
-                                            <span class="nbr">1</span>
-                                            <span class="txt">évènement</span>
-                                        </a>
+                                        <span class="debug_unimplemented">
+                                            <a href="/monprofil/mapresentation" class="bilan bilan-4 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
+                                                <span class="nbr">1</span>
+                                                <span class="txt">nouveau contact</span>
+                                            </a>
+                                        </span>
+                                        <span class="debug_unimplemented">
+                                            <a href="/evenement" class="bilan bilan-5 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
+                                                <span class="nbr">1</span>
+                                                <span class="txt">évènement</span>
+                                            </a>
+                                        </span>
                                     </div>
                                 </section>
                                 <section class="s_activites_recentes debug_unimplemented">

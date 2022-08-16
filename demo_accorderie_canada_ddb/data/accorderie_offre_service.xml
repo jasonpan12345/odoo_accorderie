@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
+        <record id="accorderie_offre_service_initiation_gnu_linux" model="accorderie.offre.service">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
+            <field name="deplacement">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
+            <field name="entente_tarifiaire">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
+            <field name="titre">Initiation GNU/Linux et logiciels libres</field>
+            <field name="description">Expert depuis 2007, tester moi!</field>
+            <field name="quoi_apporter">Votre laptop</field>
+            <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
+            <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_102_a_6_initiation_linux_et_logiciels_libres" />
+        </record>
+        <record id="accorderie_offre_service_cours_de_piano" model="accorderie.offre.service">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
+            <field name="deplacement">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
+            <field name="entente_tarifiaire">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
+            <field name="titre">Cours de piano débutant</field>
+            <field name="description">J'ai 5 ans d'expérience en piano, je peux vous aider pour les débutants.</field>
+            <field name="quoi_apporter">Votre piano</field>
+            <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
+            <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_108_a_12_apprentissage_du_piano" />
+        </record>
         <record id="accorderie_offre_service_cours_de_violon" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
             <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>

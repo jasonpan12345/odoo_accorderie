@@ -93,6 +93,13 @@ class AccorderieMembre(models.Model):
 
     origine = fields.Many2one(comodel_name="accorderie.origine")
 
+    offre_service_ids = fields.One2many(
+        comodel_name="accorderie.offre.service",
+        inverse_name="membre",
+        string="Offre de service",
+        help="Les offres de service du membre",
+    )
+
     part_social_paye = fields.Boolean(string="Part social payé")
 
     pas_communication = fields.Boolean(string="Pas de communication")

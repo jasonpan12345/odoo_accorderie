@@ -55,7 +55,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item debug_unimplemented">
                                 <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                     <span
                                         data-oe-model="website.menu"
@@ -105,7 +105,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item debug_unimplemented">
                                 <a class="nav-link" role="menu_item" href="/#">
                                     <span
                                         data-oe-model="website.menu"

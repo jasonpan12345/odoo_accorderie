@@ -355,6 +355,14 @@ class AccorderieCanadaDdbController(http.Controller):
             dct_value,
         )
 
+    def _transform_str_diff_time_creation(self, create_date):
+        timedate_now = datetime.now()
+        _t = humanize.i18n.activate("fr_FR")
+        diff_time_creation = timedate_now - create_date
+        str_diff_time_creation = humanize.naturaltime(diff_time_creation)
+        humanize.i18n.deactivate()
+        return str_diff_time_creation
+
     @http.route(
         [
             "/accorderie_canada_ddb/get_personal_information",
@@ -373,6 +381,18 @@ class AccorderieCanadaDdbController(http.Controller):
         diff_time_creation = timedate_now - membre_id.create_date
         str_diff_time_creation = humanize.naturaltime(diff_time_creation)
         humanize.i18n.deactivate()
+
+        lst_offre_service = [
+            {
+                "description": a.description,
+                "titre": a.titre,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in membre_id.offre_service_ids
+        ]
+
         # TODO update location with cartier et autre
         return {
             "personal": {
@@ -387,6 +407,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "name": membre_id.accorderie.nom,
                     "id": membre_id.accorderie.id,
                 },
+                "lst_offre_service": lst_offre_service,
             }
         }
 

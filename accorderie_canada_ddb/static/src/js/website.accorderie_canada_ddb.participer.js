@@ -120,6 +120,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 name: "-",
                 id: 0,
             },
+            lst_offre_service: [],
+
             // calculate
             actual_bank_sign: true,
             actual_bank_time_diff: "00:00",
