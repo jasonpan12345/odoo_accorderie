@@ -473,7 +473,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item debug_unimplemented">
                                 <a class="nav-link" role="menu_item" href="/#">
                                     <span
                                         class="fa fa-2x fa-question-circle-o text-primary"
