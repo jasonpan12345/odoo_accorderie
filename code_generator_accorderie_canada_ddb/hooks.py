@@ -1239,7 +1239,7 @@ for accorderie_fichier in self:
         dct_field = {
             "accorderie": {
                 "code_generator_form_simple_view_sequence": 12,
-                "code_generator_sequence": 5,
+                "code_generator_sequence": 6,
                 "code_generator_tree_view_sequence": 11,
                 "field_description": "Accorderie",
                 "help": "Accorderie associée",
@@ -1248,15 +1248,15 @@ for accorderie_fichier in self:
                 "ttype": "many2one",
             },
             "achat_regrouper": {
-                "code_generator_form_simple_view_sequence": 13,
-                "code_generator_sequence": 6,
+                "code_generator_form_simple_view_sequence": 14,
+                "code_generator_sequence": 7,
                 "code_generator_tree_view_sequence": 12,
                 "field_description": "Achat regroupé",
                 "ttype": "boolean",
             },
             "active": {
                 "code_generator_form_simple_view_sequence": 10,
-                "code_generator_sequence": 7,
+                "code_generator_sequence": 8,
                 "default": True,
                 "field_description": "Actif",
                 "force_widget": "boolean_button",
@@ -1267,114 +1267,148 @@ for accorderie_fichier in self:
                 "ttype": "boolean",
             },
             "adresse": {
-                "code_generator_form_simple_view_sequence": 14,
-                "code_generator_sequence": 8,
+                "code_generator_form_simple_view_sequence": 15,
+                "code_generator_sequence": 9,
                 "code_generator_tree_view_sequence": 13,
                 "field_description": "Adresse",
                 "ttype": "char",
             },
             "annee_naissance": {
-                "code_generator_form_simple_view_sequence": 15,
-                "code_generator_sequence": 9,
+                "code_generator_form_simple_view_sequence": 16,
+                "code_generator_sequence": 10,
                 "field_description": "Année de naissance",
                 "ttype": "integer",
             },
+            "antecedent_judiciaire_verifier": {
+                "code_generator_sequence": 58,
+                "field_description": "Antécédents judiciaires vérifiés",
+                "help": "Vérifier par l'organisation",
+                "ttype": "boolean",
+            },
             "arrondissement": {
-                "code_generator_form_simple_view_sequence": 16,
-                "code_generator_sequence": 10,
+                "code_generator_form_simple_view_sequence": 17,
+                "code_generator_sequence": 11,
                 "code_generator_tree_view_sequence": 14,
                 "field_description": "Arrondissement",
                 "relation": "accorderie.arrondissement",
                 "ttype": "many2one",
             },
+            "bank_month_time": {
+                "code_generator_compute": "_bank_time",
+                "code_generator_sequence": 61,
+                "field_description": "Temps en banque du présent mois",
+                "store": True,
+                "ttype": "float",
+            },
+            "bank_time": {
+                "code_generator_compute": "_bank_time",
+                "code_generator_sequence": 60,
+                "field_description": "Temps en banque",
+                "store": True,
+                "ttype": "float",
+            },
             "bottin_courriel": {
-                "code_generator_form_simple_view_sequence": 17,
-                "code_generator_sequence": 11,
+                "code_generator_form_simple_view_sequence": 18,
+                "code_generator_sequence": 12,
                 "field_description": "Bottin courriel",
                 "ttype": "boolean",
             },
             "bottin_tel": {
-                "code_generator_form_simple_view_sequence": 18,
-                "code_generator_sequence": 12,
+                "code_generator_form_simple_view_sequence": 19,
+                "code_generator_sequence": 13,
                 "field_description": "Bottin téléphone",
                 "ttype": "boolean",
             },
             "codepostal": {
-                "code_generator_form_simple_view_sequence": 19,
-                "code_generator_sequence": 13,
+                "code_generator_form_simple_view_sequence": 20,
+                "code_generator_sequence": 14,
                 "code_generator_tree_view_sequence": 15,
                 "field_description": "Codepostal",
                 "ttype": "char",
             },
             "courriel": {
-                "code_generator_form_simple_view_sequence": 20,
-                "code_generator_sequence": 16,
+                "code_generator_form_simple_view_sequence": 21,
+                "code_generator_sequence": 17,
                 "code_generator_tree_view_sequence": 16,
                 "field_description": "Courriel",
                 "ttype": "char",
             },
             "date_adhesion": {
-                "code_generator_form_simple_view_sequence": 21,
-                "code_generator_sequence": 17,
+                "code_generator_form_simple_view_sequence": 22,
+                "code_generator_sequence": 18,
                 "code_generator_tree_view_sequence": 17,
                 "field_description": "Date de l'adhésion",
                 "ttype": "date",
             },
             "date_mise_a_jour": {
-                "code_generator_form_simple_view_sequence": 22,
-                "code_generator_sequence": 18,
+                "code_generator_form_simple_view_sequence": 23,
+                "code_generator_sequence": 19,
                 "code_generator_tree_view_sequence": 18,
                 "field_description": "Dernière mise à jour",
                 "help": "Date de la dernière mise à jour",
                 "ttype": "datetime",
             },
             "description_membre": {
-                "code_generator_form_simple_view_sequence": 23,
-                "code_generator_sequence": 19,
+                "code_generator_form_simple_view_sequence": 24,
+                "code_generator_sequence": 20,
                 "field_description": "Description du membre",
                 "ttype": "boolean",
             },
             "est_un_point_service": {
-                "code_generator_form_simple_view_sequence": 24,
-                "code_generator_sequence": 20,
+                "code_generator_form_simple_view_sequence": 25,
+                "code_generator_sequence": 21,
                 "code_generator_tree_view_sequence": 19,
                 "field_description": "Est un point de service",
                 "ttype": "boolean",
             },
+            "introduction": {
+                "code_generator_sequence": 59,
+                "field_description": "Introduction",
+                "help": "Un petit texte qui décrit le membre.",
+                "ttype": "char",
+            },
             "membre_ca": {
-                "code_generator_form_simple_view_sequence": 25,
-                "code_generator_sequence": 21,
+                "code_generator_form_simple_view_sequence": 26,
+                "code_generator_sequence": 22,
                 "code_generator_tree_view_sequence": 20,
                 "field_description": "Membre du CA",
                 "ttype": "boolean",
             },
             "membre_conjoint": {
-                "code_generator_form_simple_view_sequence": 26,
-                "code_generator_sequence": 22,
+                "code_generator_form_simple_view_sequence": 27,
+                "code_generator_sequence": 23,
                 "field_description": "A un membre conjoint",
                 "ttype": "boolean",
             },
             "membre_conjoint_id": {
-                "code_generator_form_simple_view_sequence": 27,
-                "code_generator_sequence": 23,
+                "code_generator_form_simple_view_sequence": 28,
+                "code_generator_sequence": 24,
                 "field_description": "Membre conjoint",
                 "ttype": "integer",
             },
+            "membre_partner_id": {
+                "code_generator_form_simple_view_sequence": 13,
+                "code_generator_sequence": 5,
+                "field_description": "Membre",
+                "relation": "res.partner",
+                "track_visibility": "onchange",
+                "ttype": "many2one",
+            },
             "membre_principal": {
-                "code_generator_form_simple_view_sequence": 28,
-                "code_generator_sequence": 24,
+                "code_generator_form_simple_view_sequence": 29,
+                "code_generator_sequence": 25,
                 "field_description": "Membre principal",
                 "ttype": "boolean",
             },
             "memo": {
-                "code_generator_form_simple_view_sequence": 29,
-                "code_generator_sequence": 25,
+                "code_generator_form_simple_view_sequence": 30,
+                "code_generator_sequence": 26,
                 "field_description": "Mémo",
                 "ttype": "text",
             },
             "nom": {
-                "code_generator_form_simple_view_sequence": 30,
-                "code_generator_sequence": 26,
+                "code_generator_form_simple_view_sequence": 31,
+                "code_generator_sequence": 27,
                 "code_generator_tree_view_sequence": 21,
                 "field_description": "Nom",
                 "ttype": "char",
@@ -1389,44 +1423,44 @@ for accorderie_fichier in self:
                 "ttype": "char",
             },
             "nom_utilisateur": {
-                "code_generator_form_simple_view_sequence": 31,
-                "code_generator_sequence": 27,
+                "code_generator_form_simple_view_sequence": 32,
+                "code_generator_sequence": 28,
                 "code_generator_tree_view_sequence": 22,
                 "field_description": "Nom du compte",
                 "ttype": "char",
             },
             "occupation": {
-                "code_generator_form_simple_view_sequence": 32,
-                "code_generator_sequence": 28,
+                "code_generator_form_simple_view_sequence": 33,
+                "code_generator_sequence": 29,
                 "field_description": "Occupation",
                 "relation": "accorderie.occupation",
                 "ttype": "many2one",
             },
             "origine": {
-                "code_generator_form_simple_view_sequence": 33,
-                "code_generator_sequence": 29,
+                "code_generator_form_simple_view_sequence": 34,
+                "code_generator_sequence": 30,
                 "code_generator_tree_view_sequence": 23,
                 "field_description": "Origine",
                 "relation": "accorderie.origine",
                 "ttype": "many2one",
             },
             "part_social_paye": {
-                "code_generator_form_simple_view_sequence": 34,
-                "code_generator_sequence": 30,
+                "code_generator_form_simple_view_sequence": 35,
+                "code_generator_sequence": 32,
                 "code_generator_tree_view_sequence": 24,
                 "field_description": "Part social payé",
                 "ttype": "boolean",
             },
             "pas_communication": {
-                "code_generator_form_simple_view_sequence": 35,
-                "code_generator_sequence": 31,
+                "code_generator_form_simple_view_sequence": 36,
+                "code_generator_sequence": 33,
                 "code_generator_tree_view_sequence": 25,
                 "field_description": "Pas de communication",
                 "ttype": "boolean",
             },
             "point_service": {
-                "code_generator_form_simple_view_sequence": 36,
-                "code_generator_sequence": 32,
+                "code_generator_form_simple_view_sequence": 37,
+                "code_generator_sequence": 34,
                 "code_generator_tree_view_sequence": 26,
                 "field_description": "Point de service",
                 "help": "Point de service associé",
@@ -1434,52 +1468,52 @@ for accorderie_fichier in self:
                 "ttype": "many2one",
             },
             "prenom": {
-                "code_generator_form_simple_view_sequence": 37,
-                "code_generator_sequence": 33,
+                "code_generator_form_simple_view_sequence": 38,
+                "code_generator_sequence": 35,
                 "code_generator_tree_view_sequence": 27,
                 "field_description": "Prénom",
                 "ttype": "char",
             },
             "pret_actif": {
-                "code_generator_form_simple_view_sequence": 38,
-                "code_generator_sequence": 34,
+                "code_generator_form_simple_view_sequence": 39,
+                "code_generator_sequence": 36,
                 "code_generator_tree_view_sequence": 28,
                 "field_description": "Prêt actif",
                 "ttype": "boolean",
             },
             "profil_approuver": {
-                "code_generator_form_simple_view_sequence": 39,
-                "code_generator_sequence": 35,
+                "code_generator_form_simple_view_sequence": 40,
+                "code_generator_sequence": 37,
                 "code_generator_tree_view_sequence": 29,
                 "field_description": "Profil approuvé",
                 "ttype": "boolean",
             },
             "provenance": {
-                "code_generator_form_simple_view_sequence": 40,
-                "code_generator_sequence": 36,
+                "code_generator_form_simple_view_sequence": 41,
+                "code_generator_sequence": 38,
                 "code_generator_tree_view_sequence": 30,
                 "field_description": "Provenance",
                 "relation": "accorderie.provenance",
                 "ttype": "many2one",
             },
             "quartier": {
-                "code_generator_form_simple_view_sequence": 41,
-                "code_generator_sequence": 37,
+                "code_generator_form_simple_view_sequence": 42,
+                "code_generator_sequence": 39,
                 "code_generator_tree_view_sequence": 31,
                 "field_description": "Quartier",
                 "relation": "accorderie.quartier",
                 "ttype": "many2one",
             },
             "recevoir_courriel_groupe": {
-                "code_generator_form_simple_view_sequence": 42,
-                "code_generator_sequence": 38,
+                "code_generator_form_simple_view_sequence": 43,
+                "code_generator_sequence": 40,
                 "code_generator_tree_view_sequence": 32,
                 "field_description": "Veut recevoir courriel de groupes",
                 "ttype": "boolean",
             },
             "region": {
-                "code_generator_form_simple_view_sequence": 43,
-                "code_generator_sequence": 39,
+                "code_generator_form_simple_view_sequence": 44,
+                "code_generator_sequence": 41,
                 "code_generator_tree_view_sequence": 33,
                 "field_description": "Région",
                 "relation": "accorderie.region",
@@ -1487,16 +1521,16 @@ for accorderie_fichier in self:
                 "ttype": "many2one",
             },
             "revenu_familial": {
-                "code_generator_form_simple_view_sequence": 44,
-                "code_generator_sequence": 40,
+                "code_generator_form_simple_view_sequence": 45,
+                "code_generator_sequence": 42,
                 "code_generator_tree_view_sequence": 34,
                 "field_description": "Revenu familial",
                 "relation": "accorderie.revenu.familial",
                 "ttype": "many2one",
             },
             "sexe": {
-                "code_generator_form_simple_view_sequence": 45,
-                "code_generator_sequence": 41,
+                "code_generator_form_simple_view_sequence": 46,
+                "code_generator_sequence": 43,
                 "field_description": "Sexe",
                 "selection": (
                     "[('femme', 'Femme'), ('homme', 'Homme'), ('autre',"
@@ -1505,106 +1539,106 @@ for accorderie_fichier in self:
                 "ttype": "selection",
             },
             "situation_maison": {
-                "code_generator_form_simple_view_sequence": 46,
-                "code_generator_sequence": 42,
+                "code_generator_form_simple_view_sequence": 47,
+                "code_generator_sequence": 44,
                 "code_generator_tree_view_sequence": 35,
                 "field_description": "Situation maison",
                 "relation": "accorderie.situation.maison",
                 "ttype": "many2one",
             },
             "telephone_1": {
-                "code_generator_form_simple_view_sequence": 47,
-                "code_generator_sequence": 43,
+                "code_generator_form_simple_view_sequence": 48,
+                "code_generator_sequence": 45,
                 "code_generator_tree_view_sequence": 36,
                 "field_description": "1er téléphone",
                 "ttype": "char",
             },
             "telephone_2": {
-                "code_generator_form_simple_view_sequence": 48,
-                "code_generator_sequence": 44,
+                "code_generator_form_simple_view_sequence": 49,
+                "code_generator_sequence": 46,
                 "code_generator_tree_view_sequence": 37,
                 "field_description": "2e téléphone",
                 "ttype": "char",
             },
             "telephone_3": {
-                "code_generator_form_simple_view_sequence": 49,
-                "code_generator_sequence": 45,
+                "code_generator_form_simple_view_sequence": 50,
+                "code_generator_sequence": 47,
                 "code_generator_tree_view_sequence": 38,
                 "field_description": "3e téléphone",
                 "ttype": "char",
             },
             "telephone_poste_1": {
-                "code_generator_form_simple_view_sequence": 50,
-                "code_generator_sequence": 46,
+                "code_generator_form_simple_view_sequence": 51,
+                "code_generator_sequence": 48,
                 "code_generator_tree_view_sequence": 39,
                 "field_description": "1er poste téléphone",
                 "ttype": "char",
             },
             "telephone_poste_2": {
-                "code_generator_form_simple_view_sequence": 51,
-                "code_generator_sequence": 47,
+                "code_generator_form_simple_view_sequence": 52,
+                "code_generator_sequence": 49,
                 "code_generator_tree_view_sequence": 40,
                 "field_description": "2 poste téléphone",
                 "ttype": "char",
             },
             "telephone_poste_3": {
-                "code_generator_form_simple_view_sequence": 52,
-                "code_generator_sequence": 48,
+                "code_generator_form_simple_view_sequence": 53,
+                "code_generator_sequence": 50,
                 "code_generator_tree_view_sequence": 41,
                 "field_description": "3 poste téléphone",
                 "ttype": "char",
             },
             "telephone_type_1": {
-                "code_generator_form_simple_view_sequence": 53,
-                "code_generator_sequence": 49,
+                "code_generator_form_simple_view_sequence": 54,
+                "code_generator_sequence": 51,
                 "code_generator_tree_view_sequence": 42,
                 "field_description": "1er type de téléphones",
                 "relation": "accorderie.type.telephone",
                 "ttype": "many2one",
             },
             "telephone_type_2": {
-                "code_generator_form_simple_view_sequence": 54,
-                "code_generator_sequence": 50,
+                "code_generator_form_simple_view_sequence": 55,
+                "code_generator_sequence": 52,
                 "code_generator_tree_view_sequence": 43,
                 "field_description": "2e type de téléphones",
                 "relation": "accorderie.type.telephone",
                 "ttype": "many2one",
             },
             "telephone_type_3": {
-                "code_generator_form_simple_view_sequence": 55,
-                "code_generator_sequence": 51,
+                "code_generator_form_simple_view_sequence": 56,
+                "code_generator_sequence": 53,
                 "code_generator_tree_view_sequence": 44,
                 "field_description": "3e type de téléphones",
                 "relation": "accorderie.type.telephone",
                 "ttype": "many2one",
             },
             "transfert_accorderie": {
-                "code_generator_form_simple_view_sequence": 56,
-                "code_generator_sequence": 52,
+                "code_generator_form_simple_view_sequence": 57,
+                "code_generator_sequence": 54,
                 "code_generator_tree_view_sequence": 45,
                 "field_description": "Transfert d'une Accorderie",
                 "relation": "accorderie.accorderie",
                 "ttype": "many2one",
             },
             "type_communication": {
-                "code_generator_form_simple_view_sequence": 57,
-                "code_generator_sequence": 53,
+                "code_generator_form_simple_view_sequence": 58,
+                "code_generator_sequence": 55,
                 "code_generator_tree_view_sequence": 46,
                 "field_description": "Type de communications",
                 "relation": "accorderie.type.communication",
                 "ttype": "many2one",
             },
             "user_id": {
-                "code_generator_form_simple_view_sequence": 58,
-                "code_generator_sequence": 54,
+                "code_generator_form_simple_view_sequence": 59,
+                "code_generator_sequence": 56,
                 "code_generator_tree_view_sequence": 47,
                 "field_description": "User",
                 "relation": "res.users",
                 "ttype": "many2one",
             },
             "ville": {
-                "code_generator_form_simple_view_sequence": 59,
-                "code_generator_sequence": 55,
+                "code_generator_form_simple_view_sequence": 60,
+                "code_generator_sequence": 57,
                 "code_generator_tree_view_sequence": 48,
                 "field_description": "Ville",
                 "relation": "accorderie.ville",
@@ -1625,6 +1659,17 @@ for accorderie_fichier in self:
             # Generate code model
             lst_value = [
                 {
+                    "code": """for rec in self:
+    rec.bank_time = 9.25
+    rec.bank_month_time = -2""",
+                    "name": "_bank_time",
+                    "decorator": '@api.depends("membre_partner_id")',
+                    "param": "self",
+                    "sequence": 0,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_accorderie_membre.id,
+                },
+                {
                     "code": """super(AccorderieMembre, self)._compute_access_url()
 for accorderie_membre in self:
     accorderie_membre.access_url = (
@@ -1632,7 +1677,7 @@ for accorderie_membre in self:
     )""",
                     "name": "_compute_access_url",
                     "param": "self",
-                    "sequence": 0,
+                    "sequence": 1,
                     "m2o_module": code_generator_id.id,
                     "m2o_model": model_accorderie_membre.id,
                 },
@@ -1654,7 +1699,7 @@ for accorderie_membre in self:
                         ' "point_service")'
                     ),
                     "param": "self",
-                    "sequence": 1,
+                    "sequence": 2,
                     "m2o_module": code_generator_id.id,
                     "m2o_model": model_accorderie_membre.id,
                 },
@@ -1711,7 +1756,7 @@ for accorderie_occupation in self:
         lst_depend_model = ["portal.mixin"]
         dct_model = {
             "description": "Accorderie Offre Service",
-            "rec_name": "description",
+            "rec_name": "titre",
         }
         dct_field = {
             "accompli": {
@@ -1757,7 +1802,7 @@ for accorderie_occupation in self:
                 "code_generator_tree_view_sequence": 14,
                 "field_description": "Conditions",
                 "help": "Conditions inhérentes à l'offre",
-                "ttype": "char",
+                "ttype": "html",
             },
             "condition_autre": {
                 "code_generator_form_simple_view_sequence": 16,
@@ -1798,23 +1843,35 @@ for accorderie_occupation in self:
                 "help": "Date de la dernière mise à jour",
                 "ttype": "datetime",
             },
-            "description": {
-                "code_generator_form_simple_view_sequence": 11,
-                "code_generator_sequence": 4,
-                "code_generator_tree_view_sequence": 10,
-                "field_description": "Description",
-                "ttype": "char",
+            "deplacement": {
+                "code_generator_form_simple_view_sequence": 22,
+                "code_generator_sequence": 16,
+                "field_description": "Deplacement",
+                "ttype": "html",
             },
-            "disponibilite": {
+            "description": {
                 "code_generator_form_simple_view_sequence": 21,
                 "code_generator_sequence": 15,
+                "code_generator_tree_view_sequence": 10,
+                "field_description": "Description",
+                "ttype": "html",
+            },
+            "disponibilite": {
+                "code_generator_form_simple_view_sequence": 23,
+                "code_generator_sequence": 17,
                 "code_generator_tree_view_sequence": 20,
                 "field_description": "Disponibilité",
                 "ttype": "char",
             },
+            "entente_tarifiaire": {
+                "code_generator_form_simple_view_sequence": 24,
+                "code_generator_sequence": 18,
+                "field_description": "Entente Tarifiaire",
+                "ttype": "html",
+            },
             "membre": {
-                "code_generator_form_simple_view_sequence": 22,
-                "code_generator_sequence": 16,
+                "code_generator_form_simple_view_sequence": 25,
+                "code_generator_sequence": 19,
                 "code_generator_tree_view_sequence": 21,
                 "field_description": "Membre",
                 "help": "Membre qui offre le service",
@@ -1822,37 +1879,50 @@ for accorderie_occupation in self:
                 "ttype": "many2one",
             },
             "nb_consultation": {
-                "code_generator_form_simple_view_sequence": 23,
-                "code_generator_sequence": 17,
+                "code_generator_form_simple_view_sequence": 26,
+                "code_generator_sequence": 20,
                 "code_generator_tree_view_sequence": 22,
                 "field_description": "Nombre de consultations",
                 "ttype": "integer",
             },
             "nom_offre_special": {
-                "code_generator_form_simple_view_sequence": 24,
-                "code_generator_sequence": 18,
+                "code_generator_form_simple_view_sequence": 27,
+                "code_generator_sequence": 21,
                 "code_generator_tree_view_sequence": 23,
                 "field_description": "Nom de l'offre spéciale",
                 "help": "Nom ou brève description de l'offre spéciale",
                 "ttype": "char",
             },
             "offre_special": {
-                "code_generator_form_simple_view_sequence": 25,
-                "code_generator_sequence": 19,
+                "code_generator_form_simple_view_sequence": 28,
+                "code_generator_sequence": 22,
                 "code_generator_tree_view_sequence": 24,
                 "field_description": "Offre spéciale",
                 "ttype": "boolean",
             },
+            "quoi_apporter": {
+                "code_generator_form_simple_view_sequence": 29,
+                "code_generator_sequence": 23,
+                "field_description": "Quoi Apporter",
+                "ttype": "html",
+            },
             "tarif": {
-                "code_generator_form_simple_view_sequence": 26,
-                "code_generator_sequence": 20,
+                "code_generator_form_simple_view_sequence": 30,
+                "code_generator_sequence": 24,
                 "code_generator_tree_view_sequence": 25,
                 "field_description": "Tarif",
                 "ttype": "char",
             },
+            "titre": {
+                "code_generator_form_simple_view_sequence": 11,
+                "code_generator_sequence": 4,
+                "field_description": "Titre",
+                "help": "Résumé de l'offre, mise en valeur de la description.",
+                "ttype": "char",
+            },
             "type_service_id": {
-                "code_generator_form_simple_view_sequence": 27,
-                "code_generator_sequence": 21,
+                "code_generator_form_simple_view_sequence": 31,
+                "code_generator_sequence": 25,
                 "code_generator_tree_view_sequence": 26,
                 "field_description": "Type de services",
                 "relation": "accorderie.type.service",
@@ -2649,9 +2719,9 @@ for accorderie_type_service in self:
                 "ttype": "binary",
             },
             "nocategorie": {
-                "code_generator_form_simple_view_sequence": 14,
+                "code_generator_form_simple_view_sequence": 13,
                 "code_generator_sequence": 8,
-                "code_generator_tree_view_sequence": 13,
+                "code_generator_tree_view_sequence": 12,
                 "field_description": "Nocategorie",
                 "required": True,
                 "ttype": "integer",
@@ -2689,6 +2759,24 @@ for accorderie_type_service_categorie in self:
                     "name": "_compute_access_url",
                     "param": "self",
                     "sequence": 0,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_accorderie_type_service_categorie.id,
+                },
+                {
+                    "code": '''return "<br/>".join([a.strip() for a in self.nom.split("/")]) + "<br/>"''',
+                    "name": "_get_html_nom",
+                    "decorator": "@api.model",
+                    "param": "self",
+                    "sequence": 1,
+                    "m2o_module": code_generator_id.id,
+                    "m2o_model": model_accorderie_type_service_categorie.id,
+                },
+                {
+                    "code": """return ", ".join([a.strip() for a in self.nom.split("/")])""",
+                    "name": "_get_separate_list_nom",
+                    "decorator": "@api.model",
+                    "param": "self",
+                    "sequence": 2,
                     "m2o_module": code_generator_id.id,
                     "m2o_model": model_accorderie_type_service_categorie.id,
                 },
@@ -2918,9 +3006,9 @@ for accorderie_type_telephone in self:
                 "field_description": "Commentaire membre source",
                 "ttype": "one2many",
                 "help": "Commentaire membre source relation",
-                "code_generator_sequence": 14,
-                "code_generator_form_simple_view_sequence": 59,
-                "code_generator_tree_view_sequence": 48,
+                "code_generator_sequence": 15,
+                "code_generator_form_simple_view_sequence": 61,
+                "code_generator_tree_view_sequence": 49,
                 "relation": "accorderie.commentaire",
                 "relation_field": "membre_source",
             },
@@ -2928,11 +3016,19 @@ for accorderie_type_telephone in self:
                 "field_description": "Commentaire membre visé",
                 "ttype": "one2many",
                 "help": "Commentaire membre visé relation",
-                "code_generator_sequence": 15,
-                "code_generator_form_simple_view_sequence": 60,
-                "code_generator_tree_view_sequence": 49,
+                "code_generator_sequence": 16,
+                "code_generator_form_simple_view_sequence": 62,
+                "code_generator_tree_view_sequence": 50,
                 "relation": "accorderie.commentaire",
                 "relation_field": "membre_viser",
+            },
+            "offre_service_ids": {
+                "field_description": "Offre de service",
+                "ttype": "one2many",
+                "help": "Les offres de service du membre",
+                "code_generator_sequence": 31,
+                "relation": "accorderie.offre.service",
+                "relation_field": "membre",
             },
         }
         code_generator_id.add_update_model_one2many(model_model, dct_field)
@@ -3123,7 +3219,7 @@ for accorderie_type_telephone in self:
                 "field_description": "Type Service Sous Categorie",
                 "ttype": "one2many",
                 "help": "Type Service Sous Categorie relation",
-                "code_generator_sequence": 8,
+                "code_generator_sequence": 9,
                 "code_generator_form_simple_view_sequence": 14,
                 "code_generator_tree_view_sequence": 13,
                 "relation": "accorderie.type.service.sous.categorie",
@@ -16269,8 +16365,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "achat_regrouper",
-                    "action_name": "achat_regrouper",
+                    "name": "membre_partner_id",
+                    "action_name": "membre_partner_id",
                     "parent_id": view_item_body_group_4.id,
                     "sequence": 1,
                 }
@@ -16290,8 +16386,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "adresse",
-                    "action_name": "adresse",
+                    "name": "achat_regrouper",
+                    "action_name": "achat_regrouper",
                     "parent_id": view_item_body_group_5.id,
                     "sequence": 1,
                 }
@@ -16311,8 +16407,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "annee_naissance",
-                    "action_name": "annee_naissance",
+                    "name": "adresse",
+                    "action_name": "adresse",
                     "parent_id": view_item_body_group_6.id,
                     "sequence": 1,
                 }
@@ -16332,8 +16428,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "arrondissement",
-                    "action_name": "arrondissement",
+                    "name": "annee_naissance",
+                    "action_name": "annee_naissance",
                     "parent_id": view_item_body_group_7.id,
                     "sequence": 1,
                 }
@@ -16353,8 +16449,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "bottin_courriel",
-                    "action_name": "bottin_courriel",
+                    "name": "arrondissement",
+                    "action_name": "arrondissement",
                     "parent_id": view_item_body_group_8.id,
                     "sequence": 1,
                 }
@@ -16374,8 +16470,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "bottin_tel",
-                    "action_name": "bottin_tel",
+                    "name": "bottin_courriel",
+                    "action_name": "bottin_courriel",
                     "parent_id": view_item_body_group_9.id,
                     "sequence": 1,
                 }
@@ -16395,8 +16491,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "codepostal",
-                    "action_name": "codepostal",
+                    "name": "bottin_tel",
+                    "action_name": "bottin_tel",
                     "parent_id": view_item_body_group_10.id,
                     "sequence": 1,
                 }
@@ -16416,8 +16512,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "courriel",
-                    "action_name": "courriel",
+                    "name": "codepostal",
+                    "action_name": "codepostal",
                     "parent_id": view_item_body_group_11.id,
                     "sequence": 1,
                 }
@@ -16437,8 +16533,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "date_adhesion",
-                    "action_name": "date_adhesion",
+                    "name": "courriel",
+                    "action_name": "courriel",
                     "parent_id": view_item_body_group_12.id,
                     "sequence": 1,
                 }
@@ -16458,8 +16554,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "date_mise_a_jour",
-                    "action_name": "date_mise_a_jour",
+                    "name": "date_adhesion",
+                    "action_name": "date_adhesion",
                     "parent_id": view_item_body_group_13.id,
                     "sequence": 1,
                 }
@@ -16479,8 +16575,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "description_membre",
-                    "action_name": "description_membre",
+                    "name": "date_mise_a_jour",
+                    "action_name": "date_mise_a_jour",
                     "parent_id": view_item_body_group_14.id,
                     "sequence": 1,
                 }
@@ -16500,8 +16596,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "est_un_point_service",
-                    "action_name": "est_un_point_service",
+                    "name": "description_membre",
+                    "action_name": "description_membre",
                     "parent_id": view_item_body_group_15.id,
                     "sequence": 1,
                 }
@@ -16521,8 +16617,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "membre_ca",
-                    "action_name": "membre_ca",
+                    "name": "est_un_point_service",
+                    "action_name": "est_un_point_service",
                     "parent_id": view_item_body_group_16.id,
                     "sequence": 1,
                 }
@@ -16542,8 +16638,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "membre_conjoint",
-                    "action_name": "membre_conjoint",
+                    "name": "membre_ca",
+                    "action_name": "membre_ca",
                     "parent_id": view_item_body_group_17.id,
                     "sequence": 1,
                 }
@@ -16563,8 +16659,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "membre_conjoint_id",
-                    "action_name": "membre_conjoint_id",
+                    "name": "membre_conjoint",
+                    "action_name": "membre_conjoint",
                     "parent_id": view_item_body_group_18.id,
                     "sequence": 1,
                 }
@@ -16584,8 +16680,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "membre_principal",
-                    "action_name": "membre_principal",
+                    "name": "membre_conjoint_id",
+                    "action_name": "membre_conjoint_id",
                     "parent_id": view_item_body_group_19.id,
                     "sequence": 1,
                 }
@@ -16605,8 +16701,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "memo",
-                    "action_name": "memo",
+                    "name": "membre_principal",
+                    "action_name": "membre_principal",
                     "parent_id": view_item_body_group_20.id,
                     "sequence": 1,
                 }
@@ -16626,8 +16722,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "nom",
-                    "action_name": "nom",
+                    "name": "memo",
+                    "action_name": "memo",
                     "parent_id": view_item_body_group_21.id,
                     "sequence": 1,
                 }
@@ -16647,8 +16743,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "nom_utilisateur",
-                    "action_name": "nom_utilisateur",
+                    "name": "nom",
+                    "action_name": "nom",
                     "parent_id": view_item_body_group_22.id,
                     "sequence": 1,
                 }
@@ -16668,8 +16764,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "occupation",
-                    "action_name": "occupation",
+                    "name": "nom_utilisateur",
+                    "action_name": "nom_utilisateur",
                     "parent_id": view_item_body_group_23.id,
                     "sequence": 1,
                 }
@@ -16689,8 +16785,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "origine",
-                    "action_name": "origine",
+                    "name": "occupation",
+                    "action_name": "occupation",
                     "parent_id": view_item_body_group_24.id,
                     "sequence": 1,
                 }
@@ -16710,8 +16806,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "part_social_paye",
-                    "action_name": "part_social_paye",
+                    "name": "origine",
+                    "action_name": "origine",
                     "parent_id": view_item_body_group_25.id,
                     "sequence": 1,
                 }
@@ -16731,8 +16827,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "pas_communication",
-                    "action_name": "pas_communication",
+                    "name": "part_social_paye",
+                    "action_name": "part_social_paye",
                     "parent_id": view_item_body_group_26.id,
                     "sequence": 1,
                 }
@@ -16752,8 +16848,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "point_service",
-                    "action_name": "point_service",
+                    "name": "pas_communication",
+                    "action_name": "pas_communication",
                     "parent_id": view_item_body_group_27.id,
                     "sequence": 1,
                 }
@@ -16773,8 +16869,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "prenom",
-                    "action_name": "prenom",
+                    "name": "point_service",
+                    "action_name": "point_service",
                     "parent_id": view_item_body_group_28.id,
                     "sequence": 1,
                 }
@@ -16794,8 +16890,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "pret_actif",
-                    "action_name": "pret_actif",
+                    "name": "prenom",
+                    "action_name": "prenom",
                     "parent_id": view_item_body_group_29.id,
                     "sequence": 1,
                 }
@@ -16815,8 +16911,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "profil_approuver",
-                    "action_name": "profil_approuver",
+                    "name": "pret_actif",
+                    "action_name": "pret_actif",
                     "parent_id": view_item_body_group_30.id,
                     "sequence": 1,
                 }
@@ -16836,8 +16932,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "provenance",
-                    "action_name": "provenance",
+                    "name": "profil_approuver",
+                    "action_name": "profil_approuver",
                     "parent_id": view_item_body_group_31.id,
                     "sequence": 1,
                 }
@@ -16857,8 +16953,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "quartier",
-                    "action_name": "quartier",
+                    "name": "provenance",
+                    "action_name": "provenance",
                     "parent_id": view_item_body_group_32.id,
                     "sequence": 1,
                 }
@@ -16878,8 +16974,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "recevoir_courriel_groupe",
-                    "action_name": "recevoir_courriel_groupe",
+                    "name": "quartier",
+                    "action_name": "quartier",
                     "parent_id": view_item_body_group_33.id,
                     "sequence": 1,
                 }
@@ -16899,8 +16995,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "region",
-                    "action_name": "region",
+                    "name": "recevoir_courriel_groupe",
+                    "action_name": "recevoir_courriel_groupe",
                     "parent_id": view_item_body_group_34.id,
                     "sequence": 1,
                 }
@@ -16920,8 +17016,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "revenu_familial",
-                    "action_name": "revenu_familial",
+                    "name": "region",
+                    "action_name": "region",
                     "parent_id": view_item_body_group_35.id,
                     "sequence": 1,
                 }
@@ -16941,8 +17037,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "sexe",
-                    "action_name": "sexe",
+                    "name": "revenu_familial",
+                    "action_name": "revenu_familial",
                     "parent_id": view_item_body_group_36.id,
                     "sequence": 1,
                 }
@@ -16962,8 +17058,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "situation_maison",
-                    "action_name": "situation_maison",
+                    "name": "sexe",
+                    "action_name": "sexe",
                     "parent_id": view_item_body_group_37.id,
                     "sequence": 1,
                 }
@@ -16983,8 +17079,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_1",
-                    "action_name": "telephone_1",
+                    "name": "situation_maison",
+                    "action_name": "situation_maison",
                     "parent_id": view_item_body_group_38.id,
                     "sequence": 1,
                 }
@@ -17004,8 +17100,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_2",
-                    "action_name": "telephone_2",
+                    "name": "telephone_1",
+                    "action_name": "telephone_1",
                     "parent_id": view_item_body_group_39.id,
                     "sequence": 1,
                 }
@@ -17025,8 +17121,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_3",
-                    "action_name": "telephone_3",
+                    "name": "telephone_2",
+                    "action_name": "telephone_2",
                     "parent_id": view_item_body_group_40.id,
                     "sequence": 1,
                 }
@@ -17046,8 +17142,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_poste_1",
-                    "action_name": "telephone_poste_1",
+                    "name": "telephone_3",
+                    "action_name": "telephone_3",
                     "parent_id": view_item_body_group_41.id,
                     "sequence": 1,
                 }
@@ -17067,8 +17163,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_poste_2",
-                    "action_name": "telephone_poste_2",
+                    "name": "telephone_poste_1",
+                    "action_name": "telephone_poste_1",
                     "parent_id": view_item_body_group_42.id,
                     "sequence": 1,
                 }
@@ -17088,8 +17184,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_poste_3",
-                    "action_name": "telephone_poste_3",
+                    "name": "telephone_poste_2",
+                    "action_name": "telephone_poste_2",
                     "parent_id": view_item_body_group_43.id,
                     "sequence": 1,
                 }
@@ -17109,8 +17205,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_type_1",
-                    "action_name": "telephone_type_1",
+                    "name": "telephone_poste_3",
+                    "action_name": "telephone_poste_3",
                     "parent_id": view_item_body_group_44.id,
                     "sequence": 1,
                 }
@@ -17130,8 +17226,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_type_2",
-                    "action_name": "telephone_type_2",
+                    "name": "telephone_type_1",
+                    "action_name": "telephone_type_1",
                     "parent_id": view_item_body_group_45.id,
                     "sequence": 1,
                 }
@@ -17151,8 +17247,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "telephone_type_3",
-                    "action_name": "telephone_type_3",
+                    "name": "telephone_type_2",
+                    "action_name": "telephone_type_2",
                     "parent_id": view_item_body_group_46.id,
                     "sequence": 1,
                 }
@@ -17172,8 +17268,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "transfert_accorderie",
-                    "action_name": "transfert_accorderie",
+                    "name": "telephone_type_3",
+                    "action_name": "telephone_type_3",
                     "parent_id": view_item_body_group_47.id,
                     "sequence": 1,
                 }
@@ -17193,8 +17289,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "type_communication",
-                    "action_name": "type_communication",
+                    "name": "transfert_accorderie",
+                    "action_name": "transfert_accorderie",
                     "parent_id": view_item_body_group_48.id,
                     "sequence": 1,
                 }
@@ -17214,8 +17310,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "ville",
-                    "action_name": "ville",
+                    "name": "type_communication",
+                    "action_name": "type_communication",
                     "parent_id": view_item_body_group_49.id,
                     "sequence": 1,
                 }
@@ -17235,8 +17331,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "commentaire",
-                    "action_name": "commentaire",
+                    "name": "user_id",
+                    "action_name": "user_id",
                     "parent_id": view_item_body_group_50.id,
                     "sequence": 1,
                 }
@@ -17256,9 +17352,51 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
+                    "name": "ville",
+                    "action_name": "ville",
+                    "parent_id": view_item_body_group_51.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_group_52 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "group",
+                    "sequence": 52,
+                }
+            )
+            lst_item_view.append(view_item_body_group_52.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "name": "commentaire",
+                    "action_name": "commentaire",
+                    "parent_id": view_item_body_group_52.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_group_53 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "group",
+                    "sequence": 53,
+                }
+            )
+            lst_item_view.append(view_item_body_group_53.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
                     "name": "commentaire_ids",
                     "action_name": "commentaire_ids",
-                    "parent_id": view_item_body_group_51.id,
+                    "parent_id": view_item_body_group_53.id,
                     "sequence": 1,
                 }
             )
@@ -17851,9 +17989,21 @@ for accorderie_ville in self:
                     "section_type": "body",
                     "item_type": "field",
                     "type": "row",
+                    "name": "user_id",
+                    "action_name": "user_id",
+                    "sequence": 48,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "type": "row",
                     "name": "ville",
                     "action_name": "ville",
-                    "sequence": 48,
+                    "sequence": 49,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -18396,9 +18546,20 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
+                    "name": "user_id",
+                    "action_name": "user_id",
+                    "sequence": 48,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
                     "name": "ville",
                     "action_name": "ville",
-                    "sequence": 48,
+                    "sequence": 49,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -18409,7 +18570,7 @@ for accorderie_ville in self:
                     "item_type": "field",
                     "name": "commentaire",
                     "action_name": "commentaire",
-                    "sequence": 49,
+                    "sequence": 50,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -18420,28 +18581,28 @@ for accorderie_ville in self:
                     "item_type": "field",
                     "name": "commentaire_ids",
                     "action_name": "commentaire_ids",
-                    "sequence": 50,
+                    "sequence": 51,
                 }
             )
             lst_item_view.append(view_item.id)
 
-            view_item_body_templates_51 = env[
+            view_item_body_templates_52 = env[
                 "code.generator.view.item"
             ].create(
                 {
                     "section_type": "body",
                     "item_type": "templates",
-                    "sequence": 51,
+                    "sequence": 52,
                 }
             )
-            lst_item_view.append(view_item_body_templates_51.id)
+            lst_item_view.append(view_item_body_templates_52.id)
 
             view_item_body_t_1 = env["code.generator.view.item"].create(
                 {
                     "section_type": "body",
                     "item_type": "t",
                     "t_name": "kanban-box",
-                    "parent_id": view_item_body_templates_51.id,
+                    "parent_id": view_item_body_templates_52.id,
                     "sequence": 1,
                 }
             )
@@ -20302,8 +20463,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "ville",
-                    "action_name": "ville",
+                    "name": "user_id",
+                    "action_name": "user_id",
                     "parent_id": view_item_body_strong_1.id,
                     "sequence": 1,
                 }
@@ -20335,8 +20496,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "commentaire",
-                    "action_name": "commentaire",
+                    "name": "ville",
+                    "action_name": "ville",
                     "parent_id": view_item_body_strong_1.id,
                     "sequence": 1,
                 }
@@ -20359,6 +20520,39 @@ for accorderie_ville in self:
                     "section_type": "body",
                     "item_type": "strong",
                     "parent_id": view_item_body_li_63.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item_body_strong_1.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "name": "commentaire",
+                    "action_name": "commentaire",
+                    "parent_id": view_item_body_strong_1.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_li_64 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "li",
+                    "class_attr": "mb4",
+                    "parent_id": view_item_body_ul_1.id,
+                    "sequence": 64,
+                }
+            )
+            lst_item_view.append(view_item_body_li_64.id)
+
+            view_item_body_strong_1 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "strong",
+                    "parent_id": view_item_body_li_64.id,
                     "sequence": 1,
                 }
             )
@@ -20962,9 +21156,21 @@ for accorderie_ville in self:
                     "section_type": "body",
                     "item_type": "field",
                     "type": "row",
+                    "name": "user_id",
+                    "action_name": "user_id",
+                    "sequence": 48,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "type": "row",
                     "name": "ville",
                     "action_name": "ville",
-                    "sequence": 48,
+                    "sequence": 49,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -21566,10 +21772,22 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "filter",
+                    "name": "user_id",
+                    "domain": "[('user_id','!=',False)]",
+                    "label": "Utilisateur",
+                    "sequence": 49,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "filter",
                     "name": "ville",
                     "domain": "[('ville','!=',False)]",
                     "label": "Ville",
-                    "sequence": 49,
+                    "sequence": 50,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -21581,7 +21799,7 @@ for accorderie_ville in self:
                     "name": "commentaire",
                     "domain": "[('commentaire','!=',False)]",
                     "label": "Commentaire membre source",
-                    "sequence": 50,
+                    "sequence": 51,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -21593,7 +21811,7 @@ for accorderie_ville in self:
                     "name": "commentaire_ids",
                     "domain": "[('commentaire_ids','!=',False)]",
                     "label": "Commentaire membre visé",
-                    "sequence": 51,
+                    "sequence": 52,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -22026,9 +22244,20 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
+                    "name": "user_id",
+                    "action_name": "user_id",
+                    "sequence": 38,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
                     "name": "ville",
                     "action_name": "ville",
-                    "sequence": 38,
+                    "sequence": 39,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -22039,7 +22268,7 @@ for accorderie_ville in self:
                     "item_type": "field",
                     "name": "commentaire",
                     "action_name": "commentaire",
-                    "sequence": 39,
+                    "sequence": 40,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -22050,7 +22279,7 @@ for accorderie_ville in self:
                     "item_type": "field",
                     "name": "commentaire_ids",
                     "action_name": "commentaire_ids",
-                    "sequence": 40,
+                    "sequence": 41,
                 }
             )
             lst_item_view.append(view_item.id)
@@ -22479,8 +22708,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "description",
-                    "action_name": "description",
+                    "name": "titre",
+                    "action_name": "titre",
                     "parent_id": view_item_body_group_2.id,
                     "sequence": 1,
                 }
@@ -22689,8 +22918,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "disponibilite",
-                    "action_name": "disponibilite",
+                    "name": "description",
+                    "action_name": "description",
                     "parent_id": view_item_body_group_12.id,
                     "sequence": 1,
                 }
@@ -22710,8 +22939,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "membre",
-                    "action_name": "membre",
+                    "name": "deplacement",
+                    "action_name": "deplacement",
                     "parent_id": view_item_body_group_13.id,
                     "sequence": 1,
                 }
@@ -22731,8 +22960,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "nb_consultation",
-                    "action_name": "nb_consultation",
+                    "name": "disponibilite",
+                    "action_name": "disponibilite",
                     "parent_id": view_item_body_group_14.id,
                     "sequence": 1,
                 }
@@ -22752,8 +22981,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "nom_offre_special",
-                    "action_name": "nom_offre_special",
+                    "name": "entente_tarifiaire",
+                    "action_name": "entente_tarifiaire",
                     "parent_id": view_item_body_group_15.id,
                     "sequence": 1,
                 }
@@ -22773,8 +23002,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "offre_special",
-                    "action_name": "offre_special",
+                    "name": "membre",
+                    "action_name": "membre",
                     "parent_id": view_item_body_group_16.id,
                     "sequence": 1,
                 }
@@ -22794,8 +23023,8 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
-                    "name": "tarif",
-                    "action_name": "tarif",
+                    "name": "nb_consultation",
+                    "action_name": "nb_consultation",
                     "parent_id": view_item_body_group_17.id,
                     "sequence": 1,
                 }
@@ -22815,9 +23044,93 @@ for accorderie_ville in self:
                 {
                     "section_type": "body",
                     "item_type": "field",
+                    "name": "nom_offre_special",
+                    "action_name": "nom_offre_special",
+                    "parent_id": view_item_body_group_18.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_group_19 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "group",
+                    "sequence": 19,
+                }
+            )
+            lst_item_view.append(view_item_body_group_19.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "name": "offre_special",
+                    "action_name": "offre_special",
+                    "parent_id": view_item_body_group_19.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_group_20 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "group",
+                    "sequence": 20,
+                }
+            )
+            lst_item_view.append(view_item_body_group_20.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "name": "quoi_apporter",
+                    "action_name": "quoi_apporter",
+                    "parent_id": view_item_body_group_20.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_group_21 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "group",
+                    "sequence": 21,
+                }
+            )
+            lst_item_view.append(view_item_body_group_21.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
+                    "name": "tarif",
+                    "action_name": "tarif",
+                    "parent_id": view_item_body_group_21.id,
+                    "sequence": 1,
+                }
+            )
+            lst_item_view.append(view_item.id)
+
+            view_item_body_group_22 = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "group",
+                    "sequence": 22,
+                }
+            )
+            lst_item_view.append(view_item_body_group_22.id)
+
+            view_item = env["code.generator.view.item"].create(
+                {
+                    "section_type": "body",
+                    "item_type": "field",
                     "name": "type_service_id",
                     "action_name": "type_service_id",
-                    "parent_id": view_item_body_group_18.id,
+                    "parent_id": view_item_body_group_22.id,
                     "sequence": 1,
                 }
             )

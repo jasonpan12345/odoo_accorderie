@@ -8,7 +8,7 @@ class AccorderieOffreService(models.Model):
     _rec_name = "titre"
 
     titre = fields.Char(
-        help="Résumé de l'offre, mise en valeur de la description.",
+        help="Résumé de l'offre, mise en valeur de la description."
     )
 
     accompli = fields.Boolean(
