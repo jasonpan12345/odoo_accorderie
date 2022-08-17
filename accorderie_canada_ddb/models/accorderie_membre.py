@@ -199,7 +199,9 @@ class AccorderieMembre(models.Model):
     introduction = fields.Char(help="Un petit texte qui décrit le membre.")
 
     bank_time = fields.Float(
-        string="Temps en banque", compute="_bank_time", store=True
+        string="Temps en banque",
+        compute="_bank_time",
+        store=True,
     )
 
     bank_month_time = fields.Float(
