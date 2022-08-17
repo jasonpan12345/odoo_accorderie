@@ -134,6 +134,7 @@
         <field name="model">accorderie.point.service</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sequence" />
                 <field name="nom" />
                 <field name="accorderie" />
                 <field name="date_mise_a_jour" />
