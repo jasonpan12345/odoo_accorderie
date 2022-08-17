@@ -282,7 +282,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             dct_data_inner: undefined,
             breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
-            breadcrumb_show_value_last_item: false,
+            submit_button_text: false,
             selected_value: undefined,
             selected_obj_value: undefined,
             selected_id: undefined,
@@ -855,7 +855,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     }
                     global_label += label;
                     lst_label.push({"index": i, "text": label})
-                } else if (state.breadcrumb_show_value_last_item && !_.isUndefined(lastState) && !_.isUndefined(lastState.selected_value) && !_.isEmpty(lastState.selected_value)) {
+                } else if (state.breadcrumb_show_only_last_item && !_.isUndefined(lastState) && !_.isUndefined(lastState.selected_value) && !_.isEmpty(lastState.selected_value)) {
                     let label = lastState.selected_value;
                     global_label += label;
                     lst_label.push({"index": i, "text": label})
