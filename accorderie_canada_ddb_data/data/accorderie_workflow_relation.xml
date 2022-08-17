@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_workflow_state_item_001" model="accorderie.workflow.relation">
+            <field name="name">Publier une offre de service</field>
+            <field name="body_html" type="html"><p>Vous souhaitez offrir vos services?<br />Cliquez ici pour publier votre offre en ligne.</p></field>
+            <field name="state_src" ref="accorderie_workflow_state_init" />
+            <field name="state_dst" ref="accorderie_workflow_state_pos" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_item_002" model="accorderie.workflow.relation">
+            <field name="name">Publier une demande de service</field>
+            <field name="body_html">Vous avez besoin d'un service? Faites part de votre besoin aux membres de l'Accorderie en créant une demande ici.</field>
+            <field name="state_src" ref="accorderie_workflow_state_init" />
+            <field name="state_dst" ref="accorderie_workflow_state_pds" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_item_003" model="accorderie.workflow.relation">
+            <field name="name">S'accorder avec un autre accordeur</field>
+            <field name="body_html">Vous accorder vous permet de vous mettre d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.</field>
+            <field name="state_src" ref="accorderie_workflow_state_init" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_item_004" model="accorderie.workflow.relation">
+            <field name="name">Valider un accordage</field>
+            <field name="body_html">Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>
+            <field name="state_src" ref="accorderie_workflow_state_init" />
+            <field name="state_dst" ref="accorderie_workflow_state_va" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_item_005" model="accorderie.workflow.relation">
+            <field name="name">Individuelle</field>
+            <field name="body_html">Si vous offrez un service destiné à une personne à la fois.</field>
+            <field name="state_src" ref="accorderie_workflow_state_pos" />
+            <field name="state_dst" ref="accorderie_workflow_state_pos_individuelle" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_item_006" model="accorderie.workflow.relation">
+            <field name="name">Formulaire</field>
+            <field name="state_src" ref="accorderie_workflow_state_pos_individuelle" />
+            <field name="state_dst" ref="accorderie_workflow_state_pos_individuelle_form" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_item_007" model="accorderie.workflow.relation">
+            <field name="name">Collective</field>
+            <field name="body_html">Si vous offrez un service destiné à plusieurs personnes à la fois (cours en groupe, ateliers, conférences, achats groupés, ...)</field>
+            <field name="state_src" ref="accorderie_workflow_state_pos" />
+            <field name="state_dst" ref="accorderie_workflow_state_null" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+    </data>
+</odoo>

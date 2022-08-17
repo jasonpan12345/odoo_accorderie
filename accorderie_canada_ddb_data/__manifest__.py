@@ -24,6 +24,9 @@
         "data/accorderie_type_service_sous_categorie.xml",
         "data/accorderie_type_service.xml",
         "data/accorderie_type_telephone.xml",
+        "data/accorderie_workflow.xml",
+        "data/accorderie_workflow_state.xml",
+        "data/accorderie_workflow_relation.xml",
     ],
     "installable": True,
 }

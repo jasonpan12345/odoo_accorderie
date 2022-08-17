@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="accorderie_workflow_state_init" model="accorderie.workflow.state">
+            <field name="name">Initiale</field>
+            <field name="key">init</field>
+            <field name="message">Que souhaitez-vous faire?</field>
+            <field name="type">selection_static</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_null" model="accorderie.workflow.state">
+            <field name="name">Null</field>
+            <field name="key">null</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_pos" model="accorderie.workflow.state">
+            <field name="name">Publier une offre de service</field>
+            <field name="key">init.pos</field>
+            <field name="message">Est-ce pour une offre de service :</field>
+            <field name="type">selection_static</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Publier.Une offre de service</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_pos_individuelle" model="accorderie.workflow.state">
+            <field name="name">Publier une offre individuelle</field>
+            <field name="key">init.pos.individuelle</field>
+            <field name="message">Dans quelle catégorie s'inscrit votre offre de service?</field>
+            <field name="type">choix_categorie_de_service</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Individuelle</field>
+            <field name="data">type_service_categorie</field>
+            <field name="model_field_name_alias">categorie</field>
+            <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_pos_individuelle_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire offre individuelle</field>
+            <field name="key">init.pos.individuelle.formulaire</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_show_only_last_item">True</field>
+            <field name="disable_question">True</field>
+            <field name="submit_button_text">Valider mon offre de service</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_pds" model="accorderie.workflow.state">
+            <field name="name">Publier une demande de service</field>
+            <field name="key">init.pds</field>
+            <field name="message">Est-ce pour une demande de service :</field>
+            <field name="type">selection_static</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Publier.Une demande de service</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa" model="accorderie.workflow.state">
+            <field name="name">Publier une demande de service</field>
+            <field name="key">init.saa</field>
+            <field name="message">Que voulez-vous?</field>
+            <field name="type">selection_static</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">S'accorder</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">
+            <field name="name">Valider un accordage</field>
+            <field name="key">init.saa</field>
+            <field name="message">Avez-vous créer une demande de service pour cette accordage?</field>
+            <field name="type">selection_static</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Valider un accordage</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+    </data>
+</odoo>

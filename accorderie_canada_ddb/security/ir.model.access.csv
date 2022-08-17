@@ -51,3 +51,6 @@ accorderie_type_telephone_access_user_types_/_internal_user,accorderie_type_tele
 accorderie_type_telephone_access_user_types_/_portal,accorderie_type_telephone Access User types / Portal,model_accorderie_type_telephone,base.group_portal,1,1,1,1
 accorderie_ville_access_user_types_/_internal_user,accorderie_ville Access User types / Internal User,model_accorderie_ville,base.group_user,1,1,1,1
 accorderie_ville_access_user_types_/_portal,accorderie_ville Access User types / Portal,model_accorderie_ville,base.group_portal,1,1,1,1
+accorderie_workflow_access_user_types_/_internal_user,accorderie_workflow Access User types / Internal User,model_accorderie_workflow,base.group_user,1,1,1,1
+accorderie_workflow_relation_access_user_types_/_internal_user,accorderie_workflow_relation Access User types / Internal User,model_accorderie_workflow_relation,base.group_user,1,1,1,1
+accorderie_workflow_state_access_user_types_/_internal_user,accorderie_workflow_state Access User types / Internal User,model_accorderie_workflow_state,base.group_user,1,1,1,1

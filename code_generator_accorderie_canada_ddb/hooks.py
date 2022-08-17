@@ -2954,6 +2954,254 @@ for accorderie_type_telephone in self:
             lst_depend_model=lst_depend_model,
         )
 
+        # Add/Update Accorderie Workflow
+        # accorderie.workflow
+        model_model = "accorderie.workflow"
+        model_name = "accorderie_workflow"
+        dct_model = {
+            "description": "Accorderie Workflow",
+            "diagram_arrow_dst_field": "state_dst",
+            "diagram_arrow_label": "['name']",
+            "diagram_arrow_object": "accorderie.workflow.relation",
+            "diagram_arrow_src_field": "state_src",
+            "diagram_label_string": (
+                "Caution, all modification is live. Diagram model:"
+                " accorderie.workflow, node model: accorderie.workflow.state"
+                " and arrow model: accorderie.workflow.relation"
+            ),
+            "diagram_node_form_view_ref": "accorderie_workflow_view_form",
+            "diagram_node_object": "accorderie.workflow.state",
+            "diagram_node_shape_field": "rectangle:True",
+            "diagram_node_xpos_field": "xpos",
+            "diagram_node_ypos_field": "ypos",
+            "menu_name_keep_application": True,
+        }
+        dct_field = {
+            "name": {
+                "code_generator_form_simple_view_sequence": 10,
+                "code_generator_sequence": 4,
+                "code_generator_tree_view_sequence": 10,
+                "field_description": "Nom",
+                "ttype": "char",
+            },
+        }
+        model_accorderie_workflow = code_generator_id.add_update_model(
+            model_model,
+            model_name,
+            dct_field=dct_field,
+            dct_model=dct_model,
+        )
+
+        # Add/Update Accorderie Workflow State
+        model_model = "accorderie.workflow.state"
+        model_name = "accorderie_workflow_state"
+        dct_model = {
+            "description": "Accorderie Workflow State",
+        }
+        dct_field = {
+            "name": {
+                "code_generator_form_simple_view_sequence": 10,
+                "code_generator_sequence": 4,
+                "code_generator_tree_view_sequence": 10,
+                "field_description": "Nom",
+                "ttype": "char",
+            },
+            "diagram_id": {
+                "field_description": "Diagram",
+                "relation": "accorderie.workflow",
+                "ttype": "many2one",
+            },
+            "xpos": {
+                "default": 50,
+                "field_description": "Diagram position x",
+                "ttype": "integer",
+            },
+            "ypos": {
+                "default": 50,
+                "field_description": "Diagram position y",
+                "ttype": "integer",
+            },
+            "key": {
+                "field_description": "Identifiant",
+                "ttype": "char",
+            },
+            "message": {
+                "field_description": "Message",
+                "ttype": "char",
+            },
+            "breadcrumb_value": {
+                "field_description": "Contenu fil d'ariane",
+                "ttype": "char",
+            },
+            "data": {
+                "field_description": "Nom base de données",
+                "ttype": "char",
+            },
+            "model_field_name_alias": {
+                "field_description": "Alias champs du modèle",
+                "ttype": "char",
+            },
+            "model_field_name": {
+                "field_description": "Champs du modèle",
+                "ttype": "char",
+            },
+            "breadcrumb_show_only_last_item": {
+                "field_description": (
+                    "Fil d'ariane affiché dernier item seulement"
+                ),
+                "ttype": "boolean",
+            },
+            "type": {
+                "field_description": "Type",
+                "ttype": "selection",
+                "selection": (
+                    "[('selection_static', 'Sélection statique'),"
+                    " ('selection_dynamique', 'Sélection dynamique'),"
+                    " ('choix_categorie_de_service', 'Choix catégorie de"
+                    " service'), ('choix_membre', 'Choix membre'),"
+                    " ('calendrier', 'Calendrier'), ('temps', 'Temps'),"
+                    " ('form', 'Form')]"
+                ),
+            },
+            "list_is_first_position": {
+                "field_description": "Première position dans la sélection",
+                "ttype": "boolean",
+            },
+            "disable_question": {
+                "field_description": "Désactiver la question",
+                "ttype": "boolean",
+            },
+            "show_breadcrumb": {
+                "field_description": "Afficher le fil d'ariane",
+                "ttype": "boolean",
+            },
+        }
+        model_accorderie_workflow_state = code_generator_id.add_update_model(
+            model_model,
+            model_name,
+            dct_field=dct_field,
+            dct_model=dct_model,
+        )
+
+        # Add/Update Accorderie Workflow State Selection item
+        model_model = "accorderie.workflow.state.selection_item"
+        model_name = "accorderie_workflow_state_selection_item"
+        dct_model = {
+            "description": "Accorderie Workflow State Selection Item",
+        }
+        dct_field = {
+            "name": {
+                "code_generator_form_simple_view_sequence": 10,
+                "code_generator_sequence": 4,
+                "code_generator_tree_view_sequence": 10,
+                "field_description": "Nom",
+                "ttype": "char",
+            },
+            "diagram_id": {
+                "field_description": "Diagram",
+                "relation": "accorderie.workflow",
+                "ttype": "many2one",
+            },
+            "destination_id": {
+                "field_description": "Destination",
+                "relation": "accorderie.workflow.state",
+                "ttype": "many2one",
+            },
+            "title": {
+                "field_description": "Titre",
+                "ttype": "char",
+            },
+            "html": {
+                "field_description": "HTML",
+                "ttype": "html",
+            },
+            "icon": {
+                "field_description": "icon",
+                "ttype": "char",
+            },
+        }
+        model_accorderie_workflow_state_selection_item = (
+            code_generator_id.add_update_model(
+                model_model,
+                model_name,
+                dct_field=dct_field,
+                dct_model=dct_model,
+            )
+        )
+
+        # Add/Update Accorderie Workflow Relation
+        model_model = "accorderie.workflow.relation"
+        model_name = "accorderie_workflow_relation"
+        dct_model = {
+            "description": "Accorderie Workflow Relation",
+        }
+        dct_field = {
+            "name": {
+                "code_generator_form_simple_view_sequence": 10,
+                "code_generator_sequence": 4,
+                "code_generator_tree_view_sequence": 10,
+                "field_description": "Nom",
+                "ttype": "char",
+            },
+            "diagram_id": {
+                "field_description": "Diagram",
+                "relation": "accorderie.workflow",
+                "ttype": "many2one",
+            },
+            "state_dst": {
+                "field_description": "State destination",
+                "relation": "accorderie.workflow.state",
+                "ttype": "many2one",
+            },
+            "state_src": {
+                "field_description": "State source",
+                "relation": "accorderie.workflow.state",
+                "ttype": "many2one",
+            },
+        }
+        model_accorderie_workflow_relation = (
+            code_generator_id.add_update_model(
+                model_model,
+                model_name,
+                dct_field=dct_field,
+                dct_model=dct_model,
+            )
+        )
+
+        model_model = "accorderie.workflow.state"
+        dct_field = {
+            "state_dst_ids": {
+                "field_description": "Relation destination",
+                "ttype": "one2many",
+                "relation": "accorderie.workflow.relation",
+                "relation_field": "state_dst",
+            },
+            "state_src_ids": {
+                "field_description": "Relation source",
+                "ttype": "one2many",
+                "relation": "accorderie.workflow.relation",
+                "relation_field": "state_src",
+            },
+        }
+        code_generator_id.add_update_model_one2many(model_model, dct_field)
+
+        model_model = "accorderie.workflow"
+        dct_field = {
+            "diagram_state_ids": {
+                "field_description": "State",
+                "ttype": "one2many",
+                "relation": "accorderie.workflow.state",
+                "relation_field": "diagram_id",
+            },
+            "diagram_relation_ids": {
+                "field_description": "Relation",
+                "ttype": "one2many",
+                "relation": "accorderie.workflow.relation",
+                "relation_field": "diagram_id",
+            },
+        }
+        code_generator_id.add_update_model_one2many(model_model, dct_field)
+
         # Added one2many field, many2one need to be create before add one2many
         model_model = "accorderie.accorderie"
         dct_field = {

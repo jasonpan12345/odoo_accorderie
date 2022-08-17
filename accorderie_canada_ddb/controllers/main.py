@@ -425,14 +425,14 @@ class AccorderieCanadaDdbController(http.Controller):
         # B - Choix catégorie de service : choix_categorie_de_service
         # C - Choix membre : choix_membre
         # D - Selection dynamique (option new, option id) : selection_dynamique
-        # E - Calendrier
-        # F - Temps + durée
+        # E - Calendrier : calendrier
+        # F - Temps + durée : temps
         # G - Formulaire (xml_item_id) : form
+        env = request.env(context=dict(request.env.context))
         membre_id = http.request.env.user.partner_id.accorderie_membre_ids
         if not membre_id:
             return {"error": "User not connected"}
 
-        env = request.env(context=dict(request.env.context))
         # Remove itself member
         accorderie_membre_ids = (
             env["accorderie.membre"]
@@ -498,7 +498,7 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in membre_id.offre_service_ids
         ]
 
-        return {
+        json = {
             "data": {
                 "type_service_categorie": lst_type_service_categorie,
                 "membre": lst_membre,
@@ -598,7 +598,6 @@ class AccorderieCanadaDdbController(http.Controller):
                 "init.pos.individuelle.formulaire": {
                     "show_breadcrumb": True,
                     "breadcrumb_show_only_last_item": True,
-                    "breadcrumb_show_value_last_item": True,
                     "id": "init.pos.individuelle.formulaire",
                     "message": "Formulaire",
                     "type": "form",
@@ -883,6 +882,70 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
             },
         }
+
+        workflow_ids = (
+            env["accorderie.workflow"].sudo().search([], limit=1)
+        )
+
+        if not workflow_ids:
+            return json
+        workflow = {}
+
+        for state_id in workflow_ids.diagram_state_ids:
+            dct_state = {"id": state_id.key}
+            if state_id.message:
+                dct_state["message"] = state_id.message
+            # if state_id.name:
+            #     dct_state["title"] = state_id.name
+            if state_id.type:
+                dct_state["type"] = state_id.type
+            if state_id.show_breadcrumb:
+                dct_state["show_breadcrumb"] = state_id.show_breadcrumb
+            if state_id.breadcrumb_value:
+                dct_state["breadcrumb_value"] = state_id.breadcrumb_value
+            if state_id.breadcrumb_show_only_last_item:
+                dct_state["breadcrumb_show_only_last_item"] = state_id.breadcrumb_show_only_last_item
+            if state_id.model_field_name_alias:
+                dct_state["model_field_name_alias"] = state_id.model_field_name_alias
+            if state_id.model_field_name:
+                dct_state["model_field_name"] = state_id.model_field_name
+            if state_id.disable_question:
+                dct_state["disable_question"] = state_id.disable_question
+            if state_id.submit_button_text:
+                dct_state["submit_button_text"] = state_id.submit_button_text
+            if state_id.data:
+                dct_state["data"] = state_id.data
+            if state_id.state_src_ids:
+                if state_id.type in ("selection_static", "selection_dynamique"):
+                    lst_item = []
+                    dct_state["list"] = lst_item
+                    for relation in state_id.state_src_ids:
+                        dct_item = {}
+                        if relation.state_dst:
+                            dct_item["id"] = relation.state_dst.key
+                        if relation.name:
+                            dct_item["title"] = relation.name
+                        if relation.body_html:
+                            dct_item["html"] = relation.body_html
+                        if relation.icon:
+                            dct_item["icon"] = relation.icon
+                        lst_item.append(dct_item)
+                else:
+                    dct_state["next_id"] = state_id.state_src_ids[0].state_dst.key
+            workflow[state_id.key] = dct_state
+
+        json = {
+            "data": {
+                "type_service_categorie": lst_type_service_categorie,
+                "membre": lst_membre,
+                "mes_offres_de_service": lst_mes_offre_de_service,
+            },
+            "data_inner": {
+                "type_service_categorie": dct_data_inner_type_service_categorie
+            },
+            "workflow": workflow,
+        }
+        return json
 
     @http.route(
         "/submit/accorderie_offre_service",

@@ -33,6 +33,8 @@
 
     <menuitem id="group_statistique" name="Statistique" sequence="7" parent="parent_accorderie" />
 
+    <menuitem id="group_workflow" name="Workflow" sequence="8" parent="parent_configuration" />
+
     <!--Child menu-->
 
     <menuitem
@@ -49,6 +51,30 @@
         action="accorderie_arrondissement_arrondissement_action_window"
         sequence="2"
         parent="group_location"
+    />
+
+    <menuitem
+        id="menu_workflow"
+        name="Workflow"
+        action="accorderie_workflow_action_window"
+        sequence="2"
+        parent="group_workflow"
+    />
+
+    <menuitem
+        id="menu_workflow_relation"
+        name="Relation"
+        action="accorderie_workflow_relation_action_window"
+        sequence="3"
+        parent="group_workflow"
+    />
+
+    <menuitem
+        id="menu_workflow_state"
+        name="State"
+        action="accorderie_workflow_state_action_window"
+        sequence="3"
+        parent="group_workflow"
     />
 
     <menuitem
