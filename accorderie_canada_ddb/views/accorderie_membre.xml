@@ -12,6 +12,21 @@
                         </button>
                     </div>
                     <group>
+                        <field name="antecedent_judiciaire_verifier" />
+                    </group>
+                    <group>
+                        <field name="bank_month_time" />
+                    </group>
+                    <group>
+                        <field name="bank_time" />
+                    </group>
+                    <group>
+                        <field name="introduction" />
+                    </group>
+                    <group>
+                        <field name="offre_service_ids" />
+                    </group>
+                    <group>
                         <field name="nom_complet" />
                     </group>
                     <group>
@@ -182,7 +197,10 @@
                 <field name="achat_regrouper" type="row" />
                 <field name="adresse" type="row" />
                 <field name="annee_naissance" type="measure" />
+                <field name="antecedent_judiciaire_verifier" type="row" />
                 <field name="arrondissement" type="row" />
+                <field name="bank_month_time" type="measure" />
+                <field name="bank_time" type="measure" />
                 <field name="bottin_courriel" type="row" />
                 <field name="bottin_tel" type="row" />
                 <field name="codepostal" type="row" />
@@ -191,9 +209,11 @@
                 <field name="date_mise_a_jour" type="row" />
                 <field name="description_membre" type="row" />
                 <field name="est_un_point_service" type="row" />
+                <field name="introduction" type="row" />
                 <field name="membre_ca" type="row" />
                 <field name="membre_conjoint" type="row" />
                 <field name="membre_conjoint_id" type="measure" />
+                <field name="membre_partner_id" type="row" />
                 <field name="membre_principal" type="row" />
                 <field name="memo" type="row" />
                 <field name="nom" type="row" />
@@ -240,7 +260,10 @@
                 <field name="achat_regrouper" />
                 <field name="adresse" />
                 <field name="annee_naissance" />
+                <field name="antecedent_judiciaire_verifier" />
                 <field name="arrondissement" />
+                <field name="bank_month_time" />
+                <field name="bank_time" />
                 <field name="bottin_courriel" />
                 <field name="bottin_tel" />
                 <field name="codepostal" />
@@ -249,9 +272,11 @@
                 <field name="date_mise_a_jour" />
                 <field name="description_membre" />
                 <field name="est_un_point_service" />
+                <field name="introduction" />
                 <field name="membre_ca" />
                 <field name="membre_conjoint" />
                 <field name="membre_conjoint_id" />
+                <field name="membre_partner_id" />
                 <field name="membre_principal" />
                 <field name="memo" />
                 <field name="nom" />
@@ -286,6 +311,7 @@
                 <field name="ville" />
                 <field name="commentaire" />
                 <field name="commentaire_ids" />
+                <field name="offre_service_ids" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -317,9 +343,31 @@
                                             <field name="annee_naissance" />
                                         </strong>
                                     </li>
+                                    <li
+                                        class="text-success float-right mb4"
+                                        t-if="record.antecedent_judiciaire_verifier.raw_value"
+                                    >
+                                        <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
+                                    </li>
+                                    <li
+                                        class="text-danger float-right mb4"
+                                        t-if="!record.antecedent_judiciaire_verifier.raw_value"
+                                    >
+                                        <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
                                     <li class="mb4">
                                         <strong>
                                             <field name="arrondissement" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="bank_month_time" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="bank_time" />
                                         </strong>
                                     </li>
                                     <li class="text-success float-right mb4" t-if="record.bottin_courriel.raw_value">
@@ -372,6 +420,11 @@
                                     >
                                         <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
                                     </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="introduction" />
+                                        </strong>
+                                    </li>
                                     <li class="text-success float-right mb4" t-if="record.membre_ca.raw_value">
                                         <i aria-label="Ok" class="fa fa-circle" role="img" title="Ok" />
                                     </li>
@@ -387,6 +440,11 @@
                                     <li class="mb4">
                                         <strong>
                                             <field name="membre_conjoint_id" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_partner_id" />
                                         </strong>
                                     </li>
                                     <li class="text-success float-right mb4" t-if="record.membre_principal.raw_value">
@@ -571,6 +629,11 @@
                                             <field name="commentaire_ids" />
                                         </strong>
                                     </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="offre_service_ids" />
+                                        </strong>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -590,7 +653,10 @@
                 <field name="achat_regrouper" type="row" />
                 <field name="adresse" type="row" />
                 <field name="annee_naissance" type="measure" />
+                <field name="antecedent_judiciaire_verifier" type="row" />
                 <field name="arrondissement" type="row" />
+                <field name="bank_month_time" type="measure" />
+                <field name="bank_time" type="measure" />
                 <field name="bottin_courriel" type="row" />
                 <field name="bottin_tel" type="row" />
                 <field name="codepostal" type="row" />
@@ -599,9 +665,11 @@
                 <field name="date_mise_a_jour" type="row" />
                 <field name="description_membre" type="row" />
                 <field name="est_un_point_service" type="row" />
+                <field name="introduction" type="row" />
                 <field name="membre_ca" type="row" />
                 <field name="membre_conjoint" type="row" />
                 <field name="membre_conjoint_id" type="measure" />
+                <field name="membre_partner_id" type="row" />
                 <field name="membre_principal" type="row" />
                 <field name="memo" type="row" />
                 <field name="nom" type="row" />
@@ -653,7 +721,18 @@
                     name="annee_naissance"
                     string="Ann&#233;e de naissance"
                 />
+                <filter
+                    domain="[('antecedent_judiciaire_verifier','=',True)]"
+                    name="antecedent_judiciaire_verifier"
+                    string="Ant&#233;c&#233;dents judiciaires v&#233;rifi&#233;s"
+                />
                 <filter domain="[('arrondissement','!=',False)]" name="arrondissement" string="Arrondissement" />
+                <filter
+                    domain="[('bank_month_time','!=',False)]"
+                    name="bank_month_time"
+                    string="Temps en banque du pr&#233;sent mois"
+                />
+                <filter domain="[('bank_time','!=',False)]" name="bank_time" string="Temps en banque" />
                 <filter domain="[('bottin_courriel','=',True)]" name="bottin_courriel" string="Bottin courriel" />
                 <filter domain="[('bottin_tel','=',True)]" name="bottin_tel" string="Bottin t&#233;l&#233;phone" />
                 <filter domain="[('codepostal','!=',False)]" name="codepostal" string="Codepostal" />
@@ -674,6 +753,7 @@
                     name="est_un_point_service"
                     string="Est un point de service"
                 />
+                <filter domain="[('introduction','!=',False)]" name="introduction" string="Introduction" />
                 <filter domain="[('membre_ca','=',True)]" name="membre_ca" string="Membre du CA" />
                 <filter domain="[('membre_conjoint','=',True)]" name="membre_conjoint" string="A un membre conjoint" />
                 <filter
@@ -681,6 +761,7 @@
                     name="membre_conjoint_id"
                     string="Membre conjoint"
                 />
+                <filter domain="[('membre_partner_id','!=',False)]" name="membre_partner_id" string="Membre" />
                 <filter domain="[('membre_principal','=',True)]" name="membre_principal" string="Membre principal" />
                 <filter domain="[('memo','!=',False)]" name="memo" string="M&#233;mo" />
                 <filter domain="[('nom','!=',False)]" name="nom" string="Nom" />
@@ -767,6 +848,11 @@
                     name="commentaire_ids"
                     string="Commentaire membre vis&#233;"
                 />
+                <filter
+                    domain="[('offre_service_ids','!=',False)]"
+                    name="offre_service_ids"
+                    string="Offre de service"
+                />
             </search>
         </field>
     </record>
@@ -776,6 +862,22 @@
         <field name="model">accorderie.membre</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="annee_naissance" />
+                <field name="antecedent_judiciaire_verifier" />
+                <field name="bank_month_time" />
+                <field name="bank_time" />
+                <field name="bottin_courriel" />
+                <field name="bottin_tel" />
+                <field name="description_membre" />
+                <field name="introduction" />
+                <field name="membre_conjoint" />
+                <field name="membre_conjoint_id" />
+                <field name="membre_partner_id" />
+                <field name="membre_principal" />
+                <field name="memo" />
+                <field name="occupation" />
+                <field name="offre_service_ids" />
+                <field name="sexe" />
                 <field name="nom_complet" />
                 <field name="accorderie" />
                 <field name="achat_regrouper" />
