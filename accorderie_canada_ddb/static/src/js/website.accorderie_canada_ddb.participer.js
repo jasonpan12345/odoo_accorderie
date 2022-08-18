@@ -259,6 +259,29 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
     }])
 
+    async function requestSpecialURL($scope, state, new_url) {
+        let value = await ajax.rpc(new_url, {}).then(function (data) {
+            console.debug("AJAX receive " + new_url);
+            console.debug(data);
+
+            if (data.error) {
+                $scope.error = error;
+            } else if (_.isEmpty(data)) {
+                $scope.error = "Empty data";
+            } else {
+                return data.data;
+            }
+        });
+
+        console.debug(value);
+        // Synchronise database
+        $scope.data[state.data_name] = value[state.data_name];
+        state.data = value[state.data_name];
+        $scope._update_state(state)
+        // Process all the angularjs watchers
+        $scope.$digest();
+    }
+
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
         $scope.has_init = false;
@@ -277,6 +300,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             next_id_data: undefined,
             show_breadcrumb: false,
             data: undefined,
+            data_name: undefined,
+            data_depend_field: undefined,
+            data_url_field: undefined,
+            data_update_url: undefined,
+            force_update_data: undefined,
             dct_data: undefined,
             data_inner: undefined,
             dct_data_inner: undefined,
@@ -327,11 +355,16 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
                 // Update relation workflow with data, use by click_inner_state
                 for (const [key, value] of Object.entries($scope.workflow)) {
-                    if (!_.isEmpty(value.data)) {
-                        let data_name = value.data;
+                    if (!_.isEmpty(value.data_name)) {
+                        let data_name = value.data_name;
 
                         // data
                         let lst_data = $scope.data[data_name]
+                        if (_.isUndefined(lst_data)) {
+                            console.error(`Cannot find database '${data_name}'.`)
+                            $scope.workflow[key].data = undefined;
+                            continue;
+                        }
                         $scope.workflow[key].data = lst_data;
                         let dct_data = {};
                         for (let i = 0; i < lst_data.length; i++) {
@@ -595,7 +628,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         state.selected_value = value;
                     }
                 }
-                console.debug("help");
             }
         }
 
@@ -694,41 +726,91 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
+        $scope.update_data_url = function (state) {
+            // return true if need to stop execution
+            let status = false;
+            // Update data if need it
+            if (_.isString(state.data) || state.force_update_data) {
+                // If data is string, data is not initialize
+                if (_.isEmpty(state.data_update_url)) {
+                    $scope.error = "Cannot update database, missing state variable 'data_update_url'";
+                    console.error($scope.error);
+                } else {
+                    let new_url = state.data_update_url;
+                    if (!_.isEmpty(state.data_url_field)) {
+                        // Search all variable from $scope.form to create new url for request
+                        let array_param = [];
+                        let str_array = state.data_url_field.split(";");
+                        for (let i = 0; i < str_array.length; i++) {
+                            let form_value = $scope.form[str_array[i]];
+                            if (_.isUndefined(form_value)) {
+                                $scope.error = "Cannot find form value of '" + str_array[i] + "'";
+                                console.error($scope.error);
+                            } else {
+                                if (_.isObject(form_value)) {
+                                    array_param.push(form_value.id)
+                                } else {
+                                    array_param.push(form_value);
+                                }
+                            }
+                        }
+                        if (_.isEmpty($scope.error)) {
+                            // Replace all %s by array value
+                            new_url = _.str.vsprintf(new_url, array_param);
+                        }
+                    }
+                    // Send request
+                    if (_.isEmpty($scope.error)) {
+                        status = true;
+                        requestSpecialURL($scope, state, new_url);
+                    }
+                }
+            }
+            return status;
+        }
+
         $scope.update_state = function (state, debugFromInfo) {
-            // console.debug("call update_state");
             if (_.isUndefined(state)) {
                 $scope.error = "Cannot find state from " + debugFromInfo;
                 console.error($scope.error);
             } else {
-                console.debug(state);
-                $scope.error = "";
-                // Update URL parameters
-                if (state.id === INIT_STATE) {
-                    $location.search(PARAM_STATE_NAME, null);
-                } else {
-                    $location.search(PARAM_STATE_NAME, state.id);
+                let status = $scope.update_data_url(state);
+                if (!status) {
+                    $scope._update_state(state);
                 }
-                // Fill models form
-                $scope.fill_model_form_from_state(state);
-                if (!_.isUndefined($scope.autoCompleteJS)) {
-                    // Clean autoCompleteJS when change state
-                    try {
-                        $scope.autoCompleteJS.unInit();
-                    } catch (e) {
-                        // ignore, unInit already called
-                    }
-                    $scope.autoCompleteJS = undefined;
-                }
-                $scope.state = state;
-                $scope.stack_breadcrumb_state.push(state);
-                $scope.update_breadcrumb();
-                $scope.in_multiple_inner_state = state.type === "choix_categorie_de_service" && !_.isUndefined(state.data);
-                $scope.is_inner_state = state.type === "choix_categorie_de_service";
-                $scope.is_next_wait_value = $scope.is_inner_state || state.type === "choix_membre"
-                // Force delete stack inner state
-                $scope.stack_breadcrumb_inner_state = [];
-                $scope.actual_inner_state_name = "";
             }
+        }
+
+        $scope._update_state = function (state) {
+            // console.debug("call update_state");
+            console.debug(state);
+            $scope.error = "";
+            // Update URL parameters
+            if (state.id === INIT_STATE) {
+                $location.search(PARAM_STATE_NAME, null);
+            } else {
+                $location.search(PARAM_STATE_NAME, state.id);
+            }
+            // Fill models form
+            $scope.fill_model_form_from_state(state);
+            if (!_.isUndefined($scope.autoCompleteJS)) {
+                // Clean autoCompleteJS when change state
+                try {
+                    $scope.autoCompleteJS.unInit();
+                } catch (e) {
+                    // ignore, unInit already called
+                }
+                $scope.autoCompleteJS = undefined;
+            }
+            $scope.state = state;
+            $scope.stack_breadcrumb_state.push(state);
+            $scope.update_breadcrumb();
+            $scope.in_multiple_inner_state = state.type === "choix_categorie_de_service" && !_.isUndefined(state.data);
+            $scope.is_inner_state = state.type === "choix_categorie_de_service";
+            $scope.is_next_wait_value = $scope.is_inner_state || state.type === "choix_membre"
+            // Force delete stack inner state
+            $scope.stack_breadcrumb_inner_state = [];
+            $scope.actual_inner_state_name = "";
         }
 
         // Dynamique list

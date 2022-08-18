@@ -6,87 +6,54 @@
         <field name="arch" type="xml">
             <form string="Titre">
                 <sheet>
-                    <group>
+                    <group string="Information">
                         <field name="name" />
-                    </group>
-                    <group>
+                        <field name="type" />
                         <field name="key" />
                     </group>
-                    <group>
-                        <field name="breadcrumb_show_only_last_item" />
-                    </group>
-                    <group>
-                        <field name="breadcrumb_value" />
-                    </group>
-                    <group>
-                        <field name="submit_button_text" />
-                    </group>
-                    <group>
-                        <field name="data" />
-                    </group>
-                    <group>
-                        <field name="diagram_id" />
-                    </group>
-                    <group>
-                        <field name="disable_question" />
-                    </group>
-                    <group>
-                        <field name="list_is_first_position" />
-                    </group>
-                    <group>
+                    <div class="bg-warning">
+                        <h4>Le champs Identifiant :</h4>
+                        L'identifiant doit être la même que la précédente + ".nouveau"
+                    </div>
+                    <group string="Propriété" attrs="{'invisible': [('type','in',('null',))]}">
                         <field name="message" />
+                        <field name="disable_question" />
+                        <field
+                            name="list_is_first_position"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique'))]}"
+                        />
                     </group>
-                    <group>
-                        <field name="model_field_name" />
-                    </group>
-                    <group>
-                        <field name="model_field_name_alias" />
-                    </group>
-                    <group>
+                    <group string="Fil d'ariane" attrs="{'invisible': [('type','in',('null',))]}">
+                        <field name="breadcrumb_value" />
+                        <field name="breadcrumb_show_only_last_item" />
                         <field name="show_breadcrumb" />
                     </group>
-                    <group>
+                    <group string="Formulaire" attrs="{'invisible': [('type','in',('null','selection_static'))]}">
+                        <field name="data" />
+                        <field name="model_field_name" />
+                        <field name="model_field_name_alias" />
+                        <field name="data_depend_field" />
+                        <field
+                            name="data_update_url"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique',))]}"
+                        />
+                        <field
+                            name="data_url_field"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique',))]}"
+                        />
+                        <field
+                            name="force_update_data"
+                            attrs="{'invisible': [('type','not in',('selection_dynamique',))]}"
+                        />
+                        <field name="submit_button_text" attrs="{'invisible': [('type','not in',('form',))]}" />
+                    </group>
+                    <group string="Diagramme">
                         <field name="state_dst_ids" />
-                    </group>
-                    <group>
-                        <field name="state_src_ids" />
-                    </group>
-                    <group>
-                        <field name="type" />
-                    </group>
-                    <group>
-                        <field name="xpos" />
-                    </group>
-                    <group>
-                        <field name="ypos" />
+                        <field name="state_src_ids" attrs="{'invisible': [('type','in',('null',))]}" />
+                        <field name="diagram_id" />
                     </group>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record id="accorderie_workflow_state_view_graph" model="ir.ui.view">
-        <field name="name">accorderie_workflow_state_graph</field>
-        <field name="model">accorderie.workflow.state</field>
-        <field name="arch" type="xml">
-            <graph string="Accorderie workflow state">
-                <field name="name" type="row" />
-                <field name="breadcrumb_show_only_last_item" type="row" />
-                <field name="breadcrumb_value" type="row" />
-                <field name="submit_button_text" type="row" />
-                <field name="data" type="row" />
-                <field name="diagram_id" type="row" />
-                <field name="disable_question" type="row" />
-                <field name="key" type="row" />
-                <field name="list_is_first_position" type="row" />
-                <field name="message" type="row" />
-                <field name="model_field_name" type="row" />
-                <field name="model_field_name_alias" type="row" />
-                <field name="show_breadcrumb" type="row" />
-                <field name="type" type="row" />
-                <field name="xpos" type="measure" />
-                <field name="ypos" type="measure" />
-            </graph>
         </field>
     </record>
 
@@ -109,8 +76,8 @@
                 <field name="model_field_name_alias" />
                 <field name="show_breadcrumb" />
                 <field name="type" />
-                <field name="xpos" />
-                <field name="ypos" />
+<!--                <field name="xpos" />-->
+<!--                <field name="ypos" />-->
                 <field name="state_dst_ids" />
                 <field name="state_src_ids" />
                 <templates>
@@ -204,16 +171,16 @@
                                             <field name="type" />
                                         </strong>
                                     </li>
-                                    <li class="mb4">
-                                        <strong>
-                                            <field name="xpos" />
-                                        </strong>
-                                    </li>
-                                    <li class="mb4">
-                                        <strong>
-                                            <field name="ypos" />
-                                        </strong>
-                                    </li>
+<!--                                    <li class="mb4">-->
+<!--                                        <strong>-->
+<!--                                            <field name="xpos" />-->
+<!--                                        </strong>-->
+<!--                                    </li>-->
+<!--                                    <li class="mb4">-->
+<!--                                        <strong>-->
+<!--                                            <field name="ypos" />-->
+<!--                                        </strong>-->
+<!--                                    </li>-->
                                     <li class="mb4">
                                         <strong>
                                             <field name="state_dst_ids" />
@@ -230,31 +197,6 @@
                     </t>
                 </templates>
             </kanban>
-        </field>
-    </record>
-
-    <record id="accorderie_workflow_state_view_pivot" model="ir.ui.view">
-        <field name="name">accorderie_workflow_state_pivot</field>
-        <field name="model">accorderie.workflow.state</field>
-        <field name="arch" type="xml">
-            <pivot string="Accorderie workflow state">
-                <field name="name" type="row" />
-                <field name="breadcrumb_show_only_last_item" type="row" />
-                <field name="breadcrumb_value" type="row" />
-                <field name="submit_button_text" type="row" />
-                <field name="data" type="row" />
-                <field name="diagram_id" type="row" />
-                <field name="disable_question" type="row" />
-                <field name="key" type="row" />
-                <field name="list_is_first_position" type="row" />
-                <field name="message" type="row" />
-                <field name="model_field_name" type="row" />
-                <field name="model_field_name_alias" type="row" />
-                <field name="show_breadcrumb" type="row" />
-                <field name="type" type="row" />
-                <field name="xpos" type="measure" />
-                <field name="ypos" type="measure" />
-            </pivot>
         </field>
     </record>
 
@@ -309,8 +251,8 @@
                     string="Afficher le fil d'ariane"
                 />
                 <filter domain="[('type','!=',False)]" name="type" string="Type" />
-                <filter domain="[('xpos','!=',False)]" name="xpos" string="Diagram position x" />
-                <filter domain="[('ypos','!=',False)]" name="ypos" string="Diagram position y" />
+<!--                <filter domain="[('xpos','!=',False)]" name="xpos" string="Diagram position x" />-->
+<!--                <filter domain="[('ypos','!=',False)]" name="ypos" string="Diagram position y" />-->
                 <filter domain="[('state_dst_ids','!=',False)]" name="state_dst_ids" string="Relation destination" />
                 <filter domain="[('state_src_ids','!=',False)]" name="state_src_ids" string="Relation source" />
             </search>
@@ -337,8 +279,8 @@
                 <field name="state_dst_ids" />
                 <field name="state_src_ids" />
                 <field name="type" />
-                <field name="xpos" />
-                <field name="ypos" />
+<!--                <field name="xpos" />-->
+<!--                <field name="ypos" />-->
                 <field name="name" />
             </tree>
         </field>
@@ -348,6 +290,6 @@
         id="accorderie_workflow_state_action_window"
         name="Workflow state"
         res_model="accorderie.workflow.state"
-        view_mode="kanban,tree,pivot,graph,form"
+        view_mode="kanban,tree,form"
     />
 </odoo>

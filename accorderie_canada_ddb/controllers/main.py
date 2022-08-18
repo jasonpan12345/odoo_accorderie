@@ -413,6 +413,28 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/offre_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_workflow_data_offre_service(self, membre_id, **kw):
+        lst_mes_offre_de_service = [
+            {
+                "id": a.id,
+                # "html": a.description,
+                "right_html": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "title": a.titre,
+            }
+            for a in membre_id.offre_service_ids
+        ]
+        return {"data": {"ses_offres_de_service": lst_mes_offre_de_service}}
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_participer_workflow_data",
         ],
         type="json",
@@ -883,9 +905,7 @@ class AccorderieCanadaDdbController(http.Controller):
             },
         }
 
-        workflow_ids = (
-            env["accorderie.workflow"].sudo().search([], limit=1)
-        )
+        workflow_ids = env["accorderie.workflow"].sudo().search([], limit=1)
 
         if not workflow_ids:
             return json
@@ -904,34 +924,62 @@ class AccorderieCanadaDdbController(http.Controller):
             if state_id.breadcrumb_value:
                 dct_state["breadcrumb_value"] = state_id.breadcrumb_value
             if state_id.breadcrumb_show_only_last_item:
-                dct_state["breadcrumb_show_only_last_item"] = state_id.breadcrumb_show_only_last_item
+                dct_state[
+                    "breadcrumb_show_only_last_item"
+                ] = state_id.breadcrumb_show_only_last_item
             if state_id.model_field_name_alias:
-                dct_state["model_field_name_alias"] = state_id.model_field_name_alias
+                dct_state[
+                    "model_field_name_alias"
+                ] = state_id.model_field_name_alias
+            if state_id.data_depend_field:
+                dct_state["data_depend_field"] = state_id.data_depend_field
+            if state_id.data_url_field:
+                dct_state["data_url_field"] = state_id.data_url_field
+            if state_id.data_update_url:
+                dct_state["data_update_url"] = state_id.data_update_url
+            if state_id.force_update_data:
+                dct_state["force_update_data"] = state_id.force_update_data
             if state_id.model_field_name:
                 dct_state["model_field_name"] = state_id.model_field_name
             if state_id.disable_question:
                 dct_state["disable_question"] = state_id.disable_question
             if state_id.submit_button_text:
                 dct_state["submit_button_text"] = state_id.submit_button_text
+            if state_id.list_is_first_position:
+                dct_state[
+                    "list_is_first_position"
+                ] = state_id.list_is_first_position
             if state_id.data:
-                dct_state["data"] = state_id.data
+                dct_state["data_name"] = state_id.data
             if state_id.state_src_ids:
-                if state_id.type in ("selection_static", "selection_dynamique"):
+                if state_id.type in (
+                    "selection_static",
+                    "selection_dynamique",
+                ):
                     lst_item = []
                     dct_state["list"] = lst_item
                     for relation in state_id.state_src_ids:
-                        dct_item = {}
-                        if relation.state_dst:
-                            dct_item["id"] = relation.state_dst.key
-                        if relation.name:
-                            dct_item["title"] = relation.name
-                        if relation.body_html:
-                            dct_item["html"] = relation.body_html
-                        if relation.icon:
-                            dct_item["icon"] = relation.icon
-                        lst_item.append(dct_item)
+                        if not relation.is_dynamic:
+                            dct_item = {}
+                            if relation.state_dst:
+                                dct_item["id"] = relation.state_dst.key
+                            if relation.name:
+                                dct_item["title"] = relation.name
+                            if (
+                                relation.body_html
+                                and relation.body_html != "<p><br></p>"
+                            ):
+                                dct_item["html"] = relation.body_html
+                            if relation.icon:
+                                dct_item["icon"] = relation.icon
+                            lst_item.append(dct_item)
+                        else:
+                            dct_state["next_id_data"] = relation.state_dst.key
+
                 else:
-                    dct_state["next_id"] = state_id.state_src_ids[0].state_dst.key
+                    dct_state["next_id"] = state_id.state_src_ids[
+                        0
+                    ].state_dst.key
             workflow[state_id.key] = dct_state
 
         json = {

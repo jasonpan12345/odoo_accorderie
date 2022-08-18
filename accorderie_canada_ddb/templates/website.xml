@@ -631,7 +631,7 @@
                                     <div
                                         ng-repeat="option in state.data"
                                         class="button_form"
-                                        ng-if="!state.list_is_first_position"
+                                        ng-if="!state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                     >
                                         <div class="btn" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
@@ -668,7 +668,7 @@
                                     <div
                                         ng-repeat="option in state.data"
                                         class="button_form"
-                                        ng-if="state.list_is_first_position"
+                                        ng-if="state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                     >
                                         <div class="btn" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
@@ -1201,7 +1201,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.recevoir.choix.nouveau'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.recevoir.choix.nouveau.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Destinataire du service
