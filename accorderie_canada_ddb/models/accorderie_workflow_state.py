@@ -30,24 +30,59 @@ class AccorderieWorkflowState(models.Model):
         string="Première position dans la sélection"
     )
 
+    is_rectangle = fields.Boolean(
+        string="Est rectangle", compute="_is_rectangle"
+    )
+
     message = fields.Char()
 
     model_field_name = fields.Char(string="Champs du modèle")
 
     model_field_name_alias = fields.Char(string="Alias champs du modèle")
 
+    data_depend_field = fields.Char(
+        string="État qui dépend de champs",
+        help="Separé par ; pour en avoir plusieurs",
+    )
+
+    data_update_url = fields.Char(
+        string="URL sync data",
+        help=(
+            "Lien pour synchroniser la base de données lors d'une dépendance."
+            " Mettre %s pour ajouter les paramètres de 'data_url_field'"
+        ),
+    )
+
+    data_url_field = fields.Char(
+        string="Paramètre url data",
+        help=(
+            "Paramètre à envoyer au data_update_url. Separé par ';' pour en"
+            " avoir plusieurs"
+        ),
+    )
+
+    force_update_data = fields.Boolean(
+        string="Forcer synchronisation data",
+        help=(
+            "À chaque load du state, on va forcer la mise à jour de la base de"
+            " données."
+        ),
+    )
+
     show_breadcrumb = fields.Boolean(string="Afficher le fil d'ariane")
 
     state_dst_ids = fields.One2many(
         comodel_name="accorderie.workflow.relation",
         inverse_name="state_dst",
-        string="Relation destination",
+        string="Relation source",
+        # Inverse string because one2many
     )
 
     state_src_ids = fields.One2many(
         comodel_name="accorderie.workflow.relation",
         inverse_name="state_src",
-        string="Relation source",
+        string="Relation destination",
+        # Inverse string because one2many
     )
 
     type = fields.Selection(
@@ -59,7 +94,10 @@ class AccorderieWorkflowState(models.Model):
             ("calendrier", "Calendrier"),
             ("temps", "Temps"),
             ("form", "Form"),
-        ]
+            ("null", "Nulle"),
+        ],
+        default="null",
+        required=True,
     )
 
     xpos = fields.Integer(
@@ -71,3 +109,12 @@ class AccorderieWorkflowState(models.Model):
         string="Diagram position y",
         default=50,
     )
+
+    @api.depends("type")
+    def _is_rectangle(self):
+        for obj in self:
+            obj.is_rectangle = obj.type in (
+                "selection_static",
+                "selection_dynamique",
+                "null",
+            )

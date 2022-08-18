@@ -16,6 +16,9 @@
                         <field name="icon" />
                     </group>
                     <group>
+                        <field name="is_dynamic" />
+                    </group>
+                    <group>
                         <field name="state_src" />
                     </group>
                     <group>
@@ -38,6 +41,7 @@
                 <field name="diagram_id" />
                 <field name="body_html" />
                 <field name="icon" />
+                <field name="is_dynamic" />
                 <field name="state_dst" />
                 <field name="state_src" />
                 <templates>
@@ -58,6 +62,11 @@
                                     <li class="mb4">
                                         <strong>
                                             <field name="icon" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="is_dynamic" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
@@ -92,6 +101,7 @@
                 <filter domain="[('name','!=',False)]" name="name" string="Nom" />
                 <filter domain="[('body_html','!=',False)]" name="body_html" string="HTML" />
                 <filter domain="[('icon','!=',False)]" name="icon" string="Icon" />
+                <filter domain="[('is_dynamic','!=',False)]" name="dynamique" string="Est dynamique" />
                 <filter domain="[('state_src','!=',False)]" name="state_src" string="State source" />
                 <filter domain="[('state_dst','!=',False)]" name="state_dst" string="State destination" />
                 <filter domain="[('diagram_id','!=',False)]" name="diagram_id" string="Diagram" />
@@ -107,6 +117,7 @@
                 <field name="name" />
                 <field name="body_html" />
                 <field name="icon" />
+                <field name="is_dynamic" />
                 <field name="state_src" />
                 <field name="state_dst" />
                 <field name="diagram_id" />

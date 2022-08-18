@@ -8,13 +8,23 @@
             <field name="type">selection_static</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_null" model="accorderie.workflow.state">
+        <record id="accorderie_workflow_state_null_collective" model="accorderie.workflow.state">
+            <field name="name">Null</field>
+            <field name="key">null</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_null_pds" model="accorderie.workflow.state">
+            <field name="name">Null</field>
+            <field name="key">null</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_null_calendrier" model="accorderie.workflow.state">
             <field name="name">Null</field>
             <field name="key">null</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pos" model="accorderie.workflow.state">
-            <field name="name">Publier une offre de service</field>
+            <field name="name">Offre de service</field>
             <field name="key">init.pos</field>
             <field name="message">Est-ce pour une offre de service :</field>
             <field name="type">selection_static</field>
@@ -23,7 +33,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pos_individuelle" model="accorderie.workflow.state">
-            <field name="name">Publier une offre individuelle</field>
+            <field name="name">Choisir une catégorie de service</field>
             <field name="key">init.pos.individuelle</field>
             <field name="message">Dans quelle catégorie s'inscrit votre offre de service?</field>
             <field name="type">choix_categorie_de_service</field>
@@ -35,7 +45,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pos_individuelle_form" model="accorderie.workflow.state">
-            <field name="name">Formulaire offre individuelle</field>
+            <field name="name">Formulaire offre de service individuelle</field>
             <field name="key">init.pos.individuelle.formulaire</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">True</field>
@@ -45,7 +55,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pds" model="accorderie.workflow.state">
-            <field name="name">Publier une demande de service</field>
+            <field name="name">Demande de service</field>
             <field name="key">init.pds</field>
             <field name="message">Est-ce pour une demande de service :</field>
             <field name="type">selection_static</field>
@@ -53,8 +63,20 @@
             <field name="breadcrumb_value">Publier.Une demande de service</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
+        <record id="accorderie_workflow_state_pds_individuelle" model="accorderie.workflow.state">
+            <field name="name">Choisir une catégorie de service</field>
+            <field name="key">init.pds.individuelle</field>
+            <field name="message">Dans quelle catégorie s'inscrit votre demande de service?</field>
+            <field name="type">choix_categorie_de_service</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Individuelle</field>
+            <field name="data">type_service_categorie</field>
+            <field name="model_field_name_alias">categorie</field>
+            <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
         <record id="accorderie_workflow_state_saa" model="accorderie.workflow.state">
-            <field name="name">Publier une demande de service</field>
+            <field name="name">Transaction</field>
             <field name="key">init.saa</field>
             <field name="message">Que voulez-vous?</field>
             <field name="type">selection_static</field>
@@ -62,13 +84,131 @@
             <field name="breadcrumb_value">S'accorder</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
+        <record id="accorderie_workflow_state_saa_offrir" model="accorderie.workflow.state">
+            <field name="name">Choisir une de mes offres</field>
+            <field name="key">init.saa.offrir</field>
+            <field name="message">Choisir une de mes offres</field>
+            <field name="type">selection_dynamique</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Offrir un service</field>
+            <field name="model_field_name_alias">offre_service</field>
+            <field name="model_field_name">offre_service_id</field>
+            <field name="data">mes_offres_de_service</field>
+            <field name="list_is_first_position">True</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_offrir_nouveau" model="accorderie.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.saa.offrir.nouveau</field>
+            <field name="message">À qui souhaitez-vous offrir le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Privé</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_offrir_existant" model="accorderie.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.saa.offrir.existant</field>
+            <field name="message">À qui souhaitez-vous offrir le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Que j'ai publié</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_offrir_existant_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire service privé existant échange</field>
+            <field name="key">init.saa.offrir.nouveau.categorie_service.formulaire</field>
+            <field name="message">Offrir un service privé</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Valider mon offre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service" model="accorderie.workflow.state">
+            <field name="name">Choisir une catégorie de service</field>
+            <field name="key">init.saa.offrir.nouveau.categorie_service</field>
+            <field name="message">Dans quelle catégorie s'inscrit votre offre de service privée?</field>
+            <field name="type">choix_categorie_de_service</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Pour membre??</field>
+            <field name="data">type_service_categorie</field>
+            <field name="model_field_name_alias">categorie</field>
+            <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire nouveau service privé échange</field>
+            <field name="key">init.saa.offrir.nouveau.categorie_service.formulaire</field>
+            <field name="message">Offrir un service privé</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Valider mon offre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
         <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">
-            <field name="name">Valider un accordage</field>
-            <field name="key">init.saa</field>
+            <field name="name">Échange d'un service</field>
+            <field name="key">init.va</field>
             <field name="message">Avez-vous créer une demande de service pour cette accordage?</field>
             <field name="type">selection_static</field>
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_value">Valider un accordage</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir" model="accorderie.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.saa.recevoir</field>
+            <field name="message">De qui souhaitez-vous recevoir le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Recevoir un service</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix" model="accorderie.workflow.state">
+            <field name="name">Choisir une de ses offres</field>
+            <field name="key">init.saa.recevoir.choix</field>
+            <field name="message">Choisir une de ses offres</field>
+            <field name="type">selection_dynamique</field>
+            <field name="show_breadcrumb">True</field>
+            <!-- TODO breadcrumb_value supporter variable dynamique du field_id -->
+            <field name="breadcrumb_value">Pour membre??</field>
+            <field name="model_field_name_alias">offre_service</field>
+            <field name="model_field_name">offre_service_id</field>
+            <field name="data">ses_offres_de_service</field>
+            <field name="data_depend_field">membre_id</field>
+            <field name="data_url_field">membre_id</field>
+            <field name="data_update_url">/accorderie_canada_ddb/get_info/offre_service/%s</field>
+            <field name="force_update_data">True</field>
+            <field name="list_is_first_position">True</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix_nouveau" model="accorderie.workflow.state">
+            <field name="name">Choisir une catégorie de service</field>
+            <field name="key">init.saa.recevoir.choix.nouveau</field>
+            <field name="message">Dans quelle catégorie s'inscrit l'offre de service privée reçue?</field>
+            <field name="type">choix_categorie_de_service</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Offre privée</field>
+            <field name="data">type_service_categorie</field>
+            <field name="model_field_name_alias">categorie</field>
+            <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix_nouveau_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire nouveau service reçu échange</field>
+            <field name="key">init.saa.recevoir.choix.nouveau.formulaire</field>
+            <field name="message">Description de la transaction</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Envoyer ma demande</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
     </data>

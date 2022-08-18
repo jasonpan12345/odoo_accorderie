@@ -6,17 +6,18 @@
         <field name="arch" type="xml">
             <diagram>
                 <node
-                    form_view_ref="accorderie_workflow_state_view_form"
+                    form_view_ref="accorderie_canada_ddb.accorderie_workflow_state_view_form"
+                    shape="rectangle:is_rectangle==True"
                     object="accorderie.workflow.state"
-                    shape="rectangle:True"
-                    xpos="xpos"
-                    ypos="ypos"
                 >
                     <field name="name" />
+                    <field name="key" />
+                    <field name="data" />
+                    <field name="is_rectangle" invisible="1" />
                 </node>
                 <arrow
                     destination="state_dst"
-                    form_view_ref="accorderie_workflow_relation_view_form"
+                    form_view_ref="accorderie_canada_ddb.accorderie_workflow_relation_view_form"
                     label="['name']"
                     object="accorderie.workflow.relation"
                     source="state_src"

@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="1">
         <record id="accorderie_workflow_participer" model="accorderie.workflow">
-            <field name="name">Procédure membre pour participer</field>
+            <field name="name">Procédure de participation des membres</field>
         </record>
     </data>
 </odoo>
