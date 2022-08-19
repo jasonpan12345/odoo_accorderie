@@ -1099,7 +1099,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.oui'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.oui.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Offre de service reçu
@@ -1473,7 +1473,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.offert.nouveau'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.offert.nouveau_formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Destinataire du service
@@ -1485,7 +1485,7 @@
                                         <span style="font-size:1.75rem;font-weight:bold;">Destinataire du service</span>
                                     </div>
                                     <div class="form_box">
-                                        <span>{{form.membre_id.value}}n</span>
+                                        <span>{{form.membre_id.value}}</span>
                                         <i class="fa fa-chevron-right" />
                                     </div>
 
@@ -1597,7 +1597,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.offert.existant'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.offert.existant_formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Offre de service donnée
@@ -1709,7 +1709,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.recu.nouveau'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.recu.choix.nouveau.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     De qui avez-vous reçu le service?
@@ -1835,7 +1835,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.recu.existant'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.va.non.recu.choix.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     Offre de service reçu

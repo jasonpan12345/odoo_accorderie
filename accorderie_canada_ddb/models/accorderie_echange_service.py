@@ -22,6 +22,7 @@ class AccorderieEchangeService(models.Model):
         string="Demande de services",
     )
 
+    # TODO compute membre_acheter from service
     membre_acheteur = fields.Many2one(
         comodel_name="accorderie.membre",
         string="Membre acheteur",
@@ -37,6 +38,11 @@ class AccorderieEchangeService(models.Model):
         help="Nombre d'heure effectué au moment de l'échange.",
     )
 
+    nb_heure_estime = fields.Float(
+        string="Nombre d'heure estimé",
+        help="Nombre d'heure estimé pour l'échange.",
+    )
+
     offre_service = fields.Many2one(
         comodel_name="accorderie.offre.service",
         string="Offre de services",
@@ -48,6 +54,21 @@ class AccorderieEchangeService(models.Model):
     )
 
     remarque = fields.Char()
+
+    transaction_valide = fields.Boolean(
+        string="Validé",
+        help="Activé lorsque la transaction a été validé",
+    )
+
+    titre = fields.Char(
+        string="Titre",
+        compute="_compute_titre",
+        help=(
+            "Titre de l'offre de service ou de la demande de service, ou les"
+            " deux"
+        ),
+        store=True,
+    )
 
     type_echange = fields.Selection(
         selection=[
@@ -80,3 +101,15 @@ class AccorderieEchangeService(models.Model):
             if not value:
                 value = False
             rec.nom_complet = value
+
+    @api.depends("offre_service", "demande_service")
+    def _compute_titre(self):
+        for rec in self:
+            value = ""
+            if rec.offre_service:
+                value += rec.offre_service.titre
+            if rec.demande_service:
+                value += rec.demande_service.titre
+            if not value:
+                value = "VIDE"
+            rec.titre = value
