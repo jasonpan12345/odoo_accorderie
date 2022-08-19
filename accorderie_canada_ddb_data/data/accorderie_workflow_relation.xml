@@ -22,13 +22,7 @@
             <field name="state_dst" ref="accorderie_workflow_state_saa" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_relation_init_va" model="accorderie.workflow.relation">
-            <field name="name">Valider un accordage</field>
-            <field name="body_html">Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>
-            <field name="state_src" ref="accorderie_workflow_state_init" />
-            <field name="state_dst" ref="accorderie_workflow_state_va" />
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
-        </record>
+
         <record id="accorderie_workflow_relation_pos_individuelle" model="accorderie.workflow.relation">
             <field name="name">Individuelle</field>
             <field name="body_html">Si vous offrez un service destiné à une personne à la fois.</field>
@@ -126,6 +120,76 @@
             <field name="state_src" ref="accorderie_workflow_state_saa_recevoir_choix" />
 <!--            <field name="state_dst" ref="accorderie_workflow_state_saa_recevoir_choix_existant" />-->
             <field name="state_dst" ref="accorderie_workflow_state_null_calendrier" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+
+        <record id="accorderie_workflow_relation_init_va" model="accorderie.workflow.relation">
+            <field name="name">Valider un accordage</field>
+            <field name="body_html">Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>
+            <field name="state_src" ref="accorderie_workflow_state_init" />
+            <field name="state_dst" ref="accorderie_workflow_state_va" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_oui" model="accorderie.workflow.relation">
+            <field name="name">Oui</field>
+            <field name="state_src" ref="accorderie_workflow_state_va" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_oui" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_oui_form" model="accorderie.workflow.relation">
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="accorderie_workflow_state_va_oui" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_oui_form" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non" model="accorderie.workflow.relation">
+            <field name="name">Non</field>
+            <field name="state_src" ref="accorderie_workflow_state_va" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_offert" model="accorderie.workflow.relation">
+            <field name="name">Je suis la personne qui a offert le service</field>
+            <field name="state_src" ref="accorderie_workflow_state_va_non" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_offert_nouveau" model="accorderie.workflow.relation">
+            <field name="body_html" type="html"><p>Aucune de ces offres.<br />Il s'agissait d'un service offert spécifiquement pour vous.</p></field>
+            <field name="state_src" ref="accorderie_workflow_state_va_non_offert" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_nouveau_formulaire" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_offert_existant" model="accorderie.workflow.relation">
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="accorderie_workflow_state_va_non_offert" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_existant_formulaire" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_recu" model="accorderie.workflow.relation">
+            <field name="name">Je suis la personne qui a reçu le service</field>
+            <field name="state_src" ref="accorderie_workflow_state_va_non" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_recu_choix" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_va_non_recu" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_recu_choix_nouveau" model="accorderie.workflow.relation">
+            <field name="body_html" type="html"><p>Aucune de ces offres.<br />Il s'agissait d'un service offert spécifiquement pour vous.</p></field>
+            <field name="state_src" ref="accorderie_workflow_state_va_non_recu_choix" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_nouveau" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_recu_choix_existant" model="accorderie.workflow.relation">
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="accorderie_workflow_state_va_non_recu_choix" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_existant" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_va_non_recu_choix_nouveau" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_nouveau_formulaire" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
     </data>

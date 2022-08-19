@@ -76,7 +76,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa" model="accorderie.workflow.state">
-            <field name="name">Transaction</field>
+            <field name="name">Échange d'un service</field>
             <field name="key">init.saa</field>
             <field name="message">Que voulez-vous?</field>
             <field name="type">selection_static</field>
@@ -152,15 +152,7 @@
             <field name="submit_button_text">Valider mon offre</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">
-            <field name="name">Échange d'un service</field>
-            <field name="key">init.va</field>
-            <field name="message">Avez-vous créer une demande de service pour cette accordage?</field>
-            <field name="type">selection_static</field>
-            <field name="show_breadcrumb">True</field>
-            <field name="breadcrumb_value">Valider un accordage</field>
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
-        </record>
+
         <record id="accorderie_workflow_state_saa_recevoir" model="accorderie.workflow.state">
             <field name="name">Choisir un membre</field>
             <field name="key">init.saa.recevoir</field>
@@ -210,6 +202,138 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Envoyer ma demande</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+
+        <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">
+            <field name="name">Une demande de service existe?</field>
+            <field name="key">init.va</field>
+            <field name="message">Avez-vous créer une demande de service pour cette accordage?</field>
+            <field name="type">selection_static</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Valider un accordage</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_oui" model="accorderie.workflow.state">
+            <field name="name">Échange d'un service existant</field>
+            <field name="key">init.va.oui</field>
+            <field name="message">Quel est votre accordage?</field>
+            <field name="type">selection_dynamique</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Avec une demande de service</field>
+            <field name="model_field_name_alias">echange_service</field>
+            <field name="model_field_name">echange_service_id</field>
+            <field name="data">mes_echanges_de_service_avec_demande_non_valide</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_oui_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire échange d'un service existant</field>
+            <field name="key">init.va.oui.formulaire</field>
+            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+
+        <record id="accorderie_workflow_state_va_non" model="accorderie.workflow.state">
+            <field name="name">Échange d'un nouveau service</field>
+            <field name="key">init.va.non</field>
+            <field name="message">Qui êtes-vous?</field>
+            <field name="type">selection_static</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Sans demande</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_offert" model="accorderie.workflow.state">
+            <field name="name">Choisir un échange ou en créer</field>
+            <field name="key">init.va.non.offert</field>
+            <field name="message">Quel service avez-vous offert?</field>
+            <field name="type">selection_dynamique</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">J'ai offert un service</field>
+            <field name="model_field_name_alias">echange_service</field>
+            <field name="model_field_name">echange_service_id</field>
+            <field name="data">mes_echanges_de_service_offert_sans_demande_non_valide</field>
+            <field name="list_is_first_position">False</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_offert_nouveau_formulaire" model="accorderie.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service nouveau offert</field>
+            <field name="key">init.va.non.offert.nouveau_formulaire</field>
+            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service existant offert</field>
+            <field name="key">init.va.non.offert.existant_formulaire</field>
+            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_recu" model="accorderie.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.va.non.recu</field>
+            <field name="message">Qui vous a offert le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Service reçu</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_recu_choix" model="accorderie.workflow.state">
+            <field name="name">Choisir un échange ou en créer</field>
+            <field name="key">init.va.non.recu.choix</field>
+            <field name="message">Quel service avez-vous reçu?</field>
+            <field name="type">selection_dynamique</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">De %s</field>
+            <field name="breadcrumb_field_value">membre_id</field>
+            <field name="model_field_name_alias">echange_service</field>
+            <field name="model_field_name">echange_service_id</field>
+            <field name="data">mes_echanges_de_service_recu_sans_demande_non_valide</field>
+            <field name="data_depend_field">membre_id</field>
+            <field name="data_url_field">membre_id</field>
+            <field name="data_update_url">/accorderie_canada_ddb/get_info/echange_service/%s</field>
+            <field name="force_update_data">True</field>
+            <field name="list_is_first_position">False</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_recu_choix_existant" model="accorderie.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service existant reçu</field>
+            <field name="key">init.va.non.recu.choix.formulaire</field>
+            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_recu_choix_nouveau" model="accorderie.workflow.state">
+            <field name="name">Choisir une catégorie de service</field>
+            <field name="key">init.va.non.recu.choix.nouveau</field>
+            <field name="message">Dans quelle catégorie s'inscrit l'offre de service privée reçue?</field>
+            <field name="type">choix_categorie_de_service</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Privé</field>
+            <field name="data">type_service_categorie</field>
+            <field name="model_field_name_alias">categorie</field>
+            <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service nouveau reçu</field>
+            <field name="key">init.va.non.recu.choix.nouveau.formulaire</field>
+            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
     </data>

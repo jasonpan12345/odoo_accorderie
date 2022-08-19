@@ -6,5 +6,10 @@
             <field name="membre" ref="accorderie_membre_martin_petit" />
             <field name="titre">Garder mon chien svp!</field>
         </record>
+        <record id="accorderie_demande_service_cours_de_violon" model="accorderie.demande.service">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
+            <field name="titre">J'aimerais apprendre un instrument de musique, à votre choix!</field>
+        </record>
     </data>
 </odoo>

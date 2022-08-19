@@ -435,6 +435,36 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/echange_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_workflow_data_echange_service(self, membre_id, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if not me_membre_id:
+            return {"error": "User not connected"}
+        lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
+            {
+                "id": a.id,
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in me_membre_id.echange_service_acheteur_ids
+            if not a.transaction_valide
+            and not a.demande_service
+            and a.membre_vendeur.id == membre_id.id
+        ]
+
+        return {
+            "data": {
+                "mes_echanges_de_service_recu_sans_demande_non_valide": lst_mes_echanges_de_service_recu_sans_demande_non_valide
+            }
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_participer_workflow_data",
         ],
         type="json",
@@ -520,11 +550,52 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in membre_id.offre_service_ids
         ]
 
+        # lst_mes_echanges_de_service_avec_demande_non_valide
+        lst_echange_acheteur = [
+            {
+                "id": a.id,
+                "html": f"Par {a.membre_vendeur.nom_complet}",
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in membre_id.echange_service_acheteur_ids
+            if not a.transaction_valide and a.demande_service
+        ]
+
+        lst_echange_vendeur = [
+            {
+                "id": a.id,
+                "html": f"Pour {a.membre_acheteur.nom_complet}",
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in membre_id.echange_service_vendeur_ids
+            if not a.transaction_valide and a.demande_service
+        ]
+
+        # TODO order by time
+        lst_mes_echanges_de_service_avec_demande_non_valide = (
+            lst_echange_acheteur + lst_echange_vendeur
+        )
+
+        # lst_mes_echanges_de_service_offert_sans_demande_non_valide
+        lst_mes_echanges_de_service_offert_sans_demande_non_valide = [
+            {
+                "id": a.id,
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in membre_id.echange_service_vendeur_ids
+            if not a.transaction_valide and not a.demande_service
+        ]
+
         json = {
             "data": {
                 "type_service_categorie": lst_type_service_categorie,
                 "membre": lst_membre,
                 "mes_offres_de_service": lst_mes_offre_de_service,
+                "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
+                "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
             },
             "data_inner": {
                 "type_service_categorie": dct_data_inner_type_service_categorie
@@ -991,6 +1062,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 "type_service_categorie": lst_type_service_categorie,
                 "membre": lst_membre,
                 "mes_offres_de_service": lst_mes_offre_de_service,
+                "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
+                "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
             },
             "data_inner": {
                 "type_service_categorie": dct_data_inner_type_service_categorie

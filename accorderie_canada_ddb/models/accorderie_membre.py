@@ -100,6 +100,20 @@ class AccorderieMembre(models.Model):
         help="Les offres de service du membre",
     )
 
+    echange_service_acheteur_ids = fields.One2many(
+        comodel_name="accorderie.echange.service",
+        inverse_name="membre_acheteur",
+        string="Échange de service acheteur",
+        help="Les échanges de service du membre acheteur",
+    )
+
+    echange_service_vendeur_ids = fields.One2many(
+        comodel_name="accorderie.echange.service",
+        inverse_name="membre_vendeur",
+        string="Échange de service vendeur",
+        help="Les échanges de service du membre vendeur",
+    )
+
     part_social_paye = fields.Boolean(string="Part social payé")
 
     pas_communication = fields.Boolean(string="Pas de communication")

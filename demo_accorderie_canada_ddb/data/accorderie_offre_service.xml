@@ -23,6 +23,17 @@
             <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_108_a_12_apprentissage_du_piano" />
         </record>
+        <record id="accorderie_offre_service_conception_site_web" model="accorderie.offre.service">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
+            <field name="deplacement">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Je me déplace: En voiture&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Accepte de me déplacer: En région</field>
+            <field name="entente_tarifiaire">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Selon le tarif de l'accorderie: 1h = 1h&lt;br //&gt;&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Les achats suppl&#233;mentaires n&#233;cessaires au service sont &#224; vos frais.</field>
+            <field name="titre">Aide conception site web</field>
+            <field name="description">J'adore faire des sites web, je peux vous aider!</field>
+            <field name="quoi_apporter">Votre ordinateur</field>
+            <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
+            <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_102_c_3_conception_site_web" />
+        </record>
         <record id="accorderie_offre_service_cours_de_violon" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
             <field name="condition">&lt;i class="fa fa-check checker text-epsilon icon_padding_right" //&gt;Pour des raisons sanitaire, &#234;tre arriv&#233; au Qu&#233;bec depuis 14 jours au moins pour la covid</field>
