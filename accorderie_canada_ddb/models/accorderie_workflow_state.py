@@ -11,7 +11,18 @@ class AccorderieWorkflowState(models.Model):
         string="Fil d'ariane affiché dernier item seulement"
     )
 
-    breadcrumb_value = fields.Char(string="Contenu fil d'ariane")
+    breadcrumb_value = fields.Char(
+        string="Contenu fil d'ariane",
+        help=(
+            "Peut être dynamique, utiliser les %s, et remplir"
+            " 'breadcrumb_field_value'"
+        ),
+    )
+
+    breadcrumb_field_value = fields.Char(
+        string="Fil d'ariane valeur dynamique",
+        help="Nom des champs, séparé par ;.",
+    )
 
     data = fields.Char(string="Nom base de données")
 

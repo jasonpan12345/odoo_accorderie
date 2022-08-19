@@ -136,7 +136,8 @@
             <field name="message">Dans quelle catégorie s'inscrit votre offre de service privée?</field>
             <field name="type">choix_categorie_de_service</field>
             <field name="show_breadcrumb">True</field>
-            <field name="breadcrumb_value">Pour membre??</field>
+            <field name="breadcrumb_value">Pour %s</field>
+            <field name="breadcrumb_field_value">membre_id</field>
             <field name="data">type_service_categorie</field>
             <field name="model_field_name_alias">categorie</field>
             <field name="model_field_name">type_service_id</field>
@@ -178,8 +179,8 @@
             <field name="message">Choisir une de ses offres</field>
             <field name="type">selection_dynamique</field>
             <field name="show_breadcrumb">True</field>
-            <!-- TODO breadcrumb_value supporter variable dynamique du field_id -->
-            <field name="breadcrumb_value">Pour membre??</field>
+            <field name="breadcrumb_value">Pour %s</field>
+            <field name="breadcrumb_field_value">membre_id</field>
             <field name="model_field_name_alias">offre_service</field>
             <field name="model_field_name">offre_service_id</field>
             <field name="data">ses_offres_de_service</field>

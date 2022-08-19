@@ -927,6 +927,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 dct_state[
                     "breadcrumb_show_only_last_item"
                 ] = state_id.breadcrumb_show_only_last_item
+            if state_id.breadcrumb_field_value:
+                dct_state[
+                    "breadcrumb_field_value"
+                ] = state_id.breadcrumb_field_value
             if state_id.model_field_name_alias:
                 dct_state[
                     "model_field_name_alias"
