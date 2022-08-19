@@ -27,6 +27,7 @@
                         <field name="breadcrumb_value" />
                         <field name="breadcrumb_show_only_last_item" />
                         <field name="show_breadcrumb" />
+                        <field name="breadcrumb_field_value" />
                     </group>
                     <group string="Formulaire" attrs="{'invisible': [('type','in',('null','selection_static'))]}">
                         <field name="data" />

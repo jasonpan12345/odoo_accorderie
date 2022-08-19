@@ -310,6 +310,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             dct_data_inner: undefined,
             breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
+            breadcrumb_field_value: undefined,
             submit_button_text: false,
             selected_value: undefined,
             selected_obj_value: undefined,
@@ -609,7 +610,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.error = `Erreur avec la base de données 'data_inner' de  ${value}`;
                             console.error($scope.error);
                         } else {
-                            $scope.form[state.model_field_name] = {id: data.id, value: data.title};
+                            $scope.form[state.model_field_name] = {"id": data.id, "value": data.title};
                             state.selected_id = data.id;
                             state.selected_value = data.title;
                         }
@@ -619,7 +620,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.error = `Erreur avec la base de données 'data' de ${value}`;
                             console.error($scope.error);
                         } else {
-                            $scope.form[state.model_field_name] = {id: data.id, value: data.title};
+                            $scope.form[state.model_field_name] = {"id": data.id, "value": data.title};
                             state.selected_id = data.id;
                             state.selected_value = data.title;
                         }
@@ -690,6 +691,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 } else if (!_.isUndefined($scope.state.model_field_name) && (!_.isUndefined($scope.state.selected_id))) {
                     $location.search($scope.state.model_field_name, $scope.state.selected_id);
                 }
+                // TODO ordering function call is bad, not optimal... Need refactoring
+                $scope.fill_model_form_from_state($scope.state);
                 let state = $scope.workflow[$scope.state.next_id];
                 $scope.update_state(state, "next_btn '" + $scope.state.next_id + "'");
             }
@@ -933,7 +936,31 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         if (!$scope.state.breadcrumb_show_only_last_item && (!_.isEmpty(global_label) || !_.isEmpty(label))) {
                             label += " > "
                         }
-                        label += lst_breadcrumb[j];
+                        let str_bread = lst_breadcrumb[j];
+                        // Dynamique update string
+                        if (!_.isEmpty(state.breadcrumb_field_value)) {
+                            let array_param = [];
+                            let str_array = state.breadcrumb_field_value.split(";");
+                            for (let i = 0; i < str_array.length; i++) {
+                                let form_value = $scope.form[str_array[i]];
+                                if (_.isUndefined(form_value)) {
+                                    $scope.error = "Cannot find form value of '" + str_array[i] + "'";
+                                    console.error($scope.error);
+                                } else {
+                                    if (_.isObject(form_value)) {
+                                        array_param.push(form_value.value)
+                                    } else {
+                                        array_param.push(form_value);
+                                    }
+                                }
+                            }
+                            if (_.isEmpty($scope.error)) {
+                                // Replace all %s by array value
+                                str_bread = _.str.vsprintf(str_bread, array_param);
+                            }
+                        }
+
+                        label += str_bread;
                     }
                     global_label += label;
                     lst_label.push({"index": i, "text": label})
