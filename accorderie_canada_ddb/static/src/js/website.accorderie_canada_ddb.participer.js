@@ -15,6 +15,23 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
     });
 });
 
+odoo.define("accorderie.website.date_and_time", function (require) {
+    "use strict";
+
+    require("web.dom_ready");
+    let ajax = require("web.ajax");
+    let base = require("web_editor.base");
+    let context = require("web_editor.context");
+
+    function load_locale() {
+        let url = "/web/webclient/locale/" + context.get().lang || "en_US";
+        return ajax.loadJS(url);
+    }
+
+    $.when(base.ready(), load_locale());
+});
+
+
 // function compileAngularElement(elSelector) {
 //
 //     var elSelector = (typeof elSelector == 'string') ? elSelector : null;
@@ -415,6 +432,63 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 }
             }
             $scope.change_state_name(state);
+        }
+
+        // Date
+        $scope.load_date = function () {
+            let time = require("web.time");
+            console.debug("Call load_date");
+            _.each($(".input-group.date"), function (date_field) {
+                let minDate =
+                    $(date_field).data("mindate") || moment({y: 1900});
+                if ($(date_field).attr("date-min-today")) {
+                    minDate = moment();
+                }
+                let maxDate =
+                    $(date_field).data("maxdate") || moment().add(200, "y");
+                if ($(date_field).attr("date-max-year")) {
+                    maxDate = moment().add(1, "y").add(1, "d");
+                }
+                let inline =
+                    $(date_field).attr("inline-date") && true || false;
+                let sideBySide =
+                    $(date_field).attr("side-by-side") && true || false;
+                let calendarWeeks =
+                    $(date_field).attr("calendar-weeks") && true || false;
+                let dateFormatTool =
+                    $(date_field).attr("date-format-tool") || false;
+
+                let options = {
+                    minDate: minDate,
+                    maxDate: maxDate,
+                    calendarWeeks: calendarWeeks,
+                    icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        next: "fa fa-chevron-right",
+                        previous: "fa fa-chevron-left",
+                        up: "fa fa-chevron-up",
+                        down: "fa fa-chevron-down",
+                    },
+                    locale: moment.locale(),
+                    allowInputToggle: true,
+                    inline: inline,
+                    sideBySide: sideBySide,
+                    keyBinds: null,
+                };
+                if ($(date_field).find(".o_website_form_date").length > 0 || dateFormatTool === "date") {
+                    options.format = time.getLangDateFormat();
+                } else if (
+                    $(date_field).find(".o_website_form_clock").length > 0 || dateFormatTool === "clock"
+                ) {
+                    // options.format = time.getLangTimeFormat();
+                    options.format = "HH:mm";
+                    options.defaultDate = moment("00:00", "HH:mm");
+                } else {
+                    options.format = time.getLangDatetimeFormat();
+                }
+                $("#" + date_field.id).datetimepicker(options);
+            });
         }
 
         // Member
