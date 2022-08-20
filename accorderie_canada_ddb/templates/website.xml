@@ -2729,14 +2729,14 @@
                                     <div
                                         class="input-group date"
                                         data-target-input="nearest"
-                                        t-attf-id="date_datepicker"
+                                        t-attf-id="date_name"
                                         inline-date="true"
                                         side-by-side="true"
                                         date-format-tool="date"
                                         date-min-today="true"
                                         date-max-year="true"
                                     >
-                                        <div id="date_datepicker" />
+<!--                                        <div id="date_datepicker" />-->
 <!--                                        <input-->
 <!--                                            class="form-control datetimepicker-input o_website_form_input o_website_form_date"-->
 <!--                                            name="date"-->

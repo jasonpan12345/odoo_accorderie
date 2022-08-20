@@ -759,6 +759,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 console.error("Cannot find next state, next_id variable is undefined or empty.");
                 console.debug($scope.state);
             } else {
+                // special case for date and time
+                if ($scope.state.type === "calendrier") {
+                    $scope.state.selected_value = $(`#${$scope.state.model_field_name}`).data().date;
+                }
+
                 // Fill URL parameters
                 if (!_.isUndefined($scope.state.model_field_name_alias) && (!_.isUndefined($scope.state.selected_id))) {
                     $location.search($scope.state.model_field_name_alias, $scope.state.selected_id);
