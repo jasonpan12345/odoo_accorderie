@@ -1967,6 +1967,12 @@
                                     {{ load_member() }}
 
                                 </div>
+                                <div class="buttons_form_container tab" ng-if="state.type == 'calendrier'">
+                                    calendrier
+                                </div>
+                                <div class="buttons_form_container tab" ng-if="state.type == 'temps_duree'">
+                                    TEMPS
+                                </div>
                                 <div class="submit_container">
                                     <input
                                         id="reloadBtn"

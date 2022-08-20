@@ -118,11 +118,22 @@
             <field name="name">Une offre existante</field>
             <field name="is_dynamic">True</field>
             <field name="state_src" ref="accorderie_workflow_state_saa_recevoir_choix" />
-<!--            <field name="state_dst" ref="accorderie_workflow_state_saa_recevoir_choix_existant" />-->
-            <field name="state_dst" ref="accorderie_workflow_state_null_calendrier" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_recevoir_choix_existant" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-
+        <record id="accorderie_workflow_relation_saa_recevoir_choix_existant_temps_dure" model="accorderie.workflow.relation">
+            <field name="name">Date choisi</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="accorderie_workflow_state_saa_recevoir_choix_existant" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_saa_recevoir_choix_existant_temps_dure_formulaire" model="accorderie.workflow.relation">
+            <field name="name">Temps choisi</field>
+            <field name="state_src" ref="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree_form" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
         <record id="accorderie_workflow_relation_init_va" model="accorderie.workflow.relation">
             <field name="name">Valider un accordage</field>
             <field name="body_html">Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>

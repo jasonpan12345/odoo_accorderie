@@ -103,7 +103,7 @@ class AccorderieWorkflowState(models.Model):
             ("choix_categorie_de_service", "Choix catégorie de service"),
             ("choix_membre", "Choix membre"),
             ("calendrier", "Calendrier"),
-            ("temps", "Temps"),
+            ("temps_duree", "Temps et durée"),
             ("form", "Form"),
             ("null", "Nulle"),
         ],
