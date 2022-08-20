@@ -18,11 +18,6 @@
             <field name="key">null</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_null_calendrier" model="accorderie.workflow.state">
-            <field name="name">Null</field>
-            <field name="key">null</field>
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
-        </record>
         <record id="accorderie_workflow_state_pos" model="accorderie.workflow.state">
             <field name="name">Offre de service</field>
             <field name="key">init.pos</field>
@@ -199,6 +194,44 @@
             <field name="name">Formulaire nouveau service reçu échange</field>
             <field name="key">init.saa.recevoir.choix.nouveau.formulaire</field>
             <field name="message">Description de la transaction</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Envoyer ma demande</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix_existant" model="accorderie.workflow.state">
+            <field name="name">Choisir date</field>
+            <field name="key">init.saa.recevoir.choix.existant</field>
+            <field name="message">Choisir une des dates</field>
+            <field name="type">calendrier</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Pour une offre publiée</field>
+            <field name="data">ses_temps_disponibles</field>
+            <field name="model_field_name_alias">date</field>
+            <field name="model_field_name">date_name</field>
+            <field name="data_depend_field">membre_id</field>
+            <field name="data_url_field">membre_id</field>
+            <field name="data_update_url">/accorderie_canada_ddb/get_info/recevoir_service/%s</field>
+            <field name="force_update_data">True</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree" model="accorderie.workflow.state">
+            <field name="name">Choisir temps et durée</field>
+            <field name="key">init.saa.recevoir.choix.existant.time</field>
+            <field name="message">Horaires</field>
+            <field name="type">temps_duree</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Le %s</field>
+            <field name="breadcrumb_field_value">date</field>
+            <field name="model_field_name_alias">time</field>
+            <field name="model_field_name">time_name</field>
+            <field name="data_depend_field">date_name</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire nouveau service reçu échange</field>
+            <field name="key">init.saa.recevoir.choix.existant.time.formulaire</field>
+            <field name="message">Résumé de ma demande</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Envoyer ma demande</field>

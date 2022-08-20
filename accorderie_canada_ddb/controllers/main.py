@@ -465,6 +465,36 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/recevoir_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_workflow_data_recevoir_service(self, membre_id, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if not me_membre_id:
+            return {"error": "User not connected"}
+        lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
+            {
+                "id": a.id,
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in me_membre_id.echange_service_acheteur_ids
+            if not a.transaction_valide
+            and not a.demande_service
+            and a.membre_vendeur.id == membre_id.id
+        ]
+
+        return {
+            "data": {
+                "ses_temps_disponibles": lst_mes_echanges_de_service_recu_sans_demande_non_valide
+            }
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_participer_workflow_data",
         ],
         type="json",
@@ -478,7 +508,7 @@ class AccorderieCanadaDdbController(http.Controller):
         # C - Choix membre : choix_membre
         # D - Selection dynamique (option new, option id) : selection_dynamique
         # E - Calendrier : calendrier
-        # F - Temps + durée : temps
+        # F - Temps + durée : temps_duree
         # G - Formulaire (xml_item_id) : form
         env = request.env(context=dict(request.env.context))
         membre_id = http.request.env.user.partner_id.accorderie_membre_ids
