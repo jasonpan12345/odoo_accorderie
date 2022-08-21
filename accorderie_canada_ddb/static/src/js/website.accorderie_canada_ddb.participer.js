@@ -680,7 +680,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.error = "Empty data";
                 } else {
                     $scope.show_submit_modal = true;
-                    $scope.submitted_url = `/accorderie_canada_ddb/accorderie_offre_service/${data.id}`;
+                    $scope.submitted_url = `accorderie_canada_ddb/accorderie_offre_service/${data.id}`;
                 }
 
                 // Process all the angularjs watchers

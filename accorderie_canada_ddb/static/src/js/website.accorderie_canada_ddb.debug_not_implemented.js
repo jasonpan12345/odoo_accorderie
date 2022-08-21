@@ -109,7 +109,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
         },
 
         HighlightNotImplemented: function (show) {
-            let unique_id_name = "unique_debug_unimplemented";
+            let unique_id_name = "unique_highlight_debug_unimplemented";
             if (show) {
                 let link = document.createElement('link');
                 link.rel = "stylesheet";
@@ -126,7 +126,7 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
             }
         },
         HideNotImplemented: function (show) {
-            let unique_id_name = "unique_debug_unimplemented";
+            let unique_id_name = "unique_hide_debug_unimplemented";
             if (show) {
                 let link = document.createElement('link');
                 link.rel = "stylesheet";

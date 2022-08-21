@@ -106,7 +106,7 @@
                                 </a>
                             </li>
                             <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" href="#">
+                                <a class="nav-link" role="menu_item" style="cursor:pointer">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="6"
@@ -119,7 +119,12 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link debug-item" data-toggle="dropdown" role="menu_item" href="#">
+                                <a
+                                    class="nav-link debug-item"
+                                    data-toggle="dropdown"
+                                    role="menu_item"
+                                    style="cursor:pointer"
+                                >
                                     <span
                                         class="fa fa-2x fa-bug text-primary"
                                         data-oe-model="website.menu"
@@ -145,7 +150,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="#">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                     <span
                                         class="fa fa-2x fa-heart text-primary"
                                         data-oe-model="website.menu"
@@ -345,7 +350,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" data-toggle="dropdown" href="#">
+                                <a class="nav-link" role="menu_item" data-toggle="dropdown" style="cursor:pointer">
                                     <span
                                         class="fa fa-2x fa-comments-o text-primary"
                                         data-oe-model="website.menu"
@@ -478,7 +483,7 @@
                                 </div>
                             </li>
                             <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" href="#">
+                                <a class="nav-link" role="menu_item" style="cursor:pointer">
                                     <span
                                         class="fa fa-2x fa-question-circle-o text-primary"
                                         data-oe-model="website.menu"
@@ -490,7 +495,12 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown bg-primary" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link text-gamma" data-toggle="dropdown" role="menu_item" href="#">
+                                <a
+                                    class="nav-link text-gamma"
+                                    data-toggle="dropdown"
+                                    role="menu_item"
+                                    style="cursor:pointer"
+                                >
                                     <span
                                         class="fa fa-2x fa-edit"
                                         data-oe-model="website.menu"
@@ -532,7 +542,11 @@
                                     class="nav_pic rounded-circle"
                                     src="/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg"
                                 />
-                                <a href="#" class="nav-link dropdown-toggle text-gamma" data-toggle="dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle text-gamma"
+                                    data-toggle="dropdown"
+                                    style="cursor:pointer"
+                                >
                                     <b>
                                         <span
                                             t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"

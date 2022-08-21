@@ -22,7 +22,7 @@
                             style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                         >
 
-                            <div class="event_banner_action bg-primary">
+                            <div class="event_banner_action bg-primary debug_unimplemented">
                                 <div class="btn btn-primary">
                                     <i class="fa fa-share-alt icon_paddding_right" />
                                     Partager
@@ -67,19 +67,28 @@
                                             <h2>Quoi apporter</h2>
                                             <t t-raw="accorderie_offre_service_id.quoi_apporter" />
                                         </div>
-                                        <div class="conditions" t-if="accorderie_offre_service_id.condition">
+                                        <div
+                                            class="conditions debug_unimplemented"
+                                            t-if="accorderie_offre_service_id.condition"
+                                        >
                                             <h2>Conditions</h2>
                                             <t t-raw="accorderie_offre_service_id.condition" />
                                         </div>
-                                        <div class="deplacement" t-if="accorderie_offre_service_id.deplacement">
+                                        <div
+                                            class="deplacement debug_unimplemented"
+                                            t-if="accorderie_offre_service_id.deplacement"
+                                        >
                                             <h2>D&#233;placement</h2>
                                             <t t-raw="accorderie_offre_service_id.deplacement" />
                                         </div>
-                                        <div class="tarif" t-if="accorderie_offre_service_id.entente_tarifiaire">
+                                        <div
+                                            class="tarif debug_unimplemented"
+                                            t-if="accorderie_offre_service_id.entente_tarifiaire"
+                                        >
                                             <h2>Entente tarifiaire</h2>
                                             <t t-raw="accorderie_offre_service_id.entente_tarifiaire" />
                                         </div>
-                                        <div class="dispo">
+                                        <div class="dispo debug_unimplemented">
                                             <h2>Disponilibités habituelles</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p><p>08H00 - 19H00</p>
@@ -91,7 +100,7 @@
                                                 <p>DIMANCHE</p><p>08H00 - 19H00</p>
                                             </div>
                                         </div>
-                                        <div class="signaler">
+                                        <div class="signaler debug_unimplemented">
                                             <p>
                                                 <i class="fa fa-flag-o" />
                                                 &amp;nbsp <a href=""><u>Signaler cette annonce</u></a>
@@ -99,7 +108,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="right_cards_container">
+                                <div class="right_cards_container debug_unimplemented">
                                     <div class="card info-3">
                                         <img
                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"
@@ -324,6 +333,7 @@
                                 t-if="offre_services_count"
                                 href="/offresservice"
                                 style="font-size:1.25rem;"
+                                class="debug_unimplemented"
                             >Voir Tout (+<t t-raw="offre_services_count" />)</a>
                         </p>
                     </div>
@@ -386,6 +396,7 @@
                             <font style="font-size: 2rem;">Demandes r&#233;centes</font>
                             <a
                                 t-if="demande_services_count"
+                                class="debug_unimplemented"
                                 href="/offresservice"
                                 style="font-size:1.25rem;"
                             >Voir Tout (+<t t-raw="demande_services_count" />)</a>
@@ -559,10 +570,10 @@
         name="Type Service Categorie List"
     >
         <t t-ignore="true">
-            <div t-if="not type_service_categories">
+            <div t-if="not type_service_categories" class="debug_unimplemented">
                 <div class="row">Aucune catégorie de service est disponible.</div>
             </div>
-            <div t-if="type_service_categories">
+            <div t-if="type_service_categories" class="debug_unimplemented">
                 <div class="list_title s_title">
                     <p>
                         <font style="font-size: 2rem;">Explorer les offres</font>
@@ -792,36 +803,36 @@
                                                 <span>Ajouter un élément à la liste</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="list_title" style="padding:2rem 0 0">
-                                        <p>
-                                            <span style="font-size:1.75rem">Disponibilités</span>
-                                            <i
-                                                class="fa fa-trash text-alpha"
-                                                style="margin-left:auto;font-size:1.5rem"
-                                            />
-                                        </p>
-                                    </div>
-                                    <div class="form_box">
-                                        <div class="dispo">
-                                            <div class="dates_container">
-                                                <p>LUNDI</p>
-                                                <p>-</p>
-                                                <p>MARDI</p>
-                                                <p>-</p>
-                                                <p>MERCREDI</p>
-                                                <p>08H00 - 19H00</p>
-                                                <p>JEUDI</p>
-                                                <p>-</p>
-                                                <p>VENDREDI</p>
-                                                <p>08H00 - 19H00</p>
-                                                <p>SAMEDI</p>
-                                                <p>08H00 - 19H00</p>
-                                                <p>DIMANCHE</p>
-                                                <p>-</p>
-                                            </div>
+                                        <div class="list_title" style="padding:2rem 0 0">
+                                            <p>
+                                                <span style="font-size:1.75rem">Disponibilités</span>
+                                                <i
+                                                    class="fa fa-trash text-alpha"
+                                                    style="margin-left:auto;font-size:1.5rem"
+                                                />
+                                            </p>
                                         </div>
-                                        <i class="fa fa-chevron-right" />
+                                        <div class="form_box">
+                                            <div class="dispo">
+                                                <div class="dates_container">
+                                                    <p>LUNDI</p>
+                                                    <p>-</p>
+                                                    <p>MARDI</p>
+                                                    <p>-</p>
+                                                    <p>MERCREDI</p>
+                                                    <p>08H00 - 19H00</p>
+                                                    <p>JEUDI</p>
+                                                    <p>-</p>
+                                                    <p>VENDREDI</p>
+                                                    <p>08H00 - 19H00</p>
+                                                    <p>SAMEDI</p>
+                                                    <p>08H00 - 19H00</p>
+                                                    <p>DIMANCHE</p>
+                                                    <p>-</p>
+                                                </div>
+                                            </div>
+                                            <i class="fa fa-chevron-right" />
+                                        </div>
                                     </div>
                                     <div class="debug_unimplemented">
                                         <div class="form_box">
