@@ -44,6 +44,9 @@
         "views/menu.xml",
         "views/snippets.xml",
         "templates/website.xml",
+        "data/ir_attachment.xml",
     ],
+    "pre_init_hook": "pre_init_hook",
+    "post_init_hook": "post_init_hook",
     "installable": True,
 }

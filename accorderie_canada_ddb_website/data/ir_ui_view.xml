@@ -1117,6 +1117,202 @@
                     <t t-call="website.layout">
                         <t t-set="pageName" t-value="'homepage'" />
                         <div id="wrap" class="oe_structure oe_empty">
+                            <section class="s_banner parallax s_parallax_is_fixed pt96 pb96 s_parallax_no_overflow_hidden">
+                                <span class="oe_custom_bg oe_img_bg s_parallax_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_j_spaggiari_guitaristes_jpg/j-spaggiari-guitaristes.jpg&quot;); background-position: 50% 0;" />
+                                <div class="container">
+                                    <div class="row s_nb_column_fixed">
+                                        <div class="col-lg-7 jumbotron rounded pt32 pb32 bg-alpha" data-name="Box">
+                                            <a href="/un-acces-a-des-services-que-plusieurs-ne-pourraient-soffrir-autrement">
+                                                <div class="row">
+                                                    <div class="col-lg-12 s_title s_col_no_bgcolor" data-name="Title">
+                                                        <h1 class="s_title_thin">
+                                                            <font style="font-size: 62px;" class="text-beta">
+                                                                <b>Les principes de l'échange de service</b>
+                                                            </font>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.accueil</field>
+            <field name="name">Accueil</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_home_un_access_a_des_services_que_plusieurs" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="Homepage" t-name="website.homepage1">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'homepage'" />
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <section class="s_text_image pt32 pb32">
+                                <div class="container">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6 pt16 pb16">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_j_spaggiari_guitaristes_jpg/j-spaggiari-guitaristes.jpg" class="img img-fluid mx-auto" alt="ERPLibre • Image et Texte" data-original-title="" title="" aria-describedby="tooltip16556" />
+                                        </div>
+                                        <div class="col-lg-6 pt16 pb16">
+                                            <h2>
+                                                <font class="text-beta" style="">Les principes de l'échange de service
+                                                </font>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="s_text_block pt32 pb32">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 offset-lg-1 pt32 pb32">
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">1) UNE HEURE DE SERVICE RENDU VAUT
+                                                        UNE HEURE DE SERVICE REÇU
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">Le principe de fonctionnement de base d’une Accorderie est
+                                                qu’une heure
+                                                de service rendu vaut une heure de service reçu, quels que soient la
+                                                nature, la complexité ou l’effort reliés au service échangé. De l’aide
+                                                pour faire le ménage vaut autant que du dépannage informatique, de la
+                                                correction de textes, de la couture ou des conseils en décoration.
+                                                L’échange de services repose sur un rapport égalitaire.
+                                            </p>
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">2) L’ÉCHANGE REPOSE SUR LE TEMPS ET
+                                                        NON L’ARGENT
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">La monnaie d’échange d’une Accorderie, c’est le temps et non
+                                                le dollar.
+                                                Le seul moment où l’argent entre en ligne de compte, c’est pour
+                                                rembourser les dépenses liées à un service rendu. Par exemple, c’est
+                                                bien sûr l’AccordeurE qui demande de l’aide pour repeindre son logement
+                                                qui doit fournir la peinture.
+                                            </p>
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">3) ÉQUILIBRE DANS LES ÉCHANGES
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">L’adhésion à une Accorderie implique, de la part de chaque
+                                                AccordeurE,
+                                                une obligation morale vis-à-vis du groupe et une aptitude réelle à
+                                                rendre service. Il est essentiel que chaque AccordeurE s’engage à
+                                                participer aux échanges, par des offres et par des demandes, afin de
+                                                garantir la survie du système. Un équilibre est nécessaire afin de
+                                                rester dans l’optique de l’échange.
+                                            </p>
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">4) DE L’ÉCHANGE ET NON DU
+                                                        BÉNÉVOLAT
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p>Dans une Accorderie, le seul bénévolat est celui de la participation aux
+                                                réunions du conseil d’administration. Participer à un comité de travail
+                                                ou accomplir une tâche technique pour L’Accorderie est considéré comme
+                                                un service rendu. Chaque Accordeur est rémunéré, pour le temps offert,
+                                                par des heures qu’il/elle pourra utiliser à son tour pour recevoir un
+                                                autre service.
+                                            </p>
+                                            <p class="lead" />
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">5) PRISE EN CHARGE DE L’ORGANISME
+                                                        PAR LES ACCORDEURES
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">L’animation de l’échange de services et l’organisation des
+                                                activités
+                                                d’échange sont sous la responsabilité individuelle et collective de tous
+                                                les AccordeurEs. Une Accorderie ne saurait fonctionner sans la
+                                                participation des AccordeurEs, contre rémunération en temps bien
+                                                entendu!
+                                            </p>
+                                            <h2>
+                                                <strong>
+                                                    <font class="text-beta" style="">DE L’ÉCHANGE DE SERVICES À TROIS
+                                                        NIVEAUX
+                                                    </font>
+                                                </strong>
+                                            </h2>
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">PREMIER NIVEAU : L’ÉCHANGE
+                                                        INDIVIDUEL&amp;nbsp;
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">La raison d’être d’une Accorderie, c’est le développement de
+                                                l’échange de services de type individuel afin de rendre possible des
+                                                échanges à partir des compétences, des talents et des savoir-faire de
+                                                chaque Accordeur. L’échange de type individuel peut se faire entre deux
+                                                AccordeurEs ou entre unE AccordeurE et un petit groupe d’AccordeurEs. Le
+                                                temps échangé est inscrit directement du compte d’unE AccordeurE à un ou
+                                                plusieurs autres comptes d’AccordeurEs.
+                                            </p>
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">DEUXIÈME NIVEAU : LES ACTIVITÉS
+                                                        COLLECTIVES D’ÉCHANGE
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">Les activités collectives d’échange sont des services
+                                                d’intérêt « général » qui s’adressent à l’ensemble des AccordeurEs. Ces
+                                                activités collectives d’échange peuvent concerner simultanément
+                                                plusieurs AccordeurEs et plusieurs échanges. Ce qui les caractérise,
+                                                c’est que L’Accorderie sert d’intermédiaire, c’est-à-dire qu’elle reçoit
+                                                des heures et en débourse pour le service offert.
+                                                <br />
+                                                <br />Ces activités collectives d’échange peuvent prendre différentes
+                                                formes (ex : un groupe d’achats).
+                                            </p>
+                                            <h4>
+                                                <strong>
+                                                    <font class="text-beta" style="">TROISIÈME NIVEAU : L’ÉCHANGE
+                                                        ASSOCIATIF
+                                                    </font>
+                                                </strong>
+                                            </h4>
+                                            <p class="lead">L’échange de type associatif a pour objectif de faire
+                                                fonctionner une Accorderie en s’appuyant sur les services offerts par
+                                                les AccordeurEs. Elle rémunère chacunE d’entre eux/elles avec du temps
+                                                dès qu’il y a participation à l’organisation et au fonctionnement d’une
+                                                Accorderie ou à ses activités courantes. Dans l’échange associatif,
+                                                L’Accorderie est toujours l’acheteur.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.access_service</field>
+            <field name="name">Accès service</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_explorer" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="About us" t-name="website.aboutus">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'explorer'" />
+                        <div id="wrap" class="oe_structure oe_empty">
                             <section class="s_search oe_img_bg oe_custom_bg pt16 debug_unimplemented" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_accueil_illustration_05@2x_png/Accueil-Illustration-05@2x.png&quot;);">
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
@@ -1639,8 +1835,8 @@
                     </t>
                 </t>
             </field>
-            <field name="key">website.homepage</field>
-            <field name="name">Home</field>
+            <field name="key">website.explorer</field>
+            <field name="name">Explorer</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_ma_presentation" model="ir.ui.view">
@@ -3313,15 +3509,15 @@
                                 <div class="footer_container">
                                     <div class="row footer_row">
                                         <div class="col-lg-2 footer_menu">
-                                            <a href="/" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
+                                            <a href="/explorer" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
                                             <h5>Explorer</h5>
-                                            <a href="/" class="footer_link">Accueil</a>
+                                            <a href="/explorer" class="footer_link">Accueil</a>
                                             <br />
-                                            <a href="/" class="footer_link">Les offres de services</a>
+                                            <a href="/explorer" class="footer_link">Les offres de services</a>
                                             <br />
-                                            <a href="/" class="footer_link">Les demandes de service</a>
+                                            <a href="/explorer" class="footer_link">Les demandes de service</a>
                                             <br />
-                                            <a href="/" class="footer_link">Les cat&#233;gories d'offres de service</a>
+                                            <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
