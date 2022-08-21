@@ -1143,7 +1143,7 @@
                                 <div class="col-lg-6 pt16 pb16">
                                   <img src="/accorderie_canada_ddb_website/static/src/img/AdobeStock_147894347_Preview.jpeg" class="img img-fluid mx-auto" alt="ERPLibre • Image et Texte" />
                                 </div>
-                                <div class="col-lg-6 pt16 pb16"><h2>Un réseau actif<br /></h2>Le réseau de l'Accorderie a actuellement {{ nb_offre_service }} offres de service actives!<div class="s_btn text-left pt16 pb16"><a href="#" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip737296">S'inscrire</a></div>
+                                <div class="col-lg-6 pt16 pb16"><h2>Un réseau actif<br /></h2>Le réseau de l'Accorderie a actuellement {{ nb_offre_service }} offres de service actives!<div groups="base.group_public" class="s_btn text-left pt16 pb16"><a href="#" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip737296">S'inscrire</a></div>
                                     </div>
                               </div>
                             </div>
@@ -3083,7 +3083,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="profile_btn btn accorderie text-gamma">
+                                        <div class="profile_btn btn accorderie text-gamma debug_unimplemented">
                                             <i class="fa fa-smile-o" />
                                             Mon accorderie: {{personal.mon_accorderie.name}}
                                             <i class="fa fa-chevron-right" />
@@ -3105,28 +3105,28 @@
                                             <br />
                                             <span class="txt">Personnaliser la présentation affichée aux autres membres de l'accorderie.</span>
                                         </a>
-                                        <a class="information information-2 btn" href="monprofil/mesinfos">
+                                        <a class="information information-2 btn debug_unimplemented" href="monprofil/mesinfos">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_informationspersonnelles_png/Profil-InformationsPersonnelles.png" />
                                             <br />
                                             <span class="nbr">Mes informations personnelles</span>
                                             <br />
                                             <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
                                         </a>
-                                        <a class="information information-3 btn" href="monprofil/mesannonces">
+                                        <a class="information information-3 btn debug_unimplemented" href="monprofil/mesannonces">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
                                             <br />
                                             <span class="nbr">Mes annonces publi&#233;es</span>
                                             <br />
                                             <span class="txt">Voir et gérer les annonces que j'ai publié.</span>
                                         </a>
-                                        <a class="information information-4 btn" href="monprofil/mesfavoris">
+                                        <a class="information information-4 btn debug_unimplemented" href="monprofil/mesfavoris">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png" />
                                             <br />
                                             <span class="nbr">Mes favoris</span>
                                             <br />
                                             <span class="txt">Voir mes offres, demandes et membres favoris.</span>
                                         </a>
-                                        <a class="information information-5 btn" href="monprofil/mespreferences">
+                                        <a class="information information-5 btn debug_unimplemented" href="monprofil/mespreferences">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
                                             <br />
                                             <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
@@ -3515,9 +3515,9 @@
             <field name="arch" type="xml">
                 <data inherit_id="website.layout" name="Footer">
                     <xpath expr="//div[@id='footer']" position="replace">
-                        <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                        <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer and not user_id._is_public()">
                             <section class="s_text_block" style="">
-                                <div class="footer_container">
+                                <div class="footer_container ng-cloak">
                                     <div class="row footer_row">
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/explorer" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
@@ -3530,16 +3530,16 @@
                                             <br />
                                             <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
                                         </div>
-                                        <div class="col-lg-2 footer_menu">
+                                        <div class="col-lg-2 footer_menu debug_unimplemented">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
                                             <h5>La communaut&#233;</h5>
-                                            <a href="/" class="footer_link">Actualit&#233;</a>
+                                            <a href="/communaute/actualite" class="footer_link">Actualit&#233;</a>
                                             <br />
-                                            <a href="/" class="footer_link">&#201;v&#232;nements</a>
+                                            <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
                                             <br />
-                                            <a href="/" class="footer_link">Membres</a>
+                                            <a href="/communaute/membres" class="footer_link">Membres</a>
                                             <br />
-                                            <a href="/" class="footer_link">Groupes</a>
+                                            <a href="/communaute/groupes" class="footer_link">Groupes</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
@@ -3555,30 +3555,34 @@
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/monprofil" class="img bottom_menu_icon fa fa-user-circle-o" style="text-decoration:none;" />
                                             <h5>Mon profil</h5>
-                                            <a href="/" class="footer_link">Ma pr&#233;sentation publique</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Mes informations personnelles</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Mes annonces</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Mes favoris</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Param&#232;tres</a>
+                                            <a href="/monprofil/mapresentation" class="footer_link">Ma pr&#233;sentation publique</a>
+                                            <span class="debug_unimplemented">
+                                                <br />
+                                                <a href="/" class="footer_link">Mes informations personnelles</a>
+                                                <br />
+                                                <a href="/" class="footer_link">Mes annonces</a>
+                                                <br />
+                                                <a href="/" class="footer_link">Mes favoris</a>
+                                                <br />
+                                                <a href="/" class="footer_link">Param&#232;tres</a>
+                                            </span>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/monactivite" class="img bottom_menu_icon fa fa-search" style="text-decoration:none;" />
                                             <h5>
                                                 Mon activit&#233;
                                             </h5>
-                                            <a href="/" class="footer_link">Bilan</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Accordages</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Mon r&#233;seau</a>
-                                            <br />
-                                            <a href="/" class="footer_link">Mes groupes</a>
+                                            <a href="/monactivite" class="footer_link">Bilan</a>
+                                            <span class="debug_unimplemented">
+                                                <br />
+                                                <a href="/monactivite/accordages" class="footer_link">Accordages</a>
+                                                <br />
+                                                <a href="/monactivite/monreseau" class="footer_link">Mon r&#233;seau</a>
+                                                <br />
+                                                <a href="/monactivite/mesgroupes" class="footer_link">Mes groupes</a>
+                                            </span>
                                         </div>
-                                        <div class="col-lg-2 footer_aide">
+                                        <div class="col-lg-2 footer_aide debug_unimplemented">
                                             <span class="img bottom_menu_icon fa fa-search" />
                                             <h5>Aides</h5>
                                             <a href="/" class="footer_link">Mentor</a>

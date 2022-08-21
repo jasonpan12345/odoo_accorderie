@@ -99,13 +99,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 .browse(offre_service)
                 .exists()
             )
-            timedate_now = datetime.now()
-            # fr_CA not exist
-            # check .venv/lib/python3.7/site-packages/humanize/locale/
-            _t = humanize.i18n.activate("fr_FR")
-            diff_time = timedate_now - accorderie_offre_service_id.create_date
-            str_diff_time = f"Publiée {humanize.naturaltime(diff_time)}"
-            humanize.i18n.deactivate()
+            str_diff_time = self._transform_str_diff_time_creation(accorderie_offre_service_id.create_date)
 
             if (
                 accorderie_offre_service_id
@@ -356,6 +350,8 @@ class AccorderieCanadaDdbController(http.Controller):
         )
 
     def _transform_str_diff_time_creation(self, create_date):
+        if not create_date:
+            return ""
         timedate_now = datetime.now()
         _t = humanize.i18n.activate("fr_FR")
         diff_time_creation = timedate_now - create_date
