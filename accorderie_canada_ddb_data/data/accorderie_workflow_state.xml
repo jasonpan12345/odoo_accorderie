@@ -207,7 +207,7 @@
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_value">Pour une offre publiée</field>
             <field name="data">ses_temps_disponibles</field>
-            <field name="model_field_name_alias">date_name</field>
+            <field name="model_field_name_alias">date</field>
             <field name="model_field_name">date_name</field>
             <field name="data_depend_field">membre_id</field>
             <field name="data_url_field">membre_id</field>
