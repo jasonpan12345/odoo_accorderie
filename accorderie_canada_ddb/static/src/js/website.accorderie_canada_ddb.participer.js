@@ -147,6 +147,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             actual_bank_time_human_simplify: "0 heure",
             actual_month_bank_time_human_short: "0h",
         }
+        $scope.nb_offre_service = 0;
 
         ajax.rpc("/accorderie_canada_ddb/get_personal_information/", {}).then(function (data) {
             console.debug("AJAX receive get_personal_information");
@@ -161,6 +162,22 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.personal = data.personal;
                 $scope.update_personal_data();
                 console.debug($scope.personal);
+            }
+
+            // Process all the angularjs watchers
+            $scope.$digest();
+        })
+
+        ajax.rpc("/accorderie_canada_ddb/get_info/nb_offre_service", {}).then(function (data) {
+            console.debug("AJAX receive get_nb_offre_service");
+            if (data.error || !_.isUndefined(data.error)) {
+                $scope.error = data.error;
+                console.error($scope.error);
+            } else if (_.isEmpty(data)) {
+                $scope.error = "Empty 'get_nb_offre_service' data";
+                console.error($scope.error);
+            } else {
+                $scope.nb_offre_service = data.nb_offre_service;
             }
 
             // Process all the angularjs watchers

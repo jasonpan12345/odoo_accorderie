@@ -435,6 +435,22 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/nb_offre_service",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_nb_offre_service(self, **kw):
+        nb_offre_service = (
+            http.request.env["accorderie.offre.service"]
+            .sudo()
+            .search_count([])
+        )
+        return {"nb_offre_service": nb_offre_service}
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_info/echange_service/<model('accorderie.membre'):membre_id>",
         ],
         type="json",
