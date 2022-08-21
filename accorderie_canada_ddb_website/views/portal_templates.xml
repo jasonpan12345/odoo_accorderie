@@ -42,8 +42,8 @@
                     <div class="collapse navbar-collapse" id="top_menu_collapse">
                         <!-- FIXME We want menu to open to the right by default (except cases handled in JS) -->
                         <ul class="nav navbar-nav text-right" id="top_menu">
-                            <li class="nav-item">
-                                <a class="nav-link" role="menu_item" href="/">
+                            <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link" role="menu_item" href="/explorer">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="1"
@@ -55,7 +55,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item debug_unimplemented">
+                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                     <span
                                         data-oe-model="website.menu"
@@ -67,7 +67,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" href="/participer">
                                     <span
                                         data-oe-model="website.menu"
@@ -80,7 +80,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" href="/monactivite">
                                     <span
                                         data-oe-model="website.menu"
@@ -92,7 +92,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" href="/monprofil">
                                     <span
                                         data-oe-model="website.menu"
@@ -105,8 +105,8 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item debug_unimplemented">
-                                <a class="nav-link" role="menu_item" href="/#">
+                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link" role="menu_item" href="#">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="6"
@@ -118,8 +118,8 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link debug-item" data-toggle="dropdown" role="menu_item" href="/#">
+                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link debug-item" data-toggle="dropdown" role="menu_item" href="#">
                                     <span
                                         class="fa fa-2x fa-bug text-primary"
                                         data-oe-model="website.menu"
@@ -144,8 +144,8 @@
 <!--                                    </div>-->
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="/#">
+                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" href="#">
                                     <span
                                         class="fa fa-2x fa-heart text-primary"
                                         data-oe-model="website.menu"
@@ -344,7 +344,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" data-toggle="dropdown" href="#">
                                     <span
                                         class="fa fa-2x fa-comments-o text-primary"
@@ -477,8 +477,8 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item debug_unimplemented">
-                                <a class="nav-link" role="menu_item" href="/#">
+                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link" role="menu_item" href="#">
                                     <span
                                         class="fa fa-2x fa-question-circle-o text-primary"
                                         data-oe-model="website.menu"
@@ -489,8 +489,8 @@
                                     />
                                 </a>
                             </li>
-                            <li class="nav-item dropdown bg-primary">
-                                <a class="nav-link text-gamma" data-toggle="dropdown" role="menu_item" href="/#">
+                            <li class="nav-item dropdown bg-primary" t-ignore="true" t-if="not user_id._is_public()">
+                                <a class="nav-link text-gamma" data-toggle="dropdown" role="menu_item" href="#">
                                     <span
                                         class="fa fa-2x fa-edit"
                                         data-oe-model="website.menu"
@@ -561,6 +561,12 @@
                                         Logout
                                     </a>
                                 </div>
+                            </li>
+                            <li class="nav-item divider" groups="base.group_public" />
+                            <li groups="base.group_public" class="nav-item">
+                                <a t-attf-href="/web/login" class="nav-link">
+                                    <b>Espace membre</b>
+                                </a>
                             </li>
                         </ul>
                     </div>

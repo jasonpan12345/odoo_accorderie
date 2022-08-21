@@ -15,6 +15,7 @@
             <field name="adresse">3800 Queen Mary Rd, Montreal, Quebec H3V 1H6</field>
             <field name="nom">Petit</field>
             <field name="prenom">Martin</field>
+            <field name="membre_partner_id" ref="partner_demo_martin_petit" />
             <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
         </record>
@@ -23,6 +24,7 @@
             <field name="adresse">2150 Autoroute des Laurentides laval</field>
             <field name="nom">Lemarchand</field>
             <field name="prenom">Denis</field>
+            <field name="membre_partner_id" ref="partner_demo_denis_lemarchand" />
             <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
         </record>
@@ -31,6 +33,7 @@
             <field name="adresse">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie, Montreal, Urban agglomeration of Montreal, Montreal (06), Quebec, H1X 1J5, Canada</field>
             <field name="nom">Poitier</field>
             <field name="prenom">Alice</field>
+            <field name="membre_partner_id" ref="partner_demo_alice_poitier" />
             <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
             <field name="user_id" ref="base.user_admin" />
@@ -40,6 +43,7 @@
             <field name="adresse">4777 Pierre-de Coubertin Ave, Montreal, Quebec H1V 1B3</field>
             <field name="nom">Bergeron</field>
             <field name="prenom">Martin</field>
+            <field name="membre_partner_id" ref="partner_demo_martin_bergeron" />
             <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
         </record>

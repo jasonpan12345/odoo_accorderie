@@ -17,6 +17,14 @@
             <field name="type">url</field>
             <field name="url">/accorderie_canada_ddb_website/static/src/img/eric-prouzet-Z62b9jIltGM-unsplash.jpg</field>
         </record>
+        <record id="ir_attachment_j_spaggiari_guitaristes_jpg" model="ir.attachment">
+            <field name="datas_fname">j-spaggiari-guitaristes.jpg</field>
+            <field name="name">j-spaggiari-guitaristes.jpg</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/j-spaggiari-guitaristes.jpg</field>
+        </record>
         <record id="ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg" model="ir.attachment">
             <field name="datas_fname">freestocks-9UVmlIb0wJU-unsplash.jpg</field>
             <field name="name">freestocks-9UVmlIb0wJU-unsplash.jpg</field>
