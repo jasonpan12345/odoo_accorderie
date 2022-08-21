@@ -1641,7 +1641,7 @@
                                 </div>
                                 <div
                                     class="buttons_form_container tab"
-                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.recevoir.choix.existant'"
+                                    ng-if="state.type == 'form' &amp;&amp; state.id == 'init.saa.recevoir.choix.existant.time.formulaire'"
                                     style="flex-direction:column; flex-wrap:nowrap;"
                                 >
                                     {{load_date()}}
@@ -2735,38 +2735,18 @@
                                         date-format-tool="date"
                                         date-min-today="true"
                                         date-max-year="true"
-                                    >
-<!--                                        <div id="date_datepicker" />-->
-<!--                                        <input-->
-<!--                                            class="form-control datetimepicker-input o_website_form_input o_website_form_date"-->
-<!--                                            name="date"-->
-<!--                                            t-att-value="default_date"-->
-<!--                                            t-attf-data-target="#date_datepicker"-->
-<!--                                            type="text"-->
-<!--                                        />-->
-<!--                                        <div-->
-<!--                                            class="input-group-append"-->
-<!--                                            t-attf-data-target="#date_datepicker"-->
-<!--                                            data-toggle="datetimepicker"-->
-<!--                                        >-->
-<!--                                            <div class="input-group-text">-->
-<!--                                                <i class="fa fa-calendar" />-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-                                    </div>
+                                    />
                                 </div>
                                 <div class="buttons_form_container tab" ng-if="state.type == 'temps_duree'">
                                     {{ load_date() }}
                                     <div
                                         class="input-group date"
                                         data-target-input="nearest"
-                                        t-attf-id="date_datepicker"
+                                        t-attf-id="time_name"
                                         inline-date="true"
                                         side-by-side="true"
                                         date-format-tool="clock"
-                                    >
-                                        <div id="date_datepicker" />
-                                    </div>
+                                    />
                                 </div>
                                 <div class="submit_container">
                                     <input

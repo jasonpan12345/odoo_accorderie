@@ -295,8 +295,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.data[state.data_name] = value[state.data_name];
         state.data = value[state.data_name];
         $scope._update_state(state)
-        // Process all the angularjs watchers
-        $scope.$digest();
+        // Process all the angularjs watchers and scope, need it for $location.search()
+        $scope.$apply();
     }
 
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
@@ -379,7 +379,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         // data
                         let lst_data = $scope.data[data_name]
                         if (_.isUndefined(lst_data)) {
-                            console.error(`Cannot find database '${data_name}'.`)
+                            console.warn(`Cannot find database '${data_name}'.`)
                             $scope.workflow[key].data = undefined;
                             continue;
                         }
@@ -630,7 +630,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // TODO optimization, each time click next, $locationChangeSuccess and init_controller is recall
             // TODO optimization, all variable is destroy and reconstruct with many loop
             if (!_.isEmpty($scope.workflow) && !$scope.has_init) {
-                $scope.change_from_url($location.search());
+                // Try to detect loop
+                if ($location.search().state !== $scope.state.id) {
+                    // This break previous button
+                    console.debug("Call change_from_url " + $location.search());
+                    $scope.change_from_url($location.search());
+                } else {
+                    console.debug("Block looping update location change");
+                }
             }
         });
 
@@ -760,8 +767,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 console.debug($scope.state);
             } else {
                 // special case for date and time
-                if ($scope.state.type === "calendrier") {
+                if ($scope.state.type === "calendrier" || $scope.state.type === "time" || $scope.state.type === "temps_duree") {
                     $scope.state.selected_value = $(`#${$scope.state.model_field_name}`).data().date;
+                    $scope.form[$scope.state.model_field_name] = $scope.state.selected_value;
                 }
 
                 // Fill URL parameters
@@ -769,6 +777,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $location.search($scope.state.model_field_name_alias, $scope.state.selected_id);
                 } else if (!_.isUndefined($scope.state.model_field_name) && (!_.isUndefined($scope.state.selected_id))) {
                     $location.search($scope.state.model_field_name, $scope.state.selected_id);
+                } else if (!_.isUndefined($scope.state.model_field_name_alias) && (!_.isUndefined($scope.state.selected_value))) {
+                    $location.search($scope.state.model_field_name_alias, $scope.state.selected_value);
+                } else if (!_.isUndefined($scope.state.model_field_name) && (!_.isUndefined($scope.state.selected_value))) {
+                    $location.search($scope.state.model_field_name, $scope.state.selected_value);
                 }
                 // TODO ordering function call is bad, not optimal... Need refactoring
                 $scope.fill_model_form_from_state($scope.state);
@@ -864,13 +876,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope._update_state = function (state) {
-            // console.debug("call update_state");
+            console.debug("call update_state");
             console.debug(state);
             $scope.error = "";
             // Update URL parameters
             if (state.id === INIT_STATE) {
+                console.debug("Change URL " + PARAM_STATE_NAME + " to init.");
                 $location.search(PARAM_STATE_NAME, null);
             } else {
+                console.debug("Change URL " + PARAM_STATE_NAME + " to value " + state.id);
                 $location.search(PARAM_STATE_NAME, state.id);
             }
             // Fill models form
