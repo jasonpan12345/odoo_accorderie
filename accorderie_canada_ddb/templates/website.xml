@@ -353,7 +353,7 @@
                                 />
                                 <span
                                     t-if="not lst_icon_offre_service[offre_service_index]"
-                                    class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
+                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center"
                                 />
                                 <div class="infos">
                                     <div
@@ -418,7 +418,7 @@
                                 />
                                 <span
                                     t-if="not lst_icon_demande_service[demande_service_index]"
-                                    class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
+                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center"
                                     style=""
                                 />
                                 <div class="infos">
@@ -442,7 +442,7 @@
                                     />
                                 </div>
                                 <div class="infos right">
-                                    <h5
+                                    <div
                                         t-if="len(lst_time_demande_service) >= demande_service_index"
                                         t-raw="lst_time_demande_service[demande_service_index]"
                                     />
@@ -831,20 +831,17 @@
 
                                     <!-- Présentation du service -->
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0;font-size:1.75rem;font-weight:bold;"
+                                        class="list_title bold"
                                         ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
                                     >Offre de service donné
                                     </div>
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0;font-size:1.75rem;font-weight:bold;"
+                                        class="list_title bold"
                                         ng-if="state.id == 'init.saa.recevoir.choix.existant.time.formulaire'"
                                     >Offre de service demandé
                                     </div>
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0 font-size:1.75rem;font-weight:bold;"
+                                        class="list_title bold"
                                         ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
                                     >Offre de service reçu
                                     </div>
@@ -895,15 +892,13 @@
 
                                     <!-- Destinataire du service -->
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0;font-size:1.75rem;font-weight:bold"
+                                        class="list_title bold"
                                         ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
                                     >
                                         Destinataire du service
                                     </div>
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0;font-size:1.75rem;font-weight:bold"
+                                        class="list_title bold"
                                         ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id"
                                     >
                                         De qui avez-vous reçu le service?
@@ -925,12 +920,11 @@
                                     <!-- Description du service -->
                                     <div ng-if="form_is_nouveau_except_pos()">
                                         <div
-                                            class="list_title"
-                                            style="padding:2rem 0 0;font-size:1.75rem;font-weight:bold;"
+                                            class="list_title bold"
                                         >
                                             Description du service privé
                                         </div>
-                                        <div class="list_title" style="padding:2rem 0 0">
+                                        <div class="list_title">
                                             <h4>Catégorie du service</h4>
                                         </div>
                                         <div
@@ -941,15 +935,14 @@
                                             <span>{{form.type_service_id.value}}</span>
                                             <i class="fa fa-chevron-right" />
                                         </div>
-                                        <div class="list_title" style="padding:2rem 0 0">
+                                        <div class="list_title">
                                             <h4>Nom de votre service</h4>
                                         </div>
                                     </div>
 
                                    <div
-                                        class="list_title"
+                                        class="list_title bold"
                                         ng-if="state.id === 'init.pos.individuelle.formulaire'"
-                                        style="padding:2rem 0 0;font-size:1.75rem;font-weight:bold;"
                                     >Titre
                                    </div>
 
@@ -963,21 +956,15 @@
                                     <div
                                         class="list_title"
                                         ng-if="form_is_nouveau_except_pos()"
-                                        style="padding:2rem 0 0"
                                     >
-                                        <p>
-                                            <span style="font-size:1.5rem">Description de votre offre de service</span>
-                                        </p>
+                                        <h4>Description de votre offre de service</h4>
                                     </div>
 
                                     <div
                                         class="list_title"
                                         ng-if="state.id === 'init.pos.individuelle.formulaire'"
-                                        style="padding:2rem 0 0"
                                     >
-                                        <p>
-                                            <span style="font-size:1.75rem">Description</span>
-                                        </p>
+                                        <h4>Description</h4>
                                     </div>
 
                                     <textarea class="form_desc" ng-model="form.description" ng-if="form_is_nouveau()" />
@@ -986,14 +973,13 @@
                                         class="debug_unimplemented"
                                         ng-if="['init.pos.individuelle.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
                                     >
-                                        <div class="list_title" style="padding:2rem 0 0">
-                                            <p>
-                                                <span style="font-size:1.75rem">Déplacement</span>
+                                        <div class="list_title">
+                                            <h4 class="d-flex">Déplacement
                                                 <i
                                                     class="fa fa-trash text-alpha"
                                                     style="margin-left:auto;font-size:1.5rem"
                                                 />
-                                            </p>
+                                            </h4>
                                         </div>
                                         <div class="form_box">
                                             <span>Je me déplace:</span>
@@ -1010,14 +996,13 @@
                                             <span>Aucune</span>
                                             <i class="fa fa-chevron-right" />
                                         </div>
-                                        <div class="list_title" style="padding:2rem 0 0">
-                                            <p>
-                                                <span style="font-size:1.75rem">Entente tarifiaire</span>
+                                        <div class="list_title">
+                                            <h4 class="d-flex">Entente tarifiaire
                                                 <i
                                                     class="fa fa-trash text-alpha"
                                                     style="margin-left:auto;font-size:1.5rem"
                                                 />
-                                            </p>
+                                            </h4>
                                         </div>
                                         <div class="form_box flex-column" style="gap:1rem;">
                                             <div class="d-flex align-items-center w-100">
@@ -1033,16 +1018,14 @@
                                         </div>
                                         <div
                                             class="list_title"
-                                            style="padding:2rem 0 0"
                                             ng-if="'init.pos.individuelle.formulaire' === state.id"
                                         >
-                                            <p>
-                                                <span style="font-size:1.75rem">Disponibilités</span>
+                                            <h4 class="d-flex">Disponibilités
                                                 <i
                                                     class="fa fa-trash text-alpha"
                                                     style="margin-left:auto;font-size:1.5rem"
                                                 />
-                                            </p>
+                                            </h4>
                                         </div>
                                         <div class="form_box" ng-if="'init.pos.individuelle.formulaire' === state.id">
                                             <div class="dispo">
@@ -1094,24 +1077,19 @@
 
                                     <!-- Service -->
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0"
+                                        class="list_title bold"
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >
-                                        <span style="font-size:1.75rem;font-weight:bold;">Date prévue du service</span>
+                                    >Date prévue du service
                                     </div>
-                                    <div class="list_title" style="padding:2rem 0 0" ng-if="form_is_service()">
-                                        <span style="font-size:1.75rem;font-weight:bold;">Service</span>
+                                    <div class="list_title bold" ng-if="form_is_service()">Service
                                     </div>
                                     <div
                                         class="list_title"
-                                        style="padding:2rem 0 0"
                                         ng-if="form_is_service_and_service_prevu()"
                                     >
                                         <!-- load_date() will initialize date field -->
                                         {{load_date()}}
-                                        <p>
-                                            <span style="font-size:1.5rem">Date de l'échange du service</span>
+                                        <h4>Date de l'échange du service
     <!--                                        <a href="" class="text-primary" style="font-size:1.25rem;">Annuler</a>-->
                                             <a
                                                 href=""
@@ -1119,7 +1097,7 @@
                                                 style="font-size:1.25rem;"
                                                 ng-if="form_is_service_to_modify()"
                                             >Modifier</a>
-                                        </p>
+                                        </h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service_and_service_prevu()">
                                             <span ng-if="form_is_service_to_modify()">Mercredi 6 août 2022</span>
@@ -1154,12 +1132,9 @@
 
                                     <div
                                         class="list_title"
-                                        style="padding:2rem 0 0"
                                         ng-if="form_is_service_and_service_prevu()"
                                     >
-                                        <p>
-                                            <span style="font-size:1.5rem">Heure de début du service</span>
-                                        </p>
+                                        <h4>Heure de début du service</h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service_and_service_prevu()">
                                             <span ng-if="form_is_service_to_modify()">14h00</span>
@@ -1190,12 +1165,9 @@
 
                                     <div
                                         class="list_title"
-                                        style="padding:2rem 0 0"
                                         ng-if="form_is_service_and_service_prevu()"
                                     >
-                                        <p>
-                                            <span style="font-size:1.5rem">Durée de la réalisation du service</span>
-                                        </p>
+                                        <h4>Durée de la réalisation du service</h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service_and_service_prevu()">
                                             <span ng-if="form_is_service_to_modify()">14h00</span>
@@ -1226,12 +1198,9 @@
 
                                     <div
                                         class="list_title"
-                                        style="padding:2rem 0 0"
                                         ng-if="form_is_service_and_service_prevu()"
                                     >
-                                        <p>
-                                            <span style="font-size:1.5rem">Durée du trajet aller-retour</span>
-                                        </p>
+                                        <h4>Durée du trajet aller-retour</h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service_and_service_prevu()">
                                             <span ng-if="form_is_service_to_modify()">14h00</span>
@@ -1265,33 +1234,24 @@
                                     <!-- Coût possible -->
                                     <span class="debug_unimplemented">
                                         <div
-                                            class="list_title"
-                                            style="padding:2rem 0 0"
+                                            class="list_title bold"
                                             ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                        >
-                                            <span
-                                                style="font-size:1.75rem;font-weight:bold;"
-                                            >Coûts possibles supplémentaires à prévoir</span>
+                                        >Coûts possibles supplémentaires à prévoir
                                         </div>
-                                        <div class="list_title" style="padding:2rem 0 0" ng-if="form_is_service()">
-                                            <span
-                                                style="font-size:1.75rem;font-weight:bold;"
-                                            >Coûts monétaires supplémentaires dû</span>
+                                        <div class="list_title bold" ng-if="form_is_service()">Coûts monétaires supplémentaires dû
                                         </div>
                                         <div
                                             class="list_title"
-                                            style="padding:2rem 0 0"
                                             ng-if="form_frais_trajet_distance()"
                                         >
-                                            <p>
-                                                <span style="font-size:1.5rem">Frais pour trajet de :</span>
+                                            <h4>Frais pour trajet de :
                                                 <a
                                                     href=""
                                                     class="text-primary"
                                                     style="font-size:1.25rem;"
                                                     ng-if="form_is_service_to_modify()"
                                                 >Annuler</a>
-                                            </p>
+                                            </h4>
                                         </div>
                                         <div
                                             ng-if="form_frais_trajet_distance() &amp;&amp; !form_is_service_to_modify()"
@@ -1315,12 +1275,9 @@
 
                                         <div
                                             class="list_title"
-                                            style="padding:2rem 0 0"
                                             ng-if="form_frais_trajet_prix()"
                                         >
-                                            <p>
-                                                <span style="font-size:1.5rem">Frais pour trajet :</span>
-                                            </p>
+                                            <h4>Frais pour trajet :</h4>
                                         </div>
                                         <div class="form_box" ng-if="form_frais_trajet_prix()">
                                             <span>_ _</span>
@@ -1328,16 +1285,9 @@
                                         </div>
                                         <div
                                             class="list_title"
-                                            style="padding:2rem 0 0"
                                             ng-if="form_frais_trajet_prix()"
                                         >
-                                            <p>
-                                                <span
-                                                    style="font-size:1.5rem"
-                                                >Frais pour le matériel nécessaire à l'échange
-                                                    de service
-                                                </span>
-                                            </p>
+                                            <h4>Frais pour le matériel nécessaire à l'échangede service</h4>
                                         </div>
                                         <div class="form_box" ng-if="form_frais_trajet_prix()">
                                             <span>_ _</span>
@@ -1346,14 +1296,9 @@
 
                                         <div
                                             class="list_title"
-                                            style="padding:2rem 0 0"
                                             ng-if="form_frais_import_list_without_modify()"
                                         >
-                                            <p>
-                                                <span
-                                                    style="font-size:1.5rem"
-                                                >Frais pour le matériel nécessaire à l'échange de service</span>
-                                            </p>
+                                            <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
                                         </div>
                                         <div
                                             class="form_box"
@@ -1365,18 +1310,14 @@
 
                                         <div
                                             class="list_title"
-                                            style="padding:2rem 0 0"
                                             ng-if="form_is_service_to_modify()"
                                         >
-                                            <p>
-                                                <span
-                                                    style="font-size:1.5rem; flex:0.6;"
-                                                >Frais pour le matériel nécessaire à l'échange de service</span>
+                                            <h4>Frais pour le matériel nécessaire à l'échange de service
                                                 <a href="" class="text-primary" style="font-size:1.25rem;">Importer une
                                                     liste
                                                     <i class="fa fa-download" />
                                                 </a>
-                                            </p>
+                                            </h4>
                                         </div>
 
                                         <div class="divider" ng-if="form_is_service_and_service_prevu()" />
@@ -1384,22 +1325,15 @@
 
                                     <!-- Estimation de la durée du service -->
                                     <div
-                                        class="list_title"
-                                        style="padding:2rem 0 0"
+                                        class="list_title bold"
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >
-                                        <span
-                                            style="font-size:1.75rem;font-weight:bold;"
-                                        >Estimation de la durée de service</span>
+                                    >Estimation de la durée de service
                                     </div>
                                     <div
                                         class="list_title"
-                                        style="padding:2rem 0 0"
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                     >
-                                        <p>
-                                            <span style="font-size:1.5rem">Temps de service estimé</span>
-                                        </p>
+                                        <h4>Temps de service estimé</h4>
                                     </div>
                                     <div
                                         class="form_box"
@@ -1431,12 +1365,9 @@
                                     </div>
                                     <div
                                         class="list_title"
-                                        style="padding:2rem 0 0"
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                     >
-                                        <p>
-                                            <span style="font-size:1.5rem">Temps de trajet estimé</span>
-                                        </p>
+                                        <h4>Temps de trajet estimé</h4>
                                     </div>
                                     <div
                                         class="form_box"
@@ -1468,8 +1399,7 @@
                                     </div>
 
                                     <!-- Commentaires -->
-                                    <div class="list_title" style="padding:2rem 0 0" ng-if="form_is_commentaire()">
-                                        <span style="font-size:1.75rem;font-weight:bold;">Commentaires</span>
+                                    <div class="list_title bold" ng-if="form_is_commentaire()">Commentaires
                                     </div>
                                     <textarea class="form_desc" ng-if="form_is_commentaire()" />
 
@@ -1483,10 +1413,7 @@
                                     <span ng-if="form_is_service_to_modify()">
                                         <div class="divider" />
                                         <!-- TODO button send form need to click to accept this condition -->
-                                        <div class="list_title" style="padding:2rem 0 0">
-                                            <span
-                                                style="font-size:1.75rem;font-weight:bold;"
-                                            >Respectez-vous les conditions suivantes :</span>
+                                        <div class="list_title bold">Respectez-vous les conditions suivantes :
                                         </div>
                                         <span>
                                             <i class="fa fa-check checker text-epsilon icon_padding_right" />
@@ -1494,8 +1421,7 @@
                                         </span>
                                         <div class="divider" />
                                         <!-- Mise en garde -->
-                                        <div class="list_title" style="padding:2rem 0 0">
-                                            <span style="font-size:1.75rem;font-weight:bold;">Mise en garde</span>
+                                        <div class="list_title bold">Mise en garde
                                         </div>
                                         <p
                                         >Avant tout échange de services, nous vous conseillons de vous rejoindre sur un terrain neutre pour vous rencontrer et vous mettre d'accord sur les détails de votre accordage.<br
