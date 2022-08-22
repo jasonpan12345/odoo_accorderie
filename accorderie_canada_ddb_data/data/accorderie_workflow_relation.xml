@@ -195,7 +195,7 @@
         <record id="accorderie_workflow_relation_init_va_non_recu_choix_existant" model="accorderie.workflow.relation">
             <field name="is_dynamic">True</field>
             <field name="state_src" ref="accorderie_workflow_state_va_non_recu_choix" />
-            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_existant" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_existant_formulaire" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.relation">

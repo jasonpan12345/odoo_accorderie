@@ -99,7 +99,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 .browse(offre_service)
                 .exists()
             )
-            str_diff_time = self._transform_str_diff_time_creation(accorderie_offre_service_id.create_date)
+            str_diff_time = self._transform_str_diff_time_creation(
+                accorderie_offre_service_id.create_date
+            )
 
             if (
                 accorderie_offre_service_id

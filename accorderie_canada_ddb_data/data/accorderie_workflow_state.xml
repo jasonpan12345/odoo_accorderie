@@ -118,7 +118,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_offrir_existant_form" model="accorderie.workflow.state">
             <field name="name">Formulaire service privé existant échange</field>
-            <field name="key">init.saa.offrir.nouveau.categorie_service.formulaire</field>
+            <field name="key">init.saa.offrir.existant.formulaire</field>
             <field name="message">Offrir un service privé</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
@@ -339,7 +339,7 @@
             <field name="list_is_first_position">False</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_va_non_recu_choix_existant" model="accorderie.workflow.state">
+        <record id="accorderie_workflow_state_va_non_recu_choix_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant reçu</field>
             <field name="key">init.va.non.recu.choix.formulaire</field>
             <field name="message">Déclaration de l'accordage effectué</field>
