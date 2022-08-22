@@ -566,12 +566,28 @@
 
                                 </a>
                                 <div class="dropdown-menu js_usermenu" role="menu">
+                                    <a class="dropdown-item" t-attf-href="/" role="menuitem">
+                                        <i class="fa fa-signal icon_padding_right"/>Mon activité
+                                    </a>
+                                    <a class="dropdown-item" t-attf-href="/" role="menuitem">
+                                        <i class="fa fa-user-circle icon_padding_right"/>Ma présentation
+                                    </a>
+                                    <a class="dropdown-item" t-attf-href="/" role="menuitem">
+                                        <i class="fa fa-newspaper-o icon_padding_right"/>Mes annonces publiées
+                                    </a>
+                                    <a class="dropdown-item" t-attf-href="/" role="menuitem">
+                                        <i class="fa fa-eye icon_padding_right"/>Mon accorderie
+                                    </a>
+                                    <a class="dropdown-item" t-attf-href="/" role="menuitem">
+                                        <i class="fa fa-gear icon_padding_right"/>Mes préférences générales
+                                    </a>
                                     <a
                                         id="o_logout"
                                         class="dropdown-item"
                                         t-attf-href="/web/session/logout?redirect=/"
                                         role="menuitem"
                                     >
+                                        <i class="fa fa-power-off icon_padding_right"/>
                                         Logout
                                     </a>
                                 </div>

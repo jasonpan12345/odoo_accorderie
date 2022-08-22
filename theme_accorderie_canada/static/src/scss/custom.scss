@@ -1812,6 +1812,14 @@ actualité
   flex-wrap: wrap;
   overflow-y: scroll;
 
+  .list_title {
+    padding: 2rem 0 0;
+  }
+  .list_title.bold {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+
   label {
     min-height: 120px;
     width: 100%;
@@ -1833,6 +1841,7 @@ actualité
   .divider {
     margin-top: 4rem;
     margin-bottom: 1rem;
+    border-top: 1px solid $beta;
   }
 
   .categorie {
@@ -1971,6 +1980,9 @@ actualité
       justify-content: space-between;
     }
   }
+  .bootstrap-datetimepicker-widget {
+    width: 100%;
+  }
 }
 
 .scroll {
@@ -1984,7 +1996,7 @@ actualité
   border-top: 2px solid $alpha;
 
   .submit_btn {
-    width: 120px;
+    min-width: 120px;
     height: 50px;
     background-color: $primary-color;
     float: right;
@@ -2225,6 +2237,7 @@ actualité
       grid-area: 2 / 2 / 6 / 3;
       display: flex;
       flex-direction: column;
+      height: fit-content;
 
       > * {
         border-bottom: 1px solid $beta;
