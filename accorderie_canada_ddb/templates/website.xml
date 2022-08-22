@@ -1113,6 +1113,7 @@
                                                 t-att-value="default_date"
                                                 t-attf-data-target="#date_service_datepicker"
                                                 type="text"
+                                                ng-model="form.date_service"
                                             />
                                             <div
                                                 class="input-group-append"
@@ -1150,6 +1151,7 @@
                                                 t-att-value="default_date"
                                                 t-attf-data-target="#time_service_datepicker"
                                                 type="text"
+                                                ng-model="form.time_service"
                                             />
                                             <div
                                                 class="input-group-append"
@@ -1165,11 +1167,11 @@
 
                                     <div
                                         class="list_title"
-                                        ng-if="form_is_service_and_service_prevu()"
+                                        ng-if="form_is_service()"
                                     >
                                         <h4>Durée de la réalisation du service</h4>
                                     </div>
-                                    <div class="form_box" ng-if="form_is_service_and_service_prevu()">
+                                    <div class="form_box" ng-if="form_is_service()">
                                             <span ng-if="form_is_service_to_modify()">14h00</span>
                                         <div
                                             class="input-group date"
@@ -1183,6 +1185,7 @@
                                                 t-att-value="default_date"
                                                 t-attf-data-target="#time_realisation_service_datepicker"
                                                 type="text"
+                                                ng-model="form.time_realisation_service"
                                             />
                                             <div
                                                 class="input-group-append"
@@ -1198,11 +1201,11 @@
 
                                     <div
                                         class="list_title"
-                                        ng-if="form_is_service_and_service_prevu()"
+                                        ng-if="form_is_service()"
                                     >
                                         <h4>Durée du trajet aller-retour</h4>
                                     </div>
-                                    <div class="form_box" ng-if="form_is_service_and_service_prevu()">
+                                    <div class="form_box" ng-if="form_is_service()">
                                             <span ng-if="form_is_service_to_modify()">14h00</span>
                                         <div
                                             class="input-group date"
@@ -1216,6 +1219,7 @@
                                                 t-att-value="default_date"
                                                 t-attf-data-target="#time_dure_trajet_datepicker"
                                                 type="text"
+                                                ng-model="form.time_dure_trajet"
                                             />
                                             <div
                                                 class="input-group-append"
@@ -1351,6 +1355,7 @@
                                                 t-att-value="default_date"
                                                 t-attf-data-target="#time_service_estimated_datepicker"
                                                 type="text"
+                                                ng-model="form.time_service_estimated"
                                             />
                                             <div
                                                 class="input-group-append"
@@ -1385,6 +1390,7 @@
                                                 t-att-value="default_date"
                                                 t-attf-data-target="#time_drive_estimated_datepicker"
                                                 type="text"
+                                                ng-model="form.time_drive_estimated"
                                             />
                                             <div
                                                 class="input-group-append"
@@ -1401,7 +1407,11 @@
                                     <!-- Commentaires -->
                                     <div class="list_title bold" ng-if="form_is_commentaire()">Commentaires
                                     </div>
-                                    <textarea class="form_desc" ng-if="form_is_commentaire()" />
+                                    <textarea
+                                        class="form_desc"
+                                        ng-model="form.commentaires"
+                                        ng-if="form_is_commentaire()"
+                                    />
 
                                     <!-- Montant à transférer -->
                                     <div class="bar_time" ng-if="form_is_service_and_service_prevu()">

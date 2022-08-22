@@ -224,7 +224,11 @@ class AccorderieMembre(models.Model):
         store=True,
     )
 
-    @api.depends("membre_partner_id")
+    @api.depends(
+        "membre_partner_id",
+        "echange_service_acheteur_ids",
+        "echange_service_vendeur_ids",
+    )
     def _bank_time(self):
         # TODO wrong dependency
         # TODO calculate transaction difference
