@@ -392,11 +392,32 @@ class AccorderieCanadaDdbController(http.Controller):
         ]
 
         # TODO update location with cartier et autre
+        # Hack time for demo
+        month_bank_time = 0
+        v1 = http.request.env["accorderie.echange.service"].search(
+            [
+                ("membre_vendeur", "=", membre_id.id),
+                ("transaction_valide", "=", True),
+            ]
+        )
+        for v in v1:
+            month_bank_time += v.nb_heure
+        v2 = http.request.env["accorderie.echange.service"].search(
+            [
+                ("membre_acheteur", "=", membre_id.id),
+                ("transaction_valide", "=", True),
+            ]
+        )
+        for v in v2:
+            month_bank_time -= v.nb_heure
+        bank_time = 15 + month_bank_time
         return {
             "personal": {
                 "full_name": membre_id.nom_complet,
-                "actual_bank_hours": membre_id.bank_time,
-                "actual_month_bank_hours": membre_id.bank_month_time,
+                "actual_bank_hours": bank_time,
+                # "actual_bank_hours": membre_id.bank_time,
+                "actual_month_bank_hours": month_bank_time,
+                # "actual_month_bank_hours": membre_id.bank_month_time,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
                 "location": membre_id.ville.nom,
@@ -1117,37 +1138,112 @@ class AccorderieCanadaDdbController(http.Controller):
         return json
 
     @http.route(
-        "/submit/accorderie_offre_service",
+        "/accorderie/participer/form/submit",
         type="json",
         auth="user",
         website=True,
         csrf=True,
     )
-    def new_accorderie_offre_service(self, **kw):
+    def accorderie_participer_form_submit(self, **kw):
         # Send from participer website
         vals = {}
+        status = {}
+        if kw.get("state_id") in (
+            "init.pos.individuelle.formulaire",
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.offrir.existant.formulaire",
+        ):
+            if kw.get("offre_service_id"):
+                offre_service_id = int(kw.get("offre_service_id").get("id"))
+            else:
+                if kw.get("titre"):
+                    vals["titre"] = kw.get("titre")
 
-        if kw.get("titre"):
-            vals["titre"] = kw.get("titre")
+                if kw.get("description"):
+                    description = kw.get("description").replace("\n", "<br/>")
+                    vals["description"] = description
 
-        if kw.get("description"):
-            description = kw.get("description").replace("\n", "<br/>")
-            vals["description"] = description
+                if kw.get("type_service_id"):
+                    type_service_id = kw.get("type_service_id")
+                    if type(type_service_id) is dict:
+                        type_service_id_id = type_service_id.get("id")
+                        if type_service_id_id:
+                            vals["type_service_id"] = type_service_id_id
 
-        if kw.get("type_service_id"):
-            type_service_id = kw.get("type_service_id")
-            if type(type_service_id) is dict:
-                type_service_id_id = type_service_id.get("id")
-                if type_service_id_id:
-                    vals["type_service_id"] = type_service_id_id
+                membre_id = (
+                    http.request.env.user.partner_id.accorderie_membre_ids.id
+                )
+                vals["membre"] = membre_id
 
-        membre_id = http.request.env.user.partner_id.accorderie_membre_ids.id
-        vals["membre"] = membre_id
+                new_accorderie_offre_service = (
+                    request.env["accorderie.offre.service"].sudo().create(vals)
+                )
+                offre_service_id = new_accorderie_offre_service.id
+            status["id"] = offre_service_id
 
-        new_accorderie_offre_service = (
-            request.env["accorderie.offre.service"].sudo().create(vals)
-        )
-        return {"id": new_accorderie_offre_service.id}
+            if kw.get("state_id") in (
+                "init.saa.offrir.nouveau.categorie_service.formulaire",
+                "init.saa.offrir.existant.formulaire",
+            ):
+                vals = {}
+                if offre_service_id:
+                    vals["offre_service"] = offre_service_id
+
+                if kw.get("time_service_estimated"):
+                    vals["nb_heure_estime"] = float(
+                        kw.get("time_service_estimated")
+                    )
+
+                if kw.get("date_service"):
+                    date_echange = kw.get("date_service")
+                    if kw.get("time_service"):
+                        date_echange += " " + kw.get("time_service")
+                        # TODO Take date from local of user
+                        date_echange_float = datetime.strptime(
+                            date_echange, "%Y-%m-%d %H:%M"
+                        )
+                    else:
+                        date_echange_float = datetime.strptime(
+                            date_echange, "%Y-%m-%d"
+                        ).date()
+                    vals["date_echange"] = date_echange_float
+
+                if kw.get("commentaires"):
+                    vals["commentaire"] = kw.get("commentaires")
+
+                if kw.get("membre_id") and "id" in kw.get("membre_id").keys():
+                    membre_id_acheteur_id = kw.get("membre_id").get("id")
+                    vals["membre_acheteur"] = membre_id_acheteur_id
+
+                vals["type_echange"] = "offre_special"
+
+                membre_id = (
+                    http.request.env.user.partner_id.accorderie_membre_ids.id
+                )
+                vals["membre_vendeur"] = membre_id
+
+                new_accorderie_echange_service = (
+                    request.env["accorderie.echange.service"]
+                    .sudo()
+                    .create(vals)
+                )
+                # status["id"] = new_accorderie_echange_service.id
+
+        if kw.get("state_id") in ("init.va.non.offert.existant_formulaire",):
+            new_accorderie_echange_service = (
+                request.env["accorderie.echange.service"]
+                .sudo()
+                .browse(kw.get("echange_service_id").get("id"))
+            )
+            new_accorderie_echange_service.write(
+                {
+                    "transaction_valide": True,
+                    "nb_heure": float(kw.get("time_realisation_service")),
+                }
+            )
+            # TODO hack
+            status["id"] = 1
+        return status
 
     @http.route(
         [

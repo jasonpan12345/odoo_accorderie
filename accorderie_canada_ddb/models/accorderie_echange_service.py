@@ -15,7 +15,7 @@ class AccorderieEchangeService(models.Model):
 
     commentaire = fields.Char()
 
-    date_echange = fields.Date(string="Date de l'échange")
+    date_echange = fields.Datetime(string="Date de l'échange")
 
     demande_service = fields.Many2one(
         comodel_name="accorderie.demande.service",
@@ -106,9 +106,9 @@ class AccorderieEchangeService(models.Model):
     def _compute_titre(self):
         for rec in self:
             value = ""
-            if rec.offre_service:
+            if rec.offre_service and rec.offre_service.titre:
                 value += rec.offre_service.titre
-            if rec.demande_service:
+            if rec.demande_service and rec.demande_service.titre:
                 value += rec.demande_service.titre
             if not value:
                 value = "VIDE"

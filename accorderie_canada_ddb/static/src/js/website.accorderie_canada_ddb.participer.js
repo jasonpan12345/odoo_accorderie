@@ -682,6 +682,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.va.non.recu.choix.nouveau.formulaire'
             ].includes($scope.state.id);
         }
+
         $scope.form_is_nouveau = function () {
             return [
                 'init.pos.individuelle.formulaire',
@@ -691,6 +692,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.va.non.recu.choix.nouveau.formulaire'
             ].includes($scope.state.id);
         }
+
         $scope.form_is_service = function () {
             return [
                 'init.saa.offrir.existant.formulaire',
@@ -703,11 +705,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.va.non.recu.choix.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_is_service_to_modify = function () {
             return [
                 'init.saa.recevoir.choix.existant.time.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_is_service_and_service_prevu = function () {
             // TODO this is a hack because calling {{load_date()}} in page not working some time
             $scope.load_date();
@@ -723,12 +727,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.va.non.recu.choix.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_is_service_prevu = function () {
             return [
                 'init.saa.offrir.nouveau.categorie_service.formulaire',
                 'init.saa.recevoir.choix.existant.time.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_frais_trajet_distance = function () {
             return [
                 'init.saa.offrir.nouveau.categorie_service.formulaire',
@@ -736,6 +742,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.saa.recevoir.choix.existant.time.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_frais_trajet_prix = function () {
             return [
                 'init.saa.offrir.existant.formulaire',
@@ -746,6 +753,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.va.non.recu.choix.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_is_commentaire = function () {
             return [
                 'init.saa.offrir.existant.formulaire',
@@ -757,16 +765,70 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.va.non.recu.choix.formulaire'
             ].includes($scope.state.id)
         }
+
         $scope.form_frais_import_list_without_modify = function () {
             return [
                 'init.saa.offrir.nouveau.categorie_service.formulaire',
                 'init.saa.recevoir.choix.nouveau.formulaire',
             ].includes($scope.state.id)
         }
+
+        $scope.parseFloatTime = function (value) {
+            let factor = 1;
+            if (value[0] === '-') {
+                value = value.slice(1);
+                factor = -1;
+            }
+            let float_time_pair = value.split(":");
+            if (float_time_pair.length !== 2)
+                return factor * parseFloat(value);
+            let hours = $scope.parseInteger(float_time_pair[0]);
+            let minutes = $scope.parseInteger(float_time_pair[1]);
+            return factor * (hours + (minutes / 60));
+        }
+
+        $scope.parseInteger = function (value) {
+            let parsed = $scope.parseNumber(value);
+            // do not accept not numbers or float values
+            if (isNaN(parsed) || parsed % 1 || parsed < -2147483648 || parsed > 2147483647) {
+                throw new Error(_.str.sprintf(core._t("'%s' is not a correct integer"), value));
+            }
+            return parsed;
+        }
+
+        $scope.parseNumber = function (value) {
+            if (core._t.database.parameters.thousands_sep) {
+                let escapedSep = _.str.escapeRegExp(core._t.database.parameters.thousands_sep);
+                value = value.replace(new RegExp(escapedSep, 'g'), '');
+            }
+            if (core._t.database.parameters.decimal_point) {
+                value = value.replace(core._t.database.parameters.decimal_point, '.');
+            }
+            return Number(value);
+        }
+
         $scope.submit_form = function () {
-            console.log($scope.form);
-            // TODO change submit url dependant of form
-            ajax.rpc("/submit/accorderie_offre_service", $scope.form).then(function (data) {
+            $scope.form.state_id = $scope.state.id;
+            let copiedForm = JSON.parse(JSON.stringify($scope.form));
+            // Transform all date
+            // if (!_.isUndefined(copiedForm.time_service)) {
+            //     copiedForm.time_service = $scope.parseFloatTime(copiedForm.time_service);
+            // }
+            if (!_.isUndefined(copiedForm.time_realisation_service)) {
+                copiedForm.time_realisation_service = $scope.parseFloatTime(copiedForm.time_realisation_service);
+            }
+            if (!_.isUndefined(copiedForm.time_dure_trajet)) {
+                copiedForm.time_dure_trajet = $scope.parseFloatTime(copiedForm.time_dure_trajet);
+            }
+            if (!_.isUndefined(copiedForm.time_service_estimated)) {
+                copiedForm.time_service_estimated = $scope.parseFloatTime(copiedForm.time_service_estimated);
+            }
+            if (!_.isUndefined(copiedForm.time_drive_estimated)) {
+                copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_drive_estimated);
+            }
+
+            console.log(copiedForm);
+            ajax.rpc("/accorderie/participer/form/submit", copiedForm).then(function (data) {
                 console.debug("AJAX receive submit_form");
                 console.debug(data);
 
