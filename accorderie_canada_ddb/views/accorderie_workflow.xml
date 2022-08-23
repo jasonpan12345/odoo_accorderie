@@ -28,7 +28,9 @@
                 </arrow>
                 <label
                     for=""
-                    string="Caution, all modification is live. Diagram model: accorderie.workflow, node model: accorderie.workflow.state and arrow model: accorderie.workflow.relation"
+                    string="Diagramme de navigation pour le processus de participation d'un membre sur le mécanisme d'échange de temps.
+                    Toutes modifications sont réels sans retour en arrière.
+                    L'état rectangle pour des choix de navigation et l'état cercle pour la saisie de données (formulaire)."
                 />
             </diagram>
         </field>
@@ -107,7 +109,7 @@
 
     <act_window
         id="accorderie_workflow_action_window"
-        name="Workflow"
+        name="Diagramme de navigation"
         res_model="accorderie.workflow"
         view_mode="kanban,tree,form,diagram"
     />

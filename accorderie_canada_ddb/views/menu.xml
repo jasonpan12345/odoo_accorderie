@@ -33,7 +33,7 @@
 
     <menuitem id="group_statistique" name="Statistique" sequence="7" parent="parent_accorderie" />
 
-    <menuitem id="group_workflow" name="Workflow" sequence="8" parent="parent_configuration" />
+    <menuitem id="group_workflow" name="Diagramme" sequence="8" parent="parent_configuration" />
 
     <!--Child menu-->
 
@@ -55,7 +55,7 @@
 
     <menuitem
         id="menu_workflow"
-        name="Workflow"
+        name="Diagramme de navigation"
         action="accorderie_workflow_action_window"
         sequence="2"
         parent="group_workflow"
@@ -63,7 +63,7 @@
 
     <menuitem
         id="menu_workflow_relation"
-        name="Relation"
+        name="Relation de navigation"
         action="accorderie_workflow_relation_action_window"
         sequence="3"
         parent="group_workflow"
@@ -71,7 +71,7 @@
 
     <menuitem
         id="menu_workflow_state"
-        name="State"
+        name="État de navigation"
         action="accorderie_workflow_state_action_window"
         sequence="3"
         parent="group_workflow"

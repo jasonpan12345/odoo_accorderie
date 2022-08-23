@@ -289,7 +289,7 @@
 
     <act_window
         id="accorderie_workflow_state_action_window"
-        name="Workflow state"
+        name="État de navigation"
         res_model="accorderie.workflow.state"
         view_mode="kanban,tree,form"
     />

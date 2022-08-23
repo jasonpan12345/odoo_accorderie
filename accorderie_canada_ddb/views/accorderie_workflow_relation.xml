@@ -127,7 +127,7 @@
 
     <act_window
         id="accorderie_workflow_relation_action_window"
-        name="Workflow relation"
+        name="Relation de la navigation"
         res_model="accorderie.workflow.relation"
         view_mode="kanban,tree,form"
     />
