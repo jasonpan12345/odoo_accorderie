@@ -628,7 +628,8 @@
                                         ng-show="state.show_breadcrumb"
                                         ng-repeat="link in lst_label_breadcrumb"
                                         ng-click="change_breadcrumb_index(link.index)"
-                                        style="cursor:pointer; color:white"
+                                        class="cursor-pointer"
+                                        style="color:white"
                                     >{{link.text}}</span>
                                     <h1 ng-show="state.message">{{state.message}}</h1>
                                 </div>
@@ -649,7 +650,7 @@
                                         class="button_form"
                                         ng-if="!state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                     >
-                                        <div class="btn" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
+                                        <div class="btn label" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
 <!--                                            <img-->
 <!--                                                class="activite_img img-fluid"-->
@@ -674,7 +675,7 @@
                                             required="required"
                                             ng-click="click_statique(option)"
                                         />
-                                        <label for="{{option.id}}" class="btn" ng-dblclick="next_btn()">
+                                        <label for="{{option.id}}" class="btn label" ng-dblclick="next_btn()">
                                             <i class="fa {{option.icon}}" ng-if="option.icon" />
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
@@ -686,7 +687,7 @@
                                         class="button_form"
                                         ng-if="state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                     >
-                                        <div class="btn" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
+                                        <div class="btn label" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
 <!--                                            <img-->
 <!--                                                class="activite_img img-fluid"-->
@@ -721,7 +722,7 @@
                                             required="required"
                                         />
                                         <label
-                                            class="cat btn"
+                                            class="cat btn label"
                                             for="{{option.id}}"
                                             ng-click="click_inner_state_option(option)"
                                             ng-dblclick="next_btn()"
@@ -813,10 +814,10 @@
                                     </div>
 
                                     <!-- Catégorie -->
-                                    <div ng-if="form_is_offre_demande_service()"><b>Catégorie:</b><span
+                                    <div ng-if="form_is_offre_demande_service()" style="position:relative;top:-70px"><b>Catégorie:</b><span
                                             ng-repeat="link in lst_label_breadcrumb"
                                             ng-click="change_breadcrumb_index(link.index)"
-                                            style="cursor:pointer;"
+                                            class="cursor-pointer"
                                         >{{link.text}}</span>&gt;</div>
 
                                     <!-- Photo header -->
@@ -826,9 +827,9 @@
                                         style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                                     >
                                         <!-- TODO fill image with model -->
-                                        <div class="event_banner_action bg-primary">
-                                            <div class="btn btn-primary">
-                                                <i class="fa fa-share-alt icon_paddding_right" />
+                                        <div style="text-align:center">
+                                            <div class="btn btn-primary text-gamma">
+                                                <i class="fa fa-edit icon_paddding_right" />
                                                 Remplacer la photo
                                             </div>
                                         </div>
@@ -909,8 +910,7 @@
                                         De qui avez-vous reçu le service?
                                     </div>
                                     <div
-                                        class="form_box"
-                                        style="cursor: pointer;"
+                                        class="form_box cursor-pointer"
                                         ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
                                         ng-click="change_state_to_field_id('membre_id')"
                                     >
@@ -931,8 +931,7 @@
                                             <h4>Catégorie du service</h4>
                                         </div>
                                         <div
-                                            class="form_box"
-                                            style="cursor: pointer;"
+                                            class="form_box cursor-pointer"
                                             ng-click="change_state_to_field_id('type_service_id')"
                                         >
                                             <span>{{form.type_service_id.value}}</span>
@@ -1039,11 +1038,11 @@
                                             </div>
                                             <i class="fa fa-chevron-right" />
                                         </div>
-                                        <div class="form_box">
+                                        <div class="form_box dashed">
                                             <i class="fa fa-plus" />
                                             <span class="mr-auto ml-3">Matériel nécessaire</span>
                                         </div>
-                                        <div class="form_box">
+                                        <div class="form_box dashed">
                                             <i class="fa fa-plus" />
                                             <span
                                                 class="mr-auto ml-3"
@@ -1055,7 +1054,7 @@
                                             >Conditions</span>
                                         </div>
                                         <div
-                                            class="form_box"
+                                            class="form_box dashed"
                                             ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                         >
                                             <i class="fa fa-plus" />
@@ -1417,6 +1416,7 @@
                                             ng-src="{{state.selected_obj_value.img}}"
                                             ng-if="!_.isUndefined(state.selected_obj_value)"
                                         />
+                                        <i class="fa fa-search"/>
                                         <input
                                             id="chooseMember"
                                             type="search"
@@ -1557,7 +1557,7 @@
                     name="type_service_sous_categorie"
                     t-att-value="type_service_sous_categorie.id"
                 />
-                <label t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)" class="button_form btn small">
+                <label t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)" class="button_form btn small label">
                     <p
                         class="offre_desc"
                         t-if="type_service_sous_categorie.nom"

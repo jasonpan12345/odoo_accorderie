@@ -30,6 +30,10 @@ body {
   }
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 // Debug
 .debug_debug {
   display: none;
@@ -797,6 +801,8 @@ actualité
     aspect-ratio: 1/1;
     border-radius: 5px;
     margin-right: 5%;
+    line-height: 100px;
+    font-size: clamp(12px, 3rem, 3rem);
   }
   .infos {
     display: flex;
@@ -880,6 +886,7 @@ actualité
 
       .activite_img {
         height: 8vh;
+        line-height: 8vh;
       }
 
       .activite_title {
@@ -1794,7 +1801,7 @@ actualité
   flex: 1;
 }
 
-.buttons_form_container label:hover {
+.buttons_form_container .label:hover {
   background-color: $delta;
 }
 
@@ -1804,8 +1811,15 @@ actualité
   width: 0;
 }
 
-.buttons_form_container input[type="radio"]:checked + label {
+.buttons_form_container .label.checked {
   border: 2px solid $alpha;
+}
+
+.buttons_form_container .s_event_banner {
+  width: 100vw;
+  top: -70px;
+  left: -12.5%;
+  padding: 10%;
 }
 
 .buttons_form_container {
@@ -1816,6 +1830,7 @@ actualité
   padding: 5% 10%;
   flex-wrap: wrap;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   .list_title {
     padding: 2rem 0 0;
@@ -1825,7 +1840,7 @@ actualité
     font-weight: bold;
   }
 
-  label {
+  .label {
     min-height: 120px;
     width: 100%;
     border: 1px solid $beta;
@@ -1895,6 +1910,8 @@ actualité
     border-radius: 5px;
     border: 1px solid $beta;
     padding: 1rem;
+    margin-bottom: 1rem;
+
 
     > :nth-child(2) {
       margin-left: auto;
@@ -1919,6 +1936,12 @@ actualité
   .autoComplete_wrapper {
     width: 100%;
     height: 5rem;
+    position: relative;
+
+    .fa-search {
+      position: absolute;
+      top: 2rem;
+    }
   }
 
   #chooseMember {
@@ -1953,8 +1976,10 @@ actualité
     border-radius: 5px;
     padding: 1rem 2rem;
     position: relative;
-    left: -7%;
-    width: 114%;
+    //left: -7%;
+    //width: 114%;
+    left: -15%;
+    width: 122%;
 
     img {
       margin-right: 5%;
@@ -2151,7 +2176,7 @@ actualité
   .informations_container {
     display: grid;
     grid-template-columns: 0.7fr 1fr;
-    grid-template-rows: 0.7fr repeat(3, 1fr) 2fr;
+    grid-template-rows: repeat(3, auto);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
     padding: 0 10% 5% 10%;
@@ -2584,6 +2609,9 @@ actualité
   padding: 0.5rem;
   border-radius: 50%;
   margin-right: 1rem;
+}
+.dashed {
+  border: 1px dashed gray !important;
 }
 
 .event_container .informations_container {
