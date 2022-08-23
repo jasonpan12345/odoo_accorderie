@@ -808,7 +808,7 @@
                                     </div>
 
                                     <!-- Catégorie -->
-                                    <div ng-if="state.id == 'init.pos.individuelle.formulaire'"><b>Catégorie:</b><span
+                                    <div ng-if="form_is_offre_demande_service()"><b>Catégorie:</b><span
                                             ng-repeat="link in lst_label_breadcrumb"
                                             ng-click="change_breadcrumb_index(link.index)"
                                             style="cursor:pointer;"
@@ -816,7 +816,7 @@
 
                                     <!-- Photo header -->
                                     <section
-                                        ng-if="state.id == 'init.pos.individuelle.formulaire'"
+                                        ng-if="form_is_offre_demande_service()"
                                         class="s_event_banner oe_img_bg oe_custom_bg"
                                         style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                                     >
@@ -938,8 +938,7 @@
                                         </div>
                                     </div>
 
-                                   <div class="list_title" ng-if="state.id === 'init.pos.individuelle.formulaire'"><h4
-                                        >Titre</h4>
+                                   <div class="list_title" ng-if="form_is_offre_demande_service()"><h4>Titre</h4>
                                    </div>
 
                                     <input
@@ -953,7 +952,7 @@
                                         <h4>Description de votre offre de service</h4>
                                     </div>
 
-                                    <div class="list_title" ng-if="state.id === 'init.pos.individuelle.formulaire'">
+                                    <div class="list_title" ng-if="form_is_offre_demande_service()">
                                         <h4>Description</h4>
                                     </div>
 
@@ -961,7 +960,7 @@
 
                                     <div
                                         class="debug_unimplemented"
-                                        ng-if="['init.pos.individuelle.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
+                                        ng-if="['init.pos.individuelle.formulaire', 'init.pds.individuelle.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
                                     >
                                         <div class="list_title">
                                             <h4 class="d-flex">Déplacement
@@ -1006,7 +1005,7 @@
                                                 <span>Ajouter un élément à la liste</span>
                                             </div>
                                         </div>
-                                        <div class="list_title" ng-if="'init.pos.individuelle.formulaire' === state.id">
+                                        <div class="list_title" ng-if="form_is_offre_demande_service()">
                                             <h4 class="d-flex">Disponibilités
                                                 <i
                                                     class="fa fa-trash text-alpha"
@@ -1014,7 +1013,7 @@
                                                 />
                                             </h4>
                                         </div>
-                                        <div class="form_box" ng-if="'init.pos.individuelle.formulaire' === state.id">
+                                        <div class="form_box" ng-if="form_is_offre_demande_service()">
                                             <div class="dispo">
                                                 <div class="dates_container">
                                                     <p>LUNDI</p>
@@ -1047,7 +1046,7 @@
                                             >Conditions de l'échange de service</span>
                                             <span
                                                 class="mr-auto ml-3"
-                                                ng-if="'init.pos.individuelle.formulaire' === state.id"
+                                                ng-if="form_is_offre_demande_service()"
                                             >Conditions</span>
                                         </div>
                                         <div
@@ -1062,7 +1061,7 @@
 
                                     <div
                                         class="divider"
-                                        ng-if="form_is_nouveau() &amp;&amp; 'init.pos.individuelle.formulaire' !== state.id"
+                                        ng-if="form_is_nouveau() &amp;&amp; !['init.pos.individuelle.formulaire', 'init.pds.individuelle.formulaire'].includes(state.id)"
                                     />
 
                                     <!-- Service -->

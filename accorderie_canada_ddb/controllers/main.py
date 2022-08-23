@@ -654,7 +654,20 @@ class AccorderieCanadaDdbController(http.Controller):
             if not a.transaction_valide and not a.demande_service
         ]
 
-        json = {
+        dct_workflow_empty = (
+            {
+                "init": {
+                    "id": "init",
+                    "message": (
+                        "La procédure de participation est actuelle non"
+                        " disponible. Veuillez informer votre administrateur."
+                    ),
+                    "type": "selection_static",
+                },
+            },
+        )
+
+        json_data = {
             "data": {
                 "type_service_categorie": lst_type_service_categorie,
                 "membre": lst_membre,
@@ -664,478 +677,97 @@ class AccorderieCanadaDdbController(http.Controller):
             },
             "data_inner": {
                 "type_service_categorie": dct_data_inner_type_service_categorie
-            },
-            "workflow": {
-                "init": {
-                    "id": "init",
-                    "message": "Que souhaitez-vous faire?",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.pos",
-                            "title": "Publier une offre de service",
-                            "html": (
-                                "Vous souhaitez offrir vos"
-                                " services?<br/>Cliquez ici pour publier votre"
-                                " offre en ligne."
-                            ),
-                            # "value": "Publier.Une offre de service",
-                        },
-                        {
-                            "id": "init.pds",
-                            "title": "Publier une demande de service",
-                            "html": (
-                                "Vous avez besoin d'un service? Faites part de"
-                                " votre besoin aux membres de l'Accorderie en"
-                                " créant une demande ici."
-                            ),
-                            # "value": "Publier.Une demande de service",
-                        },
-                        {
-                            "id": "init.saa",
-                            "title": "S'accorder avec un autre accordeur",
-                            "html": (
-                                "Vous accorder vous permet de vous mettre"
-                                " d'accord à l'avance sur les modalités"
-                                " exactes du service à donner ou recevoir."
-                            ),
-                            # "value": "S'accorder",
-                        },
-                        {
-                            "id": "init.va",
-                            "title": "Valider un accordage",
-                            "html": (
-                                "Vous avez donné ou reçu un service? Déclarer"
-                                " ici la transaction pour donner ou percevoir"
-                                " les heures d'Accorderie dues."
-                            ),
-                            # "value": "Valider un accordage",
-                        },
-                    ],
-                },
-                "init.pos": {
-                    "id": "init.pos",
-                    "message": "Est-ce pour une offre de service :",
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Publier.Une offre de service",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.pos.individuelle",
-                            "title": "Individuelle",
-                            "html": (
-                                "Si vous offrez un service destiné à une"
-                                " personne à la fois."
-                            ),
-                        },
-                        {
-                            "id": "init.pos.collective",
-                            "title": "Collective",
-                            "html": (
-                                "Si vous offrez un service destiné à plusieurs"
-                                " personnes à la fois (cours en groupe,"
-                                " ateliers, conférences, achats groupés, ...)"
-                            ),
-                        },
-                    ],
-                },
-                "init.pos.individuelle": {
-                    "id": "init.pos.individuelle",
-                    "message": (
-                        "Dans quelle catégorie s'inscrit votre offre de"
-                        " service?"
-                    ),
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Individuelle",
-                    "type": "choix_categorie_de_service",
-                    "model_field_name_alias": "categorie",
-                    "model_field_name": "type_service_id",
-                    "data": "type_service_categorie",
-                    "next_id": "init.pos.individuelle.formulaire",
-                },
-                "init.pos.individuelle.formulaire": {
-                    "show_breadcrumb": True,
-                    "breadcrumb_show_only_last_item": True,
-                    "id": "init.pos.individuelle.formulaire",
-                    "message": "Formulaire",
-                    "type": "form",
-                    "disable_question": True,
-                    "submit_button_text": "Valider mon offre de service",
-                },
-                "init.pds": {
-                    "id": "init.pds",
-                    "message": "Est-ce pour une demande de service :",
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Publier.Une demande de service",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.pds.individuelle",
-                            "title": "Individuelle",
-                            "html": (
-                                "Si vous demandez un service destiné à une"
-                                " personne à la fois."
-                            ),
-                        },
-                        {
-                            "id": "init.pds.collective",
-                            "title": "Collective",
-                            "html": (
-                                "Si vous demandez un service destiné à"
-                                " plusieurs personnes à la fois (cours en"
-                                " groupe, ateliers, conférences, achats"
-                                " groupés, ...)"
-                            ),
-                        },
-                    ],
-                },
-                "init.saa": {
-                    "id": "init.saa",
-                    "message": "Que voulez-vous?",
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "S'accorder",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.saa.offrir",
-                            "title": "Je veux offrir un service",
-                        },
-                        {
-                            "id": "init.saa.recevoir",
-                            "title": "Je veux recevoir un service",
-                        },
-                    ],
-                },
-                "init.saa.offrir": {
-                    "id": "init.saa.offrir",
-                    "message": "Choisir une de mes offres",
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Offrir un service",
-                    "type": "selection_dynamique",
-                    "model_field_name_alias": "offre_service",
-                    "model_field_name": "offre_service_id",
-                    "data": "mes_offres_de_service",
-                    "next_id_data": "init.saa.offrir.existant",
-                    "list_is_first_position": True,
-                    "list": [
-                        {
-                            "id": "init.saa.offrir.nouveau",
-                            "html": (
-                                "Créer une offre de service"
-                                " privée<br/>(spécifiquement pour un autre"
-                                " accordeur)."
-                            ),
-                            "icon": "fa-plus-circle",
-                        },
-                    ],
-                },
-                "init.saa.offrir.nouveau": {
-                    "id": "init.saa.offrir.nouveau",
-                    "show_breadcrumb": True,
-                    "type": "choix_membre",
-                    "message": "À qui souhaitez-vous offrir le service?",
-                    "breadcrumb_value": "Privé",
-                    "model_field_name_alias": "membre",
-                    "model_field_name": "membre_id",
-                    "data": "membre",
-                    "next_id": "init.saa.offrir.nouveau.categorie_service",
-                },
-                "init.saa.offrir.nouveau.categorie_service": {
-                    "id": "init.saa.offrir.nouveau.categorie_service",
-                    "message": (
-                        "Dans quelle catégorie s'inscrit votre offre de"
-                        " service privée?"
-                    ),
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Pour 'membre'",
-                    "type": "choix_categorie_de_service",
-                    "model_field_name_alias": "categorie",
-                    "model_field_name": "type_service_id",
-                    "data": "type_service_categorie",
-                    "next_id": (
-                        "init.saa.offrir.nouveau.categorie_service.formulaire"
-                    ),
-                },
-                "init.saa.offrir.nouveau.categorie_service.formulaire": {
-                    "id": (
-                        "init.saa.offrir.nouveau.categorie_service.formulaire"
-                    ),
-                    "show_breadcrumb": False,
-                    "message": "Offrir un service privé",
-                    "type": "form",
-                },
-                "init.saa.offrir.existant": {
-                    "id": "init.saa.offrir.existant",
-                    "show_breadcrumb": True,
-                    "type": "choix_membre",
-                    "message": "À qui souhaitez-vous offrir le service?",
-                    "breadcrumb_value": "Que j'ai publié",
-                    "model_field_name_alias": "membre",
-                    "model_field_name": "membre_id",
-                    "data": "membre",
-                    "next_id": "init.saa.offrir.existant.formulaire",
-                },
-                "init.saa.offrir.existant.formulaire": {
-                    "id": "init.saa.offrir.existant.formulaire",
-                    "show_breadcrumb": False,
-                    "message": "Offrir un service privé",
-                    "type": "form",
-                },
-                "init.saa.recevoir": {
-                    "id": "init.saa.recevoir",
-                    "message": "De qui souhaitez-vous recevoir le service?",
-                    "show_breadcrumb": True,
-                    "type": "choix_membre",
-                    "model_field_name_alias": "membre",
-                    "model_field_name": "membre_id",
-                    "breadcrumb_value": "Recevoir un service",
-                    "data": "membre",
-                    "next_id": "init.saa.recevoir.choix",
-                },
-                "init.saa.recevoir.choix": {
-                    "id": "init.saa.recevoir.choix",
-                    "message": "Choisir une de ses offres",
-                    "show_breadcrumb": True,
-                    # "type": "choix_membre",
-                    # "model_field_name_alias": "membre",
-                    # "model_field_name": "membre_id",
-                    # "breadcrumb_value": "Recevoir un service",
-                    # "next_id": "init.saa.recevoir.choix",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.saa.recevoir.choix.nouveau",
-                            "title": "Nouveau",
-                        },
-                        {
-                            "id": "init.saa.recevoir.choix.existant",
-                            "title": "Existant",
-                        },
-                    ],
-                },
-                "init.saa.recevoir.choix.nouveau": {
-                    "id": "init.saa.recevoir.choix.nouveau",
-                    "show_breadcrumb": False,
-                    "message": "Description de la transaction",
-                    "type": "form",
-                },
-                "init.saa.recevoir.choix.existant": {
-                    "id": "init.saa.recevoir.choix.existant",
-                    "show_breadcrumb": False,
-                    "message": "Résumé de ma demande",
-                    "type": "form",
-                },
-                "init.va": {
-                    "id": "init.va",
-                    "message": (
-                        "Avez-vous créer une demande de service pour cette"
-                        " accordage?"
-                    ),
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Valider un accordage",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.va.oui",
-                            "title": "Oui",
-                        },
-                        {
-                            "id": "init.va.non",
-                            "title": "Non",
-                        },
-                    ],
-                },
-                "init.va.oui": {
-                    "id": "init.va.oui",
-                    "message": "Déclaration de l'accordage effectué",
-                    # "message": "Quel est votre accordage?",
-                    "show_breadcrumb": False,
-                    # "breadcrumb_value": "Avec une demande de service",
-                    "type": "form",
-                },
-                "init.va.non": {
-                    "id": "init.va.non",
-                    "message": "Qui êtes-vous?",
-                    "show_breadcrumb": True,
-                    "breadcrumb_value": "Sans demande",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.va.non.offert",
-                            "title": (
-                                "Je suis la personne qui a offert le service"
-                            ),
-                        },
-                        {
-                            "id": "init.va.non.recu",
-                            "title": (
-                                "Je suis la personne qui a reçu le service"
-                            ),
-                        },
-                    ],
-                },
-                "init.va.non.offert": {
-                    "id": "init.va.non.offert",
-                    "message": "Quel service avez-vous offert?",
-                    "show_breadcrumb": True,
-                    # "type": "choix_membre",
-                    # "model_field_name_alias": "membre",
-                    # "model_field_name": "membre_id",
-                    "breadcrumb_value": "J'ai offert un service",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.va.non.offert.nouveau",
-                            "title": "Nouveau",
-                        },
-                        {
-                            "id": "init.va.non.offert.existant",
-                            "title": "Existant",
-                        },
-                    ],
-                },
-                "init.va.non.offert.nouveau": {
-                    "id": "init.va.non.offert.nouveau",
-                    "show_breadcrumb": False,
-                    "message": "Déclaration de l'accordage effectué",
-                    "type": "form",
-                },
-                "init.va.non.offert.existant": {
-                    "id": "init.va.non.offert.existant",
-                    "show_breadcrumb": False,
-                    "message": "Résumé de ma demande",
-                    "type": "form",
-                },
-                "init.va.non.recu": {
-                    "id": "init.va.non.recu",
-                    "message": "Qui vous a offert le service?",
-                    "show_breadcrumb": True,
-                    # "type": "choix_membre",
-                    # "model_field_name_alias": "membre",
-                    # "model_field_name": "membre_id",
-                    "breadcrumb_value": "J'ai reçu un service",
-                    "type": "selection_static",
-                    "list": [
-                        {
-                            "id": "init.va.non.recu.nouveau",
-                            "title": "Nouveau",
-                        },
-                        {
-                            "id": "init.va.non.recu.existant",
-                            "title": "Existant",
-                        },
-                    ],
-                },
-                "init.va.non.recu.nouveau": {
-                    "id": "init.va.non.recu.nouveau",
-                    "show_breadcrumb": False,
-                    "message": "Déclaration de l'accordage effectué",
-                    "type": "form",
-                },
-                "init.va.non.recu.existant": {
-                    "id": "init.va.non.recu.existant",
-                    "show_breadcrumb": False,
-                    "message": "Déclaration de l'accordage effectué",
-                    "type": "form",
-                },
             },
         }
 
         workflow_ids = env["accorderie.workflow"].sudo().search([], limit=1)
 
         if not workflow_ids:
-            return json
-        workflow = {}
+            json_data["workflow"] = dct_workflow_empty
+        else:
+            dct_workflow = {}
 
-        for state_id in workflow_ids.diagram_state_ids:
-            dct_state = {"id": state_id.key}
-            if state_id.message:
-                dct_state["message"] = state_id.message
-            # if state_id.name:
-            #     dct_state["title"] = state_id.name
-            if state_id.type:
-                dct_state["type"] = state_id.type
-            if state_id.show_breadcrumb:
-                dct_state["show_breadcrumb"] = state_id.show_breadcrumb
-            if state_id.breadcrumb_value:
-                dct_state["breadcrumb_value"] = state_id.breadcrumb_value
-            if state_id.breadcrumb_show_only_last_item:
-                dct_state[
-                    "breadcrumb_show_only_last_item"
-                ] = state_id.breadcrumb_show_only_last_item
-            if state_id.breadcrumb_field_value:
-                dct_state[
-                    "breadcrumb_field_value"
-                ] = state_id.breadcrumb_field_value
-            if state_id.model_field_name_alias:
-                dct_state[
-                    "model_field_name_alias"
-                ] = state_id.model_field_name_alias
-            if state_id.data_depend_field:
-                dct_state["data_depend_field"] = state_id.data_depend_field
-            if state_id.data_url_field:
-                dct_state["data_url_field"] = state_id.data_url_field
-            if state_id.data_update_url:
-                dct_state["data_update_url"] = state_id.data_update_url
-            if state_id.force_update_data:
-                dct_state["force_update_data"] = state_id.force_update_data
-            if state_id.model_field_name:
-                dct_state["model_field_name"] = state_id.model_field_name
-            if state_id.disable_question:
-                dct_state["disable_question"] = state_id.disable_question
-            if state_id.submit_button_text:
-                dct_state["submit_button_text"] = state_id.submit_button_text
-            if state_id.list_is_first_position:
-                dct_state[
-                    "list_is_first_position"
-                ] = state_id.list_is_first_position
-            if state_id.data:
-                dct_state["data_name"] = state_id.data
-            if state_id.state_src_ids:
-                if state_id.type in (
-                    "selection_static",
-                    "selection_dynamique",
-                ):
-                    lst_item = []
-                    dct_state["list"] = lst_item
-                    for relation in state_id.state_src_ids:
-                        if not relation.is_dynamic:
-                            dct_item = {}
-                            if relation.state_dst:
-                                dct_item["id"] = relation.state_dst.key
-                            if relation.name:
-                                dct_item["title"] = relation.name
-                            if (
-                                relation.body_html
-                                and relation.body_html != "<p><br></p>"
-                            ):
-                                dct_item["html"] = relation.body_html
-                            if relation.icon:
-                                dct_item["icon"] = relation.icon
-                            lst_item.append(dct_item)
-                        else:
-                            dct_state["next_id_data"] = relation.state_dst.key
+            for state_id in workflow_ids.diagram_state_ids:
+                dct_state = {"id": state_id.key}
+                if state_id.message:
+                    dct_state["message"] = state_id.message
+                # if state_id.name:
+                #     dct_state["title"] = state_id.name
+                if state_id.type:
+                    dct_state["type"] = state_id.type
+                if state_id.show_breadcrumb:
+                    dct_state["show_breadcrumb"] = state_id.show_breadcrumb
+                if state_id.breadcrumb_value:
+                    dct_state["breadcrumb_value"] = state_id.breadcrumb_value
+                if state_id.breadcrumb_show_only_last_item:
+                    dct_state[
+                        "breadcrumb_show_only_last_item"
+                    ] = state_id.breadcrumb_show_only_last_item
+                if state_id.breadcrumb_field_value:
+                    dct_state[
+                        "breadcrumb_field_value"
+                    ] = state_id.breadcrumb_field_value
+                if state_id.model_field_name_alias:
+                    dct_state[
+                        "model_field_name_alias"
+                    ] = state_id.model_field_name_alias
+                if state_id.data_depend_field:
+                    dct_state["data_depend_field"] = state_id.data_depend_field
+                if state_id.data_url_field:
+                    dct_state["data_url_field"] = state_id.data_url_field
+                if state_id.data_update_url:
+                    dct_state["data_update_url"] = state_id.data_update_url
+                if state_id.force_update_data:
+                    dct_state["force_update_data"] = state_id.force_update_data
+                if state_id.model_field_name:
+                    dct_state["model_field_name"] = state_id.model_field_name
+                if state_id.disable_question:
+                    dct_state["disable_question"] = state_id.disable_question
+                if state_id.submit_button_text:
+                    dct_state[
+                        "submit_button_text"
+                    ] = state_id.submit_button_text
+                if state_id.list_is_first_position:
+                    dct_state[
+                        "list_is_first_position"
+                    ] = state_id.list_is_first_position
+                if state_id.data:
+                    dct_state["data_name"] = state_id.data
+                if state_id.state_src_ids:
+                    if state_id.type in (
+                        "selection_static",
+                        "selection_dynamique",
+                    ):
+                        lst_item = []
+                        dct_state["list"] = lst_item
+                        for relation in state_id.state_src_ids:
+                            if not relation.is_dynamic:
+                                dct_item = {}
+                                if relation.state_dst:
+                                    dct_item["id"] = relation.state_dst.key
+                                if relation.name:
+                                    dct_item["title"] = relation.name
+                                if (
+                                    relation.body_html
+                                    and relation.body_html != "<p><br></p>"
+                                ):
+                                    dct_item["html"] = relation.body_html
+                                if relation.icon:
+                                    dct_item["icon"] = relation.icon
+                                lst_item.append(dct_item)
+                            else:
+                                dct_state[
+                                    "next_id_data"
+                                ] = relation.state_dst.key
 
-                else:
-                    dct_state["next_id"] = state_id.state_src_ids[
-                        0
-                    ].state_dst.key
-            workflow[state_id.key] = dct_state
+                    else:
+                        dct_state["next_id"] = state_id.state_src_ids[
+                            0
+                        ].state_dst.key
+                dct_workflow[state_id.key] = dct_state
 
-        json = {
-            "data": {
-                "type_service_categorie": lst_type_service_categorie,
-                "membre": lst_membre,
-                "mes_offres_de_service": lst_mes_offre_de_service,
-                "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
-                "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
-            },
-            "data_inner": {
-                "type_service_categorie": dct_data_inner_type_service_categorie
-            },
-            "workflow": workflow,
-        }
-        return json
+            json_data["workflow"] = dct_workflow
+        return json_data
 
     @http.route(
         "/accorderie/participer/form/submit",
