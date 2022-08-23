@@ -919,9 +919,7 @@
 
                                     <!-- Description du service -->
                                     <div ng-if="form_is_nouveau_except_pos()">
-                                        <div
-                                            class="list_title bold"
-                                        >
+                                        <div class="list_title bold">
                                             Description du service privé
                                         </div>
                                         <div class="list_title">
@@ -940,10 +938,8 @@
                                         </div>
                                     </div>
 
-                                   <div
-                                        class="list_title bold"
-                                        ng-if="state.id === 'init.pos.individuelle.formulaire'"
-                                    >Titre
+                                   <div class="list_title" ng-if="state.id === 'init.pos.individuelle.formulaire'"><h4
+                                        >Titre</h4>
                                    </div>
 
                                     <input
@@ -953,17 +949,11 @@
                                         ng-model="form.titre"
                                     />
 
-                                    <div
-                                        class="list_title"
-                                        ng-if="form_is_nouveau_except_pos()"
-                                    >
+                                    <div class="list_title" ng-if="form_is_nouveau_except_pos()">
                                         <h4>Description de votre offre de service</h4>
                                     </div>
 
-                                    <div
-                                        class="list_title"
-                                        ng-if="state.id === 'init.pos.individuelle.formulaire'"
-                                    >
+                                    <div class="list_title" ng-if="state.id === 'init.pos.individuelle.formulaire'">
                                         <h4>Description</h4>
                                     </div>
 
@@ -1016,10 +1006,7 @@
                                                 <span>Ajouter un élément à la liste</span>
                                             </div>
                                         </div>
-                                        <div
-                                            class="list_title"
-                                            ng-if="'init.pos.individuelle.formulaire' === state.id"
-                                        >
+                                        <div class="list_title" ng-if="'init.pos.individuelle.formulaire' === state.id">
                                             <h4 class="d-flex">Disponibilités
                                                 <i
                                                     class="fa fa-trash text-alpha"
@@ -1073,7 +1060,10 @@
                                     </div>
 
 
-                                    <div class="divider" ng-if="form_is_nouveau()" />
+                                    <div
+                                        class="divider"
+                                        ng-if="form_is_nouveau() &amp;&amp; 'init.pos.individuelle.formulaire' !== state.id"
+                                    />
 
                                     <!-- Service -->
                                     <div
@@ -1083,10 +1073,7 @@
                                     </div>
                                     <div class="list_title bold" ng-if="form_is_service()">Service
                                     </div>
-                                    <div
-                                        class="list_title"
-                                        ng-if="form_is_service_and_service_prevu()"
-                                    >
+                                    <div class="list_title" ng-if="form_is_service_and_service_prevu()">
                                         <!-- load_date() will initialize date field -->
                                         {{load_date()}}
                                         <h4>Date de l'échange du service
@@ -1131,10 +1118,7 @@
     <!--                                    style="align-self:start;"-->
     <!--                                >Enregistrer</div>-->
 
-                                    <div
-                                        class="list_title"
-                                        ng-if="form_is_service_and_service_prevu()"
-                                    >
+                                    <div class="list_title" ng-if="form_is_service_and_service_prevu()">
                                         <h4>Heure de début du service</h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service_and_service_prevu()">
@@ -1165,10 +1149,7 @@
                                         </div>
                                     </div>
 
-                                    <div
-                                        class="list_title"
-                                        ng-if="form_is_service()"
-                                    >
+                                    <div class="list_title" ng-if="form_is_service()">
                                         <h4>Durée de la réalisation du service</h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service()">
@@ -1199,10 +1180,7 @@
                                         </div>
                                     </div>
 
-                                    <div
-                                        class="list_title"
-                                        ng-if="form_is_service()"
-                                    >
+                                    <div class="list_title" ng-if="form_is_service()">
                                         <h4>Durée du trajet aller-retour</h4>
                                     </div>
                                     <div class="form_box" ng-if="form_is_service()">
@@ -1242,12 +1220,12 @@
                                             ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                         >Coûts possibles supplémentaires à prévoir
                                         </div>
-                                        <div class="list_title bold" ng-if="form_is_service()">Coûts monétaires supplémentaires dû
-                                        </div>
                                         <div
-                                            class="list_title"
-                                            ng-if="form_frais_trajet_distance()"
-                                        >
+                                            class="list_title bold"
+                                            ng-if="form_is_service()"
+                                        >Coûts monétaires supplémentaires dû
+                                        </div>
+                                        <div class="list_title" ng-if="form_frais_trajet_distance()">
                                             <h4>Frais pour trajet de :
                                                 <a
                                                     href=""
@@ -1277,20 +1255,14 @@
                                             ng-if="form_is_service_to_modify()"
                                         >Enregistrer</div>
 
-                                        <div
-                                            class="list_title"
-                                            ng-if="form_frais_trajet_prix()"
-                                        >
+                                        <div class="list_title" ng-if="form_frais_trajet_prix()">
                                             <h4>Frais pour trajet :</h4>
                                         </div>
                                         <div class="form_box" ng-if="form_frais_trajet_prix()">
                                             <span>_ _</span>
                                             <span>$</span>
                                         </div>
-                                        <div
-                                            class="list_title"
-                                            ng-if="form_frais_trajet_prix()"
-                                        >
+                                        <div class="list_title" ng-if="form_frais_trajet_prix()">
                                             <h4>Frais pour le matériel nécessaire à l'échangede service</h4>
                                         </div>
                                         <div class="form_box" ng-if="form_frais_trajet_prix()">
@@ -1298,10 +1270,7 @@
                                             <span>$</span>
                                         </div>
 
-                                        <div
-                                            class="list_title"
-                                            ng-if="form_frais_import_list_without_modify()"
-                                        >
+                                        <div class="list_title" ng-if="form_frais_import_list_without_modify()">
                                             <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
                                         </div>
                                         <div
@@ -1312,10 +1281,7 @@
                                             <span>Importer une liste<i class="fa fa-download ml-3" /></span>
                                         </div>
 
-                                        <div
-                                            class="list_title"
-                                            ng-if="form_is_service_to_modify()"
-                                        >
+                                        <div class="list_title" ng-if="form_is_service_to_modify()">
                                             <h4>Frais pour le matériel nécessaire à l'échange de service
                                                 <a href="" class="text-primary" style="font-size:1.25rem;">Importer une
                                                     liste
