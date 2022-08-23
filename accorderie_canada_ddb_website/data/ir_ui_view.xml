@@ -7,6 +7,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371564">https://marvelapp.com/prototype/1773h559/screen/86371564</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -203,6 +206,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371538">https://marvelapp.com/prototype/1773h559/screen/86371538</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -507,6 +513,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371531">https://marvelapp.com/prototype/1773h559/screen/86371531</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -773,6 +782,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371516">https://marvelapp.com/prototype/1773h559/screen/86371516</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -1324,13 +1336,16 @@
                     <t t-call="website.layout">
                         <t t-set="pageName" t-value="'explorer'" />
                         <div id="wrap" class="oe_structure oe_empty">
+                            <div class="debug_debug">
+                                Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371509">https://marvelapp.com/prototype/1773h559/screen/86371509</a>
+                            </div>
                             <section class="s_search oe_img_bg oe_custom_bg pt16 debug_unimplemented" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_accueil_illustration_05@2x_png/Accueil-Illustration-05@2x.png&quot;);">
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
                                             <h1 class="s_title_default">
                                                 <div class="search_bar">
-                                                    <p class="search_txt text-epsilon">Que cherchez-vous ?</p>
+                                                    <p class="search_txt text-epsilon">Que cherchez-vous?</p>
                                                     <div class="search_category">
                                                         <p class="search_txt  text-epsilon">Type de recherche</p>
                                                         <div class="search_send btn btn-primary rounded-circle">
@@ -1340,7 +1355,7 @@
                                                             </font>
                                                         </div>
                                                     </div>
-                                                    <input type="text" placeholder="Entrez votre mot clé ici" />
+                                                    <input type="text" placeholder="Taper votre mot clé ici" />
                                                 </div>
                                             </h1>
                                         </div>
@@ -1856,6 +1871,9 @@
                     <t t-call="website.layout">
                         <div id="wrap" class="ng-cloak">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371556">https://marvelapp.com/prototype/1773h559/screen/86371556</a>
+                                </div>
                                 <section class="oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb48" style="text-align: center;">
@@ -2029,6 +2047,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371562">https://marvelapp.com/prototype/1773h559/screen/86371562</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -2220,6 +2241,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371565">https://marvelapp.com/prototype/1773h559/screen/86371565</a>
+                                </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
                                     <p>Mon profil > Mes annonces publiées</p>
                                     <div class="pt8 pb4 " style="text-align: center;">
@@ -2334,6 +2358,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371530">https://marvelapp.com/prototype/1773h559/screen/86371530</a>
+                                </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
                                     <p>Mon profil > Mes favoris</p>
                                     <div class="pt8 pb4 " style="text-align: center;">
@@ -2515,6 +2542,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371519">https://marvelapp.com/prototype/1773h559/screen/86371519</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -2699,6 +2729,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371551">https://marvelapp.com/prototype/1773h559/screen/86371551</a>
+                                </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
                                     <p>Mon profil > Mes informations personnelles</p>
                                     <div class="pt8 pb4 " style="text-align: center;">
@@ -2784,6 +2817,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371527">https://marvelapp.com/prototype/1773h559/screen/86371527</a>
+                                </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
                                     <p>Mon profil > Mes préférences générales</p>
                                     <div class="pt8 pb4 " style="text-align: center;">
@@ -2828,6 +2864,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371581">https://marvelapp.com/prototype/1773h559/screen/86371581</a>
+                                </div>
                                 <section class="s_chat pt80 pb160 debug_unimplemented">
                                     <div class="chat_container">
                                         <div class="chat_box">
@@ -2908,6 +2947,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371550">https://marvelapp.com/prototype/1773h559/screen/86371550</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -2989,6 +3031,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371534">https://marvelapp.com/prototype/1773h559/screen/86371534</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -3070,6 +3115,9 @@
                     <t t-call="website.layout">
                         <div id="wrap" class="ng-cloak">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371536">https://marvelapp.com/prototype/1773h559/screen/86371536</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pb64 pt56" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="banner_profile">
                                         <div class="profile_infos">
@@ -3155,6 +3203,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371557">https://marvelapp.com/prototype/1773h559/screen/86371557</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="banner_profile s_title pt16 pb16">
                                         <p class="s_title_default text-gamma">
@@ -3324,6 +3375,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371583">https://marvelapp.com/prototype/1773h559/screen/86371583</a>
+                                </div>
                                 <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
@@ -3611,6 +3665,7 @@
             <field name="arch" type="xml">
                 <t t-name="website.publier-offre">
                     <t t-call="website.layout">
+                        <!-- TODO cette page n'est plus bonne -->
                         <div id="wrap" class="oe_structure oe_empty">
                             <section class="s_cover parallax s_parallax_is_fixed s_parallax_no_overflow_hidden pt152 pb152" data-scroll-background-ratio="1" style="background-image: none;">
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/538/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;); background-position: 50% 0px;" />
@@ -3711,6 +3766,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371547">https://marvelapp.com/prototype/1773h559/screen/86371547</a>
+                                </div>
                                 <section class="s_event_banner oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;);">
                                     <div class="event_date_container lg">
                                         <div class="event_date">
@@ -3975,12 +4033,15 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86417205">https://marvelapp.com/prototype/1773h559/screen/86417205</a>
+                                </div>
                                 <section class="s_search_short debug_unimplemented">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
                                                 <div class="search_bar" style="margin:0 auto;width:100%">
-                                                    <p class="search_txt text-epsilon">Que cherchez-vous ?</p>
+                                                    <p class="search_txt text-epsilon">Que cherchez-vous?</p>
                                                     <div class="search_category">
                                                         <p class="search_txt text-epsilon">Type de recherche</p>
                                                         <div class="search_send btn btn-primary rounded-circle">
@@ -3992,7 +4053,7 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                    <input type="text" placeholder="Entrez votre mot clé ici" />
+                                                    <input type="text" placeholder="Taper votre mot clé ici" />
                                                 </div>
                                             </div>
                                         </div>
@@ -4100,6 +4161,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86594051">https://marvelapp.com/prototype/1773h559/screen/86594051</a>
+                                </div>
                                 <section class="s_accordage_informations pt72 pb72">
                                     <div class="informations_container">
                                         <div class="information information-1">
@@ -4284,6 +4348,9 @@
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371574">https://marvelapp.com/prototype/1773h559/screen/86371574</a>
+                                </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin:0 14%;">
                                     <p>Mon activité &gt; Mon agenda</p>
                                     <div class="pt8 pb4 " style="text-align: center;">

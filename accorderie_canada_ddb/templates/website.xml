@@ -612,6 +612,11 @@
                     <div id="wrap" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
                         <div class="debug_debug">
+                            <div class="debug_debug">
+                                Lien maquette : <a
+                                    href="https://marvelapp.com/prototype/1773h559/screen/86371515"
+                                >https://marvelapp.com/prototype/1773h559/screen/86371515</a>
+                            </div>
                             Debug form: <span>{{form || json}}</span>
                             <br />
                             Debug state: <span>{{state || json}}</span>
