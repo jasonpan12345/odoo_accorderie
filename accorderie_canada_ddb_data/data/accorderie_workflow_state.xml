@@ -11,11 +11,7 @@
         <record id="accorderie_workflow_state_null_collective" model="accorderie.workflow.state">
             <field name="name">Null</field>
             <field name="key">null</field>
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
-        </record>
-        <record id="accorderie_workflow_state_null_pds" model="accorderie.workflow.state">
-            <field name="name">Null</field>
-            <field name="key">null</field>
+            <field name="message">L'offre de service collective n'est pas encore supporté.</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pos" model="accorderie.workflow.state">
@@ -68,6 +64,16 @@
             <field name="data">type_service_categorie</field>
             <field name="model_field_name_alias">categorie</field>
             <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_pds_individuelle_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire demande de service individuelle</field>
+            <field name="key">init.pds.individuelle.formulaire</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_show_only_last_item">True</field>
+            <field name="disable_question">True</field>
+            <field name="submit_button_text">Valider ma demande de service</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa" model="accorderie.workflow.state">
@@ -239,7 +245,7 @@
         </record>
 
         <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">
-            <field name="name">Une demande de service existe?</field>
+            <field name="name">Valider un service selon une demande de service</field>
             <field name="key">init.va</field>
             <field name="message">Avez-vous créer une demande de service pour cette accordage?</field>
             <field name="type">selection_static</field>

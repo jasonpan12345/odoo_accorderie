@@ -686,10 +686,18 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.form_is_nouveau = function () {
             return [
                 'init.pos.individuelle.formulaire',
+                'init.pds.individuelle.formulaire',
                 'init.saa.offrir.nouveau.categorie_service.formulaire',
                 'init.saa.recevoir.choix.nouveau.formulaire',
                 'init.va.non.offert.nouveau_formulaire',
                 'init.va.non.recu.choix.nouveau.formulaire'
+            ].includes($scope.state.id);
+        }
+
+        $scope.form_is_offre_demande_service = function () {
+            return [
+                'init.pos.individuelle.formulaire',
+                'init.pds.individuelle.formulaire',
             ].includes($scope.state.id);
         }
 
@@ -909,7 +917,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.is_show_next = function () {
-            return !$scope.in_multiple_inner_state && !$scope.error && $scope.state.type !== "form";
+            return !$scope.in_multiple_inner_state && !$scope.error && !["form", "null"].includes($scope.state.type);
         }
 
         $scope.is_disable_next = function () {
