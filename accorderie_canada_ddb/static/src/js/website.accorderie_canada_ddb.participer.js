@@ -299,9 +299,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             console.debug(data);
 
             if (data.error) {
-                $scope.error = error;
+                $scope.error = data.error;
             } else if (_.isEmpty(data)) {
-                $scope.error = "Empty data";
+                $scope.error = "Empty data - " + new_url;
             } else {
                 return data.data;
             }
@@ -367,12 +367,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.show_submit_modal = false;
         $scope.submitted_url = "";
 
-        ajax.rpc("/accorderie_canada_ddb/get_participer_workflow_data/", {}).then(function (data) {
+        let url = "/accorderie_canada_ddb/get_participer_workflow_data/";
+        ajax.rpc(url, {}).then(function (data) {
             console.debug("AJAX receive get_participer_workflow_data");
             if (data.error) {
-                $scope.error = error;
+                $scope.error = data.error;
             } else if (_.isEmpty(data)) {
-                $scope.error = "Empty data";
+                $scope.error = "Empty data - " + url;
             } else if (!data.workflow.hasOwnProperty(INIT_STATE)) {
                 let str_error = "Missing state '" + INIT_STATE + "'.";
                 console.error(str_error);
@@ -836,16 +837,18 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
 
             console.log(copiedForm);
-            ajax.rpc("/accorderie/participer/form/submit", copiedForm).then(function (data) {
+            let url = "/accorderie/participer/form/submit"
+            ajax.rpc(url, copiedForm).then(function (data) {
                 console.debug("AJAX receive submit_form");
                 console.debug(data);
 
                 if (data.error) {
-                    $scope.error = error;
+                    $scope.error = data.error;
                 } else if (_.isEmpty(data)) {
-                    $scope.error = "Empty data";
+                    $scope.error = "Empty data - " + "/accorderie/participer/form/submit";
                 } else {
                     $scope.show_submit_modal = true;
+                    // TODO when after server url redirection or create logic condition
                     $scope.submitted_url = `accorderie_canada_ddb/accorderie_offre_service/${data.id}`;
                 }
 

@@ -7,7 +7,7 @@ import humanize
 import requests
 import werkzeug
 
-from odoo import http
+from odoo import _, http
 from odoo.http import request
 from odoo.tools.image import image_data_uri
 
@@ -361,19 +361,37 @@ class AccorderieCanadaDdbController(http.Controller):
         humanize.i18n.deactivate()
         return str_diff_time_creation
 
+    @staticmethod
+    def get_membre_id():
+        partner_id = http.request.env.user.partner_id
+        # TODO wrong algorithm, but use instead 'auth="user",'
+        if not partner_id or http.request.auth_method == "public":
+            return {"error": _("User not connected")}
+
+        membre_id = partner_id.accorderie_membre_ids
+
+        if not membre_id:
+            return {
+                "error": _(
+                    "Your account is not associate to an accorderie"
+                    " configuration. Please contact your administrator."
+                )
+            }
+        return membre_id
+
     @http.route(
         [
             "/accorderie_canada_ddb/get_personal_information",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_personal_information(self, **kw):
-        # TODO validate this getter membre_id
-        membre_id = http.request.env.user.partner_id.accorderie_membre_ids
-        if not membre_id:
-            return {"error": "User not connected"}
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
 
         str_diff_time_creation = self._transform_str_diff_time_creation(
             membre_id.create_date
@@ -473,13 +491,15 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/get_info/echange_service/<model('accorderie.membre'):membre_id>",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_participer_workflow_data_echange_service(self, membre_id, **kw):
-        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
-        if not me_membre_id:
-            return {"error": "User not connected"}
+        me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
+
         lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
             {
                 "id": a.id,
@@ -503,13 +523,15 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/get_info/recevoir_service/<model('accorderie.membre'):membre_id>",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_participer_workflow_data_recevoir_service(self, membre_id, **kw):
-        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
-        if not me_membre_id:
-            return {"error": "User not connected"}
+        me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
+
         lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
             {
                 "id": a.id,
@@ -533,7 +555,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/get_participer_workflow_data",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_participer_workflow_data(self, **kw):
@@ -545,10 +567,12 @@ class AccorderieCanadaDdbController(http.Controller):
         # E - Calendrier : calendrier
         # F - Temps + durée : temps_duree
         # G - Formulaire (xml_item_id) : form
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+
         env = request.env(context=dict(request.env.context))
-        membre_id = http.request.env.user.partner_id.accorderie_membre_ids
-        if not membre_id:
-            return {"error": "User not connected"}
 
         # Remove itself member
         accorderie_membre_ids = (
