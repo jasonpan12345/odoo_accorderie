@@ -1,4 +1,3 @@
-
 odoo.define('website.accorderie_canada_ddb.debug_not_implemented.instance', function (require) {
     'use strict';
 
@@ -20,33 +19,39 @@ odoo.define('website.accorderie_canada_ddb.debug_not_implemented.instance', func
 
 odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (require) {
 
-    let ajax = require('web.ajax');
     let Widget = require('web.Widget');
     let session = require('web.session');
+
+    const uniqueIdHideNotImplemented = "unique_hide_debug_unimplemented";
+    const debugHideClass = "hide_not_implemented";
+    const debugHideCSS = "website_debugger_hide.css";
+
+    const uniqueIdHighLight = "unique_highlight_debug_unimplemented";
+    const debugHighLightClass = "highlight_not_implemented";
+    const debugHighLightCSS = "website_debugger_highlight.css";
+
+    const uniqueIdDebugDebug = "unique_debug_debug_unimplemented";
+    const debugDebugClass = "btn_debug_debug";
+    const debugDebugCSS = "website_debugger_debug_debug.css";
 
     let Debug = Widget.extend({
         start: function () {
             let self = this;
-            let debugHighlighted = false; //highlight mode
             let debugHide = false; //hide mode
+            let debugHighlighted = false; //highlight mode
             let debugDebug = false; //hide mode
 
             $(document).ready(function () {
                 let is_debug = session.debug || !_.isEmpty(session.debug);
                 if (is_debug) {
                     debugDebug = true;
-                    self.DebugDebug(false);
-                    self.ActivateDebug("btn_debug_debug", true);
+                    self.LoadCss(debugDebug, uniqueIdDebugDebug, debugDebugCSS)
+                    self.ActivateDebug(debugDebugClass, debugDebug, true);
                 }
-                // if (window.location.search.search("debug=") >= 0) {
-                //     debugDebug = true;
-                //     self.DebugDebug(false);
-                //     self.ActivateDebug("btn_debug_debug", true);
-                // }
                 if (!session.is_admin && !is_debug) {
                     debugHide = true;
-                    self.ActivateDebug("hide_not_implemented", true);
-                    self.HideNotImplemented(true);
+                    self.LoadCss(debugHide, uniqueIdHideNotImplemented, debugHideCSS)
+                    self.ActivateDebug(debugHideClass, debugHide);
                 }
                 // session.user_has_group('base.group_portal').then(function (has_group) {
                 //     if (has_group) {
@@ -57,110 +62,67 @@ odoo.define("website.accorderie_canada_ddb.debug_not_implemented", function (req
                 // });
             });
 
-            $(document).on("click", '.highlight_not_implemented', function (ev) {
-                self.on_click(ev);
-                if (debugHighlighted) {
-                    debugHighlighted = false;
-                    self.HighlightNotImplemented(false);
-                    self.ActivateDebug("highlight_not_implemented", false);
-                } else {
-                    debugHighlighted = true;
-                    self.HighlightNotImplemented(true);
-                    self.ActivateDebug("highlight_not_implemented", true);
-                }
+            $(document).on("click", "." + debugHighLightClass, function (ev) {
+                console.debug("Click " + debugHighLightClass);
+                ev.preventDefault();
+                ev.stopPropagation();
+                debugHighlighted = !debugHighlighted;
+                self.LoadCss(debugHighlighted, uniqueIdHighLight, debugHighLightCSS)
+                self.ActivateDebug(debugHighLightClass, debugHighlighted);
                 // turn off other mode
                 debugHide = false;
-                self.HideNotImplemented(false);
+                self.LoadCss(debugHide, uniqueIdHideNotImplemented, debugHideCSS)
             })
 
-            $(document).on("click", '.hide_not_implemented', function (ev) {
-                self.on_click(ev);
-                if (debugHide) {
-                    debugHide = false;
-                    self.HideNotImplemented(false);
-                    self.ActivateDebug("hide_not_implemented", false);
-                } else {
-                    debugHide = true;
-                    self.HideNotImplemented(true);
-                    self.ActivateDebug("hide_not_implemented", true);
-                }
+            $(document).on("click", "." + debugHideClass, function (ev) {
+                console.debug("Click " + debugHideClass);
+                ev.preventDefault();
+                ev.stopPropagation();
+                debugHide = !debugHide;
+                self.LoadCss(debugHide, uniqueIdHideNotImplemented, debugHideCSS)
+                self.ActivateDebug(debugHideClass, debugHide);
                 // turn off other mode
                 debugHighlighted = false;
-                self.HighlightNotImplemented(false);
+                self.LoadCss(debugHighlighted, uniqueIdHighLight, debugHighLightCSS)
             })
 
-            $(document).on("click", '.btn_debug_debug', function (ev) {
-                self.on_click(ev);
-                if (debugDebug) {
-                    debugDebug = false;
-                    self.DebugDebug(true);
-                    self.ActivateDebug("btn_debug_debug", false);
-                } else {
-                    debugDebug = true;
-                    self.DebugDebug(false);
-                    self.ActivateDebug("btn_debug_debug", true);
-                }
+            $(document).on("click", "." + debugDebugClass, function (ev) {
+                console.debug("Click " + debugDebugClass);
+                ev.preventDefault();
+                ev.stopPropagation();
+                debugDebug = !debugDebug;
+                self.LoadCss(debugDebug, uniqueIdDebugDebug, debugDebugCSS)
+                self.ActivateDebug(debugDebugClass, debugDebug, true);
             })
         },
-        on_click: function (ev) {
-            console.log("onclick debug option");
-            ev.preventDefault();
-            ev.stopPropagation();
-        },
-
-        HighlightNotImplemented: function (show) {
-            let unique_id_name = "unique_highlight_debug_unimplemented";
-            if (show) {
+        LoadCss: function (isLoad, uniqueIdName, cssName) {
+            if (isLoad) {
                 let link = document.createElement('link');
                 link.rel = "stylesheet";
                 link.type = "text/css";
-                link.id = unique_id_name;
-                link.href = document.location.origin + "/accorderie_canada_ddb/static/src/scss/website_debugger_highlight.css";
+                link.id = uniqueIdName;
+                link.href = document.location.origin + "/accorderie_canada_ddb/static/src/scss/" + cssName;
 
                 document.head.appendChild(link);
             } else {
-                let unique_id = document.getElementById(unique_id_name);
+                let unique_id = document.getElementById(uniqueIdName);
                 if (!_.isNull(unique_id)) {
                     unique_id.remove();
                 }
             }
         },
-        HideNotImplemented: function (show) {
-            let unique_id_name = "unique_hide_debug_unimplemented";
-            if (show) {
-                let link = document.createElement('link');
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.id = unique_id_name;
-                link.href = document.location.origin + "/accorderie_canada_ddb/static/src/scss/website_debugger_hide.css";
-
-                document.head.appendChild(link);
-            } else {
-                let unique_id = document.getElementById(unique_id_name);
-                if (!_.isNull(unique_id)) {
-                    unique_id.remove();
-                }
-            }
-        },
-        DebugDebug: function (hide) {
-
-            let classes = document.getElementsByClassName("debug_debug");
-
-            for (let j = 0; j < classes.length; j++) {
-                if (hide) {
-                    classes[j].style.display = "none";
-                } else {
-                    classes[j].style.display = "revert";
-                }
-            }
-        },
-        ActivateDebug: function (debugType, debugActive) {
+        ActivateDebug: function (debugType, debugActive, ignoreSibling = false) {
             let debugBtn = document.getElementsByClassName(debugType);
             let siblings = $('.' + debugType).siblings();
 
             // deactivate sibling buttons
-            for (let i = 0; i < siblings.length; i++) {
-                siblings[i].style.backgroundColor = "unset";
+            if (!ignoreSibling) {
+                for (let i = 0; i < siblings.length; i++) {
+                    // Ignore debug_debug button
+                    if (siblings[i].className.indexOf(debugDebugClass) === -1) {
+                        siblings[i].style.backgroundColor = "unset";
+                    }
+                }
             }
             // activate/deactivate target button
             for (let i = 0; i < debugBtn.length; i++) {
