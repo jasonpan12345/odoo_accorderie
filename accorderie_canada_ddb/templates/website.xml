@@ -671,19 +671,11 @@
                                         ng-class="{'debug_unimplemented': is_not_implemented(option)}"
                                         class="button_form"
                                     >
-                                        <input
-                                            type="radio"
-                                            id="{{option.id}}"
-                                            name="pub"
-                                            ng-value="option.id"
-                                            ng-model="$parent.$parent.state.next_id"
-                                            required="required"
-                                            ng-click="click_statique(option)"
-                                        />
                                         <label
                                             for="{{option.id}}"
                                             class="btn label"
                                             ng-class="{checked: $parent.$parent.state.next_id == option.id}"
+                                            ng-click="click_statique(option)"
                                             ng-dblclick="next_btn()"
                                         >
                                             <i class="fa {{option.icon}}" ng-if="option.icon" />
@@ -727,14 +719,6 @@
                                             ng-click="previous_inner_state_btn()"
                                         ><i class="fa fa-chevron-left" /> {{actual_inner_state_name}}</span></div>
                                     <span ng-repeat="option in state_get_data()" class="categorie">
-                                        <input
-                                            type="radio"
-                                            id="{{option.id}}"
-                                            name="pub"
-                                            ng-value="option.id"
-                                            ng-model="$parent.$parent.state.selected_id"
-                                            required="required"
-                                        />
                                         <label
                                             class="cat btn label"
                                             ng-class="{checked: $parent.$parent.state.selected_id == option.id}"
