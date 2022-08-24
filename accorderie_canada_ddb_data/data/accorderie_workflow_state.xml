@@ -82,7 +82,7 @@
             <field name="message">Que voulez-vous?</field>
             <field name="type">selection_static</field>
             <field name="show_breadcrumb">True</field>
-            <field name="breadcrumb_value">S'accorder</field>
+            <field name="breadcrumb_value">Créer un échange</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir" model="accorderie.workflow.state">

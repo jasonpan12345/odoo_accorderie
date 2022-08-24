@@ -524,11 +524,11 @@
                                         Vous avez besoin d'un service? Faites part de votre besoin aux membres de l'Accorderie en créant une demande ici.
                                     </a>
                                     <a role="menuitem" href="/participer#!?state=init.saa" class="dropdown-item pub">
-                                        <h4>S'accorder avec un autre accordeur</h4>
-                                        Vous accorder vous permet de vous mettre d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.
+                                        <h4>Faire un échange avec un autre Accordeur.e</h4>
+                                        Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.
                                     </a>
                                     <a role="menuitem" href="/participer#!?state=init.va" class="dropdown-item pub">
-                                        <h4>Valider un accordage</h4>
+                                        <h4>Valider un échange</h4>
                                         Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.
                                     </a>
                                 </div>
