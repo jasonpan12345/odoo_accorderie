@@ -906,7 +906,6 @@
                                             <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
                                         </div>
                                     </div>
-                                    <!-- TODO divider not working, line is not showing -->
                                     <div
                                         class="divider"
                                         ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
