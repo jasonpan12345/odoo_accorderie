@@ -556,11 +556,7 @@
                                     <b class="ng-cloak">
                                         <p
                                             class="hours"
-                                            ng-if="personal.actual_bank_sign"
-                                        >{{personal.actual_bank_time_diff}}</p>
-                                        <p
-                                            class="hours neg_time"
-                                            ng-if="!personal.actual_bank_sign"
+                                            ng-class="{neg_time: !personal.actual_bank_sign}"
                                         >{{personal.actual_bank_time_diff}}</p>
                                     </b>
 

@@ -3127,7 +3127,7 @@
                                             <div class="profile_banner_info">
                                                 <p class="profile_name text-gamma">{{personal.full_name}}</p>
                                                 <p class="profile_hrs text-gamma">
-                                                    <i class="fa fa-clock-o" />&amp;nbsp;<span ng-if="personal.actual_bank_sign">{{personal.actual_bank_time_human_simplify}}</span><span ng-if="!personal.actual_bank_sign" class="neg_time_2">{{personal.actual_bank_time_human_simplify}}</span>
+                                                    <i class="fa fa-clock-o" />&amp;nbsp;<span ng-class="{neg_time_2: !personal.actual_bank_sign}">{{personal.actual_bank_time_human_simplify}}</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -3213,8 +3213,7 @@
                                         </p>
                                         <div class="solde_container text-gamma">
                                             <div class="txt">Solde de mon compte <i class="fa fa-question-circle-o" /></div>
-                                            <div class="solde" ng-if="personal.actual_bank_sign">{{personal.actual_bank_time_human_short | uppercase}}</div>
-                                            <div class="solde neg_time" ng-if="!personal.actual_bank_sign">{{personal.actual_bank_time_human_short | uppercase}}</div>
+                                            <div class="solde" ng-class="{neg_time: !personal.actual_bank_sign}">{{personal.actual_bank_time_human_short | uppercase}}</div>
                                         </div>
                                     </div>
                                 </section>
