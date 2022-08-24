@@ -1099,9 +1099,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // Dynamique list
         $scope.click_statique = function (option) {
             console.debug("call click_statique");
-            // clean dynamique option
             console.debug(option);
 
+            $scope.state.next_id = option.id;
+
+            // clean dynamique option
             $scope.state.selected_id = undefined;
             $scope.state.selected_obj_value = undefined;
             $scope.state.selected_value = undefined;
@@ -1130,8 +1132,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.update_inner_state(option);
                 } else {
                     $scope.state.selected_value = option.title;
-                    // option.id is set by ng-model
-                    // $scope.state.selected_id = option.id;
+                    $scope.state.selected_id = option.id;
                     $scope.state.selected_tree_id = option.tree_id;
                 }
             }
