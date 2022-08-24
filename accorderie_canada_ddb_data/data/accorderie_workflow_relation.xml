@@ -16,8 +16,8 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_saa" model="accorderie.workflow.relation">
-            <field name="name">S'accorder avec un autre membre</field>
-            <field name="body_html">Vous accorder vous permet de vous mettre d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.</field>
+            <field name="name">Créer un échange avec un autre membre</field>
+            <field name="body_html">Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.</field>
             <field name="state_src" ref="accorderie_workflow_state_init" />
             <field name="state_dst" ref="accorderie_workflow_state_saa" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -37,7 +37,7 @@
         </record>
         <record id="accorderie_workflow_relation_pds_individuelle" model="accorderie.workflow.relation">
             <field name="name">Individuelle</field>
-            <field name="body_html">Si vous offrez un service destiné à une personne à la fois.</field>
+            <field name="body_html">Si vous demandez un service destiné à une personne à la fois.</field>
             <field name="state_src" ref="accorderie_workflow_state_pds" />
             <field name="state_dst" ref="accorderie_workflow_state_pds_individuelle" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -135,7 +135,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_va" model="accorderie.workflow.relation">
-            <field name="name">Valider un accordage</field>
+            <field name="name">Valider un échange</field>
             <field name="body_html">Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>
             <field name="state_src" ref="accorderie_workflow_state_init" />
             <field name="state_dst" ref="accorderie_workflow_state_va" />
