@@ -1431,7 +1431,7 @@
                                             ng-src="{{state.selected_obj_value.img}}"
                                             ng-if="!_.isUndefined(state.selected_obj_value)"
                                         />
-                                        <i class="fa fa-search"/>
+                                        <i class="fa fa-search" ng-if="_.isUndefined($parent.state.selected_id)" />
                                         <input
                                             id="chooseMember"
                                             type="search"
