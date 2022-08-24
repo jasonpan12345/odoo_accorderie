@@ -650,7 +650,12 @@
                                         class="button_form"
                                         ng-if="!state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                     >
-                                        <div class="btn label" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
+                                        <div
+                                            class="btn label"
+                                            ng-class="{checked: state.selected_id == option.id}"
+                                            ng-click="click_dynamique(option)"
+                                            ng-dblclick="next_btn()"
+                                        >
 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
 <!--                                            <img-->
 <!--                                                class="activite_img img-fluid"-->
@@ -675,7 +680,12 @@
                                             required="required"
                                             ng-click="click_statique(option)"
                                         />
-                                        <label for="{{option.id}}" class="btn label" ng-dblclick="next_btn()">
+                                        <label
+                                            for="{{option.id}}"
+                                            class="btn label"
+                                            ng-class="{checked: $parent.$parent.state.next_id == option.id}"
+                                            ng-dblclick="next_btn()"
+                                        >
                                             <i class="fa {{option.icon}}" ng-if="option.icon" />
                                             <h5 ng-show="option.title">{{option.title}}</h5>
                                             <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
@@ -687,7 +697,12 @@
                                         class="button_form"
                                         ng-if="state.list_is_first_position &amp;&amp; _.isObject(state.data)"
                                     >
-                                        <div class="btn label" ng-click="click_dynamique(option)" ng-dblclick="next_btn()">
+                                        <div
+                                            class="btn label"
+                                            ng-class="{checked: state.selected_id == option.id}"
+                                            ng-click="click_dynamique(option)"
+                                            ng-dblclick="next_btn()"
+                                        >
 <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
 <!--                                            <img-->
 <!--                                                class="activite_img img-fluid"-->
@@ -707,11 +722,10 @@
                                     <div
                                         ng-if="_.isEmpty(state.data)"
                                     >Aucune catégorie de service, veuillez communiquer avec votre administrateur.</div>
-                                    <div
-                                        ng-if="!_.isEmpty(actual_inner_state_name)"
-                                        ng-click="previous_inner_state_btn()"
-                                        style="width:100%;"
-                                    ><i class="fa fa-chevron-left" /> {{actual_inner_state_name}}</div>
+                                    <div ng-if="!_.isEmpty(actual_inner_state_name)" style="width:100%;"><span
+                                            style="cursor:pointer"
+                                            ng-click="previous_inner_state_btn()"
+                                        ><i class="fa fa-chevron-left" /> {{actual_inner_state_name}}</span></div>
                                     <span ng-repeat="option in state_get_data()" class="categorie">
                                         <input
                                             type="radio"
@@ -723,6 +737,7 @@
                                         />
                                         <label
                                             class="cat btn label"
+                                            ng-class="{checked: $parent.$parent.state.selected_id == option.id}"
                                             for="{{option.id}}"
                                             ng-click="click_inner_state_option(option)"
                                             ng-dblclick="next_btn()"
@@ -814,7 +829,8 @@
                                     </div>
 
                                     <!-- Catégorie -->
-                                    <div ng-if="form_is_offre_demande_service()" style="position:relative;top:-70px"><b>Catégorie:</b><span
+                                    <div ng-if="form_is_offre_demande_service()" style="position:relative;top:-70px"><b
+                                        >Catégorie:</b><span
                                             ng-repeat="link in lst_label_breadcrumb"
                                             ng-click="change_breadcrumb_index(link.index)"
                                             class="cursor-pointer"
@@ -1557,7 +1573,10 @@
                     name="type_service_sous_categorie"
                     t-att-value="type_service_sous_categorie.id"
                 />
-                <label t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)" class="button_form btn small label">
+                <label
+                    t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)"
+                    class="button_form btn small label"
+                >
                     <p
                         class="offre_desc"
                         t-if="type_service_sous_categorie.nom"
