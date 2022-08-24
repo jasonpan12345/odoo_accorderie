@@ -901,9 +901,7 @@
                                     >
                                         Destinataire du service
                                     </h3>
-                                    <h3
-                                        ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id"
-                                    >
+                                    <h3 ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id">
                                         De qui avez-vous reçu le service?
                                     </h3>
                                     <div
@@ -1218,9 +1216,7 @@
                                             ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                         >Coûts possibles supplémentaires à prévoir
                                         </h3>
-                                        <h3
-                                            ng-if="form_is_service()"
-                                        >Coûts monétaires supplémentaires dû
+                                        <h3 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
                                         </h3>
                                         <div ng-if="form_frais_trajet_distance()">
                                             <h4>Frais pour trajet de :
@@ -1295,9 +1291,7 @@
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                     >Estimation de la durée de service
                                     </h3>
-                                    <div
-                                        ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >
+                                    <div ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id">
                                         <h4>Temps de service estimé</h4>
                                     </div>
                                     <div
@@ -1329,9 +1323,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div
-                                        ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >
+                                    <div ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id">
                                         <h4>Temps de trajet estimé</h4>
                                     </div>
                                     <div
