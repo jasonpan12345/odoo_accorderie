@@ -43,6 +43,7 @@
             <field name="breadcrumb_show_only_last_item">True</field>
             <field name="disable_question">True</field>
             <field name="submit_button_text">Valider mon offre de service</field>
+            <field name="submit_response_title">Félicitation votre offre de service a été publié!</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pds" model="accorderie.workflow.state">
@@ -74,6 +75,7 @@
             <field name="breadcrumb_show_only_last_item">True</field>
             <field name="disable_question">True</field>
             <field name="submit_button_text">Valider ma demande de service</field>
+            <field name="submit_response_title">Félicitation votre demande de service a été publié!</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa" model="accorderie.workflow.state">
@@ -129,6 +131,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Valider mon offre</field>
+            <field name="submit_response_title">Votre offre de service a bien été envoyée.</field>
+            <field name="submit_response_description">L'Accordeur devrait vous contacter sous peu pour valider, modifier ou refuser votre proposition.</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service" model="accorderie.workflow.state">
@@ -151,6 +155,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Valider mon offre</field>
+            <field name="submit_response_title">Votre offre de service privé a bien été envoyée.</field>
+            <field name="submit_response_description">L'Accordeur devrait vous contacter sous peu pour valider, modifier ou refuser votre proposition.</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -203,6 +209,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Envoyer ma demande</field>
+            <field name="submit_response_title">La demande a bien été envoyée!</field>
+            <field name="submit_response_description">Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_existant" model="accorderie.workflow.state">
@@ -241,6 +249,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Envoyer ma demande</field>
+            <field name="submit_response_title">La demande a bien été envoyée!</field>
+            <field name="submit_response_description">Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -272,6 +282,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -304,6 +316,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
@@ -313,6 +327,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu" model="accorderie.workflow.state">
@@ -352,6 +368,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau" model="accorderie.workflow.state">
@@ -373,6 +391,8 @@
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
     </data>

@@ -17,6 +17,8 @@ class AccorderieEchangeService(models.Model):
 
     date_echange = fields.Datetime(string="Date de l'échange")
 
+    # date_transaction = fields.Datetime(string="Date de la transaction")
+
     demande_service = fields.Many2one(
         comodel_name="accorderie.demande.service",
         string="Demande de services",
@@ -79,6 +81,31 @@ class AccorderieEchangeService(models.Model):
         ],
         string="Type d'échange",
     )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        # Create member if not exist
+        for vals in vals_list:
+            if (
+                "offre_service" in vals.keys()
+                and "membre_vendeur" not in vals.keys()
+            ):
+                offre_service_id = self.env["accorderie.offre.service"].browse(
+                    vals.get("offre_service")
+                )
+                if offre_service_id.membre:
+                    vals["membre_vendeur"] = offre_service_id.membre.id
+            if (
+                "demande_service" in vals.keys()
+                and "membre_acheteur" not in vals.keys()
+            ):
+                demande_service_id = self.env[
+                    "accorderie.demande.service"
+                ].browse(vals.get("demande_service"))
+                if demande_service_id.membre:
+                    vals["membre_acheteur"] = demande_service_id.membre.id
+        res = super(AccorderieEchangeService, self).create(vals_list)
+        return res
 
     def _compute_access_url(self):
         super(AccorderieEchangeService, self)._compute_access_url()

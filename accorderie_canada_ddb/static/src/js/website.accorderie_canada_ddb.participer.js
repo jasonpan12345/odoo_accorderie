@@ -345,7 +345,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             breadcrumb_value: undefined,
             breadcrumb_show_only_last_item: false,
             breadcrumb_field_value: undefined,
-            submit_button_text: false,
+            submit_button_text: undefined,
+            submit_response_title: undefined,
+            submit_response_description: undefined,
             selected_value: undefined,
             selected_obj_value: undefined,
             selected_id: undefined,
@@ -838,22 +840,33 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             console.log(copiedForm);
             let url = "/accorderie/participer/form/submit"
             ajax.rpc(url, copiedForm).then(function (data) {
-                console.debug("AJAX receive submit_form");
-                console.debug(data);
+                    console.debug("AJAX receive submit_form");
+                    console.debug(data);
 
-                if (data.error) {
-                    $scope.error = data.error;
-                } else if (_.isEmpty(data)) {
-                    $scope.error = "Empty data - " + "/accorderie/participer/form/submit";
-                } else {
-                    $scope.show_submit_modal = true;
-                    // TODO when after server url redirection or create logic condition
-                    $scope.submitted_url = `accorderie_canada_ddb/accorderie_offre_service/${data.id}`;
+                    if (data.error) {
+                        $scope.error = data.error;
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty data - " + "/accorderie/participer/form/submit";
+                    } else {
+                        $scope.show_submit_modal = true;
+                        // TODO when after server url redirection or create logic condition
+                        if ('init.pos.individuelle.formulaire' === $scope.state.id) {
+                            $scope.submitted_url = `accorderie_canada_ddb/accorderie_offre_service/${data.offre_service_id}`;
+                        } else if ('init.pds.individuelle.formulaire' === $scope.state.id) {
+                            $scope.submitted_url = `accorderie_canada_ddb/accorderie_demande_service/${data.demande_service_id}`;
+                        } else if (['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes($scope.state.id)) {
+                            $scope.submitted_url = `monactivite/accordageavenir/${data.echange_service_id}`;
+                        } else if (['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes($scope.state.id)) {
+                            $scope.submitted_url = `monactivite/transactioneffecute/${data.echange_service_id}`;
+                        } else {
+                            $scope.submitted_url = "";
+                        }
+                    }
+
+                    // Process all the angularjs watchers
+                    $scope.$digest();
                 }
-
-                // Process all the angularjs watchers
-                $scope.$digest();
-            })
+            )
         }
 
         $scope.reinit_state_model_field = function (state) {
@@ -891,7 +904,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             state.selected_value = data.title;
                         }
                     } else {
-                        $scope.form[state.model_field_name] = value;
+                        if (state.model_field_name.endsWith("_id")) {
+                            // TODO this is bad, need to update database to get value
+                            $scope.form[state.model_field_name] = {"id": value};
+                        } else {
+                            $scope.form[state.model_field_name] = value;
+                        }
                         console.warn("Model field name '" + state.model_field_name + "' got this value : " + value);
                         state.selected_value = value;
                     }
@@ -946,6 +964,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.next_btn = function () {
+            console.debug($scope.form);
             if ($scope.is_disable_next()) return;
             // console.debug("call next_btn");
             if (_.isUndefined($scope.state.next_id) || _.isEmpty($scope.state.next_id)) {
@@ -1263,7 +1282,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.lst_label_breadcrumb = lst_label;
             }
         }
-    }]);
+    }
+    ])
+    ;
 
     let ParticiperForm = Widget.extend({
         start: function () {

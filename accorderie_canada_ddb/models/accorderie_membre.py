@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import _, api, fields, models
 
 
@@ -233,8 +235,45 @@ class AccorderieMembre(models.Model):
         # TODO wrong dependency
         # TODO calculate transaction difference
         for rec in self:
-            rec.bank_time = 9.25
-            rec.bank_month_time = -2
+            # TODO bank 15 hours suppose to be calculate somewhere else
+            this_month = datetime.now().month
+            bank_time = (
+                15
+                + sum(
+                    [
+                        a.nb_heure
+                        for a in rec.echange_service_acheteur_ids
+                        if a.transaction_valide
+                    ]
+                )
+                - sum(
+                    [
+                        a.nb_heure
+                        for a in rec.echange_service_vendeur_ids
+                        if a.transaction_valide
+                    ]
+                )
+            )
+            bank_time_month = sum(
+                [
+                    a.nb_heure
+                    for a in rec.echange_service_acheteur_ids
+                    if a.transaction_valide
+                    and a.date_echange
+                    and a.date_echange.month == this_month
+                ]
+            ) - sum(
+                [
+                    a.nb_heure
+                    for a in rec.echange_service_vendeur_ids
+                    if a.transaction_valide
+                    and a.date_echange
+                    and a.date_echange.month == this_month
+                ]
+            )
+
+            rec.bank_time = bank_time
+            rec.bank_month_time = bank_time_month
 
     def _compute_access_url(self):
         super(AccorderieMembre, self)._compute_access_url()

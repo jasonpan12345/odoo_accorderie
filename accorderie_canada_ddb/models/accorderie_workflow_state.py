@@ -28,6 +28,12 @@ class AccorderieWorkflowState(models.Model):
 
     submit_button_text = fields.Char(string="Libellé du bouton envoie")
 
+    submit_response_title = fields.Char(string="Titre de la réponse d'envoie")
+
+    submit_response_description = fields.Char(
+        string="Description de la réponse d'envoie"
+    )
+
     diagram_id = fields.Many2one(
         comodel_name="accorderie.workflow",
         string="Diagram",
