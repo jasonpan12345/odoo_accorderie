@@ -411,31 +411,31 @@ class AccorderieCanadaDdbController(http.Controller):
 
         # TODO update location with cartier et autre
         # Hack time for demo
-        month_bank_time = 0
-        v1 = http.request.env["accorderie.echange.service"].search(
-            [
-                ("membre_vendeur", "=", membre_id.id),
-                ("transaction_valide", "=", True),
-            ]
-        )
-        for v in v1:
-            month_bank_time += v.nb_heure
-        v2 = http.request.env["accorderie.echange.service"].search(
-            [
-                ("membre_acheteur", "=", membre_id.id),
-                ("transaction_valide", "=", True),
-            ]
-        )
-        for v in v2:
-            month_bank_time -= v.nb_heure
-        bank_time = 15 + month_bank_time
+        # month_bank_time = 0
+        # v1 = http.request.env["accorderie.echange.service"].search(
+        #     [
+        #         ("membre_vendeur", "=", membre_id.id),
+        #         ("transaction_valide", "=", True),
+        #     ]
+        # )
+        # for v in v1:
+        #     month_bank_time += v.nb_heure
+        # v2 = http.request.env["accorderie.echange.service"].search(
+        #     [
+        #         ("membre_acheteur", "=", membre_id.id),
+        #         ("transaction_valide", "=", True),
+        #     ]
+        # )
+        # for v in v2:
+        #     month_bank_time -= v.nb_heure
+        # bank_time = 15 + month_bank_time
         return {
             "personal": {
                 "full_name": membre_id.nom_complet,
-                "actual_bank_hours": bank_time,
-                # "actual_bank_hours": membre_id.bank_time,
-                "actual_month_bank_hours": month_bank_time,
-                # "actual_month_bank_hours": membre_id.bank_month_time,
+                # "actual_bank_hours": bank_time,
+                "actual_bank_hours": membre_id.bank_time,
+                # "actual_month_bank_hours": month_bank_time,
+                "actual_month_bank_hours": membre_id.bank_month_time,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
                 "location": membre_id.ville.nom,
@@ -751,6 +751,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     dct_state[
                         "submit_button_text"
                     ] = state_id.submit_button_text
+                if state_id.submit_response_title:
+                    dct_state[
+                        "submit_response_title"
+                    ] = state_id.submit_response_title
+                if state_id.submit_response_description:
+                    dct_state[
+                        "submit_response_description"
+                    ] = state_id.submit_response_description
                 if state_id.list_is_first_position:
                     dct_state[
                         "list_is_first_position"
@@ -804,10 +812,19 @@ class AccorderieCanadaDdbController(http.Controller):
         # Send from participer website
         vals = {}
         status = {}
-        if kw.get("state_id") in (
+        state_id = kw.get("state_id")
+        demande_service_id = None
+        offre_service_id = None
+        new_accorderie_echange_service = None
+
+        if state_id in (
             "init.pos.individuelle.formulaire",
+            "init.pds.individuelle.formulaire",
             "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.offrir.existant.formulaire",
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.recevoir.choix.nouveau.formulaire",
+            "init.va.non.offert.nouveau_formulaire",
+            "init.va.non.recu.choix.nouveau.formulaire",
         ):
             if kw.get("offre_service_id"):
                 offre_service_id = int(kw.get("offre_service_id").get("id"))
@@ -831,74 +848,118 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
                 vals["membre"] = membre_id
 
-                new_accorderie_offre_service = (
-                    request.env["accorderie.offre.service"].sudo().create(vals)
-                )
-                offre_service_id = new_accorderie_offre_service.id
-            status["id"] = offre_service_id
-
-            if kw.get("state_id") in (
-                "init.saa.offrir.nouveau.categorie_service.formulaire",
-                "init.saa.offrir.existant.formulaire",
-            ):
-                vals = {}
-                if offre_service_id:
-                    vals["offre_service"] = offre_service_id
-
-                if kw.get("time_service_estimated"):
-                    vals["nb_heure_estime"] = float(
-                        kw.get("time_service_estimated")
+                if state_id in (
+                    "init.pds.individuelle.formulaire",
+                    "init.saa.recevoir.choix.nouveau.formulaire",
+                    "init.va.non.recu.choix.nouveau.formulaire",
+                ):
+                    new_accorderie_service = (
+                        request.env["accorderie.demande.service"]
+                        .sudo()
+                        .create(vals)
                     )
+                    demande_service_id = new_accorderie_service.id
+                    status["demande_service_id"] = demande_service_id
+                else:
+                    new_accorderie_service = (
+                        request.env["accorderie.offre.service"]
+                        .sudo()
+                        .create(vals)
+                    )
+                    offre_service_id = new_accorderie_service.id
+                    status["offre_service_id"] = offre_service_id
 
-                if kw.get("date_service"):
-                    date_echange = kw.get("date_service")
-                    if kw.get("time_service"):
-                        date_echange += " " + kw.get("time_service")
-                        # TODO Take date from local of user
-                        date_echange_float = datetime.strptime(
-                            date_echange, "%Y-%m-%d %H:%M"
-                        )
-                    else:
-                        date_echange_float = datetime.strptime(
-                            date_echange, "%Y-%m-%d"
-                        ).date()
-                    vals["date_echange"] = date_echange_float
+        if state_id in (
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.offrir.existant.formulaire",
+            "init.saa.recevoir.choix.existant.time.formulaire",
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.recevoir.choix.nouveau.formulaire",
+            "init.va.non.offert.nouveau_formulaire",
+            "init.va.non.offert.existant_formulaire",
+            "init.va.non.recu.choix.formulaire",
+            "init.va.non.recu.choix.nouveau.formulaire",
+        ):
+            vals = {}
+            if offre_service_id:
+                vals["offre_service"] = offre_service_id
+            elif kw.get("offre_service_id"):
+                vals["offre_service"] = kw.get("offre_service_id").get("id")
 
-                if kw.get("commentaires"):
-                    vals["commentaire"] = kw.get("commentaires")
-
-                if kw.get("membre_id") and "id" in kw.get("membre_id").keys():
-                    membre_id_acheteur_id = kw.get("membre_id").get("id")
-                    vals["membre_acheteur"] = membre_id_acheteur_id
-
-                vals["type_echange"] = "offre_special"
-
-                membre_id = (
-                    http.request.env.user.partner_id.accorderie_membre_ids.id
+            if kw.get("time_service_estimated"):
+                vals["nb_heure_estime"] = float(
+                    kw.get("time_service_estimated")
                 )
+
+            if kw.get("date_service"):
+                date_echange = kw.get("date_service")
+                if kw.get("time_service"):
+                    date_echange += " " + kw.get("time_service")
+                    # TODO Take date from local of user
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d %H:%M"
+                    )
+                else:
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d"
+                    ).date()
+                vals["date_echange"] = date_echange_float
+
+            if kw.get("commentaires"):
+                vals["commentaire"] = kw.get("commentaires")
+
+            if kw.get("membre_id") and "id" in kw.get("membre_id").keys():
+                membre_id_acheteur_id = kw.get("membre_id").get("id")
+                vals["membre_acheteur"] = membre_id_acheteur_id
+
+            vals["type_echange"] = "offre_special"
+
+            membre_id = (
+                http.request.env.user.partner_id.accorderie_membre_ids.id
+            )
+            if state_id in (
+                "init.saa.recevoir.choix.existant.time.formulaire",
+                "init.saa.recevoir.choix.nouveau.formulaire",
+                "init.va.non.recu.choix.formulaire",
+                "init.va.non.recu.choix.nouveau.formulaire",
+            ):
+                vals["membre_acheteur"] = membre_id
+            else:
                 vals["membre_vendeur"] = membre_id
 
+            new_accorderie_echange_service = (
+                request.env["accorderie.echange.service"].sudo().create(vals)
+            )
+            status["echange_service_id"] = new_accorderie_echange_service.id
+
+        if state_id in (
+            "init.va.non.offert.existant_formulaire",
+            "init.va.non.offert.nouveau_formulaire",
+            "init.va.oui.formulaire",
+            "init.va.non.recu.choix.formulaire",
+            "init.va.non.recu.choix.nouveau.formulaire",
+        ):
+            if not new_accorderie_echange_service:
+                if not kw.get("echange_service_id").get("id"):
+                    msg_error = (
+                        "Missing argument 'echange_service_id' into"
+                        f" '{state_id}'"
+                    )
+                    _logger.error(msg_error)
+                    status["error"] = msg_error
+                    return status
                 new_accorderie_echange_service = (
                     request.env["accorderie.echange.service"]
                     .sudo()
-                    .create(vals)
+                    .browse(kw.get("echange_service_id").get("id"))
                 )
-                # status["id"] = new_accorderie_echange_service.id
-
-        if kw.get("state_id") in ("init.va.non.offert.existant_formulaire",):
-            new_accorderie_echange_service = (
-                request.env["accorderie.echange.service"]
-                .sudo()
-                .browse(kw.get("echange_service_id").get("id"))
-            )
             new_accorderie_echange_service.write(
                 {
                     "transaction_valide": True,
                     "nb_heure": float(kw.get("time_realisation_service")),
                 }
             )
-            # TODO hack
-            status["id"] = 1
+            status["echange_service_id"] = new_accorderie_echange_service.id
         return status
 
     @http.route(

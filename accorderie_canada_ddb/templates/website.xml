@@ -152,7 +152,7 @@
                                                 </p>
                                                 <p>
                                                     <i class="fa fa-clock-o" />
-                                                    15h de serivce à son actif
+                                                    15h de service à son actif
                                                 </p>
                                             </div>
                                         </div>
@@ -181,142 +181,182 @@
         </t>
     </template>
     <template id="accorderie_demande_service_unit_liste_offre_et_demande_service" name="Demande Service">
-        <t t-call="website.layout">
-            <div id="wrap">
-                <div class="oe_structure">
-                    <section class="pt32 pb32" t-if="not accorderie_demande_service_id">
-                        <div class="container">
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                    <h1 class="s_title_default">
-                                        <font style="font-size: 62px;">
-                                            accorderie_demande_service_id non existante
-                                        </font>
-                                    </h1>
+        <t name="About us" t-name="website.aboutus">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <section class="pt32 pb32" t-if="not accorderie_demande_service_id">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                        <h1 class="s_title_default">
+                                            <font style="font-size: 62px;">Demande de service non existante</font>
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <section
-                        t-if="accorderie_demande_service_id"
-                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
-                        data-scroll-background-ratio="1"
-                        style="background-image: none;"
-                    >
-                        <span
-                            class="s_parallax_bg oe_img_bg oe_custom_bg"
-                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
-                        />
-                        <div class="container">
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title" data-name="Title">
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-field="accorderie_demande_service_id.titre"
-                                        t-if="accorderie_demande_service_id.titre"
-                                    />
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-if="not accorderie_demande_service_id.titre"
-                                    >
-                                        EMPTY
-                                    </h1>
+                        </section>
+                        <section
+                            class="s_event_banner oe_img_bg oe_custom_bg"
+                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
+                        >
+
+                            <div class="event_banner_action bg-primary debug_unimplemented">
+                                <div class="btn btn-primary">
+                                    <i class="fa fa-share-alt icon_padding_right" />
+                                    Partager
                                 </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.accorderie"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.accorderie"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.active"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.active"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.approuver"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.approuver"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.commentaire"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.commentaire"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.date_debut"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.date_debut"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.date_fin"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.date_fin"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.description"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.description"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.membre"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.membre"
-                                    />
+                                <div class="divider" />
+                                <div class="btn btn-primary">
+                                    <i class="fa fa-heart-o icon_padding_right" />
+                                    Ajouter à mes favoris
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+
+                        <section class="event_head">
+                            <div class="event_info info-1">
+                                <h1 t-field="accorderie_demande_service_id.titre" />
+                                <div class="infos">
+                                    <div class="distance">
+                                        <i class="fa fa-map-marker text-primary icon_padding_right" />
+                                        <t t-if="str_distance">&#192; <t t-raw="str_distance" /> de votre domicile</t>
+                                    </div>
+                                    <div class="adresse">
+                                        <i class="fa fa-home text-primary icon_padding_right" />
+                                        <t t-esc="accorderie_demande_service_id.membre.adresse" />
+                                    </div>
+                                    <div class="pubdate">
+                                        <i class="fa fa-clock-o text-primary icon_padding_right" />
+                                        <t t-esc="str_diff_time" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="s_evenement pt80 pb160" t-if="accorderie_demande_service_id">
+                            <div class="event_container">
+                                <div class="informations_container">
+                                    <div class="event_info info-2">
+                                        <div class="description" t-if="accorderie_demande_service_id.description">
+                                            <h2>Description</h2>
+                                            <t t-raw="accorderie_demande_service_id.description" />
+                                        </div>
+<!--                                        <div class="info" t-if="accorderie_demande_service_id.quoi_apporter">-->
+<!--                                            <h2>Quoi apporter</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.quoi_apporter" />-->
+<!--                                        </div>-->
+<!--                                        <div-->
+<!--                                            class="conditions debug_unimplemented"-->
+<!--                                            t-if="accorderie_demande_service_id.condition"-->
+<!--                                        >-->
+<!--                                            <h2>Conditions</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.condition" />-->
+<!--                                        </div>-->
+<!--                                        <div-->
+<!--                                            class="deplacement debug_unimplemented"-->
+<!--                                            t-if="accorderie_demande_service_id.deplacement"-->
+<!--                                        >-->
+<!--                                            <h2>D&#233;placement</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.deplacement" />-->
+<!--                                        </div>-->
+<!--                                        <div-->
+<!--                                            class="tarif debug_unimplemented"-->
+<!--                                            t-if="accorderie_demande_service_id.entente_tarifiaire"-->
+<!--                                        >-->
+<!--                                            <h2>Entente tarifiaire</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.entente_tarifiaire" />-->
+<!--                                        </div>-->
+                                        <div class="dispo debug_unimplemented">
+                                            <h2>Disponilibités habituelles</h2>
+                                            <div class="dates_container">
+                                                <p>LUNDI</p><p>08H00 - 19H00</p>
+                                                <p>MARDI</p><p>08H00 - 19H00</p>
+                                                <p>MERCREDI</p><p>08H00 - 19H00</p>
+                                                <p>JEUDI</p><p>08H00 - 19H00</p>
+                                                <p>VENDREDI</p><p>08H00 - 19H00</p>
+                                                <p>SAMEDI</p><p>08H00 - 19H00</p>
+                                                <p>DIMANCHE</p><p>08H00 - 19H00</p>
+                                            </div>
+                                        </div>
+                                        <div class="signaler debug_unimplemented">
+                                            <p>
+                                                <i class="fa fa-flag-o" />
+                                                &amp;nbsp <a href=""><u>Signaler cette annonce</u></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right_cards_container debug_unimplemented">
+                                    <div class="card info-3">
+                                        <img
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"
+                                        />
+                                        <div>
+                                            <p>
+                                                <b>Adresse</b>
+                                                <br />
+                                                1551 Rue Dunant, Sherbrooke, J1H QN5, QC
+                                            </p>
+                                            <p>
+                                                <b>Détails pour vous y rendre</b>
+                                                <br />
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card info-4" t-if="accorderie_demande_service_id.membre">
+                                        <div
+                                            class="img rounded-circle"
+                                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);"
+                                        />
+                                        <h4>Votre accordeuse:</h4>
+                                        <h4 t-field="accorderie_demande_service_id.membre.nom_complet" />
+                                        <div class="stats">
+                                            <div class="stats">
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    Membre depuis mars 2019
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-shield" />
+                                                    Antécédents judiciaires vérifiés
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    3 demandes de service
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-clock-o" />
+                                                    15h de service à son actif
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="summary">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                            nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                            odio aenean sed adipiscing diam donec.
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="btn btn-primary rounded-circle">
+                                                En savoir plus sur
+                                                Alice
+                                            </div>
+                                            <div class="btn btn-primary rounded-circle">La contacter</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </t>
         </t>
     </template>
     <template
@@ -827,7 +867,7 @@
                                         style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                                     >
                                         <!-- TODO fill image with model -->
-                                        <div style="text-align:center">
+                                        <div style="text-align:center" class="debug_unimplemented">
                                             <div class="btn btn-primary text-gamma">
                                                 <i class="fa fa-edit icon_padding_right" />
                                                 Remplacer la photo
@@ -1484,26 +1524,63 @@
                             <div class="modal-dialog">
                                 <div id="s_media_block_modal" class="modal-content">
                                     <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
-                                    <div class="modal-body">
-                                        <h2>Félicitation votre offre de service a été publié!</h2>
+                                    <div class="modal-body" ng-if="!_.isUndefined(state.submit_response_title)">
+                                        <h2>{{state.submit_response_title}}</h2>
                                     </div>
-                                    <a href="{{submitted_url}}">
-                                        <button id="modal_voir_offre" class="btn btn-primary text-gamma">Voir mon offre
+                                    <p ng-if="!_.isUndefined(state.submit_response_description)">
+                                        {{state.submit_response_description}}
+                                    </p>
+                                    <a ng-if="submitted_url" href="{{submitted_url}}">
+                                        <button
+                                            ng-if="['init.pos.individuelle.formulaire', 'init.saa.offrir.existant.formulaire'].includes(state.id)"
+                                            class="btn btn-primary text-gamma"
+                                        >Voir mon offre</button>
+                                        <button
+                                            ng-if="['init.pds.individuelle.formulaire'].includes(state.id)"
+                                            class="btn btn-primary text-gamma"
+                                        >Voir ma demande</button>
+                                        <button
+                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes(state.id)"
+                                            class="btn btn-primary text-gamma"
+                                        >Visualiser ma demande</button>
+                                        <button
+                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
+                                            class="btn btn-primary text-gamma"
+                                        >Voir mon offre d'échange de service</button>
+                                        <button
+                                            ng-if="['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                            class="btn btn-primary text-gamma"
+                                        >Voir les détails de la transaction</button>
+                                    </a>
+                                    <a
+                                        ng-href="accorderie_canada_ddb/accorderie_offre_service/{{form.offre_service_id.id}}"
+                                        ng-if="['init.saa.recevoir.choix.existant.time.formulaire'].includes(state.id)"
+                                    >
+                                        <button class="btn btn-primary text-gamma">Voir l'offre de service
                                         </button>
                                     </a>
-                                    <a href="{{submitted_url}}">
-                                        <button
-                                            id="modal_voir_toutes_mes_offres"
-                                            class="btn btn-primary text-gamma"
-                                        >Voir toutes mes
+                                    <a
+                                        ng-href="profil/membre/{{form.membre_id.id}}"
+                                        ng-if="['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes(state.id)"
+                                    >
+                                        <button class="btn btn-primary text-gamma">Voir le profil de l'Accordeur.e
+                                        </button>
+                                    </a>
+                                    <a href="monprofil/mesannonces" ng-if="form_is_offre_demande_service()">
+                                        <button class="btn btn-primary text-gamma">Voir toutes mes
                                             annonces
                                         </button>
                                     </a>
-                                    <a href="/">
-                                        <button
-                                            id="modal_retour_accueil"
-                                            class="btn btn-primary text-gamma"
-                                        >Retourner sur
+                                    <a
+                                        href="monactivite/accordages"
+                                        ng-if="['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                    >
+                                        <button class="btn btn-primary text-gamma">Voir tous mes
+                                            échanges
+                                        </button>
+                                    </a>
+                                    <a href="explorer">
+                                        <button class="btn btn-primary text-gamma">Retourner sur
                                             l'accueil
                                         </button>
                                     </a>

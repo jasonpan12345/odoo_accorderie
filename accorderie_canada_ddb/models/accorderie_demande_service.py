@@ -39,6 +39,11 @@ class AccorderieDemandeService(models.Model):
 
     membre = fields.Many2one(comodel_name="accorderie.membre")
 
+    type_service_id = fields.Many2one(
+        comodel_name="accorderie.type.service",
+        string="Type de services",
+    )
+
     def _compute_access_url(self):
         super(AccorderieDemandeService, self)._compute_access_url()
         for accorderie_demande_service in self:
