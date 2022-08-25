@@ -268,10 +268,10 @@
         <record id="accorderie_workflow_state_va_oui_form" model="accorderie.workflow.state">
             <field name="name">Formulaire échange d'un service existant</field>
             <field name="key">init.va.oui.formulaire</field>
-            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -300,19 +300,19 @@
         <record id="accorderie_workflow_state_va_non_offert_nouveau_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau offert</field>
             <field name="key">init.va.non.offert.nouveau_formulaire</field>
-            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant offert</field>
             <field name="key">init.va.non.offert.existant_formulaire</field>
-            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu" model="accorderie.workflow.state">
@@ -348,10 +348,10 @@
         <record id="accorderie_workflow_state_va_non_recu_choix_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant reçu</field>
             <field name="key">init.va.non.recu.choix.formulaire</field>
-            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau" model="accorderie.workflow.state">
@@ -369,10 +369,10 @@
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau reçu</field>
             <field name="key">init.va.non.recu.choix.nouveau.formulaire</field>
-            <field name="message">Déclaration de l'accordage effectué</field>
+            <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que l'accordage a bien été effectué</field>
+            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
     </data>
