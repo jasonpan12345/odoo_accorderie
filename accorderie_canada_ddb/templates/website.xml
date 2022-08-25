@@ -1006,27 +1006,27 @@
                                                     style="margin-left:auto;font-size:1.5rem"
                                                 />
                                             </h4>
-                                        </div>
-                                        <div class="form_box" ng-if="form_is_offre_demande_service()">
-                                            <div class="dispo">
-                                                <div class="dates_container">
-                                                    <p>LUNDI</p>
-                                                    <p>-</p>
-                                                    <p>MARDI</p>
-                                                    <p>-</p>
-                                                    <p>MERCREDI</p>
-                                                    <p>08H00 - 19H00</p>
-                                                    <p>JEUDI</p>
-                                                    <p>-</p>
-                                                    <p>VENDREDI</p>
-                                                    <p>08H00 - 19H00</p>
-                                                    <p>SAMEDI</p>
-                                                    <p>08H00 - 19H00</p>
-                                                    <p>DIMANCHE</p>
-                                                    <p>-</p>
+                                            <div class="form_box">
+                                                <div class="dispo">
+                                                    <div class="dates_container">
+                                                        <p>LUNDI</p>
+                                                        <p>-</p>
+                                                        <p>MARDI</p>
+                                                        <p>-</p>
+                                                        <p>MERCREDI</p>
+                                                        <p>08H00 - 19H00</p>
+                                                        <p>JEUDI</p>
+                                                        <p>-</p>
+                                                        <p>VENDREDI</p>
+                                                        <p>08H00 - 19H00</p>
+                                                        <p>SAMEDI</p>
+                                                        <p>08H00 - 19H00</p>
+                                                        <p>DIMANCHE</p>
+                                                        <p>-</p>
+                                                    </div>
                                                 </div>
+                                                <i class="fa fa-chevron-right" />
                                             </div>
-                                            <i class="fa fa-chevron-right" />
                                         </div>
                                         <div class="form_box dashed">
                                             <i class="fa fa-plus" />
@@ -1063,7 +1063,7 @@
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                     >Date prévue du service
                                     </h2>
-                                    <h2 ng-if="form_is_service()">Service
+                                    <h2 ng-if="form_is_service() || form_is_service_and_service_prevu()">Service
                                     </h2>
                                     <div ng-if="form_is_service_and_service_prevu()">
                                         <!-- load_date() will initialize date field -->
@@ -1077,9 +1077,7 @@
                                                 ng-if="form_is_service_to_modify()"
                                             >Modifier</a>
                                         </h4>
-                                    </div>
-                                    <div class="" ng-if="form_is_service_and_service_prevu()">
-                                            <span ng-if="form_is_service_to_modify()">Mercredi 6 août 2022</span>
+                                        <span ng-if="form_is_service_to_modify()">Mercredi 6 août 2022</span>
                                         <div
                                             class="input-group date"
                                             data-target-input="nearest"
@@ -1111,10 +1109,13 @@
     <!--                                >Enregistrer</div>-->
 
                                     <div ng-if="form_is_service_and_service_prevu()">
-                                        <h4>Heure de début du service</h4>
-                                    </div>
-                                    <div class="" ng-if="form_is_service_and_service_prevu()">
-                                            <span ng-if="form_is_service_to_modify()">14h00</span>
+                                        <h4>Heure de début du service<a
+                                                href=""
+                                                class="text-primary"
+                                                style="font-size:1.25rem;"
+                                                ng-if="form_is_service_to_modify()"
+                                            >Modifier</a></h4>
+                                        <span ng-if="form_is_service_to_modify()">14h00</span>
                                         <div
                                             class="input-group date"
                                             data-target-input="nearest"
@@ -1143,14 +1144,10 @@
 
                                     <div ng-if="form_is_service()">
                                         <h4>Durée de la réalisation du service</h4>
-                                    </div>
-                                    <div class="" ng-if="form_is_service()">
-                                            <span ng-if="form_is_service_to_modify()">14h00</span>
                                         <div
                                             class="input-group date"
                                             data-target-input="nearest"
                                             t-attf-id="time_realisation_service_datepicker"
-                                            ng-if="!form_is_service_to_modify()"
                                         >
                                             <input
                                                 class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
@@ -1174,14 +1171,10 @@
 
                                     <div ng-if="form_is_service()">
                                         <h4>Durée du trajet aller-retour</h4>
-                                    </div>
-                                    <div class="" ng-if="form_is_service()">
-                                            <span ng-if="form_is_service_to_modify()">14h00</span>
                                         <div
                                             class="input-group date"
                                             data-target-input="nearest"
                                             t-attf-id="time_dure_trajet_datepicker"
-                                            ng-if="!form_is_service_to_modify()"
                                         >
                                             <input
                                                 class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
@@ -1208,7 +1201,7 @@
                                     <!-- Coût possible -->
                                     <span class="debug_unimplemented">
                                         <h2
-                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id || form_is_service_to_modify()"
                                         >Coûts possibles supplémentaires à prévoir
                                         </h2>
                                         <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
@@ -1282,17 +1275,10 @@
                                     </span>
 
                                     <!-- Estimation de la durée du service -->
-                                    <h2
-                                        ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >Estimation de la durée de service
-                                    </h2>
                                     <div ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id">
+                                        <h2>Estimation de la durée de service
+                                        </h2>
                                         <h4>Temps de service estimé</h4>
-                                    </div>
-                                    <div
-                                        class=""
-                                        ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >
 <!--                                        <span>1h50</span>-->
                                         <div
                                             class="input-group date"
@@ -1317,14 +1303,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id">
                                         <h4>Temps de trajet estimé</h4>
-                                    </div>
-                                    <div
-                                        class=""
-                                        ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                    >
 <!--                                        <span>00h10</span>-->
                                         <div
                                             class="input-group date"
@@ -1359,6 +1338,27 @@
                                         ng-model="form.commentaires"
                                         ng-if="form_is_commentaire()"
                                     />
+
+                                    <!-- Durée de service -->
+                                    <div ng-if="form_is_service_to_modify()">
+                                        <h2>Durée du service</h2>
+                                        <h4>Nombre d'heures estimés pour le service<a
+                                                href=""
+                                                class="text-primary infos_right"
+                                                style="font-size:1.25rem;"
+                                                ng-if="form_is_service_to_modify()"
+                                            >Modifier</a>
+                                        </h4>
+                                            14h00
+                                        <h4>Durée du trajet à effectuer<a
+                                                href=""
+                                                class="text-primary"
+                                                style="font-size:1.25rem;"
+                                                ng-if="form_is_service_to_modify()"
+                                            >Modifier</a>
+                                        </h4>
+                                            14h00
+                                    </div>
 
                                     <!-- Montant à transférer -->
                                     <div class="bar_time" ng-if="form_is_service_and_service_prevu()">
