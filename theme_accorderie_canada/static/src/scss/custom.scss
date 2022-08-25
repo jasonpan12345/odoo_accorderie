@@ -1065,24 +1065,29 @@ actualité
 
 @media only screen and (max-width: 990px) {
   #footer .s_text_block {
-    padding: 0;
+    padding: 10px 0 0;
   }
   .footer_container {
     margin: 0;
 
     .row.footer_row {
       margin: 0;
+      align-items: center;
+
+      br {
+        display: none;
+      }
     }
   }
 
   .o_footer {
     position: fixed;
     bottom: 0;
-    height: 6vh;
+    height: 65px;
     width: 100%;
   }
   .footer_link {
-    visibility: hidden;
+    display: none;
     font-size: 0;
   }
 
@@ -1101,6 +1106,9 @@ actualité
   }
 
   .footer_aide {
+    display: none;
+  }
+  .o_footer_copyright {
     display: none;
   }
   #wrapwrap {
@@ -1827,7 +1835,6 @@ actualité
 
 .buttons_form_container .s_event_banner {
   width: 100vw;
-  top: -70px;
   left: -12.5%;
   padding: 10%;
 }
@@ -1852,7 +1859,19 @@ actualité
   }
   h4 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
+    display: flex;
+
+    .modifier {
+      font-size: 1.25rem;
+      margin-left: auto;
+    }
+  }
+  .nav_back {
+    display: flex;
+    gap: 1rem;
+    margin: -5% 0 0 -10%;
+    align-items: center;
   }
 
   .label {
@@ -2103,10 +2122,14 @@ actualité
       .buttons_form_container {
         padding: 5%;
         gap: 0.5rem;
+        height: calc(100vh - 366px);
 
         .cat {
           padding: 0.5rem;
           height: 100%;
+        }
+        .nav_back {
+          margin: -1% 0 3%;
         }
       }
 
@@ -2114,9 +2137,16 @@ actualité
         min-height: 10vh;
       }
 
-      .submit_container .submit_btn {
-        width: fit-content;
-        margin-right: 5%;
+      .submit_container {
+        position: fixed;
+        bottom: 65px;
+        width: 100%;
+        background-color: white;
+
+        .submit_btn {
+          width: fit-content;
+          margin-right: 5%;
+        }
       }
     }
   }
@@ -3200,6 +3230,7 @@ actualité
 
   :last-child {
     margin-left: auto;
+    white-space: nowrap;
   }
 }
 @media only screen and (max-width: 990px) {
@@ -3227,5 +3258,16 @@ actualité
 @media only screen and (max-width: 990px) {
   .s_mobile_filter {
     display: flex;
+  }
+}
+
+/*
+  Section bar retour
+*/
+.s_back {
+  padding: 30px 32px;
+
+  .fa-arrow-left {
+    padding-right: 32px;
   }
 }
