@@ -706,7 +706,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return [
                 'init.saa.offrir.existant.formulaire',
                 'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.saa.recevoir.choix.existant.time.formulaire',
                 'init.va.oui.formulaire',
                 'init.va.non.offert.nouveau_formulaire',
                 'init.va.non.offert.existant_formulaire',
