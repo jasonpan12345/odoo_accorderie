@@ -836,18 +836,18 @@
                                     </section>
 
                                     <!-- Présentation du service -->
-                                    <h3
+                                    <h2
                                         ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
                                     >Offre de service donné
-                                    </h3>
-                                    <h3
+                                    </h2>
+                                    <h2
                                         ng-if="state.id == 'init.saa.recevoir.choix.existant.time.formulaire'"
                                     >Offre de service demandé
-                                    </h3>
-                                    <h3
+                                    </h2>
+                                    <h2
                                         ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
                                     >Offre de service reçu
-                                    </h3>
+                                    </h2>
                                     <div
                                         class="activite"
                                         ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
@@ -858,7 +858,7 @@
                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
                                         />
                                         <div class="infos">
-                                            Je peux vous apprendre à cultiver vos propres légumes
+                                            <b>Je peux vous apprendre à cultiver vos propres légumes</b>
                                         </div>
                                         <div class="infos_right">
                                             <p>10/03/21</p>
@@ -875,15 +875,10 @@
                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
                                         />
                                         <div class="infos">
-                                            <div>Aide au déménagement</div>
+                                            <div><b>Aide au déménagement</b></div>
                                             <div>Yannick Gagnon
-                                                <div>À 2.3km de votre domicile</div>
+                                                <br />À 2.3km de votre domicile
                                             </div>
-                                        </div>
-                                        <div class="debug_unimplemented">
-                                            <!-- TODO arranger ce formatage des informations -->
-                                            Yannick Gagnon
-                                            À 2.3 km de votre domicile
                                         </div>
                                         <div class="infos_right">
                                             <p>2j</p>
@@ -896,14 +891,14 @@
                                     />
 
                                     <!-- Destinataire du service -->
-                                    <h3
+                                    <h2
                                         ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
                                     >
                                         Destinataire du service
-                                    </h3>
-                                    <h3 ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id">
+                                    </h2>
+                                    <h2 ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id">
                                         De qui avez-vous reçu le service?
-                                    </h3>
+                                    </h2>
                                     <div
                                         class="form_box cursor-pointer"
                                         ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
@@ -919,9 +914,9 @@
 
                                     <!-- Description du service -->
                                     <div ng-if="form_is_nouveau_except_pos()">
-                                        <h3>
+                                        <h2>
                                             Description du service privé
-                                        </h3>
+                                        </h2>
                                         <div>
                                             <h4>Catégorie du service</h4>
                                         </div>
@@ -1064,12 +1059,12 @@
                                     />
 
                                     <!-- Service -->
-                                    <h3
+                                    <h2
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                     >Date prévue du service
-                                    </h3>
-                                    <h3 ng-if="form_is_service()">Service
-                                    </h3>
+                                    </h2>
+                                    <h2 ng-if="form_is_service()">Service
+                                    </h2>
                                     <div ng-if="form_is_service_and_service_prevu()">
                                         <!-- load_date() will initialize date field -->
                                         {{load_date()}}
@@ -1212,12 +1207,12 @@
 
                                     <!-- Coût possible -->
                                     <span class="debug_unimplemented">
-                                        <h3
+                                        <h2
                                             ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                         >Coûts possibles supplémentaires à prévoir
-                                        </h3>
-                                        <h3 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
-                                        </h3>
+                                        </h2>
+                                        <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
+                                        </h2>
                                         <div ng-if="form_frais_trajet_distance()">
                                             <h4>Frais pour trajet de :
                                                 <a
@@ -1287,10 +1282,10 @@
                                     </span>
 
                                     <!-- Estimation de la durée du service -->
-                                    <h3
+                                    <h2
                                         ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
                                     >Estimation de la durée de service
-                                    </h3>
+                                    </h2>
                                     <div ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id">
                                         <h4>Temps de service estimé</h4>
                                     </div>
@@ -1357,8 +1352,8 @@
                                     </div>
 
                                     <!-- Commentaires -->
-                                    <h3 ng-if="form_is_commentaire()">Commentaires
-                                    </h3>
+                                    <h2 ng-if="form_is_commentaire()">Commentaires
+                                    </h2>
                                     <textarea
                                         class="form_desc"
                                         ng-model="form.commentaires"
@@ -1375,7 +1370,7 @@
                                     <span ng-if="form_is_service_to_modify()">
                                         <div class="divider" />
                                         <!-- TODO button send form need to click to accept this condition -->
-                                        <h3>Respectez-vous les conditions suivantes :
+                                        <h3><b>Respectez-vous les conditions suivantes :</b>
                                         </h3>
                                         <span>
                                             <i class="fa fa-check checker text-epsilon icon_padding_right" />
@@ -1383,7 +1378,7 @@
                                         </span>
                                         <div class="divider" />
                                         <!-- Mise en garde -->
-                                        <h3>Mise en garde
+                                        <h3><b>Mise en garde</b>
                                         </h3>
                                         <p
                                         >Avant tout échange de services, nous vous conseillons de vous rejoindre sur un terrain neutre pour vous rencontrer et vous mettre d'accord sur les détails de votre accordage.<br

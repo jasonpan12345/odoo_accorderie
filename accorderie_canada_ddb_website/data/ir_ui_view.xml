@@ -1342,7 +1342,7 @@
                             <section class="s_search oe_img_bg oe_custom_bg pt16 debug_unimplemented" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_accueil_illustration_05@2x_png/Accueil-Illustration-05@2x.png&quot;);">
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
+                                        <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                             <h1 class="s_title_default">
                                                 <div class="search_bar">
                                                     <p class="search_txt text-epsilon">Que cherchez-vous?</p>
@@ -1354,7 +1354,7 @@
                                                                 Rechercher
                                                             </font>
                                                         </div>
-                                                        <p class="search_select text-epsilon">Sélectionner une catégorie</p>
+                                                        <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
                                                     </div>
                                                     <input type="text" placeholder="Taper votre mot clé ici" />
                                                 </div>
@@ -4039,22 +4039,23 @@
                                 <section class="s_search_short debug_unimplemented">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
-                                            <div class="col-lg-12 s_title pt16 pb16" style=";text-align: center;">
-                                                <div class="search_bar" style="margin:0 auto;width:100%">
-                                                    <p class="search_txt text-epsilon">Que cherchez-vous?</p>
-                                                    <div class="search_category">
-                                                        <p class="search_txt text-epsilon">Type de recherche</p>
-                                                        <div class="search_send btn btn-primary rounded-circle">
-                                                            <p>
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <div class="search_bar" style="margin:0 auto;width:100%">
+                                                        <p class="search_txt text-epsilon">Que cherchez-vous?</p>
+                                                        <div class="search_category">
+                                                            <p class="search_txt text-epsilon">Type de recherche</p>
+                                                            <div class="search_send btn btn-primary rounded-circle">
                                                                 <font style="font-size: 18px;" class="text-gamma">
-                                                                    <span class="img img-fluid mx-auto fa fa-search" />
+                                                                    <i class="img img-fluid mx-auto fa fa-search" />
                                                                     Rechercher
                                                                 </font>
-                                                            </p>
+                                                            </div>
+                                                            <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
                                                         </div>
+                                                        <input type="text" placeholder="Taper votre mot clé ici" />
                                                     </div>
-                                                    <input type="text" placeholder="Taper votre mot clé ici" />
-                                                </div>
+                                                </h1>
                                             </div>
                                         </div>
                                     </div>
