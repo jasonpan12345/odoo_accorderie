@@ -4165,6 +4165,12 @@
                                 <div class="debug_debug">
                                     Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86594051">https://marvelapp.com/prototype/1773h559/screen/86594051</a>
                                 </div>
+                                <section class="s_back">
+                                    <a href="">
+                                        <i class="fa fa-arrow-left text-primary" />
+                                        Voir toutes mes accordages
+                                    </a>
+                                </section>
                                 <section class="s_accordage_informations pt72 pb72">
                                     <div class="informations_container">
                                         <div class="information information-1">
@@ -4352,6 +4358,12 @@
                                 <div class="debug_debug">
                                     Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371574">https://marvelapp.com/prototype/1773h559/screen/86371574</a>
                                 </div>
+                                <section class="s_back">
+                                    <a href="">
+                                        <i class="fa fa-arrow-left text-primary" />
+                                        Retour
+                                    </a>
+                                </section>
                                 <section class="s_page_title pb24 pt88 s" style="margin:0 14%;">
                                     <p>Mon activité &gt; Mon agenda</p>
                                     <div class="pt8 pb4 " style="text-align: center;">
