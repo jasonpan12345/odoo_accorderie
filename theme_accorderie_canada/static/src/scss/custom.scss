@@ -1805,6 +1805,10 @@ actualité
 
 #participer_form {
   flex: 1;
+
+  h2 {
+    font-weight: bold;
+  }
 }
 
 .buttons_form_container .label:hover {
@@ -2015,9 +2019,9 @@ actualité
       flex-direction: column;
       height: 100%;
 
-      :nth-child(1) {
-        font-weight: bold;
-      }
+      //:nth-child(1) {
+      //  font-weight: bold;
+      //}
       > div {
         margin: auto 0;
       }
