@@ -4177,7 +4177,7 @@
                                             </span>
                                             <div class="btn btn-primary ml-auto text-gamma">
                                                 <i class="fa fa-check" />
-                                                <span>Déclarer l'accordage comme effectué</span>
+                                                <span>Déclarer le service comme effectué</span>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma">
                                                 <i class="fa fa-pencil" />
@@ -4300,7 +4300,7 @@
                                                 <p>00h10</p>
                                                 <div class="bar_time">
                                                     <b>
-                                                        Montant total de temps estimé:
+                                                        Montant total de temps estimé
                                                     </b>
                                                     <span>
                                                         03h00

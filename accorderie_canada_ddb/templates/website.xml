@@ -1251,7 +1251,7 @@
                                             <span>$</span>
                                         </div>
                                         <div ng-if="form_frais_trajet_prix()">
-                                            <h4>Frais pour le matériel nécessaire à l'échangede service</h4>
+                                            <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
                                         </div>
                                         <div class="form_box" ng-if="form_frais_trajet_prix()">
                                             <span>_ _</span>
@@ -1362,7 +1362,7 @@
 
                                     <!-- Montant à transférer -->
                                     <div class="bar_time" ng-if="form_is_service_and_service_prevu()">
-                                        <b>Montant total de temps à transférer:</b>
+                                        <b>Montant total de temps à transférer</b>
                                         <span>_ _ - _ _</span>
                                     </div>
 
@@ -1374,7 +1374,7 @@
                                         </h3>
                                         <span>
                                             <i class="fa fa-check checker text-epsilon icon_padding_right" />
-                                            Il doit y avoir au moins 4 personnes pour le déménagement
+                                            Il doit y avoir au moins 4 personnes pour le déménagement.
                                         </span>
                                         <div class="divider" />
                                         <!-- Mise en garde -->
