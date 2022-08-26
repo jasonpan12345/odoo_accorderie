@@ -353,11 +353,10 @@ searchbar
 .search_send {
   width: 40%;
   height: $search_bar-height;
-  border-radius: 50px;
   margin-left: auto;
-  margin-right: 0;
-  padding: 4% !important;
-  display: block !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search_txt {
