@@ -2155,6 +2155,9 @@ actualité
   }
 }
 @media only screen and (max-width: 500px) {
+  .buttons_form_container .categorie {
+    width: 100%;
+  }
   .cat {
     .cat_desc {
       font-size: 3vw;
