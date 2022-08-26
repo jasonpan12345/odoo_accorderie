@@ -24,7 +24,7 @@
 
                             <div class="event_banner_action bg-primary debug_unimplemented">
                                 <div class="btn btn-primary">
-                                    <i class="fa fa-share-alt icon_paddding_right" />
+                                    <i class="fa fa-share-alt icon_padding_right" />
                                     Partager
                                 </div>
                                 <div class="divider" />
@@ -828,7 +828,7 @@
                                         <!-- TODO fill image with model -->
                                         <div style="text-align:center">
                                             <div class="btn btn-primary text-gamma">
-                                                <i class="fa fa-edit icon_paddding_right" />
+                                                <i class="fa fa-edit icon_padding_right" />
                                                 Remplacer la photo
                                             </div>
                                         </div>
