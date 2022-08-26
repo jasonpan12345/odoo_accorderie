@@ -4292,7 +4292,7 @@
                                                 <p>2.3km</p>
                                                 <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
                                                     de service
-                                                    <a href="" class="float-right text-primary">Voir la liste</a>
+                                                    <a href="" class="ml-auto text-primary">Voir la liste</a>
                                                 </p>
                                             </div>
                                             <divider />
@@ -4501,6 +4501,180 @@
             </field>
             <field name="key">website.mon_agenda</field>
             <field name="name">Mon agenda</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_accordage_validation" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="Accordage à venir" t-name="website.accordagevalidation">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <div class="debug_debug">
+                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86594051">https://marvelapp.com/prototype/1773h559/screen/86594051</a>
+                                </div>
+                                <section class="s_back">
+                                    <a href="">
+                                        <i class="fa fa-arrow-left text-primary" />
+                                        Voir toutes mes accordages
+                                    </a>
+                                    <div class="actions">
+                                        <div>
+                                            <i class="fa fa-phone text-primary icon_padding_right" />
+                                        Contacter l'accorderie
+                                        </div>
+
+                                        <divider />
+                                        <div>
+                                            <i class="fa fa-print text-primary icon_padding_right" />
+                                        Imprimer la validation
+                                        </div>
+
+                                    </div>
+                                </section>
+                                <section class="s_accordage_informations pt72 pb72">
+                                    <div class="informations_container">
+                                        <div class="information information-1">
+                                            <span class="info_title">
+                                                <h1>
+                                                    Service donné le:
+                                                </h1>
+                                                Mercredi 6 août 2022
+                                                <divider />
+                                                14h00 -16h00
+                                            </span>
+                                            <div class="info_depot">
+                                                DÉPOT SUR MON COMPTE
+                                                <div class="heures">
+                                                    2h00
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="information information-2">
+                                            <img class="img rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                            <p class="nbr text-center">
+                                                <font style="font-weight:bold;">Votre accordeur :</font>
+                                                <br />
+                                                Yannick Gagnon
+                                            </p>
+                                            <div class="stats">
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    Membre depuis mars 2019
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-shield" />
+                                                    Antécédents judiciaires vérifiés
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    3 offres de service
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-clock-o" />
+                                                    15h de service à son actif
+                                                </p>
+                                            </div>
+                                            <div class="summary">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                                odio aenean sed adipiscing diam donec.
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="btn btn-primary rounded-circle text-gamma">
+                                                    En savoir plus sur
+                                                    Alice
+                                                </div>
+                                                <div class="btn btn-primary rounded-circle text-gamma">Le contacter
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="information information-5" style="grid-area:2/2/4/3;">
+                                            <span class="info_title">
+                                                <font style="font-weight:bold;">
+                                                    Offre de service privé
+                                                </font>
+                                            </span>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Catégorie du service
+                                                </b>
+                                                <p class="condition_desc">Confection desserts pour événements</p>
+                                            </div>
+                                            <divider />
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Nom du service
+                                                </b>
+                                                <p class="condition_desc">Création d'un gâteau de fête</p>
+                                            </div>
+                                            <divider />
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Description du service offert
+                                                </b>
+                                                <p class="condition_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="information information-5">
+                                            <span class="info_title">
+                                                <font style="font-weight:bold;">
+                                                    Détails sur le service reçu
+                                                </font>
+                                            </span>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Coût monétaires supplémentaires engagés
+                                                </b>
+                                                <p class="condition_desc">Frais pour le trajet :</p>
+                                                <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
+                                                    de service
+
+                                                </p>
+                                            </div>
+                                            <divider />
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Durée du service reçu
+                                                </b>
+                                                <p class="condition_desc">Durée de la réalisation du service</p>
+                                                <p>02h50</p>
+                                                <p class="condition_desc">Durée du trajet aller-retour</p>
+                                                <p>00h10</p>
+
+                                            </div>
+                                            <divider />
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Commentaires
+                                                </b>
+                                                <p class="condition_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.</p>
+                                                <div class="bar_time">
+                                                    <b>
+                                                        Montant total de temps transféré
+                                                    </b>
+                                                    <span>
+                                                        03h00
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.accordage-validation</field>
+            <field name="name">Validation accordage</field>
             <field name="type">qweb</field>
         </record>
     </data>
