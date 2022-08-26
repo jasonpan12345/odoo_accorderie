@@ -630,7 +630,8 @@
                                         ng-click="change_breadcrumb_index(link.index)"
                                         class="cursor-pointer"
                                         style="color:white"
-                                    >{{link.text}}</span>
+                                        ng-bind-html="link.html | unsafe"
+                                    />
                                     <h1 ng-show="state.message">{{state.message}}</h1>
                                 </div>
                                 <div ng-show="!_.isEmpty(error)">

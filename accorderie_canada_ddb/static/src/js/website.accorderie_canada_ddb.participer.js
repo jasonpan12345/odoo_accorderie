@@ -1212,9 +1212,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 if (!_.isUndefined(state.breadcrumb_value) && !_.isEmpty(state.breadcrumb_value)) {
                     let lst_breadcrumb = state.breadcrumb_value.split(".");
                     let label = "";
+                    let html_label = "";
                     for (let j = 0; j < lst_breadcrumb.length; j++) {
                         if (!$scope.state.breadcrumb_show_only_last_item && (!_.isEmpty(global_label) || !_.isEmpty(label))) {
                             label += " > "
+                            html_label += " <i class='fa fa-chevron-right'/> "
                         }
                         let str_bread = lst_breadcrumb[j];
                         // Dynamique update string
@@ -1241,13 +1243,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         }
 
                         label += str_bread;
+                        html_label += str_bread;
                     }
                     global_label += label;
-                    lst_label.push({"index": i, "text": label})
+                    lst_label.push({"index": i, "text": label, "html": html_label})
                 } else if (state.breadcrumb_show_only_last_item && !_.isUndefined(lastState) && !_.isUndefined(lastState.selected_value) && !_.isEmpty(lastState.selected_value)) {
                     let label = lastState.selected_value;
                     global_label += label;
-                    lst_label.push({"index": i, "text": label})
+                    lst_label.push({"index": i, "text": label, "html": label})
                 }
             }
             // Special decoration
