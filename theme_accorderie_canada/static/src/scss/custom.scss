@@ -2228,7 +2228,15 @@ actualité
     margin-top: 1.5rem;
   }
 }
+@media only screen and (max-width: 550px) {
+  .modal_pub_offre .modal-content {
+    padding: 15% 5%;
 
+    .fa-check-circle-o {
+      font-size: 10vh !important;
+    }
+  }
+}
 /*
     Page ma présentation
 */
