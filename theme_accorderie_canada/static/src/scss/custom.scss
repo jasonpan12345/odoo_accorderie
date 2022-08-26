@@ -3133,12 +3133,14 @@ actualité
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-column-gap: 5%;
-  grid-auto-rows: auto;
+  grid-template-rows: auto;
 
   .information {
     background-color: $bg-alpha;
     border: none;
     max-height: unset;
+    display: flex;
+    flex-direction: column;
 
     .info_title {
       font-size: 2rem;
@@ -3147,10 +3149,10 @@ actualité
 
   .information-1 {
     grid-area: 1 / 1 / 2 / 3;
-    padding: 1% 4%;
-    display: flex;
+    padding: 4%;
     align-items: center;
     gap: 2%;
+    flex-direction: row;
 
     .btn {
       max-width: 250px;
@@ -3166,11 +3168,32 @@ actualité
         font-size: 1.5rem;
       }
     }
+
+    .info_depot {
+      margin-left: auto;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      color: $alpha;
+      border-left: 1px solid $beta;
+      padding-left: 5%;
+
+      .heures {
+        background-color: $alpha;
+        border-radius: 50px;
+        padding: 0.5rem;
+        color: $text-alpha;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+    divider {
+      border-left: 1px solid $beta;
+      margin: 0 4rem;
+    }
   }
   .information-2 {
     grid-area: 2 / 1 / 5 / 2;
-    display: flex;
-    flex-direction: column;
     gap: 2rem;
     height: fit-content;
     font-size: 1rem;
@@ -3210,14 +3233,13 @@ actualité
   .information-5 {
     grid-area: 4 / 2 / 6 / 3;
     font-size: 1rem;
-    display: flex;
-    flex-direction: column;
     gap: 3rem;
 
     .condition_desc {
       font-size: 1.2rem;
       margin-bottom: 0;
       margin-top: 1rem;
+      display: flex;
     }
 
     .condition_txt {
@@ -3247,6 +3269,15 @@ actualité
   .s_accordage_informations .informations_container {
     display: flex;
   }
+
+  .informations_container .information-1 {
+    flex-direction: column !important;
+
+    .info_depot {
+      margin: unset !important;
+      border: unset !important;
+    }
+  }
 }
 
 /*
@@ -3275,9 +3306,41 @@ actualité
   Section bar retour
 */
 .s_back {
-  padding: 30px 32px;
+  padding: 28px 32px;
+  display: flex;
 
   .fa-arrow-left {
     padding-right: 32px;
+  }
+
+  .actions {
+    text-align: right;
+    flex: 1;
+
+    div {
+      display: inline;
+    }
+
+    divider {
+      border-left: 1px solid $beta;
+      margin: 0 2rem;
+    }
+    i {
+      font-size: 1.5rem;
+      vertical-align: middle;
+    }
+  }
+}
+@media only screen and (max-width: 710px) {
+  .s_back {
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 0.5rem;
+    }
   }
 }

@@ -157,5 +157,11 @@
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>
+        <record id="website_page_accordage_validation" model="website.page">
+            <field name="url">/monactivite/accordagevalidation</field>
+            <field name="view_id" ref="ir_ui_view_accordage_validation" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
     </data>
 </odoo>
