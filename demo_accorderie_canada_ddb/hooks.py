@@ -36,3 +36,56 @@ def pre_init_hook(cr):
             partner.state_id = env["res.country.state"].search(
                 [("code", "ilike", "QC")], limit=1
             )
+
+
+def post_init_hook(cr, e):
+    with api.Environment.manage():
+        env = api.Environment(cr, SUPERUSER_ID, {})
+
+        env.ref(
+            "demo_accorderie_canada_ddb.accorderie_membre_administrateur_mathieu_benoit"
+        ).write(
+            {
+                "membre_favoris_ids": [
+                    (
+                        4,
+                        env.ref(
+                            "demo_accorderie_canada_ddb.accorderie_membre_favoris_martin_petit"
+                        ).id,
+                    ),
+                    (
+                        4,
+                        env.ref(
+                            "demo_accorderie_canada_ddb.accorderie_membre_favoris_administrateur_mathieu_benoit"
+                        ).id,
+                    ),
+                    (
+                        4,
+                        env.ref(
+                            "demo_accorderie_canada_ddb.accorderie_membre_favoris_alice_poitier"
+                        ).id,
+                    ),
+                ]
+            }
+        )
+
+        env.ref(
+            "demo_accorderie_canada_ddb.accorderie_membre_denis_lemarchand"
+        ).write(
+            {
+                "membre_favoris_ids": [
+                    (
+                        4,
+                        env.ref(
+                            "demo_accorderie_canada_ddb.accorderie_membre_favoris_martin_petit"
+                        ).id,
+                    ),
+                    (
+                        4,
+                        env.ref(
+                            "demo_accorderie_canada_ddb.accorderie_membre_favoris_administrateur_mathieu_benoit"
+                        ).id,
+                    ),
+                ]
+            }
+        )

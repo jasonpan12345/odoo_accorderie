@@ -75,6 +75,8 @@ class AccorderieOffreService(models.Model):
         help="Membre qui offre le service",
     )
 
+    membre_favoris_ids = fields.Many2many(comodel_name="accorderie.membre")
+
     nb_consultation = fields.Integer(string="Nombre de consultations")
 
     nom_offre_special = fields.Char(

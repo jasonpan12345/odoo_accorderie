@@ -39,6 +39,8 @@ class AccorderieDemandeService(models.Model):
 
     membre = fields.Many2one(comodel_name="accorderie.membre")
 
+    membre_favoris_ids = fields.Many2many(comodel_name="accorderie.membre")
+
     type_service_id = fields.Many2one(
         comodel_name="accorderie.type.service",
         string="Type de services",

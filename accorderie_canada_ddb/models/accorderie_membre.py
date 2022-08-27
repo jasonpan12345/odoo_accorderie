@@ -123,6 +123,12 @@ class AccorderieMembre(models.Model):
         help="Les échanges de service du membre vendeur",
     )
 
+    membre_favoris_ids = fields.Many2many(
+        string="Membre favoris",
+        comodel_name="accorderie.membre.favoris",
+        help="Liste des membres favoris",
+    )
+
     part_social_paye = fields.Boolean(string="Part social payé")
 
     pas_communication = fields.Boolean(string="Pas de communication")

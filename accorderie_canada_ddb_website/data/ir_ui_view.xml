@@ -2012,6 +2012,9 @@
                                                         </div>
                                                         <div class="infos right">
                                                             <p>{{offre.diff_create_date}}</p>
+
+
+
                                                             <p class="fa fa-heart-o text-epsilon debug_unimplemented" />
                                                         </div>
                                                     </div>
@@ -2246,7 +2249,7 @@
                                     Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371565">https://marvelapp.com/prototype/1773h559/screen/86371565</a>
                                 </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
-                                    <p><a href="monprofil/">Mon profil <i class="fa fa-chevron-right" /> Mes annonces publiées</a></p>
+                                    <p><a href="/monprofil">Mon profil <i class="fa fa-chevron-right" /> Mes annonces publiées</a></p>
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes annonces publiées
@@ -2342,7 +2345,7 @@
                                     Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371530">https://marvelapp.com/prototype/1773h559/screen/86371530</a>
                                 </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
-                                    <p>Mon profil > Mes favoris</p>
+                                    <p><a href="/monprofil">Mon profil <i class="fa fa-chevron-right" /> Mes favoris</a></p>
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes favoris
@@ -2358,43 +2361,24 @@
                                                     <font style="font-size: 1.5rem;">Les offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service_favoris)">
+                                                Aucune offre de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-repeat="offre_service in personal.lst_offre_service_favoris">
+                                                <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
+                                                    <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <div class="infos">
+                                                        <h4 class="activite_title">{{offre_service.titre}}
+                                                        </h4>
+                                                        <p class="activite_desc" ng-bind-html="offre_service.description | unsafe" />
+                                                        <h5 class="activite_auteur">{{offre_service.membre.name}}</h5>
+                                                        <h5 class="activite_distance">{{offre_service.distance}}</h5>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <h5>{{offre_service.diff_create_date}}</h5>
+                                                        <h2 class="fa fa-heart text-epsilon" />
+                                                    </div>
+                                                </a>
                                             </div>
                                             <div class="list_title s_title pb40">
                                                 <h5>
@@ -2404,105 +2388,52 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_demande_service_favoris)">
+                                                Aucune demande de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-repeat="demande_service in personal.lst_demande_service_favoris">
+                                                <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
+                                                    <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <div class="infos">
+                                                        <h4 class="activite_title">{{demande_service.titre}}
+                                                        </h4>
+                                                        <p class="activite_desc" ng-bind-html="demande_service.description | unsafe" />
+                                                        <h5 class="activite_auteur">{{demande_service.membre.name}}</h5>
+                                                        <h5 class="activite_distance">{{demande_service.distance}}</h5>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <h5>{{demande_service.diff_create_date}}</h5>
+                                                        <h2 class="fa fa-heart text-epsilon" />
+                                                    </div>
+                                                </a>
                                             </div>
                                             <div class="list_title s_title pb40">
                                                 <h5>
                                                     <font style="font-size: 1.5rem;">Les membres</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
+
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_membre_favoris)">
+                                                Aucun membre favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-repeat="membre_favoris in personal.lst_membre_favoris">
+                                                <a ng-href="/monprofil/mapresentation#!?membre_id={{membre_favoris.id}}">
+                                                    <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <div class="infos">
+                                                        <h4 class="activite_title">
+                                                            {{membre_favoris.name}}
+                                                        </h4>
+                                                        <!-- TODO missing activite_age -->
+                                                        <h5 class="activite_age">
+                                                            {{membre_favoris.age}} ans
+                                                        </h5>
+                                                        <q ng-if="membre_favoris.description">{{membre_favoris.description}}</q>
+                                                    </div>
+                                                    <div class="infos right">
+                                                        <h5>5m</h5>
+                                                        <h2 class="fa fa-heart text-epsilon" />
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -3147,7 +3078,7 @@
                                             <br />
                                             <span class="txt">Voir et gérer les annonces que j'ai publié.</span>
                                         </a>
-                                        <a class="information information-4 btn debug_unimplemented" href="monprofil/mesfavoris">
+                                        <a class="information information-4 btn" href="monprofil/mesfavoris">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_favoris_02_png/Profil-Favoris-02.png" />
                                             <br />
                                             <span class="nbr">Mes favoris</span>
