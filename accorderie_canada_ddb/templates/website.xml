@@ -652,11 +652,9 @@
                     <div id="wrap" ng-controller="ParticiperController" class="ng-cloak">
                         <div class="oe_structure" />
                         <div class="debug_debug">
-                            <div class="debug_debug">
                                 Lien maquette : <a
-                                    href="https://marvelapp.com/prototype/1773h559/screen/86371515"
-                                >https://marvelapp.com/prototype/1773h559/screen/86371515</a>
-                            </div>
+                                href="https://marvelapp.com/prototype/1773h559/screen/86371515"
+                            >https://marvelapp.com/prototype/1773h559/screen/86371515</a><br />
                             Debug form: <span>{{form || json}}</span>
                             <br />
                             Debug state: <span>{{state || json}}</span>
@@ -854,11 +852,17 @@
                                     </div>
 
                                     <!-- Catégorie -->
-                                    <div ng-if="form_is_offre_demande_service()" class="nav_back"><b>Catégorie:</b><span
+
+                                    <div
+                                        ng-if="form_is_offre_demande_service() &amp;&amp; state.show_breadcrumb"
+                                        class="nav_back"
+                                    ><b>Catégorie:</b><span
+                                            ng-if="state.show_breadcrumb"
                                             ng-repeat="link in lst_label_breadcrumb"
                                             ng-click="change_breadcrumb_index(link.index)"
                                             class="cursor-pointer"
-                                        >{{link.text}}</span><i class="fa fa-chevron-right" /></div>
+                                            ng-bind-html="link.html | unsafe"
+                                        /><i class="fa fa-chevron-right" /></div>
 
                                     <!-- Photo header -->
                                     <section
