@@ -143,10 +143,22 @@ class AccorderieCanadaDdbController(http.Controller):
                 .browse(demande_service)
                 .exists()
             )
+            str_diff_time = self._transform_str_diff_time_creation(
+                accorderie_demande_service_id.create_date
+            )
+            if (
+                accorderie_demande_service_id
+                and accorderie_demande_service_id.membre
+            ):
+                str_distance = find_distance_from_user(
+                    env, accorderie_demande_service_id.membre.adresse
+                )
         else:
             accorderie_demande_service_id = None
         dct_value = {
-            "accorderie_demande_service_id": accorderie_demande_service_id
+            "accorderie_demande_service_id": accorderie_demande_service_id,
+            "str_diff_time": str_diff_time,
+            "str_distance": str_distance,
         }
 
         # Render page
@@ -402,11 +414,25 @@ class AccorderieCanadaDdbController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
+                "is_favorite": True,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
             }
             for a in membre_id.offre_service_ids
+        ]
+
+        lst_demande_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": False,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in membre_id.demande_service_ids
         ]
 
         # TODO update location with cartier et autre
@@ -445,6 +471,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     "id": membre_id.accorderie.id,
                 },
                 "lst_offre_service": lst_offre_service,
+                "lst_demande_service": lst_demande_service,
             }
         }
 

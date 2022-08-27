@@ -2246,7 +2246,7 @@
                                     Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86371565">https://marvelapp.com/prototype/1773h559/screen/86371565</a>
                                 </div>
                                 <section class="s_page_title pb24 pt88 s" style="margin-left:14%;">
-                                    <p>Mon profil > Mes annonces publiées</p>
+                                    <p><a href="monprofil/">Mon profil <i class="fa fa-chevron-right" /> Mes annonces publiées</a></p>
                                     <div class="pt8 pb4 " style="text-align: center;">
                                         <h1 class="s_title_default" style="text-align: left;">
                                             Mes annonces publiées
@@ -2254,7 +2254,7 @@
                                         </h1>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
@@ -2262,46 +2262,31 @@
                                                     <font style="font-size: 1.5rem;">Mes offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service)">
+                                                Aucune offre de service n'est actuellement publié dans vos activités.
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-repeat="offre_service in personal.lst_offre_service">
+                                                <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
+                                                    <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <div class="infos">
+<!--                                                        <h4 class="activite_title">{{offre_service.title}}</h4>-->
+                                                        <h4 ng-if="!_.isEmpty(offre_service.titre)">{{offre_service.titre}}</h4>
+                                                        <h4 ng-if="_.isEmpty(offre_service.titre)">Aucune titre</h4>
+                                                        <!-- TODO activite_desc not exist -->
+                                                        <h5 class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
+    <!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
+    <!--                                                    <h5 class="activite_distance">Faire visiter une maison &#224;-->
+    <!--                                                        louer-->
+    <!--                                                    </h5>-->
+                                                        <div class="infos_right">
+                                                            <p>{{offre_service.diff_create_date}}</p>
+                                                            <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" />
+                                                        </div>
+                                                        <!-- TODO manque activite_fav -->
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
-                                            </div>
+                                            <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle"><i class="fa fa-plus-circle" /> Ajouter une offre de service</a>
                                             <div class="list_title s_title pb40">
                                                 <h5>
                                                     <font style="font-size: 1.5rem;">
@@ -2310,37 +2295,31 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service)">
+                                                Aucune offre de service n'est actuellement publié dans vos activités.
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
+                                            <div class="activite btn" data-name="Box" ng-repeat="demande_service in personal.lst_demande_service">
+                                                <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
+                                                    <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <div class="infos">
+<!--                                                        <h4 class="activite_title">{{demande_service.title}}</h4>-->
+                                                        <h4 ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
+                                                        <h4 ng-if="_.isEmpty(demande_service.titre)">Aucune titre</h4>
+                                                        <!-- TODO activite_desc not exist -->
+                                                        <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
+    <!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
+    <!--                                                    <h5 class="activite_distance">Faire visiter une maison &#224;-->
+    <!--                                                        louer-->
+    <!--                                                    </h5>-->
+                                                        <div class="infos_right">
+                                                            <p>{{demande_service.diff_create_date}}</p>
+                                                            <i class="fa text-epsilon" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" />
+                                                        </div>
+                                                        <!-- TODO manque activite_fav -->
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">Mercredi 16 ao&#251;t</h4>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">Faire visiter une maison &#224;
-                                                        louer
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                            <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
+                                            <a href="/participer#!?state=init.pds" class="btn btn-primary rounded-circle"><i class="fa fa-plus-circle" /> Ajouter une demande de service</a>
                                         </div>
                                     </div>
                                 </section>
@@ -3161,7 +3140,7 @@
                                             <br />
                                             <span class="txt">Modifier mes informations personnelles et vérifier mes antécédents judiciaires.</span>
                                         </a>
-                                        <a class="information information-3 btn debug_unimplemented" href="monprofil/mesannonces">
+                                        <a class="information information-3 btn" href="monprofil/mesannonces">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_annonces_png/Profil-Annonces.png" />
                                             <br />
                                             <span class="nbr">Mes annonces publi&#233;es</span>
