@@ -57,6 +57,9 @@
                         <field name="membre" />
                     </group>
                     <group>
+                        <field name="membre_favoris_ids" widget="many2many_tags" />
+                    </group>
+                    <group>
                         <field name="nb_consultation" />
                     </group>
                     <group>
@@ -129,6 +132,7 @@
                 <field name="disponibilite" />
                 <field name="entente_tarifiaire" />
                 <field name="membre" />
+                <field name="membre_favoris_ids" />
                 <field name="nb_consultation" />
                 <field name="nom_offre_special" />
                 <field name="offre_special" />
@@ -215,6 +219,11 @@
                                     <li class="mb4">
                                         <strong>
                                             <field name="membre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_favoris_ids" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
@@ -317,6 +326,11 @@
                 />
                 <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
                 <filter
+                    domain="[('membre_favoris_ids','!=',False)]"
+                    name="membre_favoris_ids"
+                    string="Favoris membre"
+                />
+                <filter
                     domain="[('nb_consultation','!=',False)]"
                     name="nb_consultation"
                     string="Nombre de consultations"
@@ -355,6 +369,7 @@
                 <field name="date_mise_a_jour" />
                 <field name="disponibilite" />
                 <field name="membre" />
+                <field name="membre_favoris_ids" />
                 <field name="nb_consultation" />
                 <field name="nom_offre_special" />
                 <field name="offre_special" />

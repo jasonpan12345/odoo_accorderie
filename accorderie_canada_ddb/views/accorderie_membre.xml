@@ -27,6 +27,18 @@
                         <field name="offre_service_ids" />
                     </group>
                     <group>
+                        <field name="demande_service_ids" />
+                    </group>
+                    <group>
+                        <field name="echange_service_acheteur_ids" />
+                    </group>
+                    <group>
+                        <field name="echange_service_vendeur_ids" />
+                    </group>
+                    <group>
+                        <field name="membre_favoris_ids" />
+                    </group>
+                    <group>
                         <field name="nom_complet" />
                     </group>
                     <group>
@@ -312,6 +324,10 @@
                 <field name="commentaire" />
                 <field name="commentaire_ids" />
                 <field name="offre_service_ids" />
+                <field name="demande_service_ids" />
+                <field name="echange_service_acheteur_ids" />
+                <field name="echange_service_vendeur_ids" />
+                <field name="membre_favoris_ids" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -634,6 +650,26 @@
                                             <field name="offre_service_ids" />
                                         </strong>
                                     </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="demande_service_ids" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="echange_service_acheteur_ids" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="echange_service_vendeur_ids" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_favoris_ids" />
+                                        </strong>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -853,6 +889,11 @@
                     name="offre_service_ids"
                     string="Offre de service"
                 />
+                <filter
+                    domain="[('demande_service_ids','!=',False)]"
+                    name="demande_service_ids"
+                    string="Demande de service"
+                />
             </search>
         </field>
     </record>
@@ -877,6 +918,10 @@
                 <field name="memo" />
                 <field name="occupation" />
                 <field name="offre_service_ids" />
+                <field name="demande_service_ids" />
+                <field name="echange_service_acheteur_ids" />
+                <field name="echange_service_vendeur_ids" />
+                <field name="membre_favoris_ids" />
                 <field name="sexe" />
                 <field name="nom_complet" />
                 <field name="accorderie" />

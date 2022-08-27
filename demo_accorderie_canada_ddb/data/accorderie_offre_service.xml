@@ -11,6 +11,7 @@
             <field name="quoi_apporter">Votre laptop</field>
             <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_102_a_6_initiation_linux_et_logiciels_libres" />
+            <field name="membre_favoris_ids" eval="[(4, ref('accorderie_membre_administrateur_mathieu_benoit')), (4, ref('accorderie_membre_denis_lemarchand'))]" />
         </record>
         <record id="accorderie_offre_service_cours_de_piano" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -22,6 +23,7 @@
             <field name="quoi_apporter">Votre piano</field>
             <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_108_a_12_apprentissage_du_piano" />
+            <field name="membre_favoris_ids" eval="[(4, ref('accorderie_membre_administrateur_mathieu_benoit')), (4, ref('accorderie_membre_denis_lemarchand'))]" />
         </record>
         <record id="accorderie_offre_service_conception_site_web" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -33,6 +35,7 @@
             <field name="quoi_apporter">Votre ordinateur</field>
             <field name="membre" ref="accorderie_membre_administrateur_mathieu_benoit" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_102_c_3_conception_site_web" />
+            <field name="membre_favoris_ids" eval="[(4, ref('accorderie_membre_alice_poitier')), (4, ref('accorderie_membre_denis_lemarchand'))]" />
         </record>
         <record id="accorderie_offre_service_cours_de_violon" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -44,6 +47,7 @@
             <field name="quoi_apporter">Votre violon</field>
             <field name="membre" ref="accorderie_membre_martin_bergeron" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_108_a_13_apprentissage_du_violon" />
+            <field name="membre_favoris_ids" eval="[(4, ref('accorderie_membre_administrateur_mathieu_benoit')), (4, ref('accorderie_membre_denis_lemarchand'))]" />
         </record>
         <record id="accorderie_offre_service_je_vous_fais_decouvrir_la_ville_et_toutes_les_bonnes_choses_a_savoir" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -54,6 +58,7 @@
             <field name="description">Je connais très bien la ville, c'est ma ville natale!</field>
             <field name="membre" ref="accorderie_membre_alice_poitier" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_111_c_2_guide_touristique_ville_de_quebec" />
+            <field name="membre_favoris_ids" eval="[(4, ref('accorderie_membre_administrateur_mathieu_benoit')), (4, ref('accorderie_membre_denis_lemarchand'))]" />
         </record>
         <record id="accorderie_offre_service_faire_visiter_une_maison_a_louer" model="accorderie.offre.service">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
@@ -64,6 +69,7 @@
             <field name="description">Je peux visiter vos maisons à louer, je suis expert immobilier et j'adore faire cette activité dans mes temps libres.</field>
             <field name="membre" ref="accorderie_membre_denis_lemarchand" />
             <field name="type_service_id" ref="accorderie_canada_ddb_data.accorderie_type_service_101_f_4_conseils_valorisation_immobiliere" />
+            <field name="membre_favoris_ids" eval="[(4, ref('accorderie_membre_administrateur_mathieu_benoit')), (4, ref('accorderie_membre_denis_lemarchand'))]" />
         </record>
     </data>
 </odoo>

@@ -414,12 +414,37 @@ class AccorderieCanadaDdbController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
+                "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.offre_service_ids
+        ]
+
+        lst_offre_service_favoris = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
                 "is_favorite": True,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
+                "membre": {
+                    "id": a.membre.id,
+                    "name": a.membre.nom_complet,
+                },
+                "distance": "8m",
             }
-            for a in membre_id.offre_service_ids
+            for a in http.request.env["accorderie.offre.service"].search(
+                [("membre_favoris_ids", "=", membre_id.id)]
+            )
         ]
 
         lst_demande_service = [
@@ -427,12 +452,48 @@ class AccorderieCanadaDdbController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
-                "is_favorite": False,
+                "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
+                "membre": {
+                    "id": a.membre.id,
+                    "name": a.membre.nom_complet,
+                },
+                "distance": "8m",
             }
             for a in membre_id.demande_service_ids
+        ]
+
+        lst_demande_service_favoris = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": True,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in http.request.env["accorderie.demande.service"].search(
+                [("membre_favoris_ids", "=", membre_id.id)]
+            )
+        ]
+
+        lst_membre_favoris = [
+            {
+                "id": a.membre_id.id,
+                "description": a.membre_id.introduction,
+                "age": 35,
+                "is_favorite": True,
+                "name": a.membre_id.nom_complet,
+            }
+            for a in membre_id.membre_favoris_ids
         ]
 
         # TODO update location with cartier et autre
@@ -472,6 +533,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 },
                 "lst_offre_service": lst_offre_service,
                 "lst_demande_service": lst_demande_service,
+                "lst_offre_service_favoris": lst_offre_service_favoris,
+                "lst_demande_service_favoris": lst_demande_service_favoris,
+                "lst_membre_favoris": lst_membre_favoris,
             }
         }
 

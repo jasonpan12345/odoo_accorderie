@@ -33,6 +33,9 @@
                         <field name="membre" />
                     </group>
                     <group>
+                        <field name="membre_favoris_ids" widget="many2many_tags" />
+                    </group>
+                    <group>
                         <field name="commentaire" />
                     </group>
                     <group>
@@ -71,6 +74,7 @@
                 <field name="date_fin" />
                 <field name="description" />
                 <field name="membre" />
+                <field name="membre_favoris_ids" />
                 <field name="commentaire" />
                 <field name="type_service_id" />
                 <templates>
@@ -112,6 +116,11 @@
                                     <li class="mb4">
                                         <strong>
                                             <field name="membre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_favoris_ids" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
@@ -162,6 +171,11 @@
                 <filter domain="[('date_fin','!=',False)]" name="date_fin" string="Date fin" />
                 <filter domain="[('description','!=',False)]" name="description" string="Description" />
                 <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
+                <filter
+                    domain="[('membre_favoris_ids','!=',False)]"
+                    name="membre_favoris_ids"
+                    string="Favoris membre"
+                />
                 <filter domain="[('commentaire','!=',False)]" name="commentaire" string="Commentaire" />
                 <filter domain="[('type_service_id','!=',False)]" name="type_service_id" string="Type service" />
             </search>
@@ -180,6 +194,7 @@
                 <field name="date_fin" />
                 <field name="description" />
                 <field name="membre" />
+                <field name="membre_favoris_ids" />
                 <field name="commentaire" />
                 <field name="type_service_id" />
             </tree>

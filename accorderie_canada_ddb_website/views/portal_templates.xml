@@ -171,48 +171,27 @@
                                     <div class="dropdown-cat">
                                         <div id="tabOffres" class="navbar-tab">
                                             <div class="tab-items-container">
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <a
+                                                    role="menuitem"
+                                                    ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}"
+                                                    class="dropdown-item"
+                                                    ng-repeat="offre_service in personal.lst_offre_service_favoris"
+                                                >
                                                     <div class="cat activite btn " data-name="Box">
                                                         <img
                                                             class="activite_img img-fluid"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">Faire mon épicerie</span>
-                                                            <span class="activite_auteur">Denise Trépanier</span>
+                                                            <span class="activite_title">{{offre_service.titre}}</span>
+                                                            <span
+                                                                class="activite_auteur"
+                                                            >{{offre_service.membre.name}}</span>
                                                         </div>
                                                         <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
-                                                        <img
-                                                            class="activite_img img-fluid"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Faire mon épicerie</span>
-                                                            <span class="activite_auteur">Denise Trépanier</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
-                                                        <img
-                                                            class="activite_img img-fluid"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Faire mon épicerie</span>
-                                                            <span class="activite_auteur">Denise Trépanier</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
+                                                            <span
+                                                                ng-if="offre_service.distance"
+                                                            >{{offre_service.distance}}</span>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -227,48 +206,29 @@
                                         </div>
                                         <div id="tabDemandes" class="navbar-tab" style="display:none;">
                                             <div class="tab-items-container">
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <a
+                                                    role="menuitem"
+                                                    ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}"
+                                                    class="dropdown-item"
+                                                    ng-repeat="demande_service in personal.lst_demande_service_favoris"
+                                                >
                                                     <div class="cat activite btn " data-name="Box">
                                                         <img
                                                             class="activite_img img-fluid"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">Vous souhaitez acheter</span>
-                                                            <span class="activite_auteur">Martin Bergeron</span>
+                                                            <span
+                                                                class="activite_title"
+                                                            >{{demande_service.titre}}</span>
+                                                            <span
+                                                                class="activite_auteur"
+                                                            >{{demande_service.membre.name}}</span>
                                                         </div>
                                                         <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
-                                                        <img
-                                                            class="activite_img img-fluid"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Test</span>
-                                                            <span class="activite_auteur">Mike Wazowski</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
-                                                        <img
-                                                            class="activite_img img-fluid"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">item 3</span>
-                                                            <span class="activite_auteur">Joe</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
+                                                            <span
+                                                                ng-if="demande_service.distance"
+                                                            >{{demande_service.distance}}</span>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -283,51 +243,23 @@
                                         </div>
                                         <div id="tabMembres" class="navbar-tab" style="display:none;">
                                             <div class="tab-items-container">
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <a
+                                                    role="menuitem"
+                                                    ng-href="/monprofil/mapresentation#!?membre_id={{membre_favoris.id}}"
+                                                    class="dropdown-item"
+                                                    ng-repeat="membre_favoris in personal.lst_membre_favoris"
+                                                >
                                                     <div class="cat activite btn " data-name="Box">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">Helena Cartier</span>
-                                                            <span class="activite_auteur">Lorem ispum</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <i
-                                                                class="fa fa-2x fa-heart text-epsilon"
-                                                                style="margin:unset;"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Helena Cartier</span>
-                                                            <span class="activite_auteur">Lorem ispum</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <i
-                                                                class="fa fa-2x fa-heart text-epsilon"
-                                                                style="margin:unset;"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Helena Cartier</span>
-                                                            <span class="activite_auteur">Lorem ispum</span>
+                                                            <span class="activite_title">{{membre_favoris.name}}</span>
+                                                            <span
+                                                                class="activite_auteur"
+                                                                ng-if="membre_favoris.description"
+                                                            ><q>{{membre_favoris.description}}</q></span>
                                                         </div>
                                                         <div class="infos right">
                                                             <i

@@ -10,6 +10,7 @@ from . import (
     accorderie_echange_service,
     accorderie_fichier,
     accorderie_membre,
+    accorderie_membre_favoris,
     accorderie_occupation,
     accorderie_offre_service,
     accorderie_origine,

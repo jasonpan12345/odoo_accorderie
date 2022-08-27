@@ -139,6 +139,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             },
             lst_offre_service: [],
             lst_demande_service: [],
+            lst_offre_service_favoris: [],
+            lst_demande_service_favoris: [],
+            lst_membre_favoris: [],
 
             // calculate
             actual_bank_sign: true,
