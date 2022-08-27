@@ -464,11 +464,11 @@
                                 <div class="infos">
                                     <h4
                                         class="activite_title"
-                                        t-if="demande_service.description"
-                                        t-field="demande_service.description"
+                                        t-if="demande_service.titre"
+                                        t-field="demande_service.titre"
                                     />
-                                    <h4 class="activite_title" t-if="not demande_service.description">
-                                        Description vide...
+                                    <h4 class="activite_title" t-if="not demande_service.titre">
+                                        Titre vide...
                                     </h4>
                                     <h5
                                         class="activite_auteur"

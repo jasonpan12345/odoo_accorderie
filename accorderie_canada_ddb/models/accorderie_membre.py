@@ -102,6 +102,13 @@ class AccorderieMembre(models.Model):
         help="Les offres de service du membre",
     )
 
+    demande_service_ids = fields.One2many(
+        comodel_name="accorderie.demande.service",
+        inverse_name="membre",
+        string="Demande de service",
+        help="Les demandes de service du membre",
+    )
+
     echange_service_acheteur_ids = fields.One2many(
         comodel_name="accorderie.echange.service",
         inverse_name="membre_acheteur",
