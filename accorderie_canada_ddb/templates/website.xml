@@ -22,13 +22,16 @@
                             style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                         >
 
-                            <div class="event_banner_action bg-primary debug_unimplemented">
-                                <div class="btn btn-primary">
+                            <div class="event_banner_action bg-primary">
+                                <div class="btn btn-primary debug_unimplemented">
                                     <i class="fa fa-share-alt icon_padding_right" />
                                     Partager
                                 </div>
-                                <div class="divider" />
-                                <div class="btn btn-primary">
+                                <div class="divider debug_unimplemented" />
+                                <div
+                                    class="btn btn-primary"
+                                    t-attf-ng-click="add_to_my_favorite('accorderie.offre.service', {{accorderie_offre_service_id.id}})"
+                                >
                                     <i class="fa fa-heart-o icon_padding_right" />
                                     Ajouter à mes favoris
                                 </div>
@@ -201,13 +204,16 @@
                             style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                         >
 
-                            <div class="event_banner_action bg-primary debug_unimplemented">
-                                <div class="btn btn-primary">
+                            <div class="event_banner_action bg-primary">
+                                <div class="btn btn-primary debug_unimplemented">
                                     <i class="fa fa-share-alt icon_padding_right" />
                                     Partager
                                 </div>
-                                <div class="divider" />
-                                <div class="btn btn-primary">
+                                <div class="divider debug_unimplemented" />
+                                <div
+                                    class="btn btn-primary"
+                                    t-attf-ng-click="add_to_my_favorite('accorderie.demande.service', {{accorderie_offre_demande_id.id}})"
+                                >
                                     <i class="fa fa-heart-o icon_padding_right" />
                                     Ajouter à mes favoris
                                 </div>

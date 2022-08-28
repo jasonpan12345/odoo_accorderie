@@ -420,7 +420,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "name": a.membre.nom_complet,
+                    "full_name": a.membre.nom_complet,
                 },
                 "distance": "8m",
             }
@@ -438,7 +438,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "name": a.membre.nom_complet,
+                    "full_name": a.membre.nom_complet,
                 },
                 "distance": "8m",
             }
@@ -458,7 +458,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "name": a.membre.nom_complet,
+                    "full_name": a.membre.nom_complet,
                 },
                 "distance": "8m",
             }
@@ -476,7 +476,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 ),
                 "membre": {
                     "id": a.membre.id,
-                    "name": a.membre.nom_complet,
+                    "full_name": a.membre.nom_complet,
                 },
                 "distance": "8m",
             }
@@ -491,9 +491,14 @@ class AccorderieCanadaDdbController(http.Controller):
                 "description": a.membre_id.introduction,
                 "age": 35,
                 "is_favorite": True,
-                "name": a.membre_id.nom_complet,
+                "full_name": a.membre_id.nom_complet,
+                "distance": "8m",
             }
             for a in membre_id.membre_favoris_ids
+        ]
+
+        is_favorite = membre_id.id in [
+            a.membre_id.id for a in membre_id.membre_favoris_ids
         ]
 
         # TODO update location with cartier et autre
@@ -518,11 +523,13 @@ class AccorderieCanadaDdbController(http.Controller):
         # bank_time = 15 + month_bank_time
         return {
             "personal": {
+                "id": membre_id.id,
                 "full_name": membre_id.nom_complet,
                 # "actual_bank_hours": bank_time,
                 "actual_bank_hours": membre_id.bank_time,
                 # "actual_month_bank_hours": month_bank_time,
                 "actual_month_bank_hours": membre_id.bank_month_time,
+                "is_favorite": is_favorite,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
                 "location": membre_id.ville.nom,
@@ -536,6 +543,89 @@ class AccorderieCanadaDdbController(http.Controller):
                 "lst_offre_service_favoris": lst_offre_service_favoris,
                 "lst_demande_service_favoris": lst_demande_service_favoris,
                 "lst_membre_favoris": lst_membre_favoris,
+            }
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_membre_information/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_membre_information(self, membre_id, **kw):
+        # membre_id = self.get_membre_id()
+        # if type(membre_id) is dict:
+        #     # This is an error
+        #     return membre_id
+
+        actual_membre_id = self.get_membre_id()
+        if type(actual_membre_id) is dict:
+            # This is an error
+            return actual_membre_id
+
+        str_diff_time_creation = self._transform_str_diff_time_creation(
+            membre_id.create_date
+        )
+
+        lst_offre_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                # "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.offre_service_ids
+        ]
+
+        lst_demande_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                # "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.demande_service_ids
+        ]
+
+        is_favorite = membre_id.id in [
+            a.membre_id.id for a in actual_membre_id.membre_favoris_ids
+        ]
+
+        return {
+            "membre_info": {
+                "id": membre_id.id,
+                "full_name": membre_id.nom_complet,
+                "actual_bank_hours": membre_id.bank_time,
+                "actual_month_bank_hours": membre_id.bank_month_time,
+                "is_favorite": is_favorite,
+                "introduction": membre_id.introduction,
+                "diff_humain_creation_membre": str_diff_time_creation,
+                "location": membre_id.ville.nom,
+                "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
+                "mon_accorderie": {
+                    "name": membre_id.accorderie.nom,
+                    "id": membre_id.accorderie.id,
+                },
+                "lst_offre_service": lst_offre_service,
+                "lst_demande_service": lst_demande_service,
             }
         }
 
@@ -1051,6 +1141,66 @@ class AccorderieCanadaDdbController(http.Controller):
                 }
             )
             status["echange_service_id"] = new_accorderie_echange_service.id
+        return status
+
+    @http.route(
+        "/accorderie/submit/my_favorite",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_my_favorite_submit(self, **kw):
+        # Send from participer website
+        status = {}
+
+        membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+
+        id_record = kw.get("id_record")
+        model_name = kw.get("model")
+
+        if not id_record or not model_name:
+            return {
+                "error": (
+                    f"Missing parameter 'id_record' or 'model' for call"
+                    f" '/accorderie/submit/my_favorite'."
+                )
+            }
+
+        if model_name == "accorderie.membre":
+            favoris_membre_id = http.request.env["accorderie.membre"].browse(
+                id_record
+            )
+            if favoris_membre_id.id in membre_id.membre_favoris_ids.ids:
+                membre_id.write(
+                    {"membre_favoris_ids": [(3, favoris_membre_id.id)]}
+                )
+                status["id"] = favoris_membre_id.id
+                status["is_favorite"] = False
+            else:
+                # First, search if relation exist, or create it
+                favoris_membre_model_favoris_id = http.request.env[
+                    "accorderie.membre.favoris"
+                ].search([("membre_id", "=", favoris_membre_id.id)])
+                if not favoris_membre_model_favoris_id:
+                    membre_id.write(
+                        {
+                            "membre_favoris_ids": [
+                                (0, False, {"membre_id": favoris_membre_id.id})
+                            ]
+                        }
+                    )
+                else:
+                    membre_id.write(
+                        {
+                            "membre_favoris_ids": [
+                                (4, favoris_membre_id.id, False)
+                            ]
+                        }
+                    )
+                status["id"] = favoris_membre_id.id
+                status["is_favorite"] = True
+
         return status
 
     @http.route(

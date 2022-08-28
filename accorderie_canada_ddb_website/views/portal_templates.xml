@@ -186,7 +186,7 @@
                                                             <span class="activite_title">{{offre_service.titre}}</span>
                                                             <span
                                                                 class="activite_auteur"
-                                                            >{{offre_service.membre.name}}</span>
+                                                            >{{offre_service.membre.full_name}}</span>
                                                         </div>
                                                         <div class="infos right">
                                                             <span
@@ -223,7 +223,7 @@
                                                             >{{demande_service.titre}}</span>
                                                             <span
                                                                 class="activite_auteur"
-                                                            >{{demande_service.membre.name}}</span>
+                                                            >{{demande_service.membre.full_name}}</span>
                                                         </div>
                                                         <div class="infos right">
                                                             <span
@@ -255,7 +255,9 @@
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">{{membre_favoris.name}}</span>
+                                                            <span
+                                                                class="activite_title"
+                                                            >{{membre_favoris.full_name}}</span>
                                                             <span
                                                                 class="activite_auteur"
                                                                 ng-if="membre_favoris.description"
