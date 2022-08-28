@@ -127,6 +127,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope._ = _;
         $scope.personal = {
             // static
+            id: undefined,
+            is_favorite: false,
             full_name: "-",
             actual_bank_hours: 0,
             actual_month_bank_hours: 0,
@@ -151,9 +153,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             actual_bank_time_human_simplify: "0 heure",
             actual_month_bank_time_human_short: "0h",
         }
+        $scope.membre_info = {}
         $scope.nb_offre_service = 0;
 
-        ajax.rpc("/accorderie_canada_ddb/get_personal_information/", {}).then(function (data) {
+        ajax.rpc("/accorderie_canada_ddb/get_personal_information", {}).then(function (data) {
             console.debug("AJAX receive get_personal_information");
             if (data.error || !_.isUndefined(data.error)) {
                 $scope.error = data.error;
@@ -166,6 +169,30 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.personal = data.personal;
                 $scope.update_personal_data();
                 console.debug($scope.personal);
+
+                // Special case, when need to get information of another member
+                let membre_id = parseInt($location.search()["membre_id"]);
+                if (window.location.pathname === "/monprofil/mapresentation" && !_.isUndefined(membre_id) && membre_id !== $scope.personal.id) {
+                    // Force switch to another user
+                    ajax.rpc("/accorderie_canada_ddb/get_membre_information/" + membre_id).then(function (data) {
+                        console.debug("AJAX receive get_membre_information");
+                        if (data.error || !_.isUndefined(data.error)) {
+                            $scope.error = data.error;
+                            console.error($scope.error);
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty 'get_membre_information' data";
+                            console.error($scope.error);
+                        } else {
+                            $scope.error = "";
+                            $scope.membre_info = data.membre_info;
+                            console.debug($scope.membre_info);
+                        }
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    })
+                } else {
+                    $scope.membre_info = $scope.personal;
+                }
             }
 
             // Process all the angularjs watchers
@@ -187,6 +214,30 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // Process all the angularjs watchers
             $scope.$digest();
         })
+
+        $scope.add_to_my_favorite = function (model, record_obj) {
+            let id_record = record_obj.id;
+            ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
+            console.debug("AJAX receive add_to_my_favorite");
+            if (data.error || !_.isUndefined(data.error)) {
+                $scope.error = data.error;
+                console.error($scope.error);
+            } else if (_.isEmpty(data)) {
+                $scope.error = "Empty 'add_to_my_favorite' data";
+                console.error($scope.error);
+            } else {
+                // $scope.nb_offre_service = data.nb_offre_service;
+                record_obj.is_favorite = data.is_favorite;
+                // if (model === "accorderie.membre" && data.is_favorite) {
+                //     // TODO validate not already in list
+                //     $scope.personal.lst_membre_favoris.push(record_obj);
+                // }
+            }
+
+            // Process all the angularjs watchers
+            $scope.$digest();
+        })
+        }
 
         // $scope.forceRefreshAngularJS = function () {
         //     // console.debug("Force refresh AngularJS");
