@@ -2314,9 +2314,7 @@
                                                 </a>
                                                 <div class="infos right">
                                                     <p>{{offre_service.diff_create_date}}</p>
-                                                    <i class="fa text-epsilon"
-                                                       ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}"
-                                                       style="font-size:1.5rem;"/>
+                                                    <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" />
                                                 </div>
                                             </div>
                                             <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle text-gamma add_service"><i class="fa fa-plus-circle icon_padding_right" /> Ajouter une offre de service</a>

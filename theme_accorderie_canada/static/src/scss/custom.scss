@@ -203,7 +203,8 @@ header .nav-link {
   }
 }
 
-.nav-item.account, .dropdown.account {
+.nav-item.account,
+.dropdown.account {
   display: flex;
   width: auto;
   padding: 20px 20px 0;
@@ -2107,11 +2108,16 @@ actualité
     }
 
     .txt_question {
+      max-height: 100px;
       background-color: $bg-alpha;
       padding: 5%;
 
       > div {
         padding: 0;
+
+        span {
+          display: none;
+        }
       }
 
       h1 {
@@ -2120,8 +2126,6 @@ actualité
       }
     }
     #participer_form {
-      padding-bottom: 5vh;
-
       .buttons_form_container {
         padding: 5%;
         gap: 0.5rem;
@@ -2140,21 +2144,19 @@ actualité
         min-height: 10vh;
       }
 
-      .submit_container {
-        position: fixed;
-        bottom: 65px;
-        width: 100%;
-        background-color: white;
-
-        .submit_btn {
-          width: fit-content;
-          margin-right: 5%;
-        }
+      .submit_container .submit_btn {
+        width: fit-content;
+        margin-right: 5%;
       }
     }
   }
   .buttons_form_container .s_event_banner {
     left: -5.5%;
+  }
+  .buttons_form_container.form {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: calc(100vh - 272px) !important;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -2243,7 +2245,7 @@ actualité
     padding: 0.375rem 0.75rem;
     font-size: clamp(12px, 3vh, 1.25rem);
     white-space: normal;
-    margin-top: .75rem;
+    margin-top: 0.75rem;
   }
 }
 /*
