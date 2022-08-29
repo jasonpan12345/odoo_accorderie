@@ -674,6 +674,7 @@
                                             ng-click="change_breadcrumb_index(link.index)"
                                             class="cursor-pointer"
                                             style="color:white"
+                                            ng-if="!_.isEmpty(link.html)"
                                             ng-bind-html="link.html | unsafe"
                                         />
                                         <h1 ng-show="state.message">{{state.message}}</h1>
@@ -706,10 +707,13 @@
     <!--                                                class="activite_img img-fluid"-->
     <!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
     <!--                                            />-->
-                                                <h5 ng-show="option.title">{{option.title}}</h5>
-                                                <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
+                                                <h5 ng-if="option.title">{{option.title}}</h5>
                                                 <p
-                                                    ng-show="option.right_html"
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
+                                                />
+                                                <p
+                                                    ng-if="!_.isEmpty(option.right_html)"
                                                     ng-bind-html="option.right_html | unsafe"
                                                 />
                                             </div>
@@ -727,8 +731,11 @@
                                                 ng-dblclick="next_btn()"
                                             >
                                                 <i class="fa {{option.icon}}" ng-if="option.icon" />
-                                                <h5 ng-show="option.title">{{option.title}}</h5>
-                                                <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
+                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <p
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
+                                                />
                                             </label>
                                         </div>
                                         <!-- list_is_first_position -->
@@ -748,10 +755,13 @@
     <!--                                                class="activite_img img-fluid"-->
     <!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
     <!--                                            />-->
-                                                <h5 ng-show="option.title">{{option.title}}</h5>
-                                                <p ng-show="option.html" ng-bind-html="option.html | unsafe" />
+                                                <h5 ng-if="option.title">{{option.title}}</h5>
                                                 <p
-                                                    ng-show="option.right_html"
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
+                                                />
+                                                <p
+                                                    ng-if="!_.isEmpty(option.right_html)"
                                                     ng-bind-html="option.right_html | unsafe"
                                                 />
                                             </div>
@@ -785,7 +795,7 @@
                                                 />
                                                 <span
                                                     class="cat_desc"
-                                                    ng-show="option.html"
+                                                    ng-if="!_.isEmpty(option.html)"
                                                     ng-bind-html="option.html | unsafe"
                                                 />
                                             </label>
@@ -871,10 +881,10 @@
                                             ng-if="form_is_offre_demande_service() &amp;&amp; state.show_breadcrumb"
                                             class="nav_back"
                                         ><b>Catégorie:</b><span
-                                                ng-if="state.show_breadcrumb"
                                                 ng-repeat="link in lst_label_breadcrumb"
                                                 ng-click="change_breadcrumb_index(link.index)"
                                                 class="cursor-pointer"
+                                                ng-if="!_.isEmpty(link.html)"
                                                 ng-bind-html="link.html | unsafe"
                                             /><i class="fa fa-chevron-right" /></div>
 
