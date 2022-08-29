@@ -2308,15 +2308,18 @@
     <!--                                                    <h5 class="activite_distance">Faire visiter une maison &#224;-->
     <!--                                                        louer-->
     <!--                                                    </h5>-->
-                                                        <div class="infos_right">
-                                                            <p>{{offre_service.diff_create_date}}</p>
-                                                            <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" />
-                                                        </div>
+
                                                         <!-- TODO manque activite_fav -->
                                                     </div>
                                                 </a>
+                                                <div class="infos right">
+                                                    <p>{{offre_service.diff_create_date}}</p>
+                                                    <i class="fa text-epsilon"
+                                                       ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}"
+                                                       style="font-size:1.5rem;"/>
+                                                </div>
                                             </div>
-                                            <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle"><i class="fa fa-plus-circle" /> Ajouter une offre de service</a>
+                                            <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle text-gamma add_service"><i class="fa fa-plus-circle icon_padding_right" /> Ajouter une offre de service</a>
                                             <div class="list_title s_title pb40">
                                                 <h5>
                                                     <font style="font-size: 1.5rem;">
@@ -2349,7 +2352,7 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a href="/participer#!?state=init.pds" class="btn btn-primary rounded-circle"><i class="fa fa-plus-circle" /> Ajouter une demande de service</a>
+                                            <a href="/participer#!?state=init.pds" class="btn btn-primary rounded-circle text-gamma add_service"><i class="fa fa-plus-circle icon_padding_right" /> Ajouter une demande de service</a>
                                         </div>
                                     </div>
                                 </section>

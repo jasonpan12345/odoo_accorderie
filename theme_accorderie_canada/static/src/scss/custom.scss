@@ -2454,8 +2454,6 @@ actualité
     margin-top: 6vh;
   }
 
-
-
   .activite.btn {
     padding: 1.5% 0 1.5%;
     border-bottom: 1px solid $beta;
@@ -2492,12 +2490,17 @@ actualité
     .infos.right {
       margin-left: auto;
       margin-right: unset;
+      text-align: right;
 
       .fa {
         margin-top: auto;
         font-size: 1.5rem;
       }
     }
+  }
+  .add_service {
+    width: fit-content;
+    margin-top: 1.5%;
   }
 }
 @media only screen and (max-width: 990px) {
