@@ -2214,7 +2214,7 @@ actualité
     margin-top: 5%;
   }
   .modal-content {
-    padding: 15% 25%;
+    padding: 10% 25%;
     text-align: center;
   }
   button {
@@ -2229,11 +2229,17 @@ actualité
 }
 @media only screen and (max-width: 550px) {
   .modal_pub_offre .modal-content {
-    padding: 15% 5%;
+    padding: 10% 5%;
 
     .fa-check-circle-o {
       font-size: 10vh !important;
     }
+  }
+  .modal_pub_offre button {
+    padding: 0.375rem 0.75rem;
+    font-size: clamp(12px, 3vh, 1.25rem);
+    white-space: normal;
+    margin-top: .75rem;
   }
 }
 /*
