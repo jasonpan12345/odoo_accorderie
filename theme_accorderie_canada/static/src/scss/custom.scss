@@ -2441,7 +2441,6 @@ actualité
 
 .vertical_list {
   width: 100%;
-
   padding: 0 5%;
   display: flex;
   flex-direction: column;
@@ -2455,11 +2454,17 @@ actualité
     margin-top: 6vh;
   }
 
+
+
   .activite.btn {
     padding: 1.5% 0 1.5%;
     border-bottom: 1px solid $beta;
     border-top: none;
     display: flex;
+
+    > a {
+      flex: 1;
+    }
 
     .activite_img {
       max-height: 150px;
