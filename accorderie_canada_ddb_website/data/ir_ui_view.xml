@@ -2015,7 +2015,7 @@
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
                                                                 <p class="activite_title">{{demande.title}}</p>
-                                                                <p class="activite_desc" ng-bind-html="demande.description | unsafe" />
+                                                                <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
                                                             </div>
                                                         </a>
                                                         <div class="infos right">
@@ -2037,7 +2037,7 @@
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
                                                                 <p class="activite_title">{{offre.title}}</p>
-                                                                <p class="activite_desc" ng-bind-html="offre.description | unsafe" />
+                                                                <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
                                                             </div>
                                                         </a>
                                                         <div class="infos right">
@@ -2397,7 +2397,7 @@
                                                     <div class="infos">
                                                         <h4 class="activite_title">{{offre_service.titre}}
                                                         </h4>
-                                                        <p class="activite_desc" ng-bind-html="offre_service.description | unsafe" />
+                                                        <p class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
                                                         <h5 class="activite_auteur">{{offre_service.membre.full_name}}</h5>
                                                         <h5 class="activite_distance">{{offre_service.distance}}</h5>
                                                     </div>
@@ -2424,7 +2424,7 @@
                                                     <div class="infos">
                                                         <h4 class="activite_title">{{demande_service.titre}}
                                                         </h4>
-                                                        <p class="activite_desc" ng-bind-html="demande_service.description | unsafe" />
+                                                        <p class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
                                                         <h5 class="activite_auteur">{{demande_service.membre.full_name}}</h5>
                                                         <h5 class="activite_distance">{{demande_service.distance}}</h5>
                                                     </div>
