@@ -805,6 +805,7 @@
                                         class="buttons_form_container tab"
                                         ng-if="state.type == 'form'"
                                         style="flex-direction:column; flex-wrap:nowrap;"
+                                        ng-class="{form: form_is_offre_demande_service()}"
                                     >
                                         <div class="debug_debug">
                                             <!-- Debug information about form -->
