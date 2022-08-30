@@ -20,7 +20,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite" data-original-title="" title="">
                                                 <span>Bilan</span>
@@ -219,7 +219,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link active" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
@@ -526,7 +526,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
@@ -553,7 +553,7 @@
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <h1>
-                                                <font style="font-size:2rem;">&#201;v&#232;nements</font>
+                                                Évènements
                                                 <span class="filter_btn btn">
                                                     <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                     Filtrer et trier
@@ -795,7 +795,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
@@ -2091,7 +2091,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
@@ -2494,7 +2494,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite">
                                                 <span>Bilan</span>
@@ -2899,15 +2899,15 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monprofil/messages">
-                                                <span data-original-title="" title="" aria-describedby="tooltip634422">Messages</span>
+                                                <span>Messages</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monprofil/notifications">
-                                                <span data-original-title="" title="" aria-describedby="tooltip469978">Notifications</span>
+                                                <span>Notifications</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -2983,15 +2983,15 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monprofil/messages" data-original-title="" title="">
-                                                <span data-original-title="" title="" aria-describedby="tooltip634422">Messages</span>
+                                                <span>Messages</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monprofil/notifications">
-                                                <span data-original-title="" title="" aria-describedby="tooltip469978">Notifications</span>
+                                                <span>Notifications</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -3157,7 +3157,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link active" role="menu_item" href="/monactivite">
                                                 <span>Bilan</span>
@@ -3326,7 +3326,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" role="menu_item" href="/monactivite">
                                                 <span>Bilan</span>
@@ -3733,7 +3733,7 @@
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light mobile-display-none">
-                                    <ul class="nav navbar-nav text-right">
+                                    <ul class="nav navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link active" role="menu_item" href="#">
                                                 <span>Mer 1 oct</span>
@@ -4014,7 +4014,7 @@
                                                     </div>
                                                 </section>
                                                 <div class="title">
-                                                    <font style="font-size:2rem;">Offres de service</font>
+                                                    <h1>Offres de service</h1>
                                                     <span class="filter_btn btn" style="margin:auto 15px auto auto">
                                                         Catégorie &amp;nbsp;
                                                         <icon class="fa fa-chevron-up text-epsilon" />
