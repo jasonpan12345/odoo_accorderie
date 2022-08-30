@@ -179,7 +179,7 @@ a {
     margin-left: auto;
   }
   :nth-child(11) {
-    padding: 20px 20px 0;
+    padding-left: 20px;
   }
 }
 
@@ -751,14 +751,14 @@ actualité
   .container_accordage {
     width: 90%;
     float: unset;
-    height: 700px;
+    height: auto;
     margin-top: 2rem;
 
     .img {
       height: 35%;
     }
     .info {
-      height: 65%;
+      height: 200px;
     }
   }
   .container_actualite {
@@ -818,7 +818,6 @@ actualité
   display: flex;
 
   .activite_img {
-    float: left;
     height: 100px;
     aspect-ratio: 1/1;
     border-radius: 5px;
@@ -1435,8 +1434,6 @@ actualité
 }
 
 .lg-btn.btn {
-  max-width: 100%;
-  height: 10%;
   padding: 1.3rem;
   font-size: 1.2rem;
 }
@@ -2055,9 +2052,6 @@ actualité
       flex-direction: column;
       height: 100%;
 
-      //:nth-child(1) {
-      //  font-weight: bold;
-      //}
       > div {
         margin: auto 0;
       }
@@ -2551,7 +2545,8 @@ actualité
 
     .activite_auteur,
     .activite_distance,
-    .activite_age, q {
+    .activite_age,
+    q {
       font-size: 1.5vh;
     }
     .activite_desc {
