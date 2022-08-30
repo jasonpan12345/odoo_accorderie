@@ -270,6 +270,7 @@ header .nav-link {
 
 .cat.activite.btn {
   min-height: unset;
+  padding-right: 1rem;
 
   img {
     height: 65px;
@@ -1754,7 +1755,7 @@ actualité
 
 .medium-btn.btn {
   color: $text-alpha;
-  max-width: 30%;
+  width: fit-content;
   padding: 1.5%;
   font-size: 1rem;
   margin-top: 5%;
