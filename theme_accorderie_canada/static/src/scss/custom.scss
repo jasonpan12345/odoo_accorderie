@@ -70,6 +70,7 @@ body {
   .list_title {
     h1 {
       font-size: 5vw !important;
+      margin-left: 0 !important;
     }
 
     a {
@@ -748,7 +749,17 @@ actualité
 
 @media only screen and (max-width: 1050px) {
   .container_accordage {
-    display: none;
+    width: 90%;
+    float: unset;
+    height: 700px;
+    margin-top: 2rem;
+
+    .img {
+      height: 35%;
+    }
+    .info {
+      height: 65%;
+    }
   }
   .container_actualite {
     margin: auto !important;
@@ -1117,7 +1128,7 @@ actualité
     display: none;
   }
   #wrapwrap {
-    padding-bottom: 64px;
+    padding-bottom: 65px;
   }
 }
 
