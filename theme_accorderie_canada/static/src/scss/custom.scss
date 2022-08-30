@@ -1117,7 +1117,7 @@ actualité
     display: none;
   }
   #wrapwrap {
-    padding-bottom: 6vh;
+    padding-bottom: 64px;
   }
 }
 
@@ -1836,7 +1836,7 @@ actualité
 }
 
 .buttons_form_container .label.checked {
-  border: 2px solid $alpha;
+  box-shadow: inset 0px 0px 0px 2px $alpha;
 }
 
 .buttons_form_container .s_event_banner {
