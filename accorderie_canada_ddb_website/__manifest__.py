@@ -13,6 +13,7 @@
         "data/website_menu.xml",
         "views/portal_templates.xml",
         "views/webclient_templates.xml",
+        "views/website_accorderie_notification.xml",
     ],
     "installable": True,
     "pre_init_hook": "pre_init_hook",
