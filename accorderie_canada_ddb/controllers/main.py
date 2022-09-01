@@ -485,8 +485,8 @@ class AccorderieCanadaDdbController(http.Controller):
             )
         ]
 
-        lst_membre_favoris = [
-            {
+        dct_membre_favoris = {
+            a.membre_id.id: {
                 "id": a.membre_id.id,
                 "description": a.membre_id.introduction,
                 "age": 35,
@@ -495,7 +495,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.membre_favoris_ids
-        ]
+        }
 
         is_favorite = membre_id.id in [
             a.membre_id.id for a in membre_id.membre_favoris_ids
@@ -522,6 +522,9 @@ class AccorderieCanadaDdbController(http.Controller):
         #     month_bank_time -= v.nb_heure
         # bank_time = 15 + month_bank_time
         return {
+            "global": {
+                "dbname": http.request.env.cr.dbname,
+            },
             "personal": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom_complet,
@@ -542,8 +545,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 "lst_demande_service": lst_demande_service,
                 "lst_offre_service_favoris": lst_offre_service_favoris,
                 "lst_demande_service_favoris": lst_demande_service_favoris,
-                "lst_membre_favoris": lst_membre_favoris,
-            }
+                "dct_membre_favoris": dct_membre_favoris,
+            },
         }
 
     @http.route(
@@ -1171,7 +1174,6 @@ class AccorderieCanadaDdbController(http.Controller):
             favoris_membre_id = http.request.env["accorderie.membre"].browse(
                 id_record
             )
-            favoris_membre_id.send_notif()
             if favoris_membre_id.id in membre_id.membre_favoris_ids.ids:
                 membre_id.write(
                     {"membre_favoris_ids": [(3, favoris_membre_id.id)]}
@@ -1201,10 +1203,6 @@ class AccorderieCanadaDdbController(http.Controller):
                     )
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = True
-
-        http.request.env["bus.bus"].sendone(
-            "accorderie.notification.favorite", {"date": str(datetime.now())}
-        )
 
         return status
 
