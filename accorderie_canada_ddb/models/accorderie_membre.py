@@ -239,6 +239,12 @@ class AccorderieMembre(models.Model):
         store=True,
     )
 
+    def send_notif(self):
+        # self.env['bus.bus'].sendone('accorderie.notification.favorite', {"test": 123})
+        self.env["bus.bus"].sendone(
+            "accorderie.notification.favorite", {"date": str(datetime.now())}
+        )
+
     @api.depends(
         "membre_partner_id",
         "echange_service_acheteur_ids",
