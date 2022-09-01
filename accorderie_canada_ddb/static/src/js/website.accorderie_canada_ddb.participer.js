@@ -125,6 +125,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
     app.controller('MainController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
+        $scope.global = {
+            dbname: undefined,
+        }
         $scope.personal = {
             // static
             id: undefined,
@@ -143,7 +146,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             lst_demande_service: [],
             lst_offre_service_favoris: [],
             lst_demande_service_favoris: [],
-            lst_membre_favoris: [],
+            dct_membre_favoris: {},
 
             // calculate
             actual_bank_sign: true,
@@ -166,6 +169,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 console.error($scope.error);
             } else {
                 $scope.error = "";
+                $scope.global = data.global;
                 $scope.personal = data.personal;
                 $scope.update_personal_data();
                 console.debug($scope.personal);
