@@ -218,25 +218,25 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
-            console.debug("AJAX receive add_to_my_favorite");
-            if (data.error || !_.isUndefined(data.error)) {
-                $scope.error = data.error;
-                console.error($scope.error);
-            } else if (_.isEmpty(data)) {
-                $scope.error = "Empty 'add_to_my_favorite' data";
-                console.error($scope.error);
-            } else {
-                // $scope.nb_offre_service = data.nb_offre_service;
-                record_obj.is_favorite = data.is_favorite;
-                // if (model === "accorderie.membre" && data.is_favorite) {
-                //     // TODO validate not already in list
-                //     $scope.personal.lst_membre_favoris.push(record_obj);
-                // }
-            }
+                console.debug("AJAX receive add_to_my_favorite");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty 'add_to_my_favorite' data";
+                    console.error($scope.error);
+                } else {
+                    // $scope.nb_offre_service = data.nb_offre_service;
+                    record_obj.is_favorite = data.is_favorite;
+                    // if (model === "accorderie.membre" && data.is_favorite) {
+                    //     // TODO validate not already in list
+                    //     $scope.personal.lst_membre_favoris.push(record_obj);
+                    // }
+                }
 
-            // Process all the angularjs watchers
-            $scope.$digest();
-        })
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
         }
 
         // $scope.forceRefreshAngularJS = function () {
@@ -1339,7 +1339,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
     }
     ])
-    ;
 
     let ParticiperForm = Widget.extend({
         start: function () {
