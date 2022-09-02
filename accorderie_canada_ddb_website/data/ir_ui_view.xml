@@ -1999,18 +1999,18 @@
                                                 <br />
                                                 <span><i class="fa fa-commenting" />Anglais</span>
                                             </div>
-                                            <div ng-if="_.isEmpty(membre_info.lst_offre_service)">
+                                            <div ng-if="_.isEmpty(membre_info.dct_offre_service)">
                                                 <span class="txt">Mes offres de service</span>
                                                 <span>Aucune offre de service en cours actuellement.</span>
                                             </div>
-                                            <div ng-if="!_.isEmpty(membre_info.lst_demande_service)">
+                                            <div ng-if="!_.isEmpty(membre_info.dct_demande_service)">
                                                 <span class="txt">Mes demandes de service
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.lst_demande_service.length}})</u>
+                                                        <u>Voir tout ({{membre_info.dct_demande_service.length}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="demande in membre_info.lst_demande_service">
+                                                    <div class="activite btn" data-name="Box" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
                                                         <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
@@ -2025,14 +2025,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div ng-if="!_.isEmpty(membre_info.lst_offre_service)">
+                                            <div ng-if="!_.isEmpty(membre_info.dct_offre_service)">
                                                 <span class="txt">Mes demandes de service
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.lst_offre_service.length}})</u>
+                                                        <u>Voir tout ({{membre_info.dct_offre_service.length}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="offre in membre_info.lst_offre_service">
+                                                    <div class="activite btn" data-name="Box" ng-repeat="(offre_id, offre) in membre_info.dct_offre_service">
                                                         <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
@@ -2047,7 +2047,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div ng-if="_.isEmpty(membre_info.lst_demande_service)">
+                                            <div ng-if="_.isEmpty(membre_info.dct_demande_service)">
                                                 <span class="txt">Mes demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
                                             </div>
@@ -2292,10 +2292,10 @@
                                                     <font style="font-size: 1.5rem;">Mes offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service)">
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_offre_service)">
                                                 Aucune offre de service n'est actuellement publié dans vos activités.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="offre_service in personal.lst_offre_service">
+                                            <div class="activite btn" data-name="Box" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2326,27 +2326,20 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service)">
-                                                Aucune offre de service n'est actuellement publié dans vos activités.
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_demande_service)">
+                                                Aucune demande de service n'est actuellement publié dans vos activités.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="demande_service in personal.lst_demande_service">
+                                            <div class="activite btn" data-name="Box" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-<!--                                                        <h4 class="activite_title">{{demande_service.title}}</h4>-->
-                                                        <h4 ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
-                                                        <h4 ng-if="_.isEmpty(demande_service.titre)">Aucune titre</h4>
-                                                        <!-- TODO activite_desc not exist -->
+                                                        <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucune titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
-    <!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
-    <!--                                                    <h5 class="activite_distance">Faire visiter une maison &#224;-->
-    <!--                                                        louer-->
-    <!--                                                    </h5>-->
                                                         <div class="infos_right">
                                                             <p>{{demande_service.diff_create_date}}</p>
                                                             <i class="fa text-epsilon" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" />
                                                         </div>
-                                                        <!-- TODO manque activite_fav -->
                                                     </div>
                                                 </a>
                                             </div>
@@ -2389,15 +2382,14 @@
                                                     <font style="font-size: 1.5rem;">Les offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service_favoris)">
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">
                                                 Aucune offre de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="offre_service in personal.lst_offre_service_favoris">
+                                            <div class="activite btn" data-name="Box" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{offre_service.titre}}
-                                                        </h4>
+                                                        <h4 class="activite_title">{{offre_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
                                                         <h5 class="activite_auteur">{{offre_service.membre.full_name}}</h5>
                                                         <h5 class="activite_distance">{{offre_service.distance}}</h5>
@@ -2416,15 +2408,14 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_demande_service_favoris)">
+                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">
                                                 Aucune demande de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="demande_service in personal.lst_demande_service_favoris">
+                                            <div class="activite btn" data-name="Box" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{demande_service.titre}}
-                                                        </h4>
+                                                        <h4 class="activite_title">{{demande_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
                                                         <h5 class="activite_auteur">{{demande_service.membre.full_name}}</h5>
                                                         <h5 class="activite_distance">{{demande_service.distance}}</h5>
@@ -2451,7 +2442,6 @@
                                                         <h4 class="activite_title">
                                                             {{membre_favoris.full_name}}
                                                         </h4>
-                                                        <!-- TODO missing activite_age -->
                                                         <h5 class="activite_age">
                                                             {{membre_favoris.age}} ans
                                                         </h5>

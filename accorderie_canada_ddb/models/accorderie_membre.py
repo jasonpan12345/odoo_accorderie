@@ -241,6 +241,8 @@ class AccorderieMembre(models.Model):
 
     @api.multi
     def write(self, vals):
+        status = super().write(vals)
+        # Detect user
         for rec in self:
             self.env["bus.bus"].sendone(
                 # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
@@ -248,10 +250,11 @@ class AccorderieMembre(models.Model):
                 {
                     "timestamp": str(datetime.now()),
                     "data": vals,
+                    "field_id": rec.id,
                     "canal": f'["{self._cr.dbname}","{self._name}",{rec.id}]',
                 },
             )
-        return super().write(vals)
+        return status
 
     @api.depends(
         "membre_partner_id",
