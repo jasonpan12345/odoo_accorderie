@@ -127,6 +127,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope._ = _;
         $scope.global = {
             dbname: undefined,
+            database: {},
         }
         $scope.personal = {
             // static
@@ -142,10 +143,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 name: "-",
                 id: 0,
             },
-            lst_offre_service: [],
-            lst_demande_service: [],
-            lst_offre_service_favoris: [],
-            lst_demande_service_favoris: [],
+            dct_offre_service: {},
+            dct_demande_service: {},
+            dct_offre_service_favoris: {},
+            dct_demande_service_favoris: {},
             dct_membre_favoris: {},
 
             // calculate
@@ -241,6 +242,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 // Process all the angularjs watchers
                 $scope.$digest();
             })
+        }
+
+        $scope.getDatabaseInfo = function(model, field_id) {
+            // TODO compete this
+            console.debug(model);
+            console.debug(field_id);
         }
 
         // $scope.forceRefreshAngularJS = function () {

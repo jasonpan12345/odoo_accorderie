@@ -175,7 +175,7 @@
                                                     role="menuitem"
                                                     ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}"
                                                     class="dropdown-item"
-                                                    ng-repeat="offre_service in personal.lst_offre_service_favoris"
+                                                    ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris"
                                                 >
                                                     <div class="cat activite btn " data-name="Box">
                                                         <img
@@ -210,7 +210,7 @@
                                                     role="menuitem"
                                                     ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}"
                                                     class="dropdown-item"
-                                                    ng-repeat="demande_service in personal.lst_demande_service_favoris"
+                                                    ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris"
                                                 >
                                                     <div class="cat activite btn " data-name="Box">
                                                         <img

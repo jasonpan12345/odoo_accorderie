@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import _, api, fields, models
 
 
@@ -45,6 +47,28 @@ class AccorderieDemandeService(models.Model):
         comodel_name="accorderie.type.service",
         string="Type de services",
     )
+
+    @api.multi
+    def write(self, vals):
+        status = super().write(vals)
+        # Detect user
+        accorderie_member = (
+            self.env["res.users"]
+            .browse(self.write_uid.id)
+            .partner_id.accorderie_membre_ids
+        )
+        for rec in self:
+            self.env["bus.bus"].sendone(
+                # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
+                "accorderie.notification.favorite",
+                {
+                    "timestamp": str(datetime.now()),
+                    "data": vals,
+                    "field_id": rec.id,
+                    "canal": f'["{self._cr.dbname}","{self._name}",{accorderie_member.id}]',
+                },
+            )
+        return status
 
     def _compute_access_url(self):
         super(AccorderieDemandeService, self)._compute_access_url()

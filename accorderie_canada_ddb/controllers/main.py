@@ -409,8 +409,8 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id.create_date
         )
 
-        lst_offre_service = [
-            {
+        dct_offre_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -425,10 +425,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.offre_service_ids
-        ]
+        }
 
-        lst_offre_service_favoris = [
-            {
+        dct_offre_service_favoris = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -445,10 +445,10 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in http.request.env["accorderie.offre.service"].search(
                 [("membre_favoris_ids", "=", membre_id.id)]
             )
-        ]
+        }
 
-        lst_demande_service = [
-            {
+        dct_demande_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -463,10 +463,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.demande_service_ids
-        ]
+        }
 
-        lst_demande_service_favoris = [
-            {
+        dct_demande_service_favoris = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -483,7 +483,7 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in http.request.env["accorderie.demande.service"].search(
                 [("membre_favoris_ids", "=", membre_id.id)]
             )
-        ]
+        }
 
         dct_membre_favoris = {
             a.membre_id.id: {
@@ -541,10 +541,10 @@ class AccorderieCanadaDdbController(http.Controller):
                     "name": membre_id.accorderie.nom,
                     "id": membre_id.accorderie.id,
                 },
-                "lst_offre_service": lst_offre_service,
-                "lst_demande_service": lst_demande_service,
-                "lst_offre_service_favoris": lst_offre_service_favoris,
-                "lst_demande_service_favoris": lst_demande_service_favoris,
+                "dct_offre_service": dct_offre_service,
+                "dct_demande_service": dct_demande_service,
+                "dct_offre_service_favoris": dct_offre_service_favoris,
+                "dct_demande_service_favoris": dct_demande_service_favoris,
                 "dct_membre_favoris": dct_membre_favoris,
             },
         }
@@ -572,8 +572,8 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id.create_date
         )
 
-        lst_offre_service = [
-            {
+        dct_offre_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -588,10 +588,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.offre_service_ids
-        ]
+        }
 
-        lst_demande_service = [
-            {
+        dct_demande_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -606,7 +606,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.demande_service_ids
-        ]
+        }
 
         is_favorite = membre_id.id in [
             a.membre_id.id for a in actual_membre_id.membre_favoris_ids
@@ -627,8 +627,8 @@ class AccorderieCanadaDdbController(http.Controller):
                     "name": membre_id.accorderie.nom,
                     "id": membre_id.accorderie.id,
                 },
-                "lst_offre_service": lst_offre_service,
-                "lst_demande_service": lst_demande_service,
+                "dct_offre_service": dct_offre_service,
+                "dct_demande_service": dct_demande_service,
             }
         }
 
@@ -1176,7 +1176,7 @@ class AccorderieCanadaDdbController(http.Controller):
             )
             if favoris_membre_id.id in membre_id.membre_favoris_ids.ids:
                 membre_id.write(
-                    {"membre_favoris_ids": [(3, favoris_membre_id.id)]}
+                    {"membre_favoris_ids": [(3, favoris_membre_id.id, False)]}
                 )
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = False
@@ -1203,6 +1203,45 @@ class AccorderieCanadaDdbController(http.Controller):
                     )
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = True
+        elif model_name == "accorderie.offre.service":
+            offre_service_id = http.request.env[
+                "accorderie.offre.service"
+            ].browse(id_record)
+            if membre_id.id in offre_service_id.membre_favoris_ids.ids:
+                offre_service_id.write(
+                    {"membre_favoris_ids": [(3, membre_id.id, False)]}
+                )
+                status["id"] = offre_service_id.id
+                status["is_favorite"] = False
+            else:
+                offre_service_id.write(
+                    {"membre_favoris_ids": [(4, membre_id.id, False)]}
+                )
+                status["id"] = offre_service_id.id
+                status["is_favorite"] = True
+        elif model_name == "accorderie.demande.service":
+            demande_service_id = http.request.env[
+                "accorderie.demande.service"
+            ].browse(id_record)
+            if membre_id.id in demande_service_id.membre_favoris_ids.ids:
+                demande_service_id.write(
+                    {"membre_favoris_ids": [(3, membre_id.id, False)]}
+                )
+                status["id"] = demande_service_id.id
+                status["is_favorite"] = False
+            else:
+                demande_service_id.write(
+                    {"membre_favoris_ids": [(4, membre_id.id, False)]}
+                )
+                status["id"] = demande_service_id.id
+                status["is_favorite"] = True
+        else:
+            msg_error = (
+                f"/accorderie/submit/my_favorite model '{model_name}' not"
+                " supported."
+            )
+            _logger.error(msg_error)
+            status["error"] = msg_error
 
         return status
 

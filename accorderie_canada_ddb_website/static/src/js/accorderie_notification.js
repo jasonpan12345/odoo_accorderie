@@ -10,7 +10,6 @@ odoo.define('website.accorderie_notification', function (require) {
     let AccorderieNotification = Widget.extend({
         init: function (parent) {
             this._super(parent);
-            this._global_scope = angular.element($("[ng-app]")).scope();
         },
         willStart: function () {
             return this._loadQWebTemplate();
@@ -45,27 +44,89 @@ odoo.define('website.accorderie_notification', function (require) {
         _onNotification: function (notifications) {
             let self = this;
             let has_update = false;
+            let $scope = angular.element($("[ng-app]")).scope();
             // Recreate it solves a strange bug
-            let canal_membre_update = JSON.stringify([this._global_scope.global.dbname, "accorderie.membre", this._global_scope.personal.id]);
+            let canal_membre_update = JSON.stringify([$scope.global.dbname, "accorderie.membre", $scope.personal.id]);
+            let canal_offre_service_update = JSON.stringify([$scope.global.dbname, "accorderie.offre.service", $scope.personal.id]);
+            let canal_demande_service_update = JSON.stringify([$scope.global.dbname, "accorderie.demande.service", $scope.personal.id]);
             console.debug(notifications);
             // Cannot use each, because need to update scope at the end for optimisation
             // _.each(notifications, function (notification) {
             for (let i = 0; i < notifications.length; i++) {
                 let notification = notifications[i];
-                    // let channel = notification[0];
-                    let message = notification[1];
-                    let channel = message.canal;
-                if (channel === canal_membre_update && !_.isEmpty(message)) {
+                // let channel = notification[0];
+                let message = notification[1];
+                let channel = message.canal;
+                if (_.isEmpty(message)) {
+                    continue;
+                }
+                // TODO can we merge it together?
+                if (channel === canal_membre_update) {
                     let data = message.data;
                     for (const [key, value] of Object.entries(data)) {
                         if (key === "membre_favoris_ids") {
-                            console.debug("action to do " + String(value));
+                            // Modified field is in update value
+                            let field_id = value[0][1];
+                            let membre = $scope.personal.dct_membre_favoris[field_id];
+                            // console.debug("action to do " + String(value));
                             if (value[0][0] === 4) {
-                                self._global_scope.personal.dct_membre_favoris[value[0][1]].is_favorite = true;
+                                membre.is_favorite = true;
                                 has_update = true;
                             } else if (value[0][0] === 3) {
-                                self._global_scope.personal.dct_membre_favoris[value[0][1]].is_favorite = false;
+                                membre.is_favorite = false;
                                 has_update = true;
+                            } else {
+                                console.error("Not support value '" + value + "' from membre_favoris_ids channel '" + channel + "' model 'accorderie.membre'");
+                            }
+                        }
+                    }
+                } else if (channel === canal_offre_service_update) {
+                    let data = message.data;
+                    let field_id = message.field_id;
+                    // TODO Loop is not necessary, get the key directly
+                    for (const [key, value] of Object.entries(data)) {
+                        if (key === "membre_favoris_ids") {
+                            let offreService = $scope.personal.dct_offre_service_favoris[field_id];
+                            // console.debug("action to do " + String(value));
+                            if (value[0][0] === 4) {
+                                // let field_id = value[0][1];
+                                if (_.isUndefined(offreService)) {
+                                    offreService = $scope.getDatabaseInfo("accorderie.offre.service", field_id)
+                                }
+                                if (!_.isUndefined(offreService)) {
+                                    offreService.is_favorite = true;
+                                    has_update = true;
+                                }
+                            } else if (value[0][0] === 3) {
+                                offreService.is_favorite = false;
+                                has_update = true;
+                            } else {
+                                console.error("Not support value '" + value + "' from membre_favoris_ids channel '" + channel + "' model 'accorderie.offre.service'");
+                            }
+                        }
+                    }
+                } else if (channel === canal_demande_service_update) {
+                    let data = message.data;
+                    let field_id = message.field_id;
+                    for (const [key, value] of Object.entries(data)) {
+                        if (key === "membre_favoris_ids") {
+                            let demandeService = $scope.personal.dct_demande_service_favoris[field_id];
+                            // console.debug("action to do " + String(value));
+                            if (value[0][0] === 4) {
+                                // let field_id = value[0][1];
+                                if (_.isUndefined(demandeService)) {
+                                    demandeService = $scope.getDatabaseInfo("accorderie.demande.service", field_id)
+                                }
+                                if (!_.isUndefined(demandeService)) {
+                                    demandeService.is_favorite = true;
+                                    has_update = true;
+                                }
+                            } else if (value[0][0] === 3) {
+                                let demandeService = $scope.personal.dct_demande_service_favoris[field_id];
+                                demandeService.is_favorite = false;
+                                has_update = true;
+                            } else {
+                                console.error("Not support value '" + value + "' from membre_favoris_ids channel '" + channel + "' model 'accorderie.demande.service'");
                             }
                         }
                     }
@@ -74,7 +135,7 @@ odoo.define('website.accorderie_notification', function (require) {
             // });
 
             if (has_update) {
-                this._global_scope.$digest();
+                $scope.$digest();
             }
         },
     });
