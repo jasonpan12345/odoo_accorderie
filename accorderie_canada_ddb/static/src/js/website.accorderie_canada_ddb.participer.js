@@ -158,6 +158,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             actual_month_bank_time_human_short: "0h",
         }
         $scope.membre_info = {}
+        // $scope.offre_service_info = {}
+        // $scope.demande_service_info = {}
+        // $scope.echange_service_info = {}
         $scope.nb_offre_service = 0;
 
         ajax.rpc("/accorderie_canada_ddb/get_personal_information", {}).then(function (data) {
@@ -220,6 +223,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.$digest();
         })
 
+        $scope.add_to_my_favorite_field_id = function (model, record_id) {
+            console.error("Not supported change favorite.");
+        }
+
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
@@ -245,7 +252,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.getDatabaseInfo = function(model, field_id) {
-            // TODO compete this
+            // TODO compete this, suppose to update database value and use cache
+            console.warn("Not supported get database info");
             console.debug(model);
             console.debug(field_id);
         }
