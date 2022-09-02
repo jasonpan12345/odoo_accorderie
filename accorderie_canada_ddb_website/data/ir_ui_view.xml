@@ -1999,36 +1999,15 @@
                                                 <br />
                                                 <span><i class="fa fa-commenting" />Anglais</span>
                                             </div>
+
                                             <div ng-if="_.isEmpty(membre_info.dct_offre_service)">
                                                 <span class="txt">Mes offres de service</span>
                                                 <span>Aucune offre de service en cours actuellement.</span>
                                             </div>
-                                            <div ng-if="!_.isEmpty(membre_info.dct_demande_service)">
-                                                <span class="txt">Mes demandes de service
-                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.dct_demande_service.length}})</u>
-                                                    </a>
-                                                </span>
-                                                <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
-                                                        <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande.id}}">
-                                                            <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                            <div class="infos">
-                                                                <p class="activite_title">{{demande.title}}</p>
-                                                                <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
-                                                            </div>
-                                                        </a>
-                                                        <div class="infos right">
-                                                            <p>{{demande.diff_create_date}}</p>
-                                                            <p class="fa fa-heart-o text-epsilon debug_unimplemented" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div ng-if="!_.isEmpty(membre_info.dct_offre_service)">
-                                                <span class="txt">Mes demandes de service
+                                                <span class="txt">Mes offres de service
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.dct_offre_service.length}})</u>
+                                                        <u>Voir tout ({{membre_info.dct_offre_service | lengthKeys}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
@@ -2036,21 +2015,45 @@
                                                         <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
-                                                                <p class="activite_title">{{offre.title}}</p>
+                                                                <p class="activite_title">{{offre.titre}}</p>
                                                                 <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
                                                             </div>
                                                         </a>
                                                         <div class="infos right">
                                                             <p>{{offre.diff_create_date}}</p>
-                                                            <p class="fa fa-heart-o text-epsilon debug_unimplemented" />
+                                                            <p class="fa text-epsilon" ng-class="{'fa-heart': offre.is_favorite, 'fa-heart-o': !offre.is_favorite}" ng-click="add_to_my_favorite('accorderie.offre.service', offre)" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div ng-if="_.isEmpty(membre_info.dct_demande_service)">
                                                 <span class="txt">Mes demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
                                             </div>
+                                            <div ng-if="!_.isEmpty(membre_info.dct_demande_service)">
+                                                <span class="txt">Mes demandes de service
+                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                        <u>Voir tout ({{membre_info.dct_demande_service | lengthKeys}})</u>
+                                                    </a>
+                                                </span>
+                                                <div class="row vertical_list">
+                                                    <div class="activite btn" data-name="Box" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
+                                                        <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande.id}}">
+                                                            <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                            <div class="infos">
+                                                                <p class="activite_title">{{demande.titre}}</p>
+                                                                <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
+                                                            </div>
+                                                        </a>
+                                                        <div class="infos right">
+                                                            <p>{{demande.diff_create_date}}</p>
+                                                            <p class="fa text-epsilon" ng-class="{'fa-heart': demande.is_favorite, 'fa-heart-o': !demande.is_favorite}" ng-click="add_to_my_favorite('accorderie.demande.service', demande)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="debug_unimplemented">
                                                 <p>
                                                     <icon class="fa fa-flag-o" />

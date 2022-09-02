@@ -75,6 +75,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // This allows html generation in view
         return $sce.trustAsHtml;
     });
+    app.filter('lengthKeys', function () {
+        return function ($sce) {
+            return Object.keys($sce).length;
+        }
+    });
 
     // sAnimation.registry.affixMenu.include({
     //     /**
