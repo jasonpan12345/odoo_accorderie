@@ -2314,7 +2314,7 @@
                                                 </a>
                                                 <div class="infos right">
                                                     <p>{{offre_service.diff_create_date}}</p>
-                                                    <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" />
+                                                    <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('accorderie.offre.service', offre_service)" />
                                                 </div>
                                             </div>
                                             <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle text-gamma add_service"><i class="fa fa-plus-circle icon_padding_right" /> Ajouter une offre de service</a>
@@ -2338,7 +2338,7 @@
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
                                                         <div class="infos_right">
                                                             <p>{{demande_service.diff_create_date}}</p>
-                                                            <i class="fa text-epsilon" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" />
+                                                            <i class="fa text-epsilon" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('accorderie.demande.service', demande_service)" />
                                                         </div>
                                                     </div>
                                                 </a>
