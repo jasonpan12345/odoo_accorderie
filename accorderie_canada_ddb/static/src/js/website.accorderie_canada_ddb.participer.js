@@ -310,6 +310,18 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             })
         }
 
+        $scope.get_href_participer_service_effectue = function (echange_service_info) {
+            // TODO Detect the variables to redirect in good workflow
+            let status = `/participer#!?state=init.va.oui.formulaire&amp;echange_service=${echange_service_info.id}`;
+            if (!_.isUndefined(echange_service_info.offre_service)) {
+                status += `&amp;offre_service=${echange_service_info.offre_service}`
+            }
+            if (!_.isUndefined(echange_service_info.demande_service)) {
+                status += `&amp;demande_service=${echange_service_info.demande_service}`
+            }
+            return status;
+        }
+
         $scope.update_db_nb_offre_service = function () {
             ajax.rpc("/accorderie_canada_ddb/get_info/nb_offre_service", {}).then(function (data) {
                 console.debug("AJAX receive get_nb_offre_service");
@@ -688,8 +700,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.type_service = 'offre'; // or 'demande'
 
         $scope.getDatabaseInfo = function (model, field_id) {
-            console.debug("Get database info model '" + model + "'");
-            if (model === "accorderie.offre.service") {
+            console.debug("Get database info model '" + model + "' and field_id '" + field_id + "'");
+            if (_.isUndefined(field_id)) {
+                console.error("Field_id is undefined from model '" + model + "'");
+            } else if (model === "accorderie.offre.service") {
                 let value = $scope.$parent.dct_offre_service_info[field_id];
                 if (!_.isUndefined(value)) {
                     $scope.service = value;
@@ -705,6 +719,25 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     } else {
                         $scope.service = data;
                         $scope.$parent.dct_offre_service_info[field_id] = data;
+                        $scope.$digest();
+                    }
+                })
+            } else if (model === "accorderie.demande.service") {
+                let value = $scope.$parent.dct_demande_service_info[field_id];
+                if (!_.isUndefined(value)) {
+                    $scope.service = value;
+                }
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_demande_service/" + field_id).then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_demande_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_demande_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.service = data;
+                        $scope.$parent.dct_demande_service_info[field_id] = data;
                         $scope.$digest();
                     }
                 })

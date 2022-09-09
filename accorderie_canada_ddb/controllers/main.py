@@ -145,6 +145,10 @@ class AccorderieCanadaDdbController(http.Controller):
             "is_favorite": me_membre_id.id in offre_id.membre_favoris_ids.ids,
             "distance": "8m",
             "membre_id": offre_id.membre.id,
+            "membre": {
+                "id": offre_id.membre.id,
+                "full_name": offre_id.membre.nom_complet,
+            },
             "diff_create_date": self._transform_str_diff_time_creation(
                 offre_id.create_date
             ),
@@ -226,6 +230,10 @@ class AccorderieCanadaDdbController(http.Controller):
             in demande_id.membre_favoris_ids.ids,
             "distance": "8m",
             "membre_id": demande_id.membre.id,
+            "membre": {
+                "id": demande_id.membre.id,
+                "full_name": demande_id.membre.nom_complet,
+            },
             "diff_create_date": self._transform_str_diff_time_creation(
                 demande_id.create_date
             ),

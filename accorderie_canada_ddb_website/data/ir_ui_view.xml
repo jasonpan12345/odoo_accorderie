@@ -3924,7 +3924,7 @@
                                                 {{contact_info.full_name}}
                                             </span>
                                             <div class="btn btn-primary ml-auto text-gamma">
-                                                <a ng-href="/participer#!?state=init.va.oui.formulaire&amp;echange_service={{echange_service_info.id}}">
+                                                <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">
                                                     <i class="fa fa-check" />
                                                     <span>Déclarer le service comme effectué</span>
                                                 </a>
@@ -3981,24 +3981,7 @@
                                                     </font>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn">
-                                                        <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                        <div class="infos">
-                                                            <p class="activite_title">
-                                                                Vous souhaitez acheter une maison à
-                                                                l"étranger?
-                                                            </p>
-                                                            <span class="activite_auteur">
-                                                                Yannick Gagnon
-                                                                <br />
-                                                                2.3km
-                                                            </span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <p>5m</p>
-                                                            <p class="fa fa-heart-o text-epsilon" />
-                                                        </div>
-                                                    </div>
+                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_id = echange_service_info.offre_service; type_service = 'offre'; ; getDatabaseInfo('accorderie.offre.service', echange_service_info.offre_service); " />
                                                 </div>
                                             </div>
                                             <div ng-if="!_.isUndefined(echange_service_info.demande_service)">
@@ -4008,24 +3991,7 @@
                                                     </font>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn">
-                                                        <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                        <div class="infos">
-                                                            <p class="activite_title">
-                                                                Vous souhaitez acheter une maison à
-                                                                l"étranger?
-                                                            </p>
-                                                            <span class="activite_auteur">
-                                                                Yannick Gagnon
-                                                                <br />
-                                                                2.3km
-                                                            </span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <p>5m</p>
-                                                            <p class="fa fa-heart-o text-epsilon" />
-                                                        </div>
-                                                    </div>
+                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_id = echange_service_info.demande_service; service = echange_service_info.demande_service; type_service = 'demande'; getDatabaseInfo('accorderie.demande.service', echange_service_info.demande_service); " />
                                                 </div>
                                             </div>
                                         </div>
