@@ -1140,7 +1140,9 @@ class AccorderieCanadaDdbController(http.Controller):
                         "model_field_name_alias"
                     ] = state_id.model_field_name_alias
                 if state_id.model_field_depend:
-                    dct_state["model_field_depend"] = state_id.model_field_depend
+                    dct_state[
+                        "model_field_depend"
+                    ] = state_id.model_field_depend
                 if state_id.data_url_field:
                     dct_state["data_url_field"] = state_id.data_url_field
                 if state_id.data_update_url:
@@ -1546,6 +1548,20 @@ class AccorderieCanadaDdbController(http.Controller):
         # Render page
         return request.env["ir.ui.view"].render_template(
             "accorderie_canada_ddb.template_votre_contact_full",
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic",
+        ],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_template_offre_ou_demande_de_service_generic(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.template_offre_ou_demande_de_service_generic",
         )
 
     @http.route(

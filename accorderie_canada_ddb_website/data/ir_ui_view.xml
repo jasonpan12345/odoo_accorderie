@@ -2133,6 +2133,7 @@
                                             <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_offre_service)">
                                                 Aucune offre de service n'est actuellement publié dans vos activités.
                                             </div>
+<!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
                                             <div class="activite btn" data-name="Box" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
@@ -2161,6 +2162,7 @@
                                             <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_demande_service)">
                                                 Aucune demande de service n'est actuellement publié dans vos activités.
                                             </div>
+<!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
                                             <div class="activite btn" data-name="Box" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />

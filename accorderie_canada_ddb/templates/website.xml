@@ -783,43 +783,32 @@
                                             ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
                                         >Offre de service reçu
                                         </h2>
+<!--                                        <div ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)" ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo('accorderie.offre.service', form.offre_service_id.id); " />-->
                                         <div
-                                            class="activite"
-                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
-                                        >
-                                            <!-- TODO fill this with model -->
-                                            <img
-                                                class="activite_img"
-                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
-                                            />
-                                            <div class="infos">
-                                                <b>Je peux vous apprendre à cultiver vos propres légumes</b>
-                                            </div>
-                                            <div class="infos_right">
-                                                <p>10/03/21</p>
-                                                <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="activite"
-                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
-                                        >
-                                            <!-- TODO fill this with model -->
-                                            <img
-                                                class="activite_img"
-                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
-                                            />
-                                            <div class="infos">
-                                                <div><b>Aide au déménagement</b></div>
-                                                <div>Yannick Gagnon
-                                                    <br />À 2.3km de votre domicile
-                                                </div>
-                                            </div>
-                                            <div class="infos_right">
-                                                <p>2j</p>
-                                                <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
-                                            </div>
-                                        </div>
+                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
+                                            ng-controller="OffreDemandeService"
+                                            ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
+                                            ng-init="service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo('accorderie.offre.service', form.offre_service_id.id); "
+                                        />
+<!--                                        <div-->
+<!--                                            class="activite"-->
+<!--                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"-->
+<!--                                        >-->
+<!--                                            <img-->
+<!--                                                class="activite_img"-->
+<!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+<!--                                            />-->
+<!--                                            <div class="infos">-->
+<!--                                                <div><b>Aide au déménagement</b></div>-->
+<!--                                                <div>Yannick Gagnon-->
+<!--                                                    <br />À 2.3km de votre domicile-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="infos_right">-->
+<!--                                                <p>2j</p>-->
+<!--                                                <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />-->
+<!--                                            </div>-->
+<!--                                        </div>-->
                                         <div
                                             class="divider"
                                             ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
@@ -1581,5 +1570,41 @@
                 </a>
             </div>
         </div>
+    </template>
+    <template id="template_offre_ou_demande_de_service_generic" name="Offre ou demande de service generic">
+        <!-- Need angularjs scope variable service_enable_href, service_enable_favorite, service_id, service, type_service (offre ou demande) -->
+        <div
+            class="activite"
+            ng-class="{'btn': service_enable_href}"
+            ng-if="!_.isUndefined(service_enable_href) &amp;&amp; !_.isUndefined(service_enable_favorite) &amp;&amp; !_.isUndefined(service_id) &amp;&amp; !_.isUndefined(service)"
+        >
+            <a
+                ng-href="{{service_enable_href ? ('/accorderie_canada_ddb/accorderie_' + type_service + '_service/' + service_id) : ''}}"
+            >
+                <img
+                    class="activite_img img-fluid"
+                    src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                />
+                <div class="infos">
+                    <h4 class="activite_title" ng-if="!_.isEmpty(service.titre)">{{service.titre}}</h4>
+                    <h4 class="activite_title" ng-if="_.isEmpty(service.titre)">Aucune titre</h4>
+                    <h5
+                        class="activite_desc"
+                        ng-if="!_.isEmpty(service.description)"
+                        ng-bind-html="service.description | unsafe"
+                    />
+                </div>
+            </a>
+            <div class="infos_right">
+                <p>{{service.diff_create_date}}</p>
+                <i
+                    class="fa text-epsilon"
+                    ng-class="{'fa-heart': service.is_favorite, 'fa-heart-o': !service.is_favorite}"
+                    style="font-size:1.5rem;"
+                    ng-click="service_enable_favorite &amp;&amp; add_to_my_favorite('accorderie.' + type_service + '.service', service)"
+                />
+            </div>
+        </div>
+<!--        </div>-->
     </template>
 </odoo>

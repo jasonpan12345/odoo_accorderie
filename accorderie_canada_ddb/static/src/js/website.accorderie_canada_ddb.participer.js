@@ -197,7 +197,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.dct_membre = {}
         $scope.contact_info = {}
         $scope.offre_service_info = {}
+        $scope.dct_offre_service_info = {}
         $scope.demande_service_info = {}
+        $scope.dct_demande_service_info = {}
         $scope.echange_service_info = {}
         $scope.nb_offre_service = 0;
 
@@ -630,6 +632,49 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // Process all the angularjs watchers and scope, need it for $location.search()
         $scope.$apply();
     }
+
+    app.controller('OffreDemandeService', ['$scope', function ($scope) {
+        $scope.service_id = undefined;
+        $scope.service = {
+            "id": 0,
+            "description": undefined,
+            "titre": undefined,
+            "is_favorite": undefined,
+            "distance": undefined,
+            "membre_id": undefined,
+            "diff_create_date": undefined,
+        }
+        $scope.service_enable_href = true;
+        $scope.service_enable_favorite = true;
+        $scope.type_service = 'offre'; // or 'demande'
+
+        $scope.getDatabaseInfo = function (model, field_id) {
+            console.debug("Get database info model '" + model + "'");
+            if (model === "accorderie.offre.service") {
+                let value = $scope.$parent.dct_offre_service_info[field_id];
+                if (!_.isUndefined(value)) {
+                    $scope.service = value;
+                }
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_offre_service/" + field_id).then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_offre_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_offre_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.service = data;
+                        $scope.$parent.dct_offre_service_info[field_id] = data;
+                        $scope.$digest();
+                    }
+                })
+            } else {
+                console.error("Cannot support model '" + model + "' synchronise data");
+            }
+        }
+
+    }])
 
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
