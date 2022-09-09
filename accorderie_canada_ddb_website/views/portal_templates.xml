@@ -177,7 +177,7 @@
                                                     class="dropdown-item"
                                                     ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris"
                                                 >
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -197,7 +197,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes mes offres favorites
                                                     </font>
@@ -212,7 +212,7 @@
                                                     class="dropdown-item"
                                                     ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris"
                                                 >
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -234,7 +234,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font
                                                         class="text-gamma"
                                                         style="font-size: 1rem;"
@@ -260,7 +260,7 @@
                                                     class="dropdown-item"
                                                     ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris"
                                                 >
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -284,7 +284,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir tous mes membres favoris
                                                     </font>
@@ -315,7 +315,7 @@
                                         <div id="tabMessages" class="navbar-tab">
                                             <div class="tab-items-container">
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -330,7 +330,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -345,7 +345,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -361,7 +361,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/messages" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les messages
                                                     </font>
@@ -371,7 +371,7 @@
                                         <div id="tabNotifications" class="navbar-tab" style="display:none;">
                                             <div class="tab-items-container">
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -386,7 +386,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -401,7 +401,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -417,7 +417,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/notifications" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les notifications
                                                     </font>

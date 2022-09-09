@@ -83,7 +83,7 @@
                                                     </div>
                                                 </div>
                                                 <div ng-if="_.isEmpty(echange_info.lst_echange)">Aucun échange ce mois-ci</div>
-                                                <div ng-repeat="echange in echange_info.lst_echange" class="activite btn" data-name="Box" ng-click="echange_click_redirect(echange)">
+                                                <div ng-repeat="echange in echange_info.lst_echange" class="activite btn" ng-click="echange_click_redirect(echange)">
 <!--                                                 <a href="/">-->
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="activite_infos">
@@ -1048,7 +1048,7 @@
                                 <span class="oe_custom_bg oe_img_bg s_parallax_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_j_spaggiari_guitaristes_jpg/j-spaggiari-guitaristes.jpg&quot;); background-position: 50% 0;" />
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-7 jumbotron rounded pt32 pb32 bg-alpha" data-name="Box">
+                                        <div class="col-lg-7 jumbotron rounded pt32 pb32 bg-alpha">
                                             <a href="/un-acces-a-des-services-que-plusieurs-ne-pourraient-soffrir-autrement">
                                                 <div class="row">
                                                     <div class="col-lg-12 s_title s_col_no_bgcolor" data-name="Title">
@@ -1290,7 +1290,7 @@
                                 <div class="banner-bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_309423704_preview_jpeg/AdobeStock_309423704_Preview.jpeg&quot;); background-position: 50% 0px; background-size:cover">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
-                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" data-name="Box" style="border-radius:10px">
+                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" style="border-radius:10px">
                                                 <div class="row">
                                                     <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
                                                         <h1 class="s_title_thin" style="text-align: center;">
@@ -1490,7 +1490,7 @@
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="padding-bottom:16px;background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_map_02_png/Map-02.png&quot;);" />
                                 <div class="container container_communaute">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="jumbotron bg-primary col-lg-6 pt96 pb56" data-name="Box" style="border-radius:10px">
+                                        <div class="jumbotron bg-primary col-lg-6 pt96 pb56" style="border-radius:10px">
                                             <div class="row">
                                                 <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
                                                     <h1 class="s_title_thin" style="text-align: center;">
@@ -1930,7 +1930,7 @@
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="(offre_id, offre) in membre_info.dct_offre_service">
+                                                    <div class="activite btn" ng-repeat="(offre_id, offre) in membre_info.dct_offre_service">
                                                         <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
@@ -1960,7 +1960,7 @@
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
+                                                    <div class="activite btn" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
                                                         <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
@@ -2130,11 +2130,11 @@
                                                     <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">Ses offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_offre_service)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service)">
                                                 Aucune offre de service n'est actuellement publié dans vos activités.
                                             </div>
 <!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
-                                            <div class="activite btn" data-name="Box" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
+                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2159,11 +2159,11 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_demande_service)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service)">
                                                 Aucune demande de service n'est actuellement publié dans vos activités.
                                             </div>
 <!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
-                                            <div class="activite btn" data-name="Box" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
+                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2216,10 +2216,10 @@
                                                     <font style="font-size: 1.5rem;">Les offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">
                                                 Aucune offre de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris">
+                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2242,10 +2242,10 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">
                                                 Aucune demande de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris">
+                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2266,10 +2266,10 @@
                                                 </h5>
                                             </div>
 
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.dct_membre_favoris)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_membre_favoris)">
                                                 Aucun membre favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris">
+                                            <div class="activite btn" ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris">
                                                 <a ng-href="/monprofil/mapresentation#!?membre_id={{membre_favoris.id}}">
                                                     <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
@@ -2507,42 +2507,42 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Nom</h4>
                                                     <h5 class="item_desc">Alice Poitier</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Sexe</h4>
                                                     <h5 class="item_desc">Incertain</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Date de naissance</h4>
                                                     <h5 class="item_desc">14 avril 1988</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse courriel</h4>
                                                     <h5 class="item_desc">loremipsum@loremipsum.com</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
                                                     <h5 class="item_desc">5135351134</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse</h4>
@@ -2553,7 +2553,7 @@
                                                     </h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
@@ -2595,14 +2595,14 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Langues</h4>
                                                     <h5 class="item_desc">Fran&#231;ais</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">???????</h4>
@@ -2702,7 +2702,7 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="activite message btn " onclick="window.location.href='/monprofil/messages/message';">
+                                            <div class="activite message btn" onclick="window.location.href='/monprofil/messages/message';">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -2713,7 +2713,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn" data-name="Box">
+                                            <div class="activite message btn">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -2723,7 +2723,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Helena Cartier</h4>
@@ -2731,7 +2731,7 @@
                                                 </div>
                                                 <span>8 h</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Helena Cartier</h4>
@@ -2786,7 +2786,7 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="activite message btn" data-name="Box">
+                                            <div class="activite message btn">
                                                 <div class="activite_img img-fluid rounded-circle">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -2797,7 +2797,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn" data-name="Box">
+                                            <div class="activite message btn">
                                                 <div class="activite_img img-fluid rounded-circle">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -2807,7 +2807,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Transaction valid&#233;e</h4>
@@ -2815,7 +2815,7 @@
                                                 </div>
                                                 <span>8 h</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Demande de service</h4>
@@ -3010,7 +3010,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab
@@ -3020,7 +3020,7 @@
                                                 </div>
                                                 <div class="status red-o">- 3H00</div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
@@ -3029,7 +3029,7 @@
                                                 </div>
                                                 <div class="event">ÉVÈNEMENT</div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
@@ -3054,28 +3054,28 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Alice Poitier</h4>
                                                     <h5 class="activite_auteur">Lorem ipsum</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_kemper_cbzh3kapxre_unsplash_jpg/jonathan-kemper-CbZh3kaPxrE-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip663589" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Yannick Lalibert&#233;</h4>
                                                     <h5 class="activite_auteur">Lorem Ipsum</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Yannick Delmonde</h4>
                                                     <h5 class="activite_auteur">Lorem Ipsum</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Drice Hygara</h4>
@@ -3776,7 +3776,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
@@ -3795,7 +3795,7 @@
                                                     <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
@@ -3814,7 +3814,7 @@
                                                     <h2 class="fa fa-heart-o text-epsilon" />
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">
@@ -3948,7 +3948,7 @@
                                                     </font>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box">
+                                                    <div class="activite btn">
                                                         <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                         <div class="infos">
                                                             <p class="activite_title">
@@ -3975,7 +3975,7 @@
                                                     </font>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box">
+                                                    <div class="activite btn">
                                                         <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                         <div class="infos">
                                                             <p class="activite_title">
@@ -4216,7 +4216,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4236,7 +4236,7 @@
                                                     <h1>Novembre 2021</h1>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4250,7 +4250,7 @@
                                                 </div>
                                                 <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4270,7 +4270,7 @@
                                                     <h1>Octobre 2021</h1>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4284,7 +4284,7 @@
                                                 </div>
                                                 <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">

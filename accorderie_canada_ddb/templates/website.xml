@@ -320,7 +320,7 @@
                             <a
                                 class="activite btn"
                                 t-if="offre_service"
-                                data-name="Box"
+
                                 t-att-href="'/accorderie_canada_ddb/accorderie_offre_service/%d' % offre_service.id"
                             >
                                 <img
@@ -385,7 +385,7 @@
                             <a
                                 class="activite btn"
                                 t-if="demande_service"
-                                data-name="Box"
+
                                 t-att-href="'/accorderie_canada_ddb/accorderie_demande_service/%d' % demande_service.id"
                             >
                                 <img
