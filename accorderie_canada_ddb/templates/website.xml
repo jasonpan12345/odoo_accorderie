@@ -320,7 +320,6 @@
                             <a
                                 class="activite btn"
                                 t-if="offre_service"
-
                                 t-att-href="'/accorderie_canada_ddb/accorderie_offre_service/%d' % offre_service.id"
                             >
                                 <img
@@ -375,7 +374,7 @@
                             <a
                                 t-if="demande_services_count"
                                 class="debug_unimplemented"
-                                href="/offresservice"
+                                href="/demandesservice"
                                 style="font-size:1.25rem;"
                             >Voir Tout (+<t t-raw="demande_services_count" />)</a>
                         </div>
@@ -385,7 +384,6 @@
                             <a
                                 class="activite btn"
                                 t-if="demande_service"
-
                                 t-att-href="'/accorderie_canada_ddb/accorderie_demande_service/%d' % demande_service.id"
                             >
                                 <img
@@ -1593,10 +1591,13 @@
                         ng-if="!_.isEmpty(service.description)"
                         ng-bind-html="service.description | unsafe"
                     />
+                    <h5 class="activite_auteur" ng-if="!_.isEmpty(service.membre)">{{service.membre.full_name}}</h5>
+                    <h5 class="activite_distance" ng-if="!_.isEmpty(service.distance)">{{service.distance}}</h5>
                 </div>
             </a>
+<!--            <div class="infos right">-->
             <div class="infos_right">
-                <p>{{service.diff_create_date}}</p>
+                <h5>{{service.diff_create_date}}</h5>
                 <i
                     class="fa text-epsilon"
                     ng-class="{'fa-heart': service.is_favorite, 'fa-heart-o': !service.is_favorite}"

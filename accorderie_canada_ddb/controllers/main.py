@@ -152,6 +152,64 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/all_offre_service",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_offre_service(self, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            a.id: {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "distance": "8m",
+                "membre_id": a.membre.id,
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["accorderie.offre.service"].search([])
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/all_demande_service",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_demande_service(self, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            a.id: {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "distance": "8m",
+                "membre_id": a.membre.id,
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["accorderie.demande.service"].search([])
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_info/get_demande_service/<model('accorderie.demande.service'):demande_id>",
         ],
         type="json",

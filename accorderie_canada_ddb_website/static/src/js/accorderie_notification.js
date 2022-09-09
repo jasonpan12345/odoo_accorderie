@@ -231,6 +231,7 @@ odoo.define('website.accorderie_notification', function (require) {
             // });
 
             if (has_update) {
+                // $scope.$apply();
                 $scope.$digest();
             }
         },

@@ -353,6 +353,42 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     })
                 }
             }
+            key = "/offresservice";
+            if (window.location.pathname.indexOf(key) === 0) {
+                ajax.rpc("/accorderie_canada_ddb/get_info/all_offre_service").then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_offre_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_offre_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.dct_offre_service_info = data;
+                    }
+
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                })
+            }
+            key = "/demandesservice";
+            if (window.location.pathname.indexOf(key) === 0) {
+                ajax.rpc("/accorderie_canada_ddb/get_info/all_demande_service").then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_demande_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_demande_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.dct_demande_service_info = data;
+                    }
+
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                })
+            }
             key = "/accorderie_canada_ddb/accorderie_demande_service/";
             if (window.location.pathname.indexOf(key) === 0) {
                 // params can be 6?debug=1 or 6#!?str=3, need to extract first int
@@ -449,9 +485,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.getDatabaseInfo = function (model, field_id) {
             // TODO compete this, suppose to update database value and use cache
-            console.warn("Not supported get database info");
-            console.debug(model);
-            console.debug(field_id);
+            if (model === "accorderie.offre.service") {
+                return $scope.dct_offre_service_info[field_id];
+            } else if (model === "accorderie.demande.service") {
+                return $scope.dct_demande_service_info[field_id];
+            }
         }
 
         // $scope.forceRefreshAngularJS = function () {
@@ -642,6 +680,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             "is_favorite": undefined,
             "distance": undefined,
             "membre_id": undefined,
+            "membre": undefined,
             "diff_create_date": undefined,
         }
         $scope.service_enable_href = true;

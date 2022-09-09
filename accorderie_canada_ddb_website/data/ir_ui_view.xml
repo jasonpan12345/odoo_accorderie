@@ -3749,11 +3749,11 @@
                                         </div>
                                     </div>
                                 </section>
-                                <div style="text-align: left;" />
+<!--                                <div style="text-align: left;" />-->
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="list_title s_title pb24">
+                                            <div class="list_title s_title pb24 debug_unimplemented">
                                                 <section class="s_mobile_filter">
                                                     <div class="btn">
                                                         Catégorie
@@ -3776,63 +3776,26 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
-                                            <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
-                                            <div class="activite btn">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
+                                            <div ng-repeat="(service_id, service) in dct_offre_service_info" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />
+<!--                                            <div class="activite btn debug_unimplemented">-->
+<!--                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />-->
+<!--                                                <div class="infos">-->
+<!--                                                    <h4 class="activite_title">-->
+<!--                                                        Vous souhaitez acheter une maison à-->
+<!--                                                        l"étranger?-->
+<!--                                                    </h4>-->
+<!--                                                    <h5 class="activite_desc">-->
+<!--                                                        Vous êtes à l'étranger et vous cherchez-->
+<!--                                                        une maison?-->
+<!--                                                    </h5>-->
+<!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
+<!--                                                    <h5 class="activite_distance">300m</h5>-->
+<!--                                                </div>-->
+<!--                                                <div class="infos right">-->
+<!--                                                    <h5>5m</h5>-->
+<!--                                                    <h2 class="fa fa-heart-o text-epsilon" />-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </section>
@@ -3843,6 +3806,76 @@
             </field>
             <field name="key">website.offres-de-service</field>
             <field name="name">Offres de service</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_demandes_service" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="About us" t-name="website.aboutus">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_search_short debug_unimplemented">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <div class="search_bar" style="margin:0 auto;width:100%">
+                                                        <p class="search_txt text-epsilon">Que cherchez-vous?</p>
+                                                        <div class="search_category">
+                                                            <p class="search_txt text-epsilon">Type de recherche</p>
+                                                            <div class="search_send btn btn-primary rounded-circle">
+                                                                <font style="font-size: 18px;" class="text-gamma">
+                                                                    <i class="img img-fluid mx-auto fa fa-search" />
+                                                                    Rechercher
+                                                                </font>
+                                                            </div>
+                                                            <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
+                                                        </div>
+                                                        <input type="text" placeholder="Taper votre mot clé ici" />
+                                                    </div>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+<!--                                <div style="text-align: left;" />-->
+                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                    <div class="container_lists">
+                                        <div class="row vertical_list">
+                                            <div class="list_title s_title pb24 debug_unimplemented">
+                                                <section class="s_mobile_filter">
+                                                    <div class="btn">
+                                                        Catégorie
+                                                        <i class="fa fa-chevron-down" />
+                                                    </div>
+                                                    <div class="btn">
+                                                        <i class="fa fa-sliders" />
+                                                        Filtrer et trier
+                                                    </div>
+                                                </section>
+                                                <div class="title">
+                                                    <h1>Demandes de service</h1>
+                                                    <span class="filter_btn btn" style="margin:auto 15px auto auto">
+                                                        Catégorie &amp;nbsp;
+                                                        <icon class="fa fa-chevron-up text-epsilon" />
+                                                    </span>
+                                                    <span class="filter_btn btn">
+                                                        <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
+                                                        Filtrer et trier
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div ng-repeat="(service_id, service) in dct_demande_service_info" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.demandes-de-service</field>
+            <field name="name">Demandes de service</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_echange" model="ir.ui.view">
