@@ -3981,7 +3981,7 @@
                                                     </font>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_id = echange_service_info.offre_service; type_service = 'offre'; ; getDatabaseInfo('accorderie.offre.service', echange_service_info.offre_service); " />
+                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="model = 'accorderie.offre.service'; service_id = echange_service_info.offre_service; type_service = 'offre'; getDatabaseInfo(); " />
                                                 </div>
                                             </div>
                                             <div ng-if="!_.isUndefined(echange_service_info.demande_service)">
@@ -3991,7 +3991,7 @@
                                                     </font>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_id = echange_service_info.demande_service; service = echange_service_info.demande_service; type_service = 'demande'; getDatabaseInfo('accorderie.demande.service', echange_service_info.demande_service); " />
+                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="model = 'accorderie.demande.service'; service_id = echange_service_info.demande_service; type_service = 'demande'; getDatabaseInfo(); " />
                                                 </div>
                                             </div>
                                         </div>

@@ -695,20 +695,28 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             "membre": undefined,
             "diff_create_date": undefined,
         }
+        $scope.model = undefined;
         $scope.service_enable_href = true;
         $scope.service_enable_favorite = true;
         $scope.type_service = 'offre'; // or 'demande'
 
-        $scope.getDatabaseInfo = function (model, field_id) {
-            console.debug("Get database info model '" + model + "' and field_id '" + field_id + "'");
-            if (_.isUndefined(field_id)) {
-                console.error("Field_id is undefined from model '" + model + "'");
-            } else if (model === "accorderie.offre.service") {
-                let value = $scope.$parent.dct_offre_service_info[field_id];
+        $scope.$on("notify_favorite", function ($event, message) {
+            // Receive notification from server
+            if (message.model === $scope.model && message.field_id === $scope.service.id) {
+                $scope.service.is_favorite = message.status;
+            }
+        })
+
+        $scope.getDatabaseInfo = function () {
+            console.debug("Get database info model '" + $scope.model + "' and field_id '" + $scope.service_id + "'");
+            if (_.isUndefined($scope.service_id)) {
+                console.error("service_id is undefined from model '" + $scope.model + "'");
+            } else if ($scope.model === "accorderie.offre.service") {
+                let value = $scope.$parent.dct_offre_service_info[$scope.service_id];
                 if (!_.isUndefined(value)) {
                     $scope.service = value;
                 }
-                ajax.rpc("/accorderie_canada_ddb/get_info/get_offre_service/" + field_id).then(function (data) {
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_offre_service/" + $scope.service_id).then(function (data) {
                     console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_offre_service");
                     if (data.error || !_.isUndefined(data.error)) {
                         $scope.error = data.error;
@@ -718,12 +726,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         console.error($scope.error);
                     } else {
                         $scope.service = data;
-                        $scope.$parent.dct_offre_service_info[field_id] = data;
+                        $scope.$parent.dct_offre_service_info[$scope.service_id] = data;
                         $scope.$digest();
                     }
                 })
-            } else if (model === "accorderie.demande.service") {
-                let value = $scope.$parent.dct_demande_service_info[field_id];
+            } else if ($scope.model === "accorderie.demande.service") {
+                let value = $scope.$parent.dct_demande_service_info[$scope.service_id];
                 if (!_.isUndefined(value)) {
                     $scope.service = value;
                 }
@@ -737,12 +745,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         console.error($scope.error);
                     } else {
                         $scope.service = data;
-                        $scope.$parent.dct_demande_service_info[field_id] = data;
+                        $scope.$parent.dct_demande_service_info[$scope.service_id] = data;
                         $scope.$digest();
                     }
                 })
             } else {
-                console.error("Cannot support model '" + model + "' synchronise data");
+                console.error("Cannot support model '" + $scope.model + "' synchronise data");
             }
         }
 

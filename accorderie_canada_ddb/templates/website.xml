@@ -781,12 +781,12 @@
                                             ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
                                         >Offre de service reçu
                                         </h2>
-<!--                                        <div ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)" ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo('accorderie.offre.service', form.offre_service_id.id); " />-->
+<!--                                        <div ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)" ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="model = 'accorderie.offre.service'; service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); " />-->
                                         <div
                                             ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
                                             ng-controller="OffreDemandeService"
                                             ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
-                                            ng-init="service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo('accorderie.offre.service', form.offre_service_id.id); "
+                                            ng-init="model = 'accorderie.offre.service'; service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
                                         />
 <!--                                        <div-->
 <!--                                            class="activite"-->
@@ -1570,7 +1570,7 @@
         </div>
     </template>
     <template id="template_offre_ou_demande_de_service_generic" name="Offre ou demande de service generic">
-        <!-- Need angularjs scope variable service_enable_href, service_enable_favorite, service_id, service, type_service (offre ou demande) -->
+        <!-- Need angularjs scope variable service_enable_href, service_enable_favorite, service_id, service, model, type_service (offre ou demande) -->
         <div
             class="activite"
             ng-class="{'btn': service_enable_href}"
