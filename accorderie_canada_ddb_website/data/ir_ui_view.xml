@@ -3750,7 +3750,7 @@
                                     </div>
                                 </section>
 <!--                                <div style="text-align: left;" />-->
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb24 debug_unimplemented">
@@ -3839,7 +3839,7 @@
                                     </div>
                                 </section>
 <!--                                <div style="text-align: left;" />-->
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb24 debug_unimplemented">
