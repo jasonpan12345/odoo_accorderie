@@ -741,7 +741,7 @@
                                         style="flex-direction:column; flex-wrap:nowrap;"
                                         ng-class="{form: form_is_offre_demande_service()}"
                                         ng-controller="EchangeService"
-                                        ng-init="echange_service_id = form.echange_service_id.id; getDatabaseInfo(); "
+                                        ng-init="update_form = true; echange_service_id = form.echange_service_id.id; getDatabaseInfo(); "
                                     >
                                         <!-- Catégorie -->
                                         <div

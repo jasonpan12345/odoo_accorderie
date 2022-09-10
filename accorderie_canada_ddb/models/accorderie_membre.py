@@ -87,6 +87,8 @@ class AccorderieMembre(models.Model):
 
     membre_principal = fields.Boolean(string="Membre principal")
 
+    is_time_updated = fields.Boolean(string="Time is updated", help="This variable is a trigger to update time.")
+
     memo = fields.Text(string="Mémo")
 
     nom = fields.Char()
@@ -268,6 +270,7 @@ class AccorderieMembre(models.Model):
         "membre_partner_id",
         "echange_service_acheteur_ids",
         "echange_service_vendeur_ids",
+        "is_time_updated",
     )
     def _bank_time(self):
         # TODO wrong dependency

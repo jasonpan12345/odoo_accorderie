@@ -522,8 +522,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // format 6 : 2.0 -> 2 heures, 1.75 -> 1 heure 45, -.75 -> - 0 heure 45
             // format 7 : 1.0 -> + 1h00, 1.75 -> + 1h45, -.75 -> - 0h45
             // format 8 : 1.0 -> 1h00, 1.75 -> + 1h45, -.75 -> - 0h45
+            // format 9 : 1.0 -> 01:00, 1.75 -> 01:45, -.75 -> -00:45
 
-            if (format > 8 || format < 0) {
+            if (format > 9 || format < 0) {
                 format = 0;
             }
 
@@ -537,6 +538,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             let hour = Math.floor(number);
             let decPart = number - hour;
 
+            if (format === 9 && hour.length < 2) {
+                hour = '0' + hour;
+            }
+
             let min = 1 / 60;
             // Round to nearest minute
             decPart = min * Math.round(decPart / min);
@@ -549,7 +554,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
 
             // Add Sign in final result
-            if (format === 0) {
+            if (format === 0 || format === 9) {
                 sign = sign === 1 ? '' : '-';
             } else {
                 sign = sign === 1 ? '+' : '-';
@@ -557,7 +562,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
             // Concat hours and minutes
             let newTime;
-            if (format === 0 || format === 1) {
+            if (format === 0 || format === 1 || format === 9) {
                 newTime = sign + hour + ':' + minute;
             } else if (format === 2) {
                 newTime = sign + ' ' + hour + ':' + minute;
@@ -772,10 +777,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             "commentaire": undefined,
             "estAcheteur": undefined,
             "membre_id": undefined,
+            "membre": {
+                "id": undefined,
+                "full_name": undefined,
+            },
             "end_date": undefined,
             "offre_service": undefined,
             "demande_service": undefined,
         }
+        $scope.update_form = false;
 
         $scope.getDatabaseInfo = function () {
             console.debug("Get database echange service id '" + $scope.echange_service_id + "'");
@@ -798,6 +808,30 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         $scope.echange_service = data;
                         $scope.$parent.dct_echange_service_info[$scope.echange_service_id] = data;
                         console.debug(data);
+                        if ($scope.update_form) {
+                            // $scope.form["date_service"] = data.date;
+                            // $scope.form["time_service"] = data.temps;
+                            $scope.form["date_service"] = moment(data.date).format("YYYY-MM-DD");
+                            $scope.form["time_service"] = moment(data.date).format("HH:mm");
+
+                            // $scope.form["time_realisation_service"] = data.duree;
+                            // $scope.form["time_dure_trajet"] = data.duree_trajet;
+                            // $scope.form["time_service_estimated"] = data.duree_estime;
+                            // $scope.form["time_drive_estimated"] = data.duree_trajet_estime;
+
+                            // Copied estimated value to real value for form
+                            $scope.form["time_realisation_service"] = $scope.convertNumToTime(data.duree_estime, 9);
+                            $scope.form["time_dure_trajet"] = $scope.convertNumToTime(data.duree_trajet_estime, 9);
+
+                            $scope.form["membre_id"] = {
+                                "id": data.membre.id,
+                                "value": data.membre.full_name,
+                            }
+
+                            if (!_.isEmpty(data.commentaire)) {
+                                $scope.form["commentaires"] = data.commentaire;
+                            }
+                        }
                         $scope.$digest();
                     }
                 })
