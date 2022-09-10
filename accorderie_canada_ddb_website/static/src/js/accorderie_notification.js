@@ -69,6 +69,7 @@ odoo.define('website.accorderie_notification', function (require) {
                             let field_id = value[0][1];
                             let membre = $scope.personal.dct_membre_favoris[field_id];
                             let membre2 = $scope.dct_membre[field_id];
+                            let membre3 = !_.isUndefined($scope.membre_info) && $scope.membre_info.id === field_id ? $scope.membre_info : undefined;
                             // console.debug("action to do " + String(value));
                             if (value[0][0] === 4) {
                                 if (!_.isUndefined(membre)) {
@@ -79,6 +80,10 @@ odoo.define('website.accorderie_notification', function (require) {
                                     membre2.is_favorite = true;
                                     has_update = true;
                                 }
+                                if (!_.isUndefined(membre3)) {
+                                    membre3.is_favorite = true;
+                                    has_update = true;
+                                }
                             } else if (value[0][0] === 3) {
                                 if (!_.isUndefined(membre)) {
                                     membre.is_favorite = false;
@@ -86,6 +91,10 @@ odoo.define('website.accorderie_notification', function (require) {
                                 }
                                 if (!_.isUndefined(membre2)) {
                                     membre2.is_favorite = false;
+                                    has_update = true;
+                                }
+                                if (!_.isUndefined(membre3)) {
+                                    membre3.is_favorite = false;
                                     has_update = true;
                                 }
                             } else {
