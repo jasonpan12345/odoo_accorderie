@@ -740,6 +740,8 @@
                                         ng-if="state.type == 'form'"
                                         style="flex-direction:column; flex-wrap:nowrap;"
                                         ng-class="{form: form_is_offre_demande_service()}"
+                                        ng-controller="EchangeService"
+                                        ng-init="echange_service_id = form.echange_service_id.id; getDatabaseInfo(); "
                                     >
                                         <!-- Catégorie -->
                                         <div
@@ -781,32 +783,24 @@
                                             ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
                                         >Offre de service reçu
                                         </h2>
-<!--                                        <div ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)" ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="model = 'accorderie.offre.service'; service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); " />-->
                                         <div
-                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
+                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire'].includes(state.id)"
                                             ng-controller="OffreDemandeService"
                                             ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
                                             ng-init="model = 'accorderie.offre.service'; service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
                                         />
-<!--                                        <div-->
-<!--                                            class="activite"-->
-<!--                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"-->
-<!--                                        >-->
-<!--                                            <img-->
-<!--                                                class="activite_img"-->
-<!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
-<!--                                            />-->
-<!--                                            <div class="infos">-->
-<!--                                                <div><b>Aide au déménagement</b></div>-->
-<!--                                                <div>Yannick Gagnon-->
-<!--                                                    <br />À 2.3km de votre domicile-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                            <div class="infos_right">-->
-<!--                                                <p>2j</p>-->
-<!--                                                <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />-->
-<!--                                            </div>-->
-<!--                                        </div>-->
+                                        <div
+                                            ng-if="['init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.offre_service)"
+                                            ng-controller="OffreDemandeService"
+                                            ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
+                                            ng-init="model = 'accorderie.offre.service'; service_id = echange_service.offre_service; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
+                                        />
+                                        <div
+                                            ng-if="['init.va.oui.formulaire'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.demande_service)"
+                                            ng-controller="OffreDemandeService"
+                                            ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
+                                            ng-init="model = 'accorderie.demande.service'; service_id = echange_service.demande_service; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
+                                        />
                                         <div
                                             class="divider"
                                             ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
@@ -827,7 +821,7 @@
                                             ng-click="change_state_to_field_id('membre_id')"
                                         >
                                             <span>{{form.membre_id.value}}</span>
-                                            <i class="fa fa-search" />
+                                            <i class="fa fa-chevron-right" />
                                         </div>
                                         <div
                                             class="divider"

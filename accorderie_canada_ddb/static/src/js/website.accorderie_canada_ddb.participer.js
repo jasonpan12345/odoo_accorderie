@@ -201,6 +201,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.demande_service_info = {}
         $scope.dct_demande_service_info = {}
         $scope.echange_service_info = {}
+        $scope.dct_echange_service_info = {}
         $scope.nb_offre_service = 0;
 
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
@@ -311,13 +312,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.get_href_participer_service_effectue = function (echange_service_info) {
-            // TODO Detect the variables to redirect in good workflow
-            let status = `/participer#!?state=init.va.oui.formulaire&amp;echange_service=${echange_service_info.id}`;
-            if (!_.isUndefined(echange_service_info.offre_service)) {
-                status += `&amp;offre_service=${echange_service_info.offre_service}`
-            }
-            if (!_.isUndefined(echange_service_info.demande_service)) {
-                status += `&amp;demande_service=${echange_service_info.demande_service}`
+            let status
+            if (!_.isUndefined(echange_service_info.demande_service) && !echange_service_info.estAcheteur) {
+                status = `/participer#!?state=init.va.oui.formulaire&echange_service=${echange_service_info.id}`;
+            } else if (echange_service_info.estAcheteur) {
+                // TODO why need member?
+                status = `/participer#!?state=init.va.non.recu.choix.formulaire&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+            } else {
+                status = `/participer#!?state=init.va.non.offert.existant_formulaire&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
             }
             return status;
         }
@@ -735,7 +737,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 if (!_.isUndefined(value)) {
                     $scope.service = value;
                 }
-                ajax.rpc("/accorderie_canada_ddb/get_info/get_demande_service/" + field_id).then(function (data) {
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_demande_service/" + $scope.service_id).then(function (data) {
                     console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_demande_service");
                     if (data.error || !_.isUndefined(data.error)) {
                         $scope.error = data.error;
@@ -754,6 +756,53 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
+    }])
+
+    app.controller('EchangeService', ['$scope', function ($scope) {
+        $scope.echange_service_id = undefined;
+        $scope.echange_service = {
+            "id": 0,
+            "transaction_valide": undefined,
+            "date": undefined,
+            "temps": undefined,
+            "duree_estime": undefined,
+            "duree": undefined,
+            "duree_trajet_estime": undefined,
+            "duree_trajet": undefined,
+            "commentaire": undefined,
+            "estAcheteur": undefined,
+            "membre_id": undefined,
+            "end_date": undefined,
+            "offre_service": undefined,
+            "demande_service": undefined,
+        }
+
+        $scope.getDatabaseInfo = function () {
+            console.debug("Get database echange service id '" + $scope.echange_service_id + "'");
+            if (_.isUndefined($scope.echange_service_id)) {
+                console.error("echange_service_id is undefined");
+            } else {
+                let value = $scope.$parent.dct_echange_service_info[$scope.echange_service_id];
+                if (!_.isUndefined(value)) {
+                    $scope.echange_service = value;
+                }
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_echange_service/" + $scope.echange_service_id).then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_echange_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_echange_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.echange_service = data;
+                        $scope.$parent.dct_echange_service_info[$scope.echange_service_id] = data;
+                        console.debug(data);
+                        $scope.$digest();
+                    }
+                })
+            }
+        }
     }])
 
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
