@@ -280,14 +280,14 @@ class AccorderieMembre(models.Model):
                 + sum(
                     [
                         a.nb_heure
-                        for a in rec.echange_service_acheteur_ids
+                        for a in rec.echange_service_vendeur_ids
                         if a.transaction_valide
                     ]
                 )
                 - sum(
                     [
                         a.nb_heure
-                        for a in rec.echange_service_vendeur_ids
+                        for a in rec.echange_service_acheteur_ids
                         if a.transaction_valide
                     ]
                 )
@@ -302,7 +302,7 @@ class AccorderieMembre(models.Model):
             bank_time_month = sum(
                 [
                     a.nb_heure
-                    for a in rec.echange_service_acheteur_ids
+                    for a in rec.echange_service_vendeur_ids
                     if a.transaction_valide
                     and a.date_echange
                     and a.date_echange.month == this_month
@@ -310,7 +310,7 @@ class AccorderieMembre(models.Model):
             ) - sum(
                 [
                     a.nb_heure
-                    for a in rec.echange_service_vendeur_ids
+                    for a in rec.echange_service_acheteur_ids
                     if a.transaction_valide
                     and a.date_echange
                     and a.date_echange.month == this_month
