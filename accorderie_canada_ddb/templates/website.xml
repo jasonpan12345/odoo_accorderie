@@ -1119,79 +1119,96 @@
                                         <div class="divider" ng-if="form_is_service_and_service_prevu()" />
 
                                         <!-- Coût possible -->
-                                        <span class="debug_unimplemented">
-                                            <h2
-                                                ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id || form_is_service_to_modify()"
-                                            >Coûts possibles supplémentaires à prévoir
-                                            </h2>
-                                            <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
-                                            </h2>
-                                            <div ng-if="form_frais_trajet_distance()">
-                                                <h4>Frais pour trajet de :
-                                                    <a
-                                                        href=""
-                                                        class="text-primary modifier"
-                                                        ng-if="form_is_service_to_modify()"
-                                                    >Annuler</a>
-                                                </h4>
+                                        <h2
+                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id || form_is_service_to_modify()"
+                                        >Coûts possibles supplémentaires à prévoir
+                                        </h2>
+                                        <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
+                                        </h2>
+                                        <div ng-if="form_frais_trajet_distance()">
+                                            <h4>Frais pour trajet de :
+                                                <a
+                                                    href=""
+                                                    class="text-primary modifier"
+                                                    ng-if="form_is_service_to_modify()"
+                                                >Annuler</a>
+                                            </h4>
+                                        </div>
+                                        <div
+                                            ng-if="form_frais_trajet_distance() &amp;&amp; !form_is_service_to_modify()"
+                                        >
+                                            <div class="form_box float-left w-75 d-inline-block">
+<!--                                                    <span>2.3</span>-->
+                                                <input
+                                                    class="form-control"
+                                                    name="date"
+                                                    type="text"
+                                                    ng-model="form.distance_trajet"
+                                                />
                                             </div>
-                                            <div
-                                                ng-if="form_frais_trajet_distance() &amp;&amp; !form_is_service_to_modify()"
-                                            >
-                                                <div class="form_box float-left w-75 d-inline-block">
-                                                    <span>2.3</span>
-                                                </div>
-                                                <div class="form_box ml-auto" style="width:20%;">
-                                                    <span>Km</span>
-                                                    <i class="fa fa-chevron-down" />
-                                                </div>
+                                            <div class="form_box ml-auto" style="width:20%;">
+                                                <span>Km</span>
+<!--                                                    <i class="fa fa-chevron-down" />-->
                                             </div>
-                                            <div ng-if="form_is_service_to_modify()">
-                                                <span>2.3 km</span>
-                                            </div>
-                                            <div
-                                                class="btn btn-primary text-gamma px-4 py-2"
-                                                style="align-self:start;"
-                                                ng-if="form_is_service_to_modify()"
-                                            >Enregistrer</div>
+                                        </div>
+                                        <div ng-if="form_is_service_to_modify()">
+                                            <span>{{form.distance_trajet}} km</span>
+                                        </div>
+                                        <div
+                                            class="btn btn-primary text-gamma px-4 py-2"
+                                            style="align-self:start;"
+                                            ng-if="form_is_service_to_modify()"
+                                        >Enregistrer</div>
 
-                                            <div ng-if="form_frais_trajet_prix()">
-                                                <h4>Frais pour trajet :</h4>
-                                            </div>
-                                            <div class="form_box" ng-if="form_frais_trajet_prix()">
-                                                <span>_ _</span>
-                                                <span>$</span>
-                                            </div>
-                                            <div ng-if="form_frais_trajet_prix()">
-                                                <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
-                                            </div>
-                                            <div class="form_box" ng-if="form_frais_trajet_prix()">
-                                                <span>_ _</span>
-                                                <span>$</span>
-                                            </div>
+                                        <div ng-if="form_frais_trajet_prix()">
+                                            <h4>Frais pour trajet :</h4>
+                                        </div>
+                                        <div class="form_box" ng-if="form_frais_trajet_prix()">
+                                            <input
+                                                class="form-control"
+                                                name="date"
+                                                type="text"
+                                                ng-model="form.frais_trajet"
+                                            />
+                                            <span>$</span>
+                                        </div>
+                                        <div ng-if="form_frais_trajet_prix()">
+                                            <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
+                                        </div>
+                                        <div class="form_box" ng-if="form_frais_trajet_prix()">
+                                            <input
+                                                class="form-control"
+                                                name="date"
+                                                type="text"
+                                                ng-model="form.frais_materiel"
+                                            />
+                                            <span>$</span>
+                                        </div>
 
-                                            <div ng-if="form_frais_import_list_without_modify()">
-                                                <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
-                                            </div>
-                                            <div
-                                                class="form_box"
-                                                style="width:fit-content;"
-                                                ng-if="form_frais_import_list_without_modify()"
-                                            >
-                                                <span>Importer une liste<i class="fa fa-download ml-3" /></span>
-                                            </div>
+                                        <div
+                                            ng-if="form_frais_import_list_without_modify()"
+                                            class="debug_unimplemented"
+                                        >
+                                            <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
+                                        </div>
+                                        <div
+                                            class="form_box debug_unimplemented"
+                                            style="width:fit-content;"
+                                            ng-if="form_frais_import_list_without_modify()"
+                                        >
+                                            <span>Importer une liste<i class="fa fa-download ml-3" /></span>
+                                        </div>
 
-                                            <div ng-if="form_is_service_to_modify()">
-                                                <h4>Frais pour le matériel nécessaire à l'échange de service
-                                                    <a href="" class="text-primary modifier">Importer une
-                                                        liste
-                                                        <i class="fa fa-download" />
-                                                    </a>
-                                                </h4>
-                                            </div>
+                                        <div ng-if="form_is_service_to_modify()" class="debug_unimplemented">
+                                            <h4>Frais pour le matériel nécessaire à l'échange de service
+                                                <a href="" class="text-primary modifier">Importer une
+                                                    liste
+                                                    <i class="fa fa-download" />
+                                                </a>
+                                            </h4>
+                                        </div>
 
-                                            <div class="divider" ng-if="form_is_service_and_service_prevu()" />
-                                        </span>
+                                        <div class="divider" ng-if="form_is_service_and_service_prevu()" />
 
                                         <!-- Estimation de la durée du service -->
                                         <div

@@ -285,14 +285,14 @@ class AccorderieMembre(models.Model):
                 15
                 + sum(
                     [
-                        a.nb_heure
+                        a.nb_heure + a.nb_heure_duree_trajet
                         for a in rec.echange_service_vendeur_ids
                         if a.transaction_valide
                     ]
                 )
                 - sum(
                     [
-                        a.nb_heure
+                        a.nb_heure + a.nb_heure_duree_trajet
                         for a in rec.echange_service_acheteur_ids
                         if a.transaction_valide
                     ]
@@ -300,14 +300,14 @@ class AccorderieMembre(models.Model):
             )
             bank_max_service_offert = sum(
                 [
-                    a.nb_heure
+                    a.nb_heure + a.nb_heure_duree_trajet
                     for a in rec.echange_service_vendeur_ids
                     if a.transaction_valide
                 ]
             )
             bank_time_month = sum(
                 [
-                    a.nb_heure
+                    a.nb_heure + a.nb_heure_duree_trajet
                     for a in rec.echange_service_vendeur_ids
                     if a.transaction_valide
                     and a.date_echange
@@ -315,7 +315,7 @@ class AccorderieMembre(models.Model):
                 ]
             ) - sum(
                 [
-                    a.nb_heure
+                    a.nb_heure + a.nb_heure_duree_trajet
                     for a in rec.echange_service_acheteur_ids
                     if a.transaction_valide
                     and a.date_echange

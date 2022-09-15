@@ -276,6 +276,9 @@ class AccorderieCanadaDdbController(http.Controller):
             "duree": echange_id.nb_heure,
             "duree_trajet_estime": echange_id.nb_heure_estime_duree_trajet,
             "duree_trajet": echange_id.nb_heure_duree_trajet,
+            "frais_trajet": echange_id.frais_trajet,
+            "distance_trajet": echange_id.distance_trajet,
+            "frais_materiel": echange_id.frais_materiel,
             "commentaire": echange_id.commentaire,
         }
 
@@ -622,6 +625,9 @@ class AccorderieCanadaDdbController(http.Controller):
             "duree": echange_service_id.nb_heure,
             "duree_trajet_estime": echange_service_id.nb_heure_estime_duree_trajet,
             "duree_trajet": echange_service_id.nb_heure_duree_trajet,
+            "frais_trajet": echange_service_id.frais_trajet,
+            "distance_trajet": echange_service_id.distance_trajet,
+            "frais_materiel": echange_service_id.frais_materiel,
             "commentaire": echange_service_id.commentaire,
             "estAcheteur": est_acheteur,
         }
@@ -1430,6 +1436,16 @@ class AccorderieCanadaDdbController(http.Controller):
                 vals["nb_heure_duree_trajet"] = float(
                     kw.get("time_dure_trajet")
                 )
+
+            if kw.get("frais_trajet"):
+                vals["frais_trajet"] = float(kw.get("frais_trajet"))
+
+            if kw.get("distance_trajet"):
+                vals["distance_trajet"] = float(kw.get("distance_trajet"))
+
+            if kw.get("frais_materiel"):
+                vals["frais_materiel"] = float(kw.get("frais_materiel"))
+
             # date_echange
             new_accorderie_echange_service = (
                 request.env["accorderie.echange.service"].sudo().create(vals)
@@ -1457,13 +1473,20 @@ class AccorderieCanadaDdbController(http.Controller):
                     .sudo()
                     .browse(kw.get("echange_service_id").get("id"))
                 )
-            new_accorderie_echange_service.write(
-                {
-                    "transaction_valide": True,
-                    "nb_heure": float(kw.get("time_realisation_service")),
-                    "nb_heure_duree_trajet": float(kw.get("time_dure_trajet")),
-                }
-            )
+            value_new_service = {
+                "transaction_valide": True,
+                "nb_heure": float(kw.get("time_realisation_service")),
+                "nb_heure_duree_trajet": float(kw.get("time_dure_trajet")),
+            }
+            if kw.get("frais_trajet"):
+                value_new_service["frais_trajet"] = float(
+                    kw.get("frais_trajet")
+                )
+            if kw.get("frais_materiel"):
+                value_new_service["frais_materiel"] = float(
+                    kw.get("frais_materiel")
+                )
+            new_accorderie_echange_service.write(value_new_service)
             status["echange_service_id"] = new_accorderie_echange_service.id
             # Force update time per member
             new_accorderie_echange_service.membre_acheteur.is_time_updated = (

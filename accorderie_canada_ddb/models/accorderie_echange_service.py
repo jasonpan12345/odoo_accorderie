@@ -59,6 +59,21 @@ class AccorderieEchangeService(models.Model):
         help="Nombre d'heure estimé pour le trajet.",
     )
 
+    distance_trajet = fields.Float(
+        string="Distance du trajet",
+        help="Unité par défaut le km.",
+    )
+
+    frais_trajet = fields.Float(
+        string="Frais du trajet",
+        help="Coût pour faire le trajet.",
+    )
+
+    frais_materiel = fields.Float(
+        string="Frais du matériel",
+        help="Coût matériel nécessaire à l'échange de service.",
+    )
+
     offre_service = fields.Many2one(
         comodel_name="accorderie.offre.service",
         string="Offre de services",

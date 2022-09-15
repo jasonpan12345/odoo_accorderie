@@ -294,7 +294,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                            <li
+                                class="nav-item dropdown debug_unimplemented"
+                                t-ignore="true"
+                                t-if="not user_id._is_public()"
+                            >
                                 <a class="nav-link" role="menu_item" data-toggle="dropdown" style="cursor:pointer">
                                     <span
                                         class="fa fa-2x fa-comments-o text-primary"

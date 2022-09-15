@@ -4001,20 +4001,18 @@
                                                     Conditions de l'entente
                                                 </font>
                                             </span>
-                                            <span class="debug_unimplemented">
-                                                <div class="condition">
-                                                    <b class="nbr">
-                                                        Coût possible supplémentaire à prévoir
-                                                    </b>
-                                                    <p class="condition_desc">Frais pour trajet de</p>
-                                                    <p>2.3km</p>
-                                                    <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
-                                                        de service
-                                                        <a href="" class="ml-auto text-primary">Voir la liste</a>
-                                                    </p>
-                                                </div>
-                                                <divider />
-                                            </span>
+                                            <div class="condition">
+                                                <b class="nbr">
+                                                    Coût possible supplémentaire à prévoir
+                                                </b>
+                                                <p class="condition_desc">Frais pour trajet de</p>
+                                                <p>{{echange_service_info.distance_trajet}} km</p>
+                                                <p class="condition_desc debug_unimplemented">Frais pour le matériel nécessaire à l'échange
+                                                    de service
+                                                    <a href="" class="ml-auto text-primary">Voir la liste</a>
+                                                </p>
+                                            </div>
+                                            <divider />
                                             <div class="condition">
                                                 <b class="nbr">
                                                     Estimation de la durée de service
@@ -4025,7 +4023,7 @@
                                                 <p>{{echange_service_info.show_duree_trajet_estime_pos}}</p>
                                                 <div class="bar_time">
                                                     <b>
-                                                        Montant total de temps estimé
+                                                        Montant total de temps estimé :
                                                     </b>
                                                     <span>
                                                         {{echange_service_info.show_total_dure_estime_pos}}
@@ -4094,7 +4092,7 @@
                                                 <b class="nbr">
                                                     Description du service offert
                                                 </b>
-                                                <p class="condition_desc">{{echange_service_info.description_offre_service}}</p>
+                                                <p class="condition_desc" ng-bind-html="echange_service_info.description_offre_service | unsafe" />
                                             </div>
 
                                             <span class="info_title" ng-if="echange_service_info.has_demande_service">
@@ -4134,10 +4132,11 @@
                                                     Coût monétaires supplémentaires engagés
                                                 </b>
                                                 <p class="condition_desc">Frais pour le trajet :</p>
+                                                <p>${{echange_service_info.frais_trajet}} CAD</p>
                                                 <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
                                                     de service
-
                                                 </p>
+                                                <p>${{echange_service_info.frais_materiel}} CAD</p>
                                             </div>
                                             <divider />
                                             <div class="condition">
@@ -4159,7 +4158,7 @@
                                             </div>
                                             <div class="bar_time">
                                                 <b>
-                                                    Montant total de temps transféré
+                                                    Montant total de temps transféré :
                                                 </b>
                                                 <span>
                                                     {{echange_service_info.show_total_dure_pos}}

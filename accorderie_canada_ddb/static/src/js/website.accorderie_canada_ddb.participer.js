@@ -801,9 +801,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.getDatabaseInfo = function () {
             console.debug("Get database echange service id '" + $scope.echange_service_id + "'");
-            if (_.isUndefined($scope.echange_service_id)) {
-                console.error("echange_service_id is undefined");
-            } else {
+            // Ignore when echange_service_id is missing
+            if (!_.isUndefined($scope.echange_service_id)) {
                 let value = $scope.$parent.dct_echange_service_info[$scope.echange_service_id];
                 if (!_.isUndefined(value)) {
                     $scope.echange_service = value;
