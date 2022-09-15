@@ -263,6 +263,14 @@ class AccorderieCanadaDdbController(http.Controller):
         data = {
             "id": echange_id.id,
             "transaction_valide": echange_id.transaction_valide,
+            "sujet_offre_service": echange_id.offre_service.titre,
+            "description_offre_service": echange_id.offre_service.description,
+            "categorie_offre_service": echange_id.offre_service.type_service_id.nom_complet,
+            "has_offre_service": bool(echange_id.offre_service),
+            "sujet_demande_service": echange_id.demande_service.titre,
+            "description_demande_service": echange_id.demande_service.description,
+            "categorie_demande_service": echange_id.demande_service.type_service_id.nom_complet,
+            "has_demande_service": bool(echange_id.demande_service),
             "date": echange_id.date_echange,
             "duree_estime": echange_id.nb_heure_estime,
             "duree": echange_id.nb_heure,
@@ -303,10 +311,8 @@ class AccorderieCanadaDdbController(http.Controller):
 
         if echange_id.offre_service:
             data["offre_service"] = echange_id.offre_service.id
-            # data["description_service"] = echange_id.offre_service.titre
         if echange_id.demande_service:
             data["demande_service"] = echange_id.demande_service.id
-            # data["description_service"] = echange_id.demande_service.titre
         return data
 
     @http.route(
@@ -575,6 +581,52 @@ class AccorderieCanadaDdbController(http.Controller):
             }
         return membre_id
 
+    def _generate_dct_echange_service(self, echange_service_id, est_acheteur):
+        date_echange = echange_service_id.date_echange
+
+        if echange_service_id.date_echange is False:
+            _logger.warning(
+                f"Echange service id '{echange_service_id.id}' missing"
+                " date_echange."
+            )
+            date_echange = echange_service_id.create_date
+
+        if echange_service_id.transaction_valide:
+            end_date = date_echange + dt.timedelta(
+                hours=echange_service_id.nb_heure
+            )
+        else:
+            end_date = date_echange + dt.timedelta(
+                hours=echange_service_id.nb_heure_estime
+            )
+
+        dct_echange_item = {
+            "id": echange_service_id.id,
+            "transaction_valide": echange_service_id.transaction_valide,
+            "membre": {
+                "id": echange_service_id.membre_vendeur.id,
+                "full_name": echange_service_id.membre_vendeur.nom_complet,
+            },
+            "sujet_offre_service": echange_service_id.offre_service.titre,
+            "description_offre_service": echange_service_id.offre_service.description,
+            "categorie_offre_service": echange_service_id.offre_service.type_service_id.nom_complet,
+            "has_offre_service": bool(echange_service_id.offre_service),
+            "sujet_demande_service": echange_service_id.demande_service.titre,
+            "description_demande_service": echange_service_id.demande_service.description,
+            "categorie_demande_service": echange_service_id.demande_service.type_service_id.nom_complet,
+            "has_demande_service": bool(echange_service_id.demande_service),
+            "date": echange_service_id.date_echange,
+            "end_date": end_date,
+            "temps": date_echange.hour + date_echange.minute / 60.0,
+            "duree_estime": echange_service_id.nb_heure_estime,
+            "duree": echange_service_id.nb_heure,
+            "duree_trajet_estime": echange_service_id.nb_heure_estime_duree_trajet,
+            "duree_trajet": echange_service_id.nb_heure_duree_trajet,
+            "commentaire": echange_service_id.commentaire,
+            "estAcheteur": est_acheteur,
+        }
+        return dct_echange_item
+
     @http.route(
         [
             "/accorderie_canada_ddb/get_personal_information",
@@ -687,68 +739,15 @@ class AccorderieCanadaDdbController(http.Controller):
 
         dct_echange = {}
         for echange_service_id in membre_id.echange_service_acheteur_ids:
-            dct_echange_item = {
-                "id": echange_service_id.id,
-                "transaction_valide": echange_service_id.transaction_valide,
-                "membre": {
-                    "id": echange_service_id.membre_vendeur.id,
-                    "full_name": echange_service_id.membre_vendeur.nom_complet,
-                },
-                "description_service": echange_service_id.offre_service.titre,
-                "date": echange_service_id.date_echange,
-                "duree_estime": echange_service_id.nb_heure_estime,
-                "duree": echange_service_id.nb_heure,
-                "estAcheteur": True,
-            }
-            if echange_service_id.date_echange:
-                if echange_service_id.transaction_valide:
-                    end_date = echange_service_id.date_echange + dt.timedelta(
-                        hours=echange_service_id.nb_heure
-                    )
-                else:
-                    end_date = echange_service_id.date_echange + dt.timedelta(
-                        hours=echange_service_id.nb_heure_estime
-                    )
-                dct_echange_item["end_date"] = end_date
-                dct_echange_item["temps"] = (
-                    echange_service_id.date_echange.hour
-                    + echange_service_id.date_echange.minute / 60.0
-                )
-
+            dct_echange_item = self._generate_dct_echange_service(
+                echange_service_id, True
+            )
             dct_echange[echange_service_id.id] = dct_echange_item
+
         for echange_service_id in membre_id.echange_service_vendeur_ids:
-            date_echange = echange_service_id.date_echange
-
-            if echange_service_id.date_echange is False:
-                _logger.warning(
-                    f"Echange service id '{echange_service_id.id}' missing"
-                    " date_echange."
-                )
-                date_echange = echange_service_id.create_date
-
-            if echange_service_id.transaction_valide:
-                end_date = date_echange + dt.timedelta(
-                    hours=echange_service_id.nb_heure
-                )
-            else:
-                end_date = date_echange + dt.timedelta(
-                    hours=echange_service_id.nb_heure_estime
-                )
-            dct_echange_item = {
-                "id": echange_service_id.id,
-                "transaction_valide": echange_service_id.transaction_valide,
-                "membre": {
-                    "id": echange_service_id.membre_acheteur.id,
-                    "full_name": echange_service_id.membre_acheteur.nom_complet,
-                },
-                "description_service": echange_service_id.demande_service.titre,
-                "date": date_echange,
-                "end_date": end_date,
-                "temps": date_echange.hour + date_echange.minute / 60.0,
-                "duree_estime": echange_service_id.nb_heure_estime,
-                "duree": echange_service_id.nb_heure,
-                "estAcheteur": False,
-            }
+            dct_echange_item = self._generate_dct_echange_service(
+                echange_service_id, False
+            )
             dct_echange[echange_service_id.id] = dct_echange_item
 
         # TODO update location with cartier et autre
@@ -1302,7 +1301,6 @@ class AccorderieCanadaDdbController(http.Controller):
             "init.pos.individuelle.formulaire",
             "init.pds.individuelle.formulaire",
             "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
             "init.saa.recevoir.choix.nouveau.formulaire",
             "init.va.non.offert.nouveau_formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
@@ -1357,15 +1355,26 @@ class AccorderieCanadaDdbController(http.Controller):
             "init.saa.offrir.nouveau.categorie_service.formulaire",
             "init.saa.recevoir.choix.nouveau.formulaire",
             "init.va.non.offert.nouveau_formulaire",
-            "init.va.non.offert.existant_formulaire",
-            "init.va.non.recu.choix.formulaire",
+            # "init.va.non.offert.existant_formulaire",
+            # "init.va.non.recu.choix.formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
         ):
+            if kw.get("echange_service_id"):
+                _logger.warning(
+                    "Why create a new echange when receive a echange"
+                    " service id?"
+                )
             vals = {}
             if offre_service_id:
                 vals["offre_service"] = offre_service_id
             elif kw.get("offre_service_id"):
                 vals["offre_service"] = kw.get("offre_service_id").get("id")
+            if demande_service_id:
+                vals["demande_service"] = demande_service_id
+            elif kw.get("demande_service_id"):
+                vals["demande_service"] = kw.get("demande_service_id").get(
+                    "id"
+                )
 
             if kw.get("date_service"):
                 date_echange = kw.get("date_service")
@@ -1396,7 +1405,7 @@ class AccorderieCanadaDdbController(http.Controller):
             if state_id in (
                 "init.saa.recevoir.choix.existant.time.formulaire",
                 "init.saa.recevoir.choix.nouveau.formulaire",
-                "init.va.non.recu.choix.formulaire",
+                # "init.va.non.recu.choix.formulaire",
                 "init.va.non.recu.choix.nouveau.formulaire",
             ):
                 vals["membre_acheteur"] = membre_id
@@ -1452,12 +1461,17 @@ class AccorderieCanadaDdbController(http.Controller):
                 {
                     "transaction_valide": True,
                     "nb_heure": float(kw.get("time_realisation_service")),
+                    "nb_heure_duree_trajet": float(kw.get("time_dure_trajet")),
                 }
             )
             status["echange_service_id"] = new_accorderie_echange_service.id
             # Force update time per member
-            new_accorderie_echange_service.membre_acheteur.is_time_updated = True
-            new_accorderie_echange_service.membre_vendeur.is_time_updated = True
+            new_accorderie_echange_service.membre_acheteur.is_time_updated = (
+                True
+            )
+            new_accorderie_echange_service.membre_vendeur.is_time_updated = (
+                True
+            )
         return status
 
     @http.route(

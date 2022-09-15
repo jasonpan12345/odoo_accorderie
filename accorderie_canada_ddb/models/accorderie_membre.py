@@ -87,7 +87,10 @@ class AccorderieMembre(models.Model):
 
     membre_principal = fields.Boolean(string="Membre principal")
 
-    is_time_updated = fields.Boolean(string="Time is updated", help="This variable is a trigger to update time.")
+    is_time_updated = fields.Boolean(
+        string="Time is updated",
+        help="This variable is a trigger to update time.",
+    )
 
     memo = fields.Text(string="Mémo")
 

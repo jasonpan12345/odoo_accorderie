@@ -72,11 +72,11 @@
                                                 <div class="list_title s_title">
                                                     <div class="title">
                                                         <h1>{{month_key | toTitleCase}}</h1>
-                                                        <a class="text-epsilon" style="font-size:1.25rem;" ng-if="echange_info.actualMonth">
+                                                        <a class="text-epsilon" style="font-size:1.25rem;" ng-if="!echange_info.containTransactionValide">
                                                             <i class="fa fa-clock-o icon_padding_right" />
                                                             À venir
                                                         </a>
-                                                        <a style="font-size:1.25rem;" ng-if="!echange_info.actualMonth">
+                                                        <a style="font-size:1.25rem;" ng-if="echange_info.containTransactionValide">
                                                             <i class="fa fa-clock-o icon_padding_right" />
                                                             {{echange_info.show_sum_time}}
                                                         </a>
@@ -93,12 +93,12 @@
                                                         </div>
                                                         <div class="details">
                                                             <span class="activite_auteur mt-auto">{{contact_info.full_name}}</span>
-                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.description_service)">{{echange.description_service}}</span>
+                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_offre_service)">{{echange.sujet_offre_service}}</span>
                                                         </div>
                                                     </div>
                                                     <a class="details_link" ng-href="/monactivite/echange#!?echange={{echange.id}}"><u>Voir les détails</u></a>
-                                                    <p class="status" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide">{{echange.show_duree_estime}} à valider <i class="fa fa-chevron-right" /></p>
-                                                    <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide">{{echange.show_duree}}</p>
+                                                    <p class="status" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide">{{echange.show_duree_total_estime}} à valider <i class="fa fa-chevron-right" /></p>
+                                                    <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide">{{echange.show_duree_total}}</p>
 <!--                                                    </a>-->
                                                 </div>
                                             </div>
@@ -3950,7 +3950,7 @@
                                             <div class="info_depot" ng-class="{'neg_time': echange_service_info.estAcheteur}">
                                                 <span ng-if="!echange_service_info.estAcheteur">DÉPOT</span><span ng-if="echange_service_info.estAcheteur">RETRAIT</span> SUR MON COMPTE
                                                 <div class="heures" ng-class="{'neg_time_b': echange_service_info.estAcheteur}">
-                                                    {{echange_service_info.transaction_valide ? echange_service_info.show_duree : echange_service_info.show_duree_estime}}
+                                                    {{echange_service_info.transaction_valide ? echange_service_info.show_total_dure : echange_service_info.show_total_dure_estime}}
                                                 </div>
                                             </div>
                                         </div>
@@ -4071,33 +4071,56 @@
                                         </div>
 
                                         <div class="information information-5" style="grid-area:2/2/4/3;" ng-if="echange_service_info.transaction_valide">
-                                            <span class="info_title">
+                                            <span class="info_title" ng-if="echange_service_info.has_offre_service">
                                                 <font style="font-weight:bold;">
                                                     Offre de service privé
                                                 </font>
                                             </span>
-                                            <div class="condition">
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service">
                                                 <b class="nbr">
                                                     Catégorie du service
                                                 </b>
-                                                <p class="condition_desc">Confection desserts pour événements</p>
+                                                <p class="condition_desc">{{echange_service_info.categorie_offre_service}}</p>
                                             </div>
-                                            <divider />
-                                            <div class="condition">
+                                            <divider ng-if="echange_service_info.has_offre_service" />
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service">
                                                 <b class="nbr">
                                                     Nom du service
                                                 </b>
-                                                <p class="condition_desc">Création d'un gâteau de fête</p>
+                                                <p class="condition_desc">{{echange_service_info.sujet_offre_service}}</p>
                                             </div>
-                                            <divider />
-                                            <div class="condition">
+                                            <divider ng-if="echange_service_info.has_offre_service" />
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service">
                                                 <b class="nbr">
                                                     Description du service offert
                                                 </b>
-                                                <p class="condition_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.</p>
+                                                <p class="condition_desc">{{echange_service_info.description_offre_service}}</p>
+                                            </div>
 
+                                            <span class="info_title" ng-if="echange_service_info.has_demande_service">
+                                                <font style="font-weight:bold;">
+                                                    Demande de service privé
+                                                </font>
+                                            </span>
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service">
+                                                <b class="nbr">
+                                                    Catégorie du service
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.categorie_demande_service}}</p>
+                                            </div>
+                                            <divider ng-if="echange_service_info.has_demande_service" />
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service">
+                                                <b class="nbr">
+                                                    Nom du service
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.sujet_demande_service}}</p>
+                                            </div>
+                                            <divider ng-if="echange_service_info.has_demande_service" />
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service">
+                                                <b class="nbr">
+                                                    Description du service demandé
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.description_demande_service}}</p>
                                             </div>
                                         </div>
                                         <div class="information information-5" ng-if="echange_service_info.transaction_valide">
@@ -4127,22 +4150,20 @@
                                                 <p>{{echange_service_info.show_duree_trajet_pos}}</p>
 
                                             </div>
-                                            <divider />
-                                            <div class="condition">
+                                            <divider ng-if="!_.isEmpty(echange_service_info.commentaire)" />
+                                            <div class="condition" ng-if="!_.isEmpty(echange_service_info.commentaire)">
                                                 <b class="nbr">
                                                     Commentaires
                                                 </b>
-                                                <p class="condition_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.</p>
-                                                <div class="bar_time">
-                                                    <b>
-                                                        Montant total de temps transféré
-                                                    </b>
-                                                    <span>
-                                                        {{echange_service_info.show_total_dure_pos}}
-                                                    </span>
-                                                </div>
+                                                <p class="condition_desc">{{echange_service_info.commentaire}}</p>
+                                            </div>
+                                            <div class="bar_time">
+                                                <b>
+                                                    Montant total de temps transféré
+                                                </b>
+                                                <span>
+                                                    {{echange_service_info.show_total_dure_pos}}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

@@ -454,6 +454,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.echange_service_info.show_duree_trajet_estime_pos = $scope.convertNumToTime(data.duree_trajet_estime, 8);
                             $scope.echange_service_info.show_duree_trajet_pos = $scope.convertNumToTime(data.duree_trajet, 8);
 
+                            $scope.echange_service_info.show_total_dure_estime = $scope.convertNumToTime(data.duree_estime + data.duree_trajet_estime, 7);
+                            $scope.echange_service_info.show_total_dure = $scope.convertNumToTime(data.duree + data.duree_trajet, 7);
                             $scope.echange_service_info.show_total_dure_estime_pos = $scope.convertNumToTime(data.duree_estime + data.duree_trajet_estime, 8);
                             $scope.echange_service_info.show_total_dure_pos = $scope.convertNumToTime(data.duree + data.duree_trajet, 8);
 
@@ -621,7 +623,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
             let month_key = moment(Date.now()).format("MMMM YYYY");
             $scope.personal.dct_echange_mensuel = {};
-            $scope.personal.dct_echange_mensuel[month_key] = {"lst_echange": [], "actualMonth": true};
+            $scope.personal.dct_echange_mensuel[month_key] = {"lst_echange": [], "actualMonth": true, "containTransactionValide": false};
 
             // Order list by month and year
             for (const [key, value] of Object.entries($scope.personal.dct_echange)) {
@@ -630,9 +632,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 if ($scope.personal.dct_echange_mensuel.hasOwnProperty(month_key)) {
                     inner_obj = $scope.personal.dct_echange_mensuel[month_key];
                 } else {
-                    inner_obj = {"lst_echange": [], "actualMonth": false};
+                    inner_obj = {"lst_echange": [], "actualMonth": false, "containTransactionValide": false};
                     $scope.personal.dct_echange_mensuel[month_key] = inner_obj;
                 }
+
+                if (value.transaction_valide) {
+                    inner_obj.containTransactionValide = true;
+                }
+
                 value.show_date = moment(value.date).format("dddd D MMMM");
                 value.show_start_time = moment(value.date).format("H") + "h" + moment(value.date).format("mm");
                 value.show_end_time = moment(value.end_date).format("H") + "h" + moment(value.end_date).format("mm");
@@ -640,6 +647,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 let sign = value.estAcheteur ? -1 : 1;
                 value.show_duree_estime = $scope.convertNumToTime(value.duree_estime * sign, 7);
                 value.show_duree = $scope.convertNumToTime(value.duree * sign, 7);
+                value.show_duree_total_estime = $scope.convertNumToTime((value.duree_estime + value.duree_trajet_estime) * sign, 7);
+                value.show_duree_total = $scope.convertNumToTime((value.duree + value.duree_trajet) * sign, 7);
                 value.sign = sign;
 
                 inner_obj.lst_echange.push(value);
@@ -649,11 +658,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 value.sum_time = 0;
                 for (let i = 0; i < value.lst_echange.length; i++) {
                     let i_echange = value.lst_echange[i];
-                    let duration = i_echange.transaction_valide ? i_echange.duree : i_echange.duree_estime;
-                    if (i_echange.estAcheteur) {
-                        value.sum_time -= duration;
-                    } else {
-                        value.sum_time += duration;
+                    if (i_echange.transaction_valide) {
+                        // let duration = i_echange.transaction_valide ? i_echange.duree : i_echange.duree_estime;
+                        let duration = i_echange.duree + i_echange.duree_trajet;
+                        if (i_echange.estAcheteur) {
+                            value.sum_time -= duration;
+                        } else {
+                            value.sum_time += duration;
+                        }
                     }
                 }
                 value.show_sum_time = $scope.convertNumToTime(value.sum_time, 3);
