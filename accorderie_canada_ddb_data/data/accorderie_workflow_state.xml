@@ -310,7 +310,8 @@
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
-            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
+<!--            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>-->
             <field name="model_field_depend">echange_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -348,7 +349,7 @@
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
-            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
@@ -360,7 +361,7 @@
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
-            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="model_field_depend">echange_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -405,7 +406,7 @@
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
-            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="model_field_depend">membre_id;echange_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -431,7 +432,7 @@
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
-            <field name="submit_response_description">Merci de contribuer continuellement à la communauté de l'Accorderie de ??. Que souhaitez-vous faire maintenant?</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="model_field_depend">membre_id;type_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>

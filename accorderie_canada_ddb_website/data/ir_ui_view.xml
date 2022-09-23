@@ -4074,7 +4074,7 @@
                                                     Offre de service privé
                                                 </font>
                                             </span>
-                                            <div class="condition" ng-if="echange_service_info.has_offre_service">
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_offre_service)">
                                                 <b class="nbr">
                                                     Catégorie du service
                                                 </b>
@@ -4087,8 +4087,8 @@
                                                 </b>
                                                 <p class="condition_desc">{{echange_service_info.sujet_offre_service}}</p>
                                             </div>
-                                            <divider ng-if="echange_service_info.has_offre_service" />
-                                            <div class="condition" ng-if="echange_service_info.has_offre_service">
+                                            <divider ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.description_offre_service)" />
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.description_offre_service)">
                                                 <b class="nbr">
                                                     Description du service offert
                                                 </b>
@@ -4100,7 +4100,7 @@
                                                     Demande de service privé
                                                 </font>
                                             </span>
-                                            <div class="condition" ng-if="echange_service_info.has_demande_service">
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_demande_service)">
                                                 <b class="nbr">
                                                     Catégorie du service
                                                 </b>
@@ -4113,12 +4113,12 @@
                                                 </b>
                                                 <p class="condition_desc">{{echange_service_info.sujet_demande_service}}</p>
                                             </div>
-                                            <divider ng-if="echange_service_info.has_demande_service" />
-                                            <div class="condition" ng-if="echange_service_info.has_demande_service">
+                                            <divider ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.description_demande_service)" />
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.description_demande_service)">
                                                 <b class="nbr">
                                                     Description du service demandé
                                                 </b>
-                                                <p class="condition_desc">{{echange_service_info.description_demande_service}}</p>
+                                                <p class="condition_desc" ng-bind-html="echange_service_info.description_demande_service | unsafe" />
                                             </div>
                                         </div>
                                         <div class="information information-5" ng-if="echange_service_info.transaction_valide">
