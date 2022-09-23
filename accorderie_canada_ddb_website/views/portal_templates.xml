@@ -136,13 +136,13 @@
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <div role="menuitem" class="dropdown-item highlight_not_implemented">
-                                        <p>Highlight</p>
+                                        <p>Mise en évidence des fonctionnalités non supportées</p>
                                     </div>
                                     <div role="menuitem" class="dropdown-item hide_not_implemented">
-                                        <p>Hide</p>
+                                        <p>Cacher les fonctionnalités non supportées</p>
                                     </div>
                                     <div role="menuitem" class="dropdown-item btn_debug_debug">
-                                        <p>Debug</p>
+                                        <p>Affichage du déverminage</p>
                                     </div>
 <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
 <!--                                        <p>Refresh AngularJS</p>-->
