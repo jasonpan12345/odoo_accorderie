@@ -105,8 +105,8 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" style="cursor:pointer">
+                            <li class="nav-item" t-ignore="true">
+                                <a class="nav-link" role="menu_item" href="/aide">
                                     <span
                                         data-oe-model="website.menu"
                                         data-oe-id="6"
@@ -135,13 +135,21 @@
                                     />
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
-                                    <div role="menuitem" class="dropdown-item highlight_not_implemented">
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item highlight_not_implemented"
+                                        style="cursor:pointer"
+                                    >
                                         <p>Mise en évidence des fonctionnalités non supportées</p>
                                     </div>
-                                    <div role="menuitem" class="dropdown-item hide_not_implemented">
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item hide_not_implemented"
+                                        style="cursor:pointer"
+                                    >
                                         <p>Cacher les fonctionnalités non supportées</p>
                                     </div>
-                                    <div role="menuitem" class="dropdown-item btn_debug_debug">
+                                    <div role="menuitem" class="dropdown-item btn_debug_debug" style="cursor:pointer">
                                         <p>Affichage du déverminage</p>
                                     </div>
 <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
