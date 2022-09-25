@@ -834,6 +834,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.form["time_realisation_service"] = $scope.convertNumToTime(data.duree_estime, 9);
                             $scope.form["time_dure_trajet"] = $scope.convertNumToTime(data.duree_trajet_estime, 9);
 
+                            $scope.form["frais_trajet"] = data.frais_trajet
+                            $scope.form["frais_materiel"] = data.frais_materiel
+
                             $scope.form["membre_id"] = {
                                 "id": data.membre.id,
                                 "value": data.membre.full_name,
@@ -1387,6 +1390,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
             if (!_.isUndefined(copiedForm.time_drive_estimated)) {
                 copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_drive_estimated);
+            }
+
+            // TODO this is a bug, need an appropriate form
+            if (!_.isUndefined(copiedForm.time_service_estimated)) {
+                copiedForm.time_service_estimated = $scope.parseFloatTime(copiedForm.time_realisation_service);
+            }
+            if (!_.isUndefined(copiedForm.time_drive_estimated)) {
+                copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_dure_trajet);
             }
 
             console.log(copiedForm);
