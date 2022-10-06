@@ -71,7 +71,7 @@ odoo.define('website.accorderie_notification', function (require) {
                             let membre2 = $scope.dct_membre[field_id];
                             let membre3 = !_.isUndefined($scope.membre_info) && $scope.membre_info.id === field_id ? $scope.membre_info : undefined;
                             // console.debug("action to do " + String(value));
-                            if (value[0][0] === 4) {
+                            if (value[0] === 4 || value[0][0] === 4) {
                                 if (!_.isUndefined(membre)) {
                                     membre.is_favorite = true;
                                     has_update = true;
