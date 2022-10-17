@@ -17,7 +17,7 @@
         </record>
         <record id="accorderie_workflow_relation_init_saa" model="accorderie.workflow.relation">
             <field name="name">Créer un échange avec un autre membre</field>
-            <field name="body_html">Mettez vous d'accord à l'avance sur les modalités exactes du service à donner ou recevoir.</field>
+            <field name="body_html">Mettez vous d'accord à l'avance sur les modalités du service à donner ou recevoir.</field>
             <field name="state_src" ref="accorderie_workflow_state_init" />
             <field name="state_dst" ref="accorderie_workflow_state_saa" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -103,8 +103,8 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_saa_recevoir_choix_nouveau" model="accorderie.workflow.relation">
-            <field name="name">Une nouvelle offre</field>
-            <field name="body_html" type="html"><p>Créer une offre de service privée<br />(spécifiquement pour vous).</p></field>
+            <field name="name">Une nouvelle demande</field>
+            <field name="body_html" type="html"><p>Créer une nouvelle demande de service</p></field>
             <field name="icon">fa-plus-circle</field>
             <field name="state_src" ref="accorderie_workflow_state_saa_recevoir_choix" />
             <field name="state_dst" ref="accorderie_workflow_state_saa_recevoir_choix_nouveau" />
@@ -137,7 +137,7 @@
         </record>
         <record id="accorderie_workflow_relation_init_va" model="accorderie.workflow.relation">
             <field name="name">Valider un échange</field>
-            <field name="body_html">Vous avez donné ou reçu un service? Déclarer ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>
+            <field name="body_html">Vous avez donné ou reçu un service? Déclarez ici la transaction pour donner ou percevoir les heures d'Accorderie dues.</field>
             <field name="state_src" ref="accorderie_workflow_state_init" />
             <field name="state_dst" ref="accorderie_workflow_state_va" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -167,7 +167,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_offert_nouveau" model="accorderie.workflow.relation">
-            <field name="body_html" type="html"><p>Aucune de ces offres.<br />Il s'agissait d'un service offert spécifiquement pour vous.</p></field>
+            <field name="body_html" type="html"><p>Aucune de ces offres.<br />Il s'agissait d'un service offert spécifiquement par vous.</p></field>
             <field name="state_src" ref="accorderie_workflow_state_va_non_offert" />
             <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_nouveau_formulaire" />
         </record>

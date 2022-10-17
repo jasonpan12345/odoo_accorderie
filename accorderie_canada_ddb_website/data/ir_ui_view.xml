@@ -803,7 +803,7 @@
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;" />
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">Aides pour utiliser l'espace membre</h4>
+                                                    <h4 class="item_title">Aide pour utiliser l'espace membre</h4>
                                                     <p style="font-size:1rem;">
                                                         5 membres - 2 publications
                                                     </p>
@@ -2404,7 +2404,7 @@
                                             <div class="item_card btn shadow">
                                                 <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg&quot;" />
                                                 <div class="item_desc">
-                                                    <h4 class="item_title">Aides pour utiliser l'espace membre</h4>
+                                                    <h4 class="item_title">Aide pour utiliser l'espace membre</h4>
                                                     <h5 class="event_time">
                                                         <font style="color: rgb(99, 99, 99);">5 membres - 2 publications&amp;nbsp;
                                                         </font>
@@ -3363,7 +3363,7 @@
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/aide" class="img bottom_menu_icon fa fa-question-circle" style="text-decoration:none;" />
-                                            <h5>Aides</h5>
+                                            <h5>Aide</h5>
                                             <a href="/aide#!?section=guide_utilisation" class="footer_link">Guides d'utilisation</a>
                                             <br />
                                             <a href="/aide#!?section=contacter_accorderie" class="footer_link debug_unimplemented">Contacter l'Accorderie</a>
@@ -4038,7 +4038,7 @@
                                                     </b>
                                                     <p>
                                                         <i class="fa fa-check text-epsilon checker" />
-                                                        Il doit y avoir au moins 4 personnes pout le déménagement
+                                                        Il doit y avoir au moins 4 personnes pour le déménagement
                                                     </p>
                                                 </div>
                                                 <divider />
@@ -4071,7 +4071,7 @@
                                         <div class="information information-5" style="grid-area:2/2/4/3;" ng-if="echange_service_info.transaction_valide">
                                             <span class="info_title" ng-if="echange_service_info.has_offre_service">
                                                 <font style="font-weight:bold;">
-                                                    Offre de service privé
+                                                    Offre de service privée
                                                 </font>
                                             </span>
                                             <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_offre_service)">
@@ -4129,7 +4129,7 @@
                                             </span>
                                             <div class="condition">
                                                 <b class="nbr">
-                                                    Coût monétaires supplémentaires engagés
+                                                    Coût supplémentaires engagés
                                                 </b>
                                                 <p class="condition_desc">Frais pour le trajet :</p>
                                                 <p>${{echange_service_info.frais_trajet}} CAD</p>

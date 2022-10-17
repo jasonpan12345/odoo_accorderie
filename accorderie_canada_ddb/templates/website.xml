@@ -5,6 +5,11 @@
         <t name="About us" t-name="website.aboutus">
             <t t-call="website.layout">
                 <div id="wrap">
+                    <div class="debug_debug">
+                        Lien maquette : <a
+                            href="https://marvelapp.com/prototype/1773h559/screen/86417802"
+                        >https://marvelapp.com/prototype/1773h559/screen/86417802</a>
+                </div>
                     <div class="oe_structure">
                         <section class="pt32 pb32" t-if="not accorderie_offre_service_id">
                             <div class="container">
@@ -96,7 +101,7 @@
                                             <t t-raw="accorderie_offre_service_id.entente_tarifiaire" />
                                         </div>
                                         <div class="dispo debug_unimplemented">
-                                            <h2>Disponilibités habituelles</h2>
+                                            <h2>Disponilibités</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p><p>08H00 - 19H00</p>
                                                 <p>MARDI</p><p>08H00 - 19H00</p>
@@ -244,7 +249,7 @@
 <!--                                            <t t-raw="accorderie_demande_service_id.entente_tarifiaire" />-->
 <!--                                        </div>-->
                                         <div class="dispo debug_unimplemented">
-                                            <h2>Disponilibités habituelles</h2>
+                                            <h2>Disponilibités</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p><p>08H00 - 19H00</p>
                                                 <p>MARDI</p><p>08H00 - 19H00</p>
@@ -848,7 +853,11 @@
                                             </div>
                                         </div>
 
-                                       <div ng-if="form_is_offre_demande_service()"><h4>Titre</h4>
+                                       <div ng-if="form_is_offre_demande_service()"><h4
+                                                ng-if="'init.pos.individuelle.formulaire' === state.id"
+                                            >Titre de l'offre de service</h4><h4
+                                                ng-if="'init.pds.individuelle.formulaire' === state.id"
+                                            >Titre de la demande de service</h4>
                                        </div>
 
                                         <input
@@ -890,7 +899,7 @@
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div class="form_box">
-                                                <span>Accepte de me déplacer:</span>
+                                                <span>J'accepte de me déplacer:</span>
                                                 <span>Dans la région</span>
                                                 <i class="fa fa-chevron-right" />
                                             </div>
@@ -900,7 +909,7 @@
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div>
-                                                <h4>Entente tarifiaire
+                                                <h4>Entente tarifaire
                                                     <a
                                                         class="fa fa-trash text-alpha modifier"
                                                         style="margin-left:auto;font-size:1.5rem"
@@ -1123,7 +1132,7 @@
                                             ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id || form_is_service_to_modify()"
                                         >Coûts possibles supplémentaires à prévoir
                                         </h2>
-                                        <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
+                                        <h2 ng-if="form_is_service()">Coûts supplémentaires dûs
                                         </h2>
                                         <div ng-if="form_frais_trajet_distance()">
                                             <h4>Frais pour trajet de :
@@ -1280,7 +1289,7 @@
                                         <!-- Durée de service -->
                                         <div ng-if="form_is_service_to_modify()">
                                             <h2>Durée du service</h2>
-                                            <h4>Nombre d'heures estimés pour le service<a
+                                            <h4>Nombre d'heures estimé pour le service<a
                                                     href=""
                                                     class="text-primary modifier"
                                                     ng-if="form_is_service_to_modify()"
@@ -1481,7 +1490,7 @@
                                             </button>
                                         </a>
                                         <a href="explorer">
-                                            <button class="btn btn-primary text-gamma">Retourner sur
+                                            <button class="btn btn-primary text-gamma">Retourner à
                                                 l'accueil
                                             </button>
                                         </a>

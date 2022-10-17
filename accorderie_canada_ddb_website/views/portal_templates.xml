@@ -114,7 +114,7 @@
                                         data-oe-type="char"
                                         data-oe-expression="submenu.name"
                                     >
-                                        Aides
+                                        Aide
                                     </span>
                                 </a>
                             </li>
@@ -140,7 +140,7 @@
                                         class="dropdown-item highlight_not_implemented"
                                         style="cursor:pointer"
                                     >
-                                        <p>Mise en évidence des fonctionnalités non supportées</p>
+                                        <p>Mettre en évidence les fonctionnalités non supportées</p>
                                     </div>
                                     <div
                                         role="menuitem"
@@ -150,7 +150,7 @@
                                         <p>Cacher les fonctionnalités non supportées</p>
                                     </div>
                                     <div role="menuitem" class="dropdown-item btn_debug_debug" style="cursor:pointer">
-                                        <p>Affichage du déverminage</p>
+                                        <p>Afficher le déverminage</p>
                                     </div>
 <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
 <!--                                        <p>Refresh AngularJS</p>-->
