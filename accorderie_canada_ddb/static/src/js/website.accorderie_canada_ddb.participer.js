@@ -1393,10 +1393,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
 
             // TODO this is a bug, need an appropriate form
-            if (!_.isUndefined(copiedForm.time_service_estimated)) {
+            if (!_.isUndefined(copiedForm.time_service_estimated) && !_.isUndefined(copiedForm.time_realisation_service)) {
                 copiedForm.time_service_estimated = $scope.parseFloatTime(copiedForm.time_realisation_service);
             }
-            if (!_.isUndefined(copiedForm.time_drive_estimated)) {
+            if (!_.isUndefined(copiedForm.time_drive_estimated) && !_.isUndefined(copiedForm.time_dure_trajet)) {
                 copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_dure_trajet);
             }
 
