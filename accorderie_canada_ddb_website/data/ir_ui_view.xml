@@ -1070,7 +1070,7 @@
                                 <div class="col-lg-6 pt16 pb16">
                                   <img src="/accorderie_canada_ddb_website/static/src/img/AdobeStock_147894347_Preview.jpeg" class="img img-fluid mx-auto" alt="ERPLibre • Image et Texte" />
                                 </div>
-                                <div class="col-lg-6 pt16 pb16"><h2>Un réseau actif<br /></h2>Le réseau de l'Accorderie a actuellement {{ nb_offre_service }} offres de service actives!<div groups="base.group_public" class="s_btn text-left pt16 pb16"><a href="#" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip737296">S'inscrire</a></div>
+                                <div class="col-lg-6 pt16 pb16"><h2>Un réseau actif<br /></h2>Le réseau de l'Accorderie a actuellement {{ nb_offre_service }} offres de service actives!<div groups="base.group_public" class="s_btn text-left pt16 pb16"><a href="#" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip737296">S'inscrire</a></div>
                                     </div>
                               </div>
                             </div>
@@ -4370,8 +4370,19 @@
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                                 <h1 class="s_title_default">
-                                                    <font style="font-size: 62px;">Échange de services
-                                                        <br />
+                                                    <font style="font-size: 62px;">Échange de service
+                                                    </font>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="pt32 pb32">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <font style="font-size: 48px;">Créer une offre de service
                                                     </font>
                                                 </h1>
                                             </div>
@@ -4382,12 +4393,12 @@
                                     <div class="container">
                                         <div class="row align-items-center">
                                             <div class="col-lg-6 pt16 pb16">
-                                                <h2>Publier une offre de services
+                                                <h2>Créer une offre de service publique individuelle
                                                     <br />
                                                 </h2>
-                                                Permettre de rendre accessible une offre de services à la communauté.
+                                                Permettre de rendre accessible une offre de service à la communauté, entre deux personnes.
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
-                                                    <a href="/participer#!?state=init.pos" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip300943">Publier une offre
+                                                    <a href="/participer#!?state=init.pos.individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une offre
                                                     </a>
                                                 </div>
                                             </div>
@@ -4401,14 +4412,60 @@
                                         </div>
                                     </div>
                                 </section>
+                                <section class="s_text_image pt32 pb32 debug_unimplemented">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2>Créer une offre de service de groupe</h2>
+                                                Permettre de rendre accessible une offre de service à la communauté entre une personne et un groupe de personnes.
+<!--                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">-->
+<!--                                                    <a href="/participer#!?state=init.pos" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une offre-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32 debug_unimplemented">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2>Créer une offre de service spéciale</h2>
+                                                Permettre de rendre accessible une offre de service à la communauté, entre deux personnes, en haute priorité.
+<!--                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">-->
+<!--                                                    <a href="/participer#!?state=init.pos" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une offre-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="pt32 pb32">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <font style="font-size: 48px;">Créer une demande de service
+                                                    </font>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                                 <section class="s_text_image pt32 pb32">
                                     <div class="container">
                                         <div class="row align-items-center">
                                             <div class="col-lg-6 pt16 pb16">
-                                                <h2 class="o_default_snippet_text">Publier une demande de services</h2>
-                                                Permettre de rendre accessible une demande de services à la communauté.
+                                                <h2 class="o_default_snippet_text">Créer une demande de service publique individuelle</h2>
+                                                Permettre de rendre accessible une demande de service à la communauté, entre deux personnes.
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
-                                                    <a href="/participer#!?state=init.pds" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip300943">Publier une demande
+                                                    <a href="/participer#!?state=init.pds.individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une demande
                                                     </a>
                                                 </div>
                                             </div>
@@ -4422,16 +4479,43 @@
                                         </div>
                                     </div>
                                 </section>
+                                <section class="s_text_image pt32 pb32 debug_unimplemented">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2 class="o_default_snippet_text">Créer une demande de service de groupe</h2>
+                                                Permettre de rendre accessible une demande de service à la communauté pour un groupe de personnes.
+<!--                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">-->
+<!--                                                    <a href="/participer#!?state=init.pds" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une demande-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="pt32 pb32">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <font style="font-size: 48px;">Créer un échange avec un autre membre
+                                                    </font>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                                 <section class="s_text_image pt32 pb32">
                                     <div class="container">
                                         <div class="row align-items-center">
                                             <div class="col-lg-6 pt16 pb16">
-                                                <h2>Créer un échange avec un autre membre
-                                                    <br />
-                                                </h2>
-                                                Permettre de mettre en accord à l'avance sur les modalités exactes du service à donner ou recevoir.
+                                                <h2>Créer un échange en tant que personne offrant le service avec une offre existante</h2>
+                                                Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service doit déjà avoir été publiée.
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
-                                                    <a href="/participer#!?state=init.saa" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip300943">Faire un échange avec un autre Accordeur.e
+                                                    <a href="/participer#!?state=init.saa.offrir" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer un échange
                                                     </a>
                                                 </div>
                                             </div>
@@ -4449,10 +4533,90 @@
                                     <div class="container">
                                         <div class="row align-items-center">
                                             <div class="col-lg-6 pt16 pb16">
-                                                <h2 class="o_default_snippet_text">Valider un échange</h2>
-                                                Permettre de faire une déclaration d'une transaction suite à un échange de services.
+                                                <h2>Créer un échange en tant que personne offrant le service avec une offre qui doit être créée</h2>
+                                                Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service n’a pas été créée et le sera lors de cette action. Cette offre sera privée.
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
-                                                    <a href="/participer#!?state=init.va" class="btn btn-outline-primary" data-original-title="" title="" aria-describedby="tooltip300943">Valider un échange
+                                                    <a href="/participer#!?state=init.saa.offrir.nouveau" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32 debug_unimplemented">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2>Créer un échange en tant que personne offrant le service avec une demande</h2>
+                                                Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. La demande de service doit déjà avoir été publiée.
+<!--                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">-->
+<!--                                                    <a href="/participer#!?state=init.saa" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer un échange-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2>Créer un échange en tant que personne recevant le service d’une offre déjà existante</h2>
+                                                Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. L’offre de service a déjà été créée.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.saa.recevoir" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2>Créer un échange en tant que personne recevant le service d’une offre qui n’a pas été créée</h2>
+                                                Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. La demande de service n’a pas été créée et le sera lors de cette action. Cette demande sera privée.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.saa.recevoir" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="pt32 pb32">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <font style="font-size: 48px;">Valider un échange
+                                                    </font>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2 class="o_default_snippet_text">Valider un échange existant</h2>
+                                                Permettre de faire la déclaration d’une transaction suite à un échange de service qui a été créé sur une demande de service.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.va.oui" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Valider un échange
                                                     </a>
                                                 </div>
                                             </div>
@@ -4466,13 +4630,80 @@
                                         </div>
                                     </div>
                                 </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2 class="o_default_snippet_text">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre déjà créée</h2>
+                                                Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre est créée.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.va.non.offert" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Valider un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2 class="o_default_snippet_text">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui n’a pas été créée</h2>
+                                                Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre n’a pas été créée.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.va" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Valider un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2 class="o_default_snippet_text">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre déjà créée</h2>
+                                                Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre a déjà été créée.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.va" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Valider un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_image pt32 pb32">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <h2 class="o_default_snippet_text">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre qui n’a pas été créée</h2>
+                                                Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre n’a pas été créée.
+                                                <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <a href="/participer#!?state=init.va" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Valider un échange
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 pt16 pb16">
+                                                <img src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                                 <section class="pt32 pb32">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                                 <h1 class="s_title_default">
-                                                    <font style="font-size: 62px;">Fonctionnalité cachée
-                                                        <br />
+                                                    <font style="font-size: 62px;">Fonctionnalité développeur
                                                     </font>
                                                 </h1>
                                             </div>
@@ -4484,7 +4715,6 @@
                                         <div class="row align-items-center">
                                             <div class="col-lg-6 pt16 pb16">
                                                 <h2>Montrer/Masquer le développement
-                                                    <br />
                                                 </h2>
                                                 Comment voir ou masquer les fonctionnalités en cours de développement, les sections statiques de la maquette.
                                             </div>
