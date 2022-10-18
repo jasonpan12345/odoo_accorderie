@@ -3950,7 +3950,7 @@
                                             <div class="info_depot" ng-class="{'neg_time': echange_service_info.estAcheteur}">
                                                 <span ng-if="!echange_service_info.estAcheteur">DÉPOT</span><span ng-if="echange_service_info.estAcheteur">RETRAIT</span> SUR MON COMPTE
                                                 <div class="heures" ng-class="{'neg_time_b': echange_service_info.estAcheteur}">
-                                                    {{echange_service_info.transaction_valide ? echange_service_info.show_total_dure : echange_service_info.show_total_dure_estime}}
+                                                    {{echange_service_info.transaction_valide ? echange_service_info.show_total_dure_pos : echange_service_info.show_total_dure_estime_pos}}
                                                 </div>
                                             </div>
                                         </div>

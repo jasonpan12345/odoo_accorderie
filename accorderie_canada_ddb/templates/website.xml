@@ -849,7 +849,7 @@
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div>
-                                                <h4>Nom de votre service</h4>
+                                                <h4>Nom du service</h4>
                                             </div>
                                         </div>
 
@@ -868,7 +868,7 @@
                                         />
 
                                         <div ng-if="form_is_nouveau_except_pos()">
-                                            <h4>Description de votre offre de service</h4>
+                                            <h4>Description du service</h4>
                                         </div>
 
                                         <div ng-if="form_is_offre_demande_service()">
