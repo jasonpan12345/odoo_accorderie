@@ -439,18 +439,18 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
-                                <a class="nav-link" role="menu_item" style="cursor:pointer">
-                                    <span
-                                        class="fa fa-2x fa-question-circle-o text-primary"
-                                        data-oe-model="website.menu"
-                                        data-oe-id="9"
-                                        data-oe-field="name"
-                                        data-oe-type="char"
-                                        data-oe-expression="submenu.name"
-                                    />
-                                </a>
-                            </li>
+<!--                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">-->
+<!--                                <a class="nav-link" role="menu_item" style="cursor:pointer">-->
+<!--                                    <span-->
+<!--                                        class="fa fa-2x fa-question-circle-o text-primary"-->
+<!--                                        data-oe-model="website.menu"-->
+<!--                                        data-oe-id="9"-->
+<!--                                        data-oe-field="name"-->
+<!--                                        data-oe-type="char"-->
+<!--                                        data-oe-expression="submenu.name"-->
+<!--                                    />-->
+<!--                                </a>-->
+<!--                            </li>-->
                             <li class="nav-item dropdown bg-primary" t-ignore="true" t-if="not user_id._is_public()">
                                 <a
                                     class="nav-link text-gamma"

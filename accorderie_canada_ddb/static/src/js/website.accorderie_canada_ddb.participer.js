@@ -623,7 +623,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
             let month_key = moment(Date.now()).format("MMMM YYYY");
             $scope.personal.dct_echange_mensuel = {};
-            $scope.personal.dct_echange_mensuel[month_key] = {"lst_echange": [], "actualMonth": true, "containTransactionValide": false};
+            $scope.personal.dct_echange_mensuel[month_key] = {
+                "lst_echange": [],
+                "actualMonth": true,
+                "containTransactionValide": false
+            };
 
             // Order list by month and year
             for (const [key, value] of Object.entries($scope.personal.dct_echange)) {
