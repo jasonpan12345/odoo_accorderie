@@ -25,6 +25,7 @@
                 <svg viewBox="11.8 9 16 22" class="mouse" style="width: 40px; top:0; left:0; position: absolute;">
                     <path d="M20,21l4.5,8l-3.4,2l-4.6-8.1L12,29V9l16,12H20z" />
                 </svg>
+                <canvas class="canvasPresentationClass" style="position: absolute;" />
 <!--            <header class="ng-cloak">-->
 <!--            <header class="o_affix_enabled">-->
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">

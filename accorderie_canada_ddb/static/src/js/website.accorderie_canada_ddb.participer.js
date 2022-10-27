@@ -206,6 +206,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.animationRecord = {
             enable: false,
             stateAnimation: 0, // 0 stop, 1-* animation state chain
+            canvasPresentation: document.querySelector('.canvasPresentationClass'),
+            mouseLet: document.querySelector('.mouse'),
+            lastXFakeMouse: 0,
+            lastYFakeMouse: 0,
         }
 
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
@@ -500,15 +504,16 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.animationRecord.stateAnimation = 0;
         }
 
-        $scope._stopAnimation = function (timer, mouseLet) {
+        $scope._stopAnimation = function (timer) {
             if (!$scope.animationRecord.stateAnimation) {
+                console.debug("call _stopAnimation");
                 // Stop animation
                 clearInterval(timer);
-                let body = document.querySelector('body');
-                if (body !== undefined) {
-                    body.style.cursor = 'default';
-                }
-                mouseLet.style.transform = `translate(${0}px, ${0}px)`;
+                // let body = document.querySelector('body');
+                // if (body !== undefined) {
+                //     body.style.cursor = 'default';
+                // }
+                // $scope.animationRecord.mouseLet.style.transform = `translate(${0}px, ${0}px)`;
                 return true;
             }
             return false;
@@ -519,137 +524,191 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
         }
 
+        $scope.changeStateAnimation = function (index) {
+            $scope.animationRecord.stateAnimation = index;
+            try {
+                $scope.$apply();
+            } catch (e) {
+                // ignore it
+            }
+        }
+
+        $scope.animationSelectorToSelector = function (name, selector_from, selector_to, duration = 1000, nextAnimationIndex = 0, click_from = false, click_to = false, focus_to = false) {
+            // when selector_from or selector_to is undefined, get last position of fake mouse
+            console.debug("Start " + name);
+            let fromX = 0;
+            let fromY = 0;
+            let fromLet = undefined;
+
+            let toX = 0;
+            let toY = 0;
+            let toLet = undefined;
+
+            let find_value = false;
+
+            let start = new Date().getTime();
+            let timer = setInterval(function () {
+                if ($scope._stopAnimation(timer)) {
+                    return;
+                }
+                // Search in timer and not before, wait after refresh UI
+                if (!find_value) {
+                    find_value = true;
+                    if (_.isUndefined(selector_from)) {
+                        fromX = $scope.animationRecord.lastXFakeMouse;
+                        fromY = $scope.animationRecord.lastYFakeMouse;
+                    } else {
+                        fromLet = document.querySelector(selector_from);
+                        if (!_.isUndefined(fromLet) && !_.isEmpty(fromLet)) {
+                            // TODO sometime, getBoundingClientRect return undefined, but offset work!
+                            fromX = fromLet.offsetLeft + fromLet.offsetWidth / 2;
+                            fromY = fromLet.offsetTop + fromLet.offsetHeight / 2;
+                        } else {
+                            clearInterval(timer);
+                            $scope.animationRecord.stateAnimation = 0;
+                            console.warn("Stop " + name + ", cannot find selector '" + selector_from + "'");
+                            return;
+                        }
+                        if (click_from) {
+                            fromLet.click();
+                        }
+                    }
+                    if (_.isUndefined(selector_to)) {
+                        find_value = true;
+                        toX = $scope.animationRecord.lastXFakeMouse;
+                        toY = $scope.animationRecord.lastYFakeMouse;
+                    } else if (find_value) {
+                        toLet = document.querySelector(selector_to);
+
+                        if (!_.isUndefined(toLet) && !_.isEmpty(toLet)) {
+                            let goatRect = toLet.getBoundingClientRect();
+                            toX = goatRect.left + goatRect.width / 2;
+                            toY = goatRect.top + goatRect.height / 2;
+                        } else {
+                            clearInterval(timer);
+                            $scope.animationRecord.stateAnimation = 0;
+                            console.warn("Stop " + name + ", cannot find selector '" + selector_to + "'");
+                            return;
+                        }
+                    }
+                    console.debug(name + " - Fake mouse x " + fromX + " y " + fromY + " goto x " + toX + " y " + toY);
+                }
+
+                let time = new Date().getTime() - start;
+                let x = $scope.easeInOutQuart(time, fromX, toX - fromX, duration);
+                let y = $scope.easeInOutQuart(time, fromY, toY - fromY, duration);
+                // mouseLet.setAttribute('x', x);
+                // mouseLet.setAttribute('y', 500);
+                $scope.animationRecord.mouseLet.style.transform = `translate(${x}px, ${y}px)`;
+                $scope.animationRecord.lastXFakeMouse = x;
+                $scope.animationRecord.lastYFakeMouse = y;
+                if (time >= duration) {
+                    $scope.changeStateAnimation(nextAnimationIndex);
+                    console.debug("End " + name);
+                    clearInterval(timer);
+                    if (!_.isUndefined(toLet)) {
+                        if (click_to) {
+                            toLet.click();
+                        }
+                        if (focus_to) {
+                            toLet.focus();
+                        }
+                    }
+                }
+            }, 1000 / 60);
+        }
+
+        $scope.animationShowPresentation = function (name, title, duration = 1000, nextAnimationIndex = 0) {
+            console.debug("Start " + name);
+            // Update size canvas
+            let canvasW = document.body.clientWidth;
+            let canvasH = document.body.clientHeight;
+            $scope.animationRecord.canvasPresentation.width = canvasW;
+            $scope.animationRecord.canvasPresentation.height = canvasH;
+
+            let ctx = $scope.animationRecord.canvasPresentation.getContext("2d");
+            if (!_.isUndefined(ctx)) {
+                ctx.beginPath();
+                ctx.rect(0, 0, canvasW, canvasH);
+                ctx.fillStyle = "white";
+                ctx.fill();
+                ctx.fillStyle = "black";
+                ctx.textBaseline = 'middle';
+                ctx.textAlign = 'center';
+                let textString = title;
+                ctx.font = "30px Arial";
+                ctx.fillText(textString, $scope.animationRecord.canvasPresentation.width / 2, $scope.animationRecord.canvasPresentation.height / 2);
+                // let textWidth = ctx.measureText(textString);
+                // ctx.fillText(textString, (canvasW / 2) - (textWidth / 2), canvasH / 2);
+            } else {
+                console.error("Missing canvas context 2D");
+            }
+
+            let start = new Date().getTime();
+            let timer = setInterval(function () {
+                if ($scope._stopAnimation(timer)) {
+                    return;
+                }
+                let time = new Date().getTime() - start;
+                if (time >= duration) {
+                    $scope.changeStateAnimation(nextAnimationIndex);
+                    console.debug("End " + name);
+                    clearInterval(timer);
+                    ctx.clearRect(0, 0, canvasW, canvasH)
+                }
+            }, 1000 / 60);
+        }
+
         $scope.$watch('animationRecord.stateAnimation', function (newValue, oldValue) {
-            let generic_timer_ms = 4000;
-            let body = document.querySelector('body');
-            console.debug("test stateAnimation " + newValue + " - " + oldValue);
+            console.debug("Debug stateAnimation new value: " + newValue + " - old value: " + oldValue);
+            let generic_timer_ms = 3000;
             // let body = document.querySelector('body');
             //         let $scope_controller = angular.element($("#wrap")).scope();
             //         $scope_controller.next_btn();
             // $scope.$apply();
             //         $scope.$digest();
+            if (newValue > 0) {
+                document.body.style.cursor = 'none';
+            } else {
+                // Revert animation
+                document.body.style.cursor = 'default';
+                // Hide fake mouse
+                $scope.animationRecord.mouseLet.style.transform = `translate(${0}px, ${0}px)`;
+                // Clear canvas presentation
+                let ctx = $scope.animationRecord.canvasPresentation.getContext("2d");
+                ctx.clearRect(0, 0, $scope.animationRecord.canvasPresentation.width, $scope.animationRecord.canvasPresentation.height)
+                $scope.animationRecord.canvasPresentation.width = 0;
+                $scope.animationRecord.canvasPresentation.height = 0;
+                return;
+            }
+
             if (newValue === 1) {
-                let fromLet = document.querySelector('[for="init.saa"]');
-                console.debug(fromLet);
-                if (!_.isUndefined(fromLet) && !_.isEmpty(fromLet)) {
-                    fromLet.click();
-                } else {
-                    $scope.animationRecord.stateAnimation = 0;
-                    console.warn("Ignore it");
-                    return;
-                }
-                body.style.cursor = 'none';
-                let mouseLet = document.querySelector('.mouse');
-                let fromRect = fromLet.getBoundingClientRect();
-                let goatLet = document.querySelector('#nextBtn');
-                let goatRect = goatLet.getBoundingClientRect();
-                let from = fromRect.left;  // x="10"
-                let to = goatRect.right;  // x="70"
-                let from_y = fromRect.top;  // x="10"
-                let to_y = goatRect.bottom;  // x="70"
-                let duration = generic_timer_ms; // 500ms
-                let start = new Date().getTime();
-                let timer = setInterval(function () {
-                    if ($scope._stopAnimation(timer, mouseLet)) {
-                        return;
-                    }
-                    let time = new Date().getTime() - start;
-                    let x = $scope.easeInOutQuart(time, from, to - from, duration);
-                    let y = $scope.easeInOutQuart(time, from_y, to_y - from_y, duration);
-                    // mouseLet.setAttribute('x', x);
-                    // mouseLet.setAttribute('y', 500);
-                    // let y = $scope.mouse_y + 500;
-                    mouseLet.style.transform = `translate(${x}px, ${y}px)`;
-                    console.debug("Distance cursor x:" + x + " y: " + y + " - " + time);
-                    if (time >= duration) {
-                        $scope.animationRecord.stateAnimation = 2;
-                        clearInterval(timer);
-                        let fromLet = document.querySelector('#nextBtn');
-                        console.debug(fromLet);
-                        fromLet.click();
-                        console.debug("click()");
-                        // $scope.next_btn();
-                        // body.style.cursor = 'default';
-                        mouseLet.style.transform = `translate(${0}px, ${0}px)`;
-                    }
-                }, 1000 / 60);
-                mouseLet.setAttribute('x', from);
+                // Show presentation of animation
+                $scope.animationShowPresentation("Animation 01 - 1", "Publier une offre de service", 2000, 2)
             } else if (newValue === 2) {
-                body.style.cursor = 'none';
-                let mouseLet = document.querySelector('.mouse');
-                let goatLet = document.querySelector('#nextBtn');
-                let goatRect = goatLet.getBoundingClientRect();
-                let from = 700;  // x="10"
-                let to = goatRect.right;  // x="70"
-                let from_y = 500;  // x="10"
-                let to_y = goatRect.top;  // x="70"
-                let duration = generic_timer_ms; // 500ms
-                let start = new Date().getTime();
-                let timer = setInterval(function () {
-                    if ($scope._stopAnimation(timer, mouseLet)) {
-                        return;
-                    }
-
-                    let time = new Date().getTime() - start;
-                    let x = $scope.easeInOutQuart(time, from, to - from, duration);
-                    let y = $scope.easeInOutQuart(time, from_y, to_y - from_y, duration);
-                    // mouseLet.setAttribute('x', x);
-                    // mouseLet.setAttribute('y', 500);
-                    // let y = $scope.mouse_y + 500;
-                    mouseLet.style.transform = `translate(${x}px, ${y}px)`;
-                    console.debug("Distance cursor x:" + x + " y: " + y + " - " + time);
-                    if (time >= duration) {
-                        console.debug("end");
-                        clearInterval(timer);
-                        // $scope.next_btn();
-                        let fromLet = document.querySelector('#nextBtn');
-                        console.debug(fromLet);
-                        fromLet.click();
-                        console.debug("click()");
-                        body.style.cursor = 'default';
-                        $scope.animationRecord.stateAnimation = 2;
-                        mouseLet.style.transform = `translate(${0}px, ${0}px)`;
-                    }
-                }, 1000 / 60);
-                mouseLet.setAttribute('x', from);
+                // click on suivant
+                $scope.animationSelectorToSelector("Animation 01 - 2", '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
             } else if (newValue === 3) {
-                body.style.cursor = 'none';
-                let mouseLet = document.querySelector('.mouse');
-                let goatLet = document.querySelector('#nextBtn');
-                let goatRect = goatLet.getBoundingClientRect();
-                let from = 700;  // x="10"
-                let to = goatRect.right;  // x="70"
-                let from_y = 500;  // x="10"
-                let to_y = goatRect.top;  // x="70"
-                let duration = generic_timer_ms; // 500ms
-                let start = new Date().getTime();
-                let timer = setInterval(function () {
-                    if ($scope._stopAnimation(timer, mouseLet)) {
-                        return;
-                    }
-
-                    let time = new Date().getTime() - start;
-                    let x = $scope.easeInOutQuart(time, from, to - from, duration);
-                    let y = $scope.easeInOutQuart(time, from_y, to_y - from_y, duration);
-                    // mouseLet.setAttribute('x', x);
-                    // mouseLet.setAttribute('y', 500);
-                    // let y = $scope.mouse_y + 500;
-                    mouseLet.style.transform = `translate(${x}px, ${y}px)`;
-                    console.debug("Distance cursor x:" + x + " y: " + y + " - " + time);
-                    if (time >= duration) {
-                        console.debug("end");
-                        clearInterval(timer);
-                        // $scope.next_btn();
-                        let fromLet = document.querySelector('#nextBtn');
-                        console.debug(fromLet);
-                        fromLet.click();
-                        console.debug("click()");
-                        body.style.cursor = 'default';
-                        $scope.animationRecord.stateAnimation = 2;
-                        mouseLet.style.transform = `translate(${0}px, ${0}px)`;
-                    }
-                }, 1000 / 60);
-                mouseLet.setAttribute('x', from);
+                // click on individuelle
+                $scope.animationSelectorToSelector("Animation 01 - 3", '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
+            } else if (newValue === 4) {
+                // click on suivant
+                $scope.animationSelectorToSelector("Animation 01 - 4", '[for="init.pos.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+            } else if (newValue === 5) {
+                // click on Transport
+                $scope.animationSelectorToSelector("Animation 01 - 5", undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
+            } else if (newValue === 6) {
+                // click on Transport local de personnes
+                $scope.animationSelectorToSelector("Animation 01 - 6", undefined, '[for="5"]', generic_timer_ms, 7, false, true, false)
+            } else if (newValue === 7) {
+                // click on Transport pour les courses
+                $scope.animationSelectorToSelector("Animation 01 - 7", undefined, '[for="122"]', generic_timer_ms, 8, false, true, false)
+            } else if (newValue === 8) {
+                // click on Suivant
+                $scope.animationSelectorToSelector("Animation 01 - 8", '[for="122"]', '#nextBtn', generic_timer_ms, 9, false, true, false)
+            } else if (newValue === 9) {
+                // click on Suivant
+                $scope.animationSelectorToSelector("Animation 01 - 9", undefined, '[ng-model="form.titre"]', generic_timer_ms, 0, false, false, true)
             }
         });
 
