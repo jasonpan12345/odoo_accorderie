@@ -203,6 +203,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.echange_service_info = {}
         $scope.dct_echange_service_info = {}
         $scope.nb_offre_service = 0;
+        $scope.animationRecord = {
+            enable: false,
+            stateAnimation: 0, // 0 stop, 1-* animation state chain
+        }
 
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": record_id}).then(function (data) {
@@ -475,6 +479,179 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
 
         }
+
+        // $scope.mouse_x = 0;
+        // $scope.mouse_y = 0;
+        $scope.updateMoveMouse = function (event) {
+            // $scope.mouse_x = event.clientX;
+            // $scope.mouse_y = event.clientY;
+            // console.debug("Move mouse x: " + $scope.mouse_x + " y: " + $scope.mouse_y);
+            if ($scope.animationRecord.enable) {
+                $scope.animationRecord.stateAnimation = 0;
+            }
+        }
+
+        $scope.startAnimation01 = function () {
+            $scope.animationRecord.stateAnimation = 1;
+            console.debug("test startAnimation");
+        }
+
+        $scope.stopAnimation = function () {
+            $scope.animationRecord.stateAnimation = 0;
+        }
+
+        $scope._stopAnimation = function (timer, mouseLet) {
+            if (!$scope.animationRecord.stateAnimation) {
+                // Stop animation
+                clearInterval(timer);
+                let body = document.querySelector('body');
+                if (body !== undefined) {
+                    body.style.cursor = 'default';
+                }
+                mouseLet.style.transform = `translate(${0}px, ${0}px)`;
+                return true;
+            }
+            return false;
+        }
+
+        $scope.easeInOutQuart = function (t, b, c, d) {
+            if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+            return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+        }
+
+        $scope.$watch('animationRecord.stateAnimation', function (newValue, oldValue) {
+            let generic_timer_ms = 4000;
+            let body = document.querySelector('body');
+            console.debug("test stateAnimation " + newValue + " - " + oldValue);
+            // let body = document.querySelector('body');
+            //         let $scope_controller = angular.element($("#wrap")).scope();
+            //         $scope_controller.next_btn();
+            // $scope.$apply();
+            //         $scope.$digest();
+            if (newValue === 1) {
+                let fromLet = document.querySelector('[for="init.saa"]');
+                console.debug(fromLet);
+                if (!_.isUndefined(fromLet) && !_.isEmpty(fromLet)) {
+                    fromLet.click();
+                } else {
+                    $scope.animationRecord.stateAnimation = 0;
+                    console.warn("Ignore it");
+                    return;
+                }
+                body.style.cursor = 'none';
+                let mouseLet = document.querySelector('.mouse');
+                let fromRect = fromLet.getBoundingClientRect();
+                let goatLet = document.querySelector('#nextBtn');
+                let goatRect = goatLet.getBoundingClientRect();
+                let from = fromRect.left;  // x="10"
+                let to = goatRect.right;  // x="70"
+                let from_y = fromRect.top;  // x="10"
+                let to_y = goatRect.bottom;  // x="70"
+                let duration = generic_timer_ms; // 500ms
+                let start = new Date().getTime();
+                let timer = setInterval(function () {
+                    if ($scope._stopAnimation(timer, mouseLet)) {
+                        return;
+                    }
+                    let time = new Date().getTime() - start;
+                    let x = $scope.easeInOutQuart(time, from, to - from, duration);
+                    let y = $scope.easeInOutQuart(time, from_y, to_y - from_y, duration);
+                    // mouseLet.setAttribute('x', x);
+                    // mouseLet.setAttribute('y', 500);
+                    // let y = $scope.mouse_y + 500;
+                    mouseLet.style.transform = `translate(${x}px, ${y}px)`;
+                    console.debug("Distance cursor x:" + x + " y: " + y + " - " + time);
+                    if (time >= duration) {
+                        $scope.animationRecord.stateAnimation = 2;
+                        clearInterval(timer);
+                        let fromLet = document.querySelector('#nextBtn');
+                        console.debug(fromLet);
+                        fromLet.click();
+                        console.debug("click()");
+                        // $scope.next_btn();
+                        // body.style.cursor = 'default';
+                        mouseLet.style.transform = `translate(${0}px, ${0}px)`;
+                    }
+                }, 1000 / 60);
+                mouseLet.setAttribute('x', from);
+            } else if (newValue === 2) {
+                body.style.cursor = 'none';
+                let mouseLet = document.querySelector('.mouse');
+                let goatLet = document.querySelector('#nextBtn');
+                let goatRect = goatLet.getBoundingClientRect();
+                let from = 700;  // x="10"
+                let to = goatRect.right;  // x="70"
+                let from_y = 500;  // x="10"
+                let to_y = goatRect.top;  // x="70"
+                let duration = generic_timer_ms; // 500ms
+                let start = new Date().getTime();
+                let timer = setInterval(function () {
+                    if ($scope._stopAnimation(timer, mouseLet)) {
+                        return;
+                    }
+
+                    let time = new Date().getTime() - start;
+                    let x = $scope.easeInOutQuart(time, from, to - from, duration);
+                    let y = $scope.easeInOutQuart(time, from_y, to_y - from_y, duration);
+                    // mouseLet.setAttribute('x', x);
+                    // mouseLet.setAttribute('y', 500);
+                    // let y = $scope.mouse_y + 500;
+                    mouseLet.style.transform = `translate(${x}px, ${y}px)`;
+                    console.debug("Distance cursor x:" + x + " y: " + y + " - " + time);
+                    if (time >= duration) {
+                        console.debug("end");
+                        clearInterval(timer);
+                        // $scope.next_btn();
+                        let fromLet = document.querySelector('#nextBtn');
+                        console.debug(fromLet);
+                        fromLet.click();
+                        console.debug("click()");
+                        body.style.cursor = 'default';
+                        $scope.animationRecord.stateAnimation = 2;
+                        mouseLet.style.transform = `translate(${0}px, ${0}px)`;
+                    }
+                }, 1000 / 60);
+                mouseLet.setAttribute('x', from);
+            } else if (newValue === 3) {
+                body.style.cursor = 'none';
+                let mouseLet = document.querySelector('.mouse');
+                let goatLet = document.querySelector('#nextBtn');
+                let goatRect = goatLet.getBoundingClientRect();
+                let from = 700;  // x="10"
+                let to = goatRect.right;  // x="70"
+                let from_y = 500;  // x="10"
+                let to_y = goatRect.top;  // x="70"
+                let duration = generic_timer_ms; // 500ms
+                let start = new Date().getTime();
+                let timer = setInterval(function () {
+                    if ($scope._stopAnimation(timer, mouseLet)) {
+                        return;
+                    }
+
+                    let time = new Date().getTime() - start;
+                    let x = $scope.easeInOutQuart(time, from, to - from, duration);
+                    let y = $scope.easeInOutQuart(time, from_y, to_y - from_y, duration);
+                    // mouseLet.setAttribute('x', x);
+                    // mouseLet.setAttribute('y', 500);
+                    // let y = $scope.mouse_y + 500;
+                    mouseLet.style.transform = `translate(${x}px, ${y}px)`;
+                    console.debug("Distance cursor x:" + x + " y: " + y + " - " + time);
+                    if (time >= duration) {
+                        console.debug("end");
+                        clearInterval(timer);
+                        // $scope.next_btn();
+                        let fromLet = document.querySelector('#nextBtn');
+                        console.debug(fromLet);
+                        fromLet.click();
+                        console.debug("click()");
+                        body.style.cursor = 'default';
+                        $scope.animationRecord.stateAnimation = 2;
+                        mouseLet.style.transform = `translate(${0}px, ${0}px)`;
+                    }
+                }, 1000 / 60);
+                mouseLet.setAttribute('x', from);
+            }
+        });
 
         $scope.load_page_offre_demande_echange_service();
 
