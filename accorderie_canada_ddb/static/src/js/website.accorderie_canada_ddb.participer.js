@@ -581,6 +581,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         toLet = document.querySelector(selector_to);
 
                         if (!_.isUndefined(toLet) && !_.isEmpty(toLet)) {
+                            // force scroll and re-update
+                            // window.scrollTo(toX, toY);
+                            // toLet = document.querySelector(selector_to);
+
                             let goatRect = toLet.getBoundingClientRect();
                             toX = goatRect.left + goatRect.width / 2;
                             toY = goatRect.top + goatRect.height / 2;
@@ -603,8 +607,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.animationRecord.lastXFakeMouse = x;
                 $scope.animationRecord.lastYFakeMouse = y;
                 if (time >= duration) {
-                    $scope.changeStateAnimation(nextAnimationIndex);
                     console.debug("End " + name);
+                    $scope.changeStateAnimation(nextAnimationIndex);
                     clearInterval(timer);
                     if (!_.isUndefined(toLet)) {
                         if (click_to) {
@@ -620,11 +624,28 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.animationShowPresentation = function (name, title, duration = 1000, nextAnimationIndex = 0) {
             console.debug("Start " + name);
+            // Force hide menu
+            let menu = document.querySelector("#top_menu_collapse");
+            if (!_.isUndefined(menu) && !_.isEmpty(menu)) {
+                menu.classList.remove("show");
+            }
+
+            // hide header and footer
+            let header = document.querySelector("nav");
+            if (!_.isUndefined(header)) {
+                header.style.display = "none";
+            }
+            let footer = document.querySelector("footer");
+            if (!_.isUndefined(footer)) {
+                footer.style.display = "none";
+            }
+
             // Update size canvas
             let canvasW = document.body.clientWidth;
             let canvasH = document.body.clientHeight;
             $scope.animationRecord.canvasPresentation.width = canvasW;
             $scope.animationRecord.canvasPresentation.height = canvasH;
+            console.debug($scope.animationRecord.canvasPresentation);
 
             let ctx = $scope.animationRecord.canvasPresentation.getContext("2d");
             if (!_.isUndefined(ctx)) {
@@ -651,17 +672,61 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 }
                 let time = new Date().getTime() - start;
                 if (time >= duration) {
-                    $scope.changeStateAnimation(nextAnimationIndex);
                     console.debug("End " + name);
+                    $scope.changeStateAnimation(nextAnimationIndex);
                     clearInterval(timer);
+                    if (!_.isUndefined(header)) {
+                        header.style.display = "";
+                    }
+                    let footer = document.querySelector("footer");
+                    if (!_.isUndefined(footer)) {
+                        footer.style.display = "";
+                    }
+                    // Erase all
                     ctx.clearRect(0, 0, canvasW, canvasH)
+                }
+            }, 1000 / 60);
+        }
+
+        $scope.animationTypingInput = function (name, ctrlScope, obj, key, text, duration = 1000, nextAnimationIndex = 0) {
+            console.debug("Start " + name);
+            let start = new Date().getTime();
+            let speedTypingMS = 1000 / (80 * 10 / 60); // 80 mots minutes, mot = 10 caractères, to MS
+            let indexTyping = 0;
+            obj[key] = "";
+            let timer = setInterval(function () {
+                if ($scope._stopAnimation(timer)) {
+                    return;
+                }
+                let time = new Date().getTime() - start;
+                let nbChar = Math.floor((time - (indexTyping * speedTypingMS)) / speedTypingMS);
+                if (nbChar > 0) {
+                    let newChar = text.substr(indexTyping, nbChar);
+                    console.debug(speedTypingMS);
+                    console.debug(time);
+                    console.debug(newChar);
+                    obj[key] += newChar;
+                    indexTyping += nbChar;
+                    ctrlScope.$apply();
+                }
+                if (time >= duration || indexTyping >= text.length) {
+                    console.debug("End " + name);
+                    if (indexTyping < text.length) {
+                        // Detect if was finish to typing
+                        let finalWord = text.substring(indexTyping);
+                        obj[key] += finalWord;
+                    }
+                    $scope.changeStateAnimation(nextAnimationIndex);
+                    clearInterval(timer);
                 }
             }, 1000 / 60);
         }
 
         $scope.$watch('animationRecord.stateAnimation', function (newValue, oldValue) {
             console.debug("Debug stateAnimation new value: " + newValue + " - old value: " + oldValue);
-            let generic_timer_ms = 3000;
+            let presentation_timer_ms = 2000;
+            let generic_timer_ms = 1000;
+            let typing_timer_ms = 30000;
             // let body = document.querySelector('body');
             //         let $scope_controller = angular.element($("#wrap")).scope();
             //         $scope_controller.next_btn();
@@ -679,36 +744,68 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 ctx.clearRect(0, 0, $scope.animationRecord.canvasPresentation.width, $scope.animationRecord.canvasPresentation.height)
                 $scope.animationRecord.canvasPresentation.width = 0;
                 $scope.animationRecord.canvasPresentation.height = 0;
+                // Revert menu/footer
+                let header = document.querySelector("nav");
+                if (!_.isUndefined(header)) {
+                    header.style.display = "";
+                }
+                let footer = document.querySelector("footer");
+                if (!_.isUndefined(footer)) {
+                    footer.style.display = "";
+                }
                 return;
             }
+            let name = "Animation 01 - " + newValue;
 
             if (newValue === 1) {
+                // Detect URL and redirect to begin
+                if (window.location.pathname === "/participer") {
+                    $location.url($location.path());
+                } else {
+                    console.error("This animation not support this location.")
+                    $scope.stopAnimation();
+                    return;
+                }
                 // Show presentation of animation
-                $scope.animationShowPresentation("Animation 01 - 1", "Publier une offre de service", 2000, 2)
+                $scope.animationShowPresentation(name, "Publier une offre de service", presentation_timer_ms, 2)
             } else if (newValue === 2) {
                 // click on suivant
-                $scope.animationSelectorToSelector("Animation 01 - 2", '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                $scope.animationSelectorToSelector(name, '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
             } else if (newValue === 3) {
                 // click on individuelle
-                $scope.animationSelectorToSelector("Animation 01 - 3", '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
+                $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
             } else if (newValue === 4) {
                 // click on suivant
-                $scope.animationSelectorToSelector("Animation 01 - 4", '[for="init.pos.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+                $scope.animationSelectorToSelector(name, '[for="init.pos.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
             } else if (newValue === 5) {
                 // click on Transport
-                $scope.animationSelectorToSelector("Animation 01 - 5", undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
+                $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
             } else if (newValue === 6) {
                 // click on Transport local de personnes
-                $scope.animationSelectorToSelector("Animation 01 - 6", undefined, '[for="5"]', generic_timer_ms, 7, false, true, false)
+                $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 7, false, true, false)
             } else if (newValue === 7) {
                 // click on Transport pour les courses
-                $scope.animationSelectorToSelector("Animation 01 - 7", undefined, '[for="122"]', generic_timer_ms, 8, false, true, false)
+                $scope.animationSelectorToSelector(name, undefined, '[for="122"]', generic_timer_ms, 8, false, true, false)
             } else if (newValue === 8) {
                 // click on Suivant
-                $scope.animationSelectorToSelector("Animation 01 - 8", '[for="122"]', '#nextBtn', generic_timer_ms, 9, false, true, false)
+                $scope.animationSelectorToSelector(name, '[for="122"]', '#nextBtn', generic_timer_ms, 9, false, true, false)
             } else if (newValue === 9) {
-                // click on Suivant
-                $scope.animationSelectorToSelector("Animation 01 - 9", undefined, '[ng-model="form.titre"]', generic_timer_ms, 0, false, false, true)
+                // focus form.titre
+                $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.titre"]', generic_timer_ms, 10, false, false, true)
+            } else if (newValue === 10) {
+                // typing form.titre
+                let $scope_controller = angular.element($("#wrap")).scope();
+                $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "titre", "Covoiturage pour votre épicerie ♥", typing_timer_ms, 11)
+            } else if (newValue === 11) {
+                // focus form.description
+                $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.description"]', generic_timer_ms, 12, false, false, true)
+            } else if (newValue === 12) {
+                // typing form.description
+                let $scope_controller = angular.element($("#wrap")).scope();
+                $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "description", "J'ai une grande voiture ✯, un gros coffre ✬ et j'adore jaser avec de nouvelles personnes 💫, je suis surement le bon candidat 🌟 pour vous aider dans la région de Laval 🌃 pour votre épicerie 🤩!", typing_timer_ms, 13)
+            } else if (newValue === 13) {
+                // click on Valider
+                $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
             }
         });
 
