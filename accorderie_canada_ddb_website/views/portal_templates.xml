@@ -142,11 +142,27 @@
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <div
                                         role="menuitem"
-                                        class="dropdown-item btn_recording_animation_01"
+                                        class="dropdown-item"
                                         style="cursor:pointer"
-                                        ng-click="startAnimation01()"
+                                        ng-click="animationRecord.animationName = 'Animation 01'; animationRecord.stateAnimation = 1"
                                     >
                                         <p>Animation 01</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="animationRecord.animationName = 'Animation 02'; animationRecord.stateAnimation = 1"
+                                    >
+                                        <p>Animation 02</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="animationRecord.animationName = 'Animation 03'; animationRecord.stateAnimation = 1"
+                                    >
+                                        <p>Animation 03</p>
                                     </div>
                                 </div>
                             </li>

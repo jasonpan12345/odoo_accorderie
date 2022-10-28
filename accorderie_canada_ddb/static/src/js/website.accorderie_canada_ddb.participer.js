@@ -220,6 +220,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.nb_offre_service = 0;
         $scope.animationRecord = {
             enable: false,
+            animationName: "",
             stateAnimation: 0, // 0 stop, 1-* animation state chain
             canvasPresentation: document.querySelector('.canvasPresentationClass'),
             mouseLet: document.querySelector('.mouse'),
@@ -502,17 +503,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // $scope.mouse_x = 0;
         // $scope.mouse_y = 0;
         $scope.updateMoveMouse = function (event) {
+            // Stop animation when move mouse
             // $scope.mouse_x = event.clientX;
             // $scope.mouse_y = event.clientY;
             // console.debug("Move mouse x: " + $scope.mouse_x + " y: " + $scope.mouse_y);
             if ($scope.animationRecord.enable) {
                 $scope.animationRecord.stateAnimation = 0;
             }
-        }
-
-        $scope.startAnimation01 = function () {
-            $scope.animationRecord.stateAnimation = 1;
-            console.debug("test startAnimation");
         }
 
         $scope.stopAnimation = function () {
@@ -732,9 +729,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 let nbChar = Math.floor((time - (indexTyping * speedTypingMS)) / speedTypingMS);
                 if (nbChar > 0) {
                     let newChar = text.substr(indexTyping, nbChar);
-                    console.debug(speedTypingMS);
-                    console.debug(time);
-                    console.debug(newChar);
+                    // console.debug(speedTypingMS);
+                    // console.debug(time);
+                    // console.debug(newChar);
                     obj[key] += newChar;
                     indexTyping += nbChar;
                     ctrlScope.$apply();
@@ -785,57 +782,110 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 }
                 return;
             }
-            let name = "Animation 01 - " + newValue;
+            let name = $scope.animationRecord.animationName + " - " + newValue;
 
-            if (newValue === 1) {
-                // Detect URL and redirect to begin
-                if (window.location.pathname === "/participer") {
-                    $location.url($location.path());
-                } else {
-                    console.error("This animation not support this location.")
-                    $scope.stopAnimation();
-                    return;
+            if ($scope.animationRecord.animationName === "Animation 01") {
+                if (newValue === 1) {
+                    // Detect URL and redirect to begin
+                    if (window.location.pathname === "/participer") {
+                        $location.url($location.path());
+                    } else {
+                        console.error($scope.animationRecord.animationName + " not support this location.")
+                        $scope.stopAnimation();
+                        return;
+                    }
+                    // Show presentation of animation
+                    $scope.animationShowPresentation(name, "Publier une offre de service", presentation_timer_ms, 2)
+                } else if (newValue === 2) {
+                    // select init.pos and click on suivant
+                    $scope.animationSelectorToSelector(name, '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                } else if (newValue === 3) {
+                    // click on individuelle
+                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
+                } else if (newValue === 4) {
+                    // click on suivant
+                    $scope.animationSelectorToSelector(name, '[for="init.pos.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+                } else if (newValue === 5) {
+                    // click on Transport
+                    $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
+                } else if (newValue === 6) {
+                    // click on Transport local de personnes
+                    $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 7, false, true, false)
+                } else if (newValue === 7) {
+                    // click on Transport pour les courses
+                    $scope.animationSelectorToSelector(name, undefined, '[for="122"]', generic_timer_ms, 8, false, true, false)
+                } else if (newValue === 8) {
+                    // click on Suivant
+                    $scope.animationSelectorToSelector(name, '[for="122"]', '#nextBtn', generic_timer_ms, 9, false, true, false)
+                } else if (newValue === 9) {
+                    // focus form.titre
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.titre"]', generic_timer_ms, 10, false, false, true)
+                } else if (newValue === 10) {
+                    // typing form.titre
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "titre", "Covoiturage pour votre épicerie ♥", typing_timer_ms, 11)
+                } else if (newValue === 11) {
+                    // focus form.description
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.description"]', generic_timer_ms, 12, false, false, true)
+                } else if (newValue === 12) {
+                    // typing form.description
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "description", "J'ai une grande voiture ✯, un gros coffre ✬ et j'adore jaser avec de nouvelles personnes 💫, je suis surement le bon candidat 🌟 pour vous aider dans la région de Laval 🌃 pour votre épicerie 🤩!", typing_timer_ms, 13)
+                } else if (newValue === 13) {
+                    // click on Valider
+                    $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
                 }
-                // Show presentation of animation
-                $scope.animationShowPresentation(name, "Publier une offre de service", presentation_timer_ms, 2)
-            } else if (newValue === 2) {
-                // click on suivant
-                $scope.animationSelectorToSelector(name, '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
-            } else if (newValue === 3) {
-                // click on individuelle
-                $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
-            } else if (newValue === 4) {
-                // click on suivant
-                $scope.animationSelectorToSelector(name, '[for="init.pos.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
-            } else if (newValue === 5) {
-                // click on Transport
-                $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
-            } else if (newValue === 6) {
-                // click on Transport local de personnes
-                $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 7, false, true, false)
-            } else if (newValue === 7) {
-                // click on Transport pour les courses
-                $scope.animationSelectorToSelector(name, undefined, '[for="122"]', generic_timer_ms, 8, false, true, false)
-            } else if (newValue === 8) {
-                // click on Suivant
-                $scope.animationSelectorToSelector(name, '[for="122"]', '#nextBtn', generic_timer_ms, 9, false, true, false)
-            } else if (newValue === 9) {
-                // focus form.titre
-                $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.titre"]', generic_timer_ms, 10, false, false, true)
-            } else if (newValue === 10) {
-                // typing form.titre
-                let $scope_controller = angular.element($("#wrap")).scope();
-                $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "titre", "Covoiturage pour votre épicerie ♥", typing_timer_ms, 11)
-            } else if (newValue === 11) {
-                // focus form.description
-                $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.description"]', generic_timer_ms, 12, false, false, true)
-            } else if (newValue === 12) {
-                // typing form.description
-                let $scope_controller = angular.element($("#wrap")).scope();
-                $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "description", "J'ai une grande voiture ✯, un gros coffre ✬ et j'adore jaser avec de nouvelles personnes 💫, je suis surement le bon candidat 🌟 pour vous aider dans la région de Laval 🌃 pour votre épicerie 🤩!", typing_timer_ms, 13)
-            } else if (newValue === 13) {
-                // click on Valider
-                $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
+            } else if ($scope.animationRecord.animationName === "Animation 02") {
+                if (newValue === 1) {
+                    // Detect URL and redirect to begin
+                    if (window.location.pathname === "/participer") {
+                        $location.url($location.path());
+                    } else {
+                        console.error($scope.animationRecord.animationName + " not support this location.")
+                        $scope.stopAnimation();
+                        return;
+                    }
+                    // Show presentation of animation
+                    $scope.animationShowPresentation(name, "Publier une demande de service", presentation_timer_ms, 2)
+                } else if (newValue === 2) {
+                    // select init.pds and click on suivant
+                    $scope.animationSelectorToSelector(name, '[for="init.pds"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                } else if (newValue === 3) {
+                    // click on individuelle
+                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pds.individuelle"]', generic_timer_ms, 4, false, true, false)
+                } else if (newValue === 4) {
+                    // click on suivant
+                    $scope.animationSelectorToSelector(name, '[for="init.pds.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+                } else if (newValue === 5) {
+                    // click on Transport
+                    $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
+                } else if (newValue === 6) {
+                    // click on Transport local de personnes
+                    $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 7, false, true, false)
+                } else if (newValue === 7) {
+                    // click on Transport pour les courses
+                    $scope.animationSelectorToSelector(name, undefined, '[for="122"]', generic_timer_ms, 8, false, true, false)
+                } else if (newValue === 8) {
+                    // click on Suivant
+                    $scope.animationSelectorToSelector(name, '[for="122"]', '#nextBtn', generic_timer_ms, 9, false, true, false)
+                } else if (newValue === 9) {
+                    // focus form.titre
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.titre"]', generic_timer_ms, 10, false, false, true)
+                } else if (newValue === 10) {
+                    // typing form.titre
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "titre", "Besoin de covoiturage Québécois ⚜ pour chercher mon épicerie ⚘", typing_timer_ms, 11)
+                } else if (newValue === 11) {
+                    // focus form.description
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.description"]', generic_timer_ms, 12, false, false, true)
+                } else if (newValue === 12) {
+                    // typing form.description
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "description", "J'ai besoin habituellement de transporter 4 sacs ☀. \nAppelez moi à mon numéro ☎ 5 minutes avant d'arriver svp. \nPeace ☮", typing_timer_ms, 13)
+                } else if (newValue === 13) {
+                    // click on Valider
+                    $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
+                }
             }
         });
 
