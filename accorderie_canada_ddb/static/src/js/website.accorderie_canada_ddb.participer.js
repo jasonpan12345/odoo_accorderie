@@ -15,6 +15,21 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
     });
 });
 
+// TODO add this when enable in option of user to show where user click
+// Conflict with dblclick
+// function clickEffectClick(e) {
+//     let d = document.createElement("div");
+//     d.className = "clickEffect";
+//     d.style.top = e.clientY + "px";
+//     d.style.left = e.clientX + "px";
+//     document.body.appendChild(d);
+//     d.addEventListener('animationend', function () {
+//         d.parentElement.removeChild(d);
+//     }.bind(this));
+// }
+//
+// document.addEventListener('click', clickEffectClick);
+
 odoo.define("accorderie.website.date_and_time", function (require) {
     "use strict";
 
@@ -533,6 +548,18 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
         }
 
+        $scope.animationClickEffect = function (x, y) {
+            console.debug("click effect x " + x + " y " + y);
+            let d = document.createElement("div");
+            d.className = "clickEffect";
+            d.style.top = y + "px";
+            d.style.left = x + "px";
+            document.body.appendChild(d);
+            d.addEventListener('animationend', function () {
+                d.parentElement.removeChild(d);
+            }.bind(this));
+        }
+
         $scope.animationSelectorToSelector = function (name, selector_from, selector_to, duration = 1000, nextAnimationIndex = 0, click_from = false, click_to = false, focus_to = false) {
             // when selector_from or selector_to is undefined, get last position of fake mouse
             console.debug("Start " + name);
@@ -571,6 +598,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         }
                         if (click_from) {
                             fromLet.click();
+                            $scope.animationClickEffect(fromX, fromY);
                         }
                     }
                     if (_.isUndefined(selector_to)) {
@@ -613,9 +641,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     if (!_.isUndefined(toLet)) {
                         if (click_to) {
                             toLet.click();
+                            $scope.animationClickEffect(x, y);
                         }
                         if (focus_to) {
                             toLet.focus();
+                            $scope.animationClickEffect(x, y);
                         }
                     }
                 }
