@@ -881,7 +881,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         fromY = $scope.animationRecord.lastYFakeMouse;
                     } else {
                         fromLet = document.querySelector(selector_from);
-                        if (!_.isUndefined(fromLet) && !_.isEmpty(fromLet)) {
+                        if (!_.isUndefined(fromLet) && fromLet !== null) {
                             // TODO sometime, getBoundingClientRect return undefined, but offset work!
                             fromX = fromLet.offsetLeft + fromLet.offsetWidth / 2;
                             fromY = fromLet.offsetTop + fromLet.offsetHeight / 2;
@@ -903,7 +903,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     } else if (find_value) {
                         toLet = document.querySelector(selector_to);
 
-                        if (!_.isUndefined(toLet) && !_.isEmpty(toLet)) {
+                        if (!_.isUndefined(toLet) && toLet !== null) {
                             // force scroll and re-update
                             // window.scrollTo(toX, toY);
                             // toLet = document.querySelector(selector_to);
@@ -969,10 +969,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 context.fillText(line, x, y);
             }
 
-
             // Force hide menu
             let menu = document.querySelector("#top_menu_collapse");
-            if (!_.isUndefined(menu) && !_.isEmpty(menu)) {
+            if (!_.isUndefined(menu) && menu !== null) {
                 menu.classList.remove("show");
             }
 
@@ -986,14 +985,17 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 el.style.display = "none";
             })
 
+            // Hide fake mouse
+            $scope.animationRecord.mouseLet.style.zIndex = "";
+
             // Update size canvas
             let canvasW = document.body.clientWidth;
             let canvasH = document.body.clientHeight;
-            $scope.animationRecord.canvasPresentation.width = canvasW;
-            $scope.animationRecord.canvasPresentation.height = canvasH;
-            console.debug($scope.animationRecord.canvasPresentation);
+            let canvas = $scope.animationRecord.canvasPresentation;
+            canvas.width = canvasW;
+            canvas.height = canvasH;
 
-            let ctx = $scope.animationRecord.canvasPresentation.getContext("2d");
+            let ctx = canvas.getContext("2d");
             if (!_.isUndefined(ctx)) {
                 ctx.beginPath();
                 ctx.rect(0, 0, canvasW, canvasH);
@@ -1004,10 +1006,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 ctx.textAlign = 'center';
                 let textString = title;
                 ctx.font = "30px Arial";
-                let x = $scope.animationRecord.canvasPresentation.width / 2;
-                let y = $scope.animationRecord.canvasPresentation.height / 2;
+                let x = canvasW / 2;
+                let y = canvasH / 2;
                 // ctx.fillText(textString, x, y);
-                wrapText(ctx, textString, x, y, $scope.animationRecord.canvasPresentation.width, 25);
+                wrapText(ctx, textString, x, y, canvasW, 25);
                 // let textWidth = ctx.measureText(textString);
                 // ctx.fillText(textString, (canvasW / 2) - (textWidth / 2), canvasH / 2);
             } else {
@@ -1084,7 +1086,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             //         $scope.$digest();
             if (newValue > 0) {
                 document.body.style.cursor = 'none';
+                $scope.animationRecord.mouseLet.style.zIndex = 999;
             } else {
+                $scope.animationRecord.mouseLet.style.zIndex = "";
                 // Revert animation
                 document.body.style.cursor = 'default';
                 // Hide fake mouse
@@ -1117,7 +1121,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.startRecording();
             }
 
-            if ($scope.animationRecord.animationName === "Animation 01") {
+            if ($scope.animationRecord.animationName === "Créer une offre de service publique individuelle") {
                 if (newValue === 1) {
                     // Detect URL and redirect to begin
                     if (window.location.pathname === "/participer") {
@@ -1128,7 +1132,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         return;
                     }
                     // Show presentation of animation
-                    $scope.animationShowPresentation(name, "Publier une offre de service", presentation_timer_ms, 2)
+                    $scope.animationShowPresentation(name, "Publier une offre de service individuelle", presentation_timer_ms, 2)
                 } else if (newValue === 2) {
                     // select init.pos and click on suivant
                     $scope.animationSelectorToSelector(name, '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
@@ -1168,7 +1172,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // click on Valider
                     $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
                 }
-            } else if ($scope.animationRecord.animationName === "Animation 02") {
+            } else if ($scope.animationRecord.animationName === "Créer une demande de service publique individuelle") {
                 if (newValue === 1) {
                     // Detect URL and redirect to begin
                     if (window.location.pathname === "/participer") {
@@ -1179,7 +1183,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         return;
                     }
                     // Show presentation of animation
-                    $scope.animationShowPresentation(name, "Publier une demande de service", presentation_timer_ms, 2)
+                    $scope.animationShowPresentation(name, "Publier une demande de service individuelle", presentation_timer_ms, 2)
                 } else if (newValue === 2) {
                     // select init.pds and click on suivant
                     $scope.animationSelectorToSelector(name, '[for="init.pds"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
@@ -1219,7 +1223,58 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // click on Valider
                     $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
                 }
+            } else if ($scope.animationRecord.animationName === "Créer un échange en tant que personne offrant le service avec une offre existante") {
+                if (newValue === 1) {
+                    // Detect URL and redirect to begin
+                    if (window.location.pathname === "/participer") {
+                        $location.url($location.path());
+                    } else {
+                        console.error($scope.animationRecord.animationName + " not support this location.")
+                        $scope.stopAnimation();
+                        return;
+                    }
+                    // Show presentation of animation
+                    $scope.animationShowPresentation(name, "Créer un échange en tant que personne offrant le service avec une offre existante", presentation_timer_ms, 2)
+                } else if (newValue === 2) {
+                    // select init.saa and click on suivant
+                    $scope.animationSelectorToSelector(name, '[for="init.saa"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                } else if (newValue === 3) {
+                    // click on Offrir
+                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.saa.offrir"]', generic_timer_ms, 4, false, true, false)
+                } else if (newValue === 4) {
+                    // click on suivant
+                    $scope.animationSelectorToSelector(name, '[for="init.saa.offrir"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+                } else if (newValue === 5) {
+                    // click on Demo découvrir ville
+                    $scope.animationSelectorToSelector(name, undefined, '[name="option_5"]', generic_timer_ms, 6, false, true, false)
+                } else if (newValue === 6) {
+                    // click on Suivant
+                    $scope.animationSelectorToSelector(name, '[name="option_5"]', '#nextBtn', generic_timer_ms, 7, false, true, false)
+                } else if (newValue === 7) {
+                    // focus chooseMember
+                    $scope.animationSelectorToSelector(name, '#nextBtn', '[id="chooseMember"]', generic_timer_ms, 8, false, false, true)
+                } else if (newValue === 8) {
+                    // typing form.titre
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.tmpForm, "modelChooseMember", "Martin", typing_timer_ms, 9)
+                } else if (newValue === 9) {
+                    // re-focus input chooseMember to show list
+                    let chooseMemberInput = document.querySelector("[id=\"chooseMember\"]");
+                    if (!_.isUndefined(chooseMemberInput) && chooseMemberInput !== null) {
+                        chooseMemberInput.blur();
+                        chooseMemberInput.focus();
+                    }
+                    $scope.animationRecord.stateAnimation = 10;
+                } else if (newValue === 10) {
+                    // click on Martin Petit
+                    $scope.animationSelectorToSelector(name, undefined, '[id="autoComplete_result_0"]', generic_timer_ms, 11, false, true, false)
+                } else if (newValue === 11) {
+                    // click on Suivant
+                    $scope.animationSelectorToSelector(name, undefined, '#nextBtn', generic_timer_ms, 0, false, true, false)
+                }
             }
+            // Stop animation
+            // $scope.animationRecord.stateAnimation = 0;
         });
 
         $scope.load_page_offre_demande_echange_service();
@@ -1653,13 +1708,16 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.originChooseMemberPlaceholder = "Nom de la personne";
         $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
         $scope.form = {};
+        $scope.tmpForm = {
+            modelChooseMember: "",
+        };
         $scope.show_submit_modal = false;
         $scope.submitted_url = "";
 
         // Add animation
-        $scope.$parent.animationRecord.lstAnimation.push("Animation 01");
-        $scope.$parent.animationRecord.lstAnimation.push("Animation 02");
-        $scope.$parent.animationRecord.lstAnimation.push("Animation 03");
+        $scope.$parent.animationRecord.lstAnimation.push("Créer une offre de service publique individuelle");
+        $scope.$parent.animationRecord.lstAnimation.push("Créer une demande de service publique individuelle");
+        $scope.$parent.animationRecord.lstAnimation.push("Créer un échange en tant que personne offrant le service avec une offre existante");
 
         let url = "/accorderie_canada_ddb/get_participer_workflow_data/";
         ajax.rpc(url, {}).then(function (data) {

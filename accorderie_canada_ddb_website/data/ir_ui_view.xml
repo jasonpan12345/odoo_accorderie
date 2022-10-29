@@ -4400,7 +4400,7 @@
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
                                                     <a href="/participer#!?state=init.pos.individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une offre
                                                     </a>
-                                                    <a href="/participer#!?animation=Animation 01" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
+                                                    <a href="/participer#!?animation=Créer une offre de service publique individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
                                                     </a>
                                                 </div>
                                             </div>
@@ -4469,7 +4469,7 @@
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
                                                     <a href="/participer#!?state=init.pds.individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une demande
                                                     </a>
-                                                    <a href="/participer#!?animation=Animation 02" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
+                                                    <a href="/participer#!?animation=Créer une demande de service publique individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
                                                     </a>
                                                 </div>
                                             </div>
@@ -4520,6 +4520,8 @@
                                                 Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service doit déjà avoir été publiée.
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
                                                     <a href="/participer#!?state=init.saa.offrir" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer un échange
+                                                    </a>
+                                                    <a href="/participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
                                                     </a>
                                                 </div>
                                             </div>

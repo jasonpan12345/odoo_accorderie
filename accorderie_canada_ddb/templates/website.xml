@@ -637,6 +637,7 @@
                                         >
                                             <div
                                                 class="btn label"
+                                                name="option_{{option.id}}"
                                                 ng-class="{checked: state.selected_id == option.id}"
                                                 ng-click="click_dynamique(option)"
                                                 ng-dblclick="next_btn()"
@@ -664,6 +665,7 @@
                                         >
                                             <label
                                                 for="{{option.id}}"
+                                                name="option_{{option.id}}"
                                                 class="btn label"
                                                 ng-class="{checked: $parent.$parent.state.next_id == option.id}"
                                                 ng-click="click_statique(option)"
@@ -685,6 +687,7 @@
                                         >
                                             <div
                                                 class="btn label"
+                                                name="option_{{option.id}}"
                                                 ng-class="{checked: state.selected_id == option.id}"
                                                 ng-click="click_dynamique(option)"
                                                 ng-dblclick="next_btn()"
@@ -1352,6 +1355,7 @@
                                                 tabindex="1"
                                                 placeholder="{{chooseMemberPlaceholder}}"
                                                 ng-readonly="!_.isUndefined($parent.state.selected_id)"
+                                                ng-model="tmpForm.modelChooseMember"
                                             />
                                             <button
                                                 class="fa fa-times-circle remove_member text-epsilon"
