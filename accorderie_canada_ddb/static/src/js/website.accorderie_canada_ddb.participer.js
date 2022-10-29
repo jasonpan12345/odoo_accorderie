@@ -948,6 +948,27 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.animationShowPresentation = function (name, title, duration = 1000, nextAnimationIndex = 0) {
             console.debug("Start " + name);
+
+            function wrapText(context, text, x, y, maxWidth, lineHeight) {
+                let words = text.split(' ');
+                let line = '';
+
+                for (let n = 0; n < words.length; n++) {
+                    let testLine = line + words[n] + ' ';
+                    let metrics = context.measureText(testLine);
+                    let testWidth = metrics.width;
+                    if (testWidth > maxWidth && n > 0) {
+                        context.fillText(line, x, y);
+                        line = words[n] + ' ';
+                        y += lineHeight;
+                    } else {
+                        line = testLine;
+                    }
+                }
+                context.fillText(line, x, y);
+            }
+
+
             // Force hide menu
             let menu = document.querySelector("#top_menu_collapse");
             if (!_.isUndefined(menu) && !_.isEmpty(menu)) {
@@ -982,7 +1003,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 ctx.textAlign = 'center';
                 let textString = title;
                 ctx.font = "30px Arial";
-                ctx.fillText(textString, $scope.animationRecord.canvasPresentation.width / 2, $scope.animationRecord.canvasPresentation.height / 2);
+                let x = $scope.animationRecord.canvasPresentation.width / 2;
+                let y = $scope.animationRecord.canvasPresentation.height / 2;
+                // ctx.fillText(textString, x, y);
+                wrapText(ctx, textString, x, y, $scope.animationRecord.canvasPresentation.width, 25);
                 // let textWidth = ctx.measureText(textString);
                 // ctx.fillText(textString, (canvasW / 2) - (textWidth / 2), canvasH / 2);
             } else {
