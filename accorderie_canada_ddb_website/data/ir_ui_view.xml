@@ -4400,6 +4400,8 @@
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
                                                     <a href="/participer#!?state=init.pos.individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une offre
                                                     </a>
+                                                    <a href="/participer#!?animation=Animation 01" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 pt16 pb16">
@@ -4466,6 +4468,8 @@
                                                 Permettre de rendre accessible une demande de service à la communauté, entre deux personnes.
                                                 <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
                                                     <a href="/participer#!?state=init.pds.individuelle" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Créer une demande
+                                                    </a>
+                                                    <a href="/participer#!?animation=Animation 02" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
                                                     </a>
                                                 </div>
                                             </div>

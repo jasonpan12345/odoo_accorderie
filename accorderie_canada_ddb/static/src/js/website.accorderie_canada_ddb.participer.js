@@ -568,7 +568,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // $scope.mouse_x = event.clientX;
             // $scope.mouse_y = event.clientY;
             // console.debug("Move mouse x: " + $scope.mouse_x + " y: " + $scope.mouse_y);
-            if ($scope.animationRecord.enable) {
+            if ($scope.animationRecord.enable && $scope.animationRecord.stateAnimation !== 0) {
+                console.debug("Disable animation");
                 $scope.animationRecord.stateAnimation = 0;
             }
         }
@@ -2429,6 +2430,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // Force delete stack inner state
             $scope.stack_breadcrumb_inner_state = [];
             $scope.actual_inner_state_name = "";
+
+            // Start animation when detect it
+            if (!_.isEmpty($location.search().animation)) {
+                console.debug("LOADING init start animation '" + $location.search().animation + "'");
+                $scope.$parent.animationRecord.enable = true;
+                $scope.$parent.animationRecord.animationName = $location.search().animation;
+                $scope.$parent.animationRecord.stateAnimation = 1;
+                $scope.$parent.$apply();
+            }
         }
 
         // Dynamique list
