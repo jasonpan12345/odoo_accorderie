@@ -277,6 +277,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             mouseLet: document.querySelector('.mouse'),
             lastXFakeMouse: 0,
             lastYFakeMouse: 0,
+            lstAnimation: [],
 
             recordOn: false,
             constraints: {video: true, audio: true},
@@ -954,14 +955,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
 
             // hide header and footer
-            let header = document.querySelector("nav");
-            if (!_.isUndefined(header)) {
-                header.style.display = "none";
-            }
-            let footer = document.querySelector("footer");
-            if (!_.isUndefined(footer)) {
-                footer.style.display = "none";
-            }
+            let lstHeader = document.querySelectorAll("nav");
+            lstHeader.forEach(function (el) {
+                el.style.display = "none";
+            })
+            let lstFooter = document.querySelectorAll("footer");
+            lstFooter.forEach(function (el) {
+                el.style.display = "none";
+            })
 
             // Update size canvas
             let canvasW = document.body.clientWidth;
@@ -998,13 +999,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     console.debug("End " + name);
                     $scope.changeStateAnimation(nextAnimationIndex);
                     clearInterval(timer);
-                    if (!_.isUndefined(header)) {
-                        header.style.display = "";
-                    }
-                    let footer = document.querySelector("footer");
-                    if (!_.isUndefined(footer)) {
-                        footer.style.display = "";
-                    }
+                    let lstHeader = document.querySelectorAll("nav");
+                    lstHeader.forEach(function (el) {
+                        el.style.display = "";
+                    })
+                    let lstFooter = document.querySelectorAll("footer");
+                    lstFooter.forEach(function (el) {
+                        el.style.display = "";
+                    })
                     // Erase all
                     ctx.clearRect(0, 0, canvasW, canvasH)
                 }
@@ -1068,14 +1070,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.animationRecord.canvasPresentation.width = 0;
                 $scope.animationRecord.canvasPresentation.height = 0;
                 // Revert menu/footer
-                let header = document.querySelector("nav");
-                if (!_.isUndefined(header)) {
-                    header.style.display = "";
-                }
-                let footer = document.querySelector("footer");
-                if (!_.isUndefined(footer)) {
-                    footer.style.display = "";
-                }
+                let lstHeader = document.querySelectorAll("nav");
+                lstHeader.forEach(function (el) {
+                    el.style.display = "";
+                })
+                let lstFooter = document.querySelectorAll("footer");
+                lstFooter.forEach(function (el) {
+                    el.style.display = "";
+                })
                 if ($scope.animationRecord.recordOn) {
                     setTimeout(function () {
                         $scope.stopRecording()
@@ -1628,6 +1630,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.form = {};
         $scope.show_submit_modal = false;
         $scope.submitted_url = "";
+
+        // Add animation
+        $scope.$parent.animationRecord.lstAnimation.push("Animation 01");
+        $scope.$parent.animationRecord.lstAnimation.push("Animation 02");
+        $scope.$parent.animationRecord.lstAnimation.push("Animation 03");
 
         let url = "/accorderie_canada_ddb/get_participer_workflow_data/";
         ajax.rpc(url, {}).then(function (data) {

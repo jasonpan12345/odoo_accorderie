@@ -147,31 +147,16 @@
                                         style="cursor:pointer"
                                         ng-click="selectWindowsRecording()"
                                     >
-                                        <p>Select windows for recording</p>
+                                        <p>Préparer l'enregistrer</p>
                                     </div>
                                     <div
                                         role="menuitem"
                                         class="dropdown-item"
                                         style="cursor:pointer"
-                                        ng-click="animationRecord.animationName = 'Animation 01'; animationRecord.stateAnimation = 1"
+                                        ng-click="animationRecord.animationName = animation; animationRecord.stateAnimation = 1"
+                                        ng-repeat="animation in animationRecord.lstAnimation"
                                     >
-                                        <p>Animation 01</p>
-                                    </div>
-                                    <div
-                                        role="menuitem"
-                                        class="dropdown-item"
-                                        style="cursor:pointer"
-                                        ng-click="animationRecord.animationName = 'Animation 02'; animationRecord.stateAnimation = 1"
-                                    >
-                                        <p>Animation 02</p>
-                                    </div>
-                                    <div
-                                        role="menuitem"
-                                        class="dropdown-item"
-                                        style="cursor:pointer"
-                                        ng-click="animationRecord.animationName = 'Animation 03'; animationRecord.stateAnimation = 1"
-                                    >
-                                        <p>Animation 03</p>
+                                        <p>{{animation}}</p>
                                     </div>
                                 </div>
                             </li>
