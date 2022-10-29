@@ -1433,6 +1433,10 @@
                             >
                                 <div class="modal-dialog">
                                     <div id="s_media_block_modal" class="modal-content">
+<!--                                        <div ng-if="animationRecord.recordOn">-->
+<!--                                            <button ng-click="closeModalForm()"><i class="fa fa-x" /></button>-->
+<!--&lt;!&ndash;                                            <button ng-click="show_submit_modal=false"><i class="fa fa-x" /></button>&ndash;&gt;-->
+<!--                                        </div>-->
                                         <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
                                         <div class="modal-body" ng-if="!_.isUndefined(state.submit_response_title)">
                                             <h2>{{state.submit_response_title}}</h2>

@@ -26,6 +26,7 @@
                     <path d="M20,21l4.5,8l-3.4,2l-4.6-8.1L12,29V9l16,12H20z" />
                 </svg>
                 <canvas class="canvasPresentationClass" style="position: absolute;" />
+                <a id="downloadLink" download="mediarecorder.webm" name="mediarecorder.webm" href="" />
 <!--            <header class="ng-cloak">-->
 <!--            <header class="o_affix_enabled">-->
                 <nav class="navbar navbar-expand-md navbar-light bg-light nav-height-medium">
@@ -140,6 +141,14 @@
                                     />
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="selectWindowsRecording()"
+                                    >
+                                        <p>Select windows for recording</p>
+                                    </div>
                                     <div
                                         role="menuitem"
                                         class="dropdown-item"

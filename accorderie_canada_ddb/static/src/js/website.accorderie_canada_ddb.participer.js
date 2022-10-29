@@ -15,6 +15,57 @@ odoo.define('website.accorderie_canada_ddb.participer.instance', function (requi
     });
 });
 
+// Meter class that generates a number correlated to audio volume.
+// The meter class itself displays nothing, but it makes the
+// instantaneous and time-decaying volumes available for inspection.
+// It also reports on the fraction of samples that were at or near
+// the top of the measurement range.
+function SoundMeter(context) {
+    this.context = context;
+    this.instant = 0.0;
+    this.slow = 0.0;
+    this.clip = 0.0;
+    this.script = context.createScriptProcessor(2048, 1, 1);
+    let that = this;
+    this.script.onaudioprocess = function (event) {
+        let input = event.inputBuffer.getChannelData(0);
+        let i;
+        let sum = 0.0;
+        let clipcount = 0;
+        for (i = 0; i < input.length; ++i) {
+            sum += input[i] * input[i];
+            if (Math.abs(input[i]) > 0.99) {
+                clipcount += 1;
+            }
+        }
+        that.instant = Math.sqrt(sum / input.length);
+        that.slow = 0.95 * that.slow + 0.05 * that.instant;
+        that.clip = clipcount / input.length;
+    };
+}
+
+SoundMeter.prototype.connectToSource = function (stream, callback) {
+    console.log("SoundMeter connecting");
+    try {
+        this.mic = this.context.createMediaStreamSource(stream);
+        this.mic.connect(this.script);
+        // necessary to make sample run, but should not be.
+        this.script.connect(this.context.destination);
+        if (typeof callback !== "undefined") {
+            callback(null);
+        }
+    } catch (e) {
+        console.error(e);
+        if (typeof callback !== "undefined") {
+            callback(e);
+        }
+    }
+};
+SoundMeter.prototype.stop = function () {
+    this.mic.disconnect();
+    this.script.disconnect();
+};
+
 // TODO add this when enable in option of user to show where user click
 // Conflict with dblclick
 // function clickEffectClick(e) {
@@ -226,6 +277,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             mouseLet: document.querySelector('.mouse'),
             lastXFakeMouse: 0,
             lastYFakeMouse: 0,
+
+            recordOn: false,
+            constraints: {video: true, audio: true},
+            micNumber: 0,
+            soundMeter: null,
+            localStream: null,
+            mediaRecorder: undefined,
+            downloadLink: document.querySelector("a#downloadLink"),
+            chunks: [],
         }
 
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
@@ -516,6 +576,242 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.animationRecord.stateAnimation = 0;
         }
 
+        $scope.closeModalForm = function () {
+            console.debug("close");
+            $scope.show_submit_modal = false;
+            let modal = document.getElementsByClassName("modal_pub_offre");
+            if (!_.isUndefined(modal) && !_.isEmpty(modal)) {
+                modal[0].classList.remove("show");
+            }
+        }
+
+        $scope.selectWindowsRecording = function () {
+            // Source https://github.com/addpipe/getDisplayMedia-demo
+            if (!navigator.mediaDevices.getDisplayMedia) {
+                alert(
+                    "navigator.mediaDevices.getDisplayMedia not supported on your browser, use the latest version of Chrome"
+                );
+            } else {
+                if (window.MediaRecorder === undefined) {
+                    alert(
+                        "MediaRecorder not supported on your browser, use the latest version of Firefox or Chrome"
+                    );
+                } else {
+                    navigator.mediaDevices.getDisplayMedia($scope.animationRecord.constraints).then(function (screenStream) {
+                        //check for microphone
+                        navigator.mediaDevices.enumerateDevices().then(function (devices) {
+                            $scope.animationRecord.micNumber = 0;
+                            devices.forEach(function (device) {
+                                if (device.kind === "audioinput") {
+                                    $scope.animationRecord.micNumber++;
+                                }
+                            });
+
+                            if ($scope.animationRecord.micNumber === 0) {
+                                $scope.getStreamSuccess(screenStream);
+                            } else {
+                                navigator.mediaDevices.getUserMedia({audio: true}).then(
+                                    function (micStream) {
+                                        let composedStream = new MediaStream();
+
+                                        //added the video stream from the screen
+                                        screenStream.getVideoTracks().forEach(function (videoTrack) {
+                                            composedStream.addTrack(videoTrack);
+                                        });
+
+                                        //if system audio has been shared
+                                        if (screenStream.getAudioTracks().length > 0) {
+                                            //merge the system audio with the mic audio
+                                            let context = new AudioContext();
+                                            let audioDestination = context.createMediaStreamDestination();
+
+                                            const systemSource = context.createMediaStreamSource(screenStream);
+                                            const systemGain = context.createGain();
+                                            systemGain.gain.value = 1.0;
+                                            systemSource.connect(systemGain).connect(audioDestination);
+                                            console.log("added system audio");
+
+                                            if (micStream && micStream.getAudioTracks().length > 0) {
+                                                const micSource = context.createMediaStreamSource(micStream);
+                                                const micGain = context.createGain();
+                                                micGain.gain.value = 1.0;
+                                                micSource.connect(micGain).connect(audioDestination);
+                                                console.log("added mic audio");
+                                            }
+
+                                            audioDestination.stream.getAudioTracks().forEach(function (audioTrack) {
+                                                composedStream.addTrack(audioTrack);
+                                            });
+                                        } else {
+                                            //add just the mic audio
+                                            micStream.getAudioTracks().forEach(function (micTrack) {
+                                                composedStream.addTrack(micTrack);
+                                            });
+                                        }
+
+                                        $scope.getStreamSuccess(composedStream);
+
+                                    })
+                                    .catch(function (err) {
+                                        console.error("navigator.getUserMedia error: " + err);
+                                    });
+                            }
+                        })
+                            .catch(function (err) {
+                                console.error(err.name + ": " + err.message);
+                            });
+                    })
+                        .catch(function (err) {
+                            console.error("navigator.getDisplayMedia error: " + err);
+                        });
+                }
+            }
+
+
+        }
+
+        $scope.getStreamSuccess = function (stream) {
+            $scope.animationRecord.localStream = stream;
+            $scope.animationRecord.localStream.getTracks().forEach(function (track) {
+                if (track.kind === "audio") {
+                    track.onended = function (event) {
+                        console.error("audio track.onended Audio track.readyState=" + track.readyState + ", track.muted=" + track.muted);
+                    };
+                }
+                if (track.kind === "video") {
+                    track.onended = function (event) {
+                        console.error("video track.onended Audio track.readyState=" + track.readyState + ", track.muted=" + track.muted);
+                    };
+                }
+            });
+
+            // videoElement.srcObject = $scope.animationRecord.localStream;
+            // videoElement.play();
+            // videoElement.muted = true;
+            // recBtn.disabled = false;
+            // shareBtn.disabled = true;
+
+            try {
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                window.audioContext = new AudioContext();
+            } catch (e) {
+                console.error("Web Audio API not supported.");
+            }
+
+            console.debug("Record is on!");
+            $scope.animationRecord.recordOn = true;
+
+            $scope.animationRecord.soundMeter = window.soundMeter = new SoundMeter(window.audioContext);
+            $scope.animationRecord.soundMeter.connectToSource($scope.animationRecord.localStream, function (e) {
+                if (e) {
+                    console.error(e);
+                    return;
+                }
+            });
+        }
+
+        $scope.stopRecording = function () {
+            console.debug("Stop recording and download link " + $scope.animationRecord.downloadLink.href);
+            $scope.animationRecord.mediaRecorder.stop();
+            // window.open($scope.animationRecord.downloadLink, '_blank').focus();
+            // window.open($scope.animationRecord.downloadLink.href, '_blank');
+            // $scope.animationRecord.downloadLink.click();
+            // console.debug("try it mathben");
+            let media_block_modal = document.getElementById("s_media_block_modal");
+            if (!_.isUndefined(media_block_modal)) {
+                console.debug("Clone link and open it!");
+                // let newNode = $scope.animationRecord.downloadLink.cloneNode(true);
+                // newNode.id = "downloadLinkClone";
+                // media_block_modal.parentNode.insertBefore(newNode, media_block_modal.nextSibling);
+                // media_block_modal.appendChild(newNode);
+                media_block_modal.appendChild($scope.animationRecord.downloadLink);
+            }
+        }
+
+        $scope.startRecording = function () {
+            if ($scope.animationRecord.localStream == null) {
+                alert("Could not get local stream from mic/camera");
+            } else {
+                // recBtn.disabled = true;
+                // stopBtn.disabled = false;
+
+                /* use the stream */
+                console.log("Start recording...");
+                if (typeof MediaRecorder.isTypeSupported == "function") {
+                    let options;
+                    if (MediaRecorder.isTypeSupported("video/webm;codecs=vp9")) {
+                        options = {mimeType: "video/webm;codecs=vp9"};
+                    } else if (MediaRecorder.isTypeSupported("video/webm;codecs=h264")) {
+                        options = {mimeType: "video/webm;codecs=h264"};
+                    } else if (MediaRecorder.isTypeSupported("video/webm;codecs=vp8")) {
+                        options = {mimeType: "video/webm;codecs=vp8"};
+                    }
+                    if (options !== undefined) {
+                        console.log("Using " + options.mimeType);
+                        $scope.animationRecord.mediaRecorder = new MediaRecorder($scope.animationRecord.localStream, options);
+                    } else {
+                        console.warn("Cannot find codec, using default codecs for browser");
+                        $scope.animationRecord.mediaRecorder = new MediaRecorder($scope.animationRecord.localStream);
+                    }
+                } else {
+                    console.warn("isTypeSupported is not supported, using default codecs for browser");
+                    $scope.animationRecord.mediaRecorder = new MediaRecorder($scope.animationRecord.localStream);
+                }
+
+                $scope.animationRecord.mediaRecorder.ondataavailable = function (e) {
+                    $scope.animationRecord.chunks.push(e.data);
+                };
+
+                $scope.animationRecord.mediaRecorder.onerror = function (e) {
+                    console.error("mediaRecorder.onerror: " + e);
+                };
+
+                $scope.animationRecord.mediaRecorder.onstart = function () {
+                    console.log("mediaRecorder.onstart, mediaRecorder.state = " + $scope.animationRecord.mediaRecorder.state);
+
+                    $scope.animationRecord.localStream.getTracks().forEach(function (track) {
+                        if (track.kind === "audio") {
+                            console.log("onstart - Audio track.readyState=" + track.readyState + ", track.muted=" + track.muted);
+                        }
+                        if (track.kind === "video") {
+                            console.log("onstart - Video track.readyState=" + track.readyState + ", track.muted=" + track.muted);
+                        }
+                    });
+                };
+
+                $scope.animationRecord.mediaRecorder.onstop = function () {
+                    console.log("mediaRecorder.onstop, mediaRecorder.state = " + $scope.animationRecord.mediaRecorder.state);
+
+                    let blob = new Blob($scope.animationRecord.chunks, {type: "video/webm"});
+                    $scope.animationRecord.chunks = [];
+
+                    let videoURL = window.URL.createObjectURL(blob);
+                    console.debug("Create object URL blob");
+                    console.debug(videoURL);
+                    $scope.animationRecord.downloadLink.href = videoURL;
+                    // videoElement.src = videoURL;
+                    $scope.animationRecord.downloadLink.innerHTML = "Download video file";
+
+                    let rand = Math.floor(Math.random() * 10000000);
+                    let name = "video_" + rand + ".webm";
+
+                    $scope.animationRecord.downloadLink.setAttribute("download", name);
+                    $scope.animationRecord.downloadLink.setAttribute("name", name);
+                };
+
+                $scope.animationRecord.mediaRecorder.onwarning = function (e) {
+                    console.warn("mediaRecorder.onwarning: " + e);
+                };
+
+                $scope.animationRecord.mediaRecorder.start(10);
+
+                $scope.animationRecord.localStream.getTracks().forEach(function (track) {
+                    console.log(track.kind + ":" + JSON.stringify(track.getSettings()));
+                    console.log(track.getSettings());
+                });
+            }
+        }
+
         $scope._stopAnimation = function (timer) {
             if (!$scope.animationRecord.stateAnimation) {
                 console.debug("call _stopAnimation");
@@ -780,9 +1076,19 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 if (!_.isUndefined(footer)) {
                     footer.style.display = "";
                 }
+                if ($scope.animationRecord.recordOn) {
+                    setTimeout(function () {
+                        $scope.stopRecording()
+                    }, 2000);
+                }
                 return;
             }
             let name = $scope.animationRecord.animationName + " - " + newValue;
+
+            if (newValue === 1 && oldValue === 0 && $scope.animationRecord.recordOn) {
+                // start recording
+                $scope.startRecording();
+            }
 
             if ($scope.animationRecord.animationName === "Animation 01") {
                 if (newValue === 1) {

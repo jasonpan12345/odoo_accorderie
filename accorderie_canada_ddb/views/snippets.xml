@@ -56,6 +56,7 @@
             />
         </xpath>
         <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="https://webrtchacks.github.io/adapter/adapter-latest.js" />
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js" />
             <script
                 type="text/javascript"
