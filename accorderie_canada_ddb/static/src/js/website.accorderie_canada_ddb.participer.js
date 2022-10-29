@@ -992,6 +992,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             let canvasW = document.body.clientWidth;
             let canvasH = document.body.clientHeight;
             let canvas = $scope.animationRecord.canvasPresentation;
+            // let dpr = window.devicePixelRatio || 1;
             canvas.width = canvasW;
             canvas.height = canvasH;
 
@@ -1009,6 +1010,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 let x = canvasW / 2;
                 let y = canvasH / 2;
                 // ctx.fillText(textString, x, y);
+                // let newCanvasW = canvasW / dpr ? dpr > 1 : canvasW;
                 wrapText(ctx, textString, x, y, canvasW, 25);
                 // let textWidth = ctx.measureText(textString);
                 // ctx.fillText(textString, (canvasW / 2) - (textWidth / 2), canvasH / 2);
