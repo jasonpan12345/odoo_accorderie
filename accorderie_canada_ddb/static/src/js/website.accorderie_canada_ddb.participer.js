@@ -1137,7 +1137,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.animationShowPresentation(name, "Publier une offre de service individuelle", presentation_timer_ms, 2)
                 } else if (newValue === 2) {
                     // select init.pos and click on suivant
-                    $scope.animationSelectorToSelector(name, '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                    setTimeout(function () {
+                        $scope.animationSelectorToSelector(name, '[for="init.pos"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                    }, 500);
                 } else if (newValue === 3) {
                     // click on individuelle
                     $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
@@ -1188,7 +1190,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.animationShowPresentation(name, "Publier une demande de service individuelle", presentation_timer_ms, 2)
                 } else if (newValue === 2) {
                     // select init.pds and click on suivant
-                    $scope.animationSelectorToSelector(name, '[for="init.pds"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                    setTimeout(function () {
+                        $scope.animationSelectorToSelector(name, '[for="init.pds"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                    }, 500);
                 } else if (newValue === 3) {
                     // click on individuelle
                     $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pds.individuelle"]', generic_timer_ms, 4, false, true, false)
@@ -1213,14 +1217,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 } else if (newValue === 10) {
                     // typing form.titre
                     let $scope_controller = angular.element($("#wrap")).scope();
-                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "titre", "Besoin de covoiturage Québécois ⚜ pour chercher mon épicerie ⚘", typing_timer_ms, 11)
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "titre", "Besoin de covoiturage 🚗 pour chercher mon épicerie 🍔 achat local Québécois ⚜", typing_timer_ms, 11)
                 } else if (newValue === 11) {
                     // focus form.description
                     $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.description"]', generic_timer_ms, 12, false, false, true)
                 } else if (newValue === 12) {
                     // typing form.description
                     let $scope_controller = angular.element($("#wrap")).scope();
-                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "description", "J'ai besoin habituellement de transporter 4 sacs ☀. \nAppelez moi à mon numéro ☎ 5 minutes avant d'arriver svp. \nPeace ☮", typing_timer_ms, 13)
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "description", "J'ai besoin habituellement de transporter 4 sacs 🛍. \nAppelez moi à mon numéro ☎ 5 minutes avant d'arriver svp. \nPeace ☮", typing_timer_ms, 13)
                 } else if (newValue === 13) {
                     // click on Valider
                     $scope.animationSelectorToSelector(name, '[ng-model="form.description"]', '#submitBtn', generic_timer_ms, 0, false, true, false)
@@ -1239,7 +1243,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.animationShowPresentation(name, "Créer un échange en tant que personne offrant le service avec une offre existante", presentation_timer_ms, 2)
                 } else if (newValue === 2) {
                     // select init.saa and click on suivant
-                    $scope.animationSelectorToSelector(name, '[for="init.saa"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                    setTimeout(function () {
+                        $scope.animationSelectorToSelector(name, '[for="init.saa"]', '#nextBtn', generic_timer_ms, 3, true, true, false)
+                    }, 500);
                 } else if (newValue === 3) {
                     // click on Offrir
                     $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.saa.offrir"]', generic_timer_ms, 4, false, true, false)
@@ -1256,7 +1262,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // focus chooseMember
                     $scope.animationSelectorToSelector(name, '#nextBtn', '[id="chooseMember"]', generic_timer_ms, 8, false, false, true)
                 } else if (newValue === 8) {
-                    // typing form.titre
+                    // typing chooseMember
                     let $scope_controller = angular.element($("#wrap")).scope();
                     $scope.animationTypingInput(name, $scope_controller, $scope_controller.tmpForm, "modelChooseMember", "Martin", typing_timer_ms, 9)
                 } else if (newValue === 9) {
@@ -1272,7 +1278,72 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.animationSelectorToSelector(name, undefined, '[id="autoComplete_result_0"]', generic_timer_ms, 11, false, true, false)
                 } else if (newValue === 11) {
                     // click on Suivant
-                    $scope.animationSelectorToSelector(name, undefined, '#nextBtn', generic_timer_ms, 0, false, true, false)
+                    $scope.animationSelectorToSelector(name, undefined, '#nextBtn', generic_timer_ms, 12, false, true, false)
+                } else if (newValue === 12) {
+                    // focus on Date de l'échange
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.date_service"]', generic_timer_ms, 13, false, false, true)
+                } else if (newValue === 13) {
+                    // typing date echange
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    let tomorrowDate = moment().add(1, 'days').format("YYYY-MM-DD");
+                    // Delay 1 sec, need it for bootstrap-datetimepicker
+                    setTimeout(function () {
+                        $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "date_service", tomorrowDate, typing_timer_ms, 14)
+                    }, 500);
+                } else if (newValue === 14) {
+                    // focus on Time de l'échange
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.time_service"]', generic_timer_ms, 15, false, false, true)
+                } else if (newValue === 15) {
+                    // typing time echange
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    // Delay 1 sec, need it for bootstrap-timepicker
+                    setTimeout(function () {
+                        $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "time_service", "13:00", typing_timer_ms, 16)
+                    }, 500);
+                } else if (newValue === 16) {
+                    // focus on Durée de l'échange
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.time_realisation_service"]', generic_timer_ms, 17, false, false, true)
+                } else if (newValue === 17) {
+                    // typing Durée echange
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    // Delay 1 sec, need it for bootstrap-timepicker
+                    setTimeout(function () {
+                        $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "time_realisation_service", "1:15", typing_timer_ms, 18)
+                    }, 500);
+                } else if (newValue === 18) {
+                    // focus on Durée trajet
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.time_dure_trajet"]', generic_timer_ms, 19, false, false, true)
+                } else if (newValue === 19) {
+                    // typing Durée echange
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    // Delay 1 sec, need it for bootstrap-timepicker
+                    setTimeout(function () {
+                        $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "time_dure_trajet", "0:30", typing_timer_ms, 20)
+                    }, 500);
+                } else if (newValue === 20) {
+                    // focus on Frais trajet
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.frais_trajet"]', generic_timer_ms, 21, false, false, true)
+                } else if (newValue === 21) {
+                    // typing Frais trajet
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "frais_trajet", "5", typing_timer_ms, 22)
+                } else if (newValue === 22) {
+                    // focus on Frais matériel
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.frais_materiel"]', generic_timer_ms, 23, false, false, true)
+                } else if (newValue === 23) {
+                    // typing Frais trajet
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "frais_materiel", "0", typing_timer_ms, 24)
+                } else if (newValue === 24) {
+                    // focus on Description
+                    $scope.animationSelectorToSelector(name, undefined, '[ng-model="form.commentaires"]', generic_timer_ms, 25, false, false, true)
+                } else if (newValue === 25) {
+                    // typing Description
+                    let $scope_controller = angular.element($("#wrap")).scope();
+                    $scope.animationTypingInput(name, $scope_controller, $scope_controller.form, "commentaires", "N'oubliez pas d'amener votre calepin 📝 pour prendre des notes.\nPuis deux crayons 🖌 🖍 de couleurs différentes!\nPuis votre appareil photo 📱, on pourrait apercevoir de jolies fleurs 🌹.", typing_timer_ms, 26)
+                } else if (newValue === 26) {
+                    // click on Valider
+                    $scope.animationSelectorToSelector(name, undefined, '#submitBtn', generic_timer_ms, 0, false, true, false)
                 }
             }
             // Stop animation
