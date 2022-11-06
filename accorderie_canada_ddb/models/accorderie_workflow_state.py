@@ -95,6 +95,56 @@ class AccorderieWorkflowState(models.Model):
         help="Référence de la conception de l'état vers une maquette.",
     )
 
+    not_implemented = fields.Boolean(
+        string="Not implemented",
+        help="Pas encore implémenté, ignoré pour le moment",
+    )
+
+    help_section = fields.Char(
+        string="Help section",
+        help="Aide - nom de la section",
+    )
+
+    help_sub_section = fields.Char(
+        string="Help sub section",
+        help="Aide - nom de la sous-section",
+    )
+
+    help_title = fields.Char(
+        string="Help title",
+        help="Aide - nom de l'aide",
+    )
+
+    help_description = fields.Char(
+        string="Help description",
+        help="Aide - description de l'aide",
+    )
+
+    help_caract_lst = fields.Char(
+        string="Help caracteristic",
+        help="Aide - liste des caractéristiques, séparé par ;",
+    )
+
+    help_fast_btn_title = fields.Char(
+        string="Help title button",
+        help="Aide - titre du bouton pour aller à la page associé",
+    )
+
+    help_fast_btn_url = fields.Char(
+        string="Help url button",
+        help="Aide - lien du boutton pour aller à la page associé",
+    )
+
+    help_fast_btn_guide_url = fields.Char(
+        string="Help url guide button",
+        help="Aide - lien du boutton guide interactif animation",
+    )
+
+    help_video_url = fields.Char(
+        string="Help video url",
+        help="Aide - lien de la vidéo de l'aide",
+    )
+
     show_breadcrumb = fields.Boolean(string="Afficher le fil d'ariane")
 
     state_dst_ids = fields.One2many(

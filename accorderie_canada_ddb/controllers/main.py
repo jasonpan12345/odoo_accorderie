@@ -1288,6 +1288,61 @@ class AccorderieCanadaDdbController(http.Controller):
         return json_data
 
     @http.route(
+        [
+            "/accorderie_canada_ddb/get_help_data",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_help_data(self, **kw):
+        data = {}
+        env = request.env(context=dict(request.env.context))
+        state_ids = (
+            env["accorderie.workflow.state"]
+            .sudo()
+            .search([("help_title", "!=", False)])
+        )
+        data["state_section"] = {}
+        lst_state = []
+        for a in state_ids:
+            sub_data = {
+                "title": a.help_title,
+                "description": a.help_description,
+                "fast_btn_title": a.help_fast_btn_title,
+                "fast_btn_url": a.help_fast_btn_url,
+                "fast_btn_guide_url": a.help_fast_btn_guide_url,
+                "video_url": a.help_video_url,
+                "not_implemented": a.not_implemented,
+            }
+            if a.help_caract_lst:
+                sub_data["lst_caract"] = a.help_caract_lst.split(";")
+            sub_copy_data = sub_data.copy()
+            sub_copy_data["section"] = a.help_section
+            if a.help_sub_section:
+                sub_copy_data["sub_section"] = a.help_sub_section
+            lst_state.append(sub_copy_data)
+
+            if a.help_section in data["state_section"].keys():
+                if (
+                    a.help_sub_section
+                    in data["state_section"][a.help_section].keys()
+                ):
+                    data["state_section"][a.help_section][
+                        a.help_sub_section
+                    ].append(sub_data)
+                else:
+                    data["state_section"][a.help_section][
+                        a.help_sub_section
+                    ] = [sub_data]
+            else:
+                data["state_section"][a.help_section] = {
+                    a.help_sub_section: [sub_data]
+                }
+        data["state"] = lst_state
+        return {"data": data}
+
+    @http.route(
         "/accorderie/participer/form/submit",
         type="json",
         auth="user",
