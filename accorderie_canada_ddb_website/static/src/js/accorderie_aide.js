@@ -15,6 +15,8 @@ odoo.define('website.accorderie_aide', function (require) {
         $scope._ = _;
         $scope.section = "";
         $scope.error = "";
+        $scope.guide_user_show = "item" // or "table"
+        $scope.guide_user_show_is_concat = "normal" // or "concat"
 
         // constant
         $scope.default_section = "guide_utilisation";
@@ -31,6 +33,20 @@ odoo.define('website.accorderie_aide', function (require) {
                 $scope.section = $scope.default_section;
             }
         });
+
+        $scope.getIconCaract = function (state, dctIcon) {
+            let item = [];
+            for (const [key, value] of Object.entries(dctIcon)) {
+                if ("lst_caract" in state && state.lst_caract.includes(key)) {
+                    item.push(value);
+                }
+            }
+            // if (!item.length) {
+            //     item.push("fa-dash");
+            // }
+
+            return item;
+        }
 
         let url = "/accorderie_canada_ddb/get_help_data/";
         ajax.rpc(url, {}).then(function (data) {

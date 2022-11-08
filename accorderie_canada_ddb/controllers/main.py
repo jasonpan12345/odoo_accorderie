@@ -1304,6 +1304,7 @@ class AccorderieCanadaDdbController(http.Controller):
             .search([("help_title", "!=", False)])
         )
         data["state_section"] = {}
+        set_caract = set()
         lst_state = []
         for a in state_ids:
             sub_data = {
@@ -1316,7 +1317,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 "not_implemented": a.not_implemented,
             }
             if a.help_caract_lst:
-                sub_data["lst_caract"] = a.help_caract_lst.split(";")
+                lst_caract = a.help_caract_lst.split(";")
+                sub_data["lst_caract"] = lst_caract
+                set_caract.update(lst_caract)
+
             sub_copy_data = sub_data.copy()
             sub_copy_data["section"] = a.help_section
             if a.help_sub_section:
@@ -1340,6 +1344,85 @@ class AccorderieCanadaDdbController(http.Controller):
                     a.help_sub_section: [sub_data]
                 }
         data["state"] = lst_state
+        data["lst_unique_caract"] = sorted(list(set_caract))
+        # association
+        # TODO move this in data
+        data["dct_unique_caract"] = {
+            "Valider échange": False,
+            "Échange nouvel/existante": {
+                "Échange existante": "fa-file",
+                "Nouvel échange": "fa-plus",
+            },
+            "Service à offrir/recevoir": {
+                "Service à offrir": "fa-hand-holding-usd",
+                "Service à recevoir": "fa-hands-helping",
+            },
+            "Demande nouvelle/existante": {
+                "Demande existante": "fa-file",
+                "Nouvelle demande": "fa-plus",
+            },
+            "Offre nouvelle/existante": {
+                "Offre existante": "fa-file",
+                "Nouvelle offre": "fa-plus",
+            },
+            "Offre publique/privée": {
+                "Offre publique": "fa-eye",
+                "Offre privée": "fa-eye-slash",
+            },
+            "Demande publique/privée": {
+                "Demande publique": "fa-eye",
+                "Demande privée": "fa-eye-slash",
+            },
+            "Offre ponctuelle": False,
+            "Demande ponctuelle": False,
+            "Offre de groupe": False,
+        }
+        data["dct_unique_caract_concat"] = {
+            "Valider échange": False,
+            "Échange nouvel/existante": {
+                "Échange existante": "fa-file",
+                "Nouvel échange": "fa-plus",
+            },
+            "Service à offrir/recevoir": {
+                "Service à offrir": "fa-hand-holding-usd",
+                "Service à recevoir": "fa-hands-helping",
+            },
+            "Offre/<font style='color:#00FF00'>Demande</font> nouvelle/existante": {
+                "Demande existante": "fa-file fa-inverse",
+                "Nouvelle demande": "fa-plus fa-inverse",
+                "Offre existante": "fa-file",
+                "Nouvelle offre": "fa-plus",
+            },
+            # "Demande nouvelle/existante": {
+            #     "Demande existante": "fa-file",
+            #     "Nouvelle demande": "fa-plus",
+            # },
+            # "Offre nouvelle/existante": {
+            #     "Offre existante": "fa-file",
+            #     "Nouvelle offre": "fa-plus",
+            # },
+            "Offre/<font style='color:#00FF00'>Demande</font> publique/privée": {
+                "Offre publique": "fa-eye",
+                "Offre privée": "fa-eye-slash",
+                "Demande publique": "fa-eye fa-inverse",
+                "Demande privée": "fa-eye-slash fa-inverse",
+            },
+            # "Offre publique/privée": {
+            #     "Offre publique": "fa-eye",
+            #     "Offre privée": "fa-eye-slash",
+            # },
+            # "Demande publique/privée": {
+            #     "Demande publique": "fa-eye",
+            #     "Demande privée": "fa-eye-slash",
+            # },
+            "Offre/<font style='color:#00FF00'>Demande</font> ponctuelle": {
+                "Offre ponctuelle": "fa-hand-holding-usd",
+                "Demande ponctuelle": "fa-hand-helping",
+            },
+            # "Offre ponctuelle": False,
+            # "Demande ponctuelle": False,
+            "Offre de groupe": False,
+        }
         return {"data": data}
 
     @http.route(

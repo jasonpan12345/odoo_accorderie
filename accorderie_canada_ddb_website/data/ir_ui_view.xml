@@ -4372,9 +4372,53 @@
                                                 <h1 class="s_title_default">
                                                     <font style="font-size: 62px;">{{section}}</font>
                                                 </h1>
+                                            <select name="changeModeView" class="debug_debug" ng-model="guide_user_show">
+                                                <option value="item">Item</option>
+                                                <option value="table">Table</option>
+                                            </select>
+                                            <select ng-show="guide_user_show === 'table'" name="changeModeConcat" class="debug_debug" ng-model="guide_user_show_is_concat">
+<!--                                            <select name="changeModeConcat" class="debug_debug" ng-model="guide_user_show_is_concat" ng-change="changeGuideUserIsConcat()">-->
+                                                <option value="normal">Normal</option>
+                                                <option value="concat">Concaténé</option>
+                                            </select>
                                             </div>
                                         </div>
-                                        <div ng-repeat="(sub_section, lst_sub_section) in dct_section">
+                                        <div ng-if="guide_user_show === 'table'">
+                                            <table style="border:1px solid black">
+                                                <tr>
+                                                    <th style="border:1px solid black">Caractéristiques</th>
+                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented}">{{state.title}}</th>
+<!--                                                    ng-bind-html="link.html | unsafe"-->
+                                                </tr>
+                                                <tr ng-repeat="(caract, caract_info) in (guide_user_show_is_concat === 'normal' ? data.dct_unique_caract: data.dct_unique_caract_concat)" ng-style="{'background-color': $even ? '#FFFFFF' : '#888888'}" style="text-align: center;">
+                                                    <td style="border:1px solid black" ng-bind-html="caract | unsafe" />
+                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                        <span ng-if="caract_info !== false">
+                                                            <i class="fa" ng-repeat="icon_name in getIconCaract(state, caract_info)" ng-class="icon_name" ng-style="{'color': icon_name.includes('fa-inverse') ? '#00FF00' : 'inherit'}" />
+                                                        </span>
+<!--                                                        <i ng-if="caract_info === false" class="fa" ng-class="{'fa-remove':!state.lst_caract.includes(caract), 'fa-check':state.lst_caract.includes(caract)}" />-->
+                                                        <i ng-if="caract_info === false" class="fa" ng-class="{'fa-check':state.lst_caract.includes(caract)}" ng-style="{'color': guide_user_show_is_concat === 'normal' ? 'inherit' : '#00FF00'}" />
+                                                    </td>
+                                                </tr>
+                                                <footer>
+                                                    <tr>
+                                                        <td style="border:1px solid black">Exécuter</td>
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                            <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid black">Animation guidé</td>
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                            <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </footer>
+                                            </table>
+                                        </div>
+                                        <div ng-if="guide_user_show === 'item'" ng-repeat="(sub_section, lst_sub_section) in dct_section">
                                             <div class="row s_nb_column_fixed" ng-if="sub_section !== 'false'">
                                                 <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
                                                     <h1 class="s_title_default">
