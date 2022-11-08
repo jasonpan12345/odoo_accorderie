@@ -96,7 +96,7 @@
             <field name="help_sub_section">Créer une offre de service</field>
             <field name="help_title">Créer une offre de service spéciale</field>
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté, entre deux personnes de manière ponctuel.</field>
-            <field name="help_caract_lst">Nouvelle offre;Offre publique;Offre ponctuel</field>
+            <field name="help_caract_lst">Nouvelle offre;Offre publique;Offre ponctuelle</field>
 <!--            <field name="help_fast_btn_title">Créer une offre</field>-->
 <!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.individuelle</field>-->
 <!--            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>-->
@@ -333,7 +333,7 @@
             <field name="help_sub_section">Créer un échange avec un autre membre</field>
             <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre qui n’a pas été créée</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. La demande de service n’a pas été créée et le sera lors de cette action. Cette demande sera privée.</field>
-            <field name="help_caract_lst">Nouvel échange;Nouvelle demande;Demande privée; Demande ponctuelle;Service à recevoir</field>
+            <field name="help_caract_lst">Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
             <field name="help_fast_btn_title">Créer un échange</field>
             <field name="help_fast_btn_url">/participer#!?state=init.saa.recevoir</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -591,7 +591,7 @@
             <field name="help_title">Montrer/Masquer le développement</field>
             <field name="help_description">Comment voir ou masquer les fonctionnalités en cours de développement, les sections statiques de la maquette.</field>
             <field name="help_video_url">//player.vimeo.com/video/753485258?autoplay=0</field>
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
+            <field name="diagram_id" ref="accorderie_workflow_developpeur" />
         </record>
     </data>
 </odoo>
