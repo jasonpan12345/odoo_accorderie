@@ -1304,53 +1304,13 @@ class AccorderieCanadaDdbController(http.Controller):
             .search([("help_title", "!=", False)])
         )
         data["state_section"] = {}
-        set_caract = set()
-        lst_state = []
-        for a in state_ids:
-            sub_data = {
-                "title": a.help_title,
-                "description": a.help_description,
-                "fast_btn_title": a.help_fast_btn_title,
-                "fast_btn_url": a.help_fast_btn_url,
-                "fast_btn_guide_url": a.help_fast_btn_guide_url,
-                "video_url": a.help_video_url,
-                "not_implemented": a.not_implemented,
-            }
-            if a.help_caract_lst:
-                lst_caract = a.help_caract_lst.split(";")
-                sub_data["lst_caract"] = lst_caract
-                set_caract.update(lst_caract)
-
-            sub_copy_data = sub_data.copy()
-            sub_copy_data["section"] = a.help_section
-            if a.help_sub_section:
-                sub_copy_data["sub_section"] = a.help_sub_section
-            lst_state.append(sub_copy_data)
-
-            if a.help_section in data["state_section"].keys():
-                if (
-                    a.help_sub_section
-                    in data["state_section"][a.help_section].keys()
-                ):
-                    data["state_section"][a.help_section][
-                        a.help_sub_section
-                    ].append(sub_data)
-                else:
-                    data["state_section"][a.help_section][
-                        a.help_sub_section
-                    ] = [sub_data]
-            else:
-                data["state_section"][a.help_section] = {
-                    a.help_sub_section: [sub_data]
-                }
-        data["state"] = lst_state
-        data["lst_unique_caract"] = sorted(list(set_caract))
         # association
         # TODO move this in data
+        lst_u_caract = set()
         data["dct_unique_caract"] = {
             "Valider échange": False,
             "Échange nouvel/existante": {
-                "Échange existante": "fa-file",
+                "Échange existant": "fa-file",
                 "Nouvel échange": "fa-plus",
             },
             "Service à offrir/recevoir": {
@@ -1380,7 +1340,7 @@ class AccorderieCanadaDdbController(http.Controller):
         data["dct_unique_caract_concat"] = {
             "Valider échange": False,
             "Échange nouvel/existante": {
-                "Échange existante": "fa-file",
+                "Échange existant": "fa-file",
                 "Nouvel échange": "fa-plus",
             },
             "Service à offrir/recevoir": {
@@ -1423,6 +1383,61 @@ class AccorderieCanadaDdbController(http.Controller):
             # "Demande ponctuelle": False,
             "Offre de groupe": False,
         }
+        lst_u_caract.update([k for k, a in data["dct_unique_caract"].items() if a is False])
+        lst_u_caract.update([q for w in [[i for i in a.keys()] for k, a in data["dct_unique_caract"].items() if type(a) is dict] for q in w])
+        lst_u_caract.update([a for a in data["dct_unique_caract_concat"].keys()])
+        set_caract = set()
+        lst_state = []
+        for a in state_ids:
+            sub_data = {
+                "title": a.help_title,
+                "description": a.help_description,
+                "fast_btn_title": a.help_fast_btn_title,
+                "fast_btn_url": a.help_fast_btn_url,
+                "fast_btn_guide_url": a.help_fast_btn_guide_url,
+                "video_url": a.help_video_url,
+                "not_implemented": a.not_implemented,
+            }
+            if a.help_caract_lst:
+                lst_caract = a.help_caract_lst.split(";")
+                sub_data["lst_caract"] = lst_caract
+                set_caract.update(lst_caract)
+
+            sub_copy_data = sub_data.copy()
+            sub_copy_data["section"] = a.help_section
+            if a.help_sub_section:
+                sub_copy_data["sub_section"] = a.help_sub_section
+            lst_state.append(sub_copy_data)
+
+            if a.help_section in data["state_section"].keys():
+                if (
+                    a.help_sub_section
+                    in data["state_section"][a.help_section].keys()
+                ):
+                    data["state_section"][a.help_section][
+                        a.help_sub_section
+                    ].append(sub_data)
+                else:
+                    data["state_section"][a.help_section][
+                        a.help_sub_section
+                    ] = [sub_data]
+            else:
+                data["state_section"][a.help_section] = {
+                    a.help_sub_section: [sub_data]
+                }
+        data["state"] = lst_state
+        # lst_u_caract.update([a for a in data["dct_unique_caract"].keys()])
+        # lst_u_caract.update([a for a in data["dct_unique_caract_concat"].keys()])
+        lst_missing = {(k, False) for k in set_caract-lst_u_caract}
+        data["dct_unique_caract"].update(lst_missing)
+        data["dct_unique_caract_concat"].update(lst_missing)
+        # for key in set_caract-lst_u_caract:
+        #     data["dct_unique_caract"][key] = False
+        #     data["dct_unique_caract_concat"][key] = False
+
+        # set_caract.update(lst_u_caract)
+        data["lst_unique_caract"] = sorted(list(set_caract))
+
         return {"data": data}
 
     @http.route(
