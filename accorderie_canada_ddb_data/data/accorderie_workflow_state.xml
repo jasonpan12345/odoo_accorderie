@@ -195,7 +195,7 @@
             <field name="model_field_depend">membre_id;type_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Créer un échange avec un autre membre</field>
-            <field name="help_title">Créer un échange en tant que personne offrant le service avec une demande</field>
+            <field name="help_title">Créer un échange en tant que personne offrant le service avec une demande existante</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. La demande de service doit déjà avoir été publiée.</field>
             <field name="help_caract_lst">Nouvel échange;Demande existante;Service à offrir</field>
 <!--            <field name="help_fast_btn_title">Créer un échange</field>-->
@@ -331,7 +331,7 @@
             <field name="model_field_depend">membre_id;type_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Créer un échange avec un autre membre</field>
-            <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre qui n’a pas été créée</field>
+            <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre qui doit être créée</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. La demande de service n’a pas été créée et le sera lors de cette action. Cette demande sera privée.</field>
             <field name="help_caract_lst">Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
             <field name="help_fast_btn_title">Créer un échange</field>
@@ -472,7 +472,7 @@
             <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Valider un échange</field>
-            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui n’a pas été créée</field>
+            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui doit être créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre n’a pas été créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle offre;Service à offrir;Offre ponctuelle;Offre privée</field>
             <field name="help_fast_btn_title">Valider un échange</field>
@@ -577,7 +577,7 @@
             <field name="model_field_depend">membre_id;type_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Valider un échange</field>
-            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre qui n’a pas été créée</field>
+            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre qui doit être créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre n’a pas été créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle offre;Offre privée;Offre ponctuelle;Service à recevoir</field>
             <field name="help_fast_btn_title">Valider un échange</field>
