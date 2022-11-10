@@ -1487,12 +1487,12 @@ class AccorderieCanadaDdbController(http.Controller):
         new_accorderie_echange_service = None
 
         if str_state_id in (
-            "init.pos.individuelle.formulaire",
-            "init.pds.individuelle.formulaire",
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.recevoir.choix.nouveau.formulaire",
-            "init.va.non.offert.nouveau_formulaire",
-            "init.va.non.recu.choix.nouveau.formulaire",
+            "init.pos.single.form",
+            "init.pds.single.form",
+            "init.saa.offrir.nouveau.cat.form",
+            "init.saa.recevoir.choix.nouveau.form",
+            "init.va.non.offert.nouveau.form",
+            "init.va.non.recu.choix.nouveau.form",
         ):
             # TODO offre/demande nouveau
             if kw.get("offre_service_id"):
@@ -1518,9 +1518,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 vals["membre"] = membre_id
 
                 if str_state_id in (
-                    "init.pds.individuelle.formulaire",
-                    "init.saa.recevoir.choix.nouveau.formulaire",
-                    "init.va.non.recu.choix.nouveau.formulaire",
+                    "init.pds.single.form",
+                    "init.saa.recevoir.choix.nouveau.form",
+                    "init.va.non.recu.choix.nouveau.form",
                 ):
                     # TODO demande nouveau
                     new_accorderie_service = (
@@ -1541,14 +1541,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     status["offre_service_id"] = offre_service_id
 
         if str_state_id in (
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.offrir.existant.formulaire",
-            "init.saa.recevoir.choix.existant.time.formulaire",
-            "init.saa.recevoir.choix.nouveau.formulaire",
-            "init.va.non.offert.nouveau_formulaire",
-            # "init.va.non.offert.existant_formulaire",
-            # "init.va.non.recu.choix.formulaire",
-            "init.va.non.recu.choix.nouveau.formulaire",
+            "init.saa.offrir.nouveau.cat.form",
+            "init.saa.offrir.existant.form",
+            "init.saa.recevoir.choix.existant.time.form",
+            "init.saa.recevoir.choix.nouveau.form",
+            "init.va.non.offert.nouveau.form",
+            # "init.va.non.offert.existant.form",
+            # "init.va.non.recu.choix.form",
+            "init.va.non.recu.choix.nouveau.form",
         ):
             # TODO nouvel échange
             # TODO why not commented?
@@ -1596,13 +1596,13 @@ class AccorderieCanadaDdbController(http.Controller):
                 http.request.env.user.partner_id.accorderie_membre_ids.id
             )
             if str_state_id in (
-                "init.saa.recevoir.choix.existant.time.formulaire",
-                "init.saa.recevoir.choix.nouveau.formulaire",
-                # "init.va.non.recu.choix.formulaire",
-                "init.va.non.recu.choix.nouveau.formulaire",
+                "init.saa.recevoir.choix.existant.time.form",
+                "init.saa.recevoir.choix.nouveau.form",
+                # "init.va.non.recu.choix.form",
+                "init.va.non.recu.choix.nouveau.form",
             ):
                 # TODO service à recevoir
-                # TODO why not init.va.non.recu.choix.formulaire
+                # TODO why not init.va.non.recu.choix.form
                 vals["membre_acheteur"] = membre_id
                 if other_membre_id:
                     vals["membre_vendeur"] = other_membre_id
@@ -1642,11 +1642,11 @@ class AccorderieCanadaDdbController(http.Controller):
             status["echange_service_id"] = new_accorderie_echange_service.id
 
         if str_state_id in (
-            "init.va.non.offert.existant_formulaire",
-            "init.va.non.offert.nouveau_formulaire",
-            "init.va.oui.formulaire",
-            "init.va.non.recu.choix.formulaire",
-            "init.va.non.recu.choix.nouveau.formulaire",
+            "init.va.non.offert.existant.form",
+            "init.va.non.offert.nouveau.form",
+            "init.va.oui.form",
+            "init.va.non.recu.choix.form",
+            "init.va.non.recu.choix.nouveau.form",
         ):
             # TODO valider échange
             if not new_accorderie_echange_service:

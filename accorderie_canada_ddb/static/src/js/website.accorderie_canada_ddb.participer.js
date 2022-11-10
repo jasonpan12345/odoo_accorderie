@@ -399,12 +399,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.get_href_participer_service_effectue = function (echange_service_info) {
             let status
             if (!_.isUndefined(echange_service_info.demande_service) && !echange_service_info.estAcheteur) {
-                status = `/participer#!?state=init.va.oui.formulaire&echange_service=${echange_service_info.id}`;
+                status = `/participer#!?state=init.va.oui.form&echange_service=${echange_service_info.id}`;
             } else if (echange_service_info.estAcheteur) {
                 // TODO why need member?
-                status = `/participer#!?state=init.va.non.recu.choix.formulaire&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+                status = `/participer#!?state=init.va.non.recu.choix.form&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
             } else {
-                status = `/participer#!?state=init.va.non.offert.existant_formulaire&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+                status = `/participer#!?state=init.va.non.offert.existant.form&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
             }
             return status;
         }
@@ -1142,10 +1142,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     }, 500);
                 } else if (newValue === 3) {
                     // click on individuelle
-                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pos.individuelle"]', generic_timer_ms, 4, false, true, false)
+                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pos.single"]', generic_timer_ms, 4, false, true, false)
                 } else if (newValue === 4) {
                     // click on suivant
-                    $scope.animationSelectorToSelector(name, '[for="init.pos.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+                    $scope.animationSelectorToSelector(name, '[for="init.pos.single"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
                 } else if (newValue === 5) {
                     // click on Transport
                     $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
@@ -1195,10 +1195,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     }, 500);
                 } else if (newValue === 3) {
                     // click on individuelle
-                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pds.individuelle"]', generic_timer_ms, 4, false, true, false)
+                    $scope.animationSelectorToSelector(name, '#nextBtn', '[for="init.pds.single"]', generic_timer_ms, 4, false, true, false)
                 } else if (newValue === 4) {
                     // click on suivant
-                    $scope.animationSelectorToSelector(name, '[for="init.pds.individuelle"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
+                    $scope.animationSelectorToSelector(name, '[for="init.pds.single"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
                 } else if (newValue === 5) {
                     // click on Transport
                     $scope.animationSelectorToSelector(name, undefined, '[for="5"]', generic_timer_ms, 6, false, true, false)
@@ -2103,46 +2103,46 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.form_is_nouveau_except_pos = function () {
             return [
-                'init.saa.offrir.nouveau.categorie_service.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.va.non.offert.nouveau_formulaire',
-                'init.va.non.recu.choix.nouveau.formulaire'
+                'init.saa.offrir.nouveau.cat.form',
+                'init.saa.recevoir.choix.nouveau.form',
+                'init.va.non.offert.nouveau.form',
+                'init.va.non.recu.choix.nouveau.form'
             ].includes($scope.state.id);
         }
 
         $scope.form_is_nouveau = function () {
             return [
-                'init.pos.individuelle.formulaire',
-                'init.pds.individuelle.formulaire',
-                'init.saa.offrir.nouveau.categorie_service.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.va.non.offert.nouveau_formulaire',
-                'init.va.non.recu.choix.nouveau.formulaire'
+                'init.pos.single.form',
+                'init.pds.single.form',
+                'init.saa.offrir.nouveau.cat.form',
+                'init.saa.recevoir.choix.nouveau.form',
+                'init.va.non.offert.nouveau.form',
+                'init.va.non.recu.choix.nouveau.form'
             ].includes($scope.state.id);
         }
 
         $scope.form_is_offre_demande_service = function () {
             return [
-                'init.pos.individuelle.formulaire',
-                'init.pds.individuelle.formulaire',
+                'init.pos.single.form',
+                'init.pds.single.form',
             ].includes($scope.state.id);
         }
 
         $scope.form_is_service = function () {
             return [
-                'init.saa.offrir.existant.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.va.oui.formulaire',
-                'init.va.non.offert.nouveau_formulaire',
-                'init.va.non.offert.existant_formulaire',
-                'init.va.non.recu.choix.nouveau.formulaire',
-                'init.va.non.recu.choix.formulaire'
+                'init.saa.offrir.existant.form',
+                'init.saa.recevoir.choix.nouveau.form',
+                'init.va.oui.form',
+                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.existant.form',
+                'init.va.non.recu.choix.nouveau.form',
+                'init.va.non.recu.choix.form'
             ].includes($scope.state.id)
         }
 
         $scope.form_is_service_to_modify = function () {
             return [
-                'init.saa.recevoir.choix.existant.time.formulaire'
+                'init.saa.recevoir.choix.existant.time.form'
             ].includes($scope.state.id)
         }
 
@@ -2150,60 +2150,60 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // TODO this is a hack because calling {{load_date()}} in page not working some time
             $scope.load_date();
             return [
-                'init.saa.offrir.nouveau.categorie_service.formulaire',
-                'init.saa.offrir.existant.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.saa.recevoir.choix.existant.time.formulaire',
-                'init.va.oui.formulaire',
-                'init.va.non.offert.nouveau_formulaire',
-                'init.va.non.offert.existant_formulaire',
-                'init.va.non.recu.choix.nouveau.formulaire',
-                'init.va.non.recu.choix.formulaire'
+                'init.saa.offrir.nouveau.cat.form',
+                'init.saa.offrir.existant.form',
+                'init.saa.recevoir.choix.nouveau.form',
+                'init.saa.recevoir.choix.existant.time.form',
+                'init.va.oui.form',
+                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.existant.form',
+                'init.va.non.recu.choix.nouveau.form',
+                'init.va.non.recu.choix.form'
             ].includes($scope.state.id)
         }
 
         $scope.form_is_service_prevu = function () {
             return [
-                'init.saa.offrir.nouveau.categorie_service.formulaire',
-                'init.saa.recevoir.choix.existant.time.formulaire'
+                'init.saa.offrir.nouveau.cat.form',
+                'init.saa.recevoir.choix.existant.time.form'
             ].includes($scope.state.id)
         }
 
         $scope.form_frais_trajet_distance = function () {
             return [
-                'init.saa.offrir.nouveau.categorie_service.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.saa.recevoir.choix.existant.time.formulaire'
+                'init.saa.offrir.nouveau.cat.form',
+                'init.saa.recevoir.choix.nouveau.form',
+                'init.saa.recevoir.choix.existant.time.form'
             ].includes($scope.state.id)
         }
 
         $scope.form_frais_trajet_prix = function () {
             return [
-                'init.saa.offrir.existant.formulaire',
-                'init.va.oui.formulaire',
-                'init.va.non.offert.nouveau_formulaire',
-                'init.va.non.offert.existant_formulaire',
-                'init.va.non.recu.choix.nouveau.formulaire',
-                'init.va.non.recu.choix.formulaire'
+                'init.saa.offrir.existant.form',
+                'init.va.oui.form',
+                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.existant.form',
+                'init.va.non.recu.choix.nouveau.form',
+                'init.va.non.recu.choix.form'
             ].includes($scope.state.id)
         }
 
         $scope.form_is_commentaire = function () {
             return [
-                'init.saa.offrir.existant.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
-                'init.va.oui.formulaire',
-                'init.va.non.offert.nouveau_formulaire',
-                'init.va.non.offert.existant_formulaire',
-                'init.va.non.recu.choix.nouveau.formulaire',
-                'init.va.non.recu.choix.formulaire'
+                'init.saa.offrir.existant.form',
+                'init.saa.recevoir.choix.nouveau.form',
+                'init.va.oui.form',
+                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.existant.form',
+                'init.va.non.recu.choix.nouveau.form',
+                'init.va.non.recu.choix.form'
             ].includes($scope.state.id)
         }
 
         $scope.form_frais_import_list_without_modify = function () {
             return [
-                'init.saa.offrir.nouveau.categorie_service.formulaire',
-                'init.saa.recevoir.choix.nouveau.formulaire',
+                'init.saa.offrir.nouveau.cat.form',
+                'init.saa.recevoir.choix.nouveau.form',
             ].includes($scope.state.id)
         }
 
@@ -2299,13 +2299,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     } else {
                         $scope.show_submit_modal = true;
                         // TODO when after server url redirection or create logic condition
-                        if ('init.pos.individuelle.formulaire' === $scope.state.id) {
+                        if ('init.pos.single.form' === $scope.state.id) {
                             $scope.submitted_url = `accorderie_canada_ddb/accorderie_offre_service/${data.offre_service_id}`;
-                        } else if ('init.pds.individuelle.formulaire' === $scope.state.id) {
+                        } else if ('init.pds.single.form' === $scope.state.id) {
                             $scope.submitted_url = `accorderie_canada_ddb/accorderie_demande_service/${data.demande_service_id}`;
-                        } else if (['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes($scope.state.id)) {
+                        } else if (['init.saa.offrir.existant.form', 'init.saa.recevoir.choix.existant.time.form', 'init.saa.offrir.nouveau.cat.form', 'init.saa.recevoir.choix.nouveau.form'].includes($scope.state.id)) {
                             $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
-                        } else if (['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes($scope.state.id)) {
+                        } else if (['init.va.non.offert.nouveau.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes($scope.state.id)) {
                             $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
                         } else {
                             $scope.submitted_url = "";

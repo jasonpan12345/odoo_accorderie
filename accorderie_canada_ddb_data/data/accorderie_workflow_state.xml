@@ -27,7 +27,7 @@
         </record>
         <record id="accorderie_workflow_state_pos_individuelle" model="accorderie.workflow.state">
             <field name="name">Choisir une catégorie de service</field>
-            <field name="key">init.pos.individuelle</field>
+            <field name="key">init.pos.single</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86371553</field>
             <field name="message">Dans quelle catégorie s'inscrit votre offre de service?</field>
             <field name="type">choix_categorie_de_service</field>
@@ -40,7 +40,7 @@
         </record>
         <record id="accorderie_workflow_state_pos_individuelle_form" model="accorderie.workflow.state">
             <field name="name">Formulaire Créer une offre de service publique individuelle</field>
-            <field name="key">init.pos.individuelle.formulaire</field>
+            <field name="key">init.pos.single.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86371567</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">True</field>
@@ -55,14 +55,14 @@
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté, entre deux personnes.</field>
             <field name="help_caract_lst">Nouvelle offre;Offre publique</field>
             <field name="help_fast_btn_title">Créer une offre</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.pos.individuelle</field>
+            <field name="help_fast_btn_url">/participer#!?state=init.pos.single</field>
             <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>
             <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pos_groupe_form" model="accorderie.workflow.state">
             <field name="name">Formulaire Créer une offre de service de groupe</field>
-            <field name="key">init.pos.groupe.formulaire</field>
+            <field name="key">init.pos.groupe.form</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_show_only_last_item">True</field>
@@ -76,7 +76,7 @@
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté entre une personne et un groupe de personnes.</field>
             <field name="help_caract_lst">Nouvelle offre;Offre publique;Offre de groupe</field>
 <!--            <field name="help_fast_btn_title">Créer une offre</field>-->
-<!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.individuelle</field>-->
+<!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.single</field>-->
 <!--            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>-->
 <!--            <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>-->
             <field name="not_implemented">true</field>
@@ -84,7 +84,7 @@
         </record>
         <record id="accorderie_workflow_state_pos_special_form" model="accorderie.workflow.state">
             <field name="name">Formulaire Créer une offre de service spéciale</field>
-            <field name="key">init.pos.special.formulaire</field>
+            <field name="key">init.pos.special.form</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_show_only_last_item">True</field>
@@ -98,7 +98,7 @@
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté, entre deux personnes de manière ponctuel.</field>
             <field name="help_caract_lst">Nouvelle offre;Offre publique;Offre ponctuelle</field>
 <!--            <field name="help_fast_btn_title">Créer une offre</field>-->
-<!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.individuelle</field>-->
+<!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.single</field>-->
 <!--            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>-->
 <!--            <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>-->
             <field name="not_implemented">true</field>
@@ -115,7 +115,7 @@
         </record>
         <record id="accorderie_workflow_state_pds_individuelle" model="accorderie.workflow.state">
             <field name="name">Choisir une catégorie de service</field>
-            <field name="key">init.pds.individuelle</field>
+            <field name="key">init.pds.single</field>
             <field name="message">Dans quelle catégorie s'inscrit votre demande de service?</field>
             <field name="type">choix_categorie_de_service</field>
             <field name="show_breadcrumb">True</field>
@@ -127,7 +127,7 @@
         </record>
         <record id="accorderie_workflow_state_pds_individuelle_form" model="accorderie.workflow.state">
             <field name="name">Formulaire demande de service individuelle</field>
-            <field name="key">init.pds.individuelle.formulaire</field>
+            <field name="key">init.pds.single.form</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_show_only_last_item">True</field>
@@ -141,7 +141,7 @@
             <field name="help_description">Permettre de rendre accessible une demande de service à la communauté, entre deux personnes.</field>
             <field name="help_caract_lst">Nouvelle demande;Demande publique</field>
             <field name="help_fast_btn_title">Créer une demande</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.pds.individuelle</field>
+            <field name="help_fast_btn_url">/participer#!?state=init.pds.single</field>
             <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une demande de service publique individuelle</field>
             <field name="help_video_url">//player.vimeo.com/video/753488142?autoplay=0</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -185,7 +185,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_offrir_demande_form" model="accorderie.workflow.state">
             <field name="name">Formulaire nouveau service privé échange</field>
-            <field name="key">init.saa.offrir.demande.formulaire</field>
+            <field name="key">init.saa.offrir.demande.form</field>
             <field name="message">Offrir un service privé sur une demande</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
@@ -218,7 +218,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_offrir_existant_form" model="accorderie.workflow.state">
             <field name="name">Formulaire service privé existant échange</field>
-            <field name="key">init.saa.offrir.existant.formulaire</field>
+            <field name="key">init.saa.offrir.existant.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86537295</field>
             <field name="message">Offrir un service privé</field>
             <field name="type">form</field>
@@ -240,7 +240,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service" model="accorderie.workflow.state">
             <field name="name">Choisir une catégorie de service</field>
-            <field name="key">init.saa.offrir.nouveau.categorie_service</field>
+            <field name="key">init.saa.offrir.nouveau.cat</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86537468</field>
             <field name="message">Dans quelle catégorie s'inscrit votre offre de service privée?</field>
             <field name="type">choix_categorie_de_service</field>
@@ -254,7 +254,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
             <field name="name">Formulaire nouveau service privé échange</field>
-            <field name="key">init.saa.offrir.nouveau.categorie_service.formulaire</field>
+            <field name="key">init.saa.offrir.nouveau.cat.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86537471</field>
             <field name="message">Offrir un service privé</field>
             <field name="type">form</field>
@@ -320,7 +320,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_nouveau_form" model="accorderie.workflow.state">
             <field name="name">Formulaire nouveau service reçu échange</field>
-            <field name="key">init.saa.recevoir.choix.nouveau.formulaire</field>
+            <field name="key">init.saa.recevoir.choix.nouveau.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86697719</field>
             <field name="message">Description de la transaction</field>
             <field name="type">form</field>
@@ -371,7 +371,7 @@
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree_form" model="accorderie.workflow.state">
             <field name="name">Formulaire nouveau service reçu échange</field>
-            <field name="key">init.saa.recevoir.choix.existant.time.formulaire</field>
+            <field name="key">init.saa.recevoir.choix.existant.time.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86588770</field>
             <field name="message">Résumé de ma demande</field>
             <field name="type">form</field>
@@ -423,7 +423,7 @@
         </record>
         <record id="accorderie_workflow_state_va_oui_form" model="accorderie.workflow.state">
             <field name="name">Formulaire échange d'un service existant</field>
-            <field name="key">init.va.oui.formulaire</field>
+            <field name="key">init.va.oui.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86537849</field>
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
@@ -462,7 +462,7 @@
         </record>
         <record id="accorderie_workflow_state_va_non_offert_nouveau_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau offert</field>
-            <field name="key">init.va.non.offert.nouveau_formulaire</field>
+            <field name="key">init.va.non.offert.nouveau.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86594545</field>
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
@@ -481,7 +481,7 @@
         </record>
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant offert</field>
-            <field name="key">init.va.non.offert.existant_formulaire</field>
+            <field name="key">init.va.non.offert.existant.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86537980</field>
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
@@ -533,7 +533,7 @@
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant reçu</field>
-            <field name="key">init.va.non.recu.choix.formulaire</field>
+            <field name="key">init.va.non.recu.choix.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86608523</field>
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
@@ -566,7 +566,7 @@
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau reçu</field>
-            <field name="key">init.va.non.recu.choix.nouveau.formulaire</field>
+            <field name="key">init.va.non.recu.choix.nouveau.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86609563</field>
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>
