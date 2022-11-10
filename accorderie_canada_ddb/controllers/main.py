@@ -1309,7 +1309,7 @@ class AccorderieCanadaDdbController(http.Controller):
         lst_u_caract = set()
         data["dct_unique_caract"] = {
             "Valider échange": False,
-            "Échange nouvel/existante": {
+            "Échange nouvel/existant": {
                 "Échange existant": "fa-file",
                 "Nouvel échange": "fa-plus",
             },
@@ -1339,7 +1339,7 @@ class AccorderieCanadaDdbController(http.Controller):
         }
         data["dct_unique_caract_concat"] = {
             "Valider échange": False,
-            "Échange nouvel/existante": {
+            "Échange nouvel/existant": {
                 "Échange existant": "fa-file",
                 "Nouvel échange": "fa-plus",
             },
@@ -1474,8 +1474,10 @@ class AccorderieCanadaDdbController(http.Controller):
         vals = {}
         status = {}
         str_state_id = kw.get("state_id")
-        state_id = http.request.env["accorderie.workflow.state"].search(
-            [("key", "=", str_state_id)], limit=1
+        state_id = (
+            http.request.env["accorderie.workflow.state"]
+            .sudo()
+            .search([("key", "=", str_state_id)], limit=1)
         )
         if not state_id:
             status["error"] = "Cannot find state_id from state.key"
@@ -1486,16 +1488,21 @@ class AccorderieCanadaDdbController(http.Controller):
         offre_service_id = None
         new_accorderie_echange_service = None
 
-        if str_state_id in (
-            "init.pos.single.form",
-            "init.pds.single.form",
-            "init.saa.offrir.nouveau.cat.form",
-            "init.saa.recevoir.choix.nouveau.form",
-            "init.va.non.offert.nouveau.form",
-            "init.va.non.recu.choix.nouveau.form",
+        # if str_state_id in (
+        #     "init.pos.single.form",
+        #     "init.pds.single.form",
+        #     "init.saa.offrir.nouveau.cat.form",
+        #     "init.saa.recevoir.choix.nouveau.form",
+        #     "init.va.non.offert.nouveau.form",
+        #     "init.va.non.recu.choix.nouveau.form",
+        # ):
+        if state_id.caract_offre_demande_nouveau_existante in (
+            "Nouvelle demande",
+            "Nouvelle offre",
         ):
             # TODO offre/demande nouveau
             if kw.get("offre_service_id"):
+                # TODO how this can happen in context of nouveau?
                 offre_service_id = int(kw.get("offre_service_id").get("id"))
             else:
                 if kw.get("titre"):
@@ -1517,12 +1524,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
                 vals["membre"] = membre_id
 
-                if str_state_id in (
-                    "init.pds.single.form",
-                    "init.saa.recevoir.choix.nouveau.form",
-                    "init.va.non.recu.choix.nouveau.form",
+                if (
+                    state_id.caract_offre_demande_nouveau_existante
+                    == "Nouvelle demande"
                 ):
-                    # TODO demande nouveau
                     new_accorderie_service = (
                         request.env["accorderie.demande.service"]
                         .sudo()
@@ -1530,8 +1535,10 @@ class AccorderieCanadaDdbController(http.Controller):
                     )
                     demande_service_id = new_accorderie_service.id
                     status["demande_service_id"] = demande_service_id
-                else:
-                    # TODO offre nouveau
+                elif (
+                    state_id.caract_offre_demande_nouveau_existante
+                    == "Nouvelle offre"
+                ):
                     new_accorderie_service = (
                         request.env["accorderie.offre.service"]
                         .sudo()
@@ -1540,16 +1547,17 @@ class AccorderieCanadaDdbController(http.Controller):
                     offre_service_id = new_accorderie_service.id
                     status["offre_service_id"] = offre_service_id
 
-        if str_state_id in (
-            "init.saa.offrir.nouveau.cat.form",
-            "init.saa.offrir.existant.form",
-            "init.saa.recevoir.choix.existant.time.form",
-            "init.saa.recevoir.choix.nouveau.form",
-            "init.va.non.offert.nouveau.form",
-            # "init.va.non.offert.existant.form",
-            # "init.va.non.recu.choix.form",
-            "init.va.non.recu.choix.nouveau.form",
-        ):
+        # if str_state_id in (
+        #     "init.saa.offrir.nouveau.cat.form",
+        #     "init.saa.offrir.existant.form",
+        #     "init.saa.recevoir.choix.existant.time.form",
+        #     "init.saa.recevoir.choix.nouveau.form",
+        #     "init.va.non.offert.nouveau.form",
+        #     # "init.va.non.offert.existant.form",
+        #     # "init.va.non.recu.choix.form",
+        #     "init.va.non.recu.choix.nouveau.form",
+        # ):
+        if state_id.caract_echange_nouvel_existant == "Nouvel échange":
             # TODO nouvel échange
             # TODO why not commented?
             if kw.get("echange_service_id"):
@@ -1559,6 +1567,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
             vals = {}
             if offre_service_id:
+                # TODO how this exist if not set ... how when not new!
+                # TODO use offre existante
                 vals["offre_service"] = offre_service_id
             elif kw.get("offre_service_id"):
                 vals["offre_service"] = kw.get("offre_service_id").get("id")
@@ -1595,22 +1605,24 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id = (
                 http.request.env.user.partner_id.accorderie_membre_ids.id
             )
-            if str_state_id in (
-                "init.saa.recevoir.choix.existant.time.form",
-                "init.saa.recevoir.choix.nouveau.form",
-                # "init.va.non.recu.choix.form",
-                "init.va.non.recu.choix.nouveau.form",
-            ):
+            # if str_state_id in (
+            #     "init.saa.recevoir.choix.existant.time.form",
+            #     "init.saa.recevoir.choix.nouveau.form",
+            #     "init.va.non.recu.choix.form",
+            #     "init.va.non.recu.choix.nouveau.form",
+            # ):
+            if state_id.caract_service_offrir_recevoir == "Service à recevoir":
                 # TODO service à recevoir
                 # TODO why not init.va.non.recu.choix.form
                 vals["membre_acheteur"] = membre_id
                 if other_membre_id:
                     vals["membre_vendeur"] = other_membre_id
-            else:
+            elif state_id.caract_service_offrir_recevoir == "Service à offrir":
                 vals["membre_vendeur"] = membre_id
                 if other_membre_id:
                     vals["membre_acheteur"] = other_membre_id
 
+            # TODO bug time, when not state_id.caract_valider_echange, all time is estimated
             if kw.get("time_service_estimated"):
                 vals["nb_heure_estime"] = float(
                     kw.get("time_service_estimated")
@@ -1625,6 +1637,17 @@ class AccorderieCanadaDdbController(http.Controller):
                 vals["nb_heure_duree_trajet"] = float(
                     kw.get("time_dure_trajet")
                 )
+
+            # Fix client time
+            if not state_id.caract_valider_echange:
+                if vals["nb_heure"]:
+                    vals["nb_heure_estime"] = vals["nb_heure"]
+                    del vals["nb_heure"]
+                if vals["nb_heure_duree_trajet"]:
+                    vals["nb_heure_estime_duree_trajet"] = vals[
+                        "nb_heure_duree_trajet"
+                    ]
+                    del vals["nb_heure_duree_trajet"]
 
             if kw.get("frais_trajet"):
                 vals["frais_trajet"] = float(kw.get("frais_trajet"))
@@ -1641,13 +1664,14 @@ class AccorderieCanadaDdbController(http.Controller):
             )
             status["echange_service_id"] = new_accorderie_echange_service.id
 
-        if str_state_id in (
-            "init.va.non.offert.existant.form",
-            "init.va.non.offert.nouveau.form",
-            "init.va.oui.form",
-            "init.va.non.recu.choix.form",
-            "init.va.non.recu.choix.nouveau.form",
-        ):
+        # if str_state_id in (
+        #     "init.va.non.offert.existant.form",
+        #     "init.va.non.offert.nouveau.form",
+        #     "init.va.oui.form",
+        #     "init.va.non.recu.choix.form",
+        #     "init.va.non.recu.choix.nouveau.form",
+        # ):
+        if state_id.caract_valider_echange:
             # TODO valider échange
             if not new_accorderie_echange_service:
                 if not kw.get("echange_service_id").get("id"):

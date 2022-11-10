@@ -120,6 +120,36 @@ class AccorderieWorkflowState(models.Model):
         help="Aide - description de l'aide",
     )
 
+    caract_offre_demande_nouveau_existante = fields.Selection(
+        selection=[
+            ("Nouvelle offre", "Nouvelle offre"),
+            ("Nouvelle demande", "Nouvelle demande"),
+            ("Offre existante", "Offre existante"),
+            ("Demande existante", "Demande existante"),
+        ],
+        help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_echange_nouvel_existant = fields.Selection(
+        selection=[
+            ("Nouvel échange", "Nouvel échange"),
+            ("Échange existant", "Échange existant"),
+        ],
+        help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_service_offrir_recevoir = fields.Selection(
+        selection=[
+            ("Service à offrir", "Service à offrir"),
+            ("Service à recevoir", "Service à recevoir"),
+        ],
+        help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_valider_echange = fields.Boolean(
+        help="Fonctionnalité si valider échange"
+    )
+
     help_caract_lst = fields.Char(
         string="Help caracteristic",
         help="Aide - liste des caractéristiques, séparé par ;",

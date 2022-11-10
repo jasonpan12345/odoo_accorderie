@@ -54,9 +54,10 @@
             <field name="help_title">Créer une offre de service publique individuelle</field>
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté, entre deux personnes.</field>
             <field name="help_caract_lst">Nouvelle offre;Offre publique</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
             <field name="help_fast_btn_title">Créer une offre</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.pos.single</field>
-            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>
+            <field name="help_fast_btn_url">participer#!?state=init.pos.single</field>
+            <field name="help_fast_btn_guide_url">participer#!?animation=Créer une offre de service publique individuelle</field>
             <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -75,9 +76,10 @@
             <field name="help_title">Créer une offre de service de groupe</field>
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté entre une personne et un groupe de personnes.</field>
             <field name="help_caract_lst">Nouvelle offre;Offre publique;Offre de groupe</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
 <!--            <field name="help_fast_btn_title">Créer une offre</field>-->
-<!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.single</field>-->
-<!--            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>-->
+<!--            <field name="help_fast_btn_url">participer#!?state=init.pos.single</field>-->
+<!--            <field name="help_fast_btn_guide_url">participer#!?animation=Créer une offre de service publique individuelle</field>-->
 <!--            <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>-->
             <field name="not_implemented">true</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -97,9 +99,10 @@
             <field name="help_title">Créer une offre de service spéciale</field>
             <field name="help_description">Permettre de rendre accessible une offre de service à la communauté, entre deux personnes de manière ponctuel.</field>
             <field name="help_caract_lst">Nouvelle offre;Offre publique;Offre ponctuelle</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
 <!--            <field name="help_fast_btn_title">Créer une offre</field>-->
-<!--            <field name="help_fast_btn_url">/participer#!?state=init.pos.single</field>-->
-<!--            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une offre de service publique individuelle</field>-->
+<!--            <field name="help_fast_btn_url">participer#!?state=init.pos.single</field>-->
+<!--            <field name="help_fast_btn_guide_url">participer#!?animation=Créer une offre de service publique individuelle</field>-->
 <!--            <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>-->
             <field name="not_implemented">true</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
@@ -140,9 +143,10 @@
             <field name="help_title">Créer une demande de service publique individuelle</field>
             <field name="help_description">Permettre de rendre accessible une demande de service à la communauté, entre deux personnes.</field>
             <field name="help_caract_lst">Nouvelle demande;Demande publique</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle demande</field>
             <field name="help_fast_btn_title">Créer une demande</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.pds.single</field>
-            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer une demande de service publique individuelle</field>
+            <field name="help_fast_btn_url">participer#!?state=init.pds.single</field>
+            <field name="help_fast_btn_guide_url">participer#!?animation=Créer une demande de service publique individuelle</field>
             <field name="help_video_url">//player.vimeo.com/video/753488142?autoplay=0</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -198,8 +202,11 @@
             <field name="help_title">Créer un échange en tant que personne offrant le service avec une demande existante</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. La demande de service doit déjà avoir été publiée.</field>
             <field name="help_caract_lst">Nouvel échange;Demande existante;Service à offrir</field>
+            <field name="caract_offre_demande_nouveau_existante">Demande existante</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
 <!--            <field name="help_fast_btn_title">Créer un échange</field>-->
-<!--            <field name="help_fast_btn_url">/participer#!?state=init.saa.demande.nouveau</field>-->
+<!--            <field name="help_fast_btn_url">participer#!?state=init.saa.demande.nouveau</field>-->
             <field name="not_implemented">true</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -232,9 +239,12 @@
             <field name="help_title">Créer un échange en tant que personne offrant le service avec une offre existante</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service doit déjà avoir été publiée.</field>
             <field name="help_caract_lst">Nouvel échange;Offre existante;Service à offrir</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
             <field name="help_fast_btn_title">Créer un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.saa.offrir</field>
-            <field name="help_fast_btn_guide_url">/participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante</field>
+            <field name="help_fast_btn_url">participer#!?state=init.saa.offrir</field>
+            <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante</field>
             <field name="help_video_url">//player.vimeo.com/video/753489576?autoplay=0</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -268,8 +278,11 @@
             <field name="help_title">Créer un échange en tant que personne offrant le service avec une offre qui doit être créée</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service n’a pas été créée et le sera lors de cette action. Cette offre sera privée.</field>
             <field name="help_caract_lst">Nouvel échange;Nouvelle offre;Offre ponctuelle;Offre privée;Service à offrir</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
             <field name="help_fast_btn_title">Créer un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.saa.offrir.nouveau</field>
+            <field name="help_fast_btn_url">participer#!?state=init.saa.offrir.nouveau</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -334,8 +347,11 @@
             <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre qui doit être créée</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. La demande de service n’a pas été créée et le sera lors de cette action. Cette demande sera privée.</field>
             <field name="help_caract_lst">Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle demande</field>
+            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
             <field name="help_fast_btn_title">Créer un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.saa.recevoir</field>
+            <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_existant" model="accorderie.workflow.state">
@@ -385,8 +401,11 @@
             <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre déjà existante</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. L’offre de service a déjà été créée.</field>
             <field name="help_caract_lst">Nouvel échange;Offre existante;Service à recevoir</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
+            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
             <field name="help_fast_btn_title">Créer un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.saa.recevoir</field>
+            <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -416,8 +435,10 @@
             <field name="help_title">Valider un échange existant</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui a été créé sur une demande de service.</field>
             <field name="help_caract_lst">Valider échange;Échange existant</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Échange existant</field>
             <field name="help_fast_btn_title">Valider un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.va.oui</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.oui</field>
             <field name="help_video_url">//player.vimeo.com/video/753491978?autoplay=0</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -475,8 +496,13 @@
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui doit être créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre n’a pas été créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle offre;Service à offrir;Offre ponctuelle;Offre privée</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
             <field name="help_fast_btn_title">Valider un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.va.non.offert</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.offert</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
@@ -495,8 +521,13 @@
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre déjà créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre est créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Offre existante;Service à offrir</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
             <field name="help_fast_btn_title">Valider un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.va.non.offert</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.offert</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu" model="accorderie.workflow.state">
@@ -547,8 +578,13 @@
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre déjà créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre a déjà été créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Offre existante;Service à recevoir</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
             <field name="help_fast_btn_title">Valider un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.va.non.recu</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.recu</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau" model="accorderie.workflow.state">
@@ -580,8 +616,13 @@
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre qui doit être créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre n’a pas été créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle demande</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
             <field name="help_fast_btn_title">Valider un échange</field>
-            <field name="help_fast_btn_url">/participer#!?state=init.va.non.recu</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.recu</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_dev_show_hide_developpement" model="accorderie.workflow.state">
