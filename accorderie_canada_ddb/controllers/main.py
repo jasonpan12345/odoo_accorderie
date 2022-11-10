@@ -1376,20 +1376,42 @@ class AccorderieCanadaDdbController(http.Controller):
             #     "Demande privée": "fa-eye-slash",
             # },
             "Offre/<font style='color:#00FF00'>Demande</font> ponctuelle": {
-                "Offre ponctuelle": "fa-hand-holding-usd",
-                "Demande ponctuelle": "fa-hand-helping",
+                "Offre ponctuelle": "fa-check",
+                "Demande ponctuelle": "fa-check fa-inverse",
             },
             # "Offre ponctuelle": False,
             # "Demande ponctuelle": False,
             "Offre de groupe": False,
         }
-        lst_u_caract.update([k for k, a in data["dct_unique_caract"].items() if a is False])
-        lst_u_caract.update([q for w in [[i for i in a.keys()] for k, a in data["dct_unique_caract"].items() if type(a) is dict] for q in w])
-        lst_u_caract.update([a for a in data["dct_unique_caract_concat"].keys()])
+        lst_u_caract.update(
+            [k for k, a in data["dct_unique_caract"].items() if a is False]
+        )
+        lst_u_caract.update(
+            [
+                q
+                for w in [
+                    [i for i in a.keys()]
+                    for k, a in data["dct_unique_caract"].items()
+                    if type(a) is dict
+                ]
+                for q in w
+            ]
+        )
+        lst_u_caract.update(
+            [a for a in data["dct_unique_caract_concat"].keys()]
+        )
         set_caract = set()
         lst_state = []
         for a in state_ids:
             sub_data = {
+                "key": a.key,
+                # Add space after each 2 words, to fit in table
+                "key_space": ".".join(
+                    [
+                        b if not idx or idx % 2 else f" {b}"
+                        for idx, b in enumerate(a.key.split("."))
+                    ]
+                ),
                 "title": a.help_title,
                 "description": a.help_description,
                 "fast_btn_title": a.help_fast_btn_title,
@@ -1428,7 +1450,7 @@ class AccorderieCanadaDdbController(http.Controller):
         data["state"] = lst_state
         # lst_u_caract.update([a for a in data["dct_unique_caract"].keys()])
         # lst_u_caract.update([a for a in data["dct_unique_caract_concat"].keys()])
-        lst_missing = {(k, False) for k in set_caract-lst_u_caract}
+        lst_missing = {(k, False) for k in set_caract - lst_u_caract}
         data["dct_unique_caract"].update(lst_missing)
         data["dct_unique_caract_concat"].update(lst_missing)
         # for key in set_caract-lst_u_caract:
@@ -1451,12 +1473,20 @@ class AccorderieCanadaDdbController(http.Controller):
         # Send from participer website
         vals = {}
         status = {}
-        state_id = kw.get("state_id")
+        str_state_id = kw.get("state_id")
+        state_id = http.request.env["accorderie.workflow.state"].search(
+            [("key", "=", str_state_id)], limit=1
+        )
+        if not state_id:
+            status["error"] = "Cannot find state_id from state.key"
+            _logger.error(status["error"])
+            return status
+
         demande_service_id = None
         offre_service_id = None
         new_accorderie_echange_service = None
 
-        if state_id in (
+        if str_state_id in (
             "init.pos.individuelle.formulaire",
             "init.pds.individuelle.formulaire",
             "init.saa.offrir.nouveau.categorie_service.formulaire",
@@ -1464,6 +1494,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "init.va.non.offert.nouveau_formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
         ):
+            # TODO offre/demande nouveau
             if kw.get("offre_service_id"):
                 offre_service_id = int(kw.get("offre_service_id").get("id"))
             else:
@@ -1486,11 +1517,12 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
                 vals["membre"] = membre_id
 
-                if state_id in (
+                if str_state_id in (
                     "init.pds.individuelle.formulaire",
                     "init.saa.recevoir.choix.nouveau.formulaire",
                     "init.va.non.recu.choix.nouveau.formulaire",
                 ):
+                    # TODO demande nouveau
                     new_accorderie_service = (
                         request.env["accorderie.demande.service"]
                         .sudo()
@@ -1499,6 +1531,7 @@ class AccorderieCanadaDdbController(http.Controller):
                     demande_service_id = new_accorderie_service.id
                     status["demande_service_id"] = demande_service_id
                 else:
+                    # TODO offre nouveau
                     new_accorderie_service = (
                         request.env["accorderie.offre.service"]
                         .sudo()
@@ -1507,17 +1540,18 @@ class AccorderieCanadaDdbController(http.Controller):
                     offre_service_id = new_accorderie_service.id
                     status["offre_service_id"] = offre_service_id
 
-        if state_id in (
+        if str_state_id in (
             "init.saa.offrir.nouveau.categorie_service.formulaire",
             "init.saa.offrir.existant.formulaire",
             "init.saa.recevoir.choix.existant.time.formulaire",
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
             "init.saa.recevoir.choix.nouveau.formulaire",
             "init.va.non.offert.nouveau_formulaire",
             # "init.va.non.offert.existant_formulaire",
             # "init.va.non.recu.choix.formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
         ):
+            # TODO nouvel échange
+            # TODO why not commented?
             if kw.get("echange_service_id"):
                 _logger.warning(
                     "Why create a new echange when receive a echange"
@@ -1561,12 +1595,14 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id = (
                 http.request.env.user.partner_id.accorderie_membre_ids.id
             )
-            if state_id in (
+            if str_state_id in (
                 "init.saa.recevoir.choix.existant.time.formulaire",
                 "init.saa.recevoir.choix.nouveau.formulaire",
                 # "init.va.non.recu.choix.formulaire",
                 "init.va.non.recu.choix.nouveau.formulaire",
             ):
+                # TODO service à recevoir
+                # TODO why not init.va.non.recu.choix.formulaire
                 vals["membre_acheteur"] = membre_id
                 if other_membre_id:
                     vals["membre_vendeur"] = other_membre_id
@@ -1605,18 +1641,19 @@ class AccorderieCanadaDdbController(http.Controller):
             )
             status["echange_service_id"] = new_accorderie_echange_service.id
 
-        if state_id in (
+        if str_state_id in (
             "init.va.non.offert.existant_formulaire",
             "init.va.non.offert.nouveau_formulaire",
             "init.va.oui.formulaire",
             "init.va.non.recu.choix.formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
         ):
+            # TODO valider échange
             if not new_accorderie_echange_service:
                 if not kw.get("echange_service_id").get("id"):
                     msg_error = (
                         "Missing argument 'echange_service_id' into"
-                        f" '{state_id}'"
+                        f" '{str_state_id}'"
                     )
                     _logger.error(msg_error)
                     status["error"] = msg_error

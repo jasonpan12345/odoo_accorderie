@@ -579,7 +579,7 @@
             <field name="help_sub_section">Valider un échange</field>
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre qui doit être créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre n’a pas été créée.</field>
-            <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle offre;Offre privée;Offre ponctuelle;Service à recevoir</field>
+            <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
             <field name="help_fast_btn_title">Valider un échange</field>
             <field name="help_fast_btn_url">/participer#!?state=init.va.non.recu</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
