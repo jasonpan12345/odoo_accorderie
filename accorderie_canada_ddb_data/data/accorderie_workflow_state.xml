@@ -262,6 +262,29 @@
             <field name="model_field_name">type_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
+        <record id="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree_form" model="accorderie.workflow.state">
+            <field name="name">Formulaire nouveau service reçu échange</field>
+            <field name="key">init.saa.recevoir.choix.existant.time.form</field>
+            <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86588770</field>
+            <field name="message">Résumé de ma demande</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Envoyer ma demande</field>
+            <field name="submit_response_title">La demande a bien été envoyée!</field>
+            <field name="submit_response_description">Que souhaitez-vous faire maintenant?</field>
+            <field name="model_field_depend">membre_id;offre_service_id;date_name;time_name</field>
+            <field name="help_section">Échange de service</field>
+            <field name="help_sub_section">Créer un échange avec un autre membre</field>
+            <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre déjà existante</field>
+            <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. L’offre de service a déjà été créée.</field>
+            <field name="help_caract_lst">Nouvel échange;Offre existante;Service à recevoir</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
+            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
+            <field name="help_fast_btn_title">Créer un échange</field>
+            <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
             <field name="name">Formulaire nouveau service privé échange</field>
             <field name="key">init.saa.offrir.nouveau.cat.form</field>
@@ -344,7 +367,7 @@
             <field name="model_field_depend">membre_id;type_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Créer un échange avec un autre membre</field>
-            <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre qui doit être créée</field>
+            <field name="help_title">Créer un échange en tant que personne recevant le service d’une demande qui doit être créée</field>
             <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. La demande de service n’a pas été créée et le sera lors de cette action. Cette demande sera privée.</field>
             <field name="help_caract_lst">Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
             <field name="caract_echange_nouvel_existant">Nouvel échange</field>
@@ -385,30 +408,6 @@
             <field name="model_field_depend">membre_id;date_name</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree_form" model="accorderie.workflow.state">
-            <field name="name">Formulaire nouveau service reçu échange</field>
-            <field name="key">init.saa.recevoir.choix.existant.time.form</field>
-            <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86588770</field>
-            <field name="message">Résumé de ma demande</field>
-            <field name="type">form</field>
-            <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Envoyer ma demande</field>
-            <field name="submit_response_title">La demande a bien été envoyée!</field>
-            <field name="submit_response_description">Que souhaitez-vous faire maintenant?</field>
-            <field name="model_field_depend">membre_id;offre_service_id;date_name;time_name</field>
-            <field name="help_section">Échange de service</field>
-            <field name="help_sub_section">Créer un échange avec un autre membre</field>
-            <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre déjà existante</field>
-            <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui reçoit un service. L’offre de service a déjà été créée.</field>
-            <field name="help_caract_lst">Nouvel échange;Offre existante;Service à recevoir</field>
-            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
-            <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
-            <field name="caract_service_offrir_recevoir">Service à recevoir</field>
-            <field name="help_fast_btn_title">Créer un échange</field>
-            <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
-        </record>
-
         <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">
             <field name="name">Valider un échange de service</field>
             <field name="key">init.va</field>
@@ -481,30 +480,7 @@
             <field name="list_is_first_position">False</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_va_non_offert_nouveau_formulaire" model="accorderie.workflow.state">
-            <field name="name">Formulaire valider transaction sans demande service nouveau offert</field>
-            <field name="key">init.va.non.offert.nouveau.form</field>
-            <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86594545</field>
-            <field name="message">Déclaration du service effectué</field>
-            <field name="type">form</field>
-            <field name="show_breadcrumb">False</field>
-            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
-            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
-            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
-            <field name="help_section">Échange de service</field>
-            <field name="help_sub_section">Valider un échange</field>
-            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui doit être créée</field>
-            <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre n’a pas été créée.</field>
-            <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle offre;Service à offrir;Offre ponctuelle;Offre privée</field>
-            <field name="caract_valider_echange">True</field>
-            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
-            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
-            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
-            <field name="caract_service_offrir_recevoir">Service à offrir</field>
-            <field name="help_fast_btn_title">Valider un échange</field>
-            <field name="help_fast_btn_url">participer#!?state=init.va.non.offert</field>
-            <field name="diagram_id" ref="accorderie_workflow_participer" />
-        </record>
+
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant offert</field>
             <field name="key">init.va.non.offert.existant.form</field>
@@ -600,6 +576,30 @@
             <field name="model_field_name">type_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
+        <record id="accorderie_workflow_state_va_non_offert_nouveau_formulaire" model="accorderie.workflow.state">
+            <field name="name">Formulaire valider transaction sans demande service nouveau offert</field>
+            <field name="key">init.va.non.offert.nouveau.form</field>
+            <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86594545</field>
+            <field name="message">Déclaration du service effectué</field>
+            <field name="type">form</field>
+            <field name="show_breadcrumb">False</field>
+            <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
+            <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
+            <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
+            <field name="help_section">Échange de service</field>
+            <field name="help_sub_section">Valider un échange</field>
+            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui doit être créée</field>
+            <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a offert le service et que l’offre n’a pas été créée.</field>
+            <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle offre;Service à offrir;Offre ponctuelle;Offre privée</field>
+            <field name="caract_valider_echange">True</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_offre_demande_nouveau_existante">Nouvelle offre</field>
+            <field name="caract_echange_nouvel_existant">Nouvel échange</field>
+            <field name="caract_service_offrir_recevoir">Service à offrir</field>
+            <field name="help_fast_btn_title">Valider un échange</field>
+            <field name="help_fast_btn_url">participer#!?state=init.va.non.offert</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau reçu</field>
             <field name="key">init.va.non.recu.choix.nouveau.form</field>
@@ -613,7 +613,7 @@
             <field name="model_field_depend">membre_id;type_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Valider un échange</field>
-            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre qui doit être créée</field>
+            <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une demande qui doit être créée</field>
             <field name="help_description">Permettre de faire la déclaration d’une transaction suite à un échange de service qui n’a pas encore été créé, lorsqu’on est la personne qui a demandé le service et que l’offre n’a pas été créée.</field>
             <field name="help_caract_lst">Valider échange;Nouvel échange;Nouvelle demande;Demande privée;Demande ponctuelle;Service à recevoir</field>
             <field name="caract_valider_echange">True</field>
