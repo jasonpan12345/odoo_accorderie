@@ -816,7 +816,7 @@
 
                                         <!-- Destinataire du service -->
                                         <h2
-                                            ng-if="['init.saa.offrir.nouveau.cat.form', 'init.saa.offrir.existant.form', 'init.saa.recevoir.choix.nouveau.form', 'init.va.non.offert.nouveau.form', 'init.va.non.offert.existant.form'].includes(state.id)"
+                                            ng-if="['init.saa.offrir.nouveau.cat.form', 'init.saa.offrir.existant.form', 'init.saa.recevoir.choix.nouveau.form', 'init.va.non.offert.nouveau.cat.form', 'init.va.non.offert.existant.form'].includes(state.id)"
                                         >
                                             Destinataire du service
                                         </h2>
@@ -825,7 +825,7 @@
                                         </h2>
                                         <div
                                             class="form_box cursor-pointer"
-                                            ng-if="['init.saa.offrir.nouveau.cat.form', 'init.saa.offrir.existant.form', 'init.saa.recevoir.choix.nouveau.form', 'init.va.non.offert.nouveau.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
+                                            ng-if="['init.saa.offrir.nouveau.cat.form', 'init.saa.offrir.existant.form', 'init.saa.recevoir.choix.nouveau.form', 'init.va.non.offert.nouveau.cat.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
                                             ng-click="change_state_to_field_id('membre_id')"
                                         >
                                             <span>{{form.membre_id.value}}</span>
@@ -833,7 +833,7 @@
                                         </div>
                                         <div
                                             class="divider"
-                                            ng-if="['init.saa.offrir.nouveau.cat.form', 'init.saa.offrir.existant.form', 'init.saa.recevoir.choix.nouveau.form', 'init.va.non.offert.nouveau.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
+                                            ng-if="['init.saa.offrir.nouveau.cat.form', 'init.saa.offrir.existant.form', 'init.saa.recevoir.choix.nouveau.form', 'init.va.non.offert.nouveau.cat.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
                                         />
 
                                         <!-- Description du service -->
@@ -1464,7 +1464,7 @@
                                                 class="btn btn-primary text-gamma"
                                             >Voir mon offre d'échange de service</button>
                                             <button
-                                                ng-if="['init.va.non.offert.nouveau.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
+                                                ng-if="['init.va.non.offert.nouveau.cat.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
                                                 class="btn btn-primary text-gamma"
                                             >Voir les détails de la transaction</button>
                                         </a>
@@ -1489,7 +1489,7 @@
                                         </a>
                                         <a
                                             href="monactivite/echanges"
-                                            ng-if="['init.va.non.offert.nouveau.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
+                                            ng-if="['init.va.non.offert.nouveau.cat.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes(state.id)"
                                         >
                                             <button class="btn btn-primary text-gamma">Voir tous mes
                                                 échanges

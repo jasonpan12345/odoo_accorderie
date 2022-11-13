@@ -265,7 +265,7 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_existant_temps_duree_form" model="accorderie.workflow.state">
-            <field name="name">Formulaire nouveau service reçu échange</field>
+            <field name="name">Formulaire service existant reçu échange</field>
             <field name="key">init.saa.recevoir.choix.existant.time.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86588770</field>
             <field name="message">Résumé de ma demande</field>
@@ -484,7 +484,18 @@
             <field name="list_is_first_position">False</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-
+        <record id="accorderie_workflow_state_va_non_offert_existant" model="accorderie.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.va.non.offert.existant</field>
+            <field name="message">À qui avez-vous offert le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Que j'ai publié</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
         <record id="accorderie_workflow_state_va_non_offert_existant_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service existant offert</field>
             <field name="key">init.va.non.offert.existant.form</field>
@@ -580,9 +591,34 @@
             <field name="model_field_name">type_service_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_state_va_non_offert_nouveau_formulaire" model="accorderie.workflow.state">
+        <record id="accorderie_workflow_state_va_non_offert_nouveau" model="accorderie.workflow.state">
+            <field name="name">Choisir un membre</field>
+            <field name="key">init.va.non.offert.nouveau</field>
+            <field name="message">À qui avez-vous offert le service?</field>
+            <field name="type">choix_membre</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Que j'ai publié</field>
+            <field name="model_field_name_alias">membre</field>
+            <field name="model_field_name">membre_id</field>
+            <field name="data">membre</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_offert_nouveau_cat" model="accorderie.workflow.state">
+            <field name="name">Choisir une catégorie de service</field>
+            <field name="key">init.va.non.offert.nouveau.cat</field>
+            <field name="message">Dans quelle catégorie s'inscrit votre offre de service privée?</field>
+            <field name="type">choix_categorie_de_service</field>
+            <field name="show_breadcrumb">True</field>
+            <field name="breadcrumb_value">Pour %s</field>
+            <field name="breadcrumb_field_value">membre_id</field>
+            <field name="data">type_service_categorie</field>
+            <field name="model_field_name_alias">categorie</field>
+            <field name="model_field_name">type_service_id</field>
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_state_va_non_offert_nouveau_cat_formulaire" model="accorderie.workflow.state">
             <field name="name">Formulaire valider transaction sans demande service nouveau offert</field>
-            <field name="key">init.va.non.offert.nouveau.form</field>
+            <field name="key">init.va.non.offert.nouveau.cat.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86594545</field>
             <field name="message">Déclaration du service effectué</field>
             <field name="type">form</field>

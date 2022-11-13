@@ -167,13 +167,27 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_offert_nouveau" model="accorderie.workflow.relation">
+            <field name="name">Une nouvelle offre</field>
             <field name="body_html" type="html"><p>Aucune de ces offres.<br />Il s'agissait d'un service offert spécifiquement par vous.</p></field>
             <field name="state_src" ref="accorderie_workflow_state_va_non_offert" />
-            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_nouveau_formulaire" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_nouveau" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_offert_nouveau_cat" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_va_non_offert_nouveau" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_nouveau_cat" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_offert_nouveau_cat_form" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_va_non_offert_nouveau_cat" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_nouveau_cat_formulaire" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_offert_existant" model="accorderie.workflow.relation">
+            <field name="name">Une offre existante</field>
             <field name="is_dynamic">True</field>
             <field name="state_src" ref="accorderie_workflow_state_va_non_offert" />
+            <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_existant" />
+        </record>
+        <record id="accorderie_workflow_relation_init_va_non_offert_existant_form" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_va_non_offert_existant" />
             <field name="state_dst" ref="accorderie_workflow_state_va_non_offert_existant_formulaire" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_recu" model="accorderie.workflow.relation">
@@ -188,12 +202,14 @@
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_recu_choix_nouveau" model="accorderie.workflow.relation">
+            <field name="name">Nouveau service reçu</field>
             <field name="body_html" type="html"><p>Aucune de ces offres.<br />Il s'agissait d'un service offert spécifiquement pour vous.</p></field>
             <field name="state_src" ref="accorderie_workflow_state_va_non_recu_choix" />
             <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_nouveau" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_va_non_recu_choix_existant" model="accorderie.workflow.relation">
+            <field name="name">Service existant reçu</field>
             <field name="is_dynamic">True</field>
             <field name="state_src" ref="accorderie_workflow_state_va_non_recu_choix" />
             <field name="state_dst" ref="accorderie_workflow_state_va_non_recu_choix_existant_formulaire" />

@@ -2102,26 +2102,29 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.form_is_nouveau_except_pos = function () {
+            // nouvelle offre/demande sur un échange
             return [
                 'init.saa.offrir.nouveau.cat.form',
                 'init.saa.recevoir.choix.nouveau.form',
-                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.nouveau.cat.form',
                 'init.va.non.recu.choix.nouveau.form'
             ].includes($scope.state.id);
         }
 
         $scope.form_is_nouveau = function () {
+            // nouvelle offre/demande
             return [
                 'init.pos.single.form',
                 'init.pds.single.form',
                 'init.saa.offrir.nouveau.cat.form',
                 'init.saa.recevoir.choix.nouveau.form',
-                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.nouveau.cat.form',
                 'init.va.non.recu.choix.nouveau.form'
             ].includes($scope.state.id);
         }
 
         $scope.form_is_offre_demande_service = function () {
+            // offre/demande sans échange
             return [
                 'init.pos.single.form',
                 'init.pds.single.form',
@@ -2129,11 +2132,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.form_is_service = function () {
+            //
             return [
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
                 'init.va.oui.form',
-                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.nouveau.cat.form',
                 'init.va.non.offert.existant.form',
                 'init.va.non.recu.choix.nouveau.form',
                 'init.va.non.recu.choix.form'
@@ -2148,6 +2152,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.form_is_service_and_service_prevu = function () {
             // TODO this is a hack because calling {{load_date()}} in page not working some time
+            // Est échange
             $scope.load_date();
             return [
                 'init.saa.offrir.nouveau.cat.form',
@@ -2155,7 +2160,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.saa.recevoir.choix.nouveau.form',
                 'init.saa.recevoir.choix.existant.time.form',
                 'init.va.oui.form',
-                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.nouveau.cat.form',
                 'init.va.non.offert.existant.form',
                 'init.va.non.recu.choix.nouveau.form',
                 'init.va.non.recu.choix.form'
@@ -2181,7 +2186,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return [
                 'init.saa.offrir.existant.form',
                 'init.va.oui.form',
-                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.nouveau.cat.form',
                 'init.va.non.offert.existant.form',
                 'init.va.non.recu.choix.nouveau.form',
                 'init.va.non.recu.choix.form'
@@ -2193,7 +2198,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
                 'init.va.oui.form',
-                'init.va.non.offert.nouveau.form',
+                'init.va.non.offert.nouveau.cat.form',
                 'init.va.non.offert.existant.form',
                 'init.va.non.recu.choix.nouveau.form',
                 'init.va.non.recu.choix.form'
@@ -2201,6 +2206,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.form_frais_import_list_without_modify = function () {
+
             return [
                 'init.saa.offrir.nouveau.cat.form',
                 'init.saa.recevoir.choix.nouveau.form',
@@ -2305,7 +2311,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.submitted_url = `accorderie_canada_ddb/accorderie_demande_service/${data.demande_service_id}`;
                         } else if (['init.saa.offrir.existant.form', 'init.saa.recevoir.choix.existant.time.form', 'init.saa.offrir.nouveau.cat.form', 'init.saa.recevoir.choix.nouveau.form'].includes($scope.state.id)) {
                             $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
-                        } else if (['init.va.non.offert.nouveau.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes($scope.state.id)) {
+                        } else if (['init.va.non.offert.nouveau.cat.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes($scope.state.id)) {
                             $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
                         } else {
                             $scope.submitted_url = "";

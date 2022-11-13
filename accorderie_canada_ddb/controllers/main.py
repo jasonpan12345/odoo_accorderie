@@ -1629,7 +1629,7 @@ class AccorderieCanadaDdbController(http.Controller):
         #     "init.pds.single.form",
         #     "init.saa.offrir.nouveau.cat.form",
         #     "init.saa.recevoir.choix.nouveau.form",
-        #     "init.va.non.offert.nouveau.form",
+        #     "init.va.non.offert.nouveau.cat.form",
         #     "init.va.non.recu.choix.nouveau.form",
         # ):
         if state_id.caract_offre_demande_nouveau_existante in (
@@ -1688,7 +1688,7 @@ class AccorderieCanadaDdbController(http.Controller):
         #     "init.saa.offrir.existant.form",
         #     "init.saa.recevoir.choix.existant.time.form",
         #     "init.saa.recevoir.choix.nouveau.form",
-        #     "init.va.non.offert.nouveau.form",
+        #     "init.va.non.offert.nouveau.cat.form",
         #     # "init.va.non.offert.existant.form",
         #     # "init.va.non.recu.choix.form",
         #     "init.va.non.recu.choix.nouveau.form",
@@ -1802,7 +1802,7 @@ class AccorderieCanadaDdbController(http.Controller):
 
         # if str_state_id in (
         #     "init.va.non.offert.existant.form",
-        #     "init.va.non.offert.nouveau.form",
+        #     "init.va.non.offert.nouveau.cat.form",
         #     "init.va.oui.form",
         #     "init.va.non.recu.choix.form",
         #     "init.va.non.recu.choix.nouveau.form",
