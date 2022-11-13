@@ -1253,11 +1253,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // click on suivant
                     $scope.animationSelectorToSelector(name, '[for="init.saa.offrir"]', '#nextBtn', generic_timer_ms, 5, false, true, false)
                 } else if (newValue === 5) {
-                    // click on Demo découvrir ville
-                    $scope.animationSelectorToSelector(name, undefined, '[name="option_5"]', generic_timer_ms, 6, false, true, false)
+                    // click on first item
+                    $scope.animationSelectorToSelector(name, undefined, '[name="option_1"]', generic_timer_ms, 6, false, true, false)
                 } else if (newValue === 6) {
                     // click on Suivant
-                    $scope.animationSelectorToSelector(name, '[name="option_5"]', '#nextBtn', generic_timer_ms, 7, false, true, false)
+                    $scope.animationSelectorToSelector(name, '[name="option_1"]', '#nextBtn', generic_timer_ms, 7, false, true, false)
                 } else if (newValue === 7) {
                     // focus chooseMember
                     $scope.animationSelectorToSelector(name, '#nextBtn', '[id="chooseMember"]', generic_timer_ms, 8, false, false, true)
@@ -1870,7 +1870,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         $scope.reinit_state_model_field(searchedState);
                         $scope.fill_model_form_from_state(searchedState);
                     } else {
-                        console.error("Missing state " + stateName);
+                        console.warn("Missing state " + stateName);
                     }
                 }
             }

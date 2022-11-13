@@ -13,6 +13,17 @@
             <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
             <field name="introduction">J'adore la programmation informatique, je rêve de développer un robot codeur avec mes nouvelles connaissances en génie industriel. Mon meilleur ami est un de mes projets d'intelligence artificielle, voulez-vous le connaitre?</field>
         </record>
+        <record id="accorderie_membre_alice_poitier" model="accorderie.membre">
+            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
+            <field name="profil_approuver" eval="True" />
+            <field name="antecedent_judiciaire_verifier" eval="True" />
+            <field name="nom">Poitier</field>
+            <field name="prenom">Alice</field>
+            <field name="membre_partner_id" ref="partner_demo_alice_poitier" />
+            <field name="adresse">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie, Montreal, Urban agglomeration of Montreal, Montreal (06), Quebec, H1X 1J5, Canada</field>
+            <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
+            <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
+        </record>
         <record id="accorderie_membre_martin_petit" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
             <field name="profil_approuver" eval="True" />
@@ -32,18 +43,6 @@
             <field name="adresse">2150 Autoroute des Laurentides laval</field>
             <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
             <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
-        </record>
-        <record id="accorderie_membre_alice_poitier" model="accorderie.membre">
-            <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />
-            <field name="profil_approuver" eval="True" />
-            <field name="antecedent_judiciaire_verifier" eval="True" />
-            <field name="nom">Poitier</field>
-            <field name="prenom">Alice</field>
-            <field name="membre_partner_id" ref="partner_demo_alice_poitier" />
-            <field name="adresse">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie, Montreal, Urban agglomeration of Montreal, Montreal (06), Quebec, H1X 1J5, Canada</field>
-            <field name="region" ref="accorderie_canada_ddb_data.accorderie_region_capitale_nationale" />
-            <field name="ville" ref="accorderie_canada_ddb_data.accorderie_ville_grosse_ile" />
-            <field name="user_id" ref="base.user_admin" />
         </record>
         <record id="accorderie_membre_martin_bergeron" model="accorderie.membre">
             <field name="accorderie" ref="accorderie_accorderie_accorderie_de_laval" />

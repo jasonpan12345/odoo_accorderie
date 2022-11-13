@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+     <!-- Alice Poitier -->
+    <record id="partner_demo_alice_poitier" model="res.partner">
+        <field name="name">Alice Poitier</field>
+        <field name="company_id" ref="base.main_company" />
+        <field name="parent_id" ref="base.main_company" />
+        <field name="street">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie</field>
+        <field name="city">Montréal</field>
+        <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
+        <field name="zip">H1X 1J5</field>
+        <field name="country_id" ref="base.ca" />
+        <field name="tz">America/Montreal</field>
+        <field name="email">alice_poitier@exemple.ca</field>
+        <field name="phone">(514) 555-5555</field>
+    </record>
+
+    <record id="user_demo_alice_poitier" model="res.users">
+        <field name="partner_id" ref="partner_demo_alice_poitier" />
+        <field name="login">alice_poitier@exemple.ca</field>
+        <field name="password">demo</field>
+        <field name="signature" type="xml">
+            <span>
+                --
+                <br />
+                Alice Poitier
+            </span>
+        </field>
+        <field name="company_id" ref="base.main_company" />
+        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]" />
+        <field name="image" type="base64" file="base/static/img/res_partner_address_32.jpg" />
+    </record>
+
      <!-- Martin Petit -->
     <record id="partner_demo_martin_petit" model="res.partner">
         <field name="name">Martin Petit</field>
@@ -55,37 +86,6 @@
                 --
                 <br />
                 Denis Lemarchand
-            </span>
-        </field>
-        <field name="company_id" ref="base.main_company" />
-        <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]" />
-        <field name="image" type="base64" file="base/static/img/res_partner_address_32.jpg" />
-    </record>
-
-    <!-- Alice Poitier -->
-    <record id="partner_demo_alice_poitier" model="res.partner">
-        <field name="name">Alice Poitier</field>
-        <field name="company_id" ref="base.main_company" />
-        <field name="parent_id" ref="base.main_company" />
-        <field name="street">Résidence étudiante du collège de Rosemont, Rue de Bellechasse, Étienne-Desmarteau, Rosemont–La Petite-Patrie</field>
-        <field name="city">Montréal</field>
-        <field name="state_id" model="res.country.state" search="[('code','ilike','QC')]" />
-        <field name="zip">H1X 1J5</field>
-        <field name="country_id" ref="base.ca" />
-        <field name="tz">America/Montreal</field>
-        <field name="email">alice_poitier@exemple.ca</field>
-        <field name="phone">(514) 555-5555</field>
-    </record>
-
-    <record id="user_demo_alice_poitier" model="res.users">
-        <field name="partner_id" ref="partner_demo_alice_poitier" />
-        <field name="login">alice_poitier@exemple.ca</field>
-        <field name="password">demo</field>
-        <field name="signature" type="xml">
-            <span>
-                --
-                <br />
-                Alice Poitier
             </span>
         </field>
         <field name="company_id" ref="base.main_company" />

@@ -16,7 +16,7 @@ odoo.define('website.accorderie_aide', function (require) {
         $scope.section = "";
         $scope.error = "";
         $scope.guide_user_show = "item" // or "table"
-        $scope.guide_user_show_is_concat = "normal" // or "concat"
+        $scope.guide_user_show_is_concat = "concat" // or "normal"
 
         // constant
         $scope.default_section = "guide_utilisation";
@@ -33,6 +33,30 @@ odoo.define('website.accorderie_aide', function (require) {
                 $scope.section = $scope.default_section;
             }
         });
+
+        $scope.sizeStateValidated = function (state) {
+            let size = 0;
+            if (!_.isUndefined(state)) {
+                size = state.filter(state => !_.isEmpty(state.date_last_update)).length;
+            }
+            return size;
+        }
+
+        $scope.sizeGuideEchangeService = function (data, state) {
+            let size = 0;
+            if (!_.isUndefined(state) && !_.isEmpty(data.state_section)) {
+                size = state.filter(state => state.section === Object.keys(data.state_section)[0]).length;
+            }
+            return size;
+        }
+
+        $scope.sizeGuideImplemented = function (state) {
+            let size = 0;
+            if (!_.isUndefined(state)) {
+                size = state.filter(state => !state.not_implemented).length;
+            }
+            return size;
+        }
 
         $scope.getIconCaract = function (state, dctIcon) {
             let item = [];

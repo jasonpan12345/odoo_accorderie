@@ -4,7 +4,7 @@ import logging
 import time
 import urllib.parse
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import humanize
 import requests
@@ -1400,52 +1400,188 @@ class AccorderieCanadaDdbController(http.Controller):
         lst_u_caract.update(
             [a for a in data["dct_unique_caract_concat"].keys()]
         )
+
+        # Find all model_field_name associate with model_field_name_alias
+        dct_model_field_name = {
+            a.model_field_name: a.model_field_name_alias
+            for a in env["accorderie.workflow.state"]
+            .sudo()
+            .search(
+                [
+                    ("model_field_name", "!=", False),
+                    ("model_field_name_alias", "!=", False),
+                ]
+            )
+        }
+        # Find already member
+        membre_id = (
+            env["accorderie.membre"]
+            .sudo()
+            .search(
+                [
+                    ("membre_partner_id.user_ids", "!=", env.user.id),
+                ],
+                limit=1,
+            )
+        )
+        actual_membre_id = env["accorderie.membre"].search(
+            [("membre_partner_id.user_ids", "=", env.user.id)]
+        )
+
         set_caract = set()
         lst_state = []
-        for a in state_ids:
+        for state_id in state_ids:
             sub_data = {
-                "key": a.key,
+                "key": state_id.key,
                 # Add space after each 2 words, to fit in table
                 "key_space": ".".join(
                     [
                         b if not idx or idx % 2 else f" {b}"
-                        for idx, b in enumerate(a.key.split("."))
+                        for idx, b in enumerate(state_id.key.split("."))
                     ]
                 ),
-                "title": a.help_title,
-                "description": a.help_description,
-                "fast_btn_title": a.help_fast_btn_title,
-                "fast_btn_url": a.help_fast_btn_url,
-                "fast_btn_guide_url": a.help_fast_btn_guide_url,
-                "video_url": a.help_video_url,
-                "not_implemented": a.not_implemented,
+                "title": state_id.help_title,
+                "description": state_id.help_description,
+                "fast_btn_title": state_id.help_fast_btn_title,
+                "fast_btn_url": state_id.help_fast_btn_url,
+                "fast_btn_guide_url": state_id.help_fast_btn_guide_url,
+                "fast_btn_form_url": state_id.help_fast_btn_form_url,
+                "maquette_link": state_id.maquette_link,
+                "date_last_update": state_id.help_date_last_update,
+                "video_url": state_id.help_video_url,
+                "not_implemented": state_id.not_implemented,
             }
-            if a.help_caract_lst:
-                lst_caract = a.help_caract_lst.split(";")
+            # generate automatic fast_btn_form_url
+            if (
+                not state_id.not_implemented
+                # and state_id.model_field_depend
+                # and not state_id.help_fast_btn_form_url
+            ):
+                fast_btn_form_url = f"participer#!?state={state_id.key}"
+                lst_param = []
+                if state_id.model_field_depend:
+                    for model_field in state_id.model_field_depend.split(";"):
+                        value = ""
+                        # TODO missing associate model_field with model, so need to hardcode it
+                        # TODO need to support automatic type workflow (recevoir/offrir)
+                        if model_field == "type_service_id":
+                            value = 122
+                        elif model_field == "membre_id":
+                            value = membre_id.id
+                        elif model_field == "offre_service_id":
+                            if (
+                                state_id.caract_service_offrir_recevoir
+                                == "Service à recevoir"
+                            ):
+                                if membre_id.offre_service_ids:
+                                    value = membre_id.offre_service_ids[0].id
+                                else:
+                                    _logger.warning(
+                                        "cannot find offre service"
+                                    )
+                            else:
+                                if actual_membre_id.offre_service_ids:
+                                    value = actual_membre_id.offre_service_ids[
+                                        0
+                                    ].id
+                                else:
+                                    _logger.warning(
+                                        "cannot find offre service"
+                                    )
+                        elif model_field == "echange_service_id":
+                            if (
+                                state_id.caract_service_offrir_recevoir
+                                == "Service à recevoir"
+                            ):
+                                if membre_id.echange_service_acheteur_ids:
+                                    value = (
+                                        membre_id.echange_service_acheteur_ids[
+                                            0
+                                        ].id
+                                    )
+                                else:
+                                    _logger.warning(
+                                        "cannot find offre service"
+                                    )
+                            elif (
+                                state_id.caract_service_offrir_recevoir
+                                == "Service à offrir"
+                            ):
+                                if membre_id.echange_service_acheteur_ids:
+                                    value = actual_membre_id.echange_service_vendeur_ids[
+                                        0
+                                    ].id
+                                else:
+                                    _logger.warning(
+                                        "cannot find offre service"
+                                    )
+                            else:
+                                if (
+                                    actual_membre_id.echange_service_acheteur_ids
+                                ):
+                                    value = actual_membre_id.echange_service_acheteur_ids[
+                                        0
+                                    ].id
+                                else:
+                                    _logger.warning(
+                                        "cannot find offre service"
+                                    )
+                        elif model_field == "date_name":
+                            # Valide in past, else in futur
+                            if state_id.caract_valider_echange:
+                                value = (
+                                    datetime.today() - timedelta(days=3)
+                                ).strftime("%Y-%m-%d")
+                            else:
+                                value = (
+                                    datetime.today() + timedelta(days=3)
+                                ).strftime("%Y-%m-%d")
+                        elif model_field == "time_name":
+                            value = datetime.today().strftime("%H:%M")
+                        else:
+                            _logger.warning(
+                                "Not supported dynamic associate url:"
+                                f" {model_field}"
+                            )
+                        if value:
+                            lst_param.append(
+                                f"{dct_model_field_name[model_field]}={value}"
+                            )
+                if lst_param:
+                    fast_btn_form_url += f"&{'&'.join(lst_param)}"
+                sub_data["fast_btn_form_url"] = fast_btn_form_url
+            if state_id.model_field_depend:
+                str_html_field_depend = "<br/>".join(
+                    sorted(state_id.model_field_depend.split(";"))
+                )
+                sub_data["model_field_depend"] = str_html_field_depend
+
+            if state_id.help_caract_lst:
+                lst_caract = state_id.help_caract_lst.split(";")
                 sub_data["lst_caract"] = lst_caract
                 set_caract.update(lst_caract)
 
             sub_copy_data = sub_data.copy()
-            sub_copy_data["section"] = a.help_section
-            if a.help_sub_section:
-                sub_copy_data["sub_section"] = a.help_sub_section
+            sub_copy_data["section"] = state_id.help_section
+            if state_id.help_sub_section:
+                sub_copy_data["sub_section"] = state_id.help_sub_section
             lst_state.append(sub_copy_data)
 
-            if a.help_section in data["state_section"].keys():
+            if state_id.help_section in data["state_section"].keys():
                 if (
-                    a.help_sub_section
-                    in data["state_section"][a.help_section].keys()
+                    state_id.help_sub_section
+                    in data["state_section"][state_id.help_section].keys()
                 ):
-                    data["state_section"][a.help_section][
-                        a.help_sub_section
+                    data["state_section"][state_id.help_section][
+                        state_id.help_sub_section
                     ].append(sub_data)
                 else:
-                    data["state_section"][a.help_section][
-                        a.help_sub_section
+                    data["state_section"][state_id.help_section][
+                        state_id.help_sub_section
                     ] = [sub_data]
             else:
-                data["state_section"][a.help_section] = {
-                    a.help_sub_section: [sub_data]
+                data["state_section"][state_id.help_section] = {
+                    state_id.help_sub_section: [sub_data]
                 }
         data["state"] = lst_state
         # lst_u_caract.update([a for a in data["dct_unique_caract"].keys()])
@@ -1640,13 +1776,13 @@ class AccorderieCanadaDdbController(http.Controller):
 
             # Fix client time
             if not state_id.caract_valider_echange:
-                if vals["nb_heure"]:
-                    vals["nb_heure_estime"] = vals["nb_heure"]
+                if vals.get("nb_heure"):
+                    vals["nb_heure_estime"] = vals.get("nb_heure")
                     del vals["nb_heure"]
-                if vals["nb_heure_duree_trajet"]:
-                    vals["nb_heure_estime_duree_trajet"] = vals[
+                if vals.get("nb_heure_duree_trajet"):
+                    vals["nb_heure_estime_duree_trajet"] = vals.get(
                         "nb_heure_duree_trajet"
-                    ]
+                    )
                     del vals["nb_heure_duree_trajet"]
 
             if kw.get("frais_trajet"):

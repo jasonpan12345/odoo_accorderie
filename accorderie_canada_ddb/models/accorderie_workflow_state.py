@@ -170,6 +170,16 @@ class AccorderieWorkflowState(models.Model):
         help="Aide - lien du boutton guide interactif animation",
     )
 
+    help_fast_btn_form_url = fields.Char(
+        string="Help url form button",
+        help="Aide - lien du boutton formulaire",
+    )
+
+    help_date_last_update = fields.Datetime(
+        string="Date dernière mise à jour",
+        help="Date manuelle de la dernière mise à jour",
+    )
+
     help_video_url = fields.Char(
         string="Help video url",
         help="Aide - lien de la vidéo de l'aide",

@@ -4365,6 +4365,58 @@
                                 </ul>
                             </nav>
                             <div ng-if="section=='guide_utilisation'">
+                                <section class="s_big_icons">
+                                    <div class="container">
+                                        <div class="row mb64">
+                                            <div class="col-lg-12 text-center mb32">
+                                                <h2 class="o_default_snippet_text">Guide utilisateur</h2>
+                                                <h3 class="text-muted  o_default_snippet_text">Vue global
+                                                </h3>
+                                            </div>
+                                            <div class="col-lg-2 col-md-12 offset-lg-1 mt16 mb32">
+                                                <div class="s_big_icons_box">
+                                                    <div class="s_big_icons_icon bg-epsilon">
+                                                        <span class="fa fa-desktop" />
+                                                    </div>
+                                                    <h5 class="o_default_snippet_text">{{data.state.length}} guides utilisateurs</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-2 col-md-12 mt16 mb32">
+                                                <div class="s_big_icons_box">
+                                                    <div class="s_big_icons_icon bg-epsilon">
+                                                        <span class="fa fa-users" />
+                                                    </div>
+                                                    <h5 class="o_default_snippet_text">{{sizeStateValidated(data.state)}} validés</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-12 mt16 mb32">
+                                                <div class="s_big_icons_box">
+                                                    <div class="s_big_icons_icon bg-epsilon">
+                                                        <span class="fa fa-user" />
+                                                    </div>
+                                                    <h5 class="o_default_snippet_text">{{sizeGuideEchangeService(data, data.state)}} guides échange de service</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-12 mt16 mb32">
+                                                <div class="s_big_icons_box">
+                                                    <div class="s_big_icons_icon bg-epsilon">
+                                                        <span class="fa fa-globe" />
+                                                    </div>
+                                                    <h5 class="o_default_snippet_text">{{sizeGuideImplemented(data.state)}} guides implémentés</h5>
+                                                </div>
+                                            </div>
+<!--                                            <div class="col-lg-2 col-md-12 mt16 mb32">-->
+<!--                                                <div class="s_big_icons_box">-->
+<!--                                                    <div class="s_big_icons_icon bg-epsilon">-->
+<!--                                                        <span class="fa fa-users"/>-->
+<!--                                                    </div>-->
+<!--                                                    <h5 class="o_default_snippet_text">75 Partners</h5>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+                                        </div>
+                                    </div>
+                                </section>
                                 <section class="s_text_image pt32 pb32" ng-repeat="(section, dct_section) in data.state_section">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
@@ -4379,7 +4431,7 @@
                                             <select ng-show="guide_user_show === 'table'" name="changeModeConcat" class="debug_debug" ng-model="guide_user_show_is_concat">
 <!--                                            <select name="changeModeConcat" class="debug_debug" ng-model="guide_user_show_is_concat" ng-change="changeGuideUserIsConcat()">-->
                                                 <option value="normal">Normal</option>
-                                                <option value="concat">Concaténé</option>
+                                                <option value="concat">Compressé</option>
                                             </select>
                                             </div>
                                         </div>
@@ -4400,6 +4452,12 @@
                                                         <i ng-if="caract_info === false" class="fa" ng-class="{'fa-check':state.lst_caract.includes(caract)}" ng-style="{'color': guide_user_show_is_concat === 'normal' ? 'inherit' : '#00FF00'}" />
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td style="border:1px solid black">Champs requis</td>
+                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;vertical-align:top;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                        <span ng-if="!_.isEmpty(state.model_field_depend)" ng-bind-html="state.model_field_depend | unsafe" style="font-size:xx-small;" />
+                                                    </td>
+                                                </tr>
                                                 <footer>
                                                     <tr>
                                                         <td style="border:1px solid black">Exécuter</td>
@@ -4415,6 +4473,26 @@
                                                             </a>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid black">Lien direct</td>
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                            <a href="{{state.fast_btn_form_url}}" ng-if="!_.isEmpty(state.fast_btn_form_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid black">Lien maquette</td>
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                            <a href="{{state.maquette_link}}" ng-if="!_.isEmpty(state.maquette_link)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid black">Date update</td>
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented}" style="border:1px solid black;text-align: center;">
+                                                            <span ng-if="!_.isEmpty(state.date_last_update)">{{state.date_last_update}}</span>
+                                                        </td>
+                                                    </tr>
                                                 </footer>
                                             </table>
                                         </div>
@@ -4426,26 +4504,29 @@
                                                     </h1>
                                                 </div>
                                             </div>
-                                            <div class="row align-items-center" ng-repeat="dct_item in lst_sub_section" ng-class="{'debug_unimplemented': dct_item.not_implemented}">
+                                            <div class="row align-items-center" ng-repeat="state in lst_sub_section" ng-class="{'debug_unimplemented': state.not_implemented}">
                                                 <div class="col-lg-6 pt16 pb16">
-                                                    <h2>{{dct_item.title}}</h2>
-                                                    {{dct_item.description}}
+                                                    <h2>{{state.title}}</h2>
+                                                    {{state.description}}
+                                                    <span ng-if="!_.isEmpty(state.date_last_update)"><br />Dernière mise à jour : {{state.date_last_update}}</span>
                                                     <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
-                                                        <a href="{{dct_item.fast_btn_url}}" ng-if="!_.isEmpty(dct_item.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">{{dct_item.fast_btn_title}}
+                                                        <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">{{state.fast_btn_title}}
                                                         </a>
-                                                        <a href="{{dct_item.fast_btn_guide_url}}" ng-if="!_.isEmpty(dct_item.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
+                                                        <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide
+                                                        </a>
+                                                        <a href="{{state.fast_btn_form_url}}" ng-if="!_.isEmpty(state.fast_btn_form_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer demo
                                                         </a>
                                                     </div>
                                                     <div class="debug_debug">
-                                                        <span class="o_pill bg-200" ng-repeat="caract in dct_item.lst_caract">{{caract}}</span>
+                                                        <span class="o_pill bg-200" ng-repeat="caract in state.lst_caract">{{caract}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 pt16 pb16">
-                                                    <img ng-if="_.isEmpty(dct_item.video_url)" src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
-                                                    <div class="media_iframe_video" data-oe-expression="{{dct_item.video_url}}" ng-if="!_.isEmpty(dct_item.video_url)">
+                                                    <img ng-if="_.isEmpty(state.video_url)" src="/web/image/website.s_text_image_default_image" class="img img-fluid mx-auto" alt="ERPLibre • Texte et Image" />
+                                                    <div class="media_iframe_video" data-oe-expression="{{state.video_url}}" ng-if="!_.isEmpty(state.video_url)">
                                                         <div class="css_editable_mode_display">&amp;nbsp;</div>
                                                         <div class="media_iframe_video_size">&amp;nbsp;</div>
-                                                        <iframe ng-src="{{trustSrc(dct_item.video_url)}}" allowfullscreen="allowfullscreen" frameborder="0" />
+                                                        <iframe ng-src="{{trustSrc(state.video_url)}}" allowfullscreen="allowfullscreen" frameborder="0" />
                                                     </div>
                                                 </div>
                                             </div>
