@@ -792,17 +792,17 @@
                                         >Offre de service reçu
                                         </h2>
                                         <div
-                                            ng-if="['init.saa.offrir.existant.form', 'init.saa.recevoir.choix.existant.time.form'].includes(state.id)"
+                                            ng-if="['init.saa.offrir.existant.form', 'init.saa.recevoir.choix.existant.time.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.form'].includes(state.id)"
                                             ng-controller="OffreDemandeService"
                                             ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
                                             ng-init="model = 'accorderie.offre.service'; service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
                                         />
-                                        <div
-                                            ng-if="['init.va.non.offert.existant.form', 'init.va.non.recu.choix.form'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.offre_service)"
-                                            ng-controller="OffreDemandeService"
-                                            ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
-                                            ng-init="model = 'accorderie.offre.service'; service_id = echange_service.offre_service; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
-                                        />
+<!--                                        <div-->
+<!--                                            ng-if="['init.va.non.offert.existant.form', 'init.va.non.recu.choix.form'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.offre_service)"-->
+<!--                                            ng-controller="OffreDemandeService"-->
+<!--                                            ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"-->
+<!--                                            ng-init="model = 'accorderie.offre.service'; service_id = echange_service.offre_service; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "-->
+<!--                                        />-->
                                         <div
                                             ng-if="['init.va.oui.form'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.demande_service)"
                                             ng-controller="OffreDemandeService"

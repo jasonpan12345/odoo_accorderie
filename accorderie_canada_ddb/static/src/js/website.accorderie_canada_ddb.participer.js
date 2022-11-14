@@ -398,14 +398,15 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.get_href_participer_service_effectue = function (echange_service_info) {
             let status
-            if (!_.isUndefined(echange_service_info.demande_service) && !echange_service_info.estAcheteur) {
-                status = `/participer#!?state=init.va.oui.form&echange_service=${echange_service_info.id}`;
-            } else if (echange_service_info.estAcheteur) {
-                // TODO why need member?
-                status = `/participer#!?state=init.va.non.recu.choix.form&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
-            } else {
-                status = `/participer#!?state=init.va.non.offert.existant.form&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
-            }
+            // if (!_.isUndefined(echange_service_info.demande_service) && !echange_service_info.estAcheteur) {
+            //     status = `/participer#!?state=init.va.oui.form&echange_service=${echange_service_info.id}`;
+            // } else if (echange_service_info.estAcheteur) {
+            //     // TODO why need member?
+            //     status = `/participer#!?state=init.va.non.recu.choix.form&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+            // } else {
+            //     status = `/participer#!?state=init.va.non.offert.existant.form&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+            // }
+            status = `/participer#!?state=init.va.oui.form&echange_service=${echange_service_info.id}`;
             return status;
         }
 

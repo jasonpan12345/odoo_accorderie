@@ -286,7 +286,6 @@
             <field name="help_fast_btn_title">Créer un échange</field>
             <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_fast_btn_form_url">participer#!?state=init.saa.recevoir.choix.existant.time.form&amp;membre=3&amp;offre_service=6&amp;date=2022-11-10&amp;time=00:00</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
@@ -333,7 +332,7 @@
             <field name="message">Choisir une de ses offres ou faire une demande de service</field>
             <field name="type">selection_dynamique</field>
             <field name="show_breadcrumb">True</field>
-            <field name="breadcrumb_value">Pour %s</field>
+            <field name="breadcrumb_value">De %s</field>
             <field name="breadcrumb_field_value">membre_id</field>
             <field name="model_field_name_alias">offre_service</field>
             <field name="model_field_name">offre_service_id</field>
@@ -432,7 +431,7 @@
             <field name="breadcrumb_value">Avec une demande de service</field>
             <field name="model_field_name_alias">echange_service</field>
             <field name="model_field_name">echange_service_id</field>
-            <field name="data">mes_echanges_de_service_avec_demande_non_valide</field>
+            <field name="data">mes_echanges_de_service_non_valide</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_oui_form" model="accorderie.workflow.state">
@@ -478,9 +477,9 @@
             <field name="type">selection_dynamique</field>
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_value">J'ai offert un service</field>
-            <field name="model_field_name_alias">echange_service</field>
-            <field name="model_field_name">echange_service_id</field>
-            <field name="data">mes_echanges_de_service_offert_sans_demande_non_valide</field>
+            <field name="model_field_name_alias">offre_service</field>
+            <field name="model_field_name">offre_service_id</field>
+            <field name="data">mes_offres_de_service</field>
             <field name="list_is_first_position">False</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
@@ -506,7 +505,7 @@
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
             <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
-            <field name="model_field_depend">echange_service_id</field>
+            <field name="model_field_depend">membre_id;offre_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Valider un échange</field>
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre créée</field>
@@ -543,14 +542,14 @@
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_value">De %s</field>
             <field name="breadcrumb_field_value">membre_id</field>
-            <field name="model_field_name_alias">echange_service</field>
-            <field name="model_field_name">echange_service_id</field>
-            <field name="data">mes_echanges_de_service_recu_sans_demande_non_valide</field>
+            <field name="model_field_name_alias">offre_service</field>
+            <field name="model_field_name">offre_service_id</field>
+            <field name="data">ses_offres_de_service</field>
+            <field name="model_field_depend">membre_id</field>
             <field name="data_url_field">membre_id</field>
-            <field name="data_update_url">/accorderie_canada_ddb/get_info/echange_service/%s</field>
+            <field name="data_update_url">/accorderie_canada_ddb/get_info/offre_service/%s</field>
             <field name="force_update_data">True</field>
             <field name="list_is_first_position">False</field>
-            <field name="model_field_depend">membre_id</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_existant_formulaire" model="accorderie.workflow.state">
@@ -563,7 +562,7 @@
             <field name="submit_button_text">Je déclare que le service a bien été effectué</field>
             <field name="submit_response_title">La transaction de l'échange de service a bien été déclarée!</field>
             <field name="submit_response_description">Merci de contribuer continuellement à la communauté. Que souhaitez-vous faire maintenant?</field>
-            <field name="model_field_depend">membre_id;echange_service_id</field>
+            <field name="model_field_depend">membre_id;offre_service_id</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Valider un échange</field>
             <field name="help_title">Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre créée</field>

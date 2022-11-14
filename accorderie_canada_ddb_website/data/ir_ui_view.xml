@@ -3996,12 +3996,12 @@
                                             </div>
                                         </div>
                                         <div class="information information-5" ng-if="!echange_service_info.transaction_valide">
-                                            <span class="info_title">
+                                            <span class="info_title debug_unimplemented">
                                                 <font style="font-weight:bold;">
                                                     Conditions de l'entente
                                                 </font>
                                             </span>
-                                            <div class="condition">
+                                            <div class="condition debug_unimplemented">
                                                 <b class="nbr">
                                                     Coût possible supplémentaire à prévoir
                                                 </b>
@@ -4012,7 +4012,7 @@
                                                     <a href="" class="ml-auto text-primary">Voir la liste</a>
                                                 </p>
                                             </div>
-                                            <divider />
+                                            <divider class="debug_unimplemented" />
                                             <div class="condition">
                                                 <b class="nbr">
                                                     Estimation de la durée de service
