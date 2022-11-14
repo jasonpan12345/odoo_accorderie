@@ -1732,10 +1732,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     "id"
                 )
 
-            if kw.get("date_service"):
-                date_echange = kw.get("date_service")
-                if kw.get("time_service"):
-                    date_echange += " " + kw.get("time_service")
+            # TODO bug why init.saa.recevoir.choix.existant.time.form use date_name and not date_service
+            # TODO check date_service UI activated by animation (or by user click)
+            date_service = kw.get("date_service") or kw.get("date_name")
+            if date_service:
+                date_echange = date_service
+                time_service = kw.get("time_service") or kw.get("time_name")
+                if time_service:
+                    date_echange += " " + time_service
                     # TODO Take date from local of user
                     date_echange_float = datetime.strptime(
                         date_echange, "%Y-%m-%d %H:%M"

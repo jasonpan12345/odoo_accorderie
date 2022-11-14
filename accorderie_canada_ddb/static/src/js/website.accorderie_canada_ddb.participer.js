@@ -1545,6 +1545,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     // Change date
                     let $scope_controller = angular.element($("#wrap")).scope();
                     $(`#${$scope_controller.state.model_field_name}`).data().date = tomorrowDate;
+                    // $scope_controller.form["date_service"] = moment(data.date).format("YYYY-MM-DD");
+                    // $scope_controller.form["time_service"] = moment(data.date).format("HH:mm");
                     // click on Suivant
                     $scope.animationSelectorToSelector(name, undefined, '#nextBtn', generic_timer_ms, newValue + 1, false, true, false)
                 } else if (newValue === 14) {
