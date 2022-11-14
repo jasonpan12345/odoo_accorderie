@@ -162,22 +162,27 @@ class AccorderieWorkflowState(models.Model):
 
     help_fast_btn_url = fields.Char(
         string="Help url button",
-        help="Aide - lien du boutton pour aller à la page associé",
+        help="Aide - lien du bouton pour aller à la page associé",
     )
 
     help_fast_btn_guide_url = fields.Char(
         string="Help url guide button",
-        help="Aide - lien du boutton guide interactif animation",
+        help="Aide - lien du bouton guide interactif animation",
     )
 
     help_fast_btn_form_url = fields.Char(
         string="Help url form button",
-        help="Aide - lien du boutton formulaire",
+        help="Aide - lien du bouton formulaire",
     )
 
     help_date_last_update = fields.Datetime(
         string="Date dernière mise à jour",
         help="Date manuelle de la dernière mise à jour",
+    )
+
+    help_validate_bug = fields.Html(
+        string="Validate bug",
+        help="Information sur l'état, validation et bug connu",
     )
 
     help_video_url = fields.Char(

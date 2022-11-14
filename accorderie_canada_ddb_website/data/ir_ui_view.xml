@@ -4493,6 +4493,12 @@
                                                             <span ng-if="!_.isEmpty(state.date_last_update)">{{state.date_last_update}}</span>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid black">Validé/bug</td>
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented}" style="border:1px solid black;text-align: center;">
+                                                            <span ng-if="!_.isEmpty(state.validate_bug)" ng-bind-html="state.validate_bug | unsafe"/>
+                                                        </td>
+                                                    </tr>
                                                 </footer>
                                             </table>
                                         </div>

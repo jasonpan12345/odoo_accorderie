@@ -60,6 +60,7 @@
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer une offre de service publique individuelle</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
             <field name="help_video_url">//player.vimeo.com/video/753487834?autoplay=0</field>
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_pos_groupe_form" model="accorderie.workflow.state">
@@ -150,6 +151,7 @@
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer une demande de service publique individuelle</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
             <field name="help_video_url">//player.vimeo.com/video/753488142?autoplay=0</field>
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa" model="accorderie.workflow.state">
@@ -249,6 +251,7 @@
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante</field>
             <field name="help_video_url">//player.vimeo.com/video/753489576?autoplay=0</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service" model="accorderie.workflow.state">
@@ -288,6 +291,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne recevant le service d’une offre existante</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-bug" style="color:#FF0000"/&gt; Problème avec les données</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
@@ -313,6 +317,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.offrir.nouveau</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre qui doit être créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -384,6 +389,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne recevant le service d’une demande qui doit être créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_existant" model="accorderie.workflow.state">
@@ -464,6 +470,7 @@
             <field name="help_video_url">//player.vimeo.com/video/753491978?autoplay=0</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange existant</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -528,6 +535,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.va.non.offert</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu" model="accorderie.workflow.state">
@@ -587,6 +595,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.va.non.recu</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau" model="accorderie.workflow.state">
@@ -652,6 +661,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.va.non.offert</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui doit être créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va_non_recu_choix_nouveau_formulaire" model="accorderie.workflow.state">
@@ -679,6 +689,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.va.non.recu</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une demande qui doit être créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_dev_show_hide_developpement" model="accorderie.workflow.state">

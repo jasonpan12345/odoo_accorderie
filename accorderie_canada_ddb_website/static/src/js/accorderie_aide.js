@@ -37,7 +37,7 @@ odoo.define('website.accorderie_aide', function (require) {
         $scope.sizeStateValidated = function (state) {
             let size = 0;
             if (!_.isUndefined(state)) {
-                size = state.filter(state => !_.isEmpty(state.date_last_update)).length;
+                size = state.filter(state => state.validate_bug === "<i class=\"fa fa-check\" style=\"color:#00FF00\"></i>").length;
             }
             return size;
         }

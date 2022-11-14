@@ -1459,6 +1459,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "fast_btn_form_url": state_id.help_fast_btn_form_url,
                 "maquette_link": state_id.maquette_link,
                 "date_last_update": state_id.help_date_last_update,
+                "validate_bug": state_id.help_validate_bug,
                 "video_url": state_id.help_video_url,
                 "not_implemented": state_id.not_implemented,
             }
