@@ -1424,9 +1424,14 @@ class AccorderieCanadaDdbController(http.Controller):
                 limit=1,
             )
         )
-        actual_membre_id = env["accorderie.membre"].search(
-            [("membre_partner_id.user_ids", "=", env.user.id)]
-        )
+        if http.request.env.user.partner_id.id == 4:
+            # TODO find better solution, validate it's associate with member
+            # Detect if user is public
+            actual_membre_id = None
+        else:
+            actual_membre_id = env["accorderie.membre"].search(
+                [("membre_partner_id.user_ids", "=", env.user.id)]
+            )
 
         set_caract = set()
         lst_state = []
@@ -1451,105 +1456,111 @@ class AccorderieCanadaDdbController(http.Controller):
                 "video_url": state_id.help_video_url,
                 "not_implemented": state_id.not_implemented,
             }
-            # generate automatic fast_btn_form_url
-            if (
-                not state_id.not_implemented
-                # and state_id.model_field_depend
-                # and not state_id.help_fast_btn_form_url
-            ):
-                fast_btn_form_url = f"participer#!?state={state_id.key}"
-                lst_param = []
-                if state_id.model_field_depend:
-                    for model_field in state_id.model_field_depend.split(";"):
-                        value = ""
-                        # TODO missing associate model_field with model, so need to hardcode it
-                        # TODO need to support automatic type workflow (recevoir/offrir)
-                        if model_field == "type_service_id":
-                            value = 122
-                        elif model_field == "membre_id":
-                            value = membre_id.id
-                        elif model_field == "offre_service_id":
-                            if (
-                                state_id.caract_service_offrir_recevoir
-                                == "Service à recevoir"
-                            ):
-                                if membre_id.offre_service_ids:
-                                    value = membre_id.offre_service_ids[0].id
-                                else:
-                                    _logger.warning(
-                                        "cannot find offre service"
-                                    )
-                            else:
-                                if actual_membre_id.offre_service_ids:
-                                    value = actual_membre_id.offre_service_ids[
-                                        0
-                                    ].id
-                                else:
-                                    _logger.warning(
-                                        "cannot find offre service"
-                                    )
-                        elif model_field == "echange_service_id":
-                            if (
-                                state_id.caract_service_offrir_recevoir
-                                == "Service à recevoir"
-                            ):
-                                if membre_id.echange_service_acheteur_ids:
-                                    value = (
-                                        membre_id.echange_service_acheteur_ids[
+            if actual_membre_id is not None:
+                # Need to be connected
+                # generate automatic fast_btn_form_url
+                if (
+                    not state_id.not_implemented
+                    # and state_id.model_field_depend
+                    # and not state_id.help_fast_btn_form_url
+                ):
+                    fast_btn_form_url = f"participer#!?state={state_id.key}"
+                    lst_param = []
+                    if state_id.model_field_depend:
+                        for model_field in state_id.model_field_depend.split(
+                            ";"
+                        ):
+                            value = ""
+                            # TODO missing associate model_field with model, so need to hardcode it
+                            # TODO need to support automatic type workflow (recevoir/offrir)
+                            if model_field == "type_service_id":
+                                value = 122
+                            elif model_field == "membre_id":
+                                value = membre_id.id
+                            elif model_field == "offre_service_id":
+                                if (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à recevoir"
+                                ):
+                                    if membre_id.offre_service_ids:
+                                        value = membre_id.offre_service_ids[
                                             0
                                         ].id
-                                    )
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
                                 else:
-                                    _logger.warning(
-                                        "cannot find offre service"
-                                    )
-                            elif (
-                                state_id.caract_service_offrir_recevoir
-                                == "Service à offrir"
-                            ):
-                                if membre_id.echange_service_acheteur_ids:
-                                    value = actual_membre_id.echange_service_vendeur_ids[
-                                        0
-                                    ].id
-                                else:
-                                    _logger.warning(
-                                        "cannot find offre service"
-                                    )
-                            else:
+                                    if actual_membre_id.offre_service_ids:
+                                        value = (
+                                            actual_membre_id.offre_service_ids[
+                                                0
+                                            ].id
+                                        )
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                            elif model_field == "echange_service_id":
                                 if (
-                                    actual_membre_id.echange_service_acheteur_ids
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à recevoir"
                                 ):
-                                    value = actual_membre_id.echange_service_acheteur_ids[
-                                        0
-                                    ].id
+                                    if membre_id.echange_service_acheteur_ids:
+                                        value = membre_id.echange_service_acheteur_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                                elif (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à offrir"
+                                ):
+                                    if membre_id.echange_service_acheteur_ids:
+                                        value = actual_membre_id.echange_service_vendeur_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
                                 else:
-                                    _logger.warning(
-                                        "cannot find offre service"
-                                    )
-                        elif model_field == "date_name":
-                            # Valide in past, else in futur
-                            if state_id.caract_valider_echange:
-                                value = (
-                                    datetime.today() - timedelta(days=3)
-                                ).strftime("%Y-%m-%d")
+                                    if (
+                                        actual_membre_id.echange_service_acheteur_ids
+                                    ):
+                                        value = actual_membre_id.echange_service_acheteur_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                            elif model_field == "date_name":
+                                # Valide in past, else in futur
+                                if state_id.caract_valider_echange:
+                                    value = (
+                                        datetime.today() - timedelta(days=3)
+                                    ).strftime("%Y-%m-%d")
+                                else:
+                                    value = (
+                                        datetime.today() + timedelta(days=3)
+                                    ).strftime("%Y-%m-%d")
+                            elif model_field == "time_name":
+                                value = datetime.today().strftime("%H:%M")
                             else:
-                                value = (
-                                    datetime.today() + timedelta(days=3)
-                                ).strftime("%Y-%m-%d")
-                        elif model_field == "time_name":
-                            value = datetime.today().strftime("%H:%M")
-                        else:
-                            _logger.warning(
-                                "Not supported dynamic associate url:"
-                                f" {model_field}"
-                            )
-                        if value:
-                            lst_param.append(
-                                f"{dct_model_field_name[model_field]}={value}"
-                            )
-                if lst_param:
-                    fast_btn_form_url += f"&{'&'.join(lst_param)}"
-                sub_data["fast_btn_form_url"] = fast_btn_form_url
+                                _logger.warning(
+                                    "Not supported dynamic associate url:"
+                                    f" {model_field}"
+                                )
+                            if value:
+                                lst_param.append(
+                                    f"{dct_model_field_name[model_field]}={value}"
+                                )
+                    if lst_param:
+                        fast_btn_form_url += f"&{'&'.join(lst_param)}"
+                    sub_data["fast_btn_form_url"] = fast_btn_form_url
             if state_id.model_field_depend:
                 str_html_field_depend = "<br/>".join(
                     sorted(state_id.model_field_depend.split(";"))
