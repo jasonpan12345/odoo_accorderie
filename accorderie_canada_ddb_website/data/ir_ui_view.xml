@@ -4439,12 +4439,12 @@
                                             <table style="border:1px solid black">
                                                 <tr>
                                                     <th style="border:1px solid black">Caractéristiques</th>
-                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented}">{{state.title}}<br /><span style="color:#00FF00">{{state.key_space}}</span><br /><span style="color:#0000FF;font-size:5px;">{{state.key}}</span></th>
+                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">{{state.title}}<br /><span style="color:#00FF00">{{state.key_space}}</span><br /><span style="color:#0000FF;font-size:5px;">{{state.key}}</span><br /><input type="checkbox" ng-model="state.table_col_check" /></th>
 <!--                                                    ng-bind-html="link.html | unsafe"-->
                                                 </tr>
                                                 <tr ng-repeat="(caract, caract_info) in (guide_user_show_is_concat === 'normal' ? data.dct_unique_caract: data.dct_unique_caract_concat)" ng-style="{'background-color': $even ? '#FFFFFF' : '#888888'}" style="text-align: center;">
                                                     <td style="border:1px solid black" ng-bind-html="caract | unsafe" />
-                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                         <span ng-if="caract_info !== false">
                                                             <i class="fa" ng-repeat="icon_name in getIconCaract(state, caract_info)" ng-class="icon_name" ng-style="{'color': icon_name.includes('fa-inverse') ? '#00FF00' : 'inherit'}" />
                                                         </span>
@@ -4454,48 +4454,48 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="border:1px solid black">Champs requis</td>
-                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;vertical-align:top;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                    <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;vertical-align:top;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                         <span ng-if="!_.isEmpty(state.model_field_depend)" ng-bind-html="state.model_field_depend | unsafe" style="font-size:xx-small;" />
                                                     </td>
                                                 </tr>
                                                 <footer>
                                                     <tr>
                                                         <td style="border:1px solid black">Exécuter</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
                                                             </a>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Animation guidé</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
                                                             </a>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Lien direct</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_form_url}}" ng-if="!_.isEmpty(state.fast_btn_form_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
                                                             </a>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Lien maquette</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.maquette_link}}" ng-if="!_.isEmpty(state.maquette_link)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
                                                             </a>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Date update</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented}" style="border:1px solid black;text-align: center;">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
                                                             <span ng-if="!_.isEmpty(state.date_last_update)">{{state.date_last_update}}</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="border:1px solid black">Validé/bug</td>
-                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented}" style="border:1px solid black;text-align: center;">
+                                                        <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
                                                             <span ng-if="!_.isEmpty(state.validate_bug)" ng-bind-html="state.validate_bug | unsafe" />
                                                         </td>
                                                     </tr>
@@ -4510,7 +4510,7 @@
                                                     </h1>
                                                 </div>
                                             </div>
-                                            <div class="row align-items-center" ng-repeat="state in lst_sub_section" ng-class="{'debug_unimplemented': state.not_implemented}">
+                                            <div class="row align-items-center" ng-repeat="state in lst_sub_section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                 <div class="col-lg-6 pt16 pb16">
                                                     <h2>{{state.title}}</h2>
                                                     {{state.description}}
