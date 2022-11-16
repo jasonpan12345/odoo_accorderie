@@ -4439,7 +4439,7 @@
                                             <table style="border:1px solid black">
                                                 <tr>
                                                     <th style="border:1px solid black">Caractéristiques</th>
-                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented}">{{state.title}}<br /><span style="color:#00FF00">{{state.key_space}}</span></th>
+                                                    <th ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black" ng-class="{'debug_unimplemented': state.not_implemented}">{{state.title}}<br /><span style="color:#00FF00">{{state.key_space}}</span><br /><span style="color:#0000FF;font-size:5px;">{{state.key}}</span></th>
 <!--                                                    ng-bind-html="link.html | unsafe"-->
                                                 </tr>
                                                 <tr ng-repeat="(caract, caract_info) in (guide_user_show_is_concat === 'normal' ? data.dct_unique_caract: data.dct_unique_caract_concat)" ng-style="{'background-color': $even ? '#FFFFFF' : '#888888'}" style="text-align: center;">
@@ -4496,7 +4496,7 @@
                                                     <tr>
                                                         <td style="border:1px solid black">Validé/bug</td>
                                                         <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented}" style="border:1px solid black;text-align: center;">
-                                                            <span ng-if="!_.isEmpty(state.validate_bug)" ng-bind-html="state.validate_bug | unsafe"/>
+                                                            <span ng-if="!_.isEmpty(state.validate_bug)" ng-bind-html="state.validate_bug | unsafe" />
                                                         </td>
                                                     </tr>
                                                 </footer>
