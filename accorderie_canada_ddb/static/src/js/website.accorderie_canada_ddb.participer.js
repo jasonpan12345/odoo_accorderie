@@ -3096,116 +3096,176 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             console.debug($scope.form);
         }
 
-        $scope.form_is_nouveau_except_pos = function () {
+        $scope.form_is_nouveau_except_pos = function (state) {
             // nouvelle offre/demande sur un échange
-            return [
-                'init.saa.offrir.nouveau.cat.form',
-                'init.saa.recevoir.choix.nouveau.form',
-                'init.va.non.offert.nouveau.cat.form',
-                'init.va.non.recu.choix.nouveau.form'
-            ].includes($scope.state.id);
+            return !_.isUndefined(state.caract_echange_nouvel_existant) &&
+                ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante);
         }
 
-        $scope.form_is_nouveau = function () {
+        $scope.form_is_nouveau = function (state) {
             // nouvelle offre/demande
-            return [
-                'init.pos.single.form',
-                'init.pds.single.form',
-                'init.saa.offrir.nouveau.cat.form',
-                'init.saa.recevoir.choix.nouveau.form',
-                'init.va.non.offert.nouveau.cat.form',
-                'init.va.non.recu.choix.nouveau.form'
-            ].includes($scope.state.id);
+            return ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante);
         }
 
-        $scope.form_is_offre_demande_service = function () {
-            // offre/demande sans échange
-            return [
-                'init.pos.single.form',
-                'init.pds.single.form',
-            ].includes($scope.state.id);
+        $scope.form_is_offre_demande_service = function (state) {
+            return !_.isUndefined(state.caract_offre_demande_nouveau_existante) &&
+                _.isUndefined(state.caract_service_offrir_recevoir) &&
+                _.isUndefined(state.caract_echange_nouvel_existant);
         }
 
-        $scope.form_is_service = function () {
-            //
-            return [
+        $scope.form_is_service = function (state) {
+            // TODO this is wrong
+            return !_.isUndefined(state.caract_valider_echange) || [
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
-                'init.va.oui.form',
-                'init.va.non.offert.nouveau.cat.form',
-                'init.va.non.offert.existant.form',
-                'init.va.non.recu.choix.nouveau.form',
-                'init.va.non.recu.choix.form'
-            ].includes($scope.state.id)
+            ].includes(state.id);
         }
 
-        $scope.form_is_service_to_modify = function () {
-            return [
-                'init.saa.recevoir.choix.existant.time.form'
-            ].includes($scope.state.id)
+        $scope.form_is_nouvelle_offre = function (state) {
+            return state.caract_offre_demande_nouveau_existante === "Nouvelle offre" &&
+                _.isUndefined(state.caract_service_offrir_recevoir) &&
+                _.isUndefined(state.caract_echange_nouvel_existant);
         }
 
-        $scope.form_is_service_and_service_prevu = function () {
+        $scope.form_is_nouvelle_demande = function (state) {
+            return state.caract_offre_demande_nouveau_existante === "Nouvelle demande" &&
+                _.isUndefined(state.caract_service_offrir_recevoir) &&
+                _.isUndefined(state.caract_echange_nouvel_existant);
+        }
+
+        $scope.form_is_service_to_modify = function (state) {
+            return state.caract_offre_demande_nouveau_existante === "Offre existante" &&
+                state.caract_service_offrir_recevoir === "Service à recevoir" &&
+                _.isUndefined(state.caract_valider_echange);
+        }
+
+        $scope.form_is_service_and_service_prevu = function (state) {
             // TODO this is a hack because calling {{load_date()}} in page not working some time
             // Est échange
             $scope.load_date();
-            return [
-                'init.saa.offrir.nouveau.cat.form',
-                'init.saa.offrir.existant.form',
-                'init.saa.recevoir.choix.nouveau.form',
-                'init.saa.recevoir.choix.existant.time.form',
-                'init.va.oui.form',
-                'init.va.non.offert.nouveau.cat.form',
-                'init.va.non.offert.existant.form',
-                'init.va.non.recu.choix.nouveau.form',
-                'init.va.non.recu.choix.form'
-            ].includes($scope.state.id)
+            return !_.isUndefined(state.caract_echange_nouvel_existant);
         }
 
-        $scope.form_is_service_prevu = function () {
+        $scope.form_is_nouvel_echange_service_offrir_offre_existante = function (state) {
+            return state.caract_echange_nouvel_existant === "Nouvel échange" &&
+                state.caract_service_offrir_recevoir === "Service à offrir" &&
+                state.caract_offre_demande_nouveau_existante === "Offre existante";
+        }
+
+        $scope.form_is_valider_echange = function (state) {
+            return !_.isUndefined(state.caract_valider_echange);
+        }
+
+        $scope.form_is_echange_pas_valider = function (state) {
+            return _.isUndefined(state.caract_valider_echange) &&
+                !_.isUndefined(state.caract_echange_nouvel_existant);
+        }
+
+        $scope.form_is_recevoir_not_valider = function (state) {
+            return _.isUndefined(state.caract_valider_echange) &&
+                state.caract_service_offrir_recevoir === "Service à recevoir";
+        }
+
+        $scope.form_is_exist_echange_to_validate = function (state) {
+            return !_.isUndefined(state.caract_valider_echange) &&
+                state.caract_echange_nouvel_existant === "Échange existant";
+        }
+
+        $scope.form_is_echange_sur_offre_demande_existante = function (state) {
+            return !_.isUndefined(state.caract_echange_nouvel_existant) &&
+                ["Offre existante", "Demande existante"].includes(state.caract_offre_demande_nouveau_existante);
+        }
+
+        $scope.form_is_frais_trajet_distance = function (state) {
+            // TODO why «all service», not validate; exclude service.offrir + offre.nouvelle ??
+            // TODO not validate : isUndefined($scope.state.caract_valider_echange)
             return [
                 'init.saa.offrir.nouveau.cat.form',
+                'init.saa.recevoir.choix.nouveau.form',
                 'init.saa.recevoir.choix.existant.time.form'
-            ].includes($scope.state.id)
+            ].includes(state.id)
         }
 
-        $scope.form_frais_trajet_distance = function () {
-            return [
-                'init.saa.offrir.nouveau.cat.form',
-                'init.saa.recevoir.choix.nouveau.form',
-                'init.saa.recevoir.choix.existant.time.form'
-            ].includes($scope.state.id)
-        }
-
-        $scope.form_frais_trajet_prix = function () {
-            return [
+        $scope.form_is_frais_trajet_prix = function (state) {
+            // TODO why «all validate service», include service.offrir + offre.nouvelle + not validate
+            // TODO ou service - form_frais_trajet_distance()
+            return !_.isUndefined(state.caract_valider_echange) || [
                 'init.saa.offrir.existant.form',
-                'init.va.oui.form',
-                'init.va.non.offert.nouveau.cat.form',
-                'init.va.non.offert.existant.form',
-                'init.va.non.recu.choix.nouveau.form',
-                'init.va.non.recu.choix.form'
-            ].includes($scope.state.id)
+            ].includes(state.id)
         }
 
-        $scope.form_is_commentaire = function () {
-            return [
+        $scope.form_is_commentaire = function (state) {
+            // TODO il devrait tous avoir des commentaires à mon avis...
+            return !_.isUndefined(state.caract_valider_echange) || [
                 'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
-                'init.va.oui.form',
-                'init.va.non.offert.nouveau.cat.form',
-                'init.va.non.offert.existant.form',
-                'init.va.non.recu.choix.nouveau.form',
-                'init.va.non.recu.choix.form'
-            ].includes($scope.state.id)
+            ].includes(state.id)
         }
 
-        $scope.form_frais_import_list_without_modify = function () {
-
+        $scope.form_is_destinataire_du_service = function (state) {
             return [
                 'init.saa.offrir.nouveau.cat.form',
+                'init.saa.offrir.existant.form',
                 'init.saa.recevoir.choix.nouveau.form',
-            ].includes($scope.state.id)
+                'init.va.non.offert.nouveau.cat.form',
+                'init.va.non.offert.existant.form'
+            ].includes(state.id)
+        }
+
+        $scope.form_is_destinataire_du_service_de_qui = function (state) {
+            return [
+                'init.va.non.recu.choix.nouveau.form',
+            ].includes(state.id)
+        }
+
+        $scope.form_is_frais_import_list_without_modify = function (state) {
+            return _.isUndefined(state.caract_valider_echange) &&
+                !_.isUndefined(state.caract_echange_nouvel_existant) &&
+                ["Nouvelle offre", "Nouvelle demande"].includes(state.caract_offre_demande_nouveau_existante);
+        }
+
+
+        // Dev tools
+        $scope.dctFormIsCall = {
+            form_is_nouveau_except_pos: $scope.form_is_nouveau_except_pos,
+            form_is_nouveau: $scope.form_is_nouveau,
+            form_is_offre_demande_service: $scope.form_is_offre_demande_service,
+            form_is_service: $scope.form_is_service,
+            form_is_nouvelle_offre: $scope.form_is_nouvelle_offre,
+            form_is_nouvelle_demande: $scope.form_is_nouvelle_demande,
+            form_is_service_to_modify: $scope.form_is_service_to_modify,
+            form_is_service_and_service_prevu: $scope.form_is_service_and_service_prevu,
+            form_is_nouvel_echange_service_offrir_offre_existante: $scope.form_is_nouvel_echange_service_offrir_offre_existante,
+            form_is_valider_echange: $scope.form_is_valider_echange,
+            form_is_echange_pas_valider: $scope.form_is_echange_pas_valider,
+            form_is_recevoir_not_valider: $scope.form_is_recevoir_not_valider,
+            form_is_exist_echange_to_validate: $scope.form_is_exist_echange_to_validate,
+            form_is_echange_sur_offre_demande_existante: $scope.form_is_echange_sur_offre_demande_existante,
+            form_is_frais_trajet_distance: $scope.form_is_frais_trajet_distance,
+            form_is_frais_trajet_prix: $scope.form_is_frais_trajet_prix,
+            form_is_commentaire: $scope.form_is_commentaire,
+            form_is_destinataire_du_service: $scope.form_is_destinataire_du_service,
+            form_is_destinataire_du_service_de_qui: $scope.form_is_destinataire_du_service_de_qui,
+            form_is_frais_import_list_without_modify: $scope.form_is_frais_import_list_without_modify,
+        }
+
+        for (const [name, cb] of Object.entries($scope.dctFormIsCall)) {
+            $scope.dctFormIsCall[name] = {
+                enable: false,
+                originCB: cb,
+                cb: function (dctCB) {
+                    let $scope_controller = angular.element(document.querySelector('[ng-controller="AideController"]')).scope();
+                    for (const [name, innerCB] of Object.entries($scope.dctFormIsCall)) {
+                        innerCB.enable = false;
+                    }
+                    dctCB.enable = true;
+
+                    for (const state of $scope_controller.data.state) {
+                        let result = cb(state);
+                        state.table_col_check = result;
+                    }
+                }
+            }
         }
 
         $scope.parseFloatTime = function (value) {
@@ -3300,13 +3360,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     } else {
                         $scope.show_submit_modal = true;
                         // TODO when after server url redirection or create logic condition
-                        if ('init.pos.single.form' === $scope.state.id) {
+                        if ($scope.form_is_nouvelle_offre($scope.state)) {
                             $scope.submitted_url = `accorderie_canada_ddb/accorderie_offre_service/${data.offre_service_id}`;
-                        } else if ('init.pds.single.form' === $scope.state.id) {
+                        } else if ($scope.form_is_nouvelle_demande($scope.state)) {
                             $scope.submitted_url = `accorderie_canada_ddb/accorderie_demande_service/${data.demande_service_id}`;
-                        } else if (['init.saa.offrir.existant.form', 'init.saa.recevoir.choix.existant.time.form', 'init.saa.offrir.nouveau.cat.form', 'init.saa.recevoir.choix.nouveau.form'].includes($scope.state.id)) {
-                            $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
-                        } else if (['init.va.non.offert.nouveau.cat.form', 'init.va.oui.form', 'init.va.non.recu.choix.form', 'init.va.non.offert.existant.form', 'init.va.non.recu.choix.nouveau.form'].includes($scope.state.id)) {
+                        } else if ($scope.form_is_service_and_service_prevu($scope.state)) {
                             $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
                         } else {
                             $scope.submitted_url = "";

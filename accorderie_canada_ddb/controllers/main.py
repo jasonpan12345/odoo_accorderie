@@ -1247,6 +1247,24 @@ class AccorderieCanadaDdbController(http.Controller):
                     dct_state[
                         "submit_response_title"
                     ] = state_id.submit_response_title
+                if state_id.caract_offre_demande_nouveau_existante:
+                    dct_state[
+                        "caract_offre_demande_nouveau_existante"
+                    ] = state_id.caract_offre_demande_nouveau_existante
+                if state_id.caract_echange_nouvel_existant:
+                    dct_state[
+                        "caract_echange_nouvel_existant"
+                    ] = state_id.caract_echange_nouvel_existant
+                if state_id.caract_service_offrir_recevoir:
+                    dct_state[
+                        "caract_service_offrir_recevoir"
+                    ] = state_id.caract_service_offrir_recevoir
+                if state_id.caract_valider_echange:
+                    dct_state[
+                        "caract_valider_echange"
+                    ] = state_id.caract_valider_echange
+                if state_id.help_caract_lst:
+                    dct_state["help_caract_lst"] = state_id.help_caract_lst
                 if state_id.submit_response_description:
                     dct_state[
                         "submit_response_description"
@@ -1443,6 +1461,7 @@ class AccorderieCanadaDdbController(http.Controller):
         lst_state = []
         for state_id in state_ids:
             sub_data = {
+                "id": state_id.key,
                 "key": state_id.key,
                 # Add space after each 2 words, to fit in table
                 "key_space": ".".join(
@@ -1463,6 +1482,25 @@ class AccorderieCanadaDdbController(http.Controller):
                 "video_url": state_id.help_video_url,
                 "not_implemented": state_id.not_implemented,
             }
+            if state_id.caract_offre_demande_nouveau_existante:
+                sub_data[
+                    "caract_offre_demande_nouveau_existante"
+                ] = state_id.caract_offre_demande_nouveau_existante
+            if state_id.caract_echange_nouvel_existant:
+                sub_data[
+                    "caract_echange_nouvel_existant"
+                ] = state_id.caract_echange_nouvel_existant
+            if state_id.caract_service_offrir_recevoir:
+                sub_data[
+                    "caract_service_offrir_recevoir"
+                ] = state_id.caract_service_offrir_recevoir
+            if state_id.caract_valider_echange:
+                sub_data[
+                    "caract_valider_echange"
+                ] = state_id.caract_valider_echange
+            if state_id.help_caract_lst:
+                sub_data["help_caract_lst"] = state_id.help_caract_lst
+
             if actual_membre_id is not None:
                 # Need to be connected
                 # generate automatic fast_btn_form_url

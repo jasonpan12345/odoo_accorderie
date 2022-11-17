@@ -370,7 +370,7 @@
             <field name="name">Formulaire nouveau service reçu échange</field>
             <field name="key">init.saa.recevoir.choix.nouveau.form</field>
             <field name="maquette_link">https://marvelapp.com/prototype/1773h559/screen/86697719</field>
-            <field name="message">Description de la transaction</field>
+            <field name="message">Description de ma demande</field>
             <field name="type">form</field>
             <field name="show_breadcrumb">False</field>
             <field name="submit_button_text">Envoyer ma demande</field>
