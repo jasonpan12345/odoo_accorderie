@@ -58,6 +58,18 @@ odoo.define('website.accorderie_aide', function (require) {
             return size;
         }
 
+        $scope.open_all_animation_tab = function (lstState) {
+            console.debug("Open all animation in tab")
+            console.debug(lstState);
+            for (const i in lstState) {
+                let state = lstState[i];
+                console.debug(state)
+                if (!_.isEmpty(state.fast_btn_url)) {
+                    window.open(state.fast_btn_guide_url, '_blank');
+                }
+            }
+        }
+
         $scope.getIconCaract = function (state, dctIcon) {
             let item = [];
             for (const [key, value] of Object.entries(dctIcon)) {

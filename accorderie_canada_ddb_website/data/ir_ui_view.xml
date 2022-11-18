@@ -4467,7 +4467,8 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="border:1px solid black">Animation guidé</td>
+                                                        <td style="border:1px solid black">Animation guidé <a ng-click="open_all_animation_tab(data.state)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
+                                                            </a></td>
                                                         <td ng-repeat="state in data.state" ng-if="state.section == section" style="border:1px solid black;text-align: center;" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}">
                                                             <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943"><i class="fa fa-clock-o" />
                                                             </a>
