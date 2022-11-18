@@ -14,12 +14,14 @@ odoo.define('website.accorderie_aide', function (require) {
     app.controller('AideController', ['$scope', '$location', '$sce', function ($scope, $location, $sce) {
         $scope._ = _;
         $scope.section = "";
+        $scope.amelioration_section = "";
         $scope.error = "";
         $scope.guide_user_show = "item" // or "table"
         $scope.guide_user_show_is_concat = "concat" // or "normal"
 
         // constant
         $scope.default_section = "guide_utilisation";
+        $scope.default_amelioration_section = "amelioration_continue";
 
         $scope.trustSrc = function (src) {
             return $sce.trustAsResourceUrl(src);
@@ -31,6 +33,12 @@ odoo.define('website.accorderie_aide', function (require) {
                 $scope.section = section;
             } else {
                 $scope.section = $scope.default_section;
+            }
+            let amelioration_section = $location.search()["amelioration_section"];
+            if (!_.isEmpty(amelioration_section)) {
+                $scope.amelioration_section = amelioration_section;
+            } else {
+                $scope.amelioration_section = $scope.default_amelioration_section;
             }
         });
 

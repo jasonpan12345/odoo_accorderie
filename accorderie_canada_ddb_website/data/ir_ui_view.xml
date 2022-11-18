@@ -3373,6 +3373,8 @@
                                             <a href="/aide#!?section=tutoriel" class="footer_link debug_unimplemented">Tutoriel</a>
                                             <br />
                                             <a href="/aide#!?section=faq" class="footer_link">F.A.Q.</a>
+                                            <br />
+                                            <a href="/aide#!?section=amelioration" class="footer_link">Amélioration</a>
                                         </div>
                                     </div>
                                 </div>
@@ -4362,6 +4364,11 @@
                                             <span>F.A.Q.</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="/aide#!?section=amelioration" class="nav-link" role="menu_item" ng-class="{'active': section=='amelioration'}">
+                                            <span>Amélioration</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                             <div ng-if="section=='guide_utilisation'">
@@ -4558,6 +4565,277 @@
                             </div>
                             <section ng-if="section=='faq'" t-if="not user_id._is_public()">
                                 faq
+                            </section>
+                            <section class="container readable o_website_form_builder s_tabs" ng-if="section=='amelioration'">
+                                <div class="container">
+                                    <div class="row s_col_no_bgcolor">
+                                        <div class="col-lg-12 pt48 pb48">
+                                            <div class="card bg-white">
+                                                <div class="card-header">
+                                                    <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link o_default_snippet_text" ng-class="{'active': amelioration_section === 'amelioration_continue'}" data-toggle="tab" href="/aide#!?section=amelioration&amp;amelioration_section=amelioration_continue" role="tab" aria-selected="true">Amélioration continue
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link o_default_snippet_text" ng-class="{'active': amelioration_section === 'report_bug'}" data-toggle="tab" href="/aide#!?section=amelioration&amp;amelioration_section=report_bug" role="tab" aria-selected="false">Reporter un bogue
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link o_default_snippet_text" ng-class="{'active': amelioration_section === 'revision_paire'}" data-toggle="tab" href="/aide#!?section=amelioration&amp;amelioration_section=revision_paire" role="tab" aria-selected="false">Révision par les paires
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="card-body tab-content">
+                                                    <div class="tab-pane fade" ng-class="{'active': amelioration_section === 'amelioration_continue', 'show': amelioration_section === 'amelioration_continue'}" role="tabpanel" aria-labelledby="nav_tabs_link">
+                                                        <h3 class="o_default_snippet_text">Proposer une amélioration</h3>
+                                                        <p class="o_default_snippet_text">Votre amélioration va être intégré dans un processus d'amélioration continue, il sera analysé par nos experts, merci pour votre contribution.</p>
+                                                        <form accept-charset="UTF-8" action="/website_form/" class="s_website_form col-md-12 mt32" data-model_name="crm.lead" data-force_action="" data-success_page="" enctype="multipart/form-data" method="post">
+                                                            <div class="o_website_form_fields">
+                                                                <div class="o_not_editable d-none o_default_snippet_text">
+                                                                    This placeholder prevents its parent from
+                                                                    disappearing when emptied
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-char css_non_editable_mode_hidden" data-model-field="true" data-optional="false">
+                                                                    <label class="control-label" for="name">
+                                                                        <span>Sujet</span>
+                                                                    </label>
+                                                                    <input name="name" required="required" class="form-control o_website_form_input" type="text" value="Amélioration continue" />
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-char" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Short text field">
+                                                                        <span>Votre nom</span>
+                                                                    </label>
+                                                                    <input name="Votre nom" class="form-control o_website_form_input" type="text" />
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-boolean" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Yes or not field">
+                                                                        <input name="J'aimerais être contacté pour le suivi" type="checkbox" class="o_website_form_input" value="J'aimerais être contacté pour le suivi" />
+                                                                        <span>J'aimerais être contacté pour le suivi
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-char" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Short text field">
+                                                                        <span>Votre adresse courriel</span>
+                                                                    </label>
+                                                                    <input name="Votre adresse courriel" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Pour pouvoir vous contacter
+                                                                        pour le suivi ou si nous avons des questions
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-text" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Long text field">
+                                                                        <span>Description détaillée</span>
+                                                                    </label>
+                                                                    <textarea name="Description détaillée" required="required" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Expliquer l'amélioration que
+                                                                        vous suggérez. Mettez les URL en question s'il y
+                                                                        a lieu.
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12 s_btn pt16 pb16 text-center" data-name="Buttons">
+                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">
+                                                                    Envoyer
+                                                                </button>
+                                                                <span id="o_website_form_result" />
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="tab-pane fade" ng-class="{'active': amelioration_section === 'report_bug', 'show': amelioration_section === 'report_bug'}" role="tabpanel" aria-labelledby="nav_tabs_link">
+                                                        <h3 class="o_default_snippet_text">Reporter un bogue</h3>
+                                                        <p class="o_default_snippet_text">Le développement de cette plateforme est fait de manière libre et ouverte au public sur <a href="https://github.com/TechnoLibre/odoo_accorderie"><button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">
+                                                                    Github
+                                                                </button></a>.
+                                                            <a href="https://github.com/TechnoLibre/odoo_accorderie/issues"><button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">Pour reporter un bogue sur Github</button></a>.</p>
+                                                        <p class="o_default_snippet_text">Vous pouvez aussi reporter votre problème en privé via le formulaire suivant :</p>
+                                                        <form accept-charset="UTF-8" action="/website_form/" class="s_website_form col-md-12 mt32" data-model_name="crm.lead" data-force_action="" data-success_page="" enctype="multipart/form-data" method="post">
+                                                            <div class="o_website_form_fields">
+                                                                <div class="o_not_editable d-none o_default_snippet_text">
+                                                                    This placeholder prevents its parent from
+                                                                    disappearing when emptied
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-char css_non_editable_mode_hidden" data-model-field="true" data-optional="false">
+                                                                    <label class="control-label" for="name">
+                                                                        <span>Sujet</span>
+                                                                    </label>
+                                                                    <input name="name" required="required" class="form-control o_website_form_input" type="text" value="Reporter un bogue" />
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-char" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Short text field">
+                                                                        <span>Votre nom</span>
+                                                                    </label>
+                                                                    <input name="Votre nom" class="form-control o_website_form_input" type="text" />
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-boolean" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Yes or not field">
+                                                                        <input name="J'aimerais être contacté pour le suivi" type="checkbox" class="o_website_form_input" value="J'aimerais être contacté pour le suivi" />
+                                                                        <span>J'aimerais être contacté pour le suivi
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-char" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Short text field">
+                                                                        <span>Votre adresse courriel</span>
+                                                                    </label>
+                                                                    <input name="Votre adresse courriel" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Pour pouvoir vous contacter
+                                                                        pour le suivi et s'il y a des questions
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-text" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Long text field">
+                                                                        <span>Le résultat attendu</span>
+                                                                    </label>
+                                                                    <textarea name="Le résultat attendu" required="required" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Décrire le résultat s'il
+                                                                        n'avait pas eu le bogue
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-text" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Long text field">
+                                                                        <span>Démarche pour reproduire le bogue</span>
+                                                                    </label>
+                                                                    <textarea name="Démarche pour reproduire le bogue" required="required" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Décrire les étapes pour
+                                                                        produire le bogue, définir ce qu'est le bogue a
+                                                                        reporté.
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-selection-radio" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Single selection field">
+                                                                        <span>Importance</span>
+                                                                    </label>
+                                                                    <div class="radio">
+                                                                        <label class="control-label">
+                                                                            <input name="Importance" type="radio" class="o_website_form_input" value="Critique" />
+                                                                            <span>Critique</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label class="control-label">
+                                                                            <input name="Importance" type="radio" class="o_website_form_input" value="Élevé" />
+                                                                            <span>Élevé</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label class="control-label">
+                                                                            <input name="Importance" type="radio" class="o_website_form_input" value="Normal" />
+                                                                            <span>Normal</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label class="control-label">
+                                                                            <input name="Importance" type="radio" class="o_website_form_input" value="Basse" />
+                                                                            <span>Basse</span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <p class="help-block">Niveau d'importance à devoir
+                                                                        corriger ce problème
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-binary" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom File upload field">
+                                                                        <span>Image au besoin</span>
+                                                                    </label>
+                                                                    <input name="Image au besoin" type="file" class="o_website_form_input" />
+                                                                    <p class="help-block">Téléverser une image pour
+                                                                        montrer le problème
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-binary" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom File upload field">
+                                                                        <span>Image secondaire au besoin</span>
+                                                                    </label>
+                                                                    <input name="Image secondaire au besoin" type="file" class="o_website_form_input" />
+                                                                    <p class="help-block">Téléverser une deuxième image
+                                                                        pour montrer le problème
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12 s_btn pt16 pb16 text-center" data-name="Buttons">
+                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">
+                                                                    Envoyer
+                                                                </button>
+                                                                <span id="o_website_form_result" />
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="tab-pane fade" ng-class="{'active': amelioration_section === 'revision_paire', 'show': amelioration_section === 'revision_paire'}" role="tabpanel" aria-labelledby="nav_tabs_link">
+                                                        <h3 class="o_default_snippet_text">Révision par les paires</h3>
+                                                        <p>Donner nous votre appréciation de cette plateforme, votre retour d'impression et tous autres commentaires.</p>
+                                                        <form accept-charset="UTF-8" action="/website_form/" class="s_website_form col-md-12 mt32 ng-pristine ng-valid" data-model_name="crm.lead" data-force_action="" data-success_page="" enctype="multipart/form-data" method="post">
+                                                            <div class="o_website_form_fields">
+                                                                <div class="o_not_editable d-none o_default_snippet_text">This placeholder prevents its parent from disappearing
+                                                                    when emptied
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-char css_non_editable_mode_hidden" data-model-field="true" data-optional="false">
+                                                                    <label class="control-label" for="name">
+                                                                        <span>Sujet</span>
+                                                                    </label>
+                                                                    <input name="name" required="required" class="form-control o_website_form_input" type="text" value="Révision par les paires" />
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-char" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Short text field">
+                                                                        <span>Votre nom</span>
+                                                                    </label>
+                                                                    <input name="Votre nom" class="form-control o_website_form_input" type="text" />
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-boolean" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Yes or not field">
+                                                                        <input name="J'aimerais être contacté pour le suivi" type="checkbox" class="o_website_form_input" value="J'aimerais être contacté pour le suivi" />
+                                                                        <span>J'aimerais être contacté pour le suivi</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-char" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Short text field">
+                                                                        <span>Votre adresse courriel</span>
+                                                                    </label>
+                                                                    <input name="Votre adresse courriel" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Pour pouvoir vous contacter pour le suivi et s'il y a des questions
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field  form-field-text" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Long text field">
+                                                                        <span>Qui êtes-vous?</span>
+                                                                    </label>
+                                                                    <textarea name="Qui êtes-vous?" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Votre institution, votre niveau de scolarité, votre relation avec ce projet
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-group form-field o_required form-field-text" data-model-field="false" data-optional="true">
+                                                                    <label class="control-label" for="Custom Long text field">
+                                                                        <span>Révision/retour</span>
+                                                                    </label>
+                                                                    <textarea name="Révision/retour" required="required" class="form-control o_website_form_input" type="text" />
+                                                                    <p class="help-block">Votre révision sur le projet, votre retour, vos opinions/commentaires
+                                                                        <br />
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-lg-12 s_btn pt16 pb16 text-center" data-name="Buttons">
+                                                                <button type="button" class="btn btn-primary btn-lg o_website_form_send">Envoyer</button>
+                                                                <span id="o_website_form_result" />
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </section>
                         </div>
                     </t>
