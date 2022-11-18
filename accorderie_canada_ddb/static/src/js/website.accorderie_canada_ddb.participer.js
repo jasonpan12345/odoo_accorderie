@@ -1079,8 +1079,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
         $scope.$watch('animationRecord.stateAnimation', function (newValue, oldValue) {
             console.debug("Debug stateAnimation new value: " + newValue + " - old value: " + oldValue);
-            let presentation_timer_ms = 2000;
-            let generic_timer_ms = 1000;
+            let presentation_timer_ms = 3000;
+            let presentation_ending_timer_ms = 50000;
+            let generic_timer_ms = 2500;
             let typing_timer_ms = 30000;
             // let body = document.querySelector('body');
             //         let $scope_controller = angular.element($("#wrap")).scope();
@@ -1264,7 +1265,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.animationSelectorToSelector(name, undefined, `[name="${strOptionName}"]`, generic_timer_ms, newValue + 1, false, true, false)
                         } else {
                             // Show presentation of ending
-                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_timer_ms, 0)
+                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_ending_timer_ms, 0)
                         }
                     }, 250);
                 } else if (newValue === 6) {
@@ -1539,7 +1540,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.animationSelectorToSelector(name, undefined, `[name="${strOptionName}"]`, generic_timer_ms, newValue + 1, false, true, false)
                         } else {
                             // Show presentation of ending
-                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_timer_ms, 0)
+                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_ending_timer_ms, 0)
                         }
                     }, 250);
                 } else if (newValue === 11) {
@@ -1753,7 +1754,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.animationSelectorToSelector(name, undefined, `[name="${strOptionName}"]`, generic_timer_ms, newValue + 1, false, true, false)
                         } else {
                             // Show presentation of ending
-                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_timer_ms, 0)
+                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_ending_timer_ms, 0)
                         }
                     }, 250);
                 } else if (newValue === 6) {
@@ -1845,7 +1846,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.animationSelectorToSelector(name, undefined, `[name="${strOptionName}"]`, generic_timer_ms, newValue + 1, false, true, false)
                         } else {
                             // Show presentation of ending
-                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_timer_ms, 0)
+                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_ending_timer_ms, 0)
                         }
                     }, 250);
                 } else if (newValue === 8) {
@@ -2003,7 +2004,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                             $scope.animationSelectorToSelector(name, undefined, `[name="${strOptionName}"]`, generic_timer_ms, newValue + 1, false, true, false)
                         } else {
                             // Show presentation of ending
-                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_timer_ms, 0)
+                            $scope.animationShowPresentation(name, "Il manque de choix.", presentation_ending_timer_ms, 0)
                         }
                     }, 250);
                 } else if (newValue === 13) {
