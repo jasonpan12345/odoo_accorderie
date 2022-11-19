@@ -49,6 +49,11 @@ class AccorderieDemandeAdhesion(models.Model):
 
     transferer = fields.Boolean(string="Transféré")
 
+    user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="User",
+    )
+
     def _compute_access_url(self):
         super(AccorderieDemandeAdhesion, self)._compute_access_url()
         for accorderie_demande_adhesion in self:

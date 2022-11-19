@@ -31,5 +31,7 @@ from . import (
     accorderie_workflow,
     accorderie_workflow_relation,
     accorderie_workflow_state,
+    res_config_settings,
     res_partner,
+    res_users,
 )
