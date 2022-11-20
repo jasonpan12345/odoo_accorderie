@@ -4612,7 +4612,7 @@
                                                 <div class="card-body tab-content">
                                                     <div class="tab-pane fade" ng-class="{'active': amelioration_section === 'amelioration_continue', 'show': amelioration_section === 'amelioration_continue'}" role="tabpanel" aria-labelledby="nav_tabs_link">
                                                         <h3 class="o_default_snippet_text">Proposer une amélioration</h3>
-                                                        <p class="o_default_snippet_text">Votre amélioration va être intégré dans un processus d'amélioration continue, il sera analysé par nos experts, merci pour votre contribution.</p>
+                                                        <p class="o_default_snippet_text">Votre amélioration va être intégrée dans un processus d'amélioration continue, elle sera analysée par nos experts, merci de votre contribution.</p>
                                                         <form accept-charset="UTF-8" action="/website_form/" class="s_website_form col-md-12 mt32" data-model_name="crm.lead" data-force_action="" data-success_page="" enctype="multipart/form-data" method="post">
                                                             <div class="o_website_form_fields">
                                                                 <div class="o_not_editable d-none o_default_snippet_text">
@@ -4643,8 +4643,7 @@
                                                                         <span>Votre adresse courriel</span>
                                                                     </label>
                                                                     <input name="Votre adresse courriel" class="form-control o_website_form_input" type="text" />
-                                                                    <p class="help-block">Pour pouvoir vous contacter
-                                                                        pour le suivi ou si nous avons des questions
+                                                                    <p class="help-block">Afin de pouvoir vous contacter pour le suivi ou si nous avons des questions
                                                                         <br />
                                                                     </p>
                                                                 </div>
@@ -4653,8 +4652,7 @@
                                                                         <span>Description détaillée</span>
                                                                     </label>
                                                                     <textarea name="Description détaillée" required="required" class="form-control o_website_form_input" type="text" />
-                                                                    <p class="help-block">Expliquer l'amélioration que
-                                                                        vous suggérez. Mettez les URL en question s'il y
+                                                                    <p class="help-block">Expliquez l'amélioration suggérée. Mettez les URL en question s'il y
                                                                         a lieu.
                                                                         <br />
                                                                     </p>
@@ -4705,8 +4703,7 @@
                                                                         <span>Votre adresse courriel</span>
                                                                     </label>
                                                                     <input name="Votre adresse courriel" class="form-control o_website_form_input" type="text" />
-                                                                    <p class="help-block">Pour pouvoir vous contacter
-                                                                        pour le suivi et s'il y a des questions
+                                                                    <p class="help-block">Afin de pouvoir vous contacter pour le suivi ou si nous avons des questions
                                                                         <br />
                                                                     </p>
                                                                 </div>
@@ -4725,9 +4722,7 @@
                                                                         <span>Démarche pour reproduire le bogue</span>
                                                                     </label>
                                                                     <textarea name="Démarche pour reproduire le bogue" required="required" class="form-control o_website_form_input" type="text" />
-                                                                    <p class="help-block">Décrire les étapes pour
-                                                                        produire le bogue, définir ce qu'est le bogue a
-                                                                        reporté.
+                                                                    <p class="help-block">Décrire les étapes pour produire le bogue, définir ce qu'est le bogue à reporter
                                                                         <br />
                                                                     </p>
                                                                 </div>
@@ -4824,7 +4819,7 @@
                                                                         <span>Votre adresse courriel</span>
                                                                     </label>
                                                                     <input name="Votre adresse courriel" class="form-control o_website_form_input" type="text" />
-                                                                    <p class="help-block">Pour pouvoir vous contacter pour le suivi et s'il y a des questions
+                                                                    <p class="help-block">Afin de pouvoir vous contacter pour le suivi ou si nous avons des questions
                                                                         <br />
                                                                     </p>
                                                                 </div>
@@ -4842,7 +4837,7 @@
                                                                         <span>Révision/retour</span>
                                                                     </label>
                                                                     <textarea name="Révision/retour" required="required" class="form-control o_website_form_input" type="text" />
-                                                                    <p class="help-block">Votre révision sur le projet, votre retour, vos opinions/commentaires
+                                                                    <p class="help-block">Donnez-nous votre appréciation de cette plateforme, votre retour, vos impressions et tout autre commentaire.
                                                                         <br />
                                                                     </p>
                                                                 </div>
