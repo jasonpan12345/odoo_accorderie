@@ -147,6 +147,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
     const INIT_STATE = "init";
     const PARAM_STATE_NAME = "state";
 
+    if (window.location.pathname === "/web/signup") {
+        console.info("Disable AngularJS, this block signup form.")
+        document.getElementById("wrapwrap").removeAttribute("ng-app");
+        document.getElementById("wrapwrap").removeAttribute("ng-controller");
+    }
+
     let app = angular.module('AccorderieApp', []);
     app.filter('unsafe', function ($sce) {
         // This allows html generation in view
