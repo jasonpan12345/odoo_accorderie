@@ -3303,22 +3303,30 @@
                                             <h5>Explorer</h5>
                                             <a href="/explorer" class="footer_link">Accueil</a>
                                             <br />
-                                            <a href="/explorer" class="footer_link">Les offres de services</a>
+                                            <a href="/offresservice" class="footer_link">Les offres de services</a>
                                             <br />
-                                            <a href="/explorer" class="footer_link">Les demandes de service</a>
-                                            <br />
-                                            <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
+                                            <a href="/demandesservice" class="footer_link">Les demandes de service</a>
+                                            <span class="debug_unimplemented">
+                                                <br />
+                                                <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
+                                            </span>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
                                             <h5>La communaut&#233;</h5>
-                                            <a href="/communaute/actualite" class="footer_link debug_unimplemented">Actualit&#233;</a>
-                                            <br />
-                                            <a href="/communaute/evenements" class="footer_link debug_unimplemented">&#201;v&#232;nements</a>
-                                            <br />
+                                            <span class="debug_unimplemented">
+                                                <a href="/communaute/actualite" class="footer_link">Actualit&#233;</a>
+                                                <br />
+                                            </span>
+                                            <span class="debug_unimplemented">
+                                                <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
+                                                <br />
+                                            </span>
                                             <a href="/communaute/membres" class="footer_link">Membres</a>
-                                            <br />
-                                            <a href="/communaute/groupes" class="footer_link debug_unimplemented">Groupes</a>
+                                            <span class="debug_unimplemented">
+                                                <br />
+                                                <a href="/communaute/groupes" class="footer_link">Groupes</a>
+                                            </span>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
@@ -3337,13 +3345,15 @@
                                             <a href="/monprofil/mapresentation" class="footer_link">Ma pr&#233;sentation publique</a>
                                             <span class="debug_unimplemented">
                                                 <br />
-                                                <a href="/" class="footer_link">Mes informations personnelles</a>
+                                                <a href="/monprofil/mesinfos" class="footer_link">Mes informations personnelles</a>
+                                            </span>
+                                            <br />
+                                            <a href="/monprofil/mesannonces" class="footer_link">Mes annonces</a>
+                                            <br />
+                                            <a href="/monprofil/mesfavoris" class="footer_link">Mes favoris</a>
+                                            <span class="debug_unimplemented">
                                                 <br />
-                                                <a href="/" class="footer_link">Mes annonces</a>
-                                                <br />
-                                                <a href="/" class="footer_link">Mes favoris</a>
-                                                <br />
-                                                <a href="/" class="footer_link">Param&#232;tres</a>
+                                                <a href="/monprofil/mespreferences" class="footer_link">Param&#232;tres</a>
                                             </span>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
@@ -3352,9 +3362,9 @@
                                                 Mon activit&#233;
                                             </h5>
                                             <a href="/monactivite" class="footer_link">Bilan</a>
+                                            <br />
+                                            <a href="/monactivite/echanges" class="footer_link">Échanges</a>
                                             <span class="debug_unimplemented">
-                                                <br />
-                                                <a href="/monactivite/echanges" class="footer_link">Échanges</a>
                                                 <br />
                                                 <a href="/monactivite/monreseau" class="footer_link">Mon r&#233;seau</a>
                                                 <br />
@@ -3364,17 +3374,29 @@
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/aide" class="img bottom_menu_icon fa fa-question-circle" style="text-decoration:none;" />
                                             <h5>Aide</h5>
-                                            <a href="/aide#!?section=guide_utilisation" class="footer_link">Guides d'utilisation</a>
-                                            <br />
-                                            <a href="/aide#!?section=contacter_accorderie" class="footer_link debug_unimplemented">Contacter l'Accorderie</a>
-                                            <br />
-                                            <a href="/aide#!?section=mentor" class="footer_link debug_unimplemented">Mentor</a>
-                                            <br />
-                                            <a href="/aide#!?section=tutoriel" class="footer_link debug_unimplemented">Tutoriel</a>
-                                            <br />
-                                            <a href="/aide#!?section=faq" class="footer_link">F.A.Q.</a>
-                                            <br />
-                                            <a href="/aide#!?section=amelioration" class="footer_link">Amélioration</a>
+                                            <span>
+                                                <a href="/aide#!?section=guide_utilisation" class="footer_link">Guides d'utilisation</a>
+                                                <br />
+                                            </span>
+                                            <span class="debug_unimplemented">
+                                                <a href="/aide#!?section=contacter_accorderie" class="footer_link">Contacter l'Accorderie</a>
+                                                <br />
+                                            </span>
+                                            <span class="debug_unimplemented">
+                                                <a href="/aide#!?section=mentor" class="footer_link">Mentor</a>
+                                                <br />
+                                            </span>
+                                            <span class="debug_unimplemented">
+                                                <a href="/aide#!?section=tutoriel" class="footer_link">Tutoriel</a>
+                                                <br />
+                                            </span>
+                                            <span>
+                                                <a href="/aide#!?section=faq" class="footer_link">F.A.Q.</a>
+                                                <br />
+                                            </span>
+                                            <span>
+                                                <a href="/aide#!?section=amelioration" class="footer_link">Amélioration</a>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

@@ -316,7 +316,6 @@
                                 t-if="offre_services_count"
                                 href="/offresservice"
                                 style="font-size:1.25rem;"
-                                class="debug_unimplemented"
                             >Voir Tout (+<t t-raw="offre_services_count" />)</a>
                         </div>
                     </div>
@@ -378,7 +377,6 @@
                             <h1>Demandes r&#233;centes</h1>
                             <a
                                 t-if="demande_services_count"
-                                class="debug_unimplemented"
                                 href="/demandesservice"
                                 style="font-size:1.25rem;"
                             >Voir Tout (+<t t-raw="demande_services_count" />)</a>
