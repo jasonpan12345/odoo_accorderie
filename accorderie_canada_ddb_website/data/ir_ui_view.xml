@@ -4393,7 +4393,7 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div ng-if="section=='guide_utilisation'">
+                            <div ng-show="section=='guide_utilisation'">
                                 <section class="s_big_icons">
                                     <div class="container">
                                         <div class="row mb64">
@@ -4585,10 +4585,10 @@
                                     </div>
                                 </section>
                             </div>
-                            <section ng-if="section=='faq'" t-if="not user_id._is_public()">
+                            <section ng-show="section=='faq'" t-if="not user_id._is_public()">
                                 faq
                             </section>
-                            <section class="container readable o_website_form_builder s_tabs" ng-if="section=='amelioration'">
+                            <section class="container readable o_website_form_builder s_tabs" ng-show="section=='amelioration'">
                                 <div class="container">
                                     <div class="row s_col_no_bgcolor">
                                         <div class="col-lg-12 pt48 pb48">
