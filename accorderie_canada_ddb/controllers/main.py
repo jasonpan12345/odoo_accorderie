@@ -1,160 +1,297 @@
 import base64
 import logging
+import urllib.parse
 from datetime import datetime
 
 import humanize
+import requests
 import werkzeug
 
 from odoo import http
 from odoo.http import request
 
 _logger = logging.getLogger(__name__)
+OSRM_URL = ""
+
+
+def get_latitude_longitude(str_address):
+    if not str_address:
+        return "", ""
+    nominatim_url = f"https://nominatim.openstreetmap.org/search/?q={urllib.parse.quote(str_address)}&limit=5&format=jsonv2&addressdetails=1&countrycodes=ca"
+    try:
+        r = requests.get(nominatim_url)
+    except Exception:
+        r = None
+    if r and r.status_code == 200:
+        lst_res = r.json()
+        if lst_res:
+            dct_res = lst_res[0]
+            return dct_res["lat"], dct_res["lon"]
+    return "", ""
+
+
+def get_distance_osrm(lon1, lat1, lon2, lat2):
+    distance = ""
+    if not lon1 or not lon2 or not lat1 or not lat2:
+        return distance
+    i_distance = -1
+    osrm_url = f"{OSRM_URL}/route/v1/driving/{lon1},{lat1};{lon2},{lat2}?alternatives=true"
+    try:
+        r = requests.get(osrm_url)
+    except Exception:
+        r = None
+    if r and r.status_code == 200:
+        dct_res = r.json()
+        if dct_res and dct_res.get("code") == "Ok":
+            lst_routes = dct_res["routes"]
+            if lst_routes:
+                i_distance = lst_routes[0]["distance"]
+    if i_distance > -1:
+        # Transform it
+        if i_distance > 1000.0:
+            distance = f"{i_distance / 1000.:.3f} km"
+        else:
+            distance = f"{i_distance} m"
+    return distance
+
+
+def find_distance_from_user(env, str_address):
+    distance = ""
+    if not env.user or not env.user.active or not OSRM_URL or not str_address:
+        # TODO Propose to open gps
+        return ""
+    accorderie_membre_cls = env["accorderie.membre"]
+    membre_id = accorderie_membre_cls.search([("user_id", "=", env.user.id)])
+    if not membre_id:
+        return ""
+    if not membre_id.adresse:
+        return "<font color='#FF0000'>Adresse non configuré</font>"
+    lat2, lon2 = get_latitude_longitude(str_address)
+    if lon2 and lat2:
+        lat1, lon1 = get_latitude_longitude(membre_id.adresse)
+        if lat1 and lon1:
+            distance = get_distance_osrm(lon1, lat1, lon2, lat2)
+        else:
+            return "<font color='#FF0000'>Adresse non configuré</font>"
+
+    return distance
 
 
 class AccorderieCanadaDdbController(http.Controller):
     @http.route(
-        ["/accorderie_canada_ddb/offre_service/<int:offre_service_id>"],
-        type="http",
-        auth="public",
-        website=True,
-    )
-    def get_page_offre_service(self, offre_service_id=None):
-        env = request.env(context=dict(request.env.context))
-
-        Offre_Service = env["accorderie.offre.service"]
-        if offre_service_id:
-            offre_service_ids = (
-                Offre_Service.sudo().browse(offre_service_id).exists()
-            )
-        else:
-            offre_service_ids = None
-        dct_value = {"offre_service": offre_service_ids}
-
-        # Render page
-        return request.render(
-            "accorderie_canada_ddb.accorderie_offre_service_unit_liste_offre_service",
-            dct_value,
-        )
-
-    @http.route(
-        ["/accorderie_canada_ddb/offre_service_list"],
-        type="json",
-        auth="public",
-        website=True,
-    )
-    def get_offre_service_list(self):
-        env = request.env(context=dict(request.env.context))
-
-        Offre_Service = env["accorderie.offre.service"]
-        offre_service_ids = Offre_Service.search(
-            [], order="create_date desc", limit=3
-        ).ids
-        offre_services = Offre_Service.sudo().browse(offre_service_ids)
-
-        lst_time_diff = []
-        timedate_now = datetime.now()
-        # fr_CA not exist
-        # check .venv/lib/python3.7/site-packages/humanize/locale/
-        _t = humanize.i18n.activate("fr_FR")
-        for offre_service in offre_services:
-            diff_time = timedate_now - offre_service.create_date
-            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
-            lst_time_diff.append(str_diff_time)
-        humanize.i18n.deactivate()
-
-        dct_value = {
-            "offre_services": offre_services,
-            "lst_time": lst_time_diff,
-        }
-
-        # Render page
-        return request.env["ir.ui.view"].render_template(
-            "accorderie_canada_ddb.accorderie_offre_service_list_liste_offre_service",
-            dct_value,
-        )
-
-    @http.route(
-        ["/accorderie_canada_ddb/demande_service/<int:demande_service_id>"],
-        type="http",
-        auth="public",
-        website=True,
-    )
-    def get_page_demande_service(self, demande_service_id=None):
-        env = request.env(context=dict(request.env.context))
-
-        Demande_Service = env["accorderie.demande.service"]
-        if demande_service_id:
-            demande_service_ids = (
-                Demande_Service.sudo().browse(demande_service_id).exists()
-            )
-        else:
-            demande_service_ids = None
-        dct_value = {"demande_service": demande_service_ids}
-
-        # Render page
-        return request.render(
-            "accorderie_canada_ddb.accorderie_demande_service_unit_liste_demande_service",
-            dct_value,
-        )
-
-    @http.route(
-        ["/accorderie_canada_ddb/demande_service_list"],
-        type="json",
-        auth="public",
-        website=True,
-    )
-    def get_demande_service_list(self):
-        env = request.env(context=dict(request.env.context))
-
-        Demande_Service = env["accorderie.demande.service"]
-        demande_service_ids = Demande_Service.search(
-            [], order="create_date desc", limit=3
-        ).ids
-        demande_services = Demande_Service.sudo().browse(demande_service_ids)
-
-        lst_time_diff = []
-        timedate_now = datetime.now()
-        # fr_CA not exist
-        # check .venv/lib/python3.7/site-packages/humanize/locale/
-        _t = humanize.i18n.activate("fr_FR")
-        for demande_service in demande_services:
-            diff_time = timedate_now - demande_service.create_date
-            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
-            lst_time_diff.append(str_diff_time)
-        humanize.i18n.deactivate()
-
-        dct_value = {
-            "demande_services": demande_services,
-            "lst_time": lst_time_diff,
-        }
-
-        # Render page
-        return request.env["ir.ui.view"].render_template(
-            "accorderie_canada_ddb.accorderie_demande_service_list_liste_demande_service",
-            dct_value,
-        )
-
-    @http.route(
         [
-            "/accorderie_canada_ddb/type_service_categorie/<int:type_service_categorie_id>"
+            "/accorderie_canada_ddb/accorderie_offre_service/<int:offre_service>"
         ],
         type="http",
         auth="public",
         website=True,
     )
-    def get_page_type_service_categorie(self, type_service_categorie_id=None):
+    def get_page_offre_service(self, offre_service=None, **kw):
+        env = request.env(context=dict(request.env.context))
+        str_distance = "? km"
+
+        str_diff_time = "Temps indéterminé"
+        accorderie_offre_service_cls = env["accorderie.offre.service"]
+        if offre_service:
+            accorderie_offre_service_id = (
+                accorderie_offre_service_cls.sudo()
+                .browse(offre_service)
+                .exists()
+            )
+            timedate_now = datetime.now()
+            # fr_CA not exist
+            # check .venv/lib/python3.7/site-packages/humanize/locale/
+            _t = humanize.i18n.activate("fr_FR")
+            diff_time = timedate_now - accorderie_offre_service_id.create_date
+            str_diff_time = f"Publiée {humanize.naturaltime(diff_time)}"
+            humanize.i18n.deactivate()
+
+            if (
+                accorderie_offre_service_id
+                and accorderie_offre_service_id.membre
+            ):
+                str_distance = find_distance_from_user(
+                    env, accorderie_offre_service_id.membre.adresse
+                )
+        else:
+            accorderie_offre_service_id = None
+
+        dct_value = {
+            "accorderie_offre_service_id": accorderie_offre_service_id,
+            "str_diff_time": str_diff_time,
+            "str_distance": str_distance,
+        }
+
+        # Render page
+        return request.render(
+            "accorderie_canada_ddb.accorderie_offre_service_unit_liste_offre_et_demande_service",
+            dct_value,
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/accorderie_demande_service/<int:demande_service>"
+        ],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_page_demande_service(self, demande_service=None, **kw):
         env = request.env(context=dict(request.env.context))
 
-        Type_Service_Categorie = env["accorderie.type.service.categorie"]
-        if type_service_categorie_id:
-            type_service_categorie_ids = (
-                Type_Service_Categorie.sudo()
-                .browse(type_service_categorie_id)
+        accorderie_demande_service_cls = env["accorderie.demande.service"]
+        if demande_service:
+            accorderie_demande_service_id = (
+                accorderie_demande_service_cls.sudo()
+                .browse(demande_service)
                 .exists()
             )
         else:
-            type_service_categorie_ids = None
-        dct_value = {"type_service_categorie": type_service_categorie_ids}
+            accorderie_demande_service_id = None
+        dct_value = {
+            "accorderie_demande_service_id": accorderie_demande_service_id
+        }
+
+        # Render page
+        return request.render(
+            "accorderie_canada_ddb.accorderie_demande_service_unit_liste_offre_et_demande_service",
+            dct_value,
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/offre_service_accorderie_offre_service_and_demande_service_accorderie_demande_service_list"
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_offre_service_accorderie_offre_service_and_demande_service_accorderie_demande_service_list(
+        self, **kw
+    ):
+        env = request.env(context=dict(request.env.context))
+
+        accorderie_offre_service_cls = env["accorderie.offre.service"]
+        accorderie_offre_service_ids = (
+            accorderie_offre_service_cls.sudo()
+            .search([], order="create_date desc", limit=3)
+            .ids
+        )
+        offre_services = accorderie_offre_service_cls.sudo().browse(
+            accorderie_offre_service_ids
+        )
+        offre_services_count = (
+            accorderie_offre_service_cls.sudo().search_count([])
+        )
+        lst_icon_offre_service = []
+        lst_distance_offre_service = []
+        for offre in offre_services:
+            icon = None
+            if (
+                offre.type_service_id
+                and offre.type_service_id.sous_categorie_id
+                and offre.type_service_id.sous_categorie_id.categorie
+                and offre.type_service_id.sous_categorie_id.categorie.icon
+            ):
+                icon = offre.type_service_id.sous_categorie_id.categorie.icon
+            lst_icon_offre_service.append(icon)
+
+            distance = None
+            if offre.membre:
+                distance = find_distance_from_user(env, offre.membre.adresse)
+            lst_distance_offre_service.append(distance)
+
+        accorderie_demande_service_cls = env["accorderie.demande.service"]
+        accorderie_demande_service_ids = (
+            accorderie_demande_service_cls.sudo()
+            .search([], order="create_date desc", limit=3)
+            .ids
+        )
+        demande_services = accorderie_demande_service_cls.sudo().browse(
+            accorderie_demande_service_ids
+        )
+        demande_services_count = (
+            accorderie_demande_service_cls.sudo().search_count([])
+        )
+        lst_icon_demande_service = []
+        lst_distance_demande_service = []
+        for demande in demande_services:
+            icon = None
+            # if (
+            #     demande.type_service_id
+            #     and demande.type_service_id.sous_categorie_id
+            #     and demande.type_service_id.sous_categorie_id.categorie
+            #     and demande.type_service_id.sous_categorie_id.categorie.icon
+            # ):
+            #     icon = demande.type_service_id.sous_categorie_id.categorie.icon
+            lst_icon_demande_service.append(icon)
+            distance = None
+            lst_distance_demande_service.append(distance)
+
+        lst_time_diff_offre_service = []
+        lst_time_diff_demande_service = []
+        timedate_now = datetime.now()
+        # fr_CA not exist
+        # check .venv/lib/python3.7/site-packages/humanize/locale/
+        _t = humanize.i18n.activate("fr_FR")
+        for accorderie_offre_service_id in offre_services:
+            diff_time = timedate_now - accorderie_offre_service_id.create_date
+            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
+            lst_time_diff_offre_service.append(str_diff_time)
+        for accorderie_demande_service_id in demande_services:
+            diff_time = (
+                timedate_now - accorderie_demande_service_id.create_date
+            )
+            str_diff_time = humanize.naturaltime(diff_time).capitalize() + "."
+            lst_time_diff_demande_service.append(str_diff_time)
+        humanize.i18n.deactivate()
+
+        dct_value = {
+            "offre_services": offre_services,
+            "offre_services_count": offre_services_count,
+            "lst_icon_offre_service": lst_icon_offre_service,
+            "lst_distance_offre_service": lst_distance_offre_service,
+            "lst_time_offre_service": lst_time_diff_offre_service,
+            "demande_services": demande_services,
+            "lst_time_demande_service": lst_time_diff_demande_service,
+            "demande_services_count": demande_services_count,
+            "lst_icon_demande_service": lst_icon_demande_service,
+            "lst_distance_demande_service": lst_distance_demande_service,
+        }
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.accorderie_offre_service_and_accorderie_demande_service_list_liste_offre_et_demande_service",
+            dct_value,
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/type_service_categorie/<int:type_service_categorie>"
+        ],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_page_type_service_categorie(
+        self, type_service_categorie=None, **kw
+    ):
+        env = request.env(context=dict(request.env.context))
+
+        accorderie_type_service_categorie_cls = env[
+            "accorderie.type.service.categorie"
+        ]
+        if type_service_categorie:
+            accorderie_type_service_categorie_id = (
+                accorderie_type_service_categorie_cls.sudo()
+                .browse(type_service_categorie)
+                .exists()
+            )
+        else:
+            accorderie_type_service_categorie_id = None
+        dct_value = {
+            "accorderie_type_service_categorie_id": accorderie_type_service_categorie_id
+        }
 
         # Render page
         return request.render(
@@ -168,13 +305,19 @@ class AccorderieCanadaDdbController(http.Controller):
         auth="public",
         website=True,
     )
-    def get_type_service_categorie_list(self):
+    def get_type_service_categorie_list(self, **kw):
         env = request.env(context=dict(request.env.context))
 
-        Type_Service_Categorie = env["accorderie.type.service.categorie"]
-        type_service_categorie_ids = Type_Service_Categorie.search([]).ids
-        type_service_categories = Type_Service_Categorie.sudo().browse(
-            type_service_categorie_ids
+        accorderie_type_service_categorie_cls = env[
+            "accorderie.type.service.categorie"
+        ]
+        accorderie_type_service_categorie_ids = (
+            accorderie_type_service_categorie_cls.sudo().search([]).ids
+        )
+        type_service_categories = (
+            accorderie_type_service_categorie_cls.sudo().browse(
+                accorderie_type_service_categorie_ids
+            )
         )
 
         dct_value = {"type_service_categories": type_service_categories}
@@ -182,6 +325,80 @@ class AccorderieCanadaDdbController(http.Controller):
         # Render page
         return request.env["ir.ui.view"].render_template(
             "accorderie_canada_ddb.accorderie_type_service_categorie_list_liste_type_service_categorie",
+            dct_value,
+        )
+
+    @http.route(
+        ["/participer"],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_page_participer(self, **kw):
+        env = request.env(context=dict(request.env.context))
+
+        accorderie_type_service_categorie_cls = env[
+            "accorderie.type.service.categorie"
+        ]
+        accorderie_type_service_categorie_ids = (
+            accorderie_type_service_categorie_cls.sudo().search([]).ids
+        )
+        type_service_categories = (
+            accorderie_type_service_categorie_cls.sudo().browse(
+                accorderie_type_service_categorie_ids
+            )
+        )
+
+        dct_value = {"type_service_categories": type_service_categories}
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication",
+            dct_value,
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/type_service_sous_categorie_list",
+            "/accorderie_canada_ddb/type_service_sous_categorie_list/<int:categorie_id>",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_type_service_sous_categorie_list(self, categorie_id=None, **kw):
+        env = request.env(context=dict(request.env.context))
+
+        accorderie_type_service_sous_categorie_cls = env[
+            "accorderie.type.service.sous.categorie"
+        ]
+        if categorie_id:
+            accorderie_type_service_sous_categorie = (
+                accorderie_type_service_sous_categorie_cls.sudo().search(
+                    [("categorie", "=", categorie_id)]
+                )
+            )
+        else:
+            accorderie_type_service_sous_categorie = (
+                accorderie_type_service_sous_categorie_cls.sudo().search([])
+            )
+
+        accorderie_type_service_sous_categorie_ids = (
+            accorderie_type_service_sous_categorie.ids
+        )
+        type_service_sous_categories = (
+            accorderie_type_service_sous_categorie_cls.sudo().browse(
+                accorderie_type_service_sous_categorie_ids
+            )
+        )
+
+        dct_value = {
+            "type_service_sous_categories": type_service_sous_categories
+        }
+
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication_sous_categorie",
             dct_value,
         )
 

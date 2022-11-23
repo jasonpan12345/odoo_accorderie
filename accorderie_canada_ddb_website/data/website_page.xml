@@ -61,12 +61,6 @@
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>
-        <record id="website_page_offre" model="website.page">
-            <field name="url">/offre</field>
-            <field name="view_id" ref="ir_ui_view_offre" />
-            <field name="website_id" ref="website.default_website" />
-            <field name="website_published">True</field>
-        </record>
         <record id="website_page_mes_preferences" model="website.page">
             <field name="url">/monprofil/mespreferences</field>
             <field name="view_id" ref="ir_ui_view_mes_preferences" />
@@ -115,12 +109,6 @@
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>
-        <record id="website_page_participer" model="website.page">
-            <field name="url">/participer</field>
-            <field name="view_id" ref="ir_ui_view_participer" />
-            <field name="website_id" ref="website.default_website" />
-            <field name="website_published">True</field>
-        </record>
         <record id="website_page_messages_et_notifications" model="website.page">
             <field name="url">/monprofil/messages</field>
             <field name="view_id" ref="ir_ui_view_messages_et_notifications" />
@@ -136,6 +124,12 @@
         <record id="website_page_messages_et_notifications_1" model="website.page">
             <field name="url">/monprofil/notifications</field>
             <field name="view_id" ref="ir_ui_view_messages_et_notifications_1" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
+        <record id="website_page_offres_service" model="website.page">
+            <field name="url">/offresservice</field>
+            <field name="view_id" ref="ir_ui_view_offres_service" />
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>

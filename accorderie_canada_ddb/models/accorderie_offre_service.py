@@ -5,9 +5,11 @@ class AccorderieOffreService(models.Model):
     _name = "accorderie.offre.service"
     _inherit = "portal.mixin"
     _description = "Accorderie Offre Service"
-    _rec_name = "description"
+    _rec_name = "titre"
 
-    description = fields.Char()
+    titre = fields.Char(
+        help="Résumé de l'offre, mise en valeur de la description.",
+    )
 
     accompli = fields.Boolean(
         string="Accomplie",
@@ -33,7 +35,7 @@ class AccorderieOffreService(models.Model):
         help="Permet d'approuver ce type de services.",
     )
 
-    condition = fields.Char(
+    condition = fields.Html(
         string="Conditions",
         help="Conditions inhérentes à l'offre",
     )
@@ -60,7 +62,13 @@ class AccorderieOffreService(models.Model):
         help="Date de la dernière mise à jour",
     )
 
+    description = fields.Html()
+
+    deplacement = fields.Html()
+
     disponibilite = fields.Char(string="Disponibilité")
+
+    entente_tarifiaire = fields.Html()
 
     membre = fields.Many2one(
         comodel_name="accorderie.membre",
@@ -75,6 +83,8 @@ class AccorderieOffreService(models.Model):
     )
 
     offre_special = fields.Boolean(string="Offre spéciale")
+
+    quoi_apporter = fields.Html()
 
     tarif = fields.Char()
 
