@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="ir_ui_view_accordages" model="ir.ui.view">
+        <record id="ir_ui_view_echanges" model="ir.ui.view">
             <field name="arch" type="xml">
                 <t name="About us" t-name="website.aboutus">
                     <t t-call="website.layout">
@@ -27,18 +27,18 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" role="menu_item" href="/monactivite/accordages">
-                                                <span>Accordages</span>
+                                            <a class="nav-link active" role="menu_item" href="/monactivite/echanges">
+                                                <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -49,13 +49,13 @@
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb4" style="text-align: center;">
                                             <p class="s_title_default" style="text-align: left;margin-left:14%; font-size:2rem;">
-                                                Mes accordages
+                                                Mes échanges de service
                                                 <br />
                                             </p>
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_activites_recentes lg debug_unimplemented">
+                                <section class="s_activites_recentes lg">
                                     <div class="container_lists">
                                         <div class="row activites_list lg">
                                             <section class="s_mobile_filter">
@@ -68,126 +68,41 @@
                                                     Filtrer et trier
                                                 </div>
                                             </section>
-                                            <div class="list_title s_title">
-                                                <div class="title">
-                                                    <h1>Décembre 2021</h1>
-                                                    <a class="text-epsilon" style="font-size:1.25rem;">
-                                                        <i class="fa fa-clock-o" />
-                                                        À venir
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="activite btn mobile-display-none" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="activite_infos">
-                                                    <div class="activite_title">
-                                                        <p>Mercredi 16 août</p>
-                                                        <p class="time">11h00 - 12h00</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
+                                            <div ng-repeat="(month_key, echange_info) in personal.dct_echange_mensuel">
+                                                <div class="list_title s_title">
+                                                    <div class="title">
+                                                        <h1>{{month_key | toTitleCase}}</h1>
+                                                        <a class="text-epsilon" style="font-size:1.25rem;" ng-if="!echange_info.containTransactionValide">
+                                                            <i class="fa fa-clock-o icon_padding_right" />
+                                                            À venir
+                                                        </a>
+                                                        <a style="font-size:1.25rem;" ng-if="echange_info.containTransactionValide">
+                                                            <i class="fa fa-clock-o icon_padding_right" />
+                                                            {{echange_info.show_sum_time}}
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status red-o">-3h00 à valider</p>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="activite_infos">
-                                                    <div class="activite_title">
-                                                        <p>Mercredi 16 août</p>
-                                                        <p class="time">11h00 - 12h00</p>
+                                                <div ng-if="_.isEmpty(echange_info.lst_echange)">Aucun échange ce mois-ci</div>
+                                                <div ng-repeat="echange in echange_info.lst_echange" class="activite btn" ng-click="echange_click_redirect(echange)">
+<!--                                                 <a href="/">-->
+                                                    <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                    <div class="activite_infos">
+                                                        <div class="activite_title">
+                                                            <p>{{echange.show_date | toTitleCase}}</p>
+                                                            <p class="time" ng-if="echange.transaction_valide">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
+                                                        </div>
+                                                        <div class="details">
+                                                            <span class="activite_auteur mt-auto">{{contact_info.full_name}}</span>
+                                                            <span class="mb-auto" ng-show="!_.isEmpty(echange.sujet_offre_service)">{{echange.sujet_offre_service}}</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
-                                                    </div>
-                                                </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status red">-3h00</p>
-                                            </div>
-
-                                            <div class="list_title s_title">
-                                                <div class="title">
-                                                    <h1>Novembre 2021</h1>
-                                                    <a style="font-size:1.25rem;">
-                                                        <i class="fa fa-clock-o" />
-                                                        0
-                                                    </a>
+                                                    <a class="details_link" ng-href="/monactivite/echange#!?echange={{echange.id}}"><u>Voir les détails</u></a>
+                                                    <p class="status" ng-class="{'red-o': echange.estAcheteur, 'blue-o': !echange.estAcheteur}" ng-if="!echange.transaction_valide">{{echange.show_duree_total_estime}} à valider <i class="fa fa-chevron-right" /></p>
+                                                    <p class="status" ng-class="{'red': echange.estAcheteur, 'blue': !echange.estAcheteur}" ng-if="echange.transaction_valide">{{echange.show_duree_total}}</p>
+<!--                                                    </a>-->
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="activite_infos">
-                                                    <div class="activite_title">
-                                                        <p>Mercredi 16 août</p>
-                                                        <p class="time">11h00 - 12h00</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
-                                                    </div>
-                                                </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status red">- 1h00</p>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="activite_infos">
-                                                    <div class="activite_title">
-                                                        <p>Mercredi 16 août</p>
-                                                        <p class="time">11h00 - 12h00</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
-                                                    </div>
-                                                </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status blue">+ 1h00</p>
-                                            </div>
-
-                                            <div class="list_title s_title">
-                                                <div class="title">
-                                                    <h1>Octobre 2021</h1>
-                                                    <a style="font-size:1.25rem;">
-                                                        <i class="fa fa-clock-o" />
-                                                        + 2h30
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="activite_infos">
-                                                    <div class="activite_title">
-                                                        <p>Mercredi 16 août</p>
-                                                        <p class="time">11h00 - 12h00</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
-                                                    </div>
-                                                </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status blue">+ 1h00</p>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="activite_infos">
-                                                    <div class="activite_title">
-                                                        <p>Mercredi 16 août</p>
-                                                        <p class="time">11h00 - 12h00</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <span class="activite_auteur mt-auto">Denis Lemarchand</span>
-                                                        <span class="mb-auto">Faire visiter une maison à louer</span>
-                                                    </div>
-                                                </div>
-                                                <a class="details_link" href="/"><u>Voir les détails</u></a>
-                                                <p class="status blue">+ 1h00</p>
-                                            </div>
-                                            <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
+                                            <div class="medium-btn btn btn-primary debug_unimplemented">Voir les transactions plus anciennes</div>
                                         </div>
                                     </div>
                                 </section>
@@ -196,8 +111,8 @@
                     </t>
                 </t>
             </field>
-            <field name="key">website.accordages</field>
-            <field name="name">Accordages</field>
+            <field name="key">website.echanges_services</field>
+            <field name="name">Échanges service</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_communaute" model="ir.ui.view">
@@ -213,19 +128,19 @@
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
                                             <p class="s_title_default text-gamma">
-                                                Accorderie de Sherbrooke
+                                                {{personal.mon_accorderie.name}}
                                             </p>
                                         </div>
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link active" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -235,7 +150,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -520,19 +435,19 @@
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
                                             <p class="s_title_default text-gamma">
-                                                Accorderie de Sherbrooke
+                                                {{personal.mon_accorderie.name}}
                                             </p>
                                         </div>
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link active" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -542,7 +457,7 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
@@ -789,7 +704,7 @@
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
                                             <p class="s_title_default text-gamma">
-                                                Accorderie de Sherbrooke
+                                                {{personal.mon_accorderie.name}}
                                             </p>
                                         </div>
                                     </div>
@@ -1133,7 +1048,7 @@
                                 <span class="oe_custom_bg oe_img_bg s_parallax_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_j_spaggiari_guitaristes_jpg/j-spaggiari-guitaristes.jpg&quot;); background-position: 50% 0;" />
                                 <div class="container">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="col-lg-7 jumbotron rounded pt32 pb32 bg-alpha" data-name="Box">
+                                        <div class="col-lg-7 jumbotron rounded pt32 pb32 bg-alpha">
                                             <a href="/un-acces-a-des-services-que-plusieurs-ne-pourraient-soffrir-autrement">
                                                 <div class="row">
                                                     <div class="col-lg-12 s_title s_col_no_bgcolor" data-name="Title">
@@ -1375,7 +1290,7 @@
                                 <div class="banner-bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_309423704_preview_jpeg/AdobeStock_309423704_Preview.jpeg&quot;); background-position: 50% 0px; background-size:cover">
                                     <div class="container">
                                         <div class="row s_nb_column_fixed">
-                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" data-name="Box" style="border-radius:10px">
+                                            <div class="jumbotron pt32 bg-primary col-lg-6 pb40" style="border-radius:10px">
                                                 <div class="row">
                                                     <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
                                                         <h1 class="s_title_thin" style="text-align: center;">
@@ -1555,17 +1470,17 @@
                                             </div>
                                     </div>
                                 </div>
-                                <div class="container_accordage">
+                                <div class="container_echange">
                                     <div class="img" style="background-size:cover; background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_adobestock_147894347_preview_jpeg/AdobeStock_147894347_Preview.jpeg&quot;); background-position:70%" />
                                     <div class="info bg-primary">
                                         <h1>Vous venez de donner ou recevoir un service?</h1>
                                         <h5>
-                                            Vous pouvez déjà à présent valider votre accordage en allant dans le section
+                                            Vous pouvez déjà à présent valider votre échange de service en allant dans le section
                                             contribuer ou en cliquant sur le bouton ci-dessous.
                                         </h5>
                                         <a href="/participer#!?state=init.va">
                                             <div class="btn btn-gamma rounded-circle">
-                                                <font class="text-primary">Valider mon accordage</font>
+                                                <font class="text-primary">Valider mon échange</font>
                                             </div>
                                         </a>
                                     </div>
@@ -1575,7 +1490,7 @@
                                 <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="padding-bottom:16px;background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_map_02_png/Map-02.png&quot;);" />
                                 <div class="container container_communaute">
                                     <div class="row s_nb_column_fixed">
-                                        <div class="jumbotron bg-primary col-lg-6 pt96 pb56" data-name="Box" style="border-radius:10px">
+                                        <div class="jumbotron bg-primary col-lg-6 pt96 pb56" style="border-radius:10px">
                                             <div class="row">
                                                 <div class="col-lg-12 s_title s_col_no_bgcolor pb0" data-name="Title">
                                                     <h1 class="s_title_thin" style="text-align: center;">
@@ -1890,11 +1805,11 @@
                                                 <i class="fa fa-shield text-epsilon" ng-if="membre_info.antecedent_judiciaire_verifier" />
                                             </div>
                                             <span class="nbr">
-                                                Bonjour je m'appelle
+                                                Bonjour, je m'appelle
                                                 <br />
                                                 <font style="font-weight:bold;">{{membre_info.full_name}}</font>
                                             </span>
-                                            <div class="modif_btn btn btn-primary debug_unimplemented">
+                                            <div class="modif_btn btn btn-primary debug_unimplemented" ng-if="membre_info.estPersonnel">
                                                 <span class="img img-fluid mx-auto fa fa-pencil" />
                                                 Modifier le profil
                                             </div>
@@ -1909,7 +1824,7 @@
                                             <span class="txt">Intro</span>
                                             <br />
                                             <br />
-                                            <span class="nbr"><q>{{membre_info.introduction}}</q></span>
+                                            <span class="nbr" ng-show="membre_info.introduction"><q>{{membre_info.introduction}}</q></span>
                                         </div>
                                         <div class="information information-3">
                                             <span class="txt">R&#233;sum&#233;</span>
@@ -1994,63 +1909,73 @@
                                                 </span>
                                             </div>
                                             <div class="debug_unimplemented">
-                                                <span class="txt">Les langues que je parle</span>
+                                                <span class="txt" ng-if="membre_info.estPersonnel">Les langues que je parle</span>
+                                                <span class="txt" ng-if="!membre_info.estPersonnel">Les langues parlées</span>
                                                 <span><i class="fa fa-commenting" />Français</span>
                                                 <br />
                                                 <span><i class="fa fa-commenting" />Anglais</span>
                                             </div>
-                                            <div ng-if="_.isEmpty(membre_info.lst_offre_service)">
-                                                <span class="txt">Mes offres de service</span>
+
+                                            <div ng-if="_.isEmpty(membre_info.dct_offre_service)">
+                                                <span class="txt" ng-if="membre_info.estPersonnel">Mes offres de service</span>
+                                                <span class="txt" ng-if="!membre_info.estPersonnel">Ses offres de service</span>
                                                 <span>Aucune offre de service en cours actuellement.</span>
                                             </div>
-                                            <div ng-if="!_.isEmpty(membre_info.lst_demande_service)">
-                                                <span class="txt">Mes demandes de service
+                                            <div ng-if="!_.isEmpty(membre_info.dct_offre_service)">
+                                                <span class="txt">
+                                                    <span ng-if="membre_info.estPersonnel">Mes offres de service</span>
+                                                    <span ng-if="!membre_info.estPersonnel">Ses offres de service</span>
                                                     <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.lst_demande_service.length}})</u>
+                                                        <u>Voir tout ({{membre_info.dct_offre_service | lengthKeys}})</u>
                                                     </a>
                                                 </span>
                                                 <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="demande in membre_info.lst_demande_service">
-                                                        <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande.id}}">
-                                                            <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                            <div class="infos">
-                                                                <p class="activite_title">{{demande.title}}</p>
-                                                                <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
-                                                            </div>
-                                                        </a>
-                                                        <div class="infos right">
-                                                            <p>{{demande.diff_create_date}}</p>
-                                                            <p class="fa fa-heart-o text-epsilon debug_unimplemented" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div ng-if="!_.isEmpty(membre_info.lst_offre_service)">
-                                                <span class="txt">Mes demandes de service
-                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
-                                                        <u>Voir tout ({{membre_info.lst_offre_service.length}})</u>
-                                                    </a>
-                                                </span>
-                                                <div class="row vertical_list">
-                                                    <div class="activite btn" data-name="Box" ng-repeat="offre in membre_info.lst_offre_service">
+                                                    <div class="activite btn" ng-repeat="(offre_id, offre) in membre_info.dct_offre_service">
                                                         <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre.id}}">
                                                             <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                             <div class="infos">
-                                                                <p class="activite_title">{{offre.title}}</p>
+                                                                <p class="activite_title">{{offre.titre}}</p>
                                                                 <p class="activite_desc" ng-if="!_.isEmpty(offre.description)" ng-bind-html="offre.description | unsafe" />
                                                             </div>
                                                         </a>
                                                         <div class="infos right">
                                                             <p>{{offre.diff_create_date}}</p>
-                                                            <p class="fa fa-heart-o text-epsilon debug_unimplemented" />
+                                                            <p class="fa text-epsilon" ng-class="{'fa-heart': offre.is_favorite, 'fa-heart-o': !offre.is_favorite}" ng-click="add_to_my_favorite('accorderie.offre.service', offre)" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div ng-if="_.isEmpty(membre_info.lst_demande_service)">
-                                                <span class="txt">Mes demandes de service</span>
+
+                                            <div ng-if="_.isEmpty(membre_info.dct_demande_service)">
+                                                <span class="txt" ng-if="membre_info.estPersonnel">Mes demandes de service</span>
+                                                <span class="txt" ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
                                                 <span>Aucune demande de service en cours actuellement.</span>
                                             </div>
+                                            <div ng-if="!_.isEmpty(membre_info.dct_demande_service)">
+                                                <span class="txt">
+                                                    <span ng-if="membre_info.estPersonnel">Mes demandes de service</span>
+                                                    <span ng-if="!membre_info.estPersonnel">Ses demandes de service</span>
+                                                    <a href="" class="debug_unimplemented" style="float:right; font-weight:lighter">
+                                                        <u>Voir tout ({{membre_info.dct_demande_service | lengthKeys}})</u>
+                                                    </a>
+                                                </span>
+                                                <div class="row vertical_list">
+                                                    <div class="activite btn" ng-repeat="(demande_id, demande) in membre_info.dct_demande_service">
+                                                        <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande.id}}">
+                                                            <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
+                                                            <div class="infos">
+                                                                <p class="activite_title">{{demande.titre}}</p>
+                                                                <p class="activite_desc" ng-if="!_.isEmpty(demande.description)" ng-bind-html="demande.description | unsafe" />
+                                                            </div>
+                                                        </a>
+                                                        <div class="infos right">
+                                                            <p>{{demande.diff_create_date}}</p>
+                                                            <p class="fa text-epsilon" ng-class="{'fa-heart': demande.is_favorite, 'fa-heart-o': !demande.is_favorite}" ng-click="add_to_my_favorite('accorderie.demande.service', demande)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="debug_unimplemented">
                                                 <p>
                                                     <icon class="fa fa-flag-o" />
@@ -2085,19 +2010,19 @@
                                     <div class="row s_nb_column_fixed">
                                         <div class="col-lg-12 s_title pt16 pb16">
                                             <p class="s_title_default text-gamma">
-                                                Accorderie de Sherbrooke
+                                                {{personal.mon_accorderie.name}}
                                             </p>
                                         </div>
                                     </div>
                                 </section>
                                 <nav class="sub-navbar navbar navbar-light bg-light">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                                 <span>Actualit&#233;</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/evenements">
                                                 <span>&#201;v&#232;nements</span>
                                             </a>
@@ -2107,28 +2032,28 @@
                                                 <span>Membres</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/communaute/groupes">
                                                 <span>Groupes</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <section class="s_event_list small-cards debug_unimplemented">
+                                <section class="s_event_list small-cards">
                                     <div class="list_head mobile-display-none">
                                         <div class="list_title s_title">
                                             <font style="font-size:2rem;">Membres de la communaut&#233;</font>
-                                            <span class="filter_btn btn">
+                                            <span class="filter_btn btn debug_unimplemented">
                                                 <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
                                                 Filtrer et trier
                                             </span>
-                                            <span class="filter_btn btn" style="margin-right:15px">
+                                            <span class="filter_btn btn debug_unimplemented" style="margin-right:15px">
                                                 Catégorie &amp;nbsp;
                                                 <icon class="fa fa-chevron-up text-epsilon" />
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="actualite_search d-none">
+                                    <div class="actualite_search d-none debug_unimplemented">
                                         <div class="search_bar_rectangle">
                                             <i class="fa fa-search" />
                                             <input type="text" placeholder="Chercher un membre" />
@@ -2139,119 +2064,31 @@
                                         </div>
                                     </div>
                                     <div class="horizontal_list">
-                                        <div class="list_item">
+                                        <div class="list_item" ng-repeat="(membre_id, membre) in dct_membre">
                                             <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_cosens_photography_9kdxgxfrmo8_unsplash_jpg/jonathan-cosens-photography-9kDXgXFRmO8-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma" />
-                                                    <div class="name text-gamma">
-                                                        Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield" />
+                                                <a ng-href="/monprofil/mapresentation#!?membre_id={{membre_id}}">
+                                                    <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_cosens_photography_9kdxgxfrmo8_unsplash_jpg/jonathan-cosens-photography-9kDXgXFRmO8-unsplash.jpg&quot;">
+                                                        <icon class="fa text-gamma" ng-class="{'fa-heart': membre.is_favorite, 'fa-heart-o': !membre.is_favorite}" />
+                                                        <div class="name text-gamma">
+                                                            {{membre.full_name}}&amp;nbsp;
+                                                            <icon class="fa fa-shield" ng-if="membre.antecedent_judiciaire_verifier" />
+                                                        </div>
+                                                        <div class="infos text-gamma"><span ng-if="membre.age > 0">{{membre.age}} ans</span><span ng-if="membre.age > 0 &amp;&amp; !_.isUndefined(membre.distance)"> - </span><span ng-if="!_.isUndefined(membre.distance)">{{membre.distance}} m</span></div>
                                                     </div>
-                                                    <div class="infos text-gamma">35 ans - 200 m</div>
-                                                </div>
-                                                <div class="item_desc centered">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
-                                                        de nouvelles personnes, n'h&#233;sitez pas &#224; me contacter&amp;nbsp;
-                                                    </font>
-                                                </div>
-                                                <div class="item_foot">
-                                                    <span class="tag">Marche</span>
-                                                    <span class="tag">Violoncelle</span>
-                                                    <span class="tag">Gym</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma" />
-                                                    <div class="name text-gamma">
-                                                        Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield" />
+                                                    <div class="item_desc centered" ng-if="!_.isEmpty(membre.introduction)">
+                                                        <font style="color: rgb(99, 99, 99);"><q>{{membre.introduction}}</q></font>
                                                     </div>
-                                                    <div class="infos text-gamma">35 ans - 200 m</div>
-                                                </div>
-                                                <div class="item_desc centered">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
-                                                        de nouvelles personnes, n'h&#233;sitez pas &#224; me contacter&amp;nbsp;
-                                                    </font>
-                                                </div>
-                                                <div class="item_foot">
-                                                    <span class="tag">Marche</span>
-                                                    <span class="tag">Violoncelle</span>
-                                                    <span class="tag">Gym</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma" />
-                                                    <div class="name text-gamma">
-                                                        Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield" />
+                                                    <div class="item_foot debug_unimplemented">
+                                                        <span class="tag">Marche</span>
+                                                        <span class="tag">Violoncelle</span>
+                                                        <span class="tag">Gym</span>
                                                     </div>
-                                                    <div class="infos text-gamma">35 ans - 200 m</div>
-                                                </div>
-                                                <div class="item_desc centered">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
-                                                        de nouvelles personnes, n'h&#233;sitez pas &#224; me contacter&amp;nbsp;
-                                                    </font>
-                                                </div>
-                                                <div class="item_foot">
-                                                    <span class="tag">Marche</span>
-                                                    <span class="tag">Violoncelle</span>
-                                                    <span class="tag">Gym</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_gabriel_silverio_u3wmdykgsry_unsplash_jpg/gabriel-silverio-u3WmDyKGsrY-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma" />
-                                                    <div class="name text-gamma">
-                                                        Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield" />
-                                                    </div>
-                                                    <div class="infos text-gamma">35 ans - 200 m</div>
-                                                </div>
-                                                <div class="item_desc centered">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
-                                                        de nouvelles personnes, n'h&#233;sitez pas &#224; me contacter&amp;nbsp;
-                                                    </font>
-                                                </div>
-                                                <div class="item_foot">
-                                                    <span class="tag">Marche</span>
-                                                    <span class="tag">Violoncelle</span>
-                                                    <span class="tag">Gym</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list_item">
-                                            <div class="item_card btn shadow">
-                                                <div class="item_img oe_img_bg oe_custom_bg" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg&quot;">
-                                                    <icon class="fa fa-heart text-gamma" />
-                                                    <div class="name text-gamma">
-                                                        Alice Poitier&amp;nbsp;
-                                                        <icon class="fa fa-shield" />
-                                                    </div>
-                                                    <div class="infos text-gamma">35 ans - 200 m</div>
-                                                </div>
-                                                <div class="item_desc centered">
-                                                    <font style="color: rgb(99, 99, 99);">&amp;nbsp;J'adore rencontrer
-                                                        de nouvelles personnes, n'h&#233;sitez pas &#224; me contacter&amp;nbsp;
-                                                    </font>
-                                                </div>
-                                                <div class="item_foot">
-                                                    <span class="tag">Marche</span>
-                                                    <span class="tag">Violoncelle</span>
-                                                    <span class="tag">Gym</span>
-                                                </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
-                                <section class="s_map_btn pt32 pb32">
+                                <section class="s_map_btn pt32 pb32 debug_unimplemented">
                                     <div class="btn_map btn btn-primary rounded-circle text-gamma pt16 pb16">
                                         <icon class="fa fa-map" />
                                         &amp;nbsp; Voir la carte
@@ -2289,66 +2126,56 @@
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem;">Mes offres de service</font>
+                                                    <font style="font-size: 1.5rem;" ng-if="membre_info.estPersonnel">Mes offres de service</font>
+                                                    <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">Ses offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service)">
                                                 Aucune offre de service n'est actuellement publié dans vos activités.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="offre_service in personal.lst_offre_service">
+<!--                                            <div ng-repeat="(service_id, service) in personal.dct_offre_service" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />-->
+                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-<!--                                                        <h4 class="activite_title">{{offre_service.title}}</h4>-->
-                                                        <h4 ng-if="!_.isEmpty(offre_service.titre)">{{offre_service.titre}}</h4>
-                                                        <h4 ng-if="_.isEmpty(offre_service.titre)">Aucune titre</h4>
-                                                        <!-- TODO activite_desc not exist -->
+                                                        <h4 class="activite_title" ng-if="!_.isEmpty(offre_service.titre)">{{offre_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-if="_.isEmpty(offre_service.titre)">Aucune titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
-    <!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
-    <!--                                                    <h5 class="activite_distance">Faire visiter une maison &#224;-->
-    <!--                                                        louer-->
-    <!--                                                    </h5>-->
-
-                                                        <!-- TODO manque activite_fav -->
                                                     </div>
                                                 </a>
-                                                <div class="infos right">
+                                                <div class="infos_right">
                                                     <p>{{offre_service.diff_create_date}}</p>
-                                                    <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" />
+                                                    <i class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('accorderie.offre.service', offre_service)" />
                                                 </div>
                                             </div>
                                             <a href="/participer#!?state=init.pos" class="btn btn-primary rounded-circle text-gamma add_service"><i class="fa fa-plus-circle icon_padding_right" /> Ajouter une offre de service</a>
                                             <div class="list_title s_title pb40">
                                                 <h5>
-                                                    <font style="font-size: 1.5rem;">
-                                                        Mes demandes de
-                                                        service
+                                                    <font style="font-size: 1.5rem;" ng-if="membre_info.estPersonnel">
+                                                        Mes demandes de service
+                                                    </font>
+                                                    <font style="font-size: 1.5rem;" ng-if="!membre_info.estPersonnel">
+                                                        Ses demandes de service
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service)">
-                                                Aucune offre de service n'est actuellement publié dans vos activités.
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service)">
+                                                Aucune demande de service n'est actuellement publié dans vos activités.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="demande_service in personal.lst_demande_service">
+<!--                                            <div ng-repeat="(service_id, service) in personal.dct_demande_service" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"  ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />-->
+                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-<!--                                                        <h4 class="activite_title">{{demande_service.title}}</h4>-->
-                                                        <h4 ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
-                                                        <h4 ng-if="_.isEmpty(demande_service.titre)">Aucune titre</h4>
-                                                        <!-- TODO activite_desc not exist -->
+                                                        <h4 class="activite_title" ng-if="!_.isEmpty(demande_service.titre)">{{demande_service.titre}}</h4>
+                                                        <h4 class="activite_title" ng-if="_.isEmpty(demande_service.titre)">Aucune titre</h4>
                                                         <h5 class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
-    <!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
-    <!--                                                    <h5 class="activite_distance">Faire visiter une maison &#224;-->
-    <!--                                                        louer-->
-    <!--                                                    </h5>-->
-                                                        <div class="infos_right">
-                                                            <p>{{demande_service.diff_create_date}}</p>
-                                                            <i class="fa text-epsilon" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" />
-                                                        </div>
-                                                        <!-- TODO manque activite_fav -->
                                                     </div>
                                                 </a>
+                                                <div class="infos_right">
+                                                    <p>{{demande_service.diff_create_date}}</p>
+                                                    <i class="fa text-epsilon" ng-class="{'fa-heart': demande_service.is_favorite, 'fa-heart-o': !demande_service.is_favorite}" style="font-size:1.5rem;" ng-click="add_to_my_favorite('accorderie.demande.service', demande_service)" />
+                                                </div>
                                             </div>
                                             <a href="/participer#!?state=init.pds" class="btn btn-primary rounded-circle text-gamma add_service"><i class="fa fa-plus-circle icon_padding_right" /> Ajouter une demande de service</a>
                                         </div>
@@ -2381,7 +2208,7 @@
                                         </h1>
                                     </div>
                                 </section>
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+                                <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
                                             <div class="list_title s_title pb40">
@@ -2389,17 +2216,16 @@
                                                     <font style="font-size: 1.5rem;">Les offres de service</font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_offre_service_favoris)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_offre_service_favoris)">
                                                 Aucune offre de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="offre_service in personal.lst_offre_service_favoris">
+                                            <div class="activite btn" ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{offre_service.titre}}
-                                                        </h4>
+                                                        <h4 class="activite_title">{{offre_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(offre_service.description)" ng-bind-html="offre_service.description | unsafe" />
-                                                        <h5 class="activite_auteur">{{offre_service.membre.full_name}}</h5>
+                                                        <h5 class="activite_auteur">{{contact_info.full_name}}</h5>
                                                         <h5 class="activite_distance">{{offre_service.distance}}</h5>
                                                     </div>
                                                 </a>
@@ -2416,15 +2242,14 @@
                                                     </font>
                                                 </h5>
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_demande_service_favoris)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_demande_service_favoris)">
                                                 Aucune demande de services favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="demande_service in personal.lst_demande_service_favoris">
+                                            <div class="activite btn" ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris">
                                                 <a ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}">
                                                     <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
-                                                        <h4 class="activite_title">{{demande_service.titre}}
-                                                        </h4>
+                                                        <h4 class="activite_title">{{demande_service.titre}}</h4>
                                                         <p class="activite_desc" ng-if="!_.isEmpty(demande_service.description)" ng-bind-html="demande_service.description | unsafe" />
                                                         <h5 class="activite_auteur">{{demande_service.membre.full_name}}</h5>
                                                         <h5 class="activite_distance">{{demande_service.distance}}</h5>
@@ -2441,17 +2266,16 @@
                                                 </h5>
                                             </div>
 
-                                            <div class="activite btn" data-name="Box" ng-if="_.isEmpty(personal.lst_membre_favoris)">
+                                            <div class="activite btn" ng-if="_.isEmpty(personal.dct_membre_favoris)">
                                                 Aucun membre favoris dans votre liste.
                                             </div>
-                                            <div class="activite btn" data-name="Box" ng-repeat="membre_favoris in personal.lst_membre_favoris">
+                                            <div class="activite btn" ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris">
                                                 <a ng-href="/monprofil/mapresentation#!?membre_id={{membre_favoris.id}}">
                                                     <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                     <div class="infos">
                                                         <h4 class="activite_title">
                                                             {{membre_favoris.full_name}}
                                                         </h4>
-                                                        <!-- TODO missing activite_age -->
                                                         <h5 class="activite_age">
                                                             {{membre_favoris.age}} ans
                                                         </h5>
@@ -2501,16 +2325,16 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite/accordages">
-                                                <span>Accordages</span>
+                                            <a class="nav-link" role="menu_item" href="/monactivite/echanges">
+                                                <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>Mon r&#233;seau</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link active" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -2683,42 +2507,42 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Nom</h4>
                                                     <h5 class="item_desc">Alice Poitier</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Sexe</h4>
                                                     <h5 class="item_desc">Incertain</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Date de naissance</h4>
                                                     <h5 class="item_desc">14 avril 1988</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse courriel</h4>
                                                     <h5 class="item_desc">loremipsum@loremipsum.com</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Num&#233;ro de t&#233;l&#233;phone</h4>
                                                     <h5 class="item_desc">5135351134</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Adresse</h4>
@@ -2729,7 +2553,7 @@
                                                     </h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">V&#233;rification de vs ant&#233;c&#233;dents
@@ -2771,14 +2595,14 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list settings">
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">Langues</h4>
                                                     <h5 class="item_desc">Fran&#231;ais</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite" data-name="Box">
+                                            <div class="activite">
                                                 <a class="modif" href="">Modifier</a>
                                                 <div class="infos">
                                                     <h4 class="item_title">???????</h4>
@@ -2830,44 +2654,7 @@
                                         </div>
 
                                         <div class="right_cards_container">
-                                            <div class="card info-4">
-                                                <div class="img rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
-                                                <h4>Votre accordeuse:</h4>
-                                                <h4>Alice Poitier</h4>
-                                                <div class="stats">
-                                                    <p>
-                                                        <i class="fa fa-user-circle" />
-                                                        Membre depuis mars 2019
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-shield" />
-                                                        Antécédents judiciaires vérifiés
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-user-circle" />
-                                                        3 offres de service
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-clock-o" />
-                                                        15h de service à son actif
-                                                    </p>
-                                                </div>
-                                                <div class="summary">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                    aliqua. Faucibus purus in massa tempor nec feugiat nisl pretium
-                                                    fusce. Aliquam malesuada bibendum arcu vitae elementum curabitur
-                                                    vitae nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis
-                                                    commodo odio aenean sed adipiscing diam donec.
-                                                </div>
-                                                <div class="buttons">
-                                                    <div class="btn btn-primary rounded-circle">
-                                                        En savoir plus sur
-                                                        Alice
-                                                    </div>
-                                                    <div class="btn btn-primary rounded-circle">La contacter</div>
-                                                </div>
-                                            </div>
+                                            <div class="card info-4" ng-include="'/accorderie_canada_ddb/template/votre_contact_full'" />
                                         </div>
                                     </div>
                                 </section>
@@ -2915,7 +2702,7 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="activite message btn " onclick="window.location.href='/monprofil/messages/message';">
+                                            <div class="activite message btn" onclick="window.location.href='/monprofil/messages/message';">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -2926,7 +2713,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn" data-name="Box">
+                                            <div class="activite message btn">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -2936,7 +2723,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Helena Cartier</h4>
@@ -2944,7 +2731,7 @@
                                                 </div>
                                                 <span>8 h</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Helena Cartier</h4>
@@ -2999,7 +2786,7 @@
                                 <section class="s_vertical_list_lg pt0 debug_unimplemented">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="activite message btn" data-name="Box">
+                                            <div class="activite message btn">
                                                 <div class="activite_img img-fluid rounded-circle">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -3010,7 +2797,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn" data-name="Box">
+                                            <div class="activite message btn">
                                                 <div class="activite_img img-fluid rounded-circle">
                                                     <div class="unread rounded-circle" />
                                                 </div>
@@ -3020,7 +2807,7 @@
                                                 </div>
                                                 <span>5 min</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Transaction valid&#233;e</h4>
@@ -3028,7 +2815,7 @@
                                                 </div>
                                                 <span>8 h</span>
                                             </div>
-                                            <div class="activite message btn read" data-name="Box">
+                                            <div class="activite message btn read">
                                                 <div class="activite_img img-fluid rounded-circle" />
                                                 <div class="infos">
                                                     <h4 class="message_auteur">Demande de service</h4>
@@ -3164,18 +2951,18 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite/accordages">
-                                                <span>Accordages</span>
+                                            <a class="nav-link" role="menu_item" href="/monactivite/echanges">
+                                                <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -3184,17 +2971,17 @@
                                 </nav>
                                 <section class="s_activite_bilan">
                                     <div class="bilan_container">
-                                        <a href="/monactivite/accordages" class="bilan bilan-1 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
+                                        <a href="/monactivite/echanges" class="bilan bilan-1 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="txt">Soldes en heures:</span>
                                             <span class="nbr">{{personal.actual_bank_time_human | uppercase}}</span>
                                         </a>
                                         <span class="debug_unimplemented">
-                                            <a href="/monactivite/accordageavenir" class="bilan bilan-2 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
+                                            <a href="/monactivite/echanges" class="bilan bilan-2 btn" style="background-image: url(&quot;https://i.pinimg.com/originals/60/43/bf/6043bf9787ade7d5b2e746ad0960cd5a.jpg&quot;)">
                                                 <span class="nbr">1</span>
-                                                <span class="txt">accordage &#224; venir</span>
+                                                <span class="txt">Échange &#224; venir</span>
                                             </a>
                                         </span>
-                                        <a href="/monactivite/accordages" class="bilan bilan-3 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
+                                        <a href="/monactivite/echanges" class="bilan bilan-3 btn" style="background-image: url(&quot;https://static.vecteezy.com/system/resources/previews/002/493/163/non_2x/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;)">
                                             <span class="nbr">{{personal.actual_month_bank_time_human_short | uppercase}}</span>
                                             <span class="txt">ce mois-ci</span>
                                         </a>
@@ -3223,7 +3010,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab
@@ -3233,7 +3020,7 @@
                                                 </div>
                                                 <div class="status red-o">- 3H00</div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
@@ -3242,7 +3029,7 @@
                                                 </div>
                                                 <div class="event">ÉVÈNEMENT</div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Soirée au café Baobab</h4>
@@ -3267,28 +3054,28 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Alice Poitier</h4>
                                                     <h5 class="activite_auteur">Lorem ipsum</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_jonathan_kemper_cbzh3kapxre_unsplash_jpg/jonathan-kemper-CbZh3kaPxrE-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip663589" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Yannick Lalibert&#233;</h4>
                                                     <h5 class="activite_auteur">Lorem Ipsum</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Yannick Delmonde</h4>
                                                     <h5 class="activite_auteur">Lorem Ipsum</h5>
                                                 </div>
                                             </div>
-                                            <div class="activite btn small" data-name="Box">
+                                            <div class="activite btn small">
                                                 <img class="activite_img img-fluid rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_thisisengineering_raeng_fgdmh3iqvmw_unsplash_jpg/thisisengineering-raeng-fgdmH3iqvMw-unsplash.jpg" data-original-title="" title="" aria-describedby="tooltip318161" />
                                                 <div class="infos">
                                                     <h4 class="activite_title">Drice Hygara</h4>
@@ -3333,18 +3120,18 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" role="menu_item" href="/monactivite/accordages">
-                                                <span>Accordages</span>
+                                            <a class="nav-link" role="menu_item" href="/monactivite/echanges">
+                                                <span>Échanges</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link active" role="menu_item" href="/monactivite/monreseau">
                                                 <span>
                                                     Mon r&#233;seau
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item debug_unimplemented">
                                             <a class="nav-link" role="menu_item" href="/monactivite/mesgroupes">
                                                 <span>Mes groupes</span>
                                             </a>
@@ -3522,16 +3309,16 @@
                                             <br />
                                             <a href="/explorer" class="footer_link">Les cat&#233;gories d'offres de service</a>
                                         </div>
-                                        <div class="col-lg-2 footer_menu debug_unimplemented">
+                                        <div class="col-lg-2 footer_menu">
                                             <a href="/communaute/actualite" class="img bottom_menu_icon fa fa-comments-o" style="text-decoration:none;" />
                                             <h5>La communaut&#233;</h5>
-                                            <a href="/communaute/actualite" class="footer_link">Actualit&#233;</a>
+                                            <a href="/communaute/actualite" class="footer_link debug_unimplemented">Actualit&#233;</a>
                                             <br />
-                                            <a href="/communaute/evenements" class="footer_link">&#201;v&#232;nements</a>
+                                            <a href="/communaute/evenements" class="footer_link debug_unimplemented">&#201;v&#232;nements</a>
                                             <br />
                                             <a href="/communaute/membres" class="footer_link">Membres</a>
                                             <br />
-                                            <a href="/communaute/groupes" class="footer_link">Groupes</a>
+                                            <a href="/communaute/groupes" class="footer_link debug_unimplemented">Groupes</a>
                                         </div>
                                         <div class="col-lg-2 footer_menu">
                                             <a href="/participer" class="img bottom_menu_icon fa fa-plus-circle" style="text-decoration:none;" />
@@ -3567,7 +3354,7 @@
                                             <a href="/monactivite" class="footer_link">Bilan</a>
                                             <span class="debug_unimplemented">
                                                 <br />
-                                                <a href="/monactivite/accordages" class="footer_link">Accordages</a>
+                                                <a href="/monactivite/echanges" class="footer_link">Échanges</a>
                                                 <br />
                                                 <a href="/monactivite/monreseau" class="footer_link">Mon r&#233;seau</a>
                                                 <br />
@@ -3915,44 +3702,8 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="card info-4">
-                                                <div class="img rounded-circle" style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);" />
-                                                <h4>Votre organisatrice:</h4>
-                                                <h4>Alice Poitier</h4>
-                                                <div class="stats">
-                                                    <p>
-                                                        <i class="fa fa-user-circle" />
-                                                        Membre depuis mars 2019
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-shield" />
-                                                        Antécédents judiciaires vérifiés
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-user-circle" />
-                                                        3 offres de service
-                                                    </p>
-                                                    <p>
-                                                        <i class="fa fa-clock-o" />
-                                                        15h de service à son actif
-                                                    </p>
-                                                </div>
-                                                <div class="summary">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                    Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                    Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                    nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
-                                                    odio aenean sed adipiscing diam donec.
-                                                </div>
-                                                <div class="buttons">
-                                                    <div class="btn btn-primary rounded-circle">
-                                                        En savoir plus sur
-                                                        Alice
-                                                    </div>
-                                                    <div class="btn btn-primary rounded-circle">La contacter</div>
-                                                </div>
-                                            </div>
+                                            <!-- Votre organisatrice -->
+                                            <div class="card info-4" ng-include="'/accorderie_canada_ddb/template/votre_contact_full'" />
                                         </div>
                                     </div>
                                 </section>
@@ -3998,11 +3749,11 @@
                                         </div>
                                     </div>
                                 </section>
-                                <div style="text-align: left;" />
-                                <section class="s_vertical_list_lg pt0 debug_unimplemented">
+<!--                                <div style="text-align: left;" />-->
+                                <section class="s_vertical_list_lg pt0">
                                     <div class="container_lists">
                                         <div class="row vertical_list">
-                                            <div class="list_title s_title pb24">
+                                            <div class="list_title s_title pb24 debug_unimplemented">
                                                 <section class="s_mobile_filter">
                                                     <div class="btn">
                                                         Catégorie
@@ -4025,63 +3776,26 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
-                                            <div class="activite btn" data-name="Box">
-                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                <div class="infos">
-                                                    <h4 class="activite_title">
-                                                        Vous souhaitez acheter une maison à
-                                                        l"étranger?
-                                                    </h4>
-                                                    <h5 class="activite_desc">
-                                                        Vous êtes à l'étranger et vous cherchez
-                                                        une maison?
-                                                    </h5>
-                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>
-                                                    <h5 class="activite_distance">300m</h5>
-                                                </div>
-                                                <div class="infos right">
-                                                    <h5>5m</h5>
-                                                    <h2 class="fa fa-heart-o text-epsilon" />
-                                                </div>
-                                            </div>
+                                            <div ng-repeat="(service_id, service) in dct_offre_service_info" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'offre'; " />
+<!--                                            <div class="activite btn debug_unimplemented">-->
+<!--                                                <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />-->
+<!--                                                <div class="infos">-->
+<!--                                                    <h4 class="activite_title">-->
+<!--                                                        Vous souhaitez acheter une maison à-->
+<!--                                                        l"étranger?-->
+<!--                                                    </h4>-->
+<!--                                                    <h5 class="activite_desc">-->
+<!--                                                        Vous êtes à l'étranger et vous cherchez-->
+<!--                                                        une maison?-->
+<!--                                                    </h5>-->
+<!--                                                    <h5 class="activite_auteur">Denis Lemarchand</h5>-->
+<!--                                                    <h5 class="activite_distance">300m</h5>-->
+<!--                                                </div>-->
+<!--                                                <div class="infos right">-->
+<!--                                                    <h5>5m</h5>-->
+<!--                                                    <h2 class="fa fa-heart-o text-epsilon" />-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </section>
@@ -4094,129 +3808,194 @@
             <field name="name">Offres de service</field>
             <field name="type">qweb</field>
         </record>
-        <record id="ir_ui_view_accordage_a_venir" model="ir.ui.view">
+        <record id="ir_ui_view_demandes_service" model="ir.ui.view">
             <field name="arch" type="xml">
-                <t name="Accordage à venir" t-name="website.accordageavenir">
+                <t name="About us" t-name="website.aboutus">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_search_short debug_unimplemented">
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                                <h1 class="s_title_default">
+                                                    <div class="search_bar" style="margin:0 auto;width:100%">
+                                                        <p class="search_txt text-epsilon">Que cherchez-vous?</p>
+                                                        <div class="search_category">
+                                                            <p class="search_txt text-epsilon">Type de recherche</p>
+                                                            <div class="search_send btn btn-primary rounded-circle">
+                                                                <font style="font-size: 18px;" class="text-gamma">
+                                                                    <i class="img img-fluid mx-auto fa fa-search" />
+                                                                    Rechercher
+                                                                </font>
+                                                            </div>
+                                                            <p class="search_select" style="color: rgb(106, 106, 106)">Sélectionner une catégorie</p>
+                                                        </div>
+                                                        <input type="text" placeholder="Taper votre mot clé ici" />
+                                                    </div>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+<!--                                <div style="text-align: left;" />-->
+                                <section class="s_vertical_list_lg pt0">
+                                    <div class="container_lists">
+                                        <div class="row vertical_list">
+                                            <div class="list_title s_title pb24 debug_unimplemented">
+                                                <section class="s_mobile_filter">
+                                                    <div class="btn">
+                                                        Catégorie
+                                                        <i class="fa fa-chevron-down" />
+                                                    </div>
+                                                    <div class="btn">
+                                                        <i class="fa fa-sliders" />
+                                                        Filtrer et trier
+                                                    </div>
+                                                </section>
+                                                <div class="title">
+                                                    <h1>Demandes de service</h1>
+                                                    <span class="filter_btn btn" style="margin:auto 15px auto auto">
+                                                        Catégorie &amp;nbsp;
+                                                        <icon class="fa fa-chevron-up text-epsilon" />
+                                                    </span>
+                                                    <span class="filter_btn btn">
+                                                        <icon class="fa fa-sliders text-epsilon" />&amp;nbsp;
+                                                        Filtrer et trier
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div ng-repeat="(service_id, service) in dct_demande_service_info" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="service_enable_href = true; service_enable_favorite = true; type_service = 'demande'; " />
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+            <field name="key">website.demandes-de-service</field>
+            <field name="name">Demandes de service</field>
+            <field name="type">qweb</field>
+        </record>
+        <record id="ir_ui_view_echange" model="ir.ui.view">
+            <field name="arch" type="xml">
+                <t name="Échange de service" t-name="website.echange">
                     <t t-call="website.layout">
                         <div id="wrap">
                             <div class="oe_structure">
                                 <div class="debug_debug">
-                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86594051">https://marvelapp.com/prototype/1773h559/screen/86594051</a>
+                                    <div ng-if="!echange_service_info.transaction_valide">
+                                        Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86594051">https://marvelapp.com/prototype/1773h559/screen/86594051</a><br />
+                                    </div>
+                                    <div ng-if="echange_service_info.transaction_valide">
+                                        Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86694421">https://marvelapp.com/prototype/1773h559/screen/86694421</a><br />
+                                    </div>
                                 </div>
                                 <section class="s_back">
-                                    <a href="">
+                                    <a href="/monactivite/echanges">
                                         <i class="fa fa-arrow-left text-primary" />
-                                        Voir toutes mes accordages
+                                        Voir tous mes échanges
                                     </a>
+                                    <div class="actions debug_unimplemented">
+                                        <div>
+                                            <i class="fa fa-phone text-primary icon_padding_right" />
+                                        Contacter l'accorderie
+                                        </div>
+
+                                        <divider />
+                                        <div>
+                                            <i class="fa fa-print text-primary icon_padding_right" />
+                                        Imprimer la validation
+                                        </div>
+                                    </div>
                                 </section>
-                                <section class="s_accordage_informations pt72 pb72">
+                                <section class="s_echange_informations pt72 pb72" ng-if="_.isEmpty(echange_service_info)">
+                                    Aucune échange de service, veuillez <a href="/monactivite/echanges">recommencer</a>.
+                                </section>
+                                <section class="s_echange_informations pt72 pb72" ng-if="!_.isEmpty(echange_service_info)">
                                     <div class="informations_container">
-                                        <div class="information information-1">
+                                        <div class="information information-1" ng-if="!echange_service_info.transaction_valide">
                                             <span class="info_title">
                                                 <font style="font-weight:bold;">
-                                                    Mon accordage à venir avec
+                                                    Mon échange de service à venir avec
                                                 </font>
                                                 <br />
-                                                Alice Poitier
+                                                {{contact_info.full_name}}
                                             </span>
                                             <div class="btn btn-primary ml-auto text-gamma">
-                                                <i class="fa fa-check" />
-                                                <span>Déclarer le service comme effectué</span>
+                                                <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">
+                                                    <i class="fa fa-check" />
+                                                    <span>Déclarer le service comme effectué</span>
+                                                </a>
                                             </div>
-                                            <div class="btn btn-epsilon text-gamma">
+                                            <div class="btn btn-epsilon text-gamma debug_unimplemented">
                                                 <i class="fa fa-pencil" />
                                                 <span>Modifier l'entente</span>
                                             </div>
-                                            <div class="btn btn-epsilon text-gamma">
+                                            <div class="btn btn-epsilon text-gamma debug_unimplemented">
                                                 <i class="fa fa-times-circle" />
                                                 <span>Annuler l'entente</span>
                                             </div>
                                         </div>
-                                        <div class="information information-2">
-                                            <img class="img rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                            <p class="nbr text-center">
-                                                <font style="font-weight:bold;">Votre accordeur :</font>
-                                                <br />
-                                                Yannick Gagnon
-                                            </p>
-                                            <div class="stats">
-                                                <p>
-                                                    <i class="fa fa-user-circle" />
-                                                    Membre depuis mars 2019
-                                                </p>
-                                                <p>
-                                                    <i class="fa fa-shield" />
-                                                    Antécédents judiciaires vérifiés
-                                                </p>
-                                                <p>
-                                                    <i class="fa fa-user-circle" />
-                                                    3 offres de service
-                                                </p>
-                                                <p>
-                                                    <i class="fa fa-clock-o" />
-                                                    15h de service à son actif
-                                                </p>
-                                            </div>
-                                            <div class="summary">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
-                                                odio aenean sed adipiscing diam donec.
-                                            </div>
-                                            <div class="buttons">
-                                                <div class="btn btn-primary rounded-circle text-gamma">
-                                                    En savoir plus sur
-                                                    Alice
-                                                </div>
-                                                <div class="btn btn-primary rounded-circle text-gamma">Le contacter
+                                        <div class="information information-1" ng-if="echange_service_info.transaction_valide">
+                                            <span class="info_title">
+                                                <h1>
+                                                    Service <span ng-if="!echange_service_info.estAcheteur">donné</span><span ng-if="echange_service_info.estAcheteur">reçu</span> le :
+                                                </h1>
+                                                {{echange_service_info.show_date | toTitleCase}}
+                                                <divider />
+                                                {{echange_service_info.show_start_time}} - {{echange_service_info.show_end_time}}
+                                            </span>
+                                            <div class="info_depot" ng-class="{'neg_time': echange_service_info.estAcheteur}">
+                                                <span ng-if="!echange_service_info.estAcheteur">DÉPOT</span><span ng-if="echange_service_info.estAcheteur">RETRAIT</span> SUR MON COMPTE
+                                                <div class="heures" ng-class="{'neg_time_b': echange_service_info.estAcheteur}">
+                                                    {{echange_service_info.transaction_valide ? echange_service_info.show_total_dure : echange_service_info.show_total_dure_estime}}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="information information-3">
+                                        <div class="information information-2">
+<!--                                                {{echange_service_info.membre.full_name}}-->
+                                            <div ng-include="'/accorderie_canada_ddb/template/votre_contact_full'" />
+                                        </div>
+                                        <div class="information information-3" ng-if="!echange_service_info.transaction_valide">
                                             <span class="info_title">
                                                 <p style="font-weight:bold;">
                                                     Date prévue du service
                                                 </p>
                                                 <br />
                                                 <span>
-                                                    Mercredi 6 juin 2022
+                                                    {{echange_service_info.show_date | toTitleCase}}
                                                 </span>
                                                 <span class="divider" />
                                                 <span>
-                                                    09h00 - 12h00
+                                                    {{echange_service_info.show_start_time}} - {{echange_service_info.show_end_time}}
                                                 </span>
                                             </span>
                                         </div>
-                                        <div class="information information-4">
-                                            <span class="info_title">
-                                                <font style="font-weight:bold;">
-                                                    Offre de service
-                                                </font>
-                                            </span>
-                                            <div class="row vertical_list">
-                                                <div class="activite btn" data-name="Box">
-                                                    <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
-                                                    <div class="infos">
-                                                        <p class="activite_title">
-                                                            Vous souhaitez acheter une maison à
-                                                            l"étranger?
-                                                        </p>
-                                                        <span class="activite_auteur">
-                                                            Yannick Gagnon
-                                                            <br />
-                                                            2.3km
-                                                        </span>
-                                                    </div>
-                                                    <div class="infos right">
-                                                        <p>5m</p>
-                                                        <p class="fa fa-heart-o text-epsilon" />
-                                                    </div>
+                                        <div class="information information-4" ng-if="!echange_service_info.transaction_valide &amp;&amp; !_.isUndefined(echange_service_info.offre_service) || !_.isUndefined(echange_service_info.demande_service)">
+                                            <div ng-if="!_.isUndefined(echange_service_info.offre_service)">
+                                                <span class="info_title">
+                                                    <font style="font-weight:bold;">
+                                                        Offre de service
+                                                    </font>
+                                                </span>
+                                                <div class="row vertical_list">
+                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="model = 'accorderie.offre.service'; service_id = echange_service_info.offre_service; type_service = 'offre'; getDatabaseInfo(); " />
+                                                </div>
+                                            </div>
+                                            <div ng-if="!_.isUndefined(echange_service_info.demande_service)">
+                                                <span class="info_title">
+                                                    <font style="font-weight:bold;">
+                                                        Demande de service
+                                                    </font>
+                                                </span>
+                                                <div class="row vertical_list">
+                                                    <div ng-controller="OffreDemandeService" ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'" ng-init="model = 'accorderie.demande.service'; service_id = echange_service_info.demande_service; type_service = 'demande'; getDatabaseInfo(); " />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="information information-5">
+                                        <div class="information information-5" ng-if="!echange_service_info.transaction_valide">
                                             <span class="info_title">
                                                 <font style="font-weight:bold;">
                                                     Conditions de l'entente
@@ -4227,8 +4006,8 @@
                                                     Coût possible supplémentaire à prévoir
                                                 </b>
                                                 <p class="condition_desc">Frais pour trajet de</p>
-                                                <p>2.3km</p>
-                                                <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
+                                                <p>{{echange_service_info.distance_trajet}} km</p>
+                                                <p class="condition_desc debug_unimplemented">Frais pour le matériel nécessaire à l'échange
                                                     de service
                                                     <a href="" class="ml-auto text-primary">Voir la liste</a>
                                                 </p>
@@ -4239,41 +4018,151 @@
                                                     Estimation de la durée de service
                                                 </b>
                                                 <p class="condition_desc">Nombre d'heures estimé pour le service</p>
-                                                <p>02h50</p>
-                                                <p class="condition_desc">Durée du traget estimée à effectuer</p>
-                                                <p>00h10</p>
+                                                <p>{{echange_service_info.show_duree_estime_pos}}</p>
+                                                <p class="condition_desc">Durée du trajet estimée à effectuer</p>
+                                                <p>{{echange_service_info.show_duree_trajet_estime_pos}}</p>
                                                 <div class="bar_time">
                                                     <b>
-                                                        Montant total de temps estimé
+                                                        Montant total de temps estimé :
                                                     </b>
                                                     <span>
-                                                        03h00
+                                                        {{echange_service_info.show_total_dure_estime_pos}}
                                                     </span>
                                                 </div>
                                             </div>
-                                            <divider />
+                                            <span class="debug_unimplemented">
+                                                <divider />
+                                                <div class="condition">
+                                                    <b class="nbr">
+                                                        Respectez-vous les conditions suivantes :
+                                                    </b>
+                                                    <p>
+                                                        <i class="fa fa-check text-epsilon checker" />
+                                                        Il doit y avoir au moins 4 personnes pout le déménagement
+                                                    </p>
+                                                </div>
+                                                <divider />
+                                                <div class="condition">
+                                                    <b class="nbr">
+                                                        Mise en garde
+                                                    </b>
+                                                    <p class="condition_txt">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                        Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                                        Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                                        nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                                        odio aenean sed adipiscing diam donec.
+                                                    </p>
+                                                </div>
+                                            </span>
+                                            <span ng-if="!_.isEmpty(echange_service_info.commentaire)">
+                                                <span class="info_title">
+                                                    <font style="font-weight:bold;">
+                                                        Commentaire
+                                                    </font>
+                                                </span>
+                                                <div class="condition">
+                                                    <p>{{echange_service_info.commentaire}}</p>
+                                                </div>
+                                            </span>
+                                        </div>
+
+                                        <div class="information information-5" style="grid-area:2/2/4/3;" ng-if="echange_service_info.transaction_valide">
+                                            <span class="info_title" ng-if="echange_service_info.has_offre_service">
+                                                <font style="font-weight:bold;">
+                                                    Offre de service privé
+                                                </font>
+                                            </span>
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_offre_service)">
+                                                <b class="nbr">
+                                                    Catégorie du service
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.categorie_offre_service}}</p>
+                                            </div>
+                                            <divider ng-if="echange_service_info.has_offre_service" />
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service">
+                                                <b class="nbr">
+                                                    Nom du service
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.sujet_offre_service}}</p>
+                                            </div>
+                                            <divider ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.description_offre_service)" />
+                                            <div class="condition" ng-if="echange_service_info.has_offre_service &amp;&amp; !_.isEmpty(echange_service_info.description_offre_service)">
+                                                <b class="nbr">
+                                                    Description du service offert
+                                                </b>
+                                                <p class="condition_desc" ng-bind-html="echange_service_info.description_offre_service | unsafe" />
+                                            </div>
+
+                                            <span class="info_title" ng-if="echange_service_info.has_demande_service">
+                                                <font style="font-weight:bold;">
+                                                    Demande de service privé
+                                                </font>
+                                            </span>
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.categorie_demande_service)">
+                                                <b class="nbr">
+                                                    Catégorie du service
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.categorie_demande_service}}</p>
+                                            </div>
+                                            <divider ng-if="echange_service_info.has_demande_service" />
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service">
+                                                <b class="nbr">
+                                                    Nom du service
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.sujet_demande_service}}</p>
+                                            </div>
+                                            <divider ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.description_demande_service)" />
+                                            <div class="condition" ng-if="echange_service_info.has_demande_service &amp;&amp; !_.isEmpty(echange_service_info.description_demande_service)">
+                                                <b class="nbr">
+                                                    Description du service demandé
+                                                </b>
+                                                <p class="condition_desc" ng-bind-html="echange_service_info.description_demande_service | unsafe" />
+                                            </div>
+                                        </div>
+                                        <div class="information information-5" ng-if="echange_service_info.transaction_valide">
+                                            <span class="info_title">
+                                                <font style="font-weight:bold;">
+                                                    Détails sur le service reçu
+                                                </font>
+                                            </span>
                                             <div class="condition">
                                                 <b class="nbr">
-                                                    Respectez-vous les conditions suivantes :
+                                                    Coût monétaires supplémentaires engagés
                                                 </b>
-                                                <p>
-                                                    <i class="fa fa-check text-epsilon checker" />
-                                                    Il doit y avoir au moins 4 personnes pout le déménagement
+                                                <p class="condition_desc">Frais pour le trajet :</p>
+                                                <p>${{echange_service_info.frais_trajet}} CAD</p>
+                                                <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
+                                                    de service
                                                 </p>
+                                                <p>${{echange_service_info.frais_materiel}} CAD</p>
                                             </div>
                                             <divider />
                                             <div class="condition">
                                                 <b class="nbr">
-                                                    Mise en garde
+                                                    Durée du service reçu
                                                 </b>
-                                                <p class="condition_txt">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                    Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                    Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                    nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
-                                                    odio aenean sed adipiscing diam donec.
-                                                </p>
+                                                <p class="condition_desc">Durée de la réalisation du service</p>
+                                                <p>{{echange_service_info.show_duree_pos}}</p>
+                                                <p class="condition_desc">Durée du trajet aller-retour</p>
+                                                <p>{{echange_service_info.show_duree_trajet_pos}}</p>
+
+                                            </div>
+                                            <divider ng-if="!_.isEmpty(echange_service_info.commentaire)" />
+                                            <div class="condition" ng-if="!_.isEmpty(echange_service_info.commentaire)">
+                                                <b class="nbr">
+                                                    Commentaires
+                                                </b>
+                                                <p class="condition_desc">{{echange_service_info.commentaire}}</p>
+                                            </div>
+                                            <div class="bar_time">
+                                                <b>
+                                                    Montant total de temps transféré :
+                                                </b>
+                                                <span>
+                                                    {{echange_service_info.show_total_dure_pos}}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -4283,8 +4172,8 @@
                     </t>
                 </t>
             </field>
-            <field name="key">website.accordage-a-venir</field>
-            <field name="name">Accordage à venir</field>
+            <field name="key">website.echange</field>
+            <field name="name">Échange</field>
             <field name="type">qweb</field>
         </record>
         <record id="ir_ui_view_mon_agenda" model="ir.ui.view">
@@ -4346,7 +4235,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4366,7 +4255,7 @@
                                                     <h1>Novembre 2021</h1>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4380,7 +4269,7 @@
                                                 </div>
                                                 <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4400,7 +4289,7 @@
                                                     <h1>Octobre 2021</h1>
                                                 </div>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4414,7 +4303,7 @@
                                                 </div>
                                                 <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
-                                            <div class="activite btn" data-name="Box">
+                                            <div class="activite btn">
                                                 <img class="activite_img img-fluid" src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg" />
                                                 <div class="activite_infos">
                                                     <div class="activite_title">
@@ -4428,7 +4317,7 @@
                                                 </div>
                                                 <a class="details_link ml-auto" href="/"><u>Voir les détails</u></a>
                                             </div>
-                                            <div class="medium-btn btn btn-primary">Voir les transactions plus anciennes</div>
+                                            <div class="medium-btn btn btn-primary debug_unimplemented">Voir les transactions plus anciennes</div>
                                         </div>
                                     </div>
                                 </section>
@@ -4439,180 +4328,6 @@
             </field>
             <field name="key">website.mon_agenda</field>
             <field name="name">Mon agenda</field>
-            <field name="type">qweb</field>
-        </record>
-        <record id="ir_ui_view_accordage_validation" model="ir.ui.view">
-            <field name="arch" type="xml">
-                <t name="Accordage à venir" t-name="website.accordagevalidation">
-                    <t t-call="website.layout">
-                        <div id="wrap">
-                            <div class="oe_structure">
-                                <div class="debug_debug">
-                                    Lien maquette : <a href="https://marvelapp.com/prototype/1773h559/screen/86594051">https://marvelapp.com/prototype/1773h559/screen/86594051</a>
-                                </div>
-                                <section class="s_back">
-                                    <a href="">
-                                        <i class="fa fa-arrow-left text-primary" />
-                                        Voir toutes mes accordages
-                                    </a>
-                                    <div class="actions">
-                                        <div>
-                                            <i class="fa fa-phone text-primary icon_padding_right" />
-                                        Contacter l'accorderie
-                                        </div>
-
-                                        <divider />
-                                        <div>
-                                            <i class="fa fa-print text-primary icon_padding_right" />
-                                        Imprimer la validation
-                                        </div>
-
-                                    </div>
-                                </section>
-                                <section class="s_accordage_informations pt72 pb72">
-                                    <div class="informations_container">
-                                        <div class="information information-1">
-                                            <span class="info_title">
-                                                <h1>
-                                                    Service donné le:
-                                                </h1>
-                                                Mercredi 6 août 2022
-                                                <divider />
-                                                14h00 -16h00
-                                            </span>
-                                            <div class="info_depot">
-                                                DÉPOT SUR MON COMPTE
-                                                <div class="heures">
-                                                    2h00
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="information information-2">
-                                            <img class="img rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                            <p class="nbr text-center">
-                                                <font style="font-weight:bold;">Votre accordeur :</font>
-                                                <br />
-                                                Yannick Gagnon
-                                            </p>
-                                            <div class="stats">
-                                                <p>
-                                                    <i class="fa fa-user-circle" />
-                                                    Membre depuis mars 2019
-                                                </p>
-                                                <p>
-                                                    <i class="fa fa-shield" />
-                                                    Antécédents judiciaires vérifiés
-                                                </p>
-                                                <p>
-                                                    <i class="fa fa-user-circle" />
-                                                    3 offres de service
-                                                </p>
-                                                <p>
-                                                    <i class="fa fa-clock-o" />
-                                                    15h de service à son actif
-                                                </p>
-                                            </div>
-                                            <div class="summary">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
-                                                Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
-                                                nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
-                                                odio aenean sed adipiscing diam donec.
-                                            </div>
-                                            <div class="buttons">
-                                                <div class="btn btn-primary rounded-circle text-gamma">
-                                                    En savoir plus sur
-                                                    Alice
-                                                </div>
-                                                <div class="btn btn-primary rounded-circle text-gamma">Le contacter
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="information information-5" style="grid-area:2/2/4/3;">
-                                            <span class="info_title">
-                                                <font style="font-weight:bold;">
-                                                    Offre de service privé
-                                                </font>
-                                            </span>
-                                            <div class="condition">
-                                                <b class="nbr">
-                                                    Catégorie du service
-                                                </b>
-                                                <p class="condition_desc">Confection desserts pour événements</p>
-                                            </div>
-                                            <divider />
-                                            <div class="condition">
-                                                <b class="nbr">
-                                                    Nom du service
-                                                </b>
-                                                <p class="condition_desc">Création d'un gâteau de fête</p>
-                                            </div>
-                                            <divider />
-                                            <div class="condition">
-                                                <b class="nbr">
-                                                    Description du service offert
-                                                </b>
-                                                <p class="condition_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.</p>
-
-                                            </div>
-                                        </div>
-                                        <div class="information information-5">
-                                            <span class="info_title">
-                                                <font style="font-weight:bold;">
-                                                    Détails sur le service reçu
-                                                </font>
-                                            </span>
-                                            <div class="condition">
-                                                <b class="nbr">
-                                                    Coût monétaires supplémentaires engagés
-                                                </b>
-                                                <p class="condition_desc">Frais pour le trajet :</p>
-                                                <p class="condition_desc">Frais pour le matériel nécessaire à l'échange
-                                                    de service
-
-                                                </p>
-                                            </div>
-                                            <divider />
-                                            <div class="condition">
-                                                <b class="nbr">
-                                                    Durée du service reçu
-                                                </b>
-                                                <p class="condition_desc">Durée de la réalisation du service</p>
-                                                <p>02h50</p>
-                                                <p class="condition_desc">Durée du trajet aller-retour</p>
-                                                <p>00h10</p>
-
-                                            </div>
-                                            <divider />
-                                            <div class="condition">
-                                                <b class="nbr">
-                                                    Commentaires
-                                                </b>
-                                                <p class="condition_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.</p>
-                                                <div class="bar_time">
-                                                    <b>
-                                                        Montant total de temps transféré
-                                                    </b>
-                                                    <span>
-                                                        03h00
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </t>
-                </t>
-            </field>
-            <field name="key">website.accordage-validation</field>
-            <field name="name">Validation accordage</field>
             <field name="type">qweb</field>
         </record>
     </data>

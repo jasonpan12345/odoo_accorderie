@@ -31,6 +31,17 @@ odoo.define("accorderie.website.date_and_time", function (require) {
     $.when(base.ready(), load_locale());
 });
 
+class DefaultDict {
+    constructor(defaultInit) {
+        return new Proxy({}, {
+            get: (target, name) => name in target ?
+                target[name] :
+                (target[name] = typeof defaultInit === 'function' ?
+                    new defaultInit().valueOf() :
+                    defaultInit)
+        })
+    }
+}
 
 // function compileAngularElement(elSelector) {
 //
@@ -74,6 +85,21 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
     app.filter('unsafe', function ($sce) {
         // This allows html generation in view
         return $sce.trustAsHtml;
+    });
+    app.filter('lengthKeys', function () {
+        return function ($sce) {
+            return Object.keys($sce).length;
+        }
+    });
+    app.filter('toTitleCase', function () {
+        return function ($sce) {
+            return $sce.replace(
+                /\w\S*/g,
+                function (txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                }
+            );
+        }
     });
 
     // sAnimation.registry.affixMenu.include({
@@ -125,6 +151,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
     app.controller('MainController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
+        $scope.global = {
+            dbname: undefined,
+            database: {},
+        }
         $scope.personal = {
             // static
             id: undefined,
@@ -139,11 +169,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 name: "-",
                 id: 0,
             },
-            lst_offre_service: [],
-            lst_demande_service: [],
-            lst_offre_service_favoris: [],
-            lst_demande_service_favoris: [],
-            lst_membre_favoris: [],
+            dct_offre_service: {},
+            dct_demande_service: {},
+            dct_offre_service_favoris: {},
+            dct_demande_service_favoris: {},
+            dct_membre_favoris: {},
+            dct_echange: {},
 
             // calculate
             actual_bank_sign: true,
@@ -152,68 +183,49 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             actual_bank_time_human_short: "0h",
             actual_bank_time_human_simplify: "0 heure",
             actual_month_bank_time_human_short: "0h",
+            estPersonnel: true,
+            dct_echange_mensuel: {},
+
+            // is_in_offre_service_favoris: function () {
+            //     return  $scope.offre_service_info.id in Objects.keys(offre_service_info);
+            // },
+            // is_in_demande_service_favoris: function () {
+            //     return  $scope.demande_service_info.id in Objects.keys(demande_service_info);
+            // },
         }
         $scope.membre_info = {}
+        $scope.dct_membre = {}
+        $scope.contact_info = {}
+        $scope.offre_service_info = {}
+        $scope.dct_offre_service_info = {}
+        $scope.demande_service_info = {}
+        $scope.dct_demande_service_info = {}
+        $scope.echange_service_info = {}
+        $scope.dct_echange_service_info = {}
         $scope.nb_offre_service = 0;
 
-        ajax.rpc("/accorderie_canada_ddb/get_personal_information", {}).then(function (data) {
-            console.debug("AJAX receive get_personal_information");
-            if (data.error || !_.isUndefined(data.error)) {
-                $scope.error = data.error;
-                console.error($scope.error);
-            } else if (_.isEmpty(data)) {
-                $scope.error = "Empty 'get_personal_information' data";
-                console.error($scope.error);
-            } else {
-                $scope.error = "";
-                $scope.personal = data.personal;
-                $scope.update_personal_data();
-                console.debug($scope.personal);
-
-                // Special case, when need to get information of another member
-                let membre_id = parseInt($location.search()["membre_id"]);
-                if (window.location.pathname === "/monprofil/mapresentation" && !_.isUndefined(membre_id) && membre_id !== $scope.personal.id) {
-                    // Force switch to another user
-                    ajax.rpc("/accorderie_canada_ddb/get_membre_information/" + membre_id).then(function (data) {
-                        console.debug("AJAX receive get_membre_information");
-                        if (data.error || !_.isUndefined(data.error)) {
-                            $scope.error = data.error;
-                            console.error($scope.error);
-                        } else if (_.isEmpty(data)) {
-                            $scope.error = "Empty 'get_membre_information' data";
-                            console.error($scope.error);
-                        } else {
-                            $scope.error = "";
-                            $scope.membre_info = data.membre_info;
-                            console.debug($scope.membre_info);
-                        }
-                        // Process all the angularjs watchers
-                        $scope.$digest();
-                    })
+        $scope.add_to_my_favorite_field_id = function (model, record_id) {
+            ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": record_id}).then(function (data) {
+                console.debug("AJAX receive add_to_my_favorite");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty 'add_to_my_favorite' data";
+                    console.error($scope.error);
                 } else {
-                    $scope.membre_info = $scope.personal;
+                    // $scope.nb_offre_service = data.nb_offre_service;
+                    // record_obj.is_favorite = data.is_favorite;
+                    // if (model === "accorderie.membre" && data.is_favorite) {
+                    //     // TODO validate not already in list
+                    //     $scope.personal.lst_membre_favoris.push(record_obj);
+                    // }
                 }
-            }
 
-            // Process all the angularjs watchers
-            $scope.$digest();
-        })
-
-        ajax.rpc("/accorderie_canada_ddb/get_info/nb_offre_service", {}).then(function (data) {
-            console.debug("AJAX receive get_nb_offre_service");
-            if (data.error || !_.isUndefined(data.error)) {
-                $scope.error = data.error;
-                console.error($scope.error);
-            } else if (_.isEmpty(data)) {
-                $scope.error = "Empty 'get_nb_offre_service' data";
-                console.error($scope.error);
-            } else {
-                $scope.nb_offre_service = data.nb_offre_service;
-            }
-
-            // Process all the angularjs watchers
-            $scope.$digest();
-        })
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+        }
 
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
@@ -239,6 +251,263 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             })
         }
 
+        $scope.update_db_my_personal_info = function () {
+            ajax.rpc("/accorderie_canada_ddb/get_personal_information", {}).then(function (data) {
+                console.debug("AJAX receive get_personal_information");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty 'get_personal_information' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.error = "";
+                    $scope.global = data.global;
+                    $scope.personal = data.personal;
+                    $scope.update_personal_data();
+                    console.debug($scope.personal);
+
+                    $scope.update_db_list_membre($scope.personal.mon_accorderie.id);
+
+                    // Special case, when need to get information of another member
+                    let membre_id = $location.search()["membre_id"];
+                    let membre_id_int = parseInt(membre_id);
+                    if (window.location.pathname === "/monprofil/mapresentation" && !_.isUndefined(membre_id) && membre_id_int !== $scope.personal.id) {
+                        // Force switch to another user
+                        $scope.update_membre_info(membre_id_int, "membre_info");
+                    } else {
+                        console.debug("Setup membre personal.");
+                        $scope.personal.estPersonnel = true;
+                        $scope.membre_info = $scope.personal;
+                    }
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+        }
+
+        $scope.update_db_my_personal_info();
+
+        $scope.update_membre_info = function (membre_id, scope_var_name_to_update) {
+            ajax.rpc("/accorderie_canada_ddb/get_membre_information/" + membre_id).then(function (data) {
+                console.debug("AJAX receive get_membre_information");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty 'get_membre_information' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.error = "";
+                    data.membre_info.estPersonnel = false;
+                    data.membre_info.show_date_creation = moment(data.date_creation).format("MMMM YYYY");
+                    data.membre_info.show_bank_max_service_offert = $scope.convertNumToTime(data.membre_info.bank_max_service_offert, 4);
+                    $scope[scope_var_name_to_update] = data.membre_info;
+                    console.debug(data.membre_info);
+                }
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+        }
+
+        $scope.get_href_participer_service_effectue = function (echange_service_info) {
+            let status
+            if (!_.isUndefined(echange_service_info.demande_service) && !echange_service_info.estAcheteur) {
+                status = `/participer#!?state=init.va.oui.formulaire&echange_service=${echange_service_info.id}`;
+            } else if (echange_service_info.estAcheteur) {
+                // TODO why need member?
+                status = `/participer#!?state=init.va.non.recu.choix.formulaire&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+            } else {
+                status = `/participer#!?state=init.va.non.offert.existant_formulaire&membre=${echange_service_info.membre_id}&echange_service=${echange_service_info.id}`;
+            }
+            return status;
+        }
+
+        $scope.update_db_nb_offre_service = function () {
+            ajax.rpc("/accorderie_canada_ddb/get_info/nb_offre_service", {}).then(function (data) {
+                console.debug("AJAX receive get_nb_offre_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty 'get_nb_offre_service' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.nb_offre_service = data.nb_offre_service;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+        }
+
+        $scope.load_page_offre_demande_echange_service = function () {
+            let key = "/accorderie_canada_ddb/accorderie_offre_service/";
+            if (window.location.pathname.indexOf(key) === 0) {
+                // params can be 6?debug=1 or 6#!?str=3, need to extract first int
+                let params = window.location.pathname.substring(key.length);
+                params = parseInt(params, 10);
+                if (!Number.isNaN(params)) {
+                    ajax.rpc("/accorderie_canada_ddb/get_info/get_offre_service/" + params).then(function (data) {
+                        console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_offre_service");
+                        if (data.error || !_.isUndefined(data.error)) {
+                            $scope.error = data.error;
+                            console.error($scope.error);
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_offre_service' data";
+                            console.error($scope.error);
+                        } else {
+                            $scope.offre_service_info = data;
+                            $scope.update_membre_info($scope.offre_service_info.membre_id, "contact_info");
+                        }
+
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    })
+                }
+            }
+            key = "/offresservice";
+            if (window.location.pathname.indexOf(key) === 0) {
+                ajax.rpc("/accorderie_canada_ddb/get_info/all_offre_service").then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_offre_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_offre_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.dct_offre_service_info = data;
+                    }
+
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                })
+            }
+            key = "/demandesservice";
+            if (window.location.pathname.indexOf(key) === 0) {
+                ajax.rpc("/accorderie_canada_ddb/get_info/all_demande_service").then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_demande_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_demande_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.dct_demande_service_info = data;
+                    }
+
+                    // Process all the angularjs watchers
+                    $scope.$digest();
+                })
+            }
+            key = "/accorderie_canada_ddb/accorderie_demande_service/";
+            if (window.location.pathname.indexOf(key) === 0) {
+                // params can be 6?debug=1 or 6#!?str=3, need to extract first int
+                let params = window.location.pathname.substring(key.length);
+                params = parseInt(params, 10);
+                if (!Number.isNaN(params)) {
+                    ajax.rpc("/accorderie_canada_ddb/get_info/get_demande_service/" + params).then(function (data) {
+                        console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_demande_service");
+                        if (data.error || !_.isUndefined(data.error)) {
+                            $scope.error = data.error;
+                            console.error($scope.error);
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_demande_service' data";
+                            console.error($scope.error);
+                        } else {
+                            $scope.demande_service_info = data;
+                            $scope.update_membre_info($scope.demande_service_info.membre_id, "contact_info");
+                        }
+
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    })
+                }
+            }
+
+            let echange_id = $location.search()["echange"];
+            if (!_.isEmpty(echange_id)) {
+                echange_id = parseInt(echange_id, 10);
+                if (!Number.isNaN(echange_id)) {
+                    ajax.rpc("/accorderie_canada_ddb/get_info/get_echange_service/" + echange_id).then(function (data) {
+                        console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_echange_service");
+                        if (data.error || !_.isUndefined(data.error)) {
+                            $scope.error = data.error;
+                            console.error($scope.error);
+                        } else if (_.isEmpty(data)) {
+                            $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_echange_service' data";
+                            console.error($scope.error);
+                        } else {
+                            $scope.echange_service_info = data;
+
+                            let sign = data.estAcheteur ? -1 : 1;
+                            $scope.echange_service_info.sign = sign;
+                            $scope.echange_service_info.show_duree_estime = $scope.convertNumToTime(data.duree_estime * sign, 7);
+                            $scope.echange_service_info.show_duree = $scope.convertNumToTime(data.duree * sign, 7);
+                            $scope.echange_service_info.show_duree_trajet_estime = $scope.convertNumToTime(data.duree_trajet_estime * sign, 7);
+                            $scope.echange_service_info.show_duree_trajet = $scope.convertNumToTime(data.duree_trajet * sign, 7);
+                            $scope.echange_service_info.show_duree_estime_pos = $scope.convertNumToTime(data.duree_estime, 8);
+                            $scope.echange_service_info.show_duree_pos = $scope.convertNumToTime(data.duree, 8);
+                            $scope.echange_service_info.show_duree_trajet_estime_pos = $scope.convertNumToTime(data.duree_trajet_estime, 8);
+                            $scope.echange_service_info.show_duree_trajet_pos = $scope.convertNumToTime(data.duree_trajet, 8);
+
+                            $scope.echange_service_info.show_total_dure_estime = $scope.convertNumToTime(data.duree_estime + data.duree_trajet_estime, 7);
+                            $scope.echange_service_info.show_total_dure = $scope.convertNumToTime(data.duree + data.duree_trajet, 7);
+                            $scope.echange_service_info.show_total_dure_estime_pos = $scope.convertNumToTime(data.duree_estime + data.duree_trajet_estime, 8);
+                            $scope.echange_service_info.show_total_dure_pos = $scope.convertNumToTime(data.duree + data.duree_trajet, 8);
+
+                            $scope.echange_service_info.show_date = moment(data.date).format("dddd D MMMM");
+                            $scope.echange_service_info.show_start_time = moment(data.date).format("H") + "h" + moment(data.date).format("mm");
+                            $scope.echange_service_info.show_end_time = moment(data.end_date).format("H") + "h" + moment(data.end_date).format("mm");
+
+                            $scope.update_membre_info($scope.echange_service_info.membre_id, "contact_info");
+
+                            console.debug($scope.echange_service_info);
+                        }
+
+                        // Process all the angularjs watchers
+                        $scope.$digest();
+                    })
+                }
+            }
+
+        }
+
+        $scope.load_page_offre_demande_echange_service();
+
+        $scope.update_db_list_membre = function (accorderie_id) {
+            ajax.rpc("/accorderie_canada_ddb/get_info/list_membre", {"accorderie_id": accorderie_id}).then(function (data) {
+                console.debug("AJAX receive /accorderie_canada_ddb/get_info/list_membre");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/accorderie_canada_ddb/get_info/list_membre' data";
+                    console.error($scope.error);
+                } else {
+                    console.debug(data.dct_membre);
+                    $scope.dct_membre = data.dct_membre;
+                }
+
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+        }
+
+        $scope.update_db_nb_offre_service();
+
+        $scope.getDatabaseInfo = function (model, field_id) {
+            // TODO compete this, suppose to update database value and use cache
+            if (model === "accorderie.offre.service") {
+                return $scope.dct_offre_service_info[field_id];
+            } else if (model === "accorderie.demande.service") {
+                return $scope.dct_demande_service_info[field_id];
+            }
+        }
+
         // $scope.forceRefreshAngularJS = function () {
         //     // console.debug("Force refresh AngularJS");
         //     // $scope.$digest();
@@ -253,8 +522,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // format 4 : 1.0 -> 1h, 1.75 -> 1h45, -.75 -> -0h45
             // format 5 : 2.0 -> + 2 heures, 1.75 -> + 1 heure 45, -.75 -> - 0 heure 45
             // format 6 : 2.0 -> 2 heures, 1.75 -> 1 heure 45, -.75 -> - 0 heure 45
+            // format 7 : 1.0 -> + 1h00, 1.75 -> + 1h45, -.75 -> - 0h45
+            // format 8 : 1.0 -> 1h00, 1.75 -> + 1h45, -.75 -> - 0h45
+            // format 9 : 1.0 -> 01:00, 1.75 -> 01:45, -.75 -> -00:45
 
-            if (format > 6 || format < 0) {
+            if (format > 9 || format < 0) {
                 format = 0;
             }
 
@@ -268,6 +540,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             let hour = Math.floor(number);
             let decPart = number - hour;
 
+            if (format === 9 && hour.length < 2) {
+                hour = '0' + hour;
+            }
+
             let min = 1 / 60;
             // Round to nearest minute
             decPart = min * Math.round(decPart / min);
@@ -280,7 +556,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
 
             // Add Sign in final result
-            if (format === 0) {
+            if (format === 0 || format === 9) {
                 sign = sign === 1 ? '' : '-';
             } else {
                 sign = sign === 1 ? '+' : '-';
@@ -288,13 +564,13 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
             // Concat hours and minutes
             let newTime;
-            if (format === 0 || format === 1) {
+            if (format === 0 || format === 1 || format === 9) {
                 newTime = sign + hour + ':' + minute;
             } else if (format === 2) {
                 newTime = sign + ' ' + hour + ':' + minute;
-            } else if (format === 3 || format === 4) {
-                if (minute > 0) {
-                    if (format === 4 && sign === "+") {
+            } else if (format === 3 || format === 4 || format === 7 || format === 8) {
+                if (minute > 0 || format === 7 || format === 8) {
+                    if ((format === 4 || format === 8) && sign === "+") {
                         newTime = hour + 'h' + minute;
                     } else {
                         newTime = sign + ' ' + hour + 'h' + minute;
@@ -344,8 +620,63 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.personal.actual_bank_time_human_simplify = $scope.convertNumToTime(time_bank, 6);
 
             $scope.personal.actual_month_bank_time_human_short = $scope.convertNumToTime($scope.personal.actual_month_bank_hours, 4);
+
+            let month_key = moment(Date.now()).format("MMMM YYYY");
+            $scope.personal.dct_echange_mensuel = {};
+            $scope.personal.dct_echange_mensuel[month_key] = {"lst_echange": [], "actualMonth": true, "containTransactionValide": false};
+
+            // Order list by month and year
+            for (const [key, value] of Object.entries($scope.personal.dct_echange)) {
+                let inner_obj;
+                let month_key = moment(value.date).format("MMMM YYYY");
+                if ($scope.personal.dct_echange_mensuel.hasOwnProperty(month_key)) {
+                    inner_obj = $scope.personal.dct_echange_mensuel[month_key];
+                } else {
+                    inner_obj = {"lst_echange": [], "actualMonth": false, "containTransactionValide": false};
+                    $scope.personal.dct_echange_mensuel[month_key] = inner_obj;
+                }
+
+                if (value.transaction_valide) {
+                    inner_obj.containTransactionValide = true;
+                }
+
+                value.show_date = moment(value.date).format("dddd D MMMM");
+                value.show_start_time = moment(value.date).format("H") + "h" + moment(value.date).format("mm");
+                value.show_end_time = moment(value.end_date).format("H") + "h" + moment(value.end_date).format("mm");
+
+                let sign = value.estAcheteur ? -1 : 1;
+                value.show_duree_estime = $scope.convertNumToTime(value.duree_estime * sign, 7);
+                value.show_duree = $scope.convertNumToTime(value.duree * sign, 7);
+                value.show_duree_total_estime = $scope.convertNumToTime((value.duree_estime + value.duree_trajet_estime) * sign, 7);
+                value.show_duree_total = $scope.convertNumToTime((value.duree + value.duree_trajet) * sign, 7);
+                value.sign = sign;
+
+                inner_obj.lst_echange.push(value);
+            }
+            for (const [key, value] of Object.entries($scope.personal.dct_echange_mensuel)) {
+                // TODO detect if its this month
+                value.sum_time = 0;
+                for (let i = 0; i < value.lst_echange.length; i++) {
+                    let i_echange = value.lst_echange[i];
+                    if (i_echange.transaction_valide) {
+                        // let duration = i_echange.transaction_valide ? i_echange.duree : i_echange.duree_estime;
+                        let duration = i_echange.duree + i_echange.duree_trajet;
+                        if (i_echange.estAcheteur) {
+                            value.sum_time -= duration;
+                        } else {
+                            value.sum_time += duration;
+                        }
+                    }
+                }
+                value.show_sum_time = $scope.convertNumToTime(value.sum_time, 3);
+            }
+            console.debug($scope.personal.dct_echange_mensuel);
         }
 
+        $scope.echange_click_redirect = function (echange) {
+            // TODO no need this, use instead <a href and not ng-click
+            window.location.href = '/monactivite/echange#!?echange=' + echange.id;
+        }
     }])
 
     async function requestSpecialURL($scope, state, new_url) {
@@ -371,6 +702,157 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.$apply();
     }
 
+    app.controller('OffreDemandeService', ['$scope', function ($scope) {
+        $scope.service_id = undefined;
+        $scope.service = {
+            "id": 0,
+            "description": undefined,
+            "titre": undefined,
+            "is_favorite": undefined,
+            "distance": undefined,
+            "membre_id": undefined,
+            "membre": undefined,
+            "diff_create_date": undefined,
+        }
+        $scope.model = undefined;
+        $scope.service_enable_href = true;
+        $scope.service_enable_favorite = true;
+        $scope.type_service = 'offre'; // or 'demande'
+
+        $scope.$on("notify_favorite", function ($event, message) {
+            // Receive notification from server
+            if (message.model === $scope.model && message.field_id === $scope.service.id) {
+                $scope.service.is_favorite = message.status;
+            }
+        })
+
+        $scope.getDatabaseInfo = function () {
+            console.debug("Get database info model '" + $scope.model + "' and field_id '" + $scope.service_id + "'");
+            if (_.isUndefined($scope.service_id)) {
+                console.error("service_id is undefined from model '" + $scope.model + "'");
+            } else if ($scope.model === "accorderie.offre.service") {
+                let value = $scope.$parent.dct_offre_service_info[$scope.service_id];
+                if (!_.isUndefined(value)) {
+                    $scope.service = value;
+                }
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_offre_service/" + $scope.service_id).then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_offre_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_offre_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.service = data;
+                        $scope.$parent.dct_offre_service_info[$scope.service_id] = data;
+                        $scope.$digest();
+                    }
+                })
+            } else if ($scope.model === "accorderie.demande.service") {
+                let value = $scope.$parent.dct_demande_service_info[$scope.service_id];
+                if (!_.isUndefined(value)) {
+                    $scope.service = value;
+                }
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_demande_service/" + $scope.service_id).then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_demande_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_demande_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.service = data;
+                        $scope.$parent.dct_demande_service_info[$scope.service_id] = data;
+                        $scope.$digest();
+                    }
+                })
+            } else {
+                console.error("Cannot support model '" + $scope.model + "' synchronise data");
+            }
+        }
+
+    }])
+
+    app.controller('EchangeService', ['$scope', function ($scope) {
+        $scope.echange_service_id = undefined;
+        $scope.echange_service = {
+            "id": 0,
+            "transaction_valide": undefined,
+            "date": undefined,
+            "temps": undefined,
+            "duree_estime": undefined,
+            "duree": undefined,
+            "duree_trajet_estime": undefined,
+            "duree_trajet": undefined,
+            "commentaire": undefined,
+            "estAcheteur": undefined,
+            "membre_id": undefined,
+            "membre": {
+                "id": undefined,
+                "full_name": undefined,
+            },
+            "end_date": undefined,
+            "offre_service": undefined,
+            "demande_service": undefined,
+        }
+        $scope.update_form = false;
+
+        $scope.getDatabaseInfo = function () {
+            console.debug("Get database echange service id '" + $scope.echange_service_id + "'");
+            // Ignore when echange_service_id is missing
+            if (!_.isUndefined($scope.echange_service_id)) {
+                let value = $scope.$parent.dct_echange_service_info[$scope.echange_service_id];
+                if (!_.isUndefined(value)) {
+                    $scope.echange_service = value;
+                }
+                ajax.rpc("/accorderie_canada_ddb/get_info/get_echange_service/" + $scope.echange_service_id).then(function (data) {
+                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/get_echange_service");
+                    if (data.error || !_.isUndefined(data.error)) {
+                        $scope.error = data.error;
+                        console.error($scope.error);
+                    } else if (_.isEmpty(data)) {
+                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/get_echange_service' data";
+                        console.error($scope.error);
+                    } else {
+                        $scope.echange_service = data;
+                        $scope.$parent.dct_echange_service_info[$scope.echange_service_id] = data;
+                        console.debug(data);
+                        if ($scope.update_form) {
+                            // $scope.form["date_service"] = data.date;
+                            // $scope.form["time_service"] = data.temps;
+                            $scope.form["date_service"] = moment(data.date).format("YYYY-MM-DD");
+                            $scope.form["time_service"] = moment(data.date).format("HH:mm");
+
+                            // $scope.form["time_realisation_service"] = data.duree;
+                            // $scope.form["time_dure_trajet"] = data.duree_trajet;
+                            // $scope.form["time_service_estimated"] = data.duree_estime;
+                            // $scope.form["time_drive_estimated"] = data.duree_trajet_estime;
+
+                            // Copied estimated value to real value for form
+                            $scope.form["time_realisation_service"] = $scope.convertNumToTime(data.duree_estime, 9);
+                            $scope.form["time_dure_trajet"] = $scope.convertNumToTime(data.duree_trajet_estime, 9);
+
+                            $scope.form["frais_trajet"] = data.frais_trajet
+                            $scope.form["frais_materiel"] = data.frais_materiel
+
+                            $scope.form["membre_id"] = {
+                                "id": data.membre.id,
+                                "value": data.membre.full_name,
+                            }
+
+                            if (!_.isEmpty(data.commentaire)) {
+                                $scope.form["commentaires"] = data.commentaire;
+                            }
+                        }
+                        $scope.$digest();
+                    }
+                })
+            }
+        }
+    }])
+
     app.controller('ParticiperController', ['$scope', '$location', function ($scope, $location) {
         $scope._ = _;
         $scope.has_init = false;
@@ -390,7 +872,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             show_breadcrumb: false,
             data: undefined,
             data_name: undefined,
-            data_depend_field: undefined,
+            model_field_depend: undefined,
             data_url_field: undefined,
             data_update_url: undefined,
             force_update_data: undefined,
@@ -512,6 +994,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         // Date
         $scope.load_date = function () {
             let time = require("web.time");
+            // TODO not optimal how this is called, need only to be call 1 time when page is loaded (with date)
             console.debug("Call load_date");
             _.each($(".input-group.date"), function (date_field) {
                 let minDate =
@@ -872,6 +1355,23 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return Number(value);
         }
 
+        $scope.show_sum_total_time_echange = function () {
+            let sum_total = 0;
+            if (!_.isUndefined($scope.form.time_realisation_service)) {
+                sum_total += $scope.parseFloatTime($scope.form.time_realisation_service);
+            }
+            if (!_.isUndefined($scope.form.time_dure_trajet)) {
+                sum_total += $scope.parseFloatTime($scope.form.time_dure_trajet);
+            }
+            if (!_.isUndefined($scope.form.time_service_estimated)) {
+                sum_total += $scope.parseFloatTime($scope.form.time_service_estimated);
+            }
+            if (!_.isUndefined($scope.form.time_drive_estimated)) {
+                sum_total += $scope.parseFloatTime($scope.form.time_drive_estimated);
+            }
+            return $scope.convertNumToTime(sum_total, 8);
+        }
+
         $scope.submit_form = function () {
             $scope.form.state_id = $scope.state.id;
             let copiedForm = JSON.parse(JSON.stringify($scope.form));
@@ -892,6 +1392,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_drive_estimated);
             }
 
+            // TODO this is a bug, need an appropriate form
+            if (!_.isUndefined(copiedForm.time_service_estimated)) {
+                copiedForm.time_service_estimated = $scope.parseFloatTime(copiedForm.time_realisation_service);
+            }
+            if (!_.isUndefined(copiedForm.time_drive_estimated)) {
+                copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_dure_trajet);
+            }
+
             console.log(copiedForm);
             let url = "/accorderie/participer/form/submit"
             ajax.rpc(url, copiedForm).then(function (data) {
@@ -910,9 +1418,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                         } else if ('init.pds.individuelle.formulaire' === $scope.state.id) {
                             $scope.submitted_url = `accorderie_canada_ddb/accorderie_demande_service/${data.demande_service_id}`;
                         } else if (['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes($scope.state.id)) {
-                            $scope.submitted_url = `monactivite/accordageavenir/${data.echange_service_id}`;
+                            $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
                         } else if (['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes($scope.state.id)) {
-                            $scope.submitted_url = `monactivite/transactioneffecute/${data.echange_service_id}`;
+                            $scope.submitted_url = `monactivite/echange#!?echange=${data.echange_service_id}`;
                         } else {
                             $scope.submitted_url = "";
                         }

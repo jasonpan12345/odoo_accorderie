@@ -1,6 +1,9 @@
 import base64
+import datetime as dt
 import logging
+import time
 import urllib.parse
+from collections import defaultdict
 from datetime import datetime
 
 import humanize
@@ -124,6 +127,196 @@ class AccorderieCanadaDdbController(http.Controller):
             "accorderie_canada_ddb.accorderie_offre_service_unit_liste_offre_et_demande_service",
             dct_value,
         )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/get_offre_service/<model('accorderie.offre.service'):offre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_info_offre_service(self, offre_id, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            "id": offre_id.id,
+            "description": offre_id.description,
+            "titre": offre_id.titre,
+            "is_favorite": me_membre_id.id in offre_id.membre_favoris_ids.ids,
+            "distance": "8m",
+            "membre_id": offre_id.membre.id,
+            "membre": {
+                "id": offre_id.membre.id,
+                "full_name": offre_id.membre.nom_complet,
+            },
+            "diff_create_date": self._transform_str_diff_time_creation(
+                offre_id.create_date
+            ),
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/all_offre_service",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_offre_service(self, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            a.id: {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "distance": "8m",
+                "membre_id": a.membre.id,
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["accorderie.offre.service"].search([])
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/all_demande_service",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_all_demande_service(self, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            a.id: {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
+                "distance": "8m",
+                "membre_id": a.membre.id,
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+            }
+            for a in http.request.env["accorderie.demande.service"].search([])
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/get_demande_service/<model('accorderie.demande.service'):demande_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_info_demande_service(self, demande_id, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        return {
+            "id": demande_id.id,
+            "description": demande_id.description,
+            "titre": demande_id.titre,
+            "is_favorite": me_membre_id.id
+            in demande_id.membre_favoris_ids.ids,
+            "distance": "8m",
+            "membre_id": demande_id.membre.id,
+            "membre": {
+                "id": demande_id.membre.id,
+                "full_name": demande_id.membre.nom_complet,
+            },
+            "diff_create_date": self._transform_str_diff_time_creation(
+                demande_id.create_date
+            ),
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/get_echange_service/<model('accorderie.echange.service'):echange_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_info_echange_service(self, echange_id, **kw):
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if (
+            me_membre_id.id not in echange_id.membre_vendeur.ids
+            and me_membre_id.id not in echange_id.membre_acheteur.ids
+        ):
+            return {
+                "error": (
+                    "Ne peut pas accéder aux données d'un échange si vous êtes"
+                    " ni l'offrant ou le receveur du service."
+                )
+            }
+
+        data = {
+            "id": echange_id.id,
+            "transaction_valide": echange_id.transaction_valide,
+            "sujet_offre_service": echange_id.offre_service.titre,
+            "description_offre_service": echange_id.offre_service.description,
+            "categorie_offre_service": echange_id.offre_service.type_service_id.nom_complet,
+            "has_offre_service": bool(echange_id.offre_service),
+            "sujet_demande_service": echange_id.demande_service.titre,
+            "description_demande_service": echange_id.demande_service.description,
+            "categorie_demande_service": echange_id.demande_service.type_service_id.nom_complet,
+            "has_demande_service": bool(echange_id.demande_service),
+            "date": echange_id.date_echange,
+            "duree_estime": echange_id.nb_heure_estime,
+            "duree": echange_id.nb_heure,
+            "duree_trajet_estime": echange_id.nb_heure_estime_duree_trajet,
+            "duree_trajet": echange_id.nb_heure_duree_trajet,
+            "frais_trajet": echange_id.frais_trajet,
+            "distance_trajet": echange_id.distance_trajet,
+            "frais_materiel": echange_id.frais_materiel,
+            "commentaire": echange_id.commentaire,
+        }
+
+        if echange_id.date_echange:
+            data["temps"] = (
+                echange_id.date_echange.hour
+                + echange_id.date_echange.minute / 60.0
+            )
+
+        if me_membre_id.id in echange_id.membre_vendeur.ids:
+            membre = echange_id.membre_acheteur
+            data["estAcheteur"] = False
+        else:
+            membre = echange_id.membre_vendeur
+            data["estAcheteur"] = True
+
+        data["membre"] = {
+            "id": membre.id,
+            "full_name": membre.nom_complet,
+        }
+        data["membre_id"] = membre.id
+
+        if echange_id.date_echange:
+            if echange_id.transaction_valide:
+                end_date = echange_id.date_echange + dt.timedelta(
+                    hours=echange_id.nb_heure
+                )
+            else:
+                end_date = echange_id.date_echange + dt.timedelta(
+                    hours=echange_id.nb_heure_estime
+                )
+            data["end_date"] = end_date
+
+        if echange_id.offre_service:
+            data["offre_service"] = echange_id.offre_service.id
+        if echange_id.demande_service:
+            data["demande_service"] = echange_id.demande_service.id
+        return data
 
     @http.route(
         [
@@ -391,6 +584,55 @@ class AccorderieCanadaDdbController(http.Controller):
             }
         return membre_id
 
+    def _generate_dct_echange_service(self, echange_service_id, est_acheteur):
+        date_echange = echange_service_id.date_echange
+
+        if echange_service_id.date_echange is False:
+            _logger.warning(
+                f"Echange service id '{echange_service_id.id}' missing"
+                " date_echange."
+            )
+            date_echange = echange_service_id.create_date
+
+        if echange_service_id.transaction_valide:
+            end_date = date_echange + dt.timedelta(
+                hours=echange_service_id.nb_heure
+            )
+        else:
+            end_date = date_echange + dt.timedelta(
+                hours=echange_service_id.nb_heure_estime
+            )
+
+        dct_echange_item = {
+            "id": echange_service_id.id,
+            "transaction_valide": echange_service_id.transaction_valide,
+            "membre": {
+                "id": echange_service_id.membre_vendeur.id,
+                "full_name": echange_service_id.membre_vendeur.nom_complet,
+            },
+            "sujet_offre_service": echange_service_id.offre_service.titre,
+            "description_offre_service": echange_service_id.offre_service.description,
+            "categorie_offre_service": echange_service_id.offre_service.type_service_id.nom_complet,
+            "has_offre_service": bool(echange_service_id.offre_service),
+            "sujet_demande_service": echange_service_id.demande_service.titre,
+            "description_demande_service": echange_service_id.demande_service.description,
+            "categorie_demande_service": echange_service_id.demande_service.type_service_id.nom_complet,
+            "has_demande_service": bool(echange_service_id.demande_service),
+            "date": echange_service_id.date_echange,
+            "end_date": end_date,
+            "temps": date_echange.hour + date_echange.minute / 60.0,
+            "duree_estime": echange_service_id.nb_heure_estime,
+            "duree": echange_service_id.nb_heure,
+            "duree_trajet_estime": echange_service_id.nb_heure_estime_duree_trajet,
+            "duree_trajet": echange_service_id.nb_heure_duree_trajet,
+            "frais_trajet": echange_service_id.frais_trajet,
+            "distance_trajet": echange_service_id.distance_trajet,
+            "frais_materiel": echange_service_id.frais_materiel,
+            "commentaire": echange_service_id.commentaire,
+            "estAcheteur": est_acheteur,
+        }
+        return dct_echange_item
+
     @http.route(
         [
             "/accorderie_canada_ddb/get_personal_information",
@@ -409,8 +651,8 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id.create_date
         )
 
-        lst_offre_service = [
-            {
+        dct_offre_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -425,10 +667,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.offre_service_ids
-        ]
+        }
 
-        lst_offre_service_favoris = [
-            {
+        dct_offre_service_favoris = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -445,10 +687,10 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in http.request.env["accorderie.offre.service"].search(
                 [("membre_favoris_ids", "=", membre_id.id)]
             )
-        ]
+        }
 
-        lst_demande_service = [
-            {
+        dct_demande_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -463,10 +705,10 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.demande_service_ids
-        ]
+        }
 
-        lst_demande_service_favoris = [
-            {
+        dct_demande_service_favoris = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
@@ -483,10 +725,10 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in http.request.env["accorderie.demande.service"].search(
                 [("membre_favoris_ids", "=", membre_id.id)]
             )
-        ]
+        }
 
-        lst_membre_favoris = [
-            {
+        dct_membre_favoris = {
+            a.membre_id.id: {
                 "id": a.membre_id.id,
                 "description": a.membre_id.introduction,
                 "age": 35,
@@ -495,11 +737,24 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.membre_favoris_ids
-        ]
+        }
 
         is_favorite = membre_id.id in [
             a.membre_id.id for a in membre_id.membre_favoris_ids
         ]
+
+        dct_echange = {}
+        for echange_service_id in membre_id.echange_service_acheteur_ids:
+            dct_echange_item = self._generate_dct_echange_service(
+                echange_service_id, True
+            )
+            dct_echange[echange_service_id.id] = dct_echange_item
+
+        for echange_service_id in membre_id.echange_service_vendeur_ids:
+            dct_echange_item = self._generate_dct_echange_service(
+                echange_service_id, False
+            )
+            dct_echange[echange_service_id.id] = dct_echange_item
 
         # TODO update location with cartier et autre
         # Hack time for demo
@@ -522,6 +777,9 @@ class AccorderieCanadaDdbController(http.Controller):
         #     month_bank_time -= v.nb_heure
         # bank_time = 15 + month_bank_time
         return {
+            "global": {
+                "dbname": http.request.env.cr.dbname,
+            },
             "personal": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom_complet,
@@ -538,12 +796,13 @@ class AccorderieCanadaDdbController(http.Controller):
                     "name": membre_id.accorderie.nom,
                     "id": membre_id.accorderie.id,
                 },
-                "lst_offre_service": lst_offre_service,
-                "lst_demande_service": lst_demande_service,
-                "lst_offre_service_favoris": lst_offre_service_favoris,
-                "lst_demande_service_favoris": lst_demande_service_favoris,
-                "lst_membre_favoris": lst_membre_favoris,
-            }
+                "dct_offre_service": dct_offre_service,
+                "dct_demande_service": dct_demande_service,
+                "dct_offre_service_favoris": dct_offre_service_favoris,
+                "dct_demande_service_favoris": dct_demande_service_favoris,
+                "dct_membre_favoris": dct_membre_favoris,
+                "dct_echange": dct_echange,
+            },
         }
 
     @http.route(
@@ -560,6 +819,7 @@ class AccorderieCanadaDdbController(http.Controller):
         #     # This is an error
         #     return membre_id
 
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
         actual_membre_id = self.get_membre_id()
         if type(actual_membre_id) is dict:
             # This is an error
@@ -569,12 +829,12 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id.create_date
         )
 
-        lst_offre_service = [
-            {
+        dct_offre_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
-                # "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
@@ -585,14 +845,14 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.offre_service_ids
-        ]
+        }
 
-        lst_demande_service = [
-            {
+        dct_demande_service = {
+            a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
-                # "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
                 ),
@@ -603,7 +863,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.demande_service_ids
-        ]
+        }
 
         is_favorite = membre_id.id in [
             a.membre_id.id for a in actual_membre_id.membre_favoris_ids
@@ -613,19 +873,25 @@ class AccorderieCanadaDdbController(http.Controller):
             "membre_info": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom_complet,
+                "prenom": membre_id.prenom,
+                "bank_max_service_offert": membre_id.bank_max_service_offert,
                 "actual_bank_hours": membre_id.bank_time,
                 "actual_month_bank_hours": membre_id.bank_month_time,
                 "is_favorite": is_favorite,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
+                "date_creation": membre_id.create_date,
                 "location": membre_id.ville.nom,
                 "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
+                "sexe": membre_id.sexe,
                 "mon_accorderie": {
                     "name": membre_id.accorderie.nom,
                     "id": membre_id.accorderie.id,
                 },
-                "lst_offre_service": lst_offre_service,
-                "lst_demande_service": lst_demande_service,
+                "dct_offre_service": dct_offre_service,
+                "len_offre_service": len(dct_offre_service),
+                "dct_demande_service": dct_demande_service,
+                "len_demande_service": len(dct_demande_service),
             }
         }
 
@@ -650,6 +916,41 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in membre_id.offre_service_ids
         ]
         return {"data": {"ses_offres_de_service": lst_mes_offre_de_service}}
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/list_membre",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_info_list_membre(self, accorderie_id, **kw):
+        my_favorite_membre_id = [
+            a.membre_id.id
+            for a in http.request.env.user.partner_id.accorderie_membre_ids.membre_favoris_ids
+        ]
+        lst_membre = http.request.env["accorderie.membre"].search(
+            [
+                ("accorderie", "=", accorderie_id),
+                ("profil_approuver", "=", True),
+            ]
+        )
+        dct_membre = {
+            a.id: {
+                "age": a.age,
+                "full_name": a.nom_complet,
+                "annee_naissance": a.annee_naissance,
+                "antecedent_judiciaire_verifier": a.antecedent_judiciaire_verifier,
+                "bank_time": a.bank_time,
+                "bank_month_time": a.bank_month_time,
+                "date_adhesion": a.date_adhesion,
+                "introduction": a.introduction if a.introduction else "",
+                "is_favorite": a.id in my_favorite_membre_id,
+            }
+            for a in lst_membre
+        }
+        return {"dct_membre": dct_membre}
 
     @http.route(
         [
@@ -902,6 +1203,8 @@ class AccorderieCanadaDdbController(http.Controller):
                     dct_state["type"] = state_id.type
                 if state_id.show_breadcrumb:
                     dct_state["show_breadcrumb"] = state_id.show_breadcrumb
+                if state_id.maquette_link:
+                    dct_state["maquette_link"] = state_id.maquette_link
                 if state_id.breadcrumb_value:
                     dct_state["breadcrumb_value"] = state_id.breadcrumb_value
                 if state_id.breadcrumb_show_only_last_item:
@@ -916,8 +1219,10 @@ class AccorderieCanadaDdbController(http.Controller):
                     dct_state[
                         "model_field_name_alias"
                     ] = state_id.model_field_name_alias
-                if state_id.data_depend_field:
-                    dct_state["data_depend_field"] = state_id.data_depend_field
+                if state_id.model_field_depend:
+                    dct_state[
+                        "model_field_depend"
+                    ] = state_id.model_field_depend
                 if state_id.data_url_field:
                     dct_state["data_url_field"] = state_id.data_url_field
                 if state_id.data_update_url:
@@ -1002,7 +1307,6 @@ class AccorderieCanadaDdbController(http.Controller):
             "init.pos.individuelle.formulaire",
             "init.pds.individuelle.formulaire",
             "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
             "init.saa.recevoir.choix.nouveau.formulaire",
             "init.va.non.offert.nouveau_formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
@@ -1057,19 +1361,25 @@ class AccorderieCanadaDdbController(http.Controller):
             "init.saa.offrir.nouveau.categorie_service.formulaire",
             "init.saa.recevoir.choix.nouveau.formulaire",
             "init.va.non.offert.nouveau_formulaire",
-            "init.va.non.offert.existant_formulaire",
-            "init.va.non.recu.choix.formulaire",
+            # "init.va.non.offert.existant_formulaire",
+            # "init.va.non.recu.choix.formulaire",
             "init.va.non.recu.choix.nouveau.formulaire",
         ):
+            if kw.get("echange_service_id"):
+                _logger.warning(
+                    "Why create a new echange when receive a echange"
+                    " service id?"
+                )
             vals = {}
             if offre_service_id:
                 vals["offre_service"] = offre_service_id
             elif kw.get("offre_service_id"):
                 vals["offre_service"] = kw.get("offre_service_id").get("id")
-
-            if kw.get("time_service_estimated"):
-                vals["nb_heure_estime"] = float(
-                    kw.get("time_service_estimated")
+            if demande_service_id:
+                vals["demande_service"] = demande_service_id
+            elif kw.get("demande_service_id"):
+                vals["demande_service"] = kw.get("demande_service_id").get(
+                    "id"
                 )
 
             if kw.get("date_service"):
@@ -1089,9 +1399,9 @@ class AccorderieCanadaDdbController(http.Controller):
             if kw.get("commentaires"):
                 vals["commentaire"] = kw.get("commentaires")
 
+            other_membre_id = None
             if kw.get("membre_id") and "id" in kw.get("membre_id").keys():
-                membre_id_acheteur_id = kw.get("membre_id").get("id")
-                vals["membre_acheteur"] = membre_id_acheteur_id
+                other_membre_id = kw.get("membre_id").get("id")
 
             vals["type_echange"] = "offre_special"
 
@@ -1101,13 +1411,42 @@ class AccorderieCanadaDdbController(http.Controller):
             if state_id in (
                 "init.saa.recevoir.choix.existant.time.formulaire",
                 "init.saa.recevoir.choix.nouveau.formulaire",
-                "init.va.non.recu.choix.formulaire",
+                # "init.va.non.recu.choix.formulaire",
                 "init.va.non.recu.choix.nouveau.formulaire",
             ):
                 vals["membre_acheteur"] = membre_id
+                if other_membre_id:
+                    vals["membre_vendeur"] = other_membre_id
             else:
                 vals["membre_vendeur"] = membre_id
+                if other_membre_id:
+                    vals["membre_acheteur"] = other_membre_id
 
+            if kw.get("time_service_estimated"):
+                vals["nb_heure_estime"] = float(
+                    kw.get("time_service_estimated")
+                )
+            if kw.get("time_realisation_service"):
+                vals["nb_heure"] = float(kw.get("time_realisation_service"))
+            if kw.get("time_drive_estimated"):
+                vals["nb_heure_estime_duree_trajet"] = float(
+                    kw.get("time_drive_estimated")
+                )
+            if kw.get("time_dure_trajet"):
+                vals["nb_heure_duree_trajet"] = float(
+                    kw.get("time_dure_trajet")
+                )
+
+            if kw.get("frais_trajet"):
+                vals["frais_trajet"] = float(kw.get("frais_trajet"))
+
+            if kw.get("distance_trajet"):
+                vals["distance_trajet"] = float(kw.get("distance_trajet"))
+
+            if kw.get("frais_materiel"):
+                vals["frais_materiel"] = float(kw.get("frais_materiel"))
+
+            # date_echange
             new_accorderie_echange_service = (
                 request.env["accorderie.echange.service"].sudo().create(vals)
             )
@@ -1134,13 +1473,28 @@ class AccorderieCanadaDdbController(http.Controller):
                     .sudo()
                     .browse(kw.get("echange_service_id").get("id"))
                 )
-            new_accorderie_echange_service.write(
-                {
-                    "transaction_valide": True,
-                    "nb_heure": float(kw.get("time_realisation_service")),
-                }
-            )
+            value_new_service = {
+                "transaction_valide": True,
+                "nb_heure": float(kw.get("time_realisation_service")),
+                "nb_heure_duree_trajet": float(kw.get("time_dure_trajet")),
+            }
+            if kw.get("frais_trajet"):
+                value_new_service["frais_trajet"] = float(
+                    kw.get("frais_trajet")
+                )
+            if kw.get("frais_materiel"):
+                value_new_service["frais_materiel"] = float(
+                    kw.get("frais_materiel")
+                )
+            new_accorderie_echange_service.write(value_new_service)
             status["echange_service_id"] = new_accorderie_echange_service.id
+            # Force update time per member
+            new_accorderie_echange_service.membre_acheteur.is_time_updated = (
+                True
+            )
+            new_accorderie_echange_service.membre_vendeur.is_time_updated = (
+                True
+            )
         return status
 
     @http.route(
@@ -1173,7 +1527,7 @@ class AccorderieCanadaDdbController(http.Controller):
             )
             if favoris_membre_id.id in membre_id.membre_favoris_ids.ids:
                 membre_id.write(
-                    {"membre_favoris_ids": [(3, favoris_membre_id.id)]}
+                    {"membre_favoris_ids": [(3, favoris_membre_id.id, False)]}
                 )
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = False
@@ -1200,6 +1554,45 @@ class AccorderieCanadaDdbController(http.Controller):
                     )
                 status["id"] = favoris_membre_id.id
                 status["is_favorite"] = True
+        elif model_name == "accorderie.offre.service":
+            offre_service_id = http.request.env[
+                "accorderie.offre.service"
+            ].browse(id_record)
+            if membre_id.id in offre_service_id.membre_favoris_ids.ids:
+                offre_service_id.write(
+                    {"membre_favoris_ids": [(3, membre_id.id, False)]}
+                )
+                status["id"] = offre_service_id.id
+                status["is_favorite"] = False
+            else:
+                offre_service_id.write(
+                    {"membre_favoris_ids": [(4, membre_id.id, False)]}
+                )
+                status["id"] = offre_service_id.id
+                status["is_favorite"] = True
+        elif model_name == "accorderie.demande.service":
+            demande_service_id = http.request.env[
+                "accorderie.demande.service"
+            ].browse(id_record)
+            if membre_id.id in demande_service_id.membre_favoris_ids.ids:
+                demande_service_id.write(
+                    {"membre_favoris_ids": [(3, membre_id.id, False)]}
+                )
+                status["id"] = demande_service_id.id
+                status["is_favorite"] = False
+            else:
+                demande_service_id.write(
+                    {"membre_favoris_ids": [(4, membre_id.id, False)]}
+                )
+                status["id"] = demande_service_id.id
+                status["is_favorite"] = True
+        else:
+            msg_error = (
+                f"/accorderie/submit/my_favorite model '{model_name}' not"
+                " supported."
+            )
+            _logger.error(msg_error)
+            status["error"] = msg_error
 
         return status
 
@@ -1260,6 +1653,34 @@ class AccorderieCanadaDdbController(http.Controller):
         return request.env["ir.ui.view"].render_template(
             "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication_sous_categorie",
             dct_value,
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/template/votre_contact_full",
+        ],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_template_votre_contact_full(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.template_votre_contact_full",
+        )
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic",
+        ],
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def get_template_offre_ou_demande_de_service_generic(self, **kw):
+        # Render page
+        return request.env["ir.ui.view"].render_template(
+            "accorderie_canada_ddb.template_offre_ou_demande_de_service_generic",
         )
 
     @http.route(

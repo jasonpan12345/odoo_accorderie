@@ -55,7 +55,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">
+                            <li class="nav-item" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" href="/communaute/actualite">
                                     <span
                                         data-oe-model="website.menu"
@@ -136,13 +136,13 @@
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
                                     <div role="menuitem" class="dropdown-item highlight_not_implemented">
-                                        <p>Highlight</p>
+                                        <p>Mise en évidence des fonctionnalités non supportées</p>
                                     </div>
                                     <div role="menuitem" class="dropdown-item hide_not_implemented">
-                                        <p>Hide</p>
+                                        <p>Cacher les fonctionnalités non supportées</p>
                                     </div>
                                     <div role="menuitem" class="dropdown-item btn_debug_debug">
-                                        <p>Debug</p>
+                                        <p>Affichage du déverminage</p>
                                     </div>
 <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
 <!--                                        <p>Refresh AngularJS</p>-->
@@ -175,9 +175,9 @@
                                                     role="menuitem"
                                                     ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{offre_service.id}}"
                                                     class="dropdown-item"
-                                                    ng-repeat="offre_service in personal.lst_offre_service_favoris"
+                                                    ng-repeat="(offre_service_id, offre_service) in personal.dct_offre_service_favoris"
                                                 >
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -197,7 +197,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes mes offres favorites
                                                     </font>
@@ -210,9 +210,9 @@
                                                     role="menuitem"
                                                     ng-href="/accorderie_canada_ddb/accorderie_demande_service/{{demande_service.id}}"
                                                     class="dropdown-item"
-                                                    ng-repeat="demande_service in personal.lst_demande_service_favoris"
+                                                    ng-repeat="(demande_service_id, demande_service) in personal.dct_demande_service_favoris"
                                                 >
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -234,9 +234,20 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
-                                                    <font class="text-gamma" style="font-size: 1rem;">
+                                                <div class="cat activite btn btn-primary">
+                                                    <font
+                                                        class="text-gamma"
+                                                        style="font-size: 1rem;"
+                                                        ng-if="membre_info.estPersonnel"
+                                                    >
                                                         Voir toutes mes demandes favorites
+                                                    </font>
+                                                    <font
+                                                        class="text-gamma"
+                                                        style="font-size: 1rem;"
+                                                        ng-if="!membre_info.estPersonnel"
+                                                    >
+                                                        Voir toutes ses demandes favorites
                                                     </font>
                                                 </div>
                                             </a>
@@ -247,9 +258,9 @@
                                                     role="menuitem"
                                                     ng-href="/monprofil/mapresentation#!?membre_id={{membre_favoris.id}}"
                                                     class="dropdown-item"
-                                                    ng-repeat="membre_favoris in personal.lst_membre_favoris"
+                                                    ng-repeat="(membre_id, membre_favoris) in personal.dct_membre_favoris"
                                                 >
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -263,17 +274,17 @@
                                                                 ng-if="membre_favoris.description"
                                                             ><q>{{membre_favoris.description}}</q></span>
                                                         </div>
-                                                        <div class="infos right">
-                                                            <i
-                                                                class="fa fa-2x fa-heart text-epsilon"
-                                                                style="margin:unset;"
-                                                            />
-                                                        </div>
+<!--                                                        <div class="infos right">-->
+<!--                                                            <i-->
+<!--                                                                class="fa fa-2x fa-heart text-epsilon"-->
+<!--                                                                style="margin:unset;"-->
+<!--                                                            />-->
+<!--                                                        </div>-->
                                                     </div>
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/mesfavoris" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir tous mes membres favoris
                                                     </font>
@@ -283,7 +294,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                            <li
+                                class="nav-item dropdown debug_unimplemented"
+                                t-ignore="true"
+                                t-if="not user_id._is_public()"
+                            >
                                 <a class="nav-link" role="menu_item" data-toggle="dropdown" style="cursor:pointer">
                                     <span
                                         class="fa fa-2x fa-comments-o text-primary"
@@ -304,7 +319,7 @@
                                         <div id="tabMessages" class="navbar-tab">
                                             <div class="tab-items-container">
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -319,7 +334,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -334,7 +349,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -350,7 +365,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/messages" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les messages
                                                     </font>
@@ -360,7 +375,7 @@
                                         <div id="tabNotifications" class="navbar-tab" style="display:none;">
                                             <div class="tab-items-container">
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -375,7 +390,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -390,7 +405,7 @@
                                                     </div>
                                                 </a>
                                                 <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn " data-name="Box">
+                                                    <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
@@ -406,7 +421,7 @@
                                                 </a>
                                             </div>
                                             <a role="menuitem" href="/monprofil/notifications" class="dropdown-item">
-                                                <div class="cat activite btn btn-primary" data-name="Box">
+                                                <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les notifications
                                                     </font>
@@ -496,19 +511,19 @@
 
                                 </a>
                                 <div class="dropdown-menu js_usermenu" role="menu">
-                                    <a class="dropdown-item" t-attf-href="monactivite" role="menuitem">
+                                    <a class="dropdown-item" t-attf-href="/monactivite" role="menuitem">
                                         <i class="fa fa-signal icon_padding_right" />Mon activité
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="monprofil/mapresentation" role="menuitem">
+                                    <a class="dropdown-item" t-attf-href="/monprofil/mapresentation" role="menuitem">
                                         <i class="fa fa-user-circle icon_padding_right" />Ma présentation
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="monprofil/mesannonces" role="menuitem">
+                                    <a class="dropdown-item" t-attf-href="/monprofil/mesannonces" role="menuitem">
                                         <i class="fa fa-newspaper-o icon_padding_right" />Mes annonces publiées
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="communaute/actualite" role="menuitem">
+                                    <a class="dropdown-item" t-attf-href="/communaute/actualite" role="menuitem">
                                         <i class="fa fa-eye icon_padding_right" />Mon accorderie
                                     </a>
-                                    <a class="dropdown-item" t-attf-href="monprofil/mespreferences" role="menuitem">
+                                    <a class="dropdown-item" t-attf-href="/monprofil/mespreferences" role="menuitem">
                                         <i class="fa fa-gear icon_padding_right" />Mes préférences générales
                                     </a>
                                     <hr />

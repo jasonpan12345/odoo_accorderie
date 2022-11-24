@@ -53,6 +53,10 @@ body {
 .neg_time {
   color: $bg-red-alert !important;
 }
+.neg_time_b {
+  color: $text-alpha !important;
+  background-color: $bg-red-alert !important;
+}
 .neg_time_2 {
   color: $bg-red-2-alert !important;
 }
@@ -324,7 +328,7 @@ searchbar
     font-size: 1rem;
     width: 45%;
     border: none;
-    background-color: white;
+    background-color: $bg-alpha;
   }
 
   input:focus {
@@ -350,7 +354,7 @@ searchbar
 .search_category:after {
   content: "";
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 20%;
   height: 60%;
   border-left: 2px solid #becfd1;
@@ -567,7 +571,7 @@ actualité
   float: left;
 }
 
-.container_accordage {
+.container_echange {
   border-radius: 7px;
   overflow: hidden;
   float: right;
@@ -748,7 +752,7 @@ actualité
 }
 
 @media only screen and (max-width: 1050px) {
-  .container_accordage {
+  .container_echange {
     width: 90%;
     float: unset;
     height: auto;
@@ -857,7 +861,7 @@ actualité
     white-space: nowrap;
   }
   .status.red {
-    color: white;
+    color: $text-alpha;
     background-color: $bg-red-alert;
     border: none;
   }
@@ -865,7 +869,7 @@ actualité
     color: $bg-red-alert;
   }
   .status.blue {
-    color: white;
+    color: $text-alpha;
     background-color: $alpha;
     border: none;
   }
@@ -1681,7 +1685,7 @@ actualité
 }
 
 /*
-    Page Mon activité/Accordages, Mon activité/Mon agenda
+    Page Mon activité/Échanges, Mon activité/Mon agenda
 */
 .s_activites_recentes.lg {
   max-height: 2000px;
@@ -1780,9 +1784,9 @@ actualité
         width: auto;
       }
 
-      .time {
-        display: none;
-      }
+      //.time {
+      //  display: none;
+      //}
       .details {
         padding: 0;
         position: unset;
@@ -2485,6 +2489,7 @@ actualité
 
     .activite_img {
       max-height: 150px;
+      float: left;
     }
 
     .round {
@@ -2503,6 +2508,7 @@ actualité
 
       .activite_desc {
         color: gray;
+        margin-bottom: 0;
       }
     }
 
@@ -2546,11 +2552,9 @@ actualité
     .activite_auteur,
     .activite_distance,
     .activite_age,
+    .activite_desc,
     q {
       font-size: 1.5vh;
-    }
-    .activite_desc {
-      display: none;
     }
   }
 }
@@ -2836,52 +2840,54 @@ actualité
     }
   }
 
-  .info-4 {
-    background-color: $delta;
-    border-radius: 7px;
-    height: auto;
-    padding: 8%;
+  .card {
+    border: 1px solid $beta;
+  }
+}
 
-    .img {
-      width: 25%;
-      aspect-ratio: 1/1;
-      background-size: cover;
-      margin: 0 auto 5% auto;
-    }
+.info-4 {
+  background-color: $delta;
+  border-radius: 7px;
+  height: auto;
+  padding: 8%;
+}
 
-    h4 {
-      text-align: center;
-    }
+.card-votre-relation {
+  .img {
+    width: 25%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    margin: 0 auto 5% auto;
+  }
 
-    .stats {
-      margin-top: 10%;
+  h4 {
+    text-align: center;
+  }
 
-      p {
-        font-size: 1rem;
+  .stats {
+    margin-top: 10%;
 
-        i {
-          width: 2rem;
-          color: $alpha;
-        }
-      }
-    }
+    p {
+      font-size: 1rem;
 
-    .summary {
-      margin-top: 10%;
-    }
-
-    .buttons {
-      margin-top: 10%;
-
-      .btn {
-        color: $text-alpha;
-        margin: 0 auto 0 auto;
+      i {
+        width: 2rem;
+        color: $alpha;
       }
     }
   }
 
-  .card {
-    border: 1px solid $beta;
+  .summary {
+    margin-top: 10%;
+  }
+
+  .buttons {
+    margin-top: 10%;
+
+    .btn {
+      color: $text-alpha;
+      margin: 0 auto 0 auto;
+    }
   }
 }
 
@@ -2889,9 +2895,9 @@ actualité
   .s_event_banner {
     height: 25vh !important;
   }
-  .event_banner_action {
-    display: none;
-  }
+  //.event_banner_action {
+  //  display: none;
+  //}
   .event_info .btn_container {
     float: none !important;
     width: auto !important;
@@ -3151,14 +3157,14 @@ actualité
   }
 }
 /*
-  Page Mon accordage à venir
+  Page Mon échange à venir
 */
 
-.s_accordage_informations {
+.s_echange_informations {
   background-color: $gamma;
 }
 
-.s_accordage_informations .informations_container {
+.s_echange_informations .informations_container {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-column-gap: 5%;
@@ -3295,7 +3301,7 @@ actualité
   }
 }
 @media only screen and (max-width: 990px) {
-  .s_accordage_informations .informations_container {
+  .s_echange_informations .informations_container {
     display: flex;
   }
 

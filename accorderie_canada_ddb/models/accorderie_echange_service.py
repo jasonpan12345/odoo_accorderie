@@ -1,4 +1,8 @@
+import logging
+
 from odoo import _, api, fields, models
+
+_logger = logging.getLogger(__name__)
 
 
 class AccorderieEchangeService(models.Model):
@@ -45,6 +49,31 @@ class AccorderieEchangeService(models.Model):
         help="Nombre d'heure estimé pour l'échange.",
     )
 
+    nb_heure_duree_trajet = fields.Float(
+        string="Nombre d'heure durée trajet",
+        help="Nombre d'heure effectué au moment de le trajet.",
+    )
+
+    nb_heure_estime_duree_trajet = fields.Float(
+        string="Nombre d'heure estimé durée trajet",
+        help="Nombre d'heure estimé pour le trajet.",
+    )
+
+    distance_trajet = fields.Float(
+        string="Distance du trajet",
+        help="Unité par défaut le km.",
+    )
+
+    frais_trajet = fields.Float(
+        string="Frais du trajet",
+        help="Coût pour faire le trajet.",
+    )
+
+    frais_materiel = fields.Float(
+        string="Frais du matériel",
+        help="Coût matériel nécessaire à l'échange de service.",
+    )
+
     offre_service = fields.Many2one(
         comodel_name="accorderie.offre.service",
         string="Offre de services",
@@ -86,24 +115,40 @@ class AccorderieEchangeService(models.Model):
     def create(self, vals_list):
         # Create member if not exist
         for vals in vals_list:
-            if (
-                "offre_service" in vals.keys()
-                and "membre_vendeur" not in vals.keys()
-            ):
+            if "offre_service" in vals.keys():
                 offre_service_id = self.env["accorderie.offre.service"].browse(
                     vals.get("offre_service")
                 )
-                if offre_service_id.membre:
-                    vals["membre_vendeur"] = offre_service_id.membre.id
-            if (
-                "demande_service" in vals.keys()
-                and "membre_acheteur" not in vals.keys()
-            ):
+                if "membre_vendeur" not in vals.keys():
+                    if offre_service_id.membre:
+                        vals["membre_vendeur"] = offre_service_id.membre.id
+                else:
+                    membre_vendeur_id = vals.get("membre_vendeur")
+                    if offre_service_id.membre.id != membre_vendeur_id:
+                        _logger.error(
+                            "Detect wrong value, membre_vendeur id"
+                            f" '{membre_vendeur_id}' is different of"
+                            " offre_service_id.membre.id"
+                            f" '{offre_service_id.membre.id}'"
+                        )
+                        vals["membre_vendeur"] = offre_service_id.membre.id
+            if "demande_service" in vals.keys():
                 demande_service_id = self.env[
                     "accorderie.demande.service"
                 ].browse(vals.get("demande_service"))
-                if demande_service_id.membre:
-                    vals["membre_acheteur"] = demande_service_id.membre.id
+                if "membre_acheteur" not in vals.keys():
+                    if demande_service_id.membre:
+                        vals["membre_acheteur"] = demande_service_id.membre.id
+                else:
+                    membre_acheteur_id = vals.get("membre_acheteur")
+                    if demande_service_id.membre.id != membre_acheteur_id:
+                        _logger.error(
+                            "Detect wrong value, membre_acheteur id"
+                            f" '{membre_acheteur_id}' is different of"
+                            " demande_service_id.membre.id"
+                            f" '{demande_service_id.membre.id}'"
+                        )
+                        vals["membre_acheteur"] = demande_service_id.membre.id
         res = super(AccorderieEchangeService, self).create(vals_list)
         return res
 

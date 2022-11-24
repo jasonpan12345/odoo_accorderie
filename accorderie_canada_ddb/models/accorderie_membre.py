@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 
 from odoo import _, api, fields, models
 
@@ -42,6 +42,8 @@ class AccorderieMembre(models.Model):
 
     annee_naissance = fields.Integer(string="Année de naissance")
 
+    age = fields.Integer(string="Âge", compute="_compute_age")
+
     arrondissement = fields.Many2one(comodel_name="accorderie.arrondissement")
 
     bottin_courriel = fields.Boolean(string="Bottin courriel")
@@ -84,6 +86,11 @@ class AccorderieMembre(models.Model):
     membre_conjoint_id = fields.Integer(string="Membre conjoint")
 
     membre_principal = fields.Boolean(string="Membre principal")
+
+    is_time_updated = fields.Boolean(
+        string="Time is updated",
+        help="This variable is a trigger to update time.",
+    )
 
     memo = fields.Text(string="Mémo")
 
@@ -239,10 +246,34 @@ class AccorderieMembre(models.Model):
         store=True,
     )
 
+    bank_max_service_offert = fields.Float(
+        string="Temps maximal de service offert",
+        compute="_bank_time",
+        store=True,
+    )
+
+    @api.multi
+    def write(self, vals):
+        status = super().write(vals)
+        # Detect user
+        for rec in self:
+            self.env["bus.bus"].sendone(
+                # f'["{self._cr.dbname}","{self._name}",{rec.id}]',
+                "accorderie.notification.favorite",
+                {
+                    "timestamp": str(datetime.now()),
+                    "data": vals,
+                    "field_id": rec.id,
+                    "canal": f'["{self._cr.dbname}","{self._name}",{rec.id}]',
+                },
+            )
+        return status
+
     @api.depends(
         "membre_partner_id",
         "echange_service_acheteur_ids",
         "echange_service_vendeur_ids",
+        "is_time_updated",
     )
     def _bank_time(self):
         # TODO wrong dependency
@@ -254,31 +285,38 @@ class AccorderieMembre(models.Model):
                 15
                 + sum(
                     [
-                        a.nb_heure
-                        for a in rec.echange_service_acheteur_ids
+                        a.nb_heure + a.nb_heure_duree_trajet
+                        for a in rec.echange_service_vendeur_ids
                         if a.transaction_valide
                     ]
                 )
                 - sum(
                     [
-                        a.nb_heure
-                        for a in rec.echange_service_vendeur_ids
+                        a.nb_heure + a.nb_heure_duree_trajet
+                        for a in rec.echange_service_acheteur_ids
                         if a.transaction_valide
                     ]
                 )
             )
+            bank_max_service_offert = sum(
+                [
+                    a.nb_heure + a.nb_heure_duree_trajet
+                    for a in rec.echange_service_vendeur_ids
+                    if a.transaction_valide
+                ]
+            )
             bank_time_month = sum(
                 [
-                    a.nb_heure
-                    for a in rec.echange_service_acheteur_ids
+                    a.nb_heure + a.nb_heure_duree_trajet
+                    for a in rec.echange_service_vendeur_ids
                     if a.transaction_valide
                     and a.date_echange
                     and a.date_echange.month == this_month
                 ]
             ) - sum(
                 [
-                    a.nb_heure
-                    for a in rec.echange_service_vendeur_ids
+                    a.nb_heure + a.nb_heure_duree_trajet
+                    for a in rec.echange_service_acheteur_ids
                     if a.transaction_valide
                     and a.date_echange
                     and a.date_echange.month == this_month
@@ -287,6 +325,7 @@ class AccorderieMembre(models.Model):
 
             rec.bank_time = bank_time
             rec.bank_month_time = bank_time_month
+            rec.bank_max_service_offert = bank_max_service_offert
 
     def _compute_access_url(self):
         super(AccorderieMembre, self)._compute_access_url()
@@ -308,3 +347,14 @@ class AccorderieMembre(models.Model):
                     rec.nom_complet = f"{rec.nom}"
                 elif rec.prenom:
                     rec.nom_complet = f"{rec.prenom}"
+
+    @api.depends("annee_naissance")
+    def _compute_age(self):
+        for rec in self:
+            if not rec.annee_naissance:
+                rec.age = 0
+            else:
+                today = date.today()
+                # TODO algorithme avec date de naisance et non année de naissance
+                # rec.age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+                rec.age = today.year - rec.annee_naissance
