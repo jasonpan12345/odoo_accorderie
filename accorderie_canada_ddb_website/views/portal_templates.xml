@@ -211,6 +211,38 @@
                                     </div>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown" t-ignore="true">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
+                                    <span
+                                        class="fa fa-2x fa-share-alt text-primary"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="13"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
+                                </a>
+                                <div class="dropdown-menu submenu shadow" role="menu">
+                                    <div role="menuitem" class="dropdown-item" style="cursor:pointer">
+                                        <p><i class="fa fa-files-o" /> Copier le lien</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        ng-style="is_share_enable() &amp;&amp; {'cursor':'pointer'}"
+                                        ng-click="share_link()"
+                                    >
+                                        <p><i class="fa fa-share-alt" /> <span ng-if="_.isEmpty(error_share)">
+                                            <span ng-if="!is_share_enable()">Non supporté</span><span
+                                                    ng-if="is_share_enable()"
+                                                >Partager le lien</span>
+                                        </span><span
+                                                ng-if="!_.isEmpty(error_share)"
+                                                style="color:red;"
+                                            >Erreur : {{error_share}}</span></p>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
                                     <span

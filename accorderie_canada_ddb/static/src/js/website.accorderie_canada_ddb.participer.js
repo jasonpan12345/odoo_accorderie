@@ -318,6 +318,33 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             })
         }
 
+        // Share
+        $scope.error_share = "";
+
+        $scope.is_share_enable = function () {
+            if (!navigator.canShare) {
+                return false;
+            }
+            let urlToShare = $location.$$absUrl;
+            let value = {title: "Page Accorderie", url: urlToShare}
+            return navigator.canShare(value)
+        }
+
+        $scope.share_link = function () {
+            if ($scope.is_share_enable()) {
+                $scope.error_share = "";
+                let urlToShare = $location.$$absUrl;
+                let value = {title: "Page Accorderie", url: urlToShare}
+                try {
+                    navigator.share(value);
+                } catch (err) {
+                    $scope.error_share = err;
+                }
+            }
+        }
+
+        // End Share
+
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
