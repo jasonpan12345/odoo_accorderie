@@ -3537,7 +3537,7 @@
                                         </div>
                                     </div>
                                     <div class="event_banner_action bg-primary">
-                                        <div class="btn btn-primary">
+                                        <div class="btn btn-primary" ng-if="is_share_enable()" ng-click="share_link()">
                                             <i class="fa fa-share-alt icon_padding_right" />
                                             Partager
                                         </div>
