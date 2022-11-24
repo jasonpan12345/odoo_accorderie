@@ -223,8 +223,21 @@
                                     />
                                 </a>
                                 <div class="dropdown-menu submenu shadow" role="menu">
-                                    <div role="menuitem" class="dropdown-item" style="cursor:pointer">
-                                        <p><i class="fa fa-files-o" /> Copier le lien</p>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="copy_clipboard_url()"
+                                    >
+                                        <p><i class="fa fa-files-o" /> <span
+                                                ng-if="is_copied_url"
+                                                style="color:green;"
+                                            >Copié!</span><span
+                                                ng-if="_.isEmpty(error_copy) &amp;&amp; !is_copied_url"
+                                            >Copier le lien</span><span
+                                                ng-if="!_.isEmpty(error_copy)"
+                                                style="color:red;"
+                                            >Erreur : {{error_copy}}</span></p>
                                     </div>
                                     <div
                                         role="menuitem"

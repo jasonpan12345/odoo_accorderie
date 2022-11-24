@@ -319,6 +319,19 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         // Share
+        $scope.error_copy = "";
+        $scope.is_copied_url = false;
+        $scope.copy_clipboard_url = function () {
+            $scope.error_copy = "";
+            $scope.is_copied_url = false;
+            let urlToCopy = $location.$$absUrl;
+            navigator.clipboard.writeText(urlToCopy).then(() => {
+                $scope.is_copied_url = true;
+            }, () => {
+                $scope.error_copy = "Cannot copy URL";
+            });
+        }
+
         $scope.error_share = "";
 
         $scope.is_share_enable = function () {
