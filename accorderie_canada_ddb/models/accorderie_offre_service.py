@@ -8,7 +8,7 @@ class AccorderieOffreService(models.Model):
     _rec_name = "titre"
 
     titre = fields.Char(
-        help="Résumé de l'offre, mise en valeur de la description.",
+        help="Résumé de l'offre, mise en valeur de la description."
     )
 
     accompli = fields.Boolean(
@@ -74,6 +74,8 @@ class AccorderieOffreService(models.Model):
         comodel_name="accorderie.membre",
         help="Membre qui offre le service",
     )
+
+    membre_favoris_ids = fields.Many2many(comodel_name="accorderie.membre")
 
     nb_consultation = fields.Integer(string="Nombre de consultations")
 

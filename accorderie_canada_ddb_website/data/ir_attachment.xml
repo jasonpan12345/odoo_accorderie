@@ -17,6 +17,14 @@
             <field name="type">url</field>
             <field name="url">/accorderie_canada_ddb_website/static/src/img/eric-prouzet-Z62b9jIltGM-unsplash.jpg</field>
         </record>
+        <record id="ir_attachment_j_spaggiari_guitaristes_jpg" model="ir.attachment">
+            <field name="datas_fname">j-spaggiari-guitaristes.jpg</field>
+            <field name="name">j-spaggiari-guitaristes.jpg</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/j-spaggiari-guitaristes.jpg</field>
+        </record>
         <record id="ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg" model="ir.attachment">
             <field name="datas_fname">freestocks-9UVmlIb0wJU-unsplash.jpg</field>
             <field name="name">freestocks-9UVmlIb0wJU-unsplash.jpg</field>
@@ -264,6 +272,46 @@
             <field name="res_model">ir.ui.view</field>
             <field name="type">url</field>
             <field name="url">/accorderie_canada_ddb_website/static/src/img/Accueil-Illustration-05@2x.png</field>
+        </record>
+        <record id="ir_attachment_profil_annonces_png" model="ir.attachment">
+            <field name="datas_fname">Profil-Annonces.png</field>
+            <field name="name">Profil-Annonces.png</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/Profil-Annonces.png</field>
+        </record>
+        <record id="ir_attachment_profil_favoris_02_png" model="ir.attachment">
+            <field name="datas_fname">Profil-Favoris-02.png</field>
+            <field name="name">Profil-Favoris-02.png</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/Profil-Favoris-02.png</field>
+        </record>
+        <record id="ir_attachment_profil_preferences_png" model="ir.attachment">
+            <field name="datas_fname">Profil-Preferences.png</field>
+            <field name="name">Profil-Preferences.png</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/Profil-Preferences.png</field>
+        </record>
+        <record id="ir_attachment_profil_presentation_png" model="ir.attachment">
+            <field name="datas_fname">Profil-Presentation.png</field>
+            <field name="name">Profil-Presentation.png</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/Profil-Presentation.png</field>
+        </record>
+        <record id="ir_attachment_profil_informationspersonnelles_png" model="ir.attachment">
+            <field name="datas_fname">Profil-InformationsPersonnelles.png</field>
+            <field name="name">Profil-InformationsPersonnelles.png</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/Profil-InformationsPersonnelles.png</field>
         </record>
     </data>
 </odoo>

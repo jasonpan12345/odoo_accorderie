@@ -17,6 +17,8 @@ accorderie_fichier_access_user_types_/_internal_user,accorderie_fichier Access U
 accorderie_fichier_access_user_types_/_portal,accorderie_fichier Access User types / Portal,model_accorderie_fichier,base.group_portal,1,1,1,1
 accorderie_membre_access_user_types_/_internal_user,accorderie_membre Access User types / Internal User,model_accorderie_membre,base.group_user,1,1,1,1
 accorderie_membre_access_user_types_/_portal,accorderie_membre Access User types / Portal,model_accorderie_membre,base.group_portal,1,1,1,1
+accorderie_membre_favoris_access_user_types_/_internal_user,accorderie_membre_favoris Access User types / Internal User,model_accorderie_membre_favoris,base.group_user,1,1,1,1
+accorderie_membre_favoris_access_user_types_/_portal,accorderie_membre_favoris Access User types / Portal,model_accorderie_membre_favoris,base.group_portal,1,1,1,1
 accorderie_occupation_access_user_types_/_internal_user,accorderie_occupation Access User types / Internal User,model_accorderie_occupation,base.group_user,1,1,1,1
 accorderie_occupation_access_user_types_/_portal,accorderie_occupation Access User types / Portal,model_accorderie_occupation,base.group_portal,1,1,1,1
 accorderie_offre_service_access_user_types_/_internal_user,accorderie_offre_service Access User types / Internal User,model_accorderie_offre_service,base.group_user,1,1,1,1
@@ -51,3 +53,6 @@ accorderie_type_telephone_access_user_types_/_internal_user,accorderie_type_tele
 accorderie_type_telephone_access_user_types_/_portal,accorderie_type_telephone Access User types / Portal,model_accorderie_type_telephone,base.group_portal,1,1,1,1
 accorderie_ville_access_user_types_/_internal_user,accorderie_ville Access User types / Internal User,model_accorderie_ville,base.group_user,1,1,1,1
 accorderie_ville_access_user_types_/_portal,accorderie_ville Access User types / Portal,model_accorderie_ville,base.group_portal,1,1,1,1
+accorderie_workflow_access_user_types_/_internal_user,accorderie_workflow Access User types / Internal User,model_accorderie_workflow,base.group_user,1,1,1,1
+accorderie_workflow_relation_access_user_types_/_internal_user,accorderie_workflow_relation Access User types / Internal User,model_accorderie_workflow_relation,base.group_user,1,1,1,1
+accorderie_workflow_state_access_user_types_/_internal_user,accorderie_workflow_state Access User types / Internal User,model_accorderie_workflow_state,base.group_user,1,1,1,1

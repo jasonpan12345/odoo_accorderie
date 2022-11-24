@@ -18,6 +18,9 @@
                         <field name="approuve" />
                     </group>
                     <group>
+                        <field name="icon" widget="image" />
+                    </group>
+                    <group>
                         <field name="nocategorie" />
                     </group>
                     <group>
@@ -35,6 +38,7 @@
             <graph string="Accorderie type service categorie">
                 <field name="nom" type="row" />
                 <field name="approuve" type="row" />
+                <field name="icon" type="row" />
                 <field name="nocategorie" type="measure" />
             </graph>
         </field>
@@ -47,6 +51,7 @@
             <kanban class="o_kanban_mobile">
                 <field name="nom" />
                 <field name="approuve" />
+                <field name="icon" widget="image" />
                 <field name="nocategorie" />
                 <field name="type_service_sous_categorie" />
                 <templates>
@@ -64,6 +69,11 @@
                                     </li>
                                     <li class="text-danger float-right mb4" t-if="!record.approuve.raw_value">
                                         <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="icon" />
+                                        </strong>
                                     </li>
                                     <li class="mb4">
                                         <strong>
@@ -108,6 +118,7 @@
                     string="Inactive Accorderie type service categorie"
                 />
                 <filter domain="[('approuve','=',True)]" name="approuve" string="Approuv&#233;" />
+                <filter domain="[('icon','!=',False)]" name="icon" string="Icon" />
                 <filter domain="[('nocategorie','!=',False)]" name="nocategorie" string="Nocategorie" />
                 <filter
                     domain="[('type_service_sous_categorie','!=',False)]"
@@ -125,6 +136,7 @@
             <tree>
                 <field name="nom" />
                 <field name="approuve" />
+                <field name="icon" widget="image" />
                 <field name="nocategorie" />
                 <field name="type_service_sous_categorie" />
             </tree>

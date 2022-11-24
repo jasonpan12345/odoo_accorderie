@@ -194,6 +194,8 @@
         <field name="model">accorderie.demande.adhesion</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="nom" />
+                <field name="prenom" />
                 <field name="nom_complet" />
                 <field name="accorderie" />
                 <field name="courriel" />

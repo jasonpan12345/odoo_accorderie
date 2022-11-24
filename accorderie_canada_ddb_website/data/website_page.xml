@@ -37,6 +37,18 @@
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>
+        <record id="website_page_acces_service" model="website.page">
+            <field name="url">/un-acces-a-des-services-que-plusieurs-ne-pourraient-soffrir-autrement</field>
+            <field name="view_id" ref="ir_ui_view_home_un_access_a_des_services_que_plusieurs" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
+        <record id="website_page_explorer" model="website.page">
+            <field name="url">/explorer</field>
+            <field name="view_id" ref="ir_ui_view_explorer" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
         <record id="website_page_mes_groupes" model="website.page">
             <field name="url">/monactivite/mesgroupes</field>
             <field name="view_id" ref="ir_ui_view_mes_groupes" />
@@ -130,6 +142,24 @@
         <record id="website_page_offres_service" model="website.page">
             <field name="url">/offresservice</field>
             <field name="view_id" ref="ir_ui_view_offres_service" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
+        <record id="website_page_accordage_a_venir" model="website.page">
+            <field name="url">/monactivite/accordageavenir</field>
+            <field name="view_id" ref="ir_ui_view_accordage_a_venir" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
+        <record id="website_page_mon_agenda" model="website.page">
+            <field name="url">/monactivite/monagenda</field>
+            <field name="view_id" ref="ir_ui_view_mon_agenda" />
+            <field name="website_id" ref="website.default_website" />
+            <field name="website_published">True</field>
+        </record>
+        <record id="website_page_accordage_validation" model="website.page">
+            <field name="url">/monactivite/accordagevalidation</field>
+            <field name="view_id" ref="ir_ui_view_accordage_validation" />
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>

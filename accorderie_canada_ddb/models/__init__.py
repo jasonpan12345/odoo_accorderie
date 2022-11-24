@@ -10,6 +10,7 @@ from . import (
     accorderie_echange_service,
     accorderie_fichier,
     accorderie_membre,
+    accorderie_membre_favoris,
     accorderie_occupation,
     accorderie_offre_service,
     accorderie_origine,
@@ -27,4 +28,8 @@ from . import (
     accorderie_type_service_sous_categorie,
     accorderie_type_telephone,
     accorderie_ville,
+    accorderie_workflow,
+    accorderie_workflow_relation,
+    accorderie_workflow_state,
+    res_partner,
 )

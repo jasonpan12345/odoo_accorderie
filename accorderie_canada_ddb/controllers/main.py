@@ -7,8 +7,9 @@ import humanize
 import requests
 import werkzeug
 
-from odoo import http
+from odoo import _, http
 from odoo.http import request
+from odoo.tools.image import image_data_uri
 
 _logger = logging.getLogger(__name__)
 OSRM_URL = ""
@@ -98,13 +99,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 .browse(offre_service)
                 .exists()
             )
-            timedate_now = datetime.now()
-            # fr_CA not exist
-            # check .venv/lib/python3.7/site-packages/humanize/locale/
-            _t = humanize.i18n.activate("fr_FR")
-            diff_time = timedate_now - accorderie_offre_service_id.create_date
-            str_diff_time = f"Publiée {humanize.naturaltime(diff_time)}"
-            humanize.i18n.deactivate()
+            str_diff_time = self._transform_str_diff_time_creation(
+                accorderie_offre_service_id.create_date
+            )
 
             if (
                 accorderie_offre_service_id
@@ -146,10 +143,22 @@ class AccorderieCanadaDdbController(http.Controller):
                 .browse(demande_service)
                 .exists()
             )
+            str_diff_time = self._transform_str_diff_time_creation(
+                accorderie_demande_service_id.create_date
+            )
+            if (
+                accorderie_demande_service_id
+                and accorderie_demande_service_id.membre
+            ):
+                str_distance = find_distance_from_user(
+                    env, accorderie_demande_service_id.membre.adresse
+                )
         else:
             accorderie_demande_service_id = None
         dct_value = {
-            "accorderie_demande_service_id": accorderie_demande_service_id
+            "accorderie_demande_service_id": accorderie_demande_service_id,
+            "str_diff_time": str_diff_time,
+            "str_distance": str_distance,
         }
 
         # Render page
@@ -341,21 +350,881 @@ class AccorderieCanadaDdbController(http.Controller):
             "accorderie.type.service.categorie"
         ]
         accorderie_type_service_categorie_ids = (
-            accorderie_type_service_categorie_cls.sudo().search([]).ids
-        )
-        type_service_categories = (
-            accorderie_type_service_categorie_cls.sudo().browse(
-                accorderie_type_service_categorie_ids
-            )
+            accorderie_type_service_categorie_cls.sudo().search([])
         )
 
-        dct_value = {"type_service_categories": type_service_categories}
+        dct_value = {
+            "type_service_categories": accorderie_type_service_categorie_ids
+        }
 
         # Render page
         return request.env["ir.ui.view"].render_template(
             "accorderie_canada_ddb.accorderie_type_service_categorie_list_publication",
             dct_value,
         )
+
+    def _transform_str_diff_time_creation(self, create_date):
+        if not create_date:
+            return ""
+        timedate_now = datetime.now()
+        _t = humanize.i18n.activate("fr_FR")
+        diff_time_creation = timedate_now - create_date
+        str_diff_time_creation = humanize.naturaltime(diff_time_creation)
+        humanize.i18n.deactivate()
+        return str_diff_time_creation
+
+    @staticmethod
+    def get_membre_id():
+        partner_id = http.request.env.user.partner_id
+        # TODO wrong algorithm, but use instead 'auth="user",'
+        if not partner_id or http.request.auth_method == "public":
+            return {"error": _("User not connected")}
+
+        membre_id = partner_id.accorderie_membre_ids
+
+        if not membre_id:
+            return {
+                "error": _(
+                    "Your account is not associate to an accorderie"
+                    " configuration. Please contact your administrator."
+                )
+            }
+        return membre_id
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_personal_information",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_personal_information(self, **kw):
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+
+        str_diff_time_creation = self._transform_str_diff_time_creation(
+            membre_id.create_date
+        )
+
+        lst_offre_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.offre_service_ids
+        ]
+
+        lst_offre_service_favoris = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": True,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in http.request.env["accorderie.offre.service"].search(
+                [("membre_favoris_ids", "=", membre_id.id)]
+            )
+        ]
+
+        lst_demande_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.demande_service_ids
+        ]
+
+        lst_demande_service_favoris = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                "is_favorite": True,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in http.request.env["accorderie.demande.service"].search(
+                [("membre_favoris_ids", "=", membre_id.id)]
+            )
+        ]
+
+        lst_membre_favoris = [
+            {
+                "id": a.membre_id.id,
+                "description": a.membre_id.introduction,
+                "age": 35,
+                "is_favorite": True,
+                "full_name": a.membre_id.nom_complet,
+                "distance": "8m",
+            }
+            for a in membre_id.membre_favoris_ids
+        ]
+
+        is_favorite = membre_id.id in [
+            a.membre_id.id for a in membre_id.membre_favoris_ids
+        ]
+
+        # TODO update location with cartier et autre
+        # Hack time for demo
+        # month_bank_time = 0
+        # v1 = http.request.env["accorderie.echange.service"].search(
+        #     [
+        #         ("membre_vendeur", "=", membre_id.id),
+        #         ("transaction_valide", "=", True),
+        #     ]
+        # )
+        # for v in v1:
+        #     month_bank_time += v.nb_heure
+        # v2 = http.request.env["accorderie.echange.service"].search(
+        #     [
+        #         ("membre_acheteur", "=", membre_id.id),
+        #         ("transaction_valide", "=", True),
+        #     ]
+        # )
+        # for v in v2:
+        #     month_bank_time -= v.nb_heure
+        # bank_time = 15 + month_bank_time
+        return {
+            "personal": {
+                "id": membre_id.id,
+                "full_name": membre_id.nom_complet,
+                # "actual_bank_hours": bank_time,
+                "actual_bank_hours": membre_id.bank_time,
+                # "actual_month_bank_hours": month_bank_time,
+                "actual_month_bank_hours": membre_id.bank_month_time,
+                "is_favorite": is_favorite,
+                "introduction": membre_id.introduction,
+                "diff_humain_creation_membre": str_diff_time_creation,
+                "location": membre_id.ville.nom,
+                "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
+                "mon_accorderie": {
+                    "name": membre_id.accorderie.nom,
+                    "id": membre_id.accorderie.id,
+                },
+                "lst_offre_service": lst_offre_service,
+                "lst_demande_service": lst_demande_service,
+                "lst_offre_service_favoris": lst_offre_service_favoris,
+                "lst_demande_service_favoris": lst_demande_service_favoris,
+                "lst_membre_favoris": lst_membre_favoris,
+            }
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_membre_information/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_membre_information(self, membre_id, **kw):
+        # membre_id = self.get_membre_id()
+        # if type(membre_id) is dict:
+        #     # This is an error
+        #     return membre_id
+
+        actual_membre_id = self.get_membre_id()
+        if type(actual_membre_id) is dict:
+            # This is an error
+            return actual_membre_id
+
+        str_diff_time_creation = self._transform_str_diff_time_creation(
+            membre_id.create_date
+        )
+
+        lst_offre_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                # "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.offre_service_ids
+        ]
+
+        lst_demande_service = [
+            {
+                "id": a.id,
+                "description": a.description,
+                "titre": a.titre,
+                # "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
+                "diff_create_date": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "membre": {
+                    "id": a.membre.id,
+                    "full_name": a.membre.nom_complet,
+                },
+                "distance": "8m",
+            }
+            for a in membre_id.demande_service_ids
+        ]
+
+        is_favorite = membre_id.id in [
+            a.membre_id.id for a in actual_membre_id.membre_favoris_ids
+        ]
+
+        return {
+            "membre_info": {
+                "id": membre_id.id,
+                "full_name": membre_id.nom_complet,
+                "actual_bank_hours": membre_id.bank_time,
+                "actual_month_bank_hours": membre_id.bank_month_time,
+                "is_favorite": is_favorite,
+                "introduction": membre_id.introduction,
+                "diff_humain_creation_membre": str_diff_time_creation,
+                "location": membre_id.ville.nom,
+                "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
+                "mon_accorderie": {
+                    "name": membre_id.accorderie.nom,
+                    "id": membre_id.accorderie.id,
+                },
+                "lst_offre_service": lst_offre_service,
+                "lst_demande_service": lst_demande_service,
+            }
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/offre_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_workflow_data_offre_service(self, membre_id, **kw):
+        lst_mes_offre_de_service = [
+            {
+                "id": a.id,
+                # "html": a.description,
+                "right_html": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "title": a.titre,
+            }
+            for a in membre_id.offre_service_ids
+        ]
+        return {"data": {"ses_offres_de_service": lst_mes_offre_de_service}}
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/nb_offre_service",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_nb_offre_service(self, **kw):
+        nb_offre_service = (
+            http.request.env["accorderie.offre.service"]
+            .sudo()
+            .search_count([])
+        )
+        return {"nb_offre_service": nb_offre_service}
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/echange_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_participer_workflow_data_echange_service(self, membre_id, **kw):
+        me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
+
+        lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
+            {
+                "id": a.id,
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in me_membre_id.echange_service_acheteur_ids
+            if not a.transaction_valide
+            and not a.demande_service
+            and a.membre_vendeur.id == membre_id.id
+        ]
+
+        return {
+            "data": {
+                "mes_echanges_de_service_recu_sans_demande_non_valide": lst_mes_echanges_de_service_recu_sans_demande_non_valide
+            }
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_info/recevoir_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_participer_workflow_data_recevoir_service(self, membre_id, **kw):
+        me_membre_id = self.get_membre_id()
+        if type(me_membre_id) is dict:
+            # This is an error
+            return me_membre_id
+
+        lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
+            {
+                "id": a.id,
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in me_membre_id.echange_service_acheteur_ids
+            if not a.transaction_valide
+            and not a.demande_service
+            and a.membre_vendeur.id == membre_id.id
+        ]
+
+        return {
+            "data": {
+                "ses_temps_disponibles": lst_mes_echanges_de_service_recu_sans_demande_non_valide
+            }
+        }
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_participer_workflow_data",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_participer_workflow_data(self, **kw):
+        # List type
+        # A - Selection static : selection_static
+        # B - Choix catégorie de service : choix_categorie_de_service
+        # C - Choix membre : choix_membre
+        # D - Selection dynamique (option new, option id) : selection_dynamique
+        # E - Calendrier : calendrier
+        # F - Temps + durée : temps_duree
+        # G - Formulaire (xml_item_id) : form
+        membre_id = self.get_membre_id()
+        if type(membre_id) is dict:
+            # This is an error
+            return membre_id
+
+        env = request.env(context=dict(request.env.context))
+
+        # Remove itself member
+        accorderie_membre_ids = (
+            env["accorderie.membre"]
+            .sudo()
+            .search([("id", "!=", membre_id.id)])
+        )
+        lst_membre = [
+            {
+                "title": a.nom_complet,
+                "id": a.id,
+                "img": "/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg",
+            }
+            for a in accorderie_membre_ids
+        ]
+        accorderie_type_service_categorie_ids = (
+            env["accorderie.type.service.categorie"].sudo().search([])
+        )
+        dct_data_inner_type_service_categorie = {}
+
+        lst_type_service_categorie = []
+        for a in accorderie_type_service_categorie_ids:
+            sub_list = []
+            obj_data = {
+                "id": a.id,
+                "tree_id": f"{a.id}",
+                "html": a._get_html_nom(),
+                "title": a._get_separate_list_nom(),
+                "icon": image_data_uri(a.icon) if a.icon else "",
+                "sub_list": sub_list,
+            }
+            lst_type_service_categorie.append(obj_data)
+            for b in a.type_service_sous_categorie:
+                sub_sub_list = []
+                sub_obj_data = {
+                    "id": b.id,
+                    "tree_id": f"{a.id}.{b.id}",
+                    "html": b.nom,
+                    "title": b.nom,
+                    "sub_list": sub_sub_list,
+                }
+                sub_list.append(sub_obj_data)
+                for c in b.type_service:
+                    sub_sub_obj_data = {
+                        "html": c.nom,
+                        "title": c.nom,
+                        "id": c.id,
+                        "tree_id": f"{a.id}.{b.id}.{c.id}",
+                    }
+                    sub_sub_list.append(sub_sub_obj_data)
+                    dct_data_inner_type_service_categorie[
+                        c.id
+                    ] = sub_sub_obj_data
+
+        lst_mes_offre_de_service = [
+            {
+                "id": a.id,
+                # "html": a.description,
+                "right_html": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "title": a.titre,
+            }
+            for a in membre_id.offre_service_ids
+        ]
+
+        # lst_mes_echanges_de_service_avec_demande_non_valide
+        lst_echange_acheteur = [
+            {
+                "id": a.id,
+                "html": f"Par {a.membre_vendeur.nom_complet}",
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in membre_id.echange_service_acheteur_ids
+            if not a.transaction_valide and a.demande_service
+        ]
+
+        lst_echange_vendeur = [
+            {
+                "id": a.id,
+                "html": f"Pour {a.membre_acheteur.nom_complet}",
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in membre_id.echange_service_vendeur_ids
+            if not a.transaction_valide and a.demande_service
+        ]
+
+        # TODO order by time
+        lst_mes_echanges_de_service_avec_demande_non_valide = (
+            lst_echange_acheteur + lst_echange_vendeur
+        )
+
+        # lst_mes_echanges_de_service_offert_sans_demande_non_valide
+        lst_mes_echanges_de_service_offert_sans_demande_non_valide = [
+            {
+                "id": a.id,
+                "right_html": a.create_date,
+                "title": a.titre,
+            }
+            for a in membre_id.echange_service_vendeur_ids
+            if not a.transaction_valide and not a.demande_service
+        ]
+
+        dct_workflow_empty = (
+            {
+                "init": {
+                    "id": "init",
+                    "message": (
+                        "La procédure de participation est actuelle non"
+                        " disponible. Veuillez informer votre administrateur."
+                    ),
+                    "type": "selection_static",
+                },
+            },
+        )
+
+        json_data = {
+            "data": {
+                "type_service_categorie": lst_type_service_categorie,
+                "membre": lst_membre,
+                "mes_offres_de_service": lst_mes_offre_de_service,
+                "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
+                "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
+            },
+            "data_inner": {
+                "type_service_categorie": dct_data_inner_type_service_categorie
+            },
+        }
+
+        workflow_ids = env["accorderie.workflow"].sudo().search([], limit=1)
+
+        if not workflow_ids:
+            json_data["workflow"] = dct_workflow_empty
+        else:
+            dct_workflow = {}
+
+            for state_id in workflow_ids.diagram_state_ids:
+                dct_state = {"id": state_id.key}
+                if state_id.message:
+                    dct_state["message"] = state_id.message
+                # if state_id.name:
+                #     dct_state["title"] = state_id.name
+                if state_id.type:
+                    dct_state["type"] = state_id.type
+                if state_id.show_breadcrumb:
+                    dct_state["show_breadcrumb"] = state_id.show_breadcrumb
+                if state_id.breadcrumb_value:
+                    dct_state["breadcrumb_value"] = state_id.breadcrumb_value
+                if state_id.breadcrumb_show_only_last_item:
+                    dct_state[
+                        "breadcrumb_show_only_last_item"
+                    ] = state_id.breadcrumb_show_only_last_item
+                if state_id.breadcrumb_field_value:
+                    dct_state[
+                        "breadcrumb_field_value"
+                    ] = state_id.breadcrumb_field_value
+                if state_id.model_field_name_alias:
+                    dct_state[
+                        "model_field_name_alias"
+                    ] = state_id.model_field_name_alias
+                if state_id.data_depend_field:
+                    dct_state["data_depend_field"] = state_id.data_depend_field
+                if state_id.data_url_field:
+                    dct_state["data_url_field"] = state_id.data_url_field
+                if state_id.data_update_url:
+                    dct_state["data_update_url"] = state_id.data_update_url
+                if state_id.force_update_data:
+                    dct_state["force_update_data"] = state_id.force_update_data
+                if state_id.model_field_name:
+                    dct_state["model_field_name"] = state_id.model_field_name
+                if state_id.disable_question:
+                    dct_state["disable_question"] = state_id.disable_question
+                if state_id.submit_button_text:
+                    dct_state[
+                        "submit_button_text"
+                    ] = state_id.submit_button_text
+                if state_id.submit_response_title:
+                    dct_state[
+                        "submit_response_title"
+                    ] = state_id.submit_response_title
+                if state_id.submit_response_description:
+                    dct_state[
+                        "submit_response_description"
+                    ] = state_id.submit_response_description
+                if state_id.list_is_first_position:
+                    dct_state[
+                        "list_is_first_position"
+                    ] = state_id.list_is_first_position
+                if state_id.data:
+                    dct_state["data_name"] = state_id.data
+                if state_id.state_src_ids:
+                    if state_id.type in (
+                        "selection_static",
+                        "selection_dynamique",
+                    ):
+                        lst_item = []
+                        dct_state["list"] = lst_item
+                        for relation in state_id.state_src_ids:
+                            if not relation.is_dynamic:
+                                dct_item = {}
+                                if relation.state_dst:
+                                    dct_item["id"] = relation.state_dst.key
+                                if relation.name:
+                                    dct_item["title"] = relation.name
+                                if (
+                                    relation.body_html
+                                    and relation.body_html != "<p><br></p>"
+                                ):
+                                    dct_item["html"] = relation.body_html
+                                if relation.icon:
+                                    dct_item["icon"] = relation.icon
+                                lst_item.append(dct_item)
+                            else:
+                                dct_state[
+                                    "next_id_data"
+                                ] = relation.state_dst.key
+
+                    else:
+                        dct_state["next_id"] = state_id.state_src_ids[
+                            0
+                        ].state_dst.key
+                dct_workflow[state_id.key] = dct_state
+
+            json_data["workflow"] = dct_workflow
+        return json_data
+
+    @http.route(
+        "/accorderie/participer/form/submit",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_participer_form_submit(self, **kw):
+        # Send from participer website
+        vals = {}
+        status = {}
+        state_id = kw.get("state_id")
+        demande_service_id = None
+        offre_service_id = None
+        new_accorderie_echange_service = None
+
+        if state_id in (
+            "init.pos.individuelle.formulaire",
+            "init.pds.individuelle.formulaire",
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.recevoir.choix.nouveau.formulaire",
+            "init.va.non.offert.nouveau_formulaire",
+            "init.va.non.recu.choix.nouveau.formulaire",
+        ):
+            if kw.get("offre_service_id"):
+                offre_service_id = int(kw.get("offre_service_id").get("id"))
+            else:
+                if kw.get("titre"):
+                    vals["titre"] = kw.get("titre")
+
+                if kw.get("description"):
+                    description = kw.get("description").replace("\n", "<br/>")
+                    vals["description"] = description
+
+                if kw.get("type_service_id"):
+                    type_service_id = kw.get("type_service_id")
+                    if type(type_service_id) is dict:
+                        type_service_id_id = type_service_id.get("id")
+                        if type_service_id_id:
+                            vals["type_service_id"] = type_service_id_id
+
+                membre_id = (
+                    http.request.env.user.partner_id.accorderie_membre_ids.id
+                )
+                vals["membre"] = membre_id
+
+                if state_id in (
+                    "init.pds.individuelle.formulaire",
+                    "init.saa.recevoir.choix.nouveau.formulaire",
+                    "init.va.non.recu.choix.nouveau.formulaire",
+                ):
+                    new_accorderie_service = (
+                        request.env["accorderie.demande.service"]
+                        .sudo()
+                        .create(vals)
+                    )
+                    demande_service_id = new_accorderie_service.id
+                    status["demande_service_id"] = demande_service_id
+                else:
+                    new_accorderie_service = (
+                        request.env["accorderie.offre.service"]
+                        .sudo()
+                        .create(vals)
+                    )
+                    offre_service_id = new_accorderie_service.id
+                    status["offre_service_id"] = offre_service_id
+
+        if state_id in (
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.offrir.existant.formulaire",
+            "init.saa.recevoir.choix.existant.time.formulaire",
+            "init.saa.offrir.nouveau.categorie_service.formulaire",
+            "init.saa.recevoir.choix.nouveau.formulaire",
+            "init.va.non.offert.nouveau_formulaire",
+            "init.va.non.offert.existant_formulaire",
+            "init.va.non.recu.choix.formulaire",
+            "init.va.non.recu.choix.nouveau.formulaire",
+        ):
+            vals = {}
+            if offre_service_id:
+                vals["offre_service"] = offre_service_id
+            elif kw.get("offre_service_id"):
+                vals["offre_service"] = kw.get("offre_service_id").get("id")
+
+            if kw.get("time_service_estimated"):
+                vals["nb_heure_estime"] = float(
+                    kw.get("time_service_estimated")
+                )
+
+            if kw.get("date_service"):
+                date_echange = kw.get("date_service")
+                if kw.get("time_service"):
+                    date_echange += " " + kw.get("time_service")
+                    # TODO Take date from local of user
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d %H:%M"
+                    )
+                else:
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d"
+                    ).date()
+                vals["date_echange"] = date_echange_float
+
+            if kw.get("commentaires"):
+                vals["commentaire"] = kw.get("commentaires")
+
+            if kw.get("membre_id") and "id" in kw.get("membre_id").keys():
+                membre_id_acheteur_id = kw.get("membre_id").get("id")
+                vals["membre_acheteur"] = membre_id_acheteur_id
+
+            vals["type_echange"] = "offre_special"
+
+            membre_id = (
+                http.request.env.user.partner_id.accorderie_membre_ids.id
+            )
+            if state_id in (
+                "init.saa.recevoir.choix.existant.time.formulaire",
+                "init.saa.recevoir.choix.nouveau.formulaire",
+                "init.va.non.recu.choix.formulaire",
+                "init.va.non.recu.choix.nouveau.formulaire",
+            ):
+                vals["membre_acheteur"] = membre_id
+            else:
+                vals["membre_vendeur"] = membre_id
+
+            new_accorderie_echange_service = (
+                request.env["accorderie.echange.service"].sudo().create(vals)
+            )
+            status["echange_service_id"] = new_accorderie_echange_service.id
+
+        if state_id in (
+            "init.va.non.offert.existant_formulaire",
+            "init.va.non.offert.nouveau_formulaire",
+            "init.va.oui.formulaire",
+            "init.va.non.recu.choix.formulaire",
+            "init.va.non.recu.choix.nouveau.formulaire",
+        ):
+            if not new_accorderie_echange_service:
+                if not kw.get("echange_service_id").get("id"):
+                    msg_error = (
+                        "Missing argument 'echange_service_id' into"
+                        f" '{state_id}'"
+                    )
+                    _logger.error(msg_error)
+                    status["error"] = msg_error
+                    return status
+                new_accorderie_echange_service = (
+                    request.env["accorderie.echange.service"]
+                    .sudo()
+                    .browse(kw.get("echange_service_id").get("id"))
+                )
+            new_accorderie_echange_service.write(
+                {
+                    "transaction_valide": True,
+                    "nb_heure": float(kw.get("time_realisation_service")),
+                }
+            )
+            status["echange_service_id"] = new_accorderie_echange_service.id
+        return status
+
+    @http.route(
+        "/accorderie/submit/my_favorite",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_my_favorite_submit(self, **kw):
+        # Send from participer website
+        status = {}
+
+        membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+
+        id_record = kw.get("id_record")
+        model_name = kw.get("model")
+
+        if not id_record or not model_name:
+            return {
+                "error": (
+                    f"Missing parameter 'id_record' or 'model' for call"
+                    f" '/accorderie/submit/my_favorite'."
+                )
+            }
+
+        if model_name == "accorderie.membre":
+            favoris_membre_id = http.request.env["accorderie.membre"].browse(
+                id_record
+            )
+            if favoris_membre_id.id in membre_id.membre_favoris_ids.ids:
+                membre_id.write(
+                    {"membre_favoris_ids": [(3, favoris_membre_id.id)]}
+                )
+                status["id"] = favoris_membre_id.id
+                status["is_favorite"] = False
+            else:
+                # First, search if relation exist, or create it
+                favoris_membre_model_favoris_id = http.request.env[
+                    "accorderie.membre.favoris"
+                ].search([("membre_id", "=", favoris_membre_id.id)])
+                if not favoris_membre_model_favoris_id:
+                    membre_id.write(
+                        {
+                            "membre_favoris_ids": [
+                                (0, False, {"membre_id": favoris_membre_id.id})
+                            ]
+                        }
+                    )
+                else:
+                    membre_id.write(
+                        {
+                            "membre_favoris_ids": [
+                                (4, favoris_membre_id.id, False)
+                            ]
+                        }
+                    )
+                status["id"] = favoris_membre_id.id
+                status["is_favorite"] = True
+
+        return status
+
+    @http.route(
+        [
+            "/accorderie_canada_ddb/get_member",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_participer_member_from_accorderie(self, **kw):
+        # TODO filter get member from accorderie
+        env = request.env(context=dict(request.env.context))
+        accorderie_membre_ids = env["accorderie.membre"].sudo().search([])
+        return {
+            "list": [
+                {
+                    "text": a.nom_complet,
+                    "id": a.id,
+                    "img": "/web/image/accorderie_canada_ddb_website.ir_attachment_henrique_castilho_l8kmx3rzt7s_unsplash_jpg/henrique-castilho-L8kMx3rzt7s-unsplash.jpg",
+                }
+                for a in accorderie_membre_ids
+            ]
+        }
 
     @http.route(
         [
@@ -383,17 +1252,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 accorderie_type_service_sous_categorie_cls.sudo().search([])
             )
 
-        accorderie_type_service_sous_categorie_ids = (
-            accorderie_type_service_sous_categorie.ids
-        )
-        type_service_sous_categories = (
-            accorderie_type_service_sous_categorie_cls.sudo().browse(
-                accorderie_type_service_sous_categorie_ids
-            )
-        )
-
         dct_value = {
-            "type_service_sous_categories": type_service_sous_categories
+            "type_service_sous_categories": accorderie_type_service_sous_categorie
         }
 
         # Render page
@@ -2586,7 +3446,7 @@ class AccorderieCanadaDdbController(http.Controller):
         if kw.get("active"):
             vals["active"] = kw.get("active") == "True"
         elif default_active:
-            vals["active"] = False
+            vals["active"] = default_active
 
         default_approuve = (
             http.request.env["accorderie.offre.service"]

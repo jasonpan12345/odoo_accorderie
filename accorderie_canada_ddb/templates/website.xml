@@ -18,12 +18,22 @@
                             </div>
                         </section>
                         <section
-                            class="oe_img_bg pt120 pb120 oe_custom_bg"
+                            class="s_event_banner oe_img_bg oe_custom_bg"
                             style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                         >
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title pt16 pb48" style="text-align: center;">
-                                    <h1 class="s_title_default" style="text-align: left;" />
+
+                            <div class="event_banner_action bg-primary">
+                                <div class="btn btn-primary debug_unimplemented">
+                                    <i class="fa fa-share-alt icon_padding_right" />
+                                    Partager
+                                </div>
+                                <div class="divider debug_unimplemented" />
+                                <div
+                                    class="btn btn-primary"
+                                    t-attf-ng-click="add_to_my_favorite('accorderie.offre.service', {{accorderie_offre_service_id.id}})"
+                                >
+                                    <i class="fa fa-heart-o icon_padding_right" />
+                                    Ajouter à mes favoris
                                 </div>
                             </div>
                         </section>
@@ -32,17 +42,18 @@
                             <div class="event_info info-1">
                                 <h1 t-field="accorderie_offre_service_id.titre" />
                                 <div class="infos">
-                                    <div class="distance"><i
-                                            class="fa fa-map-marker text-primary icon_padding_right"
-                                        /><t t-if="str_distance">&#192; <t
-                                                t-raw="str_distance"
-                                            /> de votre domicile</t></div>
-                                    <div class="adresse"><i class="fa fa-home text-primary icon_padding_right" /><t
-                                            t-esc="accorderie_offre_service_id.membre.adresse"
-                                        /></div>
-                                    <div class="pubdate"><i class="fa fa-clock-o text-primary icon_padding_right" /><t
-                                            t-esc="str_diff_time"
-                                        /></div>
+                                    <div class="distance">
+                                        <i class="fa fa-map-marker text-primary icon_padding_right" />
+                                        <t t-if="str_distance">&#192; <t t-raw="str_distance" /> de votre domicile</t>
+                                    </div>
+                                    <div class="adresse">
+                                        <i class="fa fa-home text-primary icon_padding_right" />
+                                        <t t-esc="accorderie_offre_service_id.membre.adresse" />
+                                    </div>
+                                    <div class="pubdate">
+                                        <i class="fa fa-clock-o text-primary icon_padding_right" />
+                                        <t t-esc="str_diff_time" />
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -59,26 +70,68 @@
                                             <h2>Quoi apporter</h2>
                                             <t t-raw="accorderie_offre_service_id.quoi_apporter" />
                                         </div>
-                                        <div class="conditions" t-if="accorderie_offre_service_id.condition">
+                                        <div
+                                            class="conditions debug_unimplemented"
+                                            t-if="accorderie_offre_service_id.condition"
+                                        >
                                             <h2>Conditions</h2>
                                             <t t-raw="accorderie_offre_service_id.condition" />
                                         </div>
-                                        <div class="deplacement" t-if="accorderie_offre_service_id.deplacement">
+                                        <div
+                                            class="deplacement debug_unimplemented"
+                                            t-if="accorderie_offre_service_id.deplacement"
+                                        >
                                             <h2>D&#233;placement</h2>
                                             <t t-raw="accorderie_offre_service_id.deplacement" />
                                         </div>
-                                        <div class="tarif" t-if="accorderie_offre_service_id.entente_tarifiaire">
+                                        <div
+                                            class="tarif debug_unimplemented"
+                                            t-if="accorderie_offre_service_id.entente_tarifiaire"
+                                        >
                                             <h2>Entente tarifiaire</h2>
                                             <t t-raw="accorderie_offre_service_id.entente_tarifiaire" />
                                         </div>
-                                        <div class="dispo" t-if="accorderie_offre_service_id.disponibilite">
-                                            <h2>Disponilibit&#233;s habituelles</h2>
-                                            <t t-raw="accorderie_offre_service_id.disponibilite" />
+                                        <div class="dispo debug_unimplemented">
+                                            <h2>Disponilibités habituelles</h2>
+                                            <div class="dates_container">
+                                                <p>LUNDI</p><p>08H00 - 19H00</p>
+                                                <p>MARDI</p><p>08H00 - 19H00</p>
+                                                <p>MERCREDI</p><p>08H00 - 19H00</p>
+                                                <p>JEUDI</p><p>08H00 - 19H00</p>
+                                                <p>VENDREDI</p><p>08H00 - 19H00</p>
+                                                <p>SAMEDI</p><p>08H00 - 19H00</p>
+                                                <p>DIMANCHE</p><p>08H00 - 19H00</p>
+                                            </div>
+                                        </div>
+                                        <div class="signaler debug_unimplemented">
+                                            <p>
+                                                <i class="fa fa-flag-o" />
+                                                &amp;nbsp <a href=""><u>Signaler cette annonce</u></a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="right_cards_container">
-                                    <div class="card info-3" />
+                                <div class="right_cards_container debug_unimplemented">
+                                    <div class="card info-3">
+                                        <img
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"
+                                        />
+                                        <div>
+                                            <p>
+                                                <b>Adresse</b>
+                                                <br />
+                                                1551 Rue Dunant, Sherbrooke, J1H QN5, QC
+                                            </p>
+                                            <p>
+                                                <b>Détails pour vous y rendre</b>
+                                                <br />
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            </p>
+                                        </div>
+                                    </div>
                                     <div class="card info-4" t-if="accorderie_offre_service_id.membre">
                                         <div
                                             class="img rounded-circle"
@@ -87,22 +140,24 @@
                                         <h4>Votre accordeuse:</h4>
                                         <h4 t-field="accorderie_offre_service_id.membre.nom_complet" />
                                         <div class="stats">
-                                            <h6>
-                                                <span class="fa fa-user-circle" />
-                                                Membre depuis mars 2019
-                                            </h6>
-                                            <h6>
-                                                <span class="fa fa-shield" />
-                                                Ant&#233;c&#233;dents judiciaires v&#233;rifi&#233;s
-                                            </h6>
-                                            <h6>
-                                                <span class="fa fa-user-circle" />
-                                                3 offres de service
-                                            </h6>
-                                            <h6>
-                                                <span class="fa fa-clock-o" />
-                                                15h de service &#224; son actif
-                                            </h6>
+                                            <div class="stats">
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    Membre depuis mars 2019
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-shield" />
+                                                    Antécédents judiciaires vérifiés
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    3 offres de service
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-clock-o" />
+                                                    15h de service à son actif
+                                                </p>
+                                            </div>
                                         </div>
                                         <div class="summary">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -129,142 +184,185 @@
         </t>
     </template>
     <template id="accorderie_demande_service_unit_liste_offre_et_demande_service" name="Demande Service">
-        <t t-call="website.layout">
-            <div id="wrap">
-                <div class="oe_structure">
-                    <section class="pt32 pb32" t-if="not accorderie_demande_service_id">
-                        <div class="container">
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
-                                    <h1 class="s_title_default">
-                                        <font style="font-size: 62px;">
-                                            accorderie_demande_service_id non existante
-                                        </font>
-                                    </h1>
+        <t name="About us" t-name="website.aboutus">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <section class="pt32 pb32" t-if="not accorderie_demande_service_id">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                        <h1 class="s_title_default">
+                                            <font style="font-size: 62px;">Demande de service non existante</font>
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <section
-                        t-if="accorderie_demande_service_id"
-                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
-                        data-scroll-background-ratio="1"
-                        style="background-image: none;"
-                    >
-                        <span
-                            class="s_parallax_bg oe_img_bg oe_custom_bg"
-                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
-                        />
-                        <div class="container">
-                            <div class="row s_nb_column_fixed">
-                                <div class="col-lg-12 s_title" data-name="Title">
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-field="accorderie_demande_service_id.titre"
-                                        t-if="accorderie_demande_service_id.titre"
-                                    />
-                                    <h1
-                                        class="s_title_thin"
-                                        style="font-size: 62px; text-align: center;"
-                                        t-if="not accorderie_demande_service_id.titre"
-                                    >
-                                        EMPTY
-                                    </h1>
+                        </section>
+                        <section
+                            class="s_event_banner oe_img_bg oe_custom_bg"
+                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
+                        >
+
+                            <div class="event_banner_action bg-primary">
+                                <div class="btn btn-primary debug_unimplemented">
+                                    <i class="fa fa-share-alt icon_padding_right" />
+                                    Partager
                                 </div>
+                                <div class="divider debug_unimplemented" />
                                 <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.accorderie"
+                                    class="btn btn-primary"
+                                    t-attf-ng-click="add_to_my_favorite('accorderie.demande.service', {{accorderie_offre_demande_id.id}})"
                                 >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.accorderie"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.active"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.active"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.approuver"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.approuver"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.commentaire"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.commentaire"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.date_debut"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.date_debut"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.date_fin"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.date_fin"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.description"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.description"
-                                    />
-                                </div>
-                                <div
-                                    class="col-lg-12 s_text pt16 pb16"
-                                    data-name="Text"
-                                    t-if="accorderie_demande_service_id.membre"
-                                >
-                                    <p
-                                        class="lead o_default_snippet_text"
-                                        style="text-align: center;"
-                                        t-field="accorderie_demande_service_id.membre"
-                                    />
+                                    <i class="fa fa-heart-o icon_padding_right" />
+                                    Ajouter à mes favoris
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+
+                        <section class="event_head">
+                            <div class="event_info info-1">
+                                <h1 t-field="accorderie_demande_service_id.titre" />
+                                <div class="infos">
+                                    <div class="distance">
+                                        <i class="fa fa-map-marker text-primary icon_padding_right" />
+                                        <t t-if="str_distance">&#192; <t t-raw="str_distance" /> de votre domicile</t>
+                                    </div>
+                                    <div class="adresse">
+                                        <i class="fa fa-home text-primary icon_padding_right" />
+                                        <t t-esc="accorderie_demande_service_id.membre.adresse" />
+                                    </div>
+                                    <div class="pubdate">
+                                        <i class="fa fa-clock-o text-primary icon_padding_right" />
+                                        <t t-esc="str_diff_time" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="s_evenement pt80 pb160" t-if="accorderie_demande_service_id">
+                            <div class="event_container">
+                                <div class="informations_container">
+                                    <div class="event_info info-2">
+                                        <div class="description" t-if="accorderie_demande_service_id.description">
+                                            <h2>Description</h2>
+                                            <t t-raw="accorderie_demande_service_id.description" />
+                                        </div>
+<!--                                        <div class="info" t-if="accorderie_demande_service_id.quoi_apporter">-->
+<!--                                            <h2>Quoi apporter</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.quoi_apporter" />-->
+<!--                                        </div>-->
+<!--                                        <div-->
+<!--                                            class="conditions debug_unimplemented"-->
+<!--                                            t-if="accorderie_demande_service_id.condition"-->
+<!--                                        >-->
+<!--                                            <h2>Conditions</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.condition" />-->
+<!--                                        </div>-->
+<!--                                        <div-->
+<!--                                            class="deplacement debug_unimplemented"-->
+<!--                                            t-if="accorderie_demande_service_id.deplacement"-->
+<!--                                        >-->
+<!--                                            <h2>D&#233;placement</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.deplacement" />-->
+<!--                                        </div>-->
+<!--                                        <div-->
+<!--                                            class="tarif debug_unimplemented"-->
+<!--                                            t-if="accorderie_demande_service_id.entente_tarifiaire"-->
+<!--                                        >-->
+<!--                                            <h2>Entente tarifiaire</h2>-->
+<!--                                            <t t-raw="accorderie_demande_service_id.entente_tarifiaire" />-->
+<!--                                        </div>-->
+                                        <div class="dispo debug_unimplemented">
+                                            <h2>Disponilibités habituelles</h2>
+                                            <div class="dates_container">
+                                                <p>LUNDI</p><p>08H00 - 19H00</p>
+                                                <p>MARDI</p><p>08H00 - 19H00</p>
+                                                <p>MERCREDI</p><p>08H00 - 19H00</p>
+                                                <p>JEUDI</p><p>08H00 - 19H00</p>
+                                                <p>VENDREDI</p><p>08H00 - 19H00</p>
+                                                <p>SAMEDI</p><p>08H00 - 19H00</p>
+                                                <p>DIMANCHE</p><p>08H00 - 19H00</p>
+                                            </div>
+                                        </div>
+                                        <div class="signaler debug_unimplemented">
+                                            <p>
+                                                <i class="fa fa-flag-o" />
+                                                &amp;nbsp <a href=""><u>Signaler cette annonce</u></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right_cards_container debug_unimplemented">
+                                    <div class="card info-3">
+                                        <img
+                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_patrick_tomasso_ajgebwgnru4_unsplash_jpg/patrick-tomasso-AjgebwgNrU4-unsplash.jpg"
+                                        />
+                                        <div>
+                                            <p>
+                                                <b>Adresse</b>
+                                                <br />
+                                                1551 Rue Dunant, Sherbrooke, J1H QN5, QC
+                                            </p>
+                                            <p>
+                                                <b>Détails pour vous y rendre</b>
+                                                <br />
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                aliqua.
+                                                Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card info-4" t-if="accorderie_demande_service_id.membre">
+                                        <div
+                                            class="img rounded-circle"
+                                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg&quot;);"
+                                        />
+                                        <h4>Votre accordeuse:</h4>
+                                        <h4 t-field="accorderie_demande_service_id.membre.nom_complet" />
+                                        <div class="stats">
+                                            <div class="stats">
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    Membre depuis mars 2019
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-shield" />
+                                                    Antécédents judiciaires vérifiés
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-user-circle" />
+                                                    3 demandes de service
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-clock-o" />
+                                                    15h de service à son actif
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="summary">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Faucibus purus in massa tempor nec feugiat nisl pretium fusce.
+                                            Aliquam malesuada bibendum arcu vitae elementum curabitur vitae
+                                            nunc. Suspendisse sed nisi lacus sed viverra tellus. Quis commodo
+                                            odio aenean sed adipiscing diam donec.
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="btn btn-primary rounded-circle">
+                                                En savoir plus sur
+                                                Alice
+                                            </div>
+                                            <div class="btn btn-primary rounded-circle">La contacter</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </t>
         </t>
     </template>
     <template
@@ -275,14 +373,15 @@
             <div class="container_lists">
                 <div class="row activites_list col-lg-6">
                     <div class="list_title s_title">
-                        <h1>
-                            <font style="font-size: 2rem; float:left;">Offres r&#233;centes</font>
-                            <a t-if="offre_services_count" href="/offresservice">
-                                <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+<span
-                                        t-raw="offre_services_count"
-                                    />)</font>
-                            </a>
-                        </h1>
+                        <div class="title">
+                            <h1>Offres r&#233;centes</h1>
+                            <a
+                                t-if="offre_services_count"
+                                href="/offresservice"
+                                style="font-size:1.25rem;"
+                                class="debug_unimplemented"
+                            >Voir Tout (+<t t-raw="offre_services_count" />)</a>
+                        </div>
                     </div>
                     <div t-if="offre_services">
                         <div t-foreach="offre_services" t-as="offre_service">
@@ -300,7 +399,7 @@
                                 />
                                 <span
                                     t-if="not lst_icon_offre_service[offre_service_index]"
-                                    class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
+                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center"
                                 />
                                 <div class="infos">
                                     <div
@@ -339,14 +438,15 @@
                 </div>
                 <div class="row activites_list col-lg-6">
                     <div class="list_title s_title">
-                        <h1>
-                            <font style="font-size: 2rem; float:left;">Demandes r&#233;centes</font>
-                            <a t-if="demande_services_count" href="/offresservice">
-                                <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+<span
-                                        t-raw="demande_services_count"
-                                    />)</font>
-                            </a>
-                        </h1>
+                        <div class="title">
+                            <h1>Demandes r&#233;centes</h1>
+                            <a
+                                t-if="demande_services_count"
+                                class="debug_unimplemented"
+                                href="/offresservice"
+                                style="font-size:1.25rem;"
+                            >Voir Tout (+<t t-raw="demande_services_count" />)</a>
+                        </div>
                     </div>
                     <div t-if="demande_services">
                         <div t-foreach="demande_services" t-as="demande_service">
@@ -364,17 +464,17 @@
                                 />
                                 <span
                                     t-if="not lst_icon_demande_service[demande_service_index]"
-                                    class="fa fa-3x rounded bg-epsilon m-3 fa-calendar-plus-o activite_img"
+                                    class="activite_img fa fa-calendar-plus-o bg-epsilon text-center"
                                     style=""
                                 />
                                 <div class="infos">
                                     <h4
                                         class="activite_title"
-                                        t-if="demande_service.description"
-                                        t-field="demande_service.description"
+                                        t-if="demande_service.titre"
+                                        t-field="demande_service.titre"
                                     />
-                                    <h4 class="activite_title" t-if="not demande_service.description">
-                                        Description vide...
+                                    <h4 class="activite_title" t-if="not demande_service.titre">
+                                        Titre vide...
                                     </h4>
                                     <h5
                                         class="activite_auteur"
@@ -388,7 +488,7 @@
                                     />
                                 </div>
                                 <div class="infos right">
-                                    <h5
+                                    <div
                                         t-if="len(lst_time_demande_service) >= demande_service_index"
                                         t-raw="lst_time_demande_service[demande_service_index]"
                                     />
@@ -516,17 +616,17 @@
         name="Type Service Categorie List"
     >
         <t t-ignore="true">
-            <div t-if="not type_service_categories">
+            <div t-if="not type_service_categories" class="debug_unimplemented">
                 <div class="row">Aucune catégorie de service est disponible.</div>
             </div>
-            <div t-if="type_service_categories">
+            <div t-if="type_service_categories" class="debug_unimplemented">
                 <div class="list_title s_title">
-                    <h1>
-                        <font style="font-size: 2rem; float:left;">Explorer les offres</font>
-                        <a href="/offresservice">
-                            <font style="float:right; font-size:1.25rem; margin-top:10px;">Voir Tout (+500)</font>
+                    <div class="title">
+                        <h1>Explorer les offres</h1>
+                        <a href="/offresservice" style="font-size:1.25rem;">
+                            Voir Tout (+500)
                         </a>
-                    </h1>
+                    </div>
                 </div>
                 <div class="offres_list">
                     <div class="offre_box btn" t-foreach="type_service_categories" t-as="type_service_categorie">
@@ -555,167 +655,974 @@
         <t t-ignore="true">
             <t name="About us" t-name="website.aboutus">
                 <t t-call="website.layout">
-                    <div id="wrap">
-                        <div class="oe_structure" />
-                        <section class="s_buttons_form">
-                            <div class="txt_question">
-                                <h1>Que souhaitez-vous faire ?</h1>
+                    <div id="wrap" ng-controller="ParticiperController" class="ng-cloak">
+                        <div class="oe_structure">
+                            <div class="debug_debug">
+                                    Lien maquette : <a
+                                    href="https://marvelapp.com/prototype/1773h559/screen/86371515"
+                                >https://marvelapp.com/prototype/1773h559/screen/86371515</a><br />
+                                Debug form: <span>{{form || json}}</span>
+                                <br />
+                                Debug state: <span>{{state || json}}</span>
+                                <br />
                             </div>
-                            <form id="participer_form" method="GET" action="/publier-offre">
-                                <div class="buttons_form_container tab">
-                                    <input type="radio" id="pub_offre" name="pub" value="1" required="required" />
-                                    <label for="pub_offre" class="button_form btn">
-                                        <h5>Publier une offre de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="pub_demande" name="pub" value="2" />
-                                    <label for="pub_demande" class="button_form btn">
-                                        <h5>Publier une demande de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="creer_entente" name="pub" value="3" />
-                                    <label for="creer_entente" class="button_form btn">
-                                        <h5>Publier une demande de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="valider_service" name="pub" value="4" />
-                                    <label for="valider_service" class="button_form btn">
-                                        <h5>Publier une demande de service</h5>
-                                        <p>
-                                            Vous souhaitez offrir votre service?
-                                            <br />
-                                            Cliquez ici
-                                        </p>
-                                    </label>
-                                </div>
-                                <div class="buttons_form_container tab">
-                                    <input type="radio" id="offre_indiv" name="offre" value="1" />
-                                    <label for="offre_indiv" class="button_form btn">
-                                        <h5>Individuelle</h5>
-                                        <p>Si vous offrez un service &#224; une personne particuli&#232;re
-
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="offre" value="2" />
-                                    <label for="offre_coll" class="button_form btn">
-                                        <h5>Collective</h5>
-                                        <p>Si vous offrez une activit&#233; collective
-                                            <br />
-                                            (cours en groupe, ateliers, conf&#233;rence, achats group&#233;s, ...)
-
-                                        </p>
-                                    </label>
-                                </div>
-                                <div class="buttons_form_container tab" style="align-content:unset;">
-                                    <div t-if="not type_service_categories">
-                                        <div class="row">Aucune catégorie de service est disponible.</div>
+                            <section class="s_buttons_form">
+                                <div class="txt_question" ng-if="!state.disable_question">
+                                    <div><span
+                                            ng-show="state.show_breadcrumb"
+                                            ng-repeat="link in lst_label_breadcrumb"
+                                            ng-click="change_breadcrumb_index(link.index)"
+                                            class="cursor-pointer"
+                                            style="color:white"
+                                            ng-if="!_.isEmpty(link.html)"
+                                            ng-bind-html="link.html | unsafe"
+                                        />
+                                        <h1 ng-show="state.message">{{state.message}}</h1>
                                     </div>
-                                    <t t-if="type_service_categories">
-                                        <t t-foreach="type_service_categories" t-as="type_service_categorie">
-                                            <input
-                                                type="radio"
-                                                t-att-id="'cat_%s' % str(type_service_categorie.id)"
-                                                name="type_service_categorie"
-                                                t-att-value="type_service_categorie.id"
-                                            />
+                                    <div ng-show="!_.isEmpty(error)">
+                                        <br />
+                                        <span style="color:red;">Erreur : {{error}}</span>
+                                    </div>
+                                </div>
+                                <div id="participer_form">
+                                    <div
+                                        class="buttons_form_container tab"
+                                        ng-if="state.type == 'selection_static' || state.type == 'selection_dynamique'"
+                                    >
+                                        <!-- !list_is_first_position -->
+                                        <!-- Update the duplicate, check ng-if="state.list_is_first_position" -->
+                                        <div
+                                            ng-repeat="option in state.data"
+                                            class="button_form"
+                                            ng-if="!state.list_is_first_position &amp;&amp; _.isObject(state.data)"
+                                        >
+                                            <div
+                                                class="btn label"
+                                                ng-class="{checked: state.selected_id == option.id}"
+                                                ng-click="click_dynamique(option)"
+                                                ng-dblclick="next_btn()"
+                                            >
+    <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
+    <!--                                            <img-->
+    <!--                                                class="activite_img img-fluid"-->
+    <!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+    <!--                                            />-->
+                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <p
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
+                                                />
+                                                <p
+                                                    ng-if="!_.isEmpty(option.right_html)"
+                                                    ng-bind-html="option.right_html | unsafe"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            ng-repeat="option in state.list"
+                                            ng-class="{'debug_unimplemented': is_not_implemented(option)}"
+                                            class="button_form"
+                                        >
                                             <label
-                                                t-att-for="'cat_%s' % str(type_service_categorie.id)"
-                                                class="cat button_form btn"
+                                                for="{{option.id}}"
+                                                class="btn label"
+                                                ng-class="{checked: $parent.$parent.state.next_id == option.id}"
+                                                ng-click="click_statique(option)"
+                                                ng-dblclick="next_btn()"
+                                            >
+                                                <i class="fa {{option.icon}}" ng-if="option.icon" />
+                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <p
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
+                                                />
+                                            </label>
+                                        </div>
+                                        <!-- list_is_first_position -->
+                                        <div
+                                            ng-repeat="option in state.data"
+                                            class="button_form"
+                                            ng-if="state.list_is_first_position &amp;&amp; _.isObject(state.data)"
+                                        >
+                                            <div
+                                                class="btn label"
+                                                ng-class="{checked: state.selected_id == option.id}"
+                                                ng-click="click_dynamique(option)"
+                                                ng-dblclick="next_btn()"
+                                            >
+    <!--                                            <i class="fa {{option.icon}}" ng-if="option.icon"/>-->
+    <!--                                            <img-->
+    <!--                                                class="activite_img img-fluid"-->
+    <!--                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"-->
+    <!--                                            />-->
+                                                <h5 ng-if="option.title">{{option.title}}</h5>
+                                                <p
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
+                                                />
+                                                <p
+                                                    ng-if="!_.isEmpty(option.right_html)"
+                                                    ng-bind-html="option.right_html | unsafe"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="buttons_form_container tab"
+                                        style="justify-content:space-between;"
+                                        ng-if="state.type == 'choix_categorie_de_service'"
+                                    >
+                                        <div
+                                            ng-if="_.isEmpty(state.data)"
+                                        >Aucune catégorie de service, veuillez communiquer avec votre administrateur.</div>
+                                        <div ng-if="!_.isEmpty(actual_inner_state_name)" style="width:100%;"><span
+                                                style="cursor:pointer"
+                                                ng-click="previous_inner_state_btn()"
+                                            ><i class="fa fa-chevron-left" /> {{actual_inner_state_name}}</span></div>
+                                        <span ng-repeat="option in state_get_data()" class="categorie">
+                                            <label
+                                                class="cat btn label"
+                                                ng-class="{checked: $parent.$parent.state.selected_id == option.id}"
+                                                for="{{option.id}}"
+                                                ng-click="click_inner_state_option(option)"
+                                                ng-dblclick="next_btn()"
                                             >
                                                 <img
-                                                    t-if="type_service_categorie.icon"
-                                                    t-att-src="image_data_uri(type_service_categorie.icon)"
+                                                    ng-if="!_.isEmpty(option.icon)"
+                                                    ng-src="{{option.icon}}"
                                                     alt="icon"
                                                     class="offre_img"
                                                 />
-                                                <p
-                                                    class="offre_desc"
-                                                    t-if="type_service_categorie.nom"
-                                                    t-raw="type_service_categorie._get_html_nom()"
+                                                <span
+                                                    class="cat_desc"
+                                                    ng-if="!_.isEmpty(option.html)"
+                                                    ng-bind-html="option.html | unsafe"
                                                 />
                                             </label>
-                                        </t>
-                                    </t>
+                                        </span>
+                                    </div>
+                                    <div
+                                        class="buttons_form_container tab"
+                                        ng-if="state.type == 'form'"
+                                        style="flex-direction:column; flex-wrap:nowrap;"
+                                        ng-class="{form: form_is_offre_demande_service()}"
+                                    >
+                                        <div class="debug_debug">
+                                            <!-- Debug information about form -->
+                                            <h4>Debug</h4>
+
+                                            <div ng-if="state.id == 'init.pos.individuelle.formulaire'">0 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86371567"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86371567</a><a
+                                                    href="participer#!?state=init.pos.individuelle.formulaire&amp;categorie=520"
+                                                >participer#!?state=init.pos.individuelle.formulaire&amp;categorie=520</a></div>
+
+                                            <div
+                                                ng-if="state.id == 'init.saa.offrir.nouveau.categorie_service.formulaire'"
+                                            >1 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86537471"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86537471</a><a
+                                                    href="participer#!?state=init.saa.offrir.nouveau.categorie_service.formulaire&amp;membre=3&amp;categorie=92"
+                                                >participer#!?state=init.saa.offrir.nouveau.categorie_service.formulaire&amp;membre=3&amp;categorie=92</a></div>
+
+                                            <div ng-if="state.id == 'init.saa.offrir.existant.formulaire'">2 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86537295"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86537295</a><a
+                                                    href="participer#!?state=init.saa.offrir.existant.formulaire&amp;offre_service=3&amp;membre=3"
+                                                >participer#!?state=init.saa.offrir.existant.formulaire&amp;offre_service=3&amp;membre=3</a></div>
+
+                                            <div ng-if="state.id == 'init.saa.recevoir.choix.nouveau.formulaire'">3 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86697719"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86697719</a><a
+                                                    href="participer#!?state=init.saa.recevoir.choix.nouveau.formulaire&amp;membre=3&amp;categorie=94"
+                                                >participer#!?state=init.saa.recevoir.choix.nouveau.formulaire&amp;membre=3&amp;categorie=94</a></div>
+
+                                            <div
+                                                ng-if="state.id == 'init.saa.recevoir.choix.existant.time.formulaire'"
+                                            >4 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86588770"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86588770</a><a
+                                                    href="participer#!?state=init.saa.recevoir.choix.existant.time.formulaire&amp;membre=3&amp;offre_service=6&amp;date=2022-08-25&amp;time=10:00"
+                                                >participer#!?state=init.saa.recevoir.choix.existant.time.formulaire&amp;membre=3&amp;offre_service=6&amp;date=2022-08-25&amp;time=10:00</a></div>
+
+                                            <div ng-if="state.id == 'init.va.oui.formulaire'">5 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86537849"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86537849</a><a
+                                                    href="participer#!?state=init.va.oui.formulaire&amp;echange_service=2"
+                                                >participer#!?state=init.va.oui.formulaire&amp;echange_service=2</a></div>
+
+                                            <div ng-if="state.id == 'init.va.non.offert.nouveau_formulaire'">6 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86594545"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86594545</a><a
+                                                    href="participer#!?state=init.va.non.offert.nouveau_formulaire"
+                                                >participer#!?state=init.va.non.offert.nouveau_formulaire</a></div>
+
+                                            <div ng-if="state.id == 'init.va.non.offert.existant_formulaire'">7 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86537980"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86537980</a><a
+                                                    href="participer#!?state=init.va.non.offert.existant_formulaire&amp;echange_service=4"
+                                                >participer#!?state=init.va.non.offert.existant_formulaire&amp;echange_service=4</a></div>
+
+                                            <div ng-if="state.id == 'init.va.non.recu.choix.nouveau.formulaire'">8 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86609563"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86609563</a><a
+                                                    href="participer#!?state=init.va.non.recu.choix.nouveau.formulaire&amp;membre=4&amp;categorie=94"
+                                                >participer#!?state=init.va.non.recu.choix.nouveau.formulaire&amp;membre=4&amp;categorie=94</a></div>
+
+                                            <div ng-if="state.id == 'init.va.non.recu.choix.formulaire'">9 <a
+                                                    href="https://marvelapp.com/prototype/1773h559/screen/86608523"
+                                                >https://marvelapp.com/prototype/1773h559/screen/86608523</a><a
+                                                    href="participer#!?state=init.va.non.recu.choix.formulaire&amp;membre=4&amp;echange_service=3"
+                                                >participer#!?state=init.va.non.recu.choix.formulaire&amp;membre=4&amp;echange_service=3</a></div>
+                                        </div>
+
+                                        <!-- Catégorie -->
+
+                                        <div
+                                            ng-if="form_is_offre_demande_service() &amp;&amp; state.show_breadcrumb"
+                                            class="nav_back"
+                                        ><b>Catégorie:</b><span
+                                                ng-repeat="link in lst_label_breadcrumb"
+                                                ng-click="change_breadcrumb_index(link.index)"
+                                                class="cursor-pointer"
+                                                ng-if="!_.isEmpty(link.html)"
+                                                ng-bind-html="link.html | unsafe"
+                                            /><i class="fa fa-chevron-right" /></div>
+
+                                        <!-- Photo header -->
+                                        <section
+                                            ng-if="form_is_offre_demande_service()"
+                                            class="s_event_banner oe_img_bg oe_custom_bg"
+                                            style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
+                                        >
+                                            <!-- TODO fill image with model -->
+                                            <div style="text-align:center" class="debug_unimplemented">
+                                                <div class="btn btn-primary text-gamma">
+                                                    <i class="fa fa-edit icon_padding_right" />
+                                                    Remplacer la photo
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <!-- Présentation du service -->
+                                        <h2
+                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
+                                        >Offre de service donné
+                                        </h2>
+                                        <h2
+                                            ng-if="state.id == 'init.saa.recevoir.choix.existant.time.formulaire'"
+                                        >Offre de service demandé
+                                        </h2>
+                                        <h2
+                                            ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
+                                        >Offre de service reçu
+                                        </h2>
+                                        <div
+                                            class="activite"
+                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
+                                        >
+                                            <!-- TODO fill this with model -->
+                                            <img
+                                                class="activite_img"
+                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                            />
+                                            <div class="infos">
+                                                <b>Je peux vous apprendre à cultiver vos propres légumes</b>
+                                            </div>
+                                            <div class="infos_right">
+                                                <p>10/03/21</p>
+                                                <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="activite"
+                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
+                                        >
+                                            <!-- TODO fill this with model -->
+                                            <img
+                                                class="activite_img"
+                                                src="/web/image/accorderie_canada_ddb_website.ir_attachment_meritt_thomas_u_hb93v6iwi_unsplash_jpg/meritt-thomas-u-Hb93V6IWI-unsplash.jpg"
+                                            />
+                                            <div class="infos">
+                                                <div><b>Aide au déménagement</b></div>
+                                                <div>Yannick Gagnon
+                                                    <br />À 2.3km de votre domicile
+                                                </div>
+                                            </div>
+                                            <div class="infos_right">
+                                                <p>2j</p>
+                                                <i class="fa fa-heart-o text-epsilon" style="font-size:1.5rem;" />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="divider"
+                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
+                                        />
+
+                                        <!-- Destinataire du service -->
+                                        <h2
+                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
+                                        >
+                                            Destinataire du service
+                                        </h2>
+                                        <h2 ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id">
+                                            De qui avez-vous reçu le service?
+                                        </h2>
+                                        <div
+                                            class="form_box cursor-pointer"
+                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                            ng-click="change_state_to_field_id('membre_id')"
+                                        >
+                                            <span>{{form.membre_id.value}}</span>
+                                            <i class="fa fa-search" />
+                                        </div>
+                                        <div
+                                            class="divider"
+                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                        />
+
+                                        <!-- Description du service -->
+                                        <div ng-if="form_is_nouveau_except_pos()">
+                                            <h2>
+                                                Description du service privé
+                                            </h2>
+                                            <div>
+                                                <h4>Catégorie du service</h4>
+                                            </div>
+                                            <div
+                                                class="form_box cursor-pointer"
+                                                ng-click="change_state_to_field_id('type_service_id')"
+                                            >
+                                                <span>{{form.type_service_id.value}}</span>
+                                                <i class="fa fa-chevron-right" />
+                                            </div>
+                                            <div>
+                                                <h4>Nom de votre service</h4>
+                                            </div>
+                                        </div>
+
+                                       <div ng-if="form_is_offre_demande_service()"><h4>Titre</h4>
+                                       </div>
+
+                                        <input
+                                            ng-if="form_is_nouveau()"
+                                            type="text"
+                                            class="form_titre"
+                                            ng-model="form.titre"
+                                        />
+
+                                        <div ng-if="form_is_nouveau_except_pos()">
+                                            <h4>Description de votre offre de service</h4>
+                                        </div>
+
+                                        <div ng-if="form_is_offre_demande_service()">
+                                            <h4>Description</h4>
+                                        </div>
+
+                                        <textarea
+                                            class="form_desc"
+                                            ng-model="form.description"
+                                            ng-if="form_is_nouveau()"
+                                        />
+
+                                        <div
+                                            class="debug_unimplemented"
+                                            ng-if="['init.pos.individuelle.formulaire', 'init.pds.individuelle.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
+                                        >
+                                            <div>
+                                                <h4>Déplacement
+                                                    <a
+                                                        class="fa fa-trash text-alpha modifier"
+                                                        style="margin-left:auto;font-size:1.5rem"
+                                                    />
+                                                </h4>
+                                            </div>
+                                            <div class="form_box">
+                                                <span>Je me déplace:</span>
+                                                <span>En voiture</span>
+                                                <i class="fa fa-chevron-right" />
+                                            </div>
+                                            <div class="form_box">
+                                                <span>Accepte de me déplacer:</span>
+                                                <span>Dans la région</span>
+                                                <i class="fa fa-chevron-right" />
+                                            </div>
+                                            <div class="form_box">
+                                                <span>Destination spécifique: </span>
+                                                <span>Aucune</span>
+                                                <i class="fa fa-chevron-right" />
+                                            </div>
+                                            <div>
+                                                <h4>Entente tarifiaire
+                                                    <a
+                                                        class="fa fa-trash text-alpha modifier"
+                                                        style="margin-left:auto;font-size:1.5rem"
+                                                    />
+                                                </h4>
+                                            </div>
+                                            <div class="form_box flex-column" style="gap:1rem;">
+                                                <div class="d-flex align-items-center w-100">
+                                                    <i class="fa fa-check text-epsilon checker mt-0" />
+                                                    <span
+                                                    >Les aliments nécessaires pour la confection du dessert sont à vos frais</span>
+                                                    <i class="fa fa-times text-alpha ml-auto" />
+                                                </div>
+                                                <div class="d-flex align-items-center w-100">
+                                                    <i class="fa fa-plus rounded-dashed" />
+                                                    <span>Ajouter un élément à la liste</span>
+                                                </div>
+                                            </div>
+                                            <div ng-if="form_is_offre_demande_service()">
+                                                <h4>Disponibilités
+                                                    <a
+                                                        class="fa fa-trash text-alpha modifier"
+                                                        style="margin-left:auto;font-size:1.5rem"
+                                                    />
+                                                </h4>
+                                                <div class="form_box">
+                                                    <div class="dispo">
+                                                        <div class="dates_container">
+                                                            <p>LUNDI</p>
+                                                            <p>-</p>
+                                                            <p>MARDI</p>
+                                                            <p>-</p>
+                                                            <p>MERCREDI</p>
+                                                            <p>08H00 - 19H00</p>
+                                                            <p>JEUDI</p>
+                                                            <p>-</p>
+                                                            <p>VENDREDI</p>
+                                                            <p>08H00 - 19H00</p>
+                                                            <p>SAMEDI</p>
+                                                            <p>08H00 - 19H00</p>
+                                                            <p>DIMANCHE</p>
+                                                            <p>-</p>
+                                                        </div>
+                                                    </div>
+                                                    <i class="fa fa-chevron-right" />
+                                                </div>
+                                            </div>
+                                            <div class="form_box dashed">
+                                                <i class="fa fa-plus" />
+                                                <span class="mr-auto ml-3">Matériel nécessaire</span>
+                                            </div>
+                                            <div class="form_box dashed">
+                                                <i class="fa fa-plus" />
+                                                <span
+                                                    class="mr-auto ml-3"
+                                                    ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                                >Conditions de l'échange de service</span>
+                                                <span
+                                                    class="mr-auto ml-3"
+                                                    ng-if="form_is_offre_demande_service()"
+                                                >Conditions</span>
+                                            </div>
+                                            <div
+                                                class="form_box dashed"
+                                                ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                            >
+                                                <i class="fa fa-plus" />
+                                                <span class="mr-auto ml-3">Commentaires</span>
+                                            </div>
+                                        </div>
+
+
+                                        <div
+                                            class="divider"
+                                            ng-if="form_is_nouveau() &amp;&amp; !['init.pos.individuelle.formulaire', 'init.pds.individuelle.formulaire'].includes(state.id)"
+                                        />
+
+                                        <!-- Service -->
+                                        <h2
+                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                        >Date prévue du service
+                                        </h2>
+                                        <h2 ng-if="form_is_service() || form_is_service_and_service_prevu()">Service
+                                        </h2>
+                                        <div ng-if="form_is_service_and_service_prevu()">
+                                            <!-- load_date() will initialize date field -->
+                                            {{load_date()}}
+                                            <h4>Date de l'échange du service
+        <!--                                        <a href="" class="text-primary" style="font-size:1.25rem;">Annuler</a>-->
+                                                <a
+                                                    href=""
+                                                    class="text-primary modifier"
+                                                    ng-if="form_is_service_to_modify()"
+                                                >Modifier</a>
+                                            </h4>
+                                            <span ng-if="form_is_service_to_modify()">Mercredi 6 août 2022</span>
+                                            <div
+                                                class="input-group date"
+                                                data-target-input="nearest"
+                                                t-attf-id="date_service_datepicker"
+                                                ng-if="!form_is_service_to_modify()"
+                                            >
+                                                <input
+                                                    class="form-control datetimepicker-input o_website_form_input o_website_form_date"
+                                                    name="date"
+                                                    t-att-value="default_date"
+                                                    t-attf-data-target="#date_service_datepicker"
+                                                    type="text"
+                                                    ng-model="form.date_service"
+                                                />
+                                                <div
+                                                    class="input-group-append"
+                                                    t-attf-data-target="#date_service_datepicker"
+                                                    data-toggle="datetimepicker"
+                                                >
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-calendar" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+        <!--                                <div-->
+        <!--                                    class="btn btn-primary text-gamma px-4 py-2"-->
+        <!--                                    style="align-self:start;"-->
+        <!--                                >Enregistrer</div>-->
+
+                                        <div ng-if="form_is_service_and_service_prevu()">
+                                            <h4>Heure de début du service<a
+                                                    href=""
+                                                    class="text-primary modifier"
+                                                    ng-if="form_is_service_to_modify()"
+                                                >Modifier</a></h4>
+                                            <span ng-if="form_is_service_to_modify()">14h00</span>
+                                            <div
+                                                class="input-group date"
+                                                data-target-input="nearest"
+                                                t-attf-id="time_service_datepicker"
+                                                ng-if="!form_is_service_to_modify()"
+                                            >
+                                                <input
+                                                    class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
+                                                    name="date"
+                                                    t-att-value="default_date"
+                                                    t-attf-data-target="#time_service_datepicker"
+                                                    type="text"
+                                                    ng-model="form.time_service"
+                                                />
+                                                <div
+                                                    class="input-group-append"
+                                                    t-attf-data-target="#time_service_datepicker"
+                                                    data-toggle="datetimepicker"
+                                                >
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-clock-o" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div ng-if="form_is_service()">
+                                            <h4>Durée de la réalisation du service</h4>
+                                            <div
+                                                class="input-group date"
+                                                data-target-input="nearest"
+                                                t-attf-id="time_realisation_service_datepicker"
+                                            >
+                                                <input
+                                                    class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
+                                                    name="date"
+                                                    t-att-value="default_date"
+                                                    t-attf-data-target="#time_realisation_service_datepicker"
+                                                    type="text"
+                                                    ng-model="form.time_realisation_service"
+                                                />
+                                                <div
+                                                    class="input-group-append"
+                                                    t-attf-data-target="#time_realisation_service_datepicker"
+                                                    data-toggle="datetimepicker"
+                                                >
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-clock-o" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div ng-if="form_is_service()">
+                                            <h4>Durée du trajet aller-retour</h4>
+                                            <div
+                                                class="input-group date"
+                                                data-target-input="nearest"
+                                                t-attf-id="time_dure_trajet_datepicker"
+                                            >
+                                                <input
+                                                    class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
+                                                    name="date"
+                                                    t-att-value="default_date"
+                                                    t-attf-data-target="#time_dure_trajet_datepicker"
+                                                    type="text"
+                                                    ng-model="form.time_dure_trajet"
+                                                />
+                                                <div
+                                                    class="input-group-append"
+                                                    t-attf-data-target="#time_dure_trajet_datepicker"
+                                                    data-toggle="datetimepicker"
+                                                >
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-clock-o" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="divider" ng-if="form_is_service_and_service_prevu()" />
+
+                                        <!-- Coût possible -->
+                                        <span class="debug_unimplemented">
+                                            <h2
+                                                ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id || form_is_service_to_modify()"
+                                            >Coûts possibles supplémentaires à prévoir
+                                            </h2>
+                                            <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
+                                            </h2>
+                                            <div ng-if="form_frais_trajet_distance()">
+                                                <h4>Frais pour trajet de :
+                                                    <a
+                                                        href=""
+                                                        class="text-primary modifier"
+                                                        ng-if="form_is_service_to_modify()"
+                                                    >Annuler</a>
+                                                </h4>
+                                            </div>
+                                            <div
+                                                ng-if="form_frais_trajet_distance() &amp;&amp; !form_is_service_to_modify()"
+                                            >
+                                                <div class="form_box float-left w-75 d-inline-block">
+                                                    <span>2.3</span>
+                                                </div>
+                                                <div class="form_box ml-auto" style="width:20%;">
+                                                    <span>Km</span>
+                                                    <i class="fa fa-chevron-down" />
+                                                </div>
+                                            </div>
+                                            <div ng-if="form_is_service_to_modify()">
+                                                <span>2.3 km</span>
+                                            </div>
+                                            <div
+                                                class="btn btn-primary text-gamma px-4 py-2"
+                                                style="align-self:start;"
+                                                ng-if="form_is_service_to_modify()"
+                                            >Enregistrer</div>
+
+                                            <div ng-if="form_frais_trajet_prix()">
+                                                <h4>Frais pour trajet :</h4>
+                                            </div>
+                                            <div class="form_box" ng-if="form_frais_trajet_prix()">
+                                                <span>_ _</span>
+                                                <span>$</span>
+                                            </div>
+                                            <div ng-if="form_frais_trajet_prix()">
+                                                <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
+                                            </div>
+                                            <div class="form_box" ng-if="form_frais_trajet_prix()">
+                                                <span>_ _</span>
+                                                <span>$</span>
+                                            </div>
+
+                                            <div ng-if="form_frais_import_list_without_modify()">
+                                                <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
+                                            </div>
+                                            <div
+                                                class="form_box"
+                                                style="width:fit-content;"
+                                                ng-if="form_frais_import_list_without_modify()"
+                                            >
+                                                <span>Importer une liste<i class="fa fa-download ml-3" /></span>
+                                            </div>
+
+                                            <div ng-if="form_is_service_to_modify()">
+                                                <h4>Frais pour le matériel nécessaire à l'échange de service
+                                                    <a href="" class="text-primary modifier">Importer une
+                                                        liste
+                                                        <i class="fa fa-download" />
+                                                    </a>
+                                                </h4>
+                                            </div>
+
+                                            <div class="divider" ng-if="form_is_service_and_service_prevu()" />
+                                        </span>
+
+                                        <!-- Estimation de la durée du service -->
+                                        <div
+                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                        >
+                                            <h2>Estimation de la durée de service
+                                            </h2>
+                                            <h4>Temps de service estimé</h4>
+    <!--                                        <span>1h50</span>-->
+                                            <div
+                                                class="input-group date"
+                                                data-target-input="nearest"
+                                                t-attf-id="time_service_estimated_datepicker"
+                                            >
+                                                <input
+                                                    class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
+                                                    name="date"
+                                                    t-att-value="default_date"
+                                                    t-attf-data-target="#time_service_estimated_datepicker"
+                                                    type="text"
+                                                    ng-model="form.time_service_estimated"
+                                                />
+                                                <div
+                                                    class="input-group-append"
+                                                    t-attf-data-target="#time_service_estimated_datepicker"
+                                                    data-toggle="datetimepicker"
+                                                >
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-clock-o" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>Temps de trajet estimé</h4>
+    <!--                                        <span>00h10</span>-->
+                                            <div
+                                                class="input-group date"
+                                                data-target-input="nearest"
+                                                t-attf-id="time_drive_estimated_datepicker"
+                                            >
+                                                <input
+                                                    class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
+                                                    name="date"
+                                                    t-att-value="default_date"
+                                                    t-attf-data-target="#time_drive_estimated_datepicker"
+                                                    type="text"
+                                                    ng-model="form.time_drive_estimated"
+                                                />
+                                                <div
+                                                    class="input-group-append"
+                                                    t-attf-data-target="#time_drive_estimated_datepicker"
+                                                    data-toggle="datetimepicker"
+                                                >
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-clock-o" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Commentaires -->
+                                        <h2 ng-if="form_is_commentaire()">Commentaires
+                                        </h2>
+                                        <textarea
+                                            class="form_desc"
+                                            ng-model="form.commentaires"
+                                            ng-if="form_is_commentaire()"
+                                        />
+
+                                        <!-- Durée de service -->
+                                        <div ng-if="form_is_service_to_modify()">
+                                            <h2>Durée du service</h2>
+                                            <h4>Nombre d'heures estimés pour le service<a
+                                                    href=""
+                                                    class="text-primary modifier"
+                                                    ng-if="form_is_service_to_modify()"
+                                                >Modifier</a>
+                                            </h4>
+                                                14h00
+                                            <h4>Durée du trajet à effectuer<a
+                                                    href=""
+                                                    class="text-primary modifier"
+                                                    ng-if="form_is_service_to_modify()"
+                                                >Modifier</a>
+                                            </h4>
+                                                14h00
+                                        </div>
+
+                                        <!-- Montant à transférer -->
+                                        <div class="bar_time" ng-if="form_is_service_and_service_prevu()">
+                                            <b>Montant total de temps à transférer</b>
+                                            <span>_ _ - _ _</span>
+                                        </div>
+
+                                        <!-- Respecter les conditions suivantes -->
+                                        <span ng-if="form_is_service_to_modify()">
+                                            <div class="divider" />
+                                            <!-- TODO button send form need to click to accept this condition -->
+                                            <h3><b>Respectez-vous les conditions suivantes :</b>
+                                            </h3>
+                                            <span>
+                                                <i class="fa fa-check checker text-epsilon icon_padding_right" />
+                                                Il doit y avoir au moins 4 personnes pour le déménagement.
+                                            </span>
+                                            <div class="divider" />
+                                            <!-- Mise en garde -->
+                                            <h3><b>Mise en garde</b>
+                                            </h3>
+                                            <p
+                                            >Avant tout échange de services, nous vous conseillons de vous rejoindre sur un terrain neutre pour vous rencontrer et vous mettre d'accord sur les détails de votre accordage.<br
+                                                />Bien que nous vérifions les antécédents judiciaires de certains profils, l'Accorderie ne peut être tenue responsable si vous rencontrez une personne avec de mauvaises intentions. Si vous avez ou avez eu un problème cependant, veuillez nous en avertir.
+                                            </p>
+                                        </span>
+                                    </div>
+                                    <div class="buttons_form_container tab" ng-if="state.type == 'choix_membre'">
+                                        <div class="search_member_container mx-auto">
+                                            <img
+                                                style="width:50px; aspect-ratio:1;"
+                                                class="nav_pic rounded-circle"
+                                                ng-src="{{state.selected_obj_value.img}}"
+                                                ng-if="!_.isUndefined(state.selected_obj_value)"
+                                            />
+                                            <i class="fa fa-search" ng-if="_.isUndefined($parent.state.selected_id)" />
+                                            <input
+                                                id="chooseMember"
+                                                type="search"
+                                                dir="ltr"
+                                                spellcheck="false"
+                                                autocorrect="off"
+                                                autocomplete="off"
+                                                autocapitalize="off"
+                                                maxlength="2048"
+                                                tabindex="1"
+                                                placeholder="{{chooseMemberPlaceholder}}"
+                                                ng-readonly="!_.isUndefined($parent.state.selected_id)"
+                                            />
+                                            <button
+                                                class="fa fa-times-circle remove_member text-epsilon"
+                                                ng-click="remove_member()"
+                                                ng-if="!_.isUndefined($parent.state.selected_id)"
+                                            />
+                                        </div>
+                                        <div ng-if="_.isEmpty(state.data)">
+                                            Aucun membre existant, veuillez contacter votre administrateur.
+                                        </div>
+                                        {{ load_member() }}
+
+                                    </div>
+                                    <div class="buttons_form_container tab" ng-if="state.type == 'calendrier'">
+                                        {{ load_date() }}
+                                        <div
+                                            class="input-group date"
+                                            data-target-input="nearest"
+                                            t-attf-id="date_name"
+                                            inline-date="true"
+                                            side-by-side="true"
+                                            date-format-tool="date"
+                                            date-min-today="true"
+                                            date-max-year="true"
+                                        />
+                                    </div>
+                                    <div class="buttons_form_container tab" ng-if="state.type == 'temps_duree'">
+                                        {{ load_date() }}
+                                        <div
+                                            class="input-group date"
+                                            data-target-input="nearest"
+                                            t-attf-id="time_name"
+                                            inline-date="true"
+                                            side-by-side="true"
+                                            date-format-tool="clock"
+                                        />
+                                    </div>
+                                    <div class="submit_container">
+                                        <input
+                                            id="reloadBtn"
+                                            type="button"
+                                            value="Recharger"
+                                            class="submit_btn btn"
+                                            ng-show="error"
+                                            ng-click="init_controller()"
+                                        />
+                                        <a
+                                            id="prevBtn"
+                                            value="Retour"
+                                            class="prev"
+                                            ng-show="is_show_previous()"
+                                            ng-click="previous_btn()"
+                                            href=""
+                                        >Retour</a>
+                                        <input
+                                            id="nextBtn"
+                                            type="button"
+                                            value="Suivant"
+                                            class="submit_btn btn"
+                                            ng-show="is_show_next()"
+                                            ng-click="next_btn()"
+                                            ng-class="{'submit_btn_disable': is_disable_next()}"
+                                        />
+                                        <input
+                                            id="submitBtn"
+                                            type="button"
+                                            ng-value="state.submit_button_text"
+                                            class="submit_btn btn"
+                                            ng-show="is_show_submit()"
+                                            ng-click="submit_form()"
+                                        />
+                                    </div>
                                 </div>
-                                <div
-                                    class="buttons_form_container tab tab_sous_categorie scroll"
-                                    style="flex-direction:column;"
-                                />
-                                <div class="buttons_form_container tab scroll" style="flex-direction:column;">
-                                    <input type="radio" id="rdv_divers" name="sub_cat_3" value="1" />
-                                    <label for="rdv_divers" class="button_form btn small">
-                                        <p>Rendez-vous divers</p>
-                                    </label>
-                                    <input type="radio" id="rdv_med" name="sub_cat_3" value="2" />
-                                    <label for="rdv_med" class="button_form btn small">
-                                        <p>Rendez-vous m&#233;dicaux
+                            </section>
+                            <div
+                                class="modal fade modal_pub_offre modal_shown show"
+                                style="display:block"
+                                ng-show="show_submit_modal"
+                            >
+                                <div class="modal-dialog">
+                                    <div id="s_media_block_modal" class="modal-content">
+                                        <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
+                                        <div class="modal-body" ng-if="!_.isUndefined(state.submit_response_title)">
+                                            <h2>{{state.submit_response_title}}</h2>
+                                        </div>
+                                        <p ng-if="!_.isUndefined(state.submit_response_description)">
+                                            {{state.submit_response_description}}
                                         </p>
-                                    </label>
-                                    <input type="radio" id="pers_immigrantes" name="sub_cat_3" value="2" />
-                                    <label for="pers_immigrantes" class="button_form btn small">
-                                        <p>Personnes immigrantes</p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Recherche logement</p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
-                                    <input type="radio" id="offre_coll" name="sub_cat_3" value="2" />
-                                    <label for="offre_coll" class="button_form btn small">
-                                        <p>Loisirs et activit&#233;s
-                                        </p>
-                                    </label>
+                                        <a ng-if="submitted_url" href="{{submitted_url}}">
+                                            <button
+                                                ng-if="['init.pos.individuelle.formulaire', 'init.saa.offrir.existant.formulaire'].includes(state.id)"
+                                                class="btn btn-primary text-gamma"
+                                            >Voir mon offre</button>
+                                            <button
+                                                ng-if="['init.pds.individuelle.formulaire'].includes(state.id)"
+                                                class="btn btn-primary text-gamma"
+                                            >Voir ma demande</button>
+                                            <button
+                                                ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes(state.id)"
+                                                class="btn btn-primary text-gamma"
+                                            >Visualiser ma demande</button>
+                                            <button
+                                                ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
+                                                class="btn btn-primary text-gamma"
+                                            >Voir mon offre d'échange de service</button>
+                                            <button
+                                                ng-if="['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                                class="btn btn-primary text-gamma"
+                                            >Voir les détails de la transaction</button>
+                                        </a>
+                                        <a
+                                            ng-href="accorderie_canada_ddb/accorderie_offre_service/{{form.offre_service_id.id}}"
+                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire'].includes(state.id)"
+                                        >
+                                            <button class="btn btn-primary text-gamma">Voir l'offre de service
+                                            </button>
+                                        </a>
+                                        <a
+                                            ng-href="profil/membre/{{form.membre_id.id}}"
+                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes(state.id)"
+                                        >
+                                            <button class="btn btn-primary text-gamma">Voir le profil de l'Accordeur.e
+                                            </button>
+                                        </a>
+                                        <a href="monprofil/mesannonces" ng-if="form_is_offre_demande_service()">
+                                            <button class="btn btn-primary text-gamma">Voir toutes mes
+                                                annonces
+                                            </button>
+                                        </a>
+                                        <a
+                                            href="monactivite/accordages"
+                                            ng-if="['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                        >
+                                            <button class="btn btn-primary text-gamma">Voir tous mes
+                                                échanges
+                                            </button>
+                                        </a>
+                                        <a href="explorer">
+                                            <button class="btn btn-primary text-gamma">Retourner sur
+                                                l'accueil
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="submit_container">
-                                    <input
-                                        id="prevBtn"
-                                        type="submit"
-                                        value="Retour"
-                                        class="prev submit_btn btn"
-                                        style="display: none;"
-                                    />
-                                    <input id="nextBtn" type="submit" value="Suivant" class="submit_btn btn" />
-                                </div>
-                                <div />
-                                <div />
-                            </form>
-                        </section>
+                            </div>
+                        </div>
                     </div>
                 </t>
             </t>
@@ -736,7 +1643,10 @@
                     name="type_service_sous_categorie"
                     t-att-value="type_service_sous_categorie.id"
                 />
-                <label t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)" class="button_form btn small">
+                <label
+                    t-att-for="'sous_cat_%s' % str(type_service_sous_categorie.id)"
+                    class="button_form btn small label"
+                >
                     <p
                         class="offre_desc"
                         t-if="type_service_sous_categorie.nom"

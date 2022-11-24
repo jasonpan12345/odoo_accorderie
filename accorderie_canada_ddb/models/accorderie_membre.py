@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import _, api, fields, models
 
 
@@ -11,6 +13,12 @@ class AccorderieMembre(models.Model):
         string="Nom complet",
         compute="_compute_nom_complet",
         store=True,
+    )
+
+    membre_partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Membre",
+        track_visibility="onchange",
     )
 
     accorderie = fields.Many2one(
@@ -86,6 +94,40 @@ class AccorderieMembre(models.Model):
     occupation = fields.Many2one(comodel_name="accorderie.occupation")
 
     origine = fields.Many2one(comodel_name="accorderie.origine")
+
+    offre_service_ids = fields.One2many(
+        comodel_name="accorderie.offre.service",
+        inverse_name="membre",
+        string="Offre de service",
+        help="Les offres de service du membre",
+    )
+
+    demande_service_ids = fields.One2many(
+        comodel_name="accorderie.demande.service",
+        inverse_name="membre",
+        string="Demande de service",
+        help="Les demandes de service du membre",
+    )
+
+    echange_service_acheteur_ids = fields.One2many(
+        comodel_name="accorderie.echange.service",
+        inverse_name="membre_acheteur",
+        string="Échange de service acheteur",
+        help="Les échanges de service du membre acheteur",
+    )
+
+    echange_service_vendeur_ids = fields.One2many(
+        comodel_name="accorderie.echange.service",
+        inverse_name="membre_vendeur",
+        string="Échange de service vendeur",
+        help="Les échanges de service du membre vendeur",
+    )
+
+    membre_favoris_ids = fields.Many2many(
+        string="Membre favoris",
+        comodel_name="accorderie.membre.favoris",
+        help="Liste des membres favoris",
+    )
 
     part_social_paye = fields.Boolean(string="Part social payé")
 
@@ -177,6 +219,74 @@ class AccorderieMembre(models.Model):
         comodel_name="accorderie.ville",
         required=True,
     )
+
+    antecedent_judiciaire_verifier = fields.Boolean(
+        string="Antécédents judiciaires vérifiés",
+        help="Vérifier par l'organisation",
+    )
+
+    introduction = fields.Char(help="Un petit texte qui décrit le membre.")
+
+    bank_time = fields.Float(
+        string="Temps en banque",
+        compute="_bank_time",
+        store=True,
+    )
+
+    bank_month_time = fields.Float(
+        string="Temps en banque du présent mois",
+        compute="_bank_time",
+        store=True,
+    )
+
+    @api.depends(
+        "membre_partner_id",
+        "echange_service_acheteur_ids",
+        "echange_service_vendeur_ids",
+    )
+    def _bank_time(self):
+        # TODO wrong dependency
+        # TODO calculate transaction difference
+        for rec in self:
+            # TODO bank 15 hours suppose to be calculate somewhere else
+            this_month = datetime.now().month
+            bank_time = (
+                15
+                + sum(
+                    [
+                        a.nb_heure
+                        for a in rec.echange_service_acheteur_ids
+                        if a.transaction_valide
+                    ]
+                )
+                - sum(
+                    [
+                        a.nb_heure
+                        for a in rec.echange_service_vendeur_ids
+                        if a.transaction_valide
+                    ]
+                )
+            )
+            bank_time_month = sum(
+                [
+                    a.nb_heure
+                    for a in rec.echange_service_acheteur_ids
+                    if a.transaction_valide
+                    and a.date_echange
+                    and a.date_echange.month == this_month
+                ]
+            ) - sum(
+                [
+                    a.nb_heure
+                    for a in rec.echange_service_vendeur_ids
+                    if a.transaction_valide
+                    and a.date_echange
+                    and a.date_echange.month == this_month
+                ]
+            )
+
+            rec.bank_time = bank_time
+            rec.bank_month_time = bank_time_month
 
     def _compute_access_url(self):
         super(AccorderieMembre, self)._compute_access_url()

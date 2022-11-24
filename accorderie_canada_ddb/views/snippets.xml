@@ -39,6 +39,11 @@
                 type="text/scss"
                 href="/accorderie_canada_ddb/static/src/scss/accorderie_canada_ddb_liste_offre_et_demande_service.scss"
             />
+<!--            <link-->
+<!--                rel="stylesheet"-->
+<!--                type="text/scss"-->
+<!--                href="https://cdnjs.cloudflare.com/ajax/libs/tarekraafat-autocomplete.js/10.2.7/css/autoComplete.min.css"-->
+<!--            />-->
             <link
                 rel="stylesheet"
                 type="text/scss"
@@ -51,6 +56,15 @@
             />
         </xpath>
         <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js" />
+            <script
+                type="text/javascript"
+                src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-sanitize.min.js"
+            />
+            <script
+                type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/tarekraafat-autocomplete.js/10.2.7/autoComplete.js"
+            />
             <script
                 type="text/javascript"
                 src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb_liste_offre_et_demande_service.animation.js"
@@ -74,6 +88,18 @@
             <script
                 type="text/javascript"
                 src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.navbar_tab.js"
+            />
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.debug_not_implemented.js"
+            />
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.messagerie_privee.js"
+            />
+            <script
+                type="text/javascript"
+                src="/accorderie_canada_ddb/static/src/js/website.accorderie_canada_ddb.dialog_monaccorderie.js"
             />
         </xpath>
     </template>

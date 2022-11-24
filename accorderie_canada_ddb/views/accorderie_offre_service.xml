@@ -57,6 +57,9 @@
                         <field name="membre" />
                     </group>
                     <group>
+                        <field name="membre_favoris_ids" widget="many2many_tags" />
+                    </group>
+                    <group>
                         <field name="nb_consultation" />
                     </group>
                     <group>
@@ -84,7 +87,7 @@
         <field name="model">accorderie.offre.service</field>
         <field name="arch" type="xml">
             <graph string="Accorderie offre service">
-                <field name="description" type="row" />
+                <field name="titre" type="row" />
                 <field name="accompli" type="row" />
                 <field name="accorderie" type="row" />
                 <field name="approuve" type="row" />
@@ -94,11 +97,15 @@
                 <field name="date_debut" type="row" />
                 <field name="date_fin" type="row" />
                 <field name="date_mise_a_jour" type="row" />
+                <field name="deplacement" type="row" />
+                <field name="description" type="row" />
                 <field name="disponibilite" type="row" />
+                <field name="entente_tarifiaire" type="row" />
                 <field name="membre" type="row" />
                 <field name="nb_consultation" type="measure" />
                 <field name="nom_offre_special" type="row" />
                 <field name="offre_special" type="row" />
+                <field name="quoi_apporter" type="row" />
                 <field name="tarif" type="row" />
                 <field name="type_service_id" type="row" />
             </graph>
@@ -110,7 +117,7 @@
         <field name="model">accorderie.offre.service</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
-                <field name="description" />
+                <field name="titre" />
                 <field name="accompli" />
                 <field name="accorderie" />
                 <field name="approuve" />
@@ -120,11 +127,16 @@
                 <field name="date_debut" />
                 <field name="date_fin" />
                 <field name="date_mise_a_jour" />
+                <field name="deplacement" />
+                <field name="description" />
                 <field name="disponibilite" />
+                <field name="entente_tarifiaire" />
                 <field name="membre" />
+                <field name="membre_favoris_ids" />
                 <field name="nb_consultation" />
                 <field name="nom_offre_special" />
                 <field name="offre_special" />
+                <field name="quoi_apporter" />
                 <field name="tarif" />
                 <field name="type_service_id" />
                 <templates>
@@ -134,7 +146,7 @@
                                 <ul>
                                     <li class="mb4">
                                         <strong>
-                                            <field name="description" />
+                                            <field name="titre" />
                                         </strong>
                                     </li>
                                     <li class="text-success float-right mb4" t-if="record.accompli.raw_value">
@@ -186,12 +198,32 @@
                                     </li>
                                     <li class="mb4">
                                         <strong>
+                                            <field name="deplacement" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="description" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
                                             <field name="disponibilite" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
                                         <strong>
+                                            <field name="entente_tarifiaire" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
                                             <field name="membre" />
+                                        </strong>
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="membre_favoris_ids" />
                                         </strong>
                                     </li>
                                     <li class="mb4">
@@ -209,6 +241,11 @@
                                     </li>
                                     <li class="text-danger float-right mb4" t-if="!record.offre_special.raw_value">
                                         <i aria-label="Invalid" class="fa fa-circle" role="img" title="Invalid" />
+                                    </li>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="quoi_apporter" />
+                                        </strong>
                                     </li>
                                     <li class="mb4">
                                         <strong>
@@ -234,7 +271,7 @@
         <field name="model">accorderie.offre.service</field>
         <field name="arch" type="xml">
             <pivot string="Accorderie offre service">
-                <field name="description" type="row" />
+                <field name="titre" type="row" />
                 <field name="accompli" type="row" />
                 <field name="accorderie" type="row" />
                 <field name="approuve" type="row" />
@@ -244,11 +281,15 @@
                 <field name="date_debut" type="row" />
                 <field name="date_fin" type="row" />
                 <field name="date_mise_a_jour" type="row" />
+                <field name="deplacement" type="row" />
+                <field name="description" type="row" />
                 <field name="disponibilite" type="row" />
+                <field name="entente_tarifiaire" type="row" />
                 <field name="membre" type="row" />
                 <field name="nb_consultation" type="measure" />
                 <field name="nom_offre_special" type="row" />
                 <field name="offre_special" type="row" />
+                <field name="quoi_apporter" type="row" />
                 <field name="tarif" type="row" />
                 <field name="type_service_id" type="row" />
             </pivot>
@@ -260,7 +301,7 @@
         <field name="model">accorderie.offre.service</field>
         <field name="arch" type="xml">
             <search string="Accorderie offre service">
-                <filter domain="[('description','!=',False)]" name="description" string="Description" />
+                <filter domain="[('titre','!=',False)]" name="titre" string="Titre" />
                 <filter domain="[('accompli','=',True)]" name="accompli" string="Accomplie" />
                 <filter domain="[('accorderie','!=',False)]" name="accorderie" string="Accorderie" />
                 <filter domain="[('active','=',False)]" name="Inactive" string="Inactive Accorderie offre service" />
@@ -275,8 +316,20 @@
                     name="date_mise_a_jour"
                     string="Derni&#232;re mise &#224; jour"
                 />
+                <filter domain="[('deplacement','!=',False)]" name="deplacement" string="Deplacement" />
+                <filter domain="[('description','!=',False)]" name="description" string="Description" />
                 <filter domain="[('disponibilite','!=',False)]" name="disponibilite" string="Disponibilit&#233;" />
+                <filter
+                    domain="[('entente_tarifiaire','!=',False)]"
+                    name="entente_tarifiaire"
+                    string="Entente Tarifiaire"
+                />
                 <filter domain="[('membre','!=',False)]" name="membre" string="Membre" />
+                <filter
+                    domain="[('membre_favoris_ids','!=',False)]"
+                    name="membre_favoris_ids"
+                    string="Favoris membre"
+                />
                 <filter
                     domain="[('nb_consultation','!=',False)]"
                     name="nb_consultation"
@@ -288,6 +341,7 @@
                     string="Nom de l'offre sp&#233;ciale"
                 />
                 <filter domain="[('offre_special','=',True)]" name="offre_special" string="Offre sp&#233;ciale" />
+                <filter domain="[('quoi_apporter','!=',False)]" name="quoi_apporter" string="Quoi Apporter" />
                 <filter domain="[('tarif','!=',False)]" name="tarif" string="Tarif" />
                 <filter domain="[('type_service_id','!=',False)]" name="type_service_id" string="Type de services" />
             </search>
@@ -299,6 +353,10 @@
         <field name="model">accorderie.offre.service</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="deplacement" />
+                <field name="entente_tarifiaire" />
+                <field name="quoi_apporter" />
+                <field name="titre" />
                 <field name="description" />
                 <field name="accompli" />
                 <field name="accorderie" />
@@ -311,6 +369,7 @@
                 <field name="date_mise_a_jour" />
                 <field name="disponibilite" />
                 <field name="membre" />
+                <field name="membre_favoris_ids" />
                 <field name="nb_consultation" />
                 <field name="nom_offre_special" />
                 <field name="offre_special" />
