@@ -4,5 +4,8 @@
         <record id="accorderie_workflow_participer" model="accorderie.workflow">
             <field name="name">Procédure de participation des membres</field>
         </record>
+        <record id="accorderie_workflow_developpeur" model="accorderie.workflow">
+            <field name="name">Procédure de développement</field>
+        </record>
     </data>
 </odoo>

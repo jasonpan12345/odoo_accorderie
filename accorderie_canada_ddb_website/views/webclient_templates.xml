@@ -86,6 +86,19 @@
                             >
                                 Log in
                             </button>
+                            <!-- TODO this is wrong, suppose to be in file auth_signup_login_templates.xml -->
+                            <div class="justify-content-between mt-2 d-flex small">
+                                <!-- TODO try to fix redirect, else keep this href -->
+<!--                                <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>-->
+                                <a
+                                    t-if="signup_enabled"
+                                    t-attf-href="/web/signup?redirect=%2Fexplorer"
+                                >Don't have an account?</a>
+                                <a
+                                    t-if="reset_password_enabled"
+                                    t-attf-href="/web/reset_password?{{ keep_query() }}"
+                                >Reset Password</a>
+                            </div>
                             <t t-if="debug">
 <!--                                <button-->
 <!--                                    type="submit"-->

@@ -41,6 +41,7 @@
         "views/accorderie_workflow.xml",
         "views/accorderie_workflow_relation.xml",
         "views/accorderie_workflow_state.xml",
+        "views/res_config_settings_views.xml",
         "views/menu.xml",
         "views/snippets.xml",
         "templates/website.xml",

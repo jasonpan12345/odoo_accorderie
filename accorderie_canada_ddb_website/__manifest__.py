@@ -5,7 +5,13 @@
     "author": "TechnoLibre",
     "license": "AGPL-3",
     "website": "https://technolibre.ca",
-    "depends": ["website", "accorderie_canada_ddb"],
+    "depends": [
+        "website",
+        "accorderie_canada_ddb",
+        "crm",
+        "website_crm",
+        "website_form_builder",
+    ],
     "data": [
         "data/ir_attachment.xml",
         "data/ir_ui_view.xml",

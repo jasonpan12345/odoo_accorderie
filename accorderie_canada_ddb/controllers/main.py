@@ -4,7 +4,7 @@ import logging
 import time
 import urllib.parse
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import humanize
 import requests
@@ -968,37 +968,37 @@ class AccorderieCanadaDdbController(http.Controller):
         )
         return {"nb_offre_service": nb_offre_service}
 
-    @http.route(
-        [
-            "/accorderie_canada_ddb/get_info/echange_service/<model('accorderie.membre'):membre_id>",
-        ],
-        type="json",
-        auth="user",
-        website=True,
-    )
-    def get_participer_workflow_data_echange_service(self, membre_id, **kw):
-        me_membre_id = self.get_membre_id()
-        if type(me_membre_id) is dict:
-            # This is an error
-            return me_membre_id
-
-        lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
-            {
-                "id": a.id,
-                "right_html": a.create_date,
-                "title": a.titre,
-            }
-            for a in me_membre_id.echange_service_acheteur_ids
-            if not a.transaction_valide
-            and not a.demande_service
-            and a.membre_vendeur.id == membre_id.id
-        ]
-
-        return {
-            "data": {
-                "mes_echanges_de_service_recu_sans_demande_non_valide": lst_mes_echanges_de_service_recu_sans_demande_non_valide
-            }
-        }
+    # @http.route(
+    #     [
+    #         "/accorderie_canada_ddb/get_info/echange_service/<model('accorderie.membre'):membre_id>",
+    #     ],
+    #     type="json",
+    #     auth="user",
+    #     website=True,
+    # )
+    # def get_participer_workflow_data_echange_service(self, membre_id, **kw):
+    #     me_membre_id = self.get_membre_id()
+    #     if type(me_membre_id) is dict:
+    #         # This is an error
+    #         return me_membre_id
+    #
+    #     lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
+    #         {
+    #             "id": a.id,
+    #             "right_html": a.create_date,
+    #             "title": a.titre,
+    #         }
+    #         for a in me_membre_id.echange_service_acheteur_ids
+    #         if not a.transaction_valide
+    #         and not a.demande_service
+    #         and a.membre_vendeur.id == membre_id.id
+    #     ]
+    #
+    #     return {
+    #         "data": {
+    #             "mes_echanges_de_service_recu_sans_demande_non_valide": lst_mes_echanges_de_service_recu_sans_demande_non_valide
+    #         }
+    #     }
 
     @http.route(
         [
@@ -1121,7 +1121,7 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in membre_id.offre_service_ids
         ]
 
-        # lst_mes_echanges_de_service_avec_demande_non_valide
+        # lst_mes_echanges_de_service_non_valide
         lst_echange_acheteur = [
             {
                 "id": a.id,
@@ -1130,7 +1130,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 "title": a.titre,
             }
             for a in membre_id.echange_service_acheteur_ids
-            if not a.transaction_valide and a.demande_service
+            # if not a.transaction_valide and a.demande_service
+            if not a.transaction_valide
         ]
 
         lst_echange_vendeur = [
@@ -1141,24 +1142,28 @@ class AccorderieCanadaDdbController(http.Controller):
                 "title": a.titre,
             }
             for a in membre_id.echange_service_vendeur_ids
-            if not a.transaction_valide and a.demande_service
+            # if not a.transaction_valide and a.demande_service
+            if not a.transaction_valide
         ]
 
         # TODO order by time
-        lst_mes_echanges_de_service_avec_demande_non_valide = (
+        lst_mes_echanges_de_service_non_valide = (
             lst_echange_acheteur + lst_echange_vendeur
+        )
+        lst_mes_echanges_de_service_non_valide.sort(
+            key=lambda x: x["right_html"]
         )
 
         # lst_mes_echanges_de_service_offert_sans_demande_non_valide
-        lst_mes_echanges_de_service_offert_sans_demande_non_valide = [
-            {
-                "id": a.id,
-                "right_html": a.create_date,
-                "title": a.titre,
-            }
-            for a in membre_id.echange_service_vendeur_ids
-            if not a.transaction_valide and not a.demande_service
-        ]
+        # lst_mes_echanges_de_service_offert_sans_demande_non_valide = [
+        #     {
+        #         "id": a.id,
+        #         "right_html": a.create_date,
+        #         "title": a.titre,
+        #     }
+        #     for a in membre_id.echange_service_vendeur_ids
+        #     if not a.transaction_valide and not a.demande_service
+        # ]
 
         dct_workflow_empty = (
             {
@@ -1178,8 +1183,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 "type_service_categorie": lst_type_service_categorie,
                 "membre": lst_membre,
                 "mes_offres_de_service": lst_mes_offre_de_service,
-                "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
-                "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
+                "mes_echanges_de_service_non_valide": lst_mes_echanges_de_service_non_valide,
+                # "mes_echanges_de_service_avec_demande_non_valide": lst_mes_echanges_de_service_avec_demande_non_valide,
+                # "mes_echanges_de_service_offert_sans_demande_non_valide": lst_mes_echanges_de_service_offert_sans_demande_non_valide,
             },
             "data_inner": {
                 "type_service_categorie": dct_data_inner_type_service_categorie
@@ -1241,6 +1247,24 @@ class AccorderieCanadaDdbController(http.Controller):
                     dct_state[
                         "submit_response_title"
                     ] = state_id.submit_response_title
+                if state_id.caract_offre_demande_nouveau_existante:
+                    dct_state[
+                        "caract_offre_demande_nouveau_existante"
+                    ] = state_id.caract_offre_demande_nouveau_existante
+                if state_id.caract_echange_nouvel_existant:
+                    dct_state[
+                        "caract_echange_nouvel_existant"
+                    ] = state_id.caract_echange_nouvel_existant
+                if state_id.caract_service_offrir_recevoir:
+                    dct_state[
+                        "caract_service_offrir_recevoir"
+                    ] = state_id.caract_service_offrir_recevoir
+                if state_id.caract_valider_echange:
+                    dct_state[
+                        "caract_valider_echange"
+                    ] = state_id.caract_valider_echange
+                if state_id.help_caract_lst:
+                    dct_state["help_caract_lst"] = state_id.help_caract_lst
                 if state_id.submit_response_description:
                     dct_state[
                         "submit_response_description"
@@ -1288,6 +1312,349 @@ class AccorderieCanadaDdbController(http.Controller):
         return json_data
 
     @http.route(
+        [
+            "/accorderie_canada_ddb/get_help_data",
+        ],
+        type="json",
+        auth="public",
+        website=True,
+    )
+    def get_help_data(self, **kw):
+        data = {}
+        env = request.env(context=dict(request.env.context))
+        state_ids = (
+            env["accorderie.workflow.state"]
+            .sudo()
+            .search([("help_title", "!=", False)])
+        )
+        data["state_section"] = {}
+        # association
+        # TODO move this in data
+        lst_u_caract = set()
+        data["dct_unique_caract"] = {
+            "Valider échange": False,
+            "Échange nouvel/existant": {
+                "Échange existant": "fa-file",
+                "Nouvel échange": "fa-plus",
+            },
+            "Service à offrir/recevoir": {
+                "Service à offrir": "fa-hand-holding-usd",
+                "Service à recevoir": "fa-hands-helping",
+            },
+            "Demande nouvelle/existante": {
+                "Demande existante": "fa-file",
+                "Nouvelle demande": "fa-plus",
+            },
+            "Offre nouvelle/existante": {
+                "Offre existante": "fa-file",
+                "Nouvelle offre": "fa-plus",
+            },
+            "Offre publique/privée": {
+                "Offre publique": "fa-eye",
+                "Offre privée": "fa-eye-slash",
+            },
+            "Demande publique/privée": {
+                "Demande publique": "fa-eye",
+                "Demande privée": "fa-eye-slash",
+            },
+            "Offre ponctuelle": False,
+            "Demande ponctuelle": False,
+            "Offre de groupe": False,
+        }
+        data["dct_unique_caract_concat"] = {
+            "Valider échange": False,
+            "Échange nouvel/existant": {
+                "Échange existant": "fa-file",
+                "Nouvel échange": "fa-plus",
+            },
+            "Service à offrir/recevoir": {
+                "Service à offrir": "fa-hand-holding-usd",
+                "Service à recevoir": "fa-hands-helping",
+            },
+            "Offre/<font style='color:#00FF00'>Demande</font> nouvelle/existante": {
+                "Demande existante": "fa-file fa-inverse",
+                "Nouvelle demande": "fa-plus fa-inverse",
+                "Offre existante": "fa-file",
+                "Nouvelle offre": "fa-plus",
+            },
+            # "Demande nouvelle/existante": {
+            #     "Demande existante": "fa-file",
+            #     "Nouvelle demande": "fa-plus",
+            # },
+            # "Offre nouvelle/existante": {
+            #     "Offre existante": "fa-file",
+            #     "Nouvelle offre": "fa-plus",
+            # },
+            "Offre/<font style='color:#00FF00'>Demande</font> publique/privée": {
+                "Offre publique": "fa-eye",
+                "Offre privée": "fa-eye-slash",
+                "Demande publique": "fa-eye fa-inverse",
+                "Demande privée": "fa-eye-slash fa-inverse",
+            },
+            # "Offre publique/privée": {
+            #     "Offre publique": "fa-eye",
+            #     "Offre privée": "fa-eye-slash",
+            # },
+            # "Demande publique/privée": {
+            #     "Demande publique": "fa-eye",
+            #     "Demande privée": "fa-eye-slash",
+            # },
+            "Offre/<font style='color:#00FF00'>Demande</font> ponctuelle": {
+                "Offre ponctuelle": "fa-check",
+                "Demande ponctuelle": "fa-check fa-inverse",
+            },
+            # "Offre ponctuelle": False,
+            # "Demande ponctuelle": False,
+            "Offre de groupe": False,
+        }
+        lst_u_caract.update(
+            [k for k, a in data["dct_unique_caract"].items() if a is False]
+        )
+        lst_u_caract.update(
+            [
+                q
+                for w in [
+                    [i for i in a.keys()]
+                    for k, a in data["dct_unique_caract"].items()
+                    if type(a) is dict
+                ]
+                for q in w
+            ]
+        )
+        lst_u_caract.update(
+            [a for a in data["dct_unique_caract_concat"].keys()]
+        )
+
+        # Find all model_field_name associate with model_field_name_alias
+        dct_model_field_name = {
+            a.model_field_name: a.model_field_name_alias
+            for a in env["accorderie.workflow.state"]
+            .sudo()
+            .search(
+                [
+                    ("model_field_name", "!=", False),
+                    ("model_field_name_alias", "!=", False),
+                ]
+            )
+        }
+        # Find already member
+        membre_id = (
+            env["accorderie.membre"]
+            .sudo()
+            .search(
+                [
+                    ("membre_partner_id.user_ids", "!=", env.user.id),
+                ],
+                limit=1,
+            )
+        )
+        if http.request.env.user.partner_id.id == 4:
+            # TODO find better solution, validate it's associate with member
+            # Detect if user is public
+            actual_membre_id = None
+        else:
+            actual_membre_id = env["accorderie.membre"].search(
+                [("membre_partner_id.user_ids", "=", env.user.id)]
+            )
+
+        set_caract = set()
+        lst_state = []
+        for state_id in state_ids:
+            sub_data = {
+                "id": state_id.key,
+                "key": state_id.key,
+                # Add space after each 2 words, to fit in table
+                "key_space": ".".join(
+                    [
+                        b if not idx or idx % 2 else f" {b}"
+                        for idx, b in enumerate(state_id.key.split("."))
+                    ]
+                ),
+                "title": state_id.help_title,
+                "description": state_id.help_description,
+                "fast_btn_title": state_id.help_fast_btn_title,
+                "fast_btn_url": state_id.help_fast_btn_url,
+                "fast_btn_guide_url": state_id.help_fast_btn_guide_url,
+                "fast_btn_form_url": state_id.help_fast_btn_form_url,
+                "maquette_link": state_id.maquette_link,
+                "date_last_update": state_id.help_date_last_update,
+                "validate_bug": state_id.help_validate_bug,
+                "video_url": state_id.help_video_url,
+                "not_implemented": state_id.not_implemented,
+            }
+            if state_id.caract_offre_demande_nouveau_existante:
+                sub_data[
+                    "caract_offre_demande_nouveau_existante"
+                ] = state_id.caract_offre_demande_nouveau_existante
+            if state_id.caract_echange_nouvel_existant:
+                sub_data[
+                    "caract_echange_nouvel_existant"
+                ] = state_id.caract_echange_nouvel_existant
+            if state_id.caract_service_offrir_recevoir:
+                sub_data[
+                    "caract_service_offrir_recevoir"
+                ] = state_id.caract_service_offrir_recevoir
+            if state_id.caract_valider_echange:
+                sub_data[
+                    "caract_valider_echange"
+                ] = state_id.caract_valider_echange
+            if state_id.help_caract_lst:
+                sub_data["help_caract_lst"] = state_id.help_caract_lst
+
+            if actual_membre_id is not None:
+                # Need to be connected
+                # generate automatic fast_btn_form_url
+                if (
+                    not state_id.not_implemented
+                    # and state_id.model_field_depend
+                    # and not state_id.help_fast_btn_form_url
+                ):
+                    fast_btn_form_url = f"participer#!?state={state_id.key}"
+                    lst_param = []
+                    if state_id.model_field_depend:
+                        for model_field in state_id.model_field_depend.split(
+                            ";"
+                        ):
+                            value = ""
+                            # TODO missing associate model_field with model, so need to hardcode it
+                            # TODO need to support automatic type workflow (recevoir/offrir)
+                            if model_field == "type_service_id":
+                                value = 122
+                            elif model_field == "membre_id":
+                                value = membre_id.id
+                            elif model_field == "offre_service_id":
+                                if (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à recevoir"
+                                ):
+                                    if membre_id.offre_service_ids:
+                                        value = membre_id.offre_service_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                                else:
+                                    if actual_membre_id.offre_service_ids:
+                                        value = (
+                                            actual_membre_id.offre_service_ids[
+                                                0
+                                            ].id
+                                        )
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                            elif model_field == "echange_service_id":
+                                if (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à recevoir"
+                                ):
+                                    if membre_id.echange_service_acheteur_ids:
+                                        value = membre_id.echange_service_acheteur_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                                elif (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à offrir"
+                                ):
+                                    if membre_id.echange_service_acheteur_ids:
+                                        value = actual_membre_id.echange_service_vendeur_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                                else:
+                                    if (
+                                        actual_membre_id.echange_service_acheteur_ids
+                                    ):
+                                        value = actual_membre_id.echange_service_acheteur_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find offre service"
+                                        )
+                            elif model_field == "date_name":
+                                # Valide in past, else in futur
+                                if state_id.caract_valider_echange:
+                                    value = (
+                                        datetime.today() - timedelta(days=3)
+                                    ).strftime("%Y-%m-%d")
+                                else:
+                                    value = (
+                                        datetime.today() + timedelta(days=3)
+                                    ).strftime("%Y-%m-%d")
+                            elif model_field == "time_name":
+                                value = datetime.today().strftime("%H:%M")
+                            else:
+                                _logger.warning(
+                                    "Not supported dynamic associate url:"
+                                    f" {model_field}"
+                                )
+                            if value:
+                                lst_param.append(
+                                    f"{dct_model_field_name[model_field]}={value}"
+                                )
+                    if lst_param:
+                        fast_btn_form_url += f"&{'&'.join(lst_param)}"
+                    sub_data["fast_btn_form_url"] = fast_btn_form_url
+            if state_id.model_field_depend:
+                str_html_field_depend = "<br/>".join(
+                    sorted(state_id.model_field_depend.split(";"))
+                )
+                sub_data["model_field_depend"] = str_html_field_depend
+
+            if state_id.help_caract_lst:
+                lst_caract = state_id.help_caract_lst.split(";")
+                sub_data["lst_caract"] = lst_caract
+                set_caract.update(lst_caract)
+
+            sub_copy_data = sub_data.copy()
+            sub_copy_data["section"] = state_id.help_section
+            if state_id.help_sub_section:
+                sub_copy_data["sub_section"] = state_id.help_sub_section
+            lst_state.append(sub_copy_data)
+
+            if state_id.help_section in data["state_section"].keys():
+                if (
+                    state_id.help_sub_section
+                    in data["state_section"][state_id.help_section].keys()
+                ):
+                    data["state_section"][state_id.help_section][
+                        state_id.help_sub_section
+                    ].append(sub_data)
+                else:
+                    data["state_section"][state_id.help_section][
+                        state_id.help_sub_section
+                    ] = [sub_data]
+            else:
+                data["state_section"][state_id.help_section] = {
+                    state_id.help_sub_section: [sub_data]
+                }
+        data["state"] = lst_state
+        # lst_u_caract.update([a for a in data["dct_unique_caract"].keys()])
+        # lst_u_caract.update([a for a in data["dct_unique_caract_concat"].keys()])
+        lst_missing = {(k, False) for k in set_caract - lst_u_caract}
+        data["dct_unique_caract"].update(lst_missing)
+        data["dct_unique_caract_concat"].update(lst_missing)
+        # for key in set_caract-lst_u_caract:
+        #     data["dct_unique_caract"][key] = False
+        #     data["dct_unique_caract_concat"][key] = False
+
+        # set_caract.update(lst_u_caract)
+        data["lst_unique_caract"] = sorted(list(set_caract))
+
+        return {"data": data}
+
+    @http.route(
         "/accorderie/participer/form/submit",
         type="json",
         auth="user",
@@ -1298,20 +1665,36 @@ class AccorderieCanadaDdbController(http.Controller):
         # Send from participer website
         vals = {}
         status = {}
-        state_id = kw.get("state_id")
+        str_state_id = kw.get("state_id")
+        state_id = (
+            http.request.env["accorderie.workflow.state"]
+            .sudo()
+            .search([("key", "=", str_state_id)], limit=1)
+        )
+        if not state_id:
+            status["error"] = "Cannot find state_id from state.key"
+            _logger.error(status["error"])
+            return status
+
         demande_service_id = None
         offre_service_id = None
         new_accorderie_echange_service = None
 
-        if state_id in (
-            "init.pos.individuelle.formulaire",
-            "init.pds.individuelle.formulaire",
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.recevoir.choix.nouveau.formulaire",
-            "init.va.non.offert.nouveau_formulaire",
-            "init.va.non.recu.choix.nouveau.formulaire",
+        # if str_state_id in (
+        #     "init.pos.single.form",
+        #     "init.pds.single.form",
+        #     "init.saa.offrir.nouveau.cat.form",
+        #     "init.saa.recevoir.choix.nouveau.form",
+        #     "init.va.non.offert.nouveau.cat.form",
+        #     "init.va.non.recu.choix.nouveau.form",
+        # ):
+        if state_id.caract_offre_demande_nouveau_existante in (
+            "Nouvelle demande",
+            "Nouvelle offre",
         ):
+            # TODO offre/demande nouveau
             if kw.get("offre_service_id"):
+                # TODO how this can happen in context of nouveau?
                 offre_service_id = int(kw.get("offre_service_id").get("id"))
             else:
                 if kw.get("titre"):
@@ -1333,10 +1716,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
                 vals["membre"] = membre_id
 
-                if state_id in (
-                    "init.pds.individuelle.formulaire",
-                    "init.saa.recevoir.choix.nouveau.formulaire",
-                    "init.va.non.recu.choix.nouveau.formulaire",
+                if (
+                    state_id.caract_offre_demande_nouveau_existante
+                    == "Nouvelle demande"
                 ):
                     new_accorderie_service = (
                         request.env["accorderie.demande.service"]
@@ -1345,7 +1727,10 @@ class AccorderieCanadaDdbController(http.Controller):
                     )
                     demande_service_id = new_accorderie_service.id
                     status["demande_service_id"] = demande_service_id
-                else:
+                elif (
+                    state_id.caract_offre_demande_nouveau_existante
+                    == "Nouvelle offre"
+                ):
                     new_accorderie_service = (
                         request.env["accorderie.offre.service"]
                         .sudo()
@@ -1354,17 +1739,19 @@ class AccorderieCanadaDdbController(http.Controller):
                     offre_service_id = new_accorderie_service.id
                     status["offre_service_id"] = offre_service_id
 
-        if state_id in (
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.offrir.existant.formulaire",
-            "init.saa.recevoir.choix.existant.time.formulaire",
-            "init.saa.offrir.nouveau.categorie_service.formulaire",
-            "init.saa.recevoir.choix.nouveau.formulaire",
-            "init.va.non.offert.nouveau_formulaire",
-            # "init.va.non.offert.existant_formulaire",
-            # "init.va.non.recu.choix.formulaire",
-            "init.va.non.recu.choix.nouveau.formulaire",
-        ):
+        # if str_state_id in (
+        #     "init.saa.offrir.nouveau.cat.form",
+        #     "init.saa.offrir.existant.form",
+        #     "init.saa.recevoir.choix.existant.time.form",
+        #     "init.saa.recevoir.choix.nouveau.form",
+        #     "init.va.non.offert.nouveau.cat.form",
+        #     # "init.va.non.offert.existant.form",
+        #     # "init.va.non.recu.choix.form",
+        #     "init.va.non.recu.choix.nouveau.form",
+        # ):
+        if state_id.caract_echange_nouvel_existant == "Nouvel échange":
+            # TODO nouvel échange
+            # TODO why not commented?
             if kw.get("echange_service_id"):
                 _logger.warning(
                     "Why create a new echange when receive a echange"
@@ -1372,6 +1759,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
             vals = {}
             if offre_service_id:
+                # TODO how this exist if not set ... how when not new!
+                # TODO use offre existante
                 vals["offre_service"] = offre_service_id
             elif kw.get("offre_service_id"):
                 vals["offre_service"] = kw.get("offre_service_id").get("id")
@@ -1382,10 +1771,14 @@ class AccorderieCanadaDdbController(http.Controller):
                     "id"
                 )
 
-            if kw.get("date_service"):
-                date_echange = kw.get("date_service")
-                if kw.get("time_service"):
-                    date_echange += " " + kw.get("time_service")
+            # TODO bug why init.saa.recevoir.choix.existant.time.form use date_name and not date_service
+            # TODO check date_service UI activated by animation (or by user click)
+            date_service = kw.get("date_service") or kw.get("date_name")
+            if date_service:
+                date_echange = date_service
+                time_service = kw.get("time_service") or kw.get("time_name")
+                if time_service:
+                    date_echange += " " + time_service
                     # TODO Take date from local of user
                     date_echange_float = datetime.strptime(
                         date_echange, "%Y-%m-%d %H:%M"
@@ -1408,20 +1801,24 @@ class AccorderieCanadaDdbController(http.Controller):
             membre_id = (
                 http.request.env.user.partner_id.accorderie_membre_ids.id
             )
-            if state_id in (
-                "init.saa.recevoir.choix.existant.time.formulaire",
-                "init.saa.recevoir.choix.nouveau.formulaire",
-                # "init.va.non.recu.choix.formulaire",
-                "init.va.non.recu.choix.nouveau.formulaire",
-            ):
+            # if str_state_id in (
+            #     "init.saa.recevoir.choix.existant.time.form",
+            #     "init.saa.recevoir.choix.nouveau.form",
+            #     "init.va.non.recu.choix.form",
+            #     "init.va.non.recu.choix.nouveau.form",
+            # ):
+            if state_id.caract_service_offrir_recevoir == "Service à recevoir":
+                # TODO service à recevoir
+                # TODO why not init.va.non.recu.choix.form
                 vals["membre_acheteur"] = membre_id
                 if other_membre_id:
                     vals["membre_vendeur"] = other_membre_id
-            else:
+            elif state_id.caract_service_offrir_recevoir == "Service à offrir":
                 vals["membre_vendeur"] = membre_id
                 if other_membre_id:
                     vals["membre_acheteur"] = other_membre_id
 
+            # TODO bug time, when not state_id.caract_valider_echange, all time is estimated
             if kw.get("time_service_estimated"):
                 vals["nb_heure_estime"] = float(
                     kw.get("time_service_estimated")
@@ -1436,6 +1833,17 @@ class AccorderieCanadaDdbController(http.Controller):
                 vals["nb_heure_duree_trajet"] = float(
                     kw.get("time_dure_trajet")
                 )
+
+            # Fix client time
+            if not state_id.caract_valider_echange:
+                if vals.get("nb_heure"):
+                    vals["nb_heure_estime"] = vals.get("nb_heure")
+                    del vals["nb_heure"]
+                if vals.get("nb_heure_duree_trajet"):
+                    vals["nb_heure_estime_duree_trajet"] = vals.get(
+                        "nb_heure_duree_trajet"
+                    )
+                    del vals["nb_heure_duree_trajet"]
 
             if kw.get("frais_trajet"):
                 vals["frais_trajet"] = float(kw.get("frais_trajet"))
@@ -1452,18 +1860,20 @@ class AccorderieCanadaDdbController(http.Controller):
             )
             status["echange_service_id"] = new_accorderie_echange_service.id
 
-        if state_id in (
-            "init.va.non.offert.existant_formulaire",
-            "init.va.non.offert.nouveau_formulaire",
-            "init.va.oui.formulaire",
-            "init.va.non.recu.choix.formulaire",
-            "init.va.non.recu.choix.nouveau.formulaire",
-        ):
+        # if str_state_id in (
+        #     "init.va.non.offert.existant.form",
+        #     "init.va.non.offert.nouveau.cat.form",
+        #     "init.va.oui.form",
+        #     "init.va.non.recu.choix.form",
+        #     "init.va.non.recu.choix.nouveau.form",
+        # ):
+        if state_id.caract_valider_echange:
+            # TODO valider échange
             if not new_accorderie_echange_service:
                 if not kw.get("echange_service_id").get("id"):
                     msg_error = (
                         "Missing argument 'echange_service_id' into"
-                        f" '{state_id}'"
+                        f" '{str_state_id}'"
                     )
                     _logger.error(msg_error)
                     status["error"] = msg_error

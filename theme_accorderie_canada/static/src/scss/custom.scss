@@ -18,9 +18,9 @@ $bg-alpha: white;
 $bg-red-alert: #fd7878;
 $bg-red-2-alert: #9f0808;
 
-body {
-  overflow-x: hidden;
-}
+//body {
+//  overflow-x: hidden;
+//}
 /*
   Global
 */
@@ -1071,8 +1071,7 @@ actualité
 }
 
 .footer_row {
-  .footer_menu,
-  .footer_aide {
+  .footer_menu {
     text-align: left;
     white-space: normal;
   }
@@ -1124,9 +1123,6 @@ actualité
     }
   }
 
-  .footer_aide {
-    display: none;
-  }
   .o_footer_copyright {
     display: none;
   }

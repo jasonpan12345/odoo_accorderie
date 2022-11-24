@@ -41,6 +41,9 @@
                     <group>
                         <field name="transferer" />
                     </group>
+                    <group>
+                        <field name="user_id" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -204,6 +207,7 @@
                 <field name="poste" />
                 <field name="telephone" />
                 <field name="transferer" />
+                <field name="user_id" />
             </tree>
         </field>
     </record>

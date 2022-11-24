@@ -11,6 +11,8 @@
                 type="text/javascript"
                 src="/accorderie_canada_ddb_website/static/src/js/accorderie_notification.js"
             />
+
+            <script type="text/javascript" src="/accorderie_canada_ddb_website/static/src/js/accorderie_aide.js" />
         </xpath>
     </template>
 

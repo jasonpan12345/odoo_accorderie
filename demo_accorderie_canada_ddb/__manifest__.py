@@ -6,8 +6,8 @@
     "website": "https://technolibre.ca",
     "depends": ["accorderie_canada_ddb_data"],
     "data": [
-        "data/user_demo.xml",
         "data/accorderie_accorderie.xml",
+        "data/user_demo.xml",
         "data/accorderie_membre.xml",
         "data/accorderie_offre_service.xml",
         "data/accorderie_demande_service.xml",

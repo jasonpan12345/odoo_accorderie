@@ -95,6 +95,101 @@ class AccorderieWorkflowState(models.Model):
         help="Référence de la conception de l'état vers une maquette.",
     )
 
+    not_implemented = fields.Boolean(
+        string="Not implemented",
+        help="Pas encore implémenté, ignoré pour le moment",
+    )
+
+    help_section = fields.Char(
+        string="Help section",
+        help="Aide - nom de la section",
+    )
+
+    help_sub_section = fields.Char(
+        string="Help sub section",
+        help="Aide - nom de la sous-section",
+    )
+
+    help_title = fields.Char(
+        string="Help title",
+        help="Aide - nom de l'aide",
+    )
+
+    help_description = fields.Char(
+        string="Help description",
+        help="Aide - description de l'aide",
+    )
+
+    caract_offre_demande_nouveau_existante = fields.Selection(
+        selection=[
+            ("Nouvelle offre", "Nouvelle offre"),
+            ("Nouvelle demande", "Nouvelle demande"),
+            ("Offre existante", "Offre existante"),
+            ("Demande existante", "Demande existante"),
+        ],
+        help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_echange_nouvel_existant = fields.Selection(
+        selection=[
+            ("Nouvel échange", "Nouvel échange"),
+            ("Échange existant", "Échange existant"),
+        ],
+        help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_service_offrir_recevoir = fields.Selection(
+        selection=[
+            ("Service à offrir", "Service à offrir"),
+            ("Service à recevoir", "Service à recevoir"),
+        ],
+        help="Fonctionnalité un choix pour un état",
+    )
+
+    caract_valider_echange = fields.Boolean(
+        help="Fonctionnalité si valider échange"
+    )
+
+    help_caract_lst = fields.Char(
+        string="Help caracteristic",
+        help="Aide - liste des caractéristiques, séparé par ;",
+    )
+
+    help_fast_btn_title = fields.Char(
+        string="Help title button",
+        help="Aide - titre du bouton pour aller à la page associé",
+    )
+
+    help_fast_btn_url = fields.Char(
+        string="Help url button",
+        help="Aide - lien du bouton pour aller à la page associé",
+    )
+
+    help_fast_btn_guide_url = fields.Char(
+        string="Help url guide button",
+        help="Aide - lien du bouton guide interactif animation",
+    )
+
+    help_fast_btn_form_url = fields.Char(
+        string="Help url form button",
+        help="Aide - lien du bouton formulaire",
+    )
+
+    help_date_last_update = fields.Datetime(
+        string="Date dernière mise à jour",
+        help="Date manuelle de la dernière mise à jour",
+    )
+
+    help_validate_bug = fields.Html(
+        string="Validate bug",
+        help="Information sur l'état, validation et bug connu",
+    )
+
+    help_video_url = fields.Char(
+        string="Help video url",
+        help="Aide - lien de la vidéo de l'aide",
+    )
+
     show_breadcrumb = fields.Boolean(string="Afficher le fil d'ariane")
 
     state_dst_ids = fields.One2many(

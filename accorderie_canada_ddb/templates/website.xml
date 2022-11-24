@@ -5,6 +5,11 @@
         <t name="About us" t-name="website.aboutus">
             <t t-call="website.layout">
                 <div id="wrap">
+                    <div class="debug_debug">
+                        Lien maquette : <a
+                            href="https://marvelapp.com/prototype/1773h559/screen/86417802"
+                        >https://marvelapp.com/prototype/1773h559/screen/86417802</a>
+                </div>
                     <div class="oe_structure">
                         <section class="pt32 pb32" t-if="not accorderie_offre_service_id">
                             <div class="container">
@@ -96,7 +101,7 @@
                                             <t t-raw="accorderie_offre_service_id.entente_tarifiaire" />
                                         </div>
                                         <div class="dispo debug_unimplemented">
-                                            <h2>Disponilibités habituelles</h2>
+                                            <h2>Disponilibités</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p><p>08H00 - 19H00</p>
                                                 <p>MARDI</p><p>08H00 - 19H00</p>
@@ -244,7 +249,7 @@
 <!--                                            <t t-raw="accorderie_demande_service_id.entente_tarifiaire" />-->
 <!--                                        </div>-->
                                         <div class="dispo debug_unimplemented">
-                                            <h2>Disponilibités habituelles</h2>
+                                            <h2>Disponilibités</h2>
                                             <div class="dates_container">
                                                 <p>LUNDI</p><p>08H00 - 19H00</p>
                                                 <p>MARDI</p><p>08H00 - 19H00</p>
@@ -311,7 +316,6 @@
                                 t-if="offre_services_count"
                                 href="/offresservice"
                                 style="font-size:1.25rem;"
-                                class="debug_unimplemented"
                             >Voir Tout (+<t t-raw="offre_services_count" />)</a>
                         </div>
                     </div>
@@ -373,7 +377,6 @@
                             <h1>Demandes r&#233;centes</h1>
                             <a
                                 t-if="demande_services_count"
-                                class="debug_unimplemented"
                                 href="/demandesservice"
                                 style="font-size:1.25rem;"
                             >Voir Tout (+<t t-raw="demande_services_count" />)</a>
@@ -632,6 +635,7 @@
                                         >
                                             <div
                                                 class="btn label"
+                                                name="option_{{option.id}}"
                                                 ng-class="{checked: state.selected_id == option.id}"
                                                 ng-click="click_dynamique(option)"
                                                 ng-dblclick="next_btn()"
@@ -659,6 +663,7 @@
                                         >
                                             <label
                                                 for="{{option.id}}"
+                                                name="option_{{option.id}}"
                                                 class="btn label"
                                                 ng-class="{checked: $parent.$parent.state.next_id == option.id}"
                                                 ng-click="click_statique(option)"
@@ -680,6 +685,7 @@
                                         >
                                             <div
                                                 class="btn label"
+                                                name="option_{{option.id}}"
                                                 ng-class="{checked: state.selected_id == option.id}"
                                                 ng-click="click_dynamique(option)"
                                                 ng-dblclick="next_btn()"
@@ -739,13 +745,13 @@
                                         class="buttons_form_container tab"
                                         ng-if="state.type == 'form'"
                                         style="flex-direction:column; flex-wrap:nowrap;"
-                                        ng-class="{form: form_is_offre_demande_service()}"
+                                        ng-class="{form: form_is_offre_demande_service(state)}"
                                         ng-controller="EchangeService"
                                         ng-init="update_form = true; echange_service_id = form.echange_service_id.id; getDatabaseInfo(); "
                                     >
                                         <!-- Catégorie -->
                                         <div
-                                            ng-if="form_is_offre_demande_service() &amp;&amp; state.show_breadcrumb"
+                                            ng-if="form_is_offre_demande_service(state) &amp;&amp; state.show_breadcrumb"
                                             class="nav_back"
                                         ><b>Catégorie:</b><span
                                                 ng-repeat="link in lst_label_breadcrumb"
@@ -757,7 +763,7 @@
 
                                         <!-- Photo header -->
                                         <section
-                                            ng-if="form_is_offre_demande_service()"
+                                            ng-if="form_is_offre_demande_service(state)"
                                             class="s_event_banner oe_img_bg oe_custom_bg"
                                             style="background-image: url(&quot;/web/image/accorderie_canada_ddb_website.ir_attachment_eric_prouzet_z62b9jiltgm_unsplash_jpg/eric-prouzet-Z62b9jIltGM-unsplash.jpg&quot;);"
                                         >
@@ -772,52 +778,44 @@
 
                                         <!-- Présentation du service -->
                                         <h2
-                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
+                                            ng-if="form_is_nouvel_echange_service_offrir_offre_existante(state)"
                                         >Offre de service donné
                                         </h2>
                                         <h2
-                                            ng-if="state.id == 'init.saa.recevoir.choix.existant.time.formulaire'"
+                                            ng-if="state.id == 'init.saa.recevoir.choix.existant.time.form'"
                                         >Offre de service demandé
                                         </h2>
                                         <h2
-                                            ng-if="['init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id)"
+                                            ng-if="['init.va.oui.form', 'init.va.non.recu.choix.form'].includes(state.id)"
                                         >Offre de service reçu
                                         </h2>
                                         <div
-                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire'].includes(state.id)"
+                                            ng-if="form_is_echange_sur_offre_demande_existante(state)"
                                             ng-controller="OffreDemandeService"
                                             ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
                                             ng-init="model = 'accorderie.offre.service'; service_id = form.offre_service_id.id; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
                                         />
                                         <div
-                                            ng-if="['init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.formulaire'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.offre_service)"
-                                            ng-controller="OffreDemandeService"
-                                            ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
-                                            ng-init="model = 'accorderie.offre.service'; service_id = echange_service.offre_service; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
-                                        />
-                                        <div
-                                            ng-if="['init.va.oui.formulaire'].includes(state.id) &amp;&amp; !_.isUndefined(echange_service.demande_service)"
+                                            ng-if="form_is_exist_echange_to_validate(state) &amp;&amp; !_.isUndefined(echange_service.demande_service)"
                                             ng-controller="OffreDemandeService"
                                             ng-include="'/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic'"
                                             ng-init="model = 'accorderie.demande.service'; service_id = echange_service.demande_service; service_enable_href = false; service_enable_favorite = false; type_service = 'offre'; getDatabaseInfo(); "
                                         />
                                         <div
                                             class="divider"
-                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.saa.offrir.existant.formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
+                                            ng-if="form_is_echange_sur_offre_demande_existante(state) || form_is_exist_echange_to_validate(state)"
                                         />
 
                                         <!-- Destinataire du service -->
-                                        <h2
-                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire'].includes(state.id)"
-                                        >
+                                        <h2 ng-if="form_is_destinataire_du_service(state)">
                                             Destinataire du service
                                         </h2>
-                                        <h2 ng-if="'init.va.non.recu.choix.nouveau.formulaire' == state.id">
+                                        <h2 ng-if="form_is_destinataire_du_service_de_qui(state)">
                                             De qui avez-vous reçu le service?
                                         </h2>
                                         <div
                                             class="form_box cursor-pointer"
-                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                            ng-if="form_is_destinataire_du_service_de_qui(state) || form_is_destinataire_du_service(state)"
                                             ng-click="change_state_to_field_id('membre_id')"
                                         >
                                             <span>{{form.membre_id.value}}</span>
@@ -825,11 +823,11 @@
                                         </div>
                                         <div
                                             class="divider"
-                                            ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire', 'init.va.non.offert.nouveau_formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                            ng-if="form_is_destinataire_du_service_de_qui(state) || form_is_destinataire_du_service(state)"
                                         />
 
                                         <!-- Description du service -->
-                                        <div ng-if="form_is_nouveau_except_pos()">
+                                        <div ng-if="form_is_nouveau_except_pos(state)">
                                             <h2>
                                                 Description du service privé
                                             </h2>
@@ -844,37 +842,39 @@
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div>
-                                                <h4>Nom de votre service</h4>
+                                                <h4>Nom du service</h4>
                                             </div>
                                         </div>
 
-                                       <div ng-if="form_is_offre_demande_service()"><h4>Titre</h4>
-                                       </div>
+                                        <h4 ng-if="form_is_nouvelle_offre(state)">Titre de l'offre de service</h4><h4
+                                            ng-if="form_is_nouvelle_demande(state)"
+                                        >Titre de la demande de service
+                                        </h4>
 
                                         <input
-                                            ng-if="form_is_nouveau()"
+                                            ng-if="form_is_nouveau(state)"
                                             type="text"
                                             class="form_titre"
                                             ng-model="form.titre"
                                         />
 
-                                        <div ng-if="form_is_nouveau_except_pos()">
-                                            <h4>Description de votre offre de service</h4>
+                                        <div ng-if="form_is_nouveau_except_pos(state)">
+                                            <h4>Description du service</h4>
                                         </div>
 
-                                        <div ng-if="form_is_offre_demande_service()">
+                                        <div ng-if="form_is_offre_demande_service(state)">
                                             <h4>Description</h4>
                                         </div>
 
                                         <textarea
                                             class="form_desc"
                                             ng-model="form.description"
-                                            ng-if="form_is_nouveau()"
+                                            ng-if="form_is_nouveau(state)"
                                         />
 
                                         <div
                                             class="debug_unimplemented"
-                                            ng-if="['init.pos.individuelle.formulaire', 'init.pds.individuelle.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
+                                            ng-if="['init.pos.single.form', 'init.pds.single.form', 'init.saa.offrir.nouveau.cat.form'].includes(state.id)"
                                         >
                                             <div>
                                                 <h4>Déplacement
@@ -890,7 +890,7 @@
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div class="form_box">
-                                                <span>Accepte de me déplacer:</span>
+                                                <span>J'accepte de me déplacer:</span>
                                                 <span>Dans la région</span>
                                                 <i class="fa fa-chevron-right" />
                                             </div>
@@ -900,7 +900,7 @@
                                                 <i class="fa fa-chevron-right" />
                                             </div>
                                             <div>
-                                                <h4>Entente tarifiaire
+                                                <h4>Entente tarifaire
                                                     <a
                                                         class="fa fa-trash text-alpha modifier"
                                                         style="margin-left:auto;font-size:1.5rem"
@@ -919,7 +919,7 @@
                                                     <span>Ajouter un élément à la liste</span>
                                                 </div>
                                             </div>
-                                            <div ng-if="form_is_offre_demande_service()">
+                                            <div ng-if="form_is_offre_demande_service(state)">
                                                 <h4>Disponibilités
                                                     <a
                                                         class="fa fa-trash text-alpha modifier"
@@ -956,16 +956,16 @@
                                                 <i class="fa fa-plus" />
                                                 <span
                                                     class="mr-auto ml-3"
-                                                    ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                                    ng-if="'init.saa.offrir.nouveau.cat.form' === state.id"
                                                 >Conditions de l'échange de service</span>
                                                 <span
                                                     class="mr-auto ml-3"
-                                                    ng-if="form_is_offre_demande_service()"
+                                                    ng-if="form_is_offre_demande_service(state)"
                                                 >Conditions</span>
                                             </div>
                                             <div
                                                 class="form_box dashed"
-                                                ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                                ng-if="'init.saa.offrir.nouveau.cat.form' === state.id"
                                             >
                                                 <i class="fa fa-plus" />
                                                 <span class="mr-auto ml-3">Commentaires</span>
@@ -973,21 +973,18 @@
                                         </div>
 
 
-                                        <div
-                                            class="divider"
-                                            ng-if="form_is_nouveau() &amp;&amp; !['init.pos.individuelle.formulaire', 'init.pds.individuelle.formulaire'].includes(state.id)"
-                                        />
+                                        <div class="divider" ng-if="form_is_nouveau_except_pos(state)" />
 
                                         <!-- Service -->
                                         <h2
-                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
+                                            ng-if="'init.saa.offrir.nouveau.cat.form' === state.id"
                                         >Date prévue du service
                                         </h2>
                                         <h2
-                                            ng-if="(form_is_service() || form_is_service_and_service_prevu()) &amp;&amp; 'init.saa.offrir.nouveau.categorie_service.formulaire' !== state.id"
+                                            ng-if="(form_is_service(state) || form_is_service_and_service_prevu(state)) &amp;&amp; 'init.saa.offrir.nouveau.cat.form' !== state.id"
                                         >Service
                                         </h2>
-                                        <div ng-if="form_is_service_and_service_prevu()">
+                                        <div ng-if="form_is_service_and_service_prevu(state)">
                                             <!-- load_date() will initialize date field -->
                                             {{load_date()}}
                                             <h4>Date de l'échange du service
@@ -995,15 +992,15 @@
                                                 <a
                                                     href=""
                                                     class="text-primary modifier"
-                                                    ng-if="form_is_service_to_modify()"
+                                                    ng-if="form_is_service_to_modify(state)"
                                                 >Modifier</a>
                                             </h4>
-                                            <span ng-if="form_is_service_to_modify()">Mercredi 6 août 2022</span>
+                                            <span ng-if="form_is_service_to_modify(state)">Mercredi 6 août 2022</span>
                                             <div
                                                 class="input-group date"
                                                 data-target-input="nearest"
                                                 t-attf-id="date_service_datepicker"
-                                                ng-if="!form_is_service_to_modify()"
+                                                ng-if="!form_is_service_to_modify(state)"
                                             >
                                                 <input
                                                     class="form-control datetimepicker-input o_website_form_input o_website_form_date"
@@ -1029,18 +1026,18 @@
         <!--                                    style="align-self:start;"-->
         <!--                                >Enregistrer</div>-->
 
-                                        <div ng-if="form_is_service_and_service_prevu()">
+                                        <div ng-if="form_is_service_and_service_prevu(state)">
                                             <h4>Heure de début du service<a
                                                     href=""
                                                     class="text-primary modifier"
-                                                    ng-if="form_is_service_to_modify()"
+                                                    ng-if="form_is_service_to_modify(state)"
                                                 >Modifier</a></h4>
-                                            <span ng-if="form_is_service_to_modify()">14h00</span>
+                                            <span ng-if="form_is_service_to_modify(state)">14h00</span>
                                             <div
                                                 class="input-group date"
                                                 data-target-input="nearest"
                                                 t-attf-id="time_service_datepicker"
-                                                ng-if="!form_is_service_to_modify()"
+                                                ng-if="!form_is_service_to_modify(state)"
                                             >
                                                 <input
                                                     class="form-control datetimepicker-input o_website_form_input o_website_form_clock"
@@ -1062,7 +1059,7 @@
                                             </div>
                                         </div>
 
-                                        <div ng-if="form_is_service()">
+                                        <div ng-if="form_is_service(state)">
                                             <h4>Durée de la réalisation du service</h4>
                                             <div
                                                 class="input-group date"
@@ -1089,7 +1086,7 @@
                                             </div>
                                         </div>
 
-                                        <div ng-if="form_is_service()">
+                                        <div ng-if="form_is_service(state)">
                                             <h4>Durée du trajet aller-retour</h4>
                                             <div
                                                 class="input-group date"
@@ -1116,26 +1113,26 @@
                                             </div>
                                         </div>
 
-                                        <div class="divider" ng-if="form_is_service_and_service_prevu()" />
+                                        <div class="divider" ng-if="form_is_service_and_service_prevu(state)" />
 
                                         <!-- Coût possible -->
                                         <h2
-                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id || form_is_service_to_modify()"
+                                            ng-if="'init.saa.offrir.nouveau.cat.form' === state.id || form_is_service_to_modify(state)"
                                         >Coûts possibles supplémentaires à prévoir
                                         </h2>
-                                        <h2 ng-if="form_is_service()">Coûts monétaires supplémentaires dû
+                                        <h2 ng-if="form_is_service(state)">Coûts supplémentaires dûs
                                         </h2>
-                                        <div ng-if="form_frais_trajet_distance()">
+                                        <div ng-if="form_is_frais_trajet_distance(state)">
                                             <h4>Frais pour trajet de :
                                                 <a
                                                     href=""
                                                     class="text-primary modifier"
-                                                    ng-if="form_is_service_to_modify()"
+                                                    ng-if="form_is_service_to_modify(state)"
                                                 >Annuler</a>
                                             </h4>
                                         </div>
                                         <div
-                                            ng-if="form_frais_trajet_distance() &amp;&amp; !form_is_service_to_modify()"
+                                            ng-if="form_is_frais_trajet_distance(state) &amp;&amp; !form_is_service_to_modify(state)"
                                         >
                                             <div class="form_box float-left w-75 d-inline-block">
 <!--                                                    <span>2.3</span>-->
@@ -1151,19 +1148,19 @@
 <!--                                                    <i class="fa fa-chevron-down" />-->
                                             </div>
                                         </div>
-                                        <div ng-if="form_is_service_to_modify()">
+                                        <div ng-if="form_is_service_to_modify(state)">
                                             <span>{{form.distance_trajet}} km</span>
                                         </div>
                                         <div
                                             class="btn btn-primary text-gamma px-4 py-2"
                                             style="align-self:start;"
-                                            ng-if="form_is_service_to_modify()"
+                                            ng-if="form_is_service_to_modify(state)"
                                         >Enregistrer</div>
 
-                                        <div ng-if="form_frais_trajet_prix()">
+                                        <div ng-if="form_is_frais_trajet_prix(state)">
                                             <h4>Frais pour trajet :</h4>
                                         </div>
-                                        <div class="form_box" ng-if="form_frais_trajet_prix()">
+                                        <div class="form_box" ng-if="form_is_frais_trajet_prix(state)">
                                             <input
                                                 class="form-control"
                                                 name="date"
@@ -1172,10 +1169,10 @@
                                             />
                                             <span>$</span>
                                         </div>
-                                        <div ng-if="form_frais_trajet_prix()">
+                                        <div ng-if="form_is_frais_trajet_prix(state)">
                                             <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
                                         </div>
-                                        <div class="form_box" ng-if="form_frais_trajet_prix()">
+                                        <div class="form_box" ng-if="form_is_frais_trajet_prix(state)">
                                             <input
                                                 class="form-control"
                                                 name="date"
@@ -1186,7 +1183,7 @@
                                         </div>
 
                                         <div
-                                            ng-if="form_frais_import_list_without_modify()"
+                                            ng-if="form_is_frais_import_list_without_modify(state)"
                                             class="debug_unimplemented"
                                         >
                                             <h4>Frais pour le matériel nécessaire à l'échange de service</h4>
@@ -1194,12 +1191,12 @@
                                         <div
                                             class="form_box debug_unimplemented"
                                             style="width:fit-content;"
-                                            ng-if="form_frais_import_list_without_modify()"
+                                            ng-if="form_is_frais_import_list_without_modify(state)"
                                         >
                                             <span>Importer une liste<i class="fa fa-download ml-3" /></span>
                                         </div>
 
-                                        <div ng-if="form_is_service_to_modify()" class="debug_unimplemented">
+                                        <div ng-if="form_is_service_to_modify(state)" class="debug_unimplemented">
                                             <h4>Frais pour le matériel nécessaire à l'échange de service
                                                 <a href="" class="text-primary modifier">Importer une
                                                     liste
@@ -1208,12 +1205,10 @@
                                             </h4>
                                         </div>
 
-                                        <div class="divider" ng-if="form_is_service_and_service_prevu()" />
+                                        <div class="divider" ng-if="form_is_service_and_service_prevu(state)" />
 
                                         <!-- Estimation de la durée du service -->
-                                        <div
-                                            ng-if="'init.saa.offrir.nouveau.categorie_service.formulaire' === state.id"
-                                        >
+                                        <div ng-if="'init.saa.offrir.nouveau.cat.form' === state.id">
                                             <h2>Estimation de la durée de service
                                             </h2>
                                             <h4>Temps de service estimé</h4>
@@ -1269,41 +1264,41 @@
                                         </div>
 
                                         <!-- Commentaires -->
-                                        <h2 ng-if="form_is_commentaire()">Commentaires
+                                        <h2 ng-if="form_is_commentaire(state)">Commentaires
                                         </h2>
                                         <textarea
                                             class="form_desc"
                                             ng-model="form.commentaires"
-                                            ng-if="form_is_commentaire()"
+                                            ng-if="form_is_commentaire(state)"
                                         />
 
                                         <!-- Durée de service -->
-                                        <div ng-if="form_is_service_to_modify()">
+                                        <div ng-if="form_is_service_to_modify(state)">
                                             <h2>Durée du service</h2>
-                                            <h4>Nombre d'heures estimés pour le service<a
+                                            <h4>Nombre d'heures estimé pour le service<a
                                                     href=""
                                                     class="text-primary modifier"
-                                                    ng-if="form_is_service_to_modify()"
+                                                    ng-if="form_is_service_to_modify(state)"
                                                 >Modifier</a>
                                             </h4>
                                                 14h00
                                             <h4>Durée du trajet à effectuer<a
                                                     href=""
                                                     class="text-primary modifier"
-                                                    ng-if="form_is_service_to_modify()"
+                                                    ng-if="form_is_service_to_modify(state)"
                                                 >Modifier</a>
                                             </h4>
                                                 14h00
                                         </div>
 
                                         <!-- Montant à transférer -->
-                                        <div class="bar_time" ng-if="form_is_service_and_service_prevu()">
+                                        <div class="bar_time" ng-if="form_is_service_and_service_prevu(state)">
                                             <b>Montant total de temps à transférer</b>
                                             <span>{{show_sum_total_time_echange()}}</span>
                                         </div>
 
                                         <!-- Respecter les conditions suivantes -->
-                                        <span ng-if="form_is_service_to_modify()">
+                                        <span ng-if="form_is_service_to_modify(state)">
                                             <div class="divider" />
                                             <!-- TODO button send form need to click to accept this condition -->
                                             <h3><b>Respectez-vous les conditions suivantes :</b>
@@ -1343,6 +1338,7 @@
                                                 tabindex="1"
                                                 placeholder="{{chooseMemberPlaceholder}}"
                                                 ng-readonly="!_.isUndefined($parent.state.selected_id)"
+                                                ng-model="tmpForm.modelChooseMember"
                                             />
                                             <button
                                                 class="fa fa-times-circle remove_member text-epsilon"
@@ -1424,6 +1420,10 @@
                             >
                                 <div class="modal-dialog">
                                     <div id="s_media_block_modal" class="modal-content">
+<!--                                        <div ng-if="animationRecord.recordOn">-->
+<!--                                            <button ng-click="closeModalForm()"><i class="fa fa-x" /></button>-->
+<!--&lt;!&ndash;                                            <button ng-click="show_submit_modal=false"><i class="fa fa-x" /></button>&ndash;&gt;-->
+<!--                                        </div>-->
                                         <span style="font-size: 7rem;" class="fa fa-check-circle-o text-epsilon" />
                                         <div class="modal-body" ng-if="!_.isUndefined(state.submit_response_title)">
                                             <h2>{{state.submit_response_title}}</h2>
@@ -1433,55 +1433,52 @@
                                         </p>
                                         <a ng-if="submitted_url" href="{{submitted_url}}">
                                             <button
-                                                ng-if="['init.pos.individuelle.formulaire', 'init.saa.offrir.existant.formulaire'].includes(state.id)"
+                                                ng-if="form_is_nouvelle_offre(state) || ['init.saa.offrir.existant.form'].includes(state.id)"
                                                 class="btn btn-primary text-gamma"
                                             >Voir mon offre</button>
                                             <button
-                                                ng-if="['init.pds.individuelle.formulaire'].includes(state.id)"
+                                                ng-if="form_is_nouvelle_demande(state) || ['init.saa.demande.form'].includes(state.id)"
                                                 class="btn btn-primary text-gamma"
                                             >Voir ma demande</button>
                                             <button
-                                                ng-if="['init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes(state.id)"
+                                                ng-if="form_is_recevoir_not_valider(state)"
                                                 class="btn btn-primary text-gamma"
                                             >Visualiser ma demande</button>
                                             <button
-                                                ng-if="['init.saa.offrir.nouveau.categorie_service.formulaire'].includes(state.id)"
+                                                ng-if="['init.saa.offrir.nouveau.cat.form'].includes(state.id)"
                                                 class="btn btn-primary text-gamma"
                                             >Voir mon offre d'échange de service</button>
                                             <button
-                                                ng-if="['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
+                                                ng-if="form_is_valider_echange(state)"
                                                 class="btn btn-primary text-gamma"
                                             >Voir les détails de la transaction</button>
                                         </a>
                                         <a
                                             ng-href="/accorderie_canada_ddb/accorderie_offre_service/{{form.offre_service_id.id}}"
-                                            ng-if="['init.saa.recevoir.choix.existant.time.formulaire'].includes(state.id)"
+                                            ng-if="['init.saa.recevoir.choix.existant.time.form'].includes(state.id)"
                                         >
                                             <button class="btn btn-primary text-gamma">Voir l'offre de service
                                             </button>
                                         </a>
                                         <a
                                             ng-href="/monprofil/mapresentation#!?membre_id={{form.membre_id.id}}"
-                                            ng-if="['init.saa.offrir.existant.formulaire', 'init.saa.recevoir.choix.existant.time.formulaire', 'init.saa.offrir.nouveau.categorie_service.formulaire', 'init.saa.recevoir.choix.nouveau.formulaire'].includes(state.id)"
+                                            ng-if="form_is_echange_pas_valider(state)"
                                         >
                                             <button class="btn btn-primary text-gamma">Voir le profil de l'Accordeur.e
                                             </button>
                                         </a>
-                                        <a href="monprofil/mesannonces" ng-if="form_is_offre_demande_service()">
+                                        <a href="monprofil/mesannonces" ng-if="form_is_offre_demande_service(state)">
                                             <button class="btn btn-primary text-gamma">Voir toutes mes
                                                 annonces
                                             </button>
                                         </a>
-                                        <a
-                                            href="monactivite/echanges"
-                                            ng-if="['init.va.non.offert.nouveau_formulaire', 'init.va.oui.formulaire', 'init.va.non.recu.choix.formulaire', 'init.va.non.offert.existant_formulaire', 'init.va.non.recu.choix.nouveau.formulaire'].includes(state.id)"
-                                        >
+                                        <a href="monactivite/echanges" ng-if="form_is_valider_echange(state)">
                                             <button class="btn btn-primary text-gamma">Voir tous mes
                                                 échanges
                                             </button>
                                         </a>
                                         <a href="explorer">
-                                            <button class="btn btn-primary text-gamma">Retourner sur
+                                            <button class="btn btn-primary text-gamma">Retourner à
                                                 l'accueil
                                             </button>
                                         </a>

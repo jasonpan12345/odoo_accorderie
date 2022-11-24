@@ -110,6 +110,14 @@
     />
 
     <menuitem
+        id="configuration_configuration"
+        name="Configuration"
+        action="accorderie_config_settings_action"
+        sequence="5"
+        parent="group_configuration"
+    />
+
+    <menuitem
         id="droits_administratifs"
         name="Droits administratifs"
         action="accorderie_droits_admin_droits_administratifs_action_window"
