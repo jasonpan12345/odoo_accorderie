@@ -7,6 +7,26 @@
           <attribute name="ng-mousemove">updateMoveMouse($event)</attribute>
         </xpath>
 
+        <xpath expr="//div[@id='wrapwrap']" position="inside">
+            <div
+                class="modal fade modal_pub_offre modal_shown show ng-cloak"
+                style="display:block"
+                ng-show="show_qrcode_modal"
+            >
+                <div class="modal-dialog">
+                    <div id="s_media_block_modal" class="modal-content">
+                        <button class="btn btn-primary btn-lg" ng-click="show_qrcode_modal = false"><i
+                                class="fa fa-times-circle"
+                            /> Fermer</button>
+                        <div class="modal-body">
+                            <h2>Partager la page!</h2>
+                        </div>
+                        <div id="qrcode" />
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
         <!-- Use to test compile outside ng-app -->
         <!--        <xpath expr="//div[@id='wrapwrap']" position="before">-->
         <!--          <div id="patate">{{personal.actual_bank_hours}}</div>-->
@@ -253,6 +273,14 @@
                                                 ng-if="!_.isEmpty(error_share)"
                                                 style="color:red;"
                                             >Erreur : {{error_share}}</span></p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="show_and_generate_qrcode()"
+                                    >
+                                        <p><i class="fa fa-qrcode" /> Code QR</p>
                                     </div>
                                 </div>
                             </li>

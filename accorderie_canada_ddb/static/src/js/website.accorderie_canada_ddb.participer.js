@@ -319,6 +319,14 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         // Share
+        $scope.show_qrcode_modal = false;
+
+        $scope.show_and_generate_qrcode = function () {
+            $scope.show_qrcode_modal = true;
+            let urlToCopy = $location.$$absUrl;
+            new QRCode(document.getElementById("qrcode"), urlToCopy);
+        }
+
         $scope.error_copy = "";
         $scope.is_copied_url = false;
         $scope.copy_clipboard_url = function () {
