@@ -68,6 +68,8 @@
 <!--            />-->
 
 <!--            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/hidpi-canvas.js" />-->
+            <!-- html5-qrcode.min.js version 2.3.3 -->
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/html5-qrcode.min.js" />
             <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/adapter-latest.js" />
             <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/qrcode.js" />
             <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/angular.js" />
