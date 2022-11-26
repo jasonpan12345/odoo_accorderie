@@ -7,6 +7,77 @@
           <attribute name="ng-mousemove">updateMoveMouse($event)</attribute>
         </xpath>
 
+        <xpath expr="//div[@id='wrapwrap']" position="inside">
+            <div
+                class="modal fade modal_pub_offre modal_shown show ng-cloak"
+                style="display:block"
+                ng-show="show_qrcode_modal"
+            >
+                <div class="modal-dialog">
+                    <div id="s_media_block_modal" class="modal-content">
+                        <button class="btn btn-primary btn-lg" ng-click="show_qrcode_modal = false"><i
+                                class="fa fa-times-circle"
+                            /> Fermer</button>
+                        <div class="modal-body">
+                            <h2>Partager la page!</h2>
+                        </div>
+                        <div id="qrcode" />
+                    </div>
+                </div>
+            </div>
+            <div
+                class="modal fade modal_pub_offre modal_shown show ng-cloak"
+                style="display:block"
+                ng-show="show_camera_qrcode_modal"
+            >
+                <div class="modal-dialog">
+                    <div id="s_media_block_modal" class="modal-content">
+                        <button class="btn btn-primary btn-lg" ng-click="show_camera_close()"><i
+                                class="fa fa-times-circle"
+                            /> Fermer</button>
+                        <div class="modal-body">
+                            <h3>Lecteur Code QR</h3>
+                            <div ng-if="_.isEmpty(list_camera_qrcode)">
+                                Aucune caméra n'est détecté, avez-vous les permissions adéquates?
+                            </div>
+                            <div ng-if="!_.isEmpty(list_camera_qrcode)">
+                                <button
+                                    ng-repeat="option in list_camera_qrcode"
+                                    class="btn btn-sm"
+                                    ng-class="{'btn-primary': option.id === selectedCamera.id}"
+                                    ng-click="show_camera_select(option)"
+                                >Caméra {{option.label}}
+                                </button>
+                                <!-- TODO select with ng-model not work, cannot be updated in modal -->
+                                <!--<label for="cameraSelect">Liste des caméras : </label>-->
+                                <!--<select id="cameraSelect" name="cameraSelect" ng-model="selectedCamera"><option-->
+                                <!--        ng-repeat="option in list_camera_qrcode"-->
+                                <!--        value="{{option.id}}"-->
+                                <!--    >{{option.label}}</option></select>-->
+                                <!--<select-->
+                                <!--    ng-model="selectedCamera" ng-options="item as item.label for item in list_camera_qrcode" -->
+                                <!--&gt; </select>-->
+                            </div>
+                            <!--<div ng-if="!_.isUndefined(selectedCamera)"><span class="">{{selectedCamera.id}}<br-->
+                            <!--        />{{selectedCamera.label}}<br /></span><button-->
+                            <!--        class="btn btn-primary btn-lg"-->
+                            <!--        ng-click="show_camera_open()"-->
+                            <!--    ><i class="fa fa-camera" /> Ouvrir</button></div>-->
+                            <div
+                                ng-if="show_camera_find_url"
+                                style="color:green;"
+                            >Lien trouvé, redirection dans 2 secondes vers
+                            </div>
+                            <div ng-if="!_.isUndefined(show_camera_link_find)">{{show_camera_link_find}}</div>
+                            <div style="color:red;" ng-if="!_.isEmpty(show_camera_error)">Erreur : {{show_camera_error}}
+                            </div>
+                        </div>
+                        <div id="reader" />
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
         <!-- Use to test compile outside ng-app -->
         <!--        <xpath expr="//div[@id='wrapwrap']" position="before">-->
         <!--          <div id="patate">{{personal.actual_bank_hours}}</div>-->
@@ -208,6 +279,67 @@
                                     >
                                         <p ng-show="!animationRecord.enable">Afficher l'enregistrement</p>
                                         <p ng-show="animationRecord.enable">Cacher l'enregistrement</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown" t-ignore="true">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
+                                    <span
+                                        class="fa fa-2x fa-share-alt text-primary"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="13"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
+                                </a>
+                                <div class="dropdown-menu submenu shadow" role="menu">
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="copy_clipboard_url()"
+                                    >
+                                        <p><i class="fa fa-files-o" /> <span
+                                                ng-if="is_copied_url"
+                                                style="color:green;"
+                                            >Copié!</span><span
+                                                ng-if="_.isEmpty(error_copy) &amp;&amp; !is_copied_url"
+                                            >Copier le lien</span><span
+                                                ng-if="!_.isEmpty(error_copy)"
+                                                style="color:red;"
+                                            >Erreur : {{error_copy}}</span></p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        ng-style="is_share_enable() &amp;&amp; {'cursor':'pointer'}"
+                                        ng-click="share_link()"
+                                    >
+                                        <p><i class="fa fa-share-alt" /> <span ng-if="_.isEmpty(error_share)">
+                                            <span ng-if="!is_share_enable()">Non supporté</span><span
+                                                    ng-if="is_share_enable()"
+                                                >Partager le lien</span>
+                                        </span><span
+                                                ng-if="!_.isEmpty(error_share)"
+                                                style="color:red;"
+                                            >Erreur : {{error_share}}</span></p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="show_and_generate_qrcode()"
+                                    >
+                                        <p><i class="fa fa-qrcode" /> Code QR</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item"
+                                        style="cursor:pointer"
+                                        ng-click="show_camera_qrcode()"
+                                    >
+                                        <p><i class="fa fa-camera" /> Lecteur Code QR</p>
                                     </div>
                                 </div>
                             </li>

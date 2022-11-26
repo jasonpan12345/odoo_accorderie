@@ -318,6 +318,151 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             })
         }
 
+        // Share
+        $scope.show_qrcode_modal = false;
+
+        $scope.show_and_generate_qrcode = function () {
+            $scope.show_qrcode_modal = true;
+            let urlToCopy = $location.$$absUrl;
+            new QRCode(document.getElementById("qrcode"), urlToCopy);
+        }
+
+        $scope.show_camera_qrcode_modal = false;
+        $scope.list_camera_qrcode = [];
+        $scope.show_camera_error = "";
+        $scope.selectedCamera = undefined;
+        $scope.show_camera_find_url = false;
+        $scope.show_camera_link_find = undefined;
+        $scope.html5QrCode = undefined;
+
+        $scope.show_camera_select = function (option) {
+            $scope.selectedCamera = option;
+            $scope.show_camera_open();
+        }
+
+        $scope.show_camera_close = function () {
+            if (!_.isUndefined($scope.html5QrCode)) {
+                // TODO wrong technique to stop camera, use async method
+                $scope.html5QrCode.stop().then((ignore) => {
+                    // QR Code scanning is stopped.
+                    $scope.html5QrCode = undefined;
+                }).catch((err) => {
+                    // Stop failed, handle it.
+                });
+            }
+            $scope.show_camera_qrcode_modal = false
+        }
+
+        $scope.show_camera_qrcode = function () {
+            $scope.show_camera_qrcode_modal = true;
+            $scope.list_camera_qrcode = [];
+            $scope.show_camera_error = "";
+            $scope.selectedCamera = undefined;
+            $scope.show_camera_link_find = undefined;
+            Html5Qrcode.getCameras().then(devices => {
+                /**
+                 * devices would be an array of objects of type:
+                 * { id: "id", label: "label" }
+                 */
+                $scope.list_camera_qrcode = devices;
+                $scope.selectedCamera = devices[devices.length - 1];
+                $scope.show_camera_open();
+                $scope.$apply();
+            }).catch(err => {
+                $scope.show_camera_error = err;
+                console.error(err);
+                $scope.$apply();
+            });
+        }
+
+        $scope.show_camera_open = function () {
+            const html5QrCode = new Html5Qrcode(/* element id */ "reader");
+            $scope.html5QrCode = html5QrCode;
+            html5QrCode.start(
+                $scope.selectedCamera.id,
+                {
+                    fps: 10,    // Optional, frame per seconds for qr code scanning
+                    qrbox: {width: 250, height: 250}  // Optional, if you want bounded box UI
+                },
+                (decodedText, decodedResult) => {
+                    // do something when code is read
+                    $scope.show_camera_find_text(decodedText);
+                },
+                (errorMessage) => {
+                    // parse error, ignore it.
+                })
+                .catch((err) => {
+                    // Start failed, handle it.
+                    console.error(err);
+                    $scope.show_camera_error = err;
+                    $scope.$apply();
+                });
+        }
+
+        $scope.show_camera_find_text = function (decodedText) {
+            $scope.show_camera_link_find = decodedText;
+            // ignore 'www.'
+            let decodedTextCut = decodedText.replace("www.", "");
+            let locationText = window.location.origin.replace("www.", "");
+            if (decodedTextCut.startsWith(locationText)) {
+                // Find good link
+                // TODO wrong technique to stop camera, use async method
+                $scope.html5QrCode.stop().then((ignore) => {
+                    // QR Code scanning is stopped.
+                    $scope.html5QrCode = undefined;
+                }).catch((err) => {
+                    // Stop failed, handle it.
+                });
+                $scope.show_camera_error = "";
+                $scope.show_camera_find_url = true;
+                setTimeout(function () {
+                    location.replace(decodedText);
+                }, 2000);
+            } else {
+                $scope.show_camera_error = "Le lien est erroné, provient-il de ce site?";
+            }
+            $scope.$apply();
+        }
+
+        $scope.error_copy = "";
+        $scope.is_copied_url = false;
+        $scope.copy_clipboard_url = function () {
+            $scope.error_copy = "";
+            $scope.is_copied_url = false;
+            let urlToCopy = $location.$$absUrl;
+            navigator.clipboard.writeText(urlToCopy).then(() => {
+                $scope.is_copied_url = true;
+            }, () => {
+                $scope.error_copy = "Cannot copy URL";
+            });
+        }
+
+        $scope.error_share = "";
+
+        $scope.is_share_enable = function () {
+            if (!navigator.canShare) {
+                return false;
+            }
+            let urlToShare = $location.$$absUrl;
+            let value = {title: "Page Accorderie", url: urlToShare}
+            return navigator.canShare(value)
+        }
+
+        $scope.share_link = function () {
+            if ($scope.is_share_enable()) {
+                $scope.error_share = "";
+                let urlToShare = $location.$$absUrl;
+                let value = {title: "Page Accorderie", url: urlToShare}
+                try {
+                    navigator.share(value);
+                } catch (err) {
+                    $scope.error_share = err;
+                }
+            }
+        }
+
+        // End Share
+
         $scope.add_to_my_favorite = function (model, record_obj) {
             let id_record = record_obj.id;
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": id_record}).then(function (data) {
