@@ -42,7 +42,6 @@ odoo.define('website.accorderie_notification', function (require) {
          * @param {Array[]} notifications
          */
         _onNotification: function (notifications) {
-            let self = this;
             let has_update = false;
             let $scope = angular.element($("[ng-app]")).scope();
             // Recreate it solves a strange bug
@@ -72,13 +71,20 @@ odoo.define('website.accorderie_notification', function (require) {
                             let membre3 = !_.isUndefined($scope.membre_info) && $scope.membre_info.id === field_id ? $scope.membre_info : undefined;
                             // console.debug("action to do " + String(value));
                             if (value[0] === 4 || value[0][0] === 4) {
-                                if (!_.isUndefined(membre)) {
-                                    membre.is_favorite = true;
-                                    has_update = true;
-                                }
                                 if (!_.isUndefined(membre2)) {
                                     membre2.is_favorite = true;
                                     has_update = true;
+                                }
+                                if (!_.isUndefined(membre)) {
+                                    membre.is_favorite = true;
+                                    has_update = true;
+                                } else {
+                                    if (!_.isUndefined(membre2)) {
+                                        $scope.personal.dct_membre_favoris[field_id] = membre2;
+                                        has_update = true;
+                                    } else {
+                                        console.warn("Cannot update favorite membre id " + field_id);
+                                    }
                                 }
                                 if (!_.isUndefined(membre3)) {
                                     membre3.is_favorite = true;
@@ -88,6 +94,8 @@ odoo.define('website.accorderie_notification', function (require) {
                                 if (!_.isUndefined(membre)) {
                                     membre.is_favorite = false;
                                     has_update = true;
+                                    // Remove it
+                                    delete $scope.personal.dct_membre_favoris[field_id]
                                 }
                                 if (!_.isUndefined(membre2)) {
                                     membre2.is_favorite = false;
@@ -110,13 +118,13 @@ odoo.define('website.accorderie_notification', function (require) {
                         if (key === "membre_favoris_ids") {
                             let offreService = $scope.personal.dct_offre_service_favoris[field_id];
                             let offreService2 = $scope.personal.dct_offre_service[field_id];
-                            let offreService3 = $scope.membre_info.dct_offre_service_favoris;
-                            if (!_.isUndefined(offreService3)) {
-                                offreService3 = offreService3[field_id];
+                            let offreService3;
+                            if (!_.isUndefined($scope.membre_info.dct_offre_service_favoris)) {
+                                offreService3 = $scope.membre_info.dct_offre_service_favoris[field_id];
                             }
-                            let offreService4 = $scope.membre_info.dct_offre_service;
-                            if (!_.isUndefined(offreService4)) {
-                                offreService4 = offreService4[field_id];
+                            let offreService4;
+                            if (!_.isUndefined($scope.membre_info.dct_offre_service)) {
+                                offreService4 = $scope.membre_info.dct_offre_service[field_id];
                             }
                             let offreService5 = $scope.offre_service_info.id === field_id ? $scope.offre_service_info : undefined;
                             let offreService6 = $scope.getDatabaseInfo("accorderie.offre.service", field_id);
@@ -136,9 +144,20 @@ odoo.define('website.accorderie_notification', function (require) {
                                     offreService2.is_favorite = true;
                                     has_update = true;
                                 }
+                                if (!_.isUndefined(offreService6)) {
+                                    offreService6.is_favorite = true;
+                                    has_update = true;
+                                }
                                 if (!_.isUndefined(offreService3)) {
                                     offreService3.is_favorite = true;
                                     has_update = true;
+                                } else {
+                                    if (!_.isUndefined(offreService6)) {
+                                        $scope.membre_info.dct_offre_service_favoris[field_id] = offreService6;
+                                        has_update = true;
+                                    } else {
+                                        console.warn("Cannot update favorite offre_service id " + field_id);
+                                    }
                                 }
                                 if (!_.isUndefined(offreService4)) {
                                     offreService4.is_favorite = true;
@@ -146,10 +165,6 @@ odoo.define('website.accorderie_notification', function (require) {
                                 }
                                 if (!_.isUndefined(offreService5)) {
                                     offreService5.is_favorite = true;
-                                    has_update = true;
-                                }
-                                if (!_.isUndefined(offreService6)) {
-                                    offreService6.is_favorite = true;
                                     has_update = true;
                                 }
                             } else if (value[0][0] === 3) {
@@ -169,6 +184,8 @@ odoo.define('website.accorderie_notification', function (require) {
                                 if (!_.isUndefined(offreService3)) {
                                     offreService3.is_favorite = false;
                                     has_update = true;
+                                    // Remove it
+                                    delete $scope.membre_info.dct_offre_service_favoris[field_id]
                                 }
                                 if (!_.isUndefined(offreService4)) {
                                     offreService4.is_favorite = false;
@@ -194,13 +211,13 @@ odoo.define('website.accorderie_notification', function (require) {
                         if (key === "membre_favoris_ids") {
                             let demandeService = $scope.personal.dct_demande_service_favoris[field_id];
                             let demandeService2 = $scope.personal.dct_demande_service[field_id];
-                            let demandeService3 = $scope.membre_info.dct_demande_service_favoris;
-                            if (!_.isUndefined(demandeService3)) {
-                                demandeService3 = demandeService3[field_id];
+                            let demandeService3;
+                            if (!_.isUndefined($scope.membre_info.dct_demande_service_favoris)) {
+                                demandeService3 = $scope.membre_info.dct_demande_service_favoris[field_id];
                             }
-                            let demandeService4 = $scope.membre_info.dct_demande_service;
-                            if (!_.isUndefined(demandeService4)) {
-                                demandeService4 = demandeService4[field_id];
+                            let demandeService4;
+                            if (!_.isUndefined($scope.membre_info.dct_demande_service)) {
+                                demandeService4 = $scope.membre_info.dct_demande_service[field_id];
                             }
                             let demandeService5 = $scope.demande_service_info.id === field_id ? $scope.demande_service_info : undefined;
                             let demandeService6 = $scope.getDatabaseInfo("accorderie.demande.service", field_id);
@@ -220,9 +237,20 @@ odoo.define('website.accorderie_notification', function (require) {
                                     demandeService2.is_favorite = true;
                                     has_update = true;
                                 }
+                                if (!_.isUndefined(demandeService6)) {
+                                    demandeService6.is_favorite = true;
+                                    has_update = true;
+                                }
                                 if (!_.isUndefined(demandeService3)) {
                                     demandeService3.is_favorite = true;
                                     has_update = true;
+                                } else {
+                                    if (!_.isUndefined(demandeService6)) {
+                                        $scope.membre_info.dct_demande_service_favoris[field_id] = demandeService6;
+                                        has_update = true;
+                                    } else {
+                                        console.warn("Cannot update favorite demande_service id " + field_id);
+                                    }
                                 }
                                 if (!_.isUndefined(demandeService4)) {
                                     demandeService4.is_favorite = true;
@@ -230,10 +258,6 @@ odoo.define('website.accorderie_notification', function (require) {
                                 }
                                 if (!_.isUndefined(demandeService5)) {
                                     demandeService5.is_favorite = true;
-                                    has_update = true;
-                                }
-                                if (!_.isUndefined(demandeService6)) {
-                                    demandeService6.is_favorite = true;
                                     has_update = true;
                                 }
                             } else if (value[0][0] === 3) {
@@ -251,6 +275,8 @@ odoo.define('website.accorderie_notification', function (require) {
                                 }
                                 if (!_.isUndefined(demandeService3)) {
                                     demandeService3.is_favorite = false;
+                                    // Remove it
+                                    delete $scope.membre_info.dct_demande_service_favoris[field_id]
                                 }
                                 if (!_.isUndefined(demandeService4)) {
                                     demandeService4.is_favorite = false;
