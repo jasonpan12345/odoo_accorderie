@@ -8,6 +8,7 @@ from . import (
     accorderie_demande_service,
     accorderie_droits_admin,
     accorderie_echange_service,
+    accorderie_echange_service_notification,
     accorderie_fichier,
     accorderie_membre,
     accorderie_membre_favoris,
