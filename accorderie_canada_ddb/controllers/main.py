@@ -1355,6 +1355,10 @@ class AccorderieCanadaDdbController(http.Controller):
                                     and relation.body_html != "<p><br></p>"
                                 ):
                                     dct_item["html"] = relation.body_html
+                                if relation.not_implemented:
+                                    dct_item[
+                                        "not_implemented"
+                                    ] = relation.not_implemented
                                 if relation.icon:
                                     dct_item["icon"] = relation.icon
                                 lst_item.append(dct_item)
