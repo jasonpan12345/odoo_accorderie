@@ -69,12 +69,12 @@
 
 <!--            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/hidpi-canvas.js" />-->
             <!-- html5-qrcode.min.js version 2.3.3 -->
-            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/html5-qrcode.min.js" />
-            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/adapter-latest.js" />
-            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/qrcode.js" />
-            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/angular.js" />
-            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/angular-sanitize.js" />
-            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/autoComplete.js" />
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/lib/html5-qrcode.min.js" />
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/lib/adapter-latest.js" />
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/lib/qrcode.js" />
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/lib/angular.js" />
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/lib/angular-sanitize.js" />
+            <script type="text/javascript" src="/accorderie_canada_ddb/static/src/js/lib/autoComplete.js" />
 
             <script
                 type="text/javascript"
