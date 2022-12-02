@@ -295,6 +295,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             chunks: [],
         }
 
+        $scope.lst_notification = [];
+        $scope.notif_filter_unread = function (notif) {
+            return !_.isUndefined(notif.is_read) && !notif.is_read;
+        }
+
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": record_id}).then(function (data) {
                 console.debug("AJAX receive add_to_my_favorite");
@@ -665,6 +670,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.error = "";
                     $scope.global = data.global;
                     $scope.personal = data.personal;
+                    $scope.lst_notification = data.lst_notification;
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 

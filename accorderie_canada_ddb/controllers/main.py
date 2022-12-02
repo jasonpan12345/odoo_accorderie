@@ -269,6 +269,17 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
             }
 
+        # Update notification
+        notif_ids = request.env[
+            "accorderie.echange.service.notification"
+        ].search(
+            [
+                ("membre_id", "=", me_membre_id.id),
+                ("echange_service_id", "=", echange_id.id),
+            ]
+        )
+        notif_ids.is_read = True
+
         data = {
             "id": echange_id.id,
             "transaction_valide": echange_id.transaction_valide,
@@ -794,10 +805,19 @@ class AccorderieCanadaDdbController(http.Controller):
         # for v in v2:
         #     month_bank_time -= v.nb_heure
         # bank_time = 15 + month_bank_time
+
+        lst_notification = [
+            a.first_to_json()
+            for a in http.request.env[
+                "accorderie.echange.service.notification"
+            ].search([("membre_id", "=", membre_id.id)])
+        ]
+
         return {
             "global": {
                 "dbname": http.request.env.cr.dbname,
             },
+            "lst_notification": lst_notification,
             "personal": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom_complet,

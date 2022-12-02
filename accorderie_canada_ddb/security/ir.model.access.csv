@@ -13,6 +13,8 @@ accorderie_droits_admin_access_user_types_/_internal_user,accorderie_droits_admi
 accorderie_droits_admin_access_user_types_/_portal,accorderie_droits_admin Access User types / Portal,model_accorderie_droits_admin,base.group_portal,1,1,1,1
 accorderie_echange_service_access_user_types_/_internal_user,accorderie_echange_service Access User types / Internal User,model_accorderie_echange_service,base.group_user,1,1,1,1
 accorderie_echange_service_access_user_types_/_portal,accorderie_echange_service Access User types / Portal,model_accorderie_echange_service,base.group_portal,1,1,1,1
+accorderie_echange_service_notification_access_user_types_/_internal_user,accorderie_echange_service_notification Access User types / Internal User,model_accorderie_echange_service_notification,base.group_user,1,1,1,1
+accorderie_echange_service_notification_access_user_types_/_portal,accorderie_echange_service_notification Access User types / Portal,model_accorderie_echange_service_notification,base.group_portal,1,1,1,1
 accorderie_fichier_access_user_types_/_internal_user,accorderie_fichier Access User types / Internal User,model_accorderie_fichier,base.group_user,1,1,1,1
 accorderie_fichier_access_user_types_/_portal,accorderie_fichier Access User types / Portal,model_accorderie_fichier,base.group_portal,1,1,1,1
 accorderie_membre_access_user_types_/_internal_user,accorderie_membre Access User types / Internal User,model_accorderie_membre,base.group_user,1,1,1,1

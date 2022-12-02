@@ -16,6 +16,7 @@ odoo.define('website.accorderie_notification', function (require) {
         },
         start: function () {
             this.call('bus_service', 'addChannel', "accorderie.notification.favorite");
+            this.call('bus_service', 'addChannel', "accorderie.notification.echange");
             // TODO a bug can occur if the scope not exist or dbname is not sync fast, block in willStart with angular watch
             // this._canal_membre_update = JSON.stringify([this._global_scope.global.dbname, "accorderie.membre", this._global_scope.personal.id]);
             // console.warn(this._canal_membre_update);
@@ -48,6 +49,8 @@ odoo.define('website.accorderie_notification', function (require) {
             let canal_membre_update = JSON.stringify([$scope.global.dbname, "accorderie.membre", $scope.personal.id]);
             let canal_offre_service_update = JSON.stringify([$scope.global.dbname, "accorderie.offre.service", $scope.personal.id]);
             let canal_demande_service_update = JSON.stringify([$scope.global.dbname, "accorderie.demande.service", $scope.personal.id]);
+            let canal_notif_echange_new = JSON.stringify([$scope.global.dbname, "accorderie.echange.service.notification", $scope.personal.id]);
+            let canal_notif_echange_update = JSON.stringify([$scope.global.dbname, "accorderie.echange.service.notification", "UPDATE", $scope.personal.id]);
             console.debug(notifications);
             // Cannot use each, because need to update scope at the end for optimisation
             // _.each(notifications, function (notification) {
@@ -109,6 +112,26 @@ odoo.define('website.accorderie_notification', function (require) {
                                 console.error("Not support value '" + value + "' from membre_favoris_ids channel '" + channel + "' model 'accorderie.membre'");
                             }
                         }
+                    }
+                } else if (channel === canal_notif_echange_new) {
+                    let data = message.data;
+                    if (data.hasOwnProperty("type_notification")) {
+                        $scope.lst_notification.unshift(data);
+                        has_update = true;
+                    }
+                } else if (channel === canal_notif_echange_update) {
+                    let data = message.data;
+                    if (data.hasOwnProperty("type_notification")) {
+                        let dataId = data.id;
+                        // search notification
+                        for (let i = 0; i < $scope.lst_notification.length; i++) {
+                            let notif = $scope.lst_notification[i];
+                            if (notif.id === dataId) {
+                                $scope.lst_notification[i] = data;
+                                break;
+                            }
+                        }
+                        has_update = true;
                     }
                 } else if (channel === canal_offre_service_update) {
                     let data = message.data;

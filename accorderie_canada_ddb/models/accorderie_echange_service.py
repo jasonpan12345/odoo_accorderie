@@ -150,6 +150,29 @@ class AccorderieEchangeService(models.Model):
                         )
                         vals["membre_acheteur"] = demande_service_id.membre.id
         res = super(AccorderieEchangeService, self).create(vals_list)
+        lst_notif_value = []
+        for es in res:
+            value = {}
+            # Create notification
+            if es.demande_service and es.offre_service:
+                pass
+            elif es.demande_service:
+                pass
+            elif es.offre_service:
+                value["type_notification"] = "Proposition de service"
+                value["echange_service_id"] = es.id
+                value["membre_id"] = es.membre_acheteur.id
+            else:
+                _logger.warning(
+                    "How doing notification without offre/demande service on"
+                    " échange?"
+                )
+            if value:
+                lst_notif_value.append(value)
+        if lst_notif_value:
+            self.env["accorderie.echange.service.notification"].create(
+                lst_notif_value
+            )
         return res
 
     def _compute_access_url(self):
