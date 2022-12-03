@@ -361,5 +361,13 @@
             <field name="type">url</field>
             <field name="url">/accorderie_canada_ddb_website/static/src/img/samuel_bassetto.jpeg</field>
         </record>
+        <record id="ir_attachment_abstract_blue_and_green_fluid_shape_modern_background_vector_jpg" model="ir.attachment">
+            <field name="datas_fname">abstract-blue-and-green-fluid-shape-modern-background-vector.jpg</field>
+            <field name="name">abstract-blue-and-green-fluid-shape-modern-background-vector.jpg</field>
+            <field name="public">True</field>
+            <field name="res_model">ir.ui.view</field>
+            <field name="type">url</field>
+            <field name="url">/accorderie_canada_ddb_website/static/src/img/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg</field>
+        </record>
     </data>
 </odoo>
