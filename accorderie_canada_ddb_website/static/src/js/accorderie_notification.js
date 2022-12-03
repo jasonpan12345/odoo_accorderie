@@ -2,6 +2,7 @@ odoo.define('website.accorderie_notification', function (require) {
     "use strict";
 
     require('bus.BusService');
+    let ajax = require('web.ajax');
     let core = require('web.core');
     let session = require('web.session');
     let Widget = require('web.Widget');
@@ -23,6 +24,9 @@ odoo.define('website.accorderie_notification', function (require) {
         $scope.default_section = "message";
         $scope.default_section_membre = "";
 
+        // var
+        $scope.chat_msg = "";
+
         $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
             $scope.error = "";
 
@@ -32,19 +36,38 @@ odoo.define('website.accorderie_notification', function (require) {
             } else {
                 $scope.section = $scope.default_section;
             }
+            $scope.updateMembreFromLocation();
+        });
+
+        $scope.$parent.$watch('lst_membre_message', function (value) {
+            // TODO bad design
+            if (!_.isEmpty(value) && !_.isUndefined($scope.section_membre_dct)) {
+                $scope.updateMembreFromLocation();
+            }
+        });
+
+        $scope.updateMembreFromLocation = function () {
             let section_membre = $location.search()["membre"];
             let isEmpty = true;
+            console.debug("Load chat member");
             if (!_.isEmpty(section_membre)) {
                 let membre_id = parseInt(section_membre);
                 if (Number.isInteger(membre_id)) {
+                    isEmpty = false;
+                    $scope.section_membre = membre_id;
+                    $scope.update_membre_info(membre_id, "contact_info");
+
                     let membre_dct = $scope.lst_membre_message.find(ele => ele.id === membre_id)
                     if (!_.isUndefined(membre_dct)) {
-                        isEmpty = false;
-                        $scope.section_membre = membre_id;
                         $scope.section_membre_dct = membre_dct;
-                        $scope.update_membre_info(membre_id, "contact_info");
                     } else {
-                        $scope.error = "Cannot find this member of id '" + membre_id + "'.";
+                        $scope.section_membre_dct = {
+                            "id": membre_id,
+                            "lst_msg": [],
+                        };
+                        // TODO missing "name" of user_name member
+                        $scope.lst_membre_message.push($scope.section_membre_dct)
+                        // $scope.error = "Cannot find this member of id '" + membre_id + "'.";
                     }
                 } else {
                     $scope.error = "Parameter 'membre' is not an integer.";
@@ -54,7 +77,39 @@ odoo.define('website.accorderie_notification', function (require) {
                 $scope.section_membre = $scope.default_section_membre;
                 $scope.section_membre_dct = undefined;
             }
-        });
+        }
+
+        $scope.send_chat_msg = function () {
+            let ele = document.getElementById("input_text_chat");
+            let msg = ele.value;
+            console.debug("Send msg : '" + msg + "'");
+            ele.value = "";
+            // let msg = $scope.chat_msg;
+            ajax.rpc('/accorderie/submit/chat_msg', {
+                "msg": msg,
+                "group_id": $scope.section_membre_dct.id_group,
+                "membre_id": $scope.section_membre,
+            }).then(function (data) {
+                console.debug("AJAX receive send_chat_msg");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                    // } else if (_.isEmpty(data)) {
+                    //     $scope.error = "Empty 'add_to_my_favorite' data";
+                    //     console.error($scope.error);
+                }
+
+                // Process all the angularjs watchers
+                // $scope.$digest();
+            })
+            // $scope.chat_msg = "";
+        }
+
+        $scope.press_enter_send_chat_msg = function (keyEvent) {
+            if (keyEvent.which === 13) {
+                $scope.send_chat_msg();
+            }
+        }
     }])
 
     let AccorderieNotification = Widget.extend({
@@ -67,6 +122,7 @@ odoo.define('website.accorderie_notification', function (require) {
         start: function () {
             this.call('bus_service', 'addChannel', "accorderie.notification.favorite");
             this.call('bus_service', 'addChannel', "accorderie.notification.echange");
+            this.call('bus_service', 'addChannel', "accorderie.notification.message");
             // TODO a bug can occur if the scope not exist or dbname is not sync fast, block in willStart with angular watch
             // this._canal_membre_update = JSON.stringify([this._global_scope.global.dbname, "accorderie.membre", this._global_scope.personal.id]);
             // console.warn(this._canal_membre_update);
@@ -101,6 +157,7 @@ odoo.define('website.accorderie_notification', function (require) {
             let canal_demande_service_update = JSON.stringify([$scope.global.dbname, "accorderie.demande.service", $scope.personal.id]);
             let canal_notif_echange_new = JSON.stringify([$scope.global.dbname, "accorderie.echange.service.notification", $scope.personal.id]);
             let canal_notif_echange_update = JSON.stringify([$scope.global.dbname, "accorderie.echange.service.notification", "UPDATE", $scope.personal.id]);
+            let canal_notif_chat_msg_update = JSON.stringify([$scope.global.dbname, "accorderie.chat.message", $scope.personal.id]);
             console.debug(notifications);
             // Cannot use each, because need to update scope at the end for optimisation
             // _.each(notifications, function (notification) {
@@ -167,6 +224,58 @@ odoo.define('website.accorderie_notification', function (require) {
                     let data = message.data;
                     if (data.hasOwnProperty("type_notification")) {
                         $scope.lst_notification.unshift(data);
+                        has_update = true;
+                    }
+                } else if (channel === canal_notif_chat_msg_update) {
+                    let data = message.data;
+                    if (data.hasOwnProperty("m_id")) {
+                        let msg_dct = {
+                            "id": data.id,
+                            "is_read": data.is_read,
+                            "m_id": data.m_id,
+                            "name": data.name,
+                        };
+                        // Find group
+                        let membre_dct = $scope.lst_membre_message.find(ele => ele.id_group === data.group_id)
+                        if (!_.isUndefined(membre_dct)) {
+                            // find if message already, or add it!
+                            let existing_msg = membre_dct.lst_msg.find(ele => ele.id === data.id)
+                            if (_.isUndefined(existing_msg)) {
+                                membre_dct.lst_msg.push(msg_dct);
+                                membre_dct.resume_msg = data.name;
+                                // Update scroll
+                                // let chatBody = document.getElementsByClassName("chat_body");
+                                // if (!_.isUndefined(chatBody)) {
+                                //     const scroller = chatBody[0];
+                                //     scroller.scrollTop = scroller.scrollHeight + document.getElementsByClassName("chat_msg")[0].clientHeight;
+                                // }
+                                $(".chat_body").animate({scrollTop: 20000000}, "slow");
+                            } else {
+                                console.warn("Receive message duplicated, check next msg");
+                                console.warn(data);
+                            }
+                        } else {
+                            // Check if temporary exist
+                            let membre_dct = $scope.lst_membre_message.find(ele => ele.id === data.membre_id)
+                            let group_data = {
+                                "id": data.membre_id,
+                                "id_group": data.group_id,
+                                "name": data.membre_name,
+                                "resume_msg": data.name,
+                                "lst_msg": [msg_dct]
+                            }
+                            if (!_.isUndefined(membre_dct)) {
+                                // update it
+                                membre_dct["id"] = group_data.id
+                                membre_dct["id_group"] = group_data.id_group
+                                membre_dct["name"] = group_data.name
+                                membre_dct["resume_msg"] = group_data.resume_msg
+                                membre_dct["lst_msg"] = group_data.lst_msg
+                            } else {
+                                // not exist, create it
+                                $scope.lst_membre_message.unshift(group_data);
+                            }
+                        }
                         has_update = true;
                     }
                 } else if (channel === canal_notif_echange_update) {

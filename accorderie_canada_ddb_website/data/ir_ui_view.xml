@@ -2883,12 +2883,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="chat_body">
+                                                    <div class="chat_msg" ng-repeat="msg in section_membre_dct.lst_msg">
+                                                        <img ng-if="section_membre_dct.id===msg.m_id" class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                        <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': section_membre_dct.id===msg.m_id}">{{msg.name}}</div>
+<!--                                                        <div class="msg_time">5 minutes</div>-->
+                                                    </div>
                                                 </div>
                                                 <div class="chat_footer">
                                                     <div class="input_container">
                                                         <span class="fa fa-camera debug_unimplemented" />
-                                                        <input type="text" placeholder="Écrire un message" />
-                                                        <span class="fa fa-send" />
+                                                        <input id="input_text_chat" type="text" placeholder="Écrire un message" ng-keypress="press_enter_send_chat_msg($event)" />
+                                                        <span class="fa fa-send" ng-click="send_chat_msg()" />
                                                     </div>
                                                 </div>
                                             </div>
