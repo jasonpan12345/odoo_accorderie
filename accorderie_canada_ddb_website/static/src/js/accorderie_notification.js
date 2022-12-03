@@ -7,6 +7,56 @@ odoo.define('website.accorderie_notification', function (require) {
     let Widget = require('web.Widget');
     let QWeb = core.qweb;
 
+    // Get existing module
+    let app = angular.module('AccorderieApp');
+
+    app.controller('NotificationController', ['$scope', '$location', function ($scope, $location) {
+        // NotificationController to manage page notification (message and notification)
+        $scope._ = _;
+        // Section 'message' or 'notification'
+        $scope.error = "";
+        $scope.section = "";
+        $scope.section_membre = "";
+        $scope.section_membre_dct = undefined;
+
+        // constant
+        $scope.default_section = "message";
+        $scope.default_section_membre = "";
+
+        $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
+            $scope.error = "";
+
+            let section = $location.search()["section"];
+            if (!_.isEmpty(section)) {
+                $scope.section = section;
+            } else {
+                $scope.section = $scope.default_section;
+            }
+            let section_membre = $location.search()["membre"];
+            let isEmpty = true;
+            if (!_.isEmpty(section_membre)) {
+                let membre_id = parseInt(section_membre);
+                if (Number.isInteger(membre_id)) {
+                    let membre_dct = $scope.lst_membre_message.find(ele => ele.id === membre_id)
+                    if (!_.isUndefined(membre_dct)) {
+                        isEmpty = false;
+                        $scope.section_membre = membre_id;
+                        $scope.section_membre_dct = membre_dct;
+                        $scope.update_membre_info(membre_id, "contact_info");
+                    } else {
+                        $scope.error = "Cannot find this member of id '" + membre_id + "'.";
+                    }
+                } else {
+                    $scope.error = "Parameter 'membre' is not an integer.";
+                }
+            }
+            if (isEmpty) {
+                $scope.section_membre = $scope.default_section_membre;
+                $scope.section_membre_dct = undefined;
+            }
+        });
+    }])
+
     let AccorderieNotification = Widget.extend({
         init: function (parent) {
             this._super(parent);

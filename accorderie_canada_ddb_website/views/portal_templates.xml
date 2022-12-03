@@ -558,7 +558,11 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a role="menuitem" href="/monprofil/messages" class="dropdown-item">
+                                            <a
+                                                role="menuitem"
+                                                href="/notification#!?section=message"
+                                                class="dropdown-item"
+                                            >
                                                 <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les messages
@@ -591,7 +595,11 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a role="menuitem" href="/monprofil/notifications" class="dropdown-item">
+                                            <a
+                                                role="menuitem"
+                                                href="/notification#!?section=notification"
+                                                class="dropdown-item"
+                                            >
                                                 <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les notifications

@@ -97,12 +97,6 @@
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>
-        <record id="website_page_message_prive" model="website.page">
-            <field name="url">/monprofil/messages/message</field>
-            <field name="view_id" ref="ir_ui_view_message_prive" />
-            <field name="website_id" ref="website.default_website" />
-            <field name="website_published">True</field>
-        </record>
         <record id="website_page_mon_profil" model="website.page">
             <field name="url">/monprofil</field>
             <field name="view_id" ref="ir_ui_view_mon_profil" />
@@ -128,7 +122,7 @@
             <field name="website_published">True</field>
         </record>
         <record id="website_page_messages_et_notifications" model="website.page">
-            <field name="url">/monprofil/messages</field>
+            <field name="url">/notification</field>
             <field name="view_id" ref="ir_ui_view_messages_et_notifications" />
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
@@ -136,12 +130,6 @@
         <record id="website_page_mon_activite" model="website.page">
             <field name="url">/monactivite</field>
             <field name="view_id" ref="ir_ui_view_mon_activite" />
-            <field name="website_id" ref="website.default_website" />
-            <field name="website_published">True</field>
-        </record>
-        <record id="website_page_messages_et_notifications_1" model="website.page">
-            <field name="url">/monprofil/notifications</field>
-            <field name="view_id" ref="ir_ui_view_messages_et_notifications_1" />
             <field name="website_id" ref="website.default_website" />
             <field name="website_published">True</field>
         </record>

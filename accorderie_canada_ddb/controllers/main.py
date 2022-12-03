@@ -278,7 +278,8 @@ class AccorderieCanadaDdbController(http.Controller):
                 ("echange_service_id", "=", echange_id.id),
             ]
         )
-        notif_ids.is_read = True
+        for notif in notif_ids:
+            notif.is_read = True
 
         data = {
             "id": echange_id.id,
