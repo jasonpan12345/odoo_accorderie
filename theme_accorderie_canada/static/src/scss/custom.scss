@@ -3091,7 +3091,7 @@ actualité
   .chat_body {
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow-y: auto;
     .chat_msg {
       width: 100%;
       height: auto;
