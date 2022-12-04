@@ -2908,6 +2908,8 @@
                                 </span>
                                 <span ng-if="section_membre===''">
                                     <section class="s_title_banner oe_img_bg oe_custom_bg pt56 pb64" style="background-image: url(&quot;/accorderie_canada_ddb_website/static/src/img/abstract-blue-and-green-fluid-shape-modern-background-vector.jpg&quot;);">
+                                        <!-- TODO missing link back -->
+                                        <!--                                        <p>Mon profil > Mes préférences générales</p>-->
                                         <div class="row s_nb_column_fixed">
                                             <div class="col-lg-12 s_title pt16 pb16">
                                                 <p class="s_title_default text-gamma">
@@ -2943,7 +2945,7 @@
                                                             <h4 class="message_auteur">{{msg.name}}</h4>
                                                             <p class="message">{{msg.resume_msg}}</p>
                                                         </div>
-                                                        <span>{{msg.last_date}}</span>
+                                                        <span class="debug_unimplemented">{{msg.last_date}}</span>
                                                     </div>
                                                 </a>
                                             </div>
@@ -2962,7 +2964,7 @@
                                                             <h4 class="message_auteur">{{notif.type_notification}}</h4>
                                                             <p class="message">{{notif.name}}</p>
                                                         </div>
-                                                        <span>5 min</span>
+                                                        <span class="debug_unimplemented">5 min</span>
                                                     </div>
                                                 </a>
                                             </div>
@@ -3043,7 +3045,14 @@
                                             <br />
                                             <span class="txt">Voir mes offres, demandes et membres favoris.</span>
                                         </a>
-                                        <a class="information information-5 btn debug_unimplemented" href="monprofil/mespreferences">
+                                        <a class="information information-5 btn" href="/notification">
+                                            <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
+                                            <br />
+                                            <span class="nbr">Mes messages et notifications</span>
+                                            <br />
+                                            <span class="txt">Voir mes messages et notifications</span>
+                                        </a>
+                                        <a class="information information-6 btn debug_unimplemented" href="monprofil/mespreferences">
                                             <img src="/web/image/accorderie_canada_ddb_website.ir_attachment_profil_preferences_png/Profil-Preferences.png" />
                                             <br />
                                             <span class="nbr">Mes pr&#233;f&#233;rences g&#233;n&#233;rales</span>
