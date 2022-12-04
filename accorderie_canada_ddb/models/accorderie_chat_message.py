@@ -47,13 +47,24 @@ class AccorderieChatMessage(models.Model):
             data["group_id"] = rec.msg_group_id.id
             for membre_id in rec.msg_group_id.membre_ids:
                 # Update value for the other member
-                other_membre_id = [
-                    a
-                    for a in rec.msg_group_id.membre_ids
-                    if a.id != membre_id.id
-                ][0]
-                data["membre_id"] = other_membre_id.id
-                data["membre_name"] = other_membre_id.nom_complet
+                if len(rec.msg_group_id.membre_ids) > 1:
+                    other_membre_id = [
+                        a
+                        for a in rec.msg_group_id.membre_ids
+                        if a.id != membre_id.id
+                    ][0]
+                    data["membre_id"] = other_membre_id.id
+                    data["membre_name"] = other_membre_id.nom_complet
+                elif len(rec.msg_group_id.membre_ids) == 1:
+                    data["membre_id"] = rec.msg_group_id.membre_ids[0].id
+                    data["membre_name"] = rec.msg_group_id.membre_ids[
+                        0
+                    ].nom_complet
+                else:
+                    _logger.warning(
+                        "Why message is missing members, len member is"
+                        f" '{len(rec.msg_group_id.membre_ids)}'?"
+                    )
 
                 self.env["bus.bus"].sendone(
                     # f'["{self._cr.dbname}","{self._name}",{rec.id}]',

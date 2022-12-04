@@ -25,7 +25,7 @@ odoo.define('website.accorderie_notification', function (require) {
         $scope.default_section_membre = "";
 
         // var
-        $scope.chat_msg = "";
+        // $scope.chat_msg = "";
 
         $scope.$on('$locationChangeSuccess', function (object, newLocation, previousLocation) {
             $scope.error = "";
@@ -67,6 +67,9 @@ odoo.define('website.accorderie_notification', function (require) {
                         };
                         // TODO missing "name" of user_name member
                         $scope.lst_membre_message.push($scope.section_membre_dct)
+                        setTimeout(function () {
+                            $(".chat_body").animate({scrollTop: 20000000}, "slow");
+                        }, 125);
                         // $scope.error = "Cannot find this member of id '" + membre_id + "'.";
                     }
                 } else {
@@ -94,9 +97,21 @@ odoo.define('website.accorderie_notification', function (require) {
                 if (data.error || !_.isUndefined(data.error)) {
                     $scope.error = data.error;
                     console.error($scope.error);
-                    // } else if (_.isEmpty(data)) {
-                    //     $scope.error = "Empty 'add_to_my_favorite' data";
-                    //     console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    let error = "Empty 'send_chat_msg' data";
+                    console.error(error);
+                    // TODO mauvaise stratégie, on s'en fou du status, ça permet juste d'Économiser des petites secondes
+                    // TODO erreur, il faut inverser le m_id
+                    // TODO il faut ajouter l'information avant le ajax et mettre à jour son ID
+                    // } else {
+                    //     data = {
+                    //         "id": status.msg_id,
+                    //         "is_read": true,
+                    //         // "m_id": $scope.section_membre,
+                    //         "m_id": $scope.personal.id,
+                    //         "name": msg
+                    //     }
+                    //     $scope.section_membre_dct.lst_msg.push(data);
                 }
 
                 // Process all the angularjs watchers
@@ -120,6 +135,7 @@ odoo.define('website.accorderie_notification', function (require) {
             return this._loadQWebTemplate();
         },
         start: function () {
+            // TODO channel name devrait être un hash unique par membre
             this.call('bus_service', 'addChannel', "accorderie.notification.favorite");
             this.call('bus_service', 'addChannel', "accorderie.notification.echange");
             this.call('bus_service', 'addChannel', "accorderie.notification.message");
@@ -271,9 +287,13 @@ odoo.define('website.accorderie_notification', function (require) {
                                 membre_dct["name"] = group_data.name
                                 membre_dct["resume_msg"] = group_data.resume_msg
                                 membre_dct["lst_msg"] = group_data.lst_msg
+                                // TODO never use this case
+                                console.debug("We use this case, update existing membre_message.")
                             } else {
                                 // not exist, create it
                                 $scope.lst_membre_message.unshift(group_data);
+                                let $scope_notification = angular.element(document.querySelector('[ng-controller="NotificationController"]')).scope();
+                                $scope_notification.section_membre_dct = group_data;
                             }
                         }
                         has_update = true;

@@ -2003,9 +2003,9 @@ class AccorderieCanadaDdbController(http.Controller):
             "membre_writer_id": me_membre_id.id,
             "msg_group_id": group_id,
         }
-        http.request.env["accorderie.chat.message"].create(value)
+        message_id = http.request.env["accorderie.chat.message"].create(value)
 
-        status = {}
+        status = {"msg_id": message_id}
         return status
 
     @http.route(

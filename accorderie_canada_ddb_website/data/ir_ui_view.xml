@@ -2863,11 +2863,13 @@
                                             <i class="fa fa-arrow-left text-primary" />
                                             Revenir à mes messages
                                         </a>
-                                        <div class="actions debug_unimplemented">
-                                            <div>
-                                                <i class="fa fa-video text-primary icon_padding_right" />
-                                            Vidéoconférence
-                                            </div>
+                                        <div class="actions">
+                                            <a ng-if="!_.isUndefined(section_membre_dct) &amp;&amp; _.isNumber(section_membre_dct.id_group)" ng-href="https://meet.jit.si/accorderie_conference_{{section_membre_dct.id_group}}_jitsi">
+                                                <div>
+                                                    <i class="fa fa-video text-primary icon_padding_right" />
+                                                Vidéoconférence
+                                                </div>
+                                            </a>
                                         </div>
                                     </section>
                                     <section class="s_chat pt80 pb160">
@@ -2884,8 +2886,8 @@
                                                 </div>
                                                 <div class="chat_body">
                                                     <div class="chat_msg" ng-repeat="msg in section_membre_dct.lst_msg">
-                                                        <img ng-if="section_membre_dct.id===msg.m_id" class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
-                                                        <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': section_membre_dct.id===msg.m_id}">{{msg.name}}</div>
+                                                        <img ng-if="section_membre_dct.id===msg.m_id &amp;&amp; personal.id!==section_membre_dct.id" class="contact_pic rounded-circle" src="/web/image/accorderie_canada_ddb_website.ir_attachment_freestocks_9uvmlib0wju_unsplash_jpg/freestocks-9UVmlIb0wJU-unsplash.jpg" />
+                                                        <div class="msg" ng-class="{'my_msg': personal.id===msg.m_id, 'their_msg': section_membre_dct.id===msg.m_id &amp;&amp; personal.id!==section_membre_dct.id}">{{msg.name}}</div>
 <!--                                                        <div class="msg_time">5 minutes</div>-->
                                                     </div>
                                                 </div>
