@@ -85,6 +85,10 @@ odoo.define('website.accorderie_notification', function (require) {
         $scope.send_chat_msg = function () {
             let ele = document.getElementById("input_text_chat");
             let msg = ele.value;
+            if (_.isEmpty(msg)) {
+                console.debug("Ignore empty chat message.");
+                return;
+            }
             console.debug("Send msg : '" + msg + "'");
             ele.value = "";
             // let msg = $scope.chat_msg;
@@ -128,6 +132,9 @@ odoo.define('website.accorderie_notification', function (require) {
     }])
 
     let AccorderieNotification = Widget.extend({
+        // properties
+        _audio: null,
+
         init: function (parent) {
             this._super(parent);
         },
@@ -161,10 +168,28 @@ odoo.define('website.accorderie_notification', function (require) {
             return $.when.apply($, defs);
         },
         /**
+         * Lazily play the 'beep' audio on sent notification
+         *
+         * @private
+         */
+        _beep: function () {
+            if (typeof (Audio) !== "undefined") {
+                if (!this._audio) {
+                    this._audio = new Audio();
+                    let ext = this._audio.canPlayType("audio/ogg; codecs=vorbis") ? ".ogg" : ".mp3";
+                    let session = this.getSession();
+                    this._audio.src = session.url("/mail/static/src/audio/ting" + ext);
+                }
+                this._audio.play();
+                console.debug("beep");
+            }
+        },
+        /**
          * @private
          * @param {Array[]} notifications
          */
         _onNotification: function (notifications) {
+            let has_beep = false;
             let has_update = false;
             let $scope = angular.element($("[ng-app]")).scope();
             // Recreate it solves a strange bug
@@ -240,10 +265,20 @@ odoo.define('website.accorderie_notification', function (require) {
                     let data = message.data;
                     if (data.hasOwnProperty("type_notification")) {
                         $scope.lst_notification.unshift(data);
+                        if (!has_beep) {
+                            this._beep();
+                            has_beep = true;
+                        }
                         has_update = true;
                     }
                 } else if (channel === canal_notif_chat_msg_update) {
                     let data = message.data;
+                    if (data.m_id !== $scope.personal.id) {
+                        if (!has_beep) {
+                            this._beep();
+                            has_beep = true;
+                        }
+                    }
                     if (data.hasOwnProperty("m_id")) {
                         let msg_dct = {
                             "id": data.id,
