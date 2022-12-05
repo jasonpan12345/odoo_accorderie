@@ -255,6 +255,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             actual_bank_time_human_short: "0h",
             actual_bank_time_human_simplify: "0 heure",
             actual_month_bank_time_human_short: "0h",
+            nb_echange_a_venir: 0,
+            nb_echange_en_cours: 0,
+            nb_echange_passe: 0,
             estPersonnel: true,
             dct_echange_mensuel: {},
 
@@ -2855,6 +2858,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
             $scope.personal.actual_month_bank_time_human_short = $scope.convertNumToTime($scope.personal.actual_month_bank_hours, 4);
 
+            $scope.personal.nb_echange_en_cours = Object.values($scope.personal.dct_echange).filter(ex => !ex.transaction_valide && moment().isAfter(ex.date) && moment().isBefore(ex.end_date)).length;
+            $scope.personal.nb_echange_a_venir = Object.values($scope.personal.dct_echange).filter(ex => !ex.transaction_valide && moment().isBefore(ex.date)).length
+            $scope.personal.nb_echange_passe = Object.values($scope.personal.dct_echange).filter(ex => !ex.transaction_valide && moment().isAfter(ex.date)).length
+
             let month_key = moment(Date.now()).format("MMMM YYYY");
             $scope.personal.dct_echange_mensuel = {};
             $scope.personal.dct_echange_mensuel[month_key] = {
@@ -3660,6 +3667,25 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
             if (!_.isUndefined(copiedForm.time_drive_estimated) && !_.isUndefined(copiedForm.time_dure_trajet)) {
                 copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_dure_trajet);
+            }
+
+            // Transform date local to UTC
+            let date_service;
+            if (!_.isUndefined(copiedForm.date_service)) {
+                date_service = copiedForm.date_service;
+            } else if (!_.isUndefined(copiedForm.date_name)) {
+                date_service = copiedForm.date_name;
+            }
+            if (!_.isUndefined(date_service)) {
+                // Don't transform if missing time, because the date will be the same
+                if (!_.isUndefined(copiedForm.time_service)) {
+                    date_service += " " + copiedForm.time_service;
+                } else if (!_.isUndefined(copiedForm.time_name)) {
+                    date_service += " " + copiedForm.time_name;
+                }
+                let utc_date_service = moment(date_service).utc();
+                copiedForm.date_service = utc_date_service.format("YYYY-MM-DD");
+                copiedForm.time_service = utc_date_service.format("HH:mm");
             }
 
             console.log(copiedForm);

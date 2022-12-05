@@ -7,6 +7,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 
 import humanize
+import pytz
 import requests
 import werkzeug
 
@@ -292,7 +293,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "description_demande_service": echange_id.demande_service.description,
             "categorie_demande_service": echange_id.demande_service.type_service_id.nom_complet,
             "has_demande_service": bool(echange_id.demande_service),
-            "date": echange_id.date_echange,
+            "date": self.datetime_to_local(echange_id.date_echange),
             "duree_estime": echange_id.nb_heure_estime,
             "duree": echange_id.nb_heure,
             "duree_trajet_estime": echange_id.nb_heure_estime_duree_trajet,
@@ -331,7 +332,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 end_date = echange_id.date_echange + dt.timedelta(
                     hours=echange_id.nb_heure_estime
                 )
-            data["end_date"] = end_date
+            data["end_date"] = self.datetime_to_local(end_date)
 
         if echange_id.offre_service:
             data["offre_service"] = echange_id.offre_service.id
@@ -351,15 +352,20 @@ class AccorderieCanadaDdbController(http.Controller):
         env = request.env(context=dict(request.env.context))
 
         accorderie_demande_service_cls = env["accorderie.demande.service"]
+        dct_value = {}
         if demande_service:
             accorderie_demande_service_id = (
                 accorderie_demande_service_cls.sudo()
                 .browse(demande_service)
                 .exists()
             )
+            dct_value[
+                "accorderie_demande_service_id"
+            ] = accorderie_demande_service_id
             str_diff_time = self._transform_str_diff_time_creation(
                 accorderie_demande_service_id.create_date
             )
+            dct_value["str_diff_time"] = str_diff_time
             if (
                 accorderie_demande_service_id
                 and accorderie_demande_service_id.membre
@@ -367,13 +373,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 str_distance = find_distance_from_user(
                     env, accorderie_demande_service_id.membre.adresse
                 )
-        else:
-            accorderie_demande_service_id = None
-        dct_value = {
-            "accorderie_demande_service_id": accorderie_demande_service_id,
-            "str_diff_time": str_diff_time,
-            "str_distance": str_distance,
-        }
+                dct_value["str_distance"] = str_distance
 
         # Render page
         return request.render(
@@ -610,6 +610,14 @@ class AccorderieCanadaDdbController(http.Controller):
             }
         return membre_id
 
+    def datetime_to_local(self, field_input):
+        # Source 'def datetime(self, field_label, field_input):'
+        user_tz = pytz.timezone(
+            request.context.get("tz") or request.env.user.tz or "UTC"
+        )
+        local_time = pytz.utc.localize(field_input).astimezone(user_tz)
+        return local_time
+
     def _generate_dct_echange_service(self, echange_service_id, est_acheteur):
         date_echange = echange_service_id.date_echange
 
@@ -633,8 +641,12 @@ class AccorderieCanadaDdbController(http.Controller):
             "id": echange_service_id.id,
             "transaction_valide": echange_service_id.transaction_valide,
             "membre": {
-                "id": echange_service_id.membre_vendeur.id,
-                "full_name": echange_service_id.membre_vendeur.nom_complet,
+                "id": echange_service_id.membre_vendeur.id
+                if est_acheteur
+                else echange_service_id.membre_acheteur.id,
+                "full_name": echange_service_id.membre_vendeur.nom_complet
+                if est_acheteur
+                else echange_service_id.membre_acheteur.nom_complet,
             },
             "sujet_offre_service": echange_service_id.offre_service.titre,
             "description_offre_service": echange_service_id.offre_service.description,
@@ -644,8 +656,8 @@ class AccorderieCanadaDdbController(http.Controller):
             "description_demande_service": echange_service_id.demande_service.description,
             "categorie_demande_service": echange_service_id.demande_service.type_service_id.nom_complet,
             "has_demande_service": bool(echange_service_id.demande_service),
-            "date": echange_service_id.date_echange,
-            "end_date": end_date,
+            "date": self.datetime_to_local(echange_service_id.date_echange),
+            "end_date": self.datetime_to_local(end_date),
             "temps": date_echange.hour + date_echange.minute / 60.0,
             "duree_estime": echange_service_id.nb_heure_estime,
             "duree": echange_service_id.nb_heure,
@@ -929,7 +941,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "is_favorite": is_favorite,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
-                "date_creation": membre_id.create_date,
+                "date_creation": self.datetime_to_local(membre_id.create_date),
                 "location": membre_id.ville.nom,
                 "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
                 "sexe": membre_id.sexe,
@@ -1066,7 +1078,7 @@ class AccorderieCanadaDdbController(http.Controller):
         lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
             {
                 "id": a.id,
-                "right_html": a.create_date,
+                "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
             for a in me_membre_id.echange_service_acheteur_ids
@@ -1175,7 +1187,7 @@ class AccorderieCanadaDdbController(http.Controller):
             {
                 "id": a.id,
                 "html": f"Par {a.membre_vendeur.nom_complet}",
-                "right_html": a.create_date,
+                "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
             for a in membre_id.echange_service_acheteur_ids
@@ -1187,7 +1199,7 @@ class AccorderieCanadaDdbController(http.Controller):
             {
                 "id": a.id,
                 "html": f"Pour {a.membre_acheteur.nom_complet}",
-                "right_html": a.create_date,
+                "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
             for a in membre_id.echange_service_vendeur_ids
@@ -1526,11 +1538,14 @@ class AccorderieCanadaDdbController(http.Controller):
                 "fast_btn_guide_url": state_id.help_fast_btn_guide_url,
                 "fast_btn_form_url": state_id.help_fast_btn_form_url,
                 "maquette_link": state_id.maquette_link,
-                "date_last_update": state_id.help_date_last_update,
                 "validate_bug": state_id.help_validate_bug,
                 "video_url": state_id.help_video_url,
                 "not_implemented": state_id.not_implemented,
             }
+            if state_id.help_date_last_update:
+                sub_data["date_last_update"] = self.datetime_to_local(
+                    state_id.help_date_last_update
+                )
             if state_id.caract_offre_demande_nouveau_existante:
                 sub_data[
                     "caract_offre_demande_nouveau_existante"
@@ -1822,13 +1837,13 @@ class AccorderieCanadaDdbController(http.Controller):
 
             # TODO bug why init.saa.recevoir.choix.existant.time.form use date_name and not date_service
             # TODO check date_service UI activated by animation (or by user click)
+            # Assume date is in UTC from client
             date_service = kw.get("date_service") or kw.get("date_name")
             if date_service:
                 date_echange = date_service
                 time_service = kw.get("time_service") or kw.get("time_name")
                 if time_service:
                     date_echange += " " + time_service
-                    # TODO Take date from local of user
                     date_echange_float = datetime.strptime(
                         date_echange, "%Y-%m-%d %H:%M"
                     )
