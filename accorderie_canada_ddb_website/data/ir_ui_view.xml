@@ -1096,6 +1096,7 @@
                                     <li data-target="#myCarousel1669471269891" data-slide-to="4" />
                                     <li data-target="#myCarousel1669471269891" data-slide-to="5" />
                                     <li data-target="#myCarousel1669471269891" data-slide-to="6" />
+                                    <li data-target="#myCarousel1669471269891" data-slide-to="7" />
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item bg-200 pt80 pb80 active" data-name="Slide" style="">
@@ -1105,12 +1106,11 @@
                                                     <p>
                                                         <a href="https://mathieubenoit.ca/" class="btn btn-alpha rounded-circle">Mathieu Benoit
                                                         </a>
-                                                        <br />
                                                     </p>
                                                     <footer>
                                                         <img class="img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_mathieu_benoit_logo_jpg/Mathieu-Benoit-Logo.jpg" alt="" />
                                                         <span>—
-                                                            <b>Développement général, gestion, intégration et automatisation</b>
+                                                            <b>Développement</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
@@ -1121,15 +1121,11 @@
                                         <div class="container">
                                             <div class="row content">
                                                 <blockquote class="carousel-content col-lg-6 bg-white offset-lg-3">
-                                                    <p>Samuel Bassetto
-                                                        <br />
-                                                    </p>
+                                                    <p>Samuel Bassetto</p>
                                                     <footer>
                                                         <img class="img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_samuel_bassetto_jpeg/samuel_bassetto.jpeg" alt="" />
                                                         <span>—
-                                                            <b>Instigateur du projet, supervision, coaching
-                                                                <br />
-                                                            </b>
+                                                            <b>Direction</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
@@ -1145,9 +1141,21 @@
                                                     </p>
                                                     <footer>
                                                         <span>—
-                                                            <b>Design de la maquette
-                                                                <br />
-                                                            </b>
+                                                            <b>Designer</b>
+                                                        </span>
+                                                    </footer>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item bg-200 pt80 pb80" data-name="Slide" style="">
+                                        <div class="container">
+                                            <div class="row content">
+                                                <blockquote class="carousel-content col-lg-6 bg-white offset-lg-3">
+                                                    <p>Nadia Mohammed-Azizi</p>
+                                                    <footer>
+                                                        <span>—
+                                                            <b>Directrice Accorderie</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
@@ -1159,13 +1167,10 @@
                                             <div class="row content">
                                                 <blockquote class="carousel-content col-lg-6 bg-white offset-lg-3">
                                                     <p>Jason Pan
-                                                        <br />
                                                     </p>
                                                     <footer>
                                                         <span>—
-                                                            <b>Intégration de la maquette
-                                                                <br />
-                                                            </b>
+                                                            <b>Intégration</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
@@ -1177,12 +1182,11 @@
                                             <div class="row content">
                                                 <blockquote class="carousel-content col-lg-6 bg-white offset-lg-3">
                                                     <p>Marie-Michèle Poulin
-                                                        <br />
                                                     </p>
                                                     <footer>
                                                         <img class="img" src="/web/image/accorderie_canada_ddb_website.ir_attachment_marieplume_logo_png/marieplume_logo.png" alt="" />
                                                         <span>—
-                                                            <b>Communications, rédaction, révision</b>
+                                                            <b>Contenu</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
@@ -1196,7 +1200,7 @@
                                                     <p>Garrick Cabour</p>
                                                     <footer>
                                                         <span>—
-                                                            <b>Chargé de projet</b>
+                                                            <b>Interface projet</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
@@ -1210,7 +1214,7 @@
                                                     <p>Sarah Batha</p>
                                                     <footer>
                                                         <span>—
-                                                            <b>Chargée de projet</b>
+                                                            <b>Interface projet</b>
                                                         </span>
                                                     </footer>
                                                 </blockquote>
