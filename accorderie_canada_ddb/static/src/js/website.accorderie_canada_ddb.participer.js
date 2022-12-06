@@ -497,7 +497,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.show_and_generate_qrcode = function () {
             $scope.show_qrcode_modal = true;
             let urlToCopy = $location.$$absUrl;
-            new QRCode(document.getElementById("qrcode"), urlToCopy);
+            let qrcode_dom = document.getElementById("qrcode");
+            // Force clean old QR Code
+            qrcode_dom.innerHTML = "";
+            new QRCode(qrcode_dom, urlToCopy);
         }
 
         $scope.show_camera_qrcode_modal = false;
