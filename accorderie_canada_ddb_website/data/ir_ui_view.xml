@@ -2037,9 +2037,16 @@
                                                 <span class="img img-fluid mx-auto fa fa-pencil" />
                                                 Modifier le profil
                                             </div>
+                                            <div class="modif_btn btn btn-primary debug_unimplemented" ng-if="!membre_info.estPersonnel">
+                                                S'accorder avec {{membre_info.prenom}}
+                                            </div>
+                                            <a ng-href="/notification#!?section=message&amp;membre={{membre_info.id}}">
+                                                <div class="modif_btn btn btn-primary" ng-if="!membre_info.estPersonnel">
+                                                    Contacter {{membre_info.prenom}}
+                                                </div>
+                                            </a>
                                             <div class="modif_btn btn btn-primary" ng-click="add_to_my_favorite('accorderie.membre', membre_info)">
-<!--                                                <h2 class="fa text-epsilon" ng-class="{'fa-heart': offre_service.is_favorite, 'fa-heart-o': !offre_service.is_favorite}" />-->
-                                                <i class="fa" ng-class="{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}" />
+                                                <span class="img img-fluid mx-auto fa" ng-class="{'fa-heart': membre_info.is_favorite, 'fa-heart-o': !membre_info.is_favorite}" />
                                                 <span ng-if="!membre_info.is_favorite">Ajouter à mes favoris</span>
                                                 <span ng-if="membre_info.is_favorite">Retirer de mes favoris</span>
                                             </div>
