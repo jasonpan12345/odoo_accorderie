@@ -693,6 +693,10 @@
                                     ng-if="!_.isEmpty(state.maquette_link)"
                                     ng-href="{{state.maquette_link}}"
                                 >{{state.maquette_link}}</a><br />
+                                Lien mobile : <a
+                                    ng-if="_.isEmpty(state.maquette_link)"
+                                    href="https://marvelapp.com/prototype/6dbaaf8/screen/84804882"
+                                >https://marvelapp.com/prototype/6dbaaf8/screen/84804882</a><br />
                                 Debug form: <span>{{form || json}}</span>
                                 <br />
                                 Debug state: <span>{{state || json}}</span>
