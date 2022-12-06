@@ -7,6 +7,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 
 import humanize
+import pytz
 import requests
 import werkzeug
 
@@ -87,7 +88,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/accorderie_offre_service/<int:offre_service>"
         ],
         type="http",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_page_offre_service(self, offre_service=None, **kw):
@@ -142,6 +143,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "id": offre_id.id,
             "description": offre_id.description,
             "titre": offre_id.titre,
+            "publie": offre_id.publie,
             "is_favorite": me_membre_id.id in offre_id.membre_favoris_ids.ids,
             "distance": "8m",
             "membre_id": offre_id.membre.id,
@@ -164,11 +166,13 @@ class AccorderieCanadaDdbController(http.Controller):
     )
     def get_all_offre_service(self, **kw):
         me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
-        return {
+        # don't return not publie if not same member
+        value = {
             a.id: {
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
+                "publie": a.publie,
                 "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
                 "distance": "8m",
                 "membre_id": a.membre.id,
@@ -181,7 +185,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 ),
             }
             for a in http.request.env["accorderie.offre.service"].search([])
+            if a.membre.id == me_membre_id.id or a.publie
         }
+        return value
 
     @http.route(
         [
@@ -193,7 +199,8 @@ class AccorderieCanadaDdbController(http.Controller):
     )
     def get_all_demande_service(self, **kw):
         me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
-        return {
+        # don't return not publie if not same member
+        value = {
             a.id: {
                 "id": a.id,
                 "description": a.description,
@@ -210,7 +217,9 @@ class AccorderieCanadaDdbController(http.Controller):
                 ),
             }
             for a in http.request.env["accorderie.demande.service"].search([])
+            if a.membre.id == me_membre_id.id or a.publie
         }
+        return value
 
     @http.route(
         [
@@ -226,6 +235,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "id": demande_id.id,
             "description": demande_id.description,
             "titre": demande_id.titre,
+            "publie": demande_id.publie,
             "is_favorite": me_membre_id.id
             in demande_id.membre_favoris_ids.ids,
             "distance": "8m",
@@ -260,6 +270,18 @@ class AccorderieCanadaDdbController(http.Controller):
                 )
             }
 
+        # Update notification
+        notif_ids = request.env[
+            "accorderie.echange.service.notification"
+        ].search(
+            [
+                ("membre_id", "=", me_membre_id.id),
+                ("echange_service_id", "=", echange_id.id),
+            ]
+        )
+        for notif in notif_ids:
+            notif.is_read = True
+
         data = {
             "id": echange_id.id,
             "transaction_valide": echange_id.transaction_valide,
@@ -271,7 +293,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "description_demande_service": echange_id.demande_service.description,
             "categorie_demande_service": echange_id.demande_service.type_service_id.nom_complet,
             "has_demande_service": bool(echange_id.demande_service),
-            "date": echange_id.date_echange,
+            "date": self.datetime_to_local(echange_id.date_echange),
             "duree_estime": echange_id.nb_heure_estime,
             "duree": echange_id.nb_heure,
             "duree_trajet_estime": echange_id.nb_heure_estime_duree_trajet,
@@ -310,7 +332,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 end_date = echange_id.date_echange + dt.timedelta(
                     hours=echange_id.nb_heure_estime
                 )
-            data["end_date"] = end_date
+            data["end_date"] = self.datetime_to_local(end_date)
 
         if echange_id.offre_service:
             data["offre_service"] = echange_id.offre_service.id
@@ -323,22 +345,27 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/accorderie_demande_service/<int:demande_service>"
         ],
         type="http",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_page_demande_service(self, demande_service=None, **kw):
         env = request.env(context=dict(request.env.context))
 
         accorderie_demande_service_cls = env["accorderie.demande.service"]
+        dct_value = {}
         if demande_service:
             accorderie_demande_service_id = (
                 accorderie_demande_service_cls.sudo()
                 .browse(demande_service)
                 .exists()
             )
+            dct_value[
+                "accorderie_demande_service_id"
+            ] = accorderie_demande_service_id
             str_diff_time = self._transform_str_diff_time_creation(
                 accorderie_demande_service_id.create_date
             )
+            dct_value["str_diff_time"] = str_diff_time
             if (
                 accorderie_demande_service_id
                 and accorderie_demande_service_id.membre
@@ -346,13 +373,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 str_distance = find_distance_from_user(
                     env, accorderie_demande_service_id.membre.adresse
                 )
-        else:
-            accorderie_demande_service_id = None
-        dct_value = {
-            "accorderie_demande_service_id": accorderie_demande_service_id,
-            "str_diff_time": str_diff_time,
-            "str_distance": str_distance,
-        }
+                dct_value["str_distance"] = str_distance
 
         # Render page
         return request.render(
@@ -365,7 +386,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/offre_service_accorderie_offre_service_and_demande_service_accorderie_demande_service_list"
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_offre_service_accorderie_offre_service_and_demande_service_accorderie_demande_service_list(
@@ -374,16 +395,19 @@ class AccorderieCanadaDdbController(http.Controller):
         env = request.env(context=dict(request.env.context))
 
         accorderie_offre_service_cls = env["accorderie.offre.service"]
+        # TODO use write_date instead of create_date ?
         accorderie_offre_service_ids = (
             accorderie_offre_service_cls.sudo()
-            .search([], order="create_date desc", limit=3)
+            .search([("publie", "=", True)], order="create_date desc", limit=3)
             .ids
         )
         offre_services = accorderie_offre_service_cls.sudo().browse(
             accorderie_offre_service_ids
         )
         offre_services_count = (
-            accorderie_offre_service_cls.sudo().search_count([])
+            accorderie_offre_service_cls.sudo().search_count(
+                [("publie", "=", True)]
+            )
         )
         lst_icon_offre_service = []
         lst_distance_offre_service = []
@@ -406,14 +430,16 @@ class AccorderieCanadaDdbController(http.Controller):
         accorderie_demande_service_cls = env["accorderie.demande.service"]
         accorderie_demande_service_ids = (
             accorderie_demande_service_cls.sudo()
-            .search([], order="create_date desc", limit=3)
+            .search([("publie", "=", True)], order="create_date desc", limit=3)
             .ids
         )
         demande_services = accorderie_demande_service_cls.sudo().browse(
             accorderie_demande_service_ids
         )
         demande_services_count = (
-            accorderie_demande_service_cls.sudo().search_count([])
+            accorderie_demande_service_cls.sudo().search_count(
+                [("publie", "=", True)]
+            )
         )
         lst_icon_demande_service = []
         lst_distance_demande_service = []
@@ -472,7 +498,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/type_service_categorie/<int:type_service_categorie>"
         ],
         type="http",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_page_type_service_categorie(
@@ -504,7 +530,7 @@ class AccorderieCanadaDdbController(http.Controller):
     @http.route(
         ["/accorderie_canada_ddb/type_service_categorie_list"],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_type_service_categorie_list(self, **kw):
@@ -533,7 +559,7 @@ class AccorderieCanadaDdbController(http.Controller):
     @http.route(
         ["/participer"],
         type="http",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_page_participer(self, **kw):
@@ -584,6 +610,14 @@ class AccorderieCanadaDdbController(http.Controller):
             }
         return membre_id
 
+    def datetime_to_local(self, field_input):
+        # Source 'def datetime(self, field_label, field_input):'
+        user_tz = pytz.timezone(
+            request.context.get("tz") or request.env.user.tz or "UTC"
+        )
+        local_time = pytz.utc.localize(field_input).astimezone(user_tz)
+        return local_time
+
     def _generate_dct_echange_service(self, echange_service_id, est_acheteur):
         date_echange = echange_service_id.date_echange
 
@@ -607,8 +641,12 @@ class AccorderieCanadaDdbController(http.Controller):
             "id": echange_service_id.id,
             "transaction_valide": echange_service_id.transaction_valide,
             "membre": {
-                "id": echange_service_id.membre_vendeur.id,
-                "full_name": echange_service_id.membre_vendeur.nom_complet,
+                "id": echange_service_id.membre_vendeur.id
+                if est_acheteur
+                else echange_service_id.membre_acheteur.id,
+                "full_name": echange_service_id.membre_vendeur.nom_complet
+                if est_acheteur
+                else echange_service_id.membre_acheteur.nom_complet,
             },
             "sujet_offre_service": echange_service_id.offre_service.titre,
             "description_offre_service": echange_service_id.offre_service.description,
@@ -618,8 +656,8 @@ class AccorderieCanadaDdbController(http.Controller):
             "description_demande_service": echange_service_id.demande_service.description,
             "categorie_demande_service": echange_service_id.demande_service.type_service_id.nom_complet,
             "has_demande_service": bool(echange_service_id.demande_service),
-            "date": echange_service_id.date_echange,
-            "end_date": end_date,
+            "date": self.datetime_to_local(echange_service_id.date_echange),
+            "end_date": self.datetime_to_local(end_date),
             "temps": date_echange.hour + date_echange.minute / 60.0,
             "duree_estime": echange_service_id.nb_heure_estime,
             "duree": echange_service_id.nb_heure,
@@ -656,6 +694,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
+                "publie": a.publie,
                 "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
@@ -687,6 +726,7 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in http.request.env["accorderie.offre.service"].search(
                 [("membre_favoris_ids", "=", membre_id.id)]
             )
+            if a.publie
         }
 
         dct_demande_service = {
@@ -694,6 +734,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
+                "publie": a.publie,
                 "is_favorite": membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
@@ -725,6 +766,7 @@ class AccorderieCanadaDdbController(http.Controller):
             for a in http.request.env["accorderie.demande.service"].search(
                 [("membre_favoris_ids", "=", membre_id.id)]
             )
+            if a.publie
         }
 
         dct_membre_favoris = {
@@ -776,10 +818,27 @@ class AccorderieCanadaDdbController(http.Controller):
         # for v in v2:
         #     month_bank_time -= v.nb_heure
         # bank_time = 15 + month_bank_time
+
+        lst_notification = [
+            a.first_to_json()
+            for a in http.request.env[
+                "accorderie.echange.service.notification"
+            ].search([("membre_id", "=", membre_id.id)])
+        ]
+
+        lst_membre_message = [
+            a.first_to_json(membre_id.id)
+            for a in http.request.env["accorderie.chat.group"].search(
+                [("membre_ids", "in", [membre_id.id])]
+            )
+        ]
+
         return {
             "global": {
                 "dbname": http.request.env.cr.dbname,
             },
+            "lst_notification": lst_notification,
+            "lst_membre_message": lst_membre_message,
             "personal": {
                 "id": membre_id.id,
                 "full_name": membre_id.nom_complet,
@@ -834,6 +893,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "id": a.id,
                 "description": a.description,
                 "titre": a.titre,
+                "publie": a.publie,
                 "is_favorite": me_membre_id.id in a.membre_favoris_ids.ids,
                 "diff_create_date": self._transform_str_diff_time_creation(
                     a.create_date
@@ -863,6 +923,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "distance": "8m",
             }
             for a in membre_id.demande_service_ids
+            if a.publie
         }
 
         is_favorite = membre_id.id in [
@@ -880,7 +941,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 "is_favorite": is_favorite,
                 "introduction": membre_id.introduction,
                 "diff_humain_creation_membre": str_diff_time_creation,
-                "date_creation": membre_id.create_date,
+                "date_creation": self.datetime_to_local(membre_id.create_date),
                 "location": membre_id.ville.nom,
                 "antecedent_judiciaire_verifier": membre_id.antecedent_judiciaire_verifier,
                 "sexe": membre_id.sexe,
@@ -900,7 +961,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/get_info/offre_service/<model('accorderie.membre'):membre_id>",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_participer_workflow_data_offre_service(self, membre_id, **kw):
@@ -964,7 +1025,7 @@ class AccorderieCanadaDdbController(http.Controller):
         nb_offre_service = (
             http.request.env["accorderie.offre.service"]
             .sudo()
-            .search_count([])
+            .search_count([("publie", "=", True)])
         )
         return {"nb_offre_service": nb_offre_service}
 
@@ -1017,7 +1078,7 @@ class AccorderieCanadaDdbController(http.Controller):
         lst_mes_echanges_de_service_recu_sans_demande_non_valide = [
             {
                 "id": a.id,
-                "right_html": a.create_date,
+                "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
             for a in me_membre_id.echange_service_acheteur_ids
@@ -1126,7 +1187,7 @@ class AccorderieCanadaDdbController(http.Controller):
             {
                 "id": a.id,
                 "html": f"Par {a.membre_vendeur.nom_complet}",
-                "right_html": a.create_date,
+                "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
             for a in membre_id.echange_service_acheteur_ids
@@ -1138,7 +1199,7 @@ class AccorderieCanadaDdbController(http.Controller):
             {
                 "id": a.id,
                 "html": f"Pour {a.membre_acheteur.nom_complet}",
-                "right_html": a.create_date,
+                "right_html": self.datetime_to_local(a.create_date),
                 "title": a.titre,
             }
             for a in membre_id.echange_service_vendeur_ids
@@ -1294,6 +1355,10 @@ class AccorderieCanadaDdbController(http.Controller):
                                     and relation.body_html != "<p><br></p>"
                                 ):
                                     dct_item["html"] = relation.body_html
+                                if relation.not_implemented:
+                                    dct_item[
+                                        "not_implemented"
+                                    ] = relation.not_implemented
                                 if relation.icon:
                                     dct_item["icon"] = relation.icon
                                 lst_item.append(dct_item)
@@ -1477,11 +1542,14 @@ class AccorderieCanadaDdbController(http.Controller):
                 "fast_btn_guide_url": state_id.help_fast_btn_guide_url,
                 "fast_btn_form_url": state_id.help_fast_btn_form_url,
                 "maquette_link": state_id.maquette_link,
-                "date_last_update": state_id.help_date_last_update,
                 "validate_bug": state_id.help_validate_bug,
                 "video_url": state_id.help_video_url,
                 "not_implemented": state_id.not_implemented,
             }
+            if state_id.help_date_last_update:
+                sub_data["date_last_update"] = self.datetime_to_local(
+                    state_id.help_date_last_update
+                )
             if state_id.caract_offre_demande_nouveau_existante:
                 sub_data[
                     "caract_offre_demande_nouveau_existante"
@@ -1773,13 +1841,13 @@ class AccorderieCanadaDdbController(http.Controller):
 
             # TODO bug why init.saa.recevoir.choix.existant.time.form use date_name and not date_service
             # TODO check date_service UI activated by animation (or by user click)
+            # Assume date is in UTC from client
             date_service = kw.get("date_service") or kw.get("date_name")
             if date_service:
                 date_echange = date_service
                 time_service = kw.get("time_service") or kw.get("time_name")
                 if time_service:
                     date_echange += " " + time_service
-                    # TODO Take date from local of user
                     date_echange_float = datetime.strptime(
                         date_echange, "%Y-%m-%d %H:%M"
                     )
@@ -1908,6 +1976,118 @@ class AccorderieCanadaDdbController(http.Controller):
         return status
 
     @http.route(
+        "/accorderie/submit/demande/publish/<model('accorderie.demande.service'):demande_id>",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_demande_publish_submit(self, demande_id, **kw):
+        status = {}
+        publie = kw.get("publie")
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if demande_id.membre.id != me_membre_id.id:
+            status["error"] = (
+                "You don't have permission to change publish state of this"
+                " demande."
+            )
+        else:
+            demande_id.publie = publie
+            status["id"] = demande_id
+            status["publie"] = publie
+        return status
+
+    @http.route(
+        "/accorderie/submit/chat_msg",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_chat_msg_submit(self, **kw):
+        msg = kw.get("msg")
+        group_id = kw.get("group_id")
+        membre_id = kw.get("membre_id")
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if not group_id:
+            group_value = {
+                "membre_ids": [(6, 0, [membre_id, me_membre_id.id])]
+            }
+            group_id_id = http.request.env["accorderie.chat.group"].create(
+                group_value
+            )
+            group_id = group_id_id.id
+        value = {
+            "name": msg,
+            "membre_writer_id": me_membre_id.id,
+            "msg_group_id": group_id,
+        }
+        message_id = http.request.env["accorderie.chat.message"].create(value)
+
+        status = {"msg_id": message_id}
+        return status
+
+    @http.route(
+        "/accorderie/submit/demande/supprimer/<model('accorderie.demande.service'):demande_id>",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_demande_supprimer_submit(self, demande_id, **kw):
+        status = {}
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if demande_id.membre.id != me_membre_id.id:
+            status[
+                "error"
+            ] = "You don't have permission to delete this demande."
+        else:
+            demande_id.active = False
+            status["id"] = demande_id
+            status["active"] = False
+        return status
+
+    @http.route(
+        "/accorderie/submit/offre/publish/<model('accorderie.offre.service'):offre_id>",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_offre_publish_submit(self, offre_id, **kw):
+        status = {}
+        publie = kw.get("publie")
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if offre_id.membre.id != me_membre_id.id:
+            status["error"] = (
+                "You don't have permission to change publish state of this"
+                " offre."
+            )
+        else:
+            offre_id.publie = publie
+            status["id"] = offre_id
+            status["publie"] = publie
+        return status
+
+    @http.route(
+        "/accorderie/submit/offre/supprimer/<model('accorderie.offre.service'):offre_id>",
+        type="json",
+        auth="user",
+        website=True,
+        csrf=True,
+    )
+    def accorderie_offre_supprimer_submit(self, offre_id, **kw):
+        status = {}
+        me_membre_id = http.request.env.user.partner_id.accorderie_membre_ids
+        if offre_id.membre.id != me_membre_id.id:
+            status["error"] = "You don't have permission to delete this offre."
+        else:
+            offre_id.active = False
+            status["id"] = offre_id
+            status["active"] = False
+        return status
+
+    @http.route(
         "/accorderie/submit/my_favorite",
         type="json",
         auth="user",
@@ -2011,7 +2191,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/get_member",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_participer_member_from_accorderie(self, **kw):
@@ -2035,7 +2215,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/type_service_sous_categorie_list/<int:categorie_id>",
         ],
         type="json",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_type_service_sous_categorie_list(self, categorie_id=None, **kw):
@@ -2070,7 +2250,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/template/votre_contact_full",
         ],
         type="http",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_template_votre_contact_full(self, **kw):
@@ -2084,7 +2264,7 @@ class AccorderieCanadaDdbController(http.Controller):
             "/accorderie_canada_ddb/template/offre_ou_demande_de_service_generic",
         ],
         type="http",
-        auth="public",
+        auth="user",
         website=True,
     )
     def get_template_offre_ou_demande_de_service_generic(self, **kw):

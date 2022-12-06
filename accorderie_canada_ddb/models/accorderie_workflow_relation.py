@@ -13,6 +13,11 @@ class AccorderieWorkflowRelation(models.Model):
         help="Lorsque non actif, cette relation n'est plus visible.",
     )
 
+    not_implemented = fields.Boolean(
+        string="Pas implémenté",
+        help="Fonctionnalité officiellement non supporté.",
+    )
+
     body_html = fields.Html(string="HTML")
 
     diagram_id = fields.Many2one(

@@ -255,6 +255,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             actual_bank_time_human_short: "0h",
             actual_bank_time_human_simplify: "0 heure",
             actual_month_bank_time_human_short: "0h",
+            nb_echange_a_venir: 0,
+            nb_echange_en_cours: 0,
+            nb_echange_passe: 0,
             estPersonnel: true,
             dct_echange_mensuel: {},
 
@@ -295,6 +298,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             chunks: [],
         }
 
+        $scope.lst_notification = [];
+        $scope.lst_membre_message = [];
+        $scope.notif_filter_unread = function (notif) {
+            return !_.isUndefined(notif.is_read) && !notif.is_read;
+        }
+
         $scope.add_to_my_favorite_field_id = function (model, record_id) {
             ajax.rpc("/accorderie/submit/my_favorite", {"model": model, "id_record": record_id}).then(function (data) {
                 console.debug("AJAX receive add_to_my_favorite");
@@ -317,6 +326,170 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.$digest();
             })
         }
+
+        $scope.supprimer_offre_service = function (offre_id) {
+            ajax.rpc(`/accorderie/submit/offre/supprimer/${offre_id}`).then(function (data) {
+                console.debug("AJAX receive supprimer_offre_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                    // } else if (_.isEmpty(data)) {
+                    //     $scope.error = "Empty 'add_to_my_favorite' data";
+                    //     console.error($scope.error);
+                } else {
+                    // Change location because it's deleted
+                    location.replace("/monprofil/mesannonces");
+                }
+
+                // Process all the angularjs watchers
+                // $scope.$digest();
+            })
+        }
+
+        $scope.supprimer_demande_service = function (demande_id) {
+            ajax.rpc(`/accorderie/submit/demande/supprimer/${demande_id}`).then(function (data) {
+                console.debug("AJAX receive supprimer_demande_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                    // } else if (_.isEmpty(data)) {
+                    //     $scope.error = "Empty 'add_to_my_favorite' data";
+                    //     console.error($scope.error);
+                } else {
+                    // Change location because it's deleted
+                    location.replace("/monprofil/mesannonces");
+                }
+
+                // Process all the angularjs watchers
+                // $scope.$digest();
+            })
+        }
+
+        $scope.change_publication_offre_service = function (offre_id, publie) {
+            ajax.rpc(`/accorderie/submit/offre/publish/${offre_id}`, {"publie": publie}).then(function (data) {
+                console.debug("AJAX receive change_publication_offre_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                    // } else if (_.isEmpty(data)) {
+                    //     $scope.error = "Empty 'add_to_my_favorite' data";
+                    //     console.error($scope.error);
+                }
+
+                // Process all the angularjs watchers
+                // $scope.$digest();
+            })
+        }
+
+        $scope.change_publication_demande_service = function (demande_id, publie) {
+            ajax.rpc(`/accorderie/submit/demande/publish/${demande_id}`, {"publie": publie}).then(function (data) {
+                console.debug("AJAX receive change_publication_demande_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                    // } else if (_.isEmpty(data)) {
+                    //     $scope.error = "Empty 'add_to_my_favorite' data";
+                    //     console.error($scope.error);
+                }
+
+                // Process all the angularjs watchers
+                // $scope.$digest();
+            })
+        }
+
+        // Date
+        $scope.load_date = function () {
+            let time = require("web.time");
+            // TODO not optimal how this is called, need only to be call 1 time when page is loaded (with date)
+            console.debug("Call load_date");
+            _.each($(".input-group.date"), function (date_field) {
+                let minDate =
+                    $(date_field).data("mindate") || moment({y: 1900});
+                if ($(date_field).attr("date-min-today")) {
+                    minDate = moment();
+                }
+                let maxDate =
+                    $(date_field).data("maxdate") || moment().add(200, "y");
+                if ($(date_field).attr("date-max-year")) {
+                    maxDate = moment().add(1, "y").add(1, "d");
+                }
+                let inline =
+                    $(date_field).attr("inline-date") && true || false;
+                let sideBySide =
+                    $(date_field).attr("side-by-side") && true || false;
+                let calendarWeeks =
+                    $(date_field).attr("calendar-weeks") && true || false;
+                let dateFormatTool =
+                    $(date_field).attr("date-format-tool") || false;
+
+                let options = {
+                    minDate: minDate,
+                    maxDate: maxDate,
+                    calendarWeeks: calendarWeeks,
+                    icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        next: "fa fa-chevron-right",
+                        previous: "fa fa-chevron-left",
+                        up: "fa fa-chevron-up",
+                        down: "fa fa-chevron-down",
+                    },
+                    locale: moment.locale(),
+                    allowInputToggle: true,
+                    inline: inline,
+                    sideBySide: sideBySide,
+                    keyBinds: null,
+                };
+                if ($(date_field).find(".o_website_form_date").length > 0 || dateFormatTool === "date") {
+                    options.format = time.getLangDateFormat();
+                } else if (
+                    $(date_field).find(".o_website_form_clock").length > 0 || dateFormatTool === "clock"
+                ) {
+                    // options.format = time.getLangTimeFormat();
+                    options.format = "HH:mm";
+                    options.defaultDate = moment("00:00", "HH:mm");
+                } else {
+                    options.format = time.getLangDatetimeFormat();
+                }
+                $("#" + date_field.id).datetimepicker(options);
+            });
+        }
+
+        $scope.demander_un_service_sur_une_offre = function () {
+            let input = $('#date_echange_id');
+            let date_value = input.data().date;
+            if (date_value.includes("/")) {
+                // Bug, wrong format (why, load_date is called with specific format...), force it
+                console.warn("Bug wrong format date, got '" + date_value + "' and expect format YYYY-MM-DD, force conversion.")
+                date_value = moment(date_value).format("YYYY-MM-DD");
+            }
+            let membre_id = $scope.offre_service_info.membre_id;
+            let offre_id = $scope.offre_service_info.id;
+            let url = `/participer#!?state=init.saa.recevoir.choix.existant.time&membre=${membre_id}&offre_service=${offre_id}&date=${date_value}`;
+            console.debug(url);
+            // location.replace(url);
+            window.location.href = url;
+        }
+
+        $scope.offrir_un_service_sur_une_demande = function () {
+            // TODO wrong
+            let input = $('#date_echange_id');
+            let date_value = input.data().date;
+            if (date_value.includes("/")) {
+                // Bug, wrong format (why, load_date is called with specific format...), force it
+                console.warn("Bug wrong format date, got '" + date_value + "' and expect format YYYY-MM-DD, force conversion.")
+                date_value = moment(date_value).format("YYYY-MM-DD");
+            }
+            let membre_id = $scope.offre_service_info.membre_id;
+            let offre_id = $scope.offre_service_info.id;
+            let url = `/participer#!?state=init.saa.recevoir.choix.existant.time&membre=${membre_id}&offre_service=${offre_id}&date=${date_value}`;
+            console.debug(url);
+            // location.replace(url);
+            window.location.href = url;
+        }
+
+        // Map
+        $scope.show_map_member = false;
 
         // Share
         $scope.show_qrcode_modal = false;
@@ -416,7 +589,8 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 $scope.show_camera_error = "";
                 $scope.show_camera_find_url = true;
                 setTimeout(function () {
-                    location.replace(decodedText);
+                    // location.replace(decodedText);
+                    window.location.href = decodedText;
                 }, 2000);
             } else {
                 $scope.show_camera_error = "Le lien est erroné, provient-il de ce site?";
@@ -500,6 +674,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     $scope.error = "";
                     $scope.global = data.global;
                     $scope.personal = data.personal;
+                    $scope.lst_notification = data.lst_notification;
+                    $scope.lst_membre_message = data.lst_membre_message;
+
                     $scope.update_personal_data();
                     console.debug($scope.personal);
 
@@ -604,42 +781,43 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     })
                 }
             }
-            key = "/offresservice";
-            if (window.location.pathname.indexOf(key) === 0) {
-                ajax.rpc("/accorderie_canada_ddb/get_info/all_offre_service").then(function (data) {
-                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_offre_service");
-                    if (data.error || !_.isUndefined(data.error)) {
-                        $scope.error = data.error;
-                        console.error($scope.error);
-                    } else if (_.isEmpty(data)) {
-                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_offre_service' data";
-                        console.error($scope.error);
-                    } else {
-                        $scope.dct_offre_service_info = data;
-                    }
+            // Remove optimisation, need it for "my favorite"
+            // key = "/offresservice";
+            // if (window.location.pathname.indexOf(key) === 0) {
+            ajax.rpc("/accorderie_canada_ddb/get_info/all_offre_service").then(function (data) {
+                console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_offre_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_offre_service' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.dct_offre_service_info = data;
+                }
 
-                    // Process all the angularjs watchers
-                    $scope.$digest();
-                })
-            }
-            key = "/demandesservice";
-            if (window.location.pathname.indexOf(key) === 0) {
-                ajax.rpc("/accorderie_canada_ddb/get_info/all_demande_service").then(function (data) {
-                    console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_demande_service");
-                    if (data.error || !_.isUndefined(data.error)) {
-                        $scope.error = data.error;
-                        console.error($scope.error);
-                    } else if (_.isEmpty(data)) {
-                        $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_demande_service' data";
-                        console.error($scope.error);
-                    } else {
-                        $scope.dct_demande_service_info = data;
-                    }
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+            // }
+            // key = "/demandesservice";
+            // if (window.location.pathname.indexOf(key) === 0) {
+            ajax.rpc("/accorderie_canada_ddb/get_info/all_demande_service").then(function (data) {
+                console.debug("AJAX receive /accorderie_canada_ddb/get_info/all_demande_service");
+                if (data.error || !_.isUndefined(data.error)) {
+                    $scope.error = data.error;
+                    console.error($scope.error);
+                } else if (_.isEmpty(data)) {
+                    $scope.error = "Empty '/accorderie_canada_ddb/get_info/all_demande_service' data";
+                    console.error($scope.error);
+                } else {
+                    $scope.dct_demande_service_info = data;
+                }
 
-                    // Process all the angularjs watchers
-                    $scope.$digest();
-                })
-            }
+                // Process all the angularjs watchers
+                $scope.$digest();
+            })
+            // }
             key = "/accorderie_canada_ddb/accorderie_demande_service/";
             if (window.location.pathname.indexOf(key) === 0) {
                 // params can be 6?debug=1 or 6#!?str=3, need to extract first int
@@ -710,7 +888,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                     })
                 }
             }
-
         }
 
         // $scope.mouse_x = 0;
@@ -2681,6 +2858,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
 
             $scope.personal.actual_month_bank_time_human_short = $scope.convertNumToTime($scope.personal.actual_month_bank_hours, 4);
 
+            $scope.personal.nb_echange_en_cours = Object.values($scope.personal.dct_echange).filter(ex => !ex.transaction_valide && moment().isAfter(ex.date) && moment().isBefore(ex.end_date)).length;
+            $scope.personal.nb_echange_a_venir = Object.values($scope.personal.dct_echange).filter(ex => !ex.transaction_valide && moment().isBefore(ex.date)).length
+            $scope.personal.nb_echange_passe = Object.values($scope.personal.dct_echange).filter(ex => !ex.transaction_valide && moment().isAfter(ex.date)).length
+
             let month_key = moment(Date.now()).format("MMMM YYYY");
             $scope.personal.dct_echange_mensuel = {};
             $scope.personal.dct_echange_mensuel[month_key] = {
@@ -3071,64 +3252,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             $scope.change_state_name(state);
         }
 
-        // Date
-        $scope.load_date = function () {
-            let time = require("web.time");
-            // TODO not optimal how this is called, need only to be call 1 time when page is loaded (with date)
-            console.debug("Call load_date");
-            _.each($(".input-group.date"), function (date_field) {
-                let minDate =
-                    $(date_field).data("mindate") || moment({y: 1900});
-                if ($(date_field).attr("date-min-today")) {
-                    minDate = moment();
-                }
-                let maxDate =
-                    $(date_field).data("maxdate") || moment().add(200, "y");
-                if ($(date_field).attr("date-max-year")) {
-                    maxDate = moment().add(1, "y").add(1, "d");
-                }
-                let inline =
-                    $(date_field).attr("inline-date") && true || false;
-                let sideBySide =
-                    $(date_field).attr("side-by-side") && true || false;
-                let calendarWeeks =
-                    $(date_field).attr("calendar-weeks") && true || false;
-                let dateFormatTool =
-                    $(date_field).attr("date-format-tool") || false;
-
-                let options = {
-                    minDate: minDate,
-                    maxDate: maxDate,
-                    calendarWeeks: calendarWeeks,
-                    icons: {
-                        time: "fa fa-clock-o",
-                        date: "fa fa-calendar",
-                        next: "fa fa-chevron-right",
-                        previous: "fa fa-chevron-left",
-                        up: "fa fa-chevron-up",
-                        down: "fa fa-chevron-down",
-                    },
-                    locale: moment.locale(),
-                    allowInputToggle: true,
-                    inline: inline,
-                    sideBySide: sideBySide,
-                    keyBinds: null,
-                };
-                if ($(date_field).find(".o_website_form_date").length > 0 || dateFormatTool === "date") {
-                    options.format = time.getLangDateFormat();
-                } else if (
-                    $(date_field).find(".o_website_form_clock").length > 0 || dateFormatTool === "clock"
-                ) {
-                    // options.format = time.getLangTimeFormat();
-                    options.format = "HH:mm";
-                    options.defaultDate = moment("00:00", "HH:mm");
-                } else {
-                    options.format = time.getLangDatetimeFormat();
-                }
-                $("#" + date_field.id).datetimepicker(options);
-            });
-        }
-
         // Member
         $scope._load_member = function (data) {
             $scope.autoCompleteJS = new autoComplete(
@@ -3351,6 +3474,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 state.caract_offre_demande_nouveau_existante === "Offre existante";
         }
 
+        $scope.form_is_offre_existante = function (state) {
+            return state.caract_offre_demande_nouveau_existante === "Offre existante";
+        }
+
         $scope.form_is_valider_echange = function (state) {
             return !_.isUndefined(state.caract_valider_echange);
         }
@@ -3544,6 +3671,25 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             }
             if (!_.isUndefined(copiedForm.time_drive_estimated) && !_.isUndefined(copiedForm.time_dure_trajet)) {
                 copiedForm.time_drive_estimated = $scope.parseFloatTime(copiedForm.time_dure_trajet);
+            }
+
+            // Transform date local to UTC
+            let date_service;
+            if (!_.isUndefined(copiedForm.date_service)) {
+                date_service = copiedForm.date_service;
+            } else if (!_.isUndefined(copiedForm.date_name)) {
+                date_service = copiedForm.date_name;
+            }
+            if (!_.isUndefined(date_service)) {
+                // Don't transform if missing time, because the date will be the same
+                if (!_.isUndefined(copiedForm.time_service)) {
+                    date_service += " " + copiedForm.time_service;
+                } else if (!_.isUndefined(copiedForm.time_name)) {
+                    date_service += " " + copiedForm.time_name;
+                }
+                let utc_date_service = moment(date_service).utc();
+                copiedForm.date_service = utc_date_service.format("YYYY-MM-DD");
+                copiedForm.time_service = utc_date_service.format("HH:mm");
             }
 
             console.log(copiedForm);
@@ -3873,7 +4019,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.is_not_implemented = function (option) {
-            return !Object.keys($scope.workflow).includes(option.id);
+            return !Object.keys($scope.workflow).includes(option.id) || option.not_implemented;
         }
 
         $scope.previous_inner_state_btn = function () {

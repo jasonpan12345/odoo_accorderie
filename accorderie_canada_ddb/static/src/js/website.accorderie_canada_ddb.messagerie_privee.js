@@ -6,9 +6,9 @@ odoo.define('website.accorderie_canada_ddb.messagerie_privee.instance', function
 
     let $messagerie = $('.chat_box');
     if (!$messagerie.length) {
-        $("body").bind("DOMNodeInserted", function () {
-            $(this).find('.o_thread_window.o_in_home_menu').addClass('d-none');
-        });
+        // $("body").bind("DOMNodeInserted", function () {
+        //     $(this).find('.o_thread_window.o_in_home_menu').addClass('d-none');
+        // });
         return null;
     }
 
@@ -29,58 +29,69 @@ odoo.define("website.accorderie_canada_ddb.messagerie_privee", function (require
     let Messagerie = Widget.extend({
         start: function () {
             let self = this;
-            /*
+            // self.startRandom();
+
+            // $('body').on('DOMNodeInserted', '.o_thread_window', function () {
+            //     let liveChat = $('.o_thread_window.o_in_home_menu').detach().appendTo(".chat_body");
+            //     liveChat.removeClass("o_thread_window o_in_home_menu");
+            //     $('.o_thread_window_header').remove();
+            //
+            // });
+            //
+            // $('body').on('DOMNodeInserted', '.o_mail_thread_content', function () {
+            //     let myMessage = true;
+            //
+            //     let newMessage = $('.o_thread_message.o_mail_discussion');
+            //     newMessage.addClass('chat_msg');
+            //
+            //     newMessage.each(function (i) {
+            //
+            //         let avatar = $(this).find('.o_thread_message_avatar');
+            //
+            //         if(avatar.length > 0) {
+            //             let attr = avatar.attr('data-oe-model');
+            //
+            //             // check if our message our their message
+            //             if (typeof attr !== 'undefined' && attr !== false) {
+            //                 myMessage = false;
+            //             } else {
+            //                 myMessage = true;
+            //             }
+            //         }
+            //
+            //
+            //         if (myMessage) {
+            //             console.log($(this).find('.o_thread_message_avatar').attr('data-oe-model'));
+            //             $(this).children('.o_thread_message_core').addClass('msg my_msg');
+            //             $(this).children('.o_thread_message_sidebar').addClass('d-none');
+            //         } else {
+            //             $(this).children('.o_thread_message_core').addClass('msg their_msg');
+            //             $(this).children('.o_thread_message_sidebar').addClass('contact_pic');
+            //             console.log("theirs");
+            //         }
+            //     });
+            // });
+        },
+
+        startRandom: function() {
+            let self = this;
             setInterval(function () {
 
                 console.log("generate");
                 let text = Math.floor(Math.random() * 2);
+                const scroller = chatBody[0];
+                let shouldScroll = scroller.scrollTop + scroller.clientHeight === scroller.scrollHeight;
                 if (text) {
                     self.generateMyText();
                 } else {
                     self.generateTheirText();
                 }
-            }, 3000);*/
 
-            $('body').on('DOMNodeInserted', '.o_thread_window', function () {
-                let liveChat = $('.o_thread_window.o_in_home_menu').detach().appendTo(".chat_body");
-                liveChat.removeClass("o_thread_window o_in_home_menu");
-                $('.o_thread_window_header').remove();
-
-            });
-
-            $('body').on('DOMNodeInserted', '.o_mail_thread_content', function () {
-                let myMessage = true;
-
-                let newMessage = $('.o_thread_message.o_mail_discussion');
-                newMessage.addClass('chat_msg');
-
-                newMessage.each(function (i) {
-
-                    let avatar = $(this).find('.o_thread_message_avatar');
-
-                    if(avatar.length > 0) {
-                        let attr = avatar.attr('data-oe-model');
-
-                        // check if our message our their message
-                        if (typeof attr !== 'undefined' && attr !== false) {
-                            myMessage = false;
-                        } else {
-                            myMessage = true;
-                        }
-                    }
-
-
-                    if (myMessage) {
-                        console.log($(this).find('.o_thread_message_avatar').attr('data-oe-model'));
-                        $(this).children('.o_thread_message_core').addClass('msg my_msg');
-                        $(this).children('.o_thread_message_sidebar').addClass('d-none');
-                    } else {
-                        $(this).children('.o_thread_message_core').addClass('msg their_msg');
-                        $(this).children('.o_thread_message_sidebar').addClass('contact_pic');
-                        console.log("theirs");
-                    }
-                });
-            });
+                if (!shouldScroll) {
+                    console.debug("scroll");
+                    scroller.scrollTop = scroller.scrollHeight;
+                }
+            }, 3000);
         },
 
         generateMyText: function () {

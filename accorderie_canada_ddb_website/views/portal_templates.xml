@@ -184,18 +184,21 @@
                                     </span>
                                 </a>
                             </li>
+                            <!-- TODO Hide help, keep empty nav-item to support left item, check css '.navbar .nav' -->
+                            <!--                            <li class="nav-item" t-ignore="true">-->
+                            <!--                                <a class="nav-link" role="menu_item" href="/aide">-->
+                            <!--                                    <span-->
+                            <!--                                        data-oe-model="website.menu"-->
+                            <!--                                        data-oe-id="6"-->
+                            <!--                                        data-oe-field="name"-->
+                            <!--                                        data-oe-type="char"-->
+                            <!--                                        data-oe-expression="submenu.name"-->
+                            <!--                                    >-->
+                            <!--                                        Aide-->
+                            <!--                                    </span>-->
+                            <!--                                </a>-->
+                            <!--                            </li>-->
                             <li class="nav-item" t-ignore="true">
-                                <a class="nav-link" role="menu_item" href="/aide">
-                                    <span
-                                        data-oe-model="website.menu"
-                                        data-oe-id="6"
-                                        data-oe-field="name"
-                                        data-oe-type="char"
-                                        data-oe-expression="submenu.name"
-                                    >
-                                        Aide
-                                    </span>
-                                </a>
                             </li>
                             <li
                                 class="nav-item dropdown"
@@ -233,54 +236,55 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
-                                <a
-                                    class="nav-link debug-item"
-                                    data-toggle="dropdown"
-                                    role="menu_item"
-                                    style="cursor:pointer"
-                                >
-                                    <span
-                                        class="fa fa-2x fa-bug text-primary"
-                                        data-oe-model="website.menu"
-                                        data-oe-id="10"
-                                        data-oe-field="name"
-                                        data-oe-type="char"
-                                        data-oe-expression="submenu.name"
-                                    />
-                                </a>
-                                <div class="dropdown-menu submenu shadow" role="menu">
-                                    <div
-                                        role="menuitem"
-                                        class="dropdown-item highlight_not_implemented"
-                                        style="cursor:pointer"
-                                    >
-                                        <p>Mettre en évidence les fonctionnalités non supportées</p>
+                            <li class="nav-item dropdown debug-item" t-ignore="true">
+                                <t t-if="not user_id._is_public()">
+                                    <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
+                                        <span
+                                            class="fa fa-2x fa-bug text-primary"
+                                            data-oe-model="website.menu"
+                                            data-oe-id="10"
+                                            data-oe-field="name"
+                                            data-oe-type="char"
+                                            data-oe-expression="submenu.name"
+                                        />
+                                    </a>
+                                    <div class="dropdown-menu submenu shadow" role="menu">
+                                        <div
+                                            role="menuitem"
+                                            class="dropdown-item highlight_not_implemented"
+                                            style="cursor:pointer"
+                                        >
+                                            <p>Mettre en évidence les fonctionnalités non supportées</p>
+                                        </div>
+                                        <div
+                                            role="menuitem"
+                                            class="dropdown-item hide_not_implemented"
+                                            style="cursor:pointer"
+                                        >
+                                            <p>Cacher les fonctionnalités non supportées</p>
+                                        </div>
+                                        <div
+                                            role="menuitem"
+                                            class="dropdown-item btn_debug_debug"
+                                            style="cursor:pointer"
+                                        >
+                                            <p>Afficher le déverminage</p>
+                                        </div>
+    <!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
+    <!--                                        <p>Refresh AngularJS</p>-->
+    <!--                                    </div>-->
+                                        <div
+                                            role="menuitem"
+                                            class="dropdown-item"
+                                            style="cursor:pointer; background-color: unset"
+                                            ng-style="animationRecord.enable &amp;&amp; {'background-color':'lightgrey'}"
+                                            ng-click="animationRecord.enable = !animationRecord.enable"
+                                        >
+                                            <p ng-show="!animationRecord.enable">Afficher l'enregistrement</p>
+                                            <p ng-show="animationRecord.enable">Cacher l'enregistrement</p>
+                                        </div>
                                     </div>
-                                    <div
-                                        role="menuitem"
-                                        class="dropdown-item hide_not_implemented"
-                                        style="cursor:pointer"
-                                    >
-                                        <p>Cacher les fonctionnalités non supportées</p>
-                                    </div>
-                                    <div role="menuitem" class="dropdown-item btn_debug_debug" style="cursor:pointer">
-                                        <p>Afficher le déverminage</p>
-                                    </div>
-<!--                                    <div role="menuitem" class="dropdown-item" ng-click="forceRefreshAngularJS()">-->
-<!--                                        <p>Refresh AngularJS</p>-->
-<!--                                    </div>-->
-                                    <div
-                                        role="menuitem"
-                                        class="dropdown-item"
-                                        style="cursor:pointer; background-color: unset"
-                                        ng-style="animationRecord.enable &amp;&amp; {'background-color':'lightgrey'}"
-                                        ng-click="animationRecord.enable = !animationRecord.enable"
-                                    >
-                                        <p ng-show="!animationRecord.enable">Afficher l'enregistrement</p>
-                                        <p ng-show="animationRecord.enable">Cacher l'enregistrement</p>
-                                    </div>
-                                </div>
+                                </t>
                             </li>
                             <li class="nav-item dropdown" t-ignore="true">
                                 <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
@@ -488,11 +492,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li
-                                class="nav-item dropdown debug_unimplemented"
-                                t-ignore="true"
-                                t-if="not user_id._is_public()"
-                            >
+                            <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
                                 <a class="nav-link" role="menu_item" data-toggle="dropdown" style="cursor:pointer">
                                     <span
                                         class="fa fa-2x fa-comments-o text-primary"
@@ -512,101 +512,57 @@
                                     <div class="dropdown-cat">
                                         <div id="tabMessages" class="navbar-tab">
                                             <div class="tab-items-container">
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <a
+                                                    role="menuitem"
+                                                    class="dropdown-item"
+                                                    ng-href="/notification#!?section=message&amp;membre={{msg.id}}"
+                                                    ng-repeat="msg in lst_membre_message"
+                                                >
                                                     <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">Faire mon épicerie</span>
-                                                            <span class="activite_auteur">Denise Trépanier</span>
+                                                            <span class="activite_title">{{msg.resume_msg}}</span>
+                                                            <span class="activite_auteur">{{msg.name}}</span>
                                                         </div>
                                                         <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Faire mon épicerie</span>
-                                                            <span class="activite_auteur">Denise Trépanier</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Faire mon épicerie</span>
-                                                            <span class="activite_auteur">Denise Trépanier</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
+                                                            <span>{{msg.last_date}}</span>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a role="menuitem" href="/monprofil/messages" class="dropdown-item">
+                                            <a
+                                                role="menuitem"
+                                                href="/notification#!?section=message"
+                                                class="dropdown-item"
+                                            >
                                                 <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
-                                                        Voir toutes les messages
+                                                        Voir tous les messages
                                                     </font>
                                                 </div>
                                             </a>
                                         </div>
                                         <div id="tabNotifications" class="navbar-tab" style="display:none;">
                                             <div class="tab-items-container">
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
+                                                <a
+                                                    role="menuitem"
+                                                    ng-href="/monactivite/echange#!?echange={{notif.echange_service_id}}"
+                                                    class="dropdown-item"
+                                                    ng-repeat="notif in lst_notification | filter:notif_filter_unread | limitTo:5"
+                                                >
                                                     <div class="cat activite btn">
                                                         <img
                                                             class="activite_img img-fluid rounded-circle"
                                                             src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
                                                         />
                                                         <div class="infos">
-                                                            <span class="activite_title">Vous souhaitez acheter</span>
-                                                            <span class="activite_auteur">Martin Bergeron</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">Test</span>
-                                                            <span class="activite_auteur">Mike Wazowski</span>
-                                                        </div>
-                                                        <div class="infos right">
-                                                            <span>5m</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a role="menuitem" href="/participer" class="dropdown-item">
-                                                    <div class="cat activite btn">
-                                                        <img
-                                                            class="activite_img img-fluid rounded-circle"
-                                                            src="/web/image/accorderie_canada_ddb_website.ir_attachment_liuba_bilyk_wu_tbwqdpji_unsplash_jpg/liuba-bilyk-wU_TbWqdPJI-unsplash.jpg"
-                                                        />
-                                                        <div class="infos">
-                                                            <span class="activite_title">item 3</span>
-                                                            <span class="activite_auteur">Joe</span>
+                                                            <span
+                                                                class="activite_title"
+                                                            >{{notif.type_notification}}</span>
+                                                            <span class="activite_auteur">{{notif.name}}</span>
                                                         </div>
                                                         <div class="infos right">
                                                             <span>5m</span>
@@ -614,7 +570,11 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <a role="menuitem" href="/monprofil/notifications" class="dropdown-item">
+                                            <a
+                                                role="menuitem"
+                                                href="/notification#!?section=notification"
+                                                class="dropdown-item"
+                                            >
                                                 <div class="cat activite btn btn-primary">
                                                     <font class="text-gamma" style="font-size: 1rem;">
                                                         Voir toutes les notifications
@@ -625,18 +585,64 @@
                                     </div>
                                 </div>
                             </li>
-<!--                            <li class="nav-item debug_unimplemented" t-ignore="true" t-if="not user_id._is_public()">-->
-<!--                                <a class="nav-link" role="menu_item" style="cursor:pointer">-->
-<!--                                    <span-->
-<!--                                        class="fa fa-2x fa-question-circle-o text-primary"-->
-<!--                                        data-oe-model="website.menu"-->
-<!--                                        data-oe-id="9"-->
-<!--                                        data-oe-field="name"-->
-<!--                                        data-oe-type="char"-->
-<!--                                        data-oe-expression="submenu.name"-->
-<!--                                    />-->
-<!--                                </a>-->
-<!--                            </li>-->
+                            <li class="nav-item dropdown" t-ignore="true">
+                                <a class="nav-link" data-toggle="dropdown" role="menu_item" style="cursor:pointer">
+                                    <span
+                                        class="fa fa-2x fa-question-circle-o text-primary"
+                                        data-oe-model="website.menu"
+                                        data-oe-id="9"
+                                        data-oe-field="name"
+                                        data-oe-type="char"
+                                        data-oe-expression="submenu.name"
+                                    />
+                                </a>
+                                <div class="dropdown-menu submenu shadow" role="menu">
+                                    <a
+                                        class="nav-link dropdown-item"
+                                        href="/aide#!?section=guide_utilisation"
+                                        role="menu_item"
+                                        style="cursor:pointer"
+                                    >
+                                        <p>Guides d'utilisation</p>
+                                    </a>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item debug_unimplemented"
+                                        style="cursor:pointer"
+                                    >
+                                        <p>Contacter l'Accorderie</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item debug_unimplemented"
+                                        style="cursor:pointer"
+                                    >
+                                        <p>Mentor</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item debug_unimplemented"
+                                        style="cursor:pointer"
+                                    >
+                                        <p>Tutoriel</p>
+                                    </div>
+                                    <div
+                                        role="menuitem"
+                                        class="dropdown-item debug_unimplemented"
+                                        style="cursor:pointer"
+                                    >
+                                        <p>F.A.Q.</p>
+                                    </div>
+                                    <a
+                                        class="nav-link dropdown-item"
+                                        href="/aide#!?section=amelioration"
+                                        role="menu_item"
+                                        style="cursor:pointer"
+                                    >
+                                        <p>Amélioration</p>
+                                    </a>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown bg-primary" t-ignore="true" t-if="not user_id._is_public()">
                                 <a
                                     class="nav-link text-gamma"
