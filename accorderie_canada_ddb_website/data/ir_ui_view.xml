@@ -90,7 +90,8 @@
                                                     <div class="activite_infos">
                                                         <div class="activite_title">
                                                             <p>{{echange.show_date | toTitleCase}}</p>
-                                                            <p class="time">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
+                                                            <p class="time" ng-if="echange.show_start_time !== echange.show_end_time">{{echange.show_start_time}} - {{echange.show_end_time}}</p>
+                                                            <p class="time" ng-if="echange.show_start_time === echange.show_end_time">{{echange.show_start_time}}</p>
                                                         </div>
                                                         <div class="details">
                                                             <span class="activite_auteur mt-auto">{{echange.membre.full_name}}</span>
@@ -3117,7 +3118,7 @@
                                             Mon activité
                                         </p>
                                         <div class="solde_container text-gamma">
-                                            <div class="txt">Solde de mon compte <i class="fa fa-question-circle-o" /></div>
+                                            <div class="txt">Solde de mon compte <i class="fa fa-question-circle-o debug_unimplemented" /></div>
                                             <div class="solde" ng-class="{neg_time: !personal.actual_bank_sign}">{{personal.actual_bank_time_human_short | uppercase}}</div>
                                         </div>
                                     </div>
@@ -4181,8 +4182,11 @@
                                                     {{echange_service_info.show_date | toTitleCase}}
                                                 </span>
                                                 <span class="divider" />
-                                                <span>
+                                                <span ng-if="echange_service_info.show_start_time !== echange_service_info.show_end_time">
                                                     {{echange_service_info.show_start_time}} - {{echange_service_info.show_end_time}}
+                                                </span>
+                                                <span ng-if="echange_service_info.show_start_time === echange_service_info.show_end_time">
+                                                    {{echange_service_info.show_start_time}}
                                                 </span>
                                             </span>
                                         </div>

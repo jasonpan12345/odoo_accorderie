@@ -447,7 +447,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 ) {
                     // options.format = time.getLangTimeFormat();
                     options.format = "HH:mm";
-                    options.defaultDate = moment("00:00", "HH:mm");
+                    options.defaultDate = moment("08:00", "HH:mm");
                 } else {
                     options.format = time.getLangDatetimeFormat();
                 }
@@ -2799,7 +2799,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             if (format === 0 || format === 9) {
                 sign = sign === 1 ? '' : '-';
             } else {
-                sign = sign === 1 ? '+' : '-';
+                // Ignore sign when number === 0
+                let plusSign = number !== 0. ? '+' : '';
+                sign = sign === 1 ? plusSign : '-';
             }
 
             // Concat hours and minutes
@@ -2852,6 +2854,7 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             // 15h // format 4
             // + 15 heure 30 // format 5
             // 15 heure 30 // format 6
+            // + 15h30 // format 7
             let time_bank = $scope.personal.actual_bank_hours;
             $scope.personal.actual_bank_sign = (time_bank >= 0);
             $scope.personal.actual_bank_time_diff = $scope.convertNumToTime(time_bank, 2);
