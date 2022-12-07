@@ -1650,7 +1650,7 @@ class AccorderieCanadaDdbController(http.Controller):
                                         _logger.warning(
                                             "cannot find offre service"
                                         )
-                            elif model_field == "date_name":
+                            elif model_field == "date_service":
                                 # Valide in past, else in futur
                                 if state_id.caract_valider_echange:
                                     value = (
@@ -1660,7 +1660,7 @@ class AccorderieCanadaDdbController(http.Controller):
                                     value = (
                                         datetime.today() + timedelta(days=3)
                                     ).strftime("%Y-%m-%d")
-                            elif model_field == "time_name":
+                            elif model_field == "time_service":
                                 value = datetime.today().strftime("%H:%M")
                             else:
                                 _logger.warning(
@@ -1839,13 +1839,12 @@ class AccorderieCanadaDdbController(http.Controller):
                     "id"
                 )
 
-            # TODO bug why init.saa.recevoir.choix.existant.time.form use date_name and not date_service
             # TODO check date_service UI activated by animation (or by user click)
             # Assume date is in UTC from client
-            date_service = kw.get("date_service") or kw.get("date_name")
+            date_service = kw.get("date_service")
             if date_service:
                 date_echange = date_service
-                time_service = kw.get("time_service") or kw.get("time_name")
+                time_service = kw.get("time_service")
                 if time_service:
                     date_echange += " " + time_service
                     date_echange_float = datetime.strptime(

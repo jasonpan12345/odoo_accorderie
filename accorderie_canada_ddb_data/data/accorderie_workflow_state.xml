@@ -277,20 +277,20 @@
             <field name="submit_response_title">Votre offre de service a bien été envoyée.</field>
             <field name="submit_response_description">L'Accordeur devrait vous contacter sous peu pour valider, modifier ou refuser votre proposition.</field>
             <field name="model_field_depend">offre_service_id;demande_service_id;membre_id</field>
-            <field name="help_section">Échange de service</field>
-            <field name="help_sub_section">Créer un échange avec un autre membre</field>
-            <field name="help_title">Créer un échange en tant que personne offrant le service avec une offre existante</field>
-            <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service doit déjà avoir été publiée.</field>
-            <field name="help_caract_lst">Nouvel échange;Offre existante;Service à offrir</field>
+<!--            <field name="help_section">Échange de service</field>-->
+<!--            <field name="help_sub_section">Créer un échange avec un autre membre</field>-->
+<!--            <field name="help_title">Créer un échange en tant que personne offrant le service avec une offre existante</field>-->
+<!--            <field name="help_description">Permettre de mettre en accord à l’avance sur les modalités exactes du service à donner ou à recevoir, entre deux personnes, en étant la personne qui offre un service. L’offre de service doit déjà avoir été publiée.</field>-->
+<!--            <field name="help_caract_lst">Nouvel échange;Offre existante;Service à offrir</field>-->
             <field name="caract_echange_nouvel_existant">Nouvel échange</field>
             <field name="caract_offre_demande_nouveau_existante">Offre existante</field>
             <field name="caract_service_offrir_recevoir">Service à offrir</field>
-            <field name="help_fast_btn_title">Créer un échange</field>
-            <field name="help_fast_btn_url">participer#!?state=init.saa.offrir</field>
-            <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante</field>
-            <field name="help_video_url">//player.vimeo.com/video/753489576?autoplay=0</field>
-            <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+<!--            <field name="help_fast_btn_title">Créer un échange</field>-->
+<!--            <field name="help_fast_btn_url">participer#!?state=init.saa.offrir</field>-->
+<!--            <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante</field>-->
+<!--            <field name="help_video_url">//player.vimeo.com/video/753489576?autoplay=0</field>-->
+<!--            <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />-->
+<!--            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>-->
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service" model="accorderie.workflow.state">
@@ -317,7 +317,7 @@
             <field name="submit_button_text">Envoyer ma demande</field>
             <field name="submit_response_title">La demande a bien été envoyée!</field>
             <field name="submit_response_description">Que souhaitez-vous faire maintenant?</field>
-            <field name="model_field_depend">membre_id;offre_service_id;date_name;time_name</field>
+            <field name="model_field_depend">membre_id;offre_service_id;date_service;time_service</field>
             <field name="help_section">Échange de service</field>
             <field name="help_sub_section">Créer un échange avec un autre membre</field>
             <field name="help_title">Créer un échange en tant que personne recevant le service d’une offre existante</field>
@@ -330,7 +330,7 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne recevant le service d’une offre existante</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-bug" style="color:#FF0000"/&gt; Problème avec les données</field>
+            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
@@ -441,7 +441,7 @@
             <field name="breadcrumb_value">Pour une offre publiée</field>
             <field name="data">ses_temps_disponibles</field>
             <field name="model_field_name_alias">date</field>
-            <field name="model_field_name">date_name</field>
+            <field name="model_field_name">date_service</field>
             <field name="model_field_depend">membre_id</field>
             <field name="data_url_field">membre_id</field>
             <field name="data_update_url">/accorderie_canada_ddb/get_info/recevoir_service/%s</field>
@@ -456,10 +456,10 @@
             <field name="type">temps_duree</field>
             <field name="show_breadcrumb">True</field>
             <field name="breadcrumb_value">Le %s</field>
-            <field name="breadcrumb_field_value">date_name</field>
+            <field name="breadcrumb_field_value">date_service</field>
             <field name="model_field_name_alias">time</field>
-            <field name="model_field_name">time_name</field>
-            <field name="model_field_depend">membre_id;date_name</field>
+            <field name="model_field_name">time_service</field>
+            <field name="model_field_depend">membre_id;date_service</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_va" model="accorderie.workflow.state">

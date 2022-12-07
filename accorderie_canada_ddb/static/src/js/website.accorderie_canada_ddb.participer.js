@@ -3151,6 +3151,12 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.originChooseMemberPlaceholder = "Nom de la personne";
         $scope.chooseMemberPlaceholder = $scope.originChooseMemberPlaceholder;
         $scope.form = {};
+        $scope.form_date_service = "";
+        $scope.form_time_service = "";
+        $scope.form_copy_date_service = "";
+        $scope.form_copy_time_service = "";
+        $scope.form_is_modifying_date_service = false;
+        $scope.form_is_modifying_time_service = false;
         $scope.tmpForm = {
             modelChooseMember: "",
         };
@@ -3169,6 +3175,40 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         $scope.$parent.animationRecord.lstAnimation.push("Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une offre créée");
         $scope.$parent.animationRecord.lstAnimation.push("Valider un échange inexistant lorsqu’on est la personne qui a offert le service sur une offre qui doit être créée");
         $scope.$parent.animationRecord.lstAnimation.push("Valider un échange inexistant lorsqu’on est la personne qui a demandé le service sur une demande qui doit être créée");
+
+        $scope.$watch('form.date_service', function (newValue, oldValue) {
+            if (!_.isUndefined(newValue)) {
+                $scope.form_date_service = moment(newValue).format('dddd D MMMM YYYY');
+            }
+        })
+
+        $scope.toggleFormIsModifyingDateService = function (cancel) {
+            if (!_.isUndefined(cancel)) {
+                $scope.form.date_service = $scope.form_copy_date_service;
+            } else if (!$scope.form_is_modifying_date_service) {
+                $scope.form_copy_date_service = $scope.form.date_service;
+            }
+            $scope.form_is_modifying_date_service = !$scope.form_is_modifying_date_service;
+        }
+
+        $scope.$watch('form.time_service', function (newValue, oldValue) {
+            if (!_.isUndefined(newValue)) {
+                $scope.form_time_service = moment(newValue, "HH:mm").format('HH[h]mm');
+            }
+        })
+
+        $scope.toggleFormIsModifyingTimeService = function (cancel) {
+            if (!_.isUndefined(cancel)) {
+                $scope.form.time_service = $scope.form_copy_time_service;
+            } else if (!$scope.form_is_modifying_time_service) {
+                $scope.form_copy_time_service = $scope.form.time_service;
+            }
+            $scope.form_is_modifying_time_service = !$scope.form_is_modifying_time_service;
+        }
+
+        $scope.formCanSend = function () {
+            return !($scope.form_is_modifying_date_service || $scope.form_is_modifying_time_service)
+        }
 
         let url = "/accorderie_canada_ddb/get_participer_workflow_data/";
         ajax.rpc(url, {}).then(function (data) {
@@ -3680,15 +3720,11 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             let date_service;
             if (!_.isUndefined(copiedForm.date_service)) {
                 date_service = copiedForm.date_service;
-            } else if (!_.isUndefined(copiedForm.date_name)) {
-                date_service = copiedForm.date_name;
             }
             if (!_.isUndefined(date_service)) {
                 // Don't transform if missing time, because the date will be the same
                 if (!_.isUndefined(copiedForm.time_service)) {
                     date_service += " " + copiedForm.time_service;
-                } else if (!_.isUndefined(copiedForm.time_name)) {
-                    date_service += " " + copiedForm.time_name;
                 }
                 let utc_date_service = moment(date_service).utc();
                 copiedForm.date_service = utc_date_service.format("YYYY-MM-DD");
