@@ -328,7 +328,9 @@ odoo.define('website.accorderie_notification', function (require) {
                                 // not exist, create it
                                 $scope.lst_membre_message.unshift(group_data);
                                 let $scope_notification = angular.element(document.querySelector('[ng-controller="NotificationController"]')).scope();
-                                $scope_notification.section_membre_dct = group_data;
+                                if (!_.isUndefined($scope_notification)) {
+                                    $scope_notification.section_membre_dct = group_data;
+                                }
                             }
                         }
                         has_update = true;
