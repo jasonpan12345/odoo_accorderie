@@ -980,6 +980,30 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/demande_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_participer_workflow_data_demande_service(self, membre_id, **kw):
+        lst_mes_demande_de_service = [
+            {
+                "id": a.id,
+                # "html": a.description,
+                "right_html": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "title": a.titre,
+            }
+            for a in membre_id.demande_service_ids
+        ]
+        return {
+            "data": {"ses_demandes_de_service": lst_mes_demande_de_service}
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_info/list_membre",
         ],
         type="json",
@@ -1614,6 +1638,24 @@ class AccorderieCanadaDdbController(http.Controller):
                                         _logger.warning(
                                             "cannot find offre service"
                                         )
+                            elif model_field == "demande_service_id":
+                                if (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à offrir"
+                                ):
+                                    if membre_id.demande_service_ids:
+                                        value = membre_id.demande_service_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find demande service"
+                                        )
+                                else:
+                                    _logger.warning(
+                                        "Not supported, demande_service_id"
+                                        " search for 'service à recevoir'"
+                                    )
                             elif model_field == "echange_service_id":
                                 if (
                                     state_id.caract_service_offrir_recevoir
@@ -1651,7 +1693,7 @@ class AccorderieCanadaDdbController(http.Controller):
                                             "cannot find offre service"
                                         )
                             elif model_field == "date_service":
-                                # Valide in past, else in futur
+                                # Valide in the past, else in futur
                                 if state_id.caract_valider_echange:
                                     value = (
                                         datetime.today() - timedelta(days=3)

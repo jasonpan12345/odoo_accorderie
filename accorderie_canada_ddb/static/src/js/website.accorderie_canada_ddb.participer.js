@@ -472,7 +472,6 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
         }
 
         $scope.offrir_un_service_sur_une_demande = function () {
-            // TODO wrong
             let input = $('#date_echange_id');
             let date_value = input.data().date;
             if (date_value.includes("/")) {
@@ -480,9 +479,9 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
                 console.warn("Bug wrong format date, got '" + date_value + "' and expect format YYYY-MM-DD, force conversion.")
                 date_value = moment(date_value).format("YYYY-MM-DD");
             }
-            let membre_id = $scope.offre_service_info.membre_id;
-            let offre_id = $scope.offre_service_info.id;
-            let url = `/participer#!?state=init.saa.recevoir.choix.existant.time&membre=${membre_id}&offre_service=${offre_id}&date=${date_value}`;
+            let membre_id = $scope.demande_service_info.membre_id;
+            let demande_id = $scope.demande_service_info.id;
+            let url = `/participer#!?state=init.saa.offrir.demande.existante.date.time.form&membre=${membre_id}&demande_service=${demande_id}&date=${date_value}`;
             console.debug(url);
             // location.replace(url);
             window.location.href = url;
@@ -3493,6 +3492,10 @@ odoo.define("website.accorderie_canada_ddb.participer", function (require) {
             return state.caract_offre_demande_nouveau_existante === "Nouvelle offre" &&
                 _.isUndefined(state.caract_service_offrir_recevoir) &&
                 _.isUndefined(state.caract_echange_nouvel_existant);
+        }
+
+        $scope.form_is_demande_existante = function (state) {
+            return state.caract_offre_demande_nouveau_existante === "Demande existante";
         }
 
         $scope.form_is_nouvelle_demande = function (state) {

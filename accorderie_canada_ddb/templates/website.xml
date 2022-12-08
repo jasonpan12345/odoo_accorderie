@@ -360,10 +360,7 @@
                                     </div>
                                 </div>
                                 <div class="right_cards_container" t-if="accorderie_demande_service_id">
-                                    <div
-                                        class="card info-3 debug_unimplemented"
-                                        ng-if="demande_service_info.membre_id !== personal.id"
-                                    >
+                                    <div class="card info-3" ng-if="demande_service_info.membre_id !== personal.id">
                                         <h2>Choisir une date</h2>
                                         {{ load_date() }}
                                         <div
@@ -877,7 +874,7 @@
 
                                         <!-- Présentation du service -->
                                         <span
-                                            ng-if="['init.saa.offrir.demande.existant.form'].includes(state.id) &amp;&amp; !_.isUndefined(form.demande_service_id)"
+                                            ng-if="form_is_demande_existante(state) &amp;&amp; !_.isUndefined(form.demande_service_id)"
                                         >
                                             <h2>Demande de service</h2>
                                             <div
@@ -1599,7 +1596,7 @@
                                         </p>
                                         <a ng-if="submitted_url" href="{{submitted_url}}">
                                             <button
-                                                ng-if="form_is_nouvelle_offre(state) || ['init.saa.offrir.existant.form'].includes(state.id)"
+                                                ng-if="form_is_nouvelle_offre(state) || ['init.saa.offrir.existant.form', 'init.saa.offrir.demande.existante.date.time.form'].includes(state.id)"
                                                 class="btn btn-primary text-gamma"
                                             >Voir mon offre</button>
                                             <button
