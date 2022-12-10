@@ -1972,6 +1972,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 vals["frais_materiel"] = float(kw.get("frais_materiel"))
 
             # date_echange
+            # TODO support private offre/demande and unpublish it
             new_accorderie_echange_service = (
                 request.env["accorderie.echange.service"].sudo().create(vals)
             )
