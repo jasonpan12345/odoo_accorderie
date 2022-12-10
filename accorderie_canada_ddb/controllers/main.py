@@ -1696,14 +1696,22 @@ class AccorderieCanadaDdbController(http.Controller):
                                 # Valide in the past, else in futur
                                 if state_id.caract_valider_echange:
                                     value = (
-                                        datetime.today() - timedelta(days=3)
+                                        self.datetime_to_local(
+                                            datetime.today()
+                                        )
+                                        - timedelta(days=3)
                                     ).strftime("%Y-%m-%d")
                                 else:
                                     value = (
-                                        datetime.today() + timedelta(days=3)
+                                        self.datetime_to_local(
+                                            datetime.today()
+                                        )
+                                        + timedelta(days=3)
                                     ).strftime("%Y-%m-%d")
                             elif model_field == "time_service":
-                                value = datetime.today().strftime("%H:%M")
+                                value = self.datetime_to_local(
+                                    datetime.today()
+                                ).strftime("%H:%M")
                             else:
                                 _logger.warning(
                                     "Not supported dynamic associate url:"
