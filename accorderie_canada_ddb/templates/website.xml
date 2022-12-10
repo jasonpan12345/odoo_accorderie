@@ -1362,7 +1362,10 @@
                                                 </h4>
                                             </div>
 
-                                            <div class="divider" ng-if="form_is_service_and_service_prevu(state)" />
+                                            <div
+                                                class="divider"
+                                                ng-if="form_is_service_and_service_prevu(state) &amp;&amp; !['init.saa.offrir.demande.existante.date.time.form'].includes(state.id)"
+                                            />
                                         </span>
 
                                         <!-- Estimation de la durée du service -->
@@ -1453,7 +1456,10 @@
                                             </div>
 
                                             <!-- Montant à transférer -->
-                                            <div class="bar_time" ng-if="form_is_service_and_service_prevu(state)">
+                                            <div
+                                                class="bar_time"
+                                                ng-if="form_is_service_and_service_prevu(state) &amp;&amp; !['init.saa.offrir.demande.existante.date.time.form'].includes(state.id)"
+                                            >
                                                 <b>Montant total de temps à transférer</b>
                                                 <span>{{show_sum_total_time_echange()}}</span>
                                             </div>
