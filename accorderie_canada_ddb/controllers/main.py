@@ -2014,6 +2014,25 @@ class AccorderieCanadaDdbController(http.Controller):
                 value_new_service["frais_materiel"] = float(
                     kw.get("frais_materiel")
                 )
+
+            date_service = kw.get("date_service")
+            time_service = kw.get("time_service")
+            if date_service or time_service:
+                date_echange = date_service
+                if time_service:
+                    date_echange += " " + time_service
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d %H:%M"
+                    )
+                else:
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d"
+                    ).date()
+                if (
+                    new_accorderie_echange_service.date_echange
+                    != date_echange_float
+                ):
+                    value_new_service["date_echange"] = date_echange_float
             new_accorderie_echange_service.write(value_new_service)
             status["echange_service_id"] = new_accorderie_echange_service.id
             # Force update time per member
