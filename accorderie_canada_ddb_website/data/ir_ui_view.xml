@@ -4137,18 +4137,28 @@
                                                 <br />
                                                 {{contact_info.full_name}}
                                             </span>
+                                            <div class="btn btn-primary ml-auto text-gamma debug_unimplemented">
+<!--                                                <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">-->
+                                                    <i class="fa fa-thumbs-up" />
+                                                    <!-- TODO faire apparaitre un formulaire pour demander des commentaires et informer l'autre utilisateur d'avoir accepter. Quel est la prochaine étape? -->
+                                                    <!-- TODO faire afficher seulement pour celui qui recois le service, celui qui a créer cet échange a déjà accepté, puis sinon faire accepter par un administrateur -->
+                                                    <span>Accepter</span>
+<!--                                                </a>-->
+                                            </div>
                                             <div class="btn btn-primary ml-auto text-gamma">
                                                 <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">
                                                     <i class="fa fa-check" />
-                                                    <span>Déclarer le service comme effectué</span>
+                                                    <span>Service effectué</span>
                                                 </a>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma debug_unimplemented">
                                                 <i class="fa fa-pencil" />
+                                                <!-- TODO faire apparaitre un formulaire pour que l'autre utilisateur change une information DEMANDE DE RÉVISION ou modifier soi même une information -->
                                                 <span>Modifier l'entente</span>
                                             </div>
                                             <div class="btn btn-epsilon text-gamma debug_unimplemented">
                                                 <i class="fa fa-times-circle" />
+                                                <!-- TODO faire apparaitre un formulaire pour demander des commentaires et informer l'autre utilisateur du refus -->
                                                 <span>Annuler l'entente</span>
                                             </div>
                                         </div>
