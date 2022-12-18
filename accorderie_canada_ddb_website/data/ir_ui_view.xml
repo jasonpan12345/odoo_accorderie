@@ -4721,7 +4721,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="border:1px solid black">Validé/bug</td>
+                                                        <td style="border:1px solid black">Status</td>
                                                         <td ng-repeat="state in data.state" ng-if="state.section == section" ng-class="{'debug_unimplemented': state.not_implemented, 'help_show_col': state.table_col_check}" style="border:1px solid black;text-align: center;">
                                                             <span ng-if="!_.isEmpty(state.validate_bug)" ng-bind-html="state.validate_bug | unsafe" />
                                                         </td>

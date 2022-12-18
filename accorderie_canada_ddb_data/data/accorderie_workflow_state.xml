@@ -228,7 +228,20 @@
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre existante</field>
             <field name="help_video_url">//player.vimeo.com/video/753489576?autoplay=0</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+            <field name="help_validate_bug">&lt;div style="text-align:left"&gt;
+	&lt;span style="color:#0000FF"&gt;Déf&lt;/span&gt; membre A et membre B&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A crée une offre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Int&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A sait que B veut recevoir le service de l'offre par A&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A propose un échange avec une date et heure&lt;/span&gt; &lt;span style="color:#FF0000"&gt;selon disponibilité de B&lt;/span&gt; + &lt;span style="color:#00FF00"&gt;durée désirée&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;suggestion lieu de rencontre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Choix&lt;/span&gt; &lt;span style="color:#FF0000"&gt;&lt;ul&gt;
+	&lt;li&gt;B accepte&lt;/li&gt;
+	&lt;li&gt;B propose une modification&lt;/li&gt;
+	&lt;li&gt;B demande une modification par A&lt;/li&gt;
+	&lt;li&gt;B refuse&lt;/li&gt;
+	&lt;/ul&gt;&lt;/span&gt;
+	&lt;span style="color:#0000FF"&gt;Note&lt;/span&gt; A et B peuvent clavarder en lien avec cet échange&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A et B déclarent échange réussi&lt;/span&gt;&lt;br /&gt;
+&lt;/div&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_demande" model="accorderie.workflow.state">
@@ -312,7 +325,21 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.offrir</field>
 <!--            <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une demande existante</field>-->
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-bug" style="color:#FF0000"/&gt; Not finish</field>
+            <field name="help_validate_bug">&lt;i class="fa fa-bug" style="color:#FF0000"/&gt; Not finish&lt;br /&gt;
+&lt;div style="text-align:left"&gt;
+	&lt;span style="color:#0000FF"&gt;Déf&lt;/span&gt; membre A et membre B&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A crée une offre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Int&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A a trouvé une demande de service pour B sans avoir d'offre de service&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A propose un échange avec une date et heure&lt;/span&gt; &lt;span style="color:#FF0000"&gt;selon disponibilité de B&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;durée désirée&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;suggestion lieu de rencontre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Choix&lt;/span&gt; &lt;span style="color:#FF0000"&gt;&lt;ul&gt;
+	&lt;li&gt;B accepte&lt;/li&gt;
+	&lt;li&gt;B propose une modification&lt;/li&gt;
+	&lt;li&gt;B demande une modification par A&lt;/li&gt;
+	&lt;li&gt;B refuse&lt;/li&gt;
+	&lt;/ul&gt;&lt;/span&gt;
+	&lt;span style="color:#0000FF"&gt;Note&lt;/span&gt; A et B peuvent clavarder en lien avec cet échange&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A et B déclarent échange réussi&lt;/span&gt;&lt;br /&gt;
+&lt;/div&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service" model="accorderie.workflow.state">
@@ -352,7 +379,20 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne recevant le service d’une offre existante</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+            <field name="help_validate_bug">&lt;div style="text-align:left"&gt;
+	&lt;span style="color:#0000FF"&gt;Déf&lt;/span&gt; membre A et membre B&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A crée une offre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Int&lt;/span&gt; &lt;span style="color:#00FF00"&gt;B veut recevoir un service de l'offre par A&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;B propose un échange avec une date et heure&lt;/span&gt; &lt;span style="color:#FF0000"&gt;selon disponibilité de A&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;durée désirée&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;suggestion lieu de rencontre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Choix&lt;/span&gt; &lt;span style="color:#FF0000"&gt;&lt;ul&gt;
+	&lt;li&gt;A accepte&lt;/li&gt;
+	&lt;li&gt;A propose une modification&lt;/li&gt;
+	&lt;li&gt;A demande une modification par B&lt;/li&gt;
+	&lt;li&gt;A refuse&lt;/li&gt;
+	&lt;/ul&gt;&lt;/span&gt;
+	&lt;span style="color:#0000FF"&gt;Note&lt;/span&gt; A et B peuvent clavarder en lien avec cet échange&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A et B déclarent échange réussi&lt;/span&gt;&lt;br /&gt;
+&lt;/div&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_offrir_nouveau_categorie_service_form" model="accorderie.workflow.state">
@@ -378,7 +418,19 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.offrir.nouveau</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne offrant le service avec une offre qui doit être créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+            <field name="help_validate_bug">&lt;div style="text-align:left"&gt;
+	&lt;span style="color:#0000FF"&gt;Déf&lt;/span&gt; membre A et membre B&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Int&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A sait que B veut recevoir le service&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;En créant une offre privée, A propose un échange avec une date et heure&lt;/span&gt; &lt;span style="color:#FF0000"&gt;selon disponibilité de B&lt;/span&gt; + &lt;span style="color:#00FF00"&gt;durée désirée&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;suggestion lieu de rencontre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Choix&lt;/span&gt; &lt;span style="color:#FF0000"&gt;&lt;ul&gt;
+	&lt;li&gt;B accepte&lt;/li&gt;
+	&lt;li&gt;B propose une modification&lt;/li&gt;
+	&lt;li&gt;B demande une modification par A&lt;/li&gt;
+	&lt;li&gt;B refuse&lt;/li&gt;
+	&lt;/ul&gt;&lt;/span&gt;
+	&lt;span style="color:#0000FF"&gt;Note&lt;/span&gt; A et B peuvent clavarder en lien avec cet échange&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A et B déclarent échange réussi&lt;/span&gt;&lt;br /&gt;
+&lt;/div&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
 
@@ -450,7 +502,19 @@
             <field name="help_fast_btn_url">participer#!?state=init.saa.recevoir</field>
             <field name="help_fast_btn_guide_url">participer#!?animation=Créer un échange en tant que personne recevant le service d’une demande qui doit être créée</field>
             <field name="help_date_last_update" eval="(DateTime.today() - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M')" />
-            <field name="help_validate_bug">&lt;i class="fa fa-check" style="color:#00FF00"/&gt;</field>
+            <field name="help_validate_bug">&lt;div style="text-align:left"&gt;
+	&lt;span style="color:#0000FF"&gt;Déf&lt;/span&gt; membre A et membre B&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Int&lt;/span&gt; &lt;span style="color:#00FF00"&gt;B sait que A peut lui offrir un service&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;En créant une demande privée, B propose un échange avec une date et heure&lt;/span&gt; &lt;span style="color:#FF0000"&gt;selon disponibilité de A&lt;/span&gt; + &lt;span style="color:#00FF00"&gt;durée désirée&lt;/span&gt; + &lt;span style="color:#FF0000"&gt;suggestion lieu de rencontre&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Choix&lt;/span&gt; &lt;span style="color:#FF0000"&gt;&lt;ul&gt;
+	&lt;li&gt;A accepte&lt;/li&gt;
+	&lt;li&gt;A propose une modification&lt;/li&gt;
+	&lt;li&gt;A demande une modification par B&lt;/li&gt;
+	&lt;li&gt;A refuse&lt;/li&gt;
+	&lt;/ul&gt;&lt;/span&gt;
+	&lt;span style="color:#0000FF"&gt;Note&lt;/span&gt; A et B peuvent clavarder en lien avec cet échange&lt;br /&gt;
+	&lt;span style="color:#0000FF"&gt;Act&lt;/span&gt; &lt;span style="color:#00FF00"&gt;A et B déclarent échange réussi&lt;/span&gt;&lt;br /&gt;
+&lt;/div&gt;</field>
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_state_saa_recevoir_choix_existant" model="accorderie.workflow.state">
