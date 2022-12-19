@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
+<!--        <record id="accorderie_workflow_relation_init_pos" model="accorderie.workflow.relation">-->
+<!--            <field name="name">Publier une offre de service</field>-->
+<!--            <field name="body_html" type="html"><p>Vous souhaitez offrir vos services?<br />Cliquez ici pour publier votre offre en ligne.</p></field>-->
+<!--            <field name="state_src" ref="accorderie_workflow_state_init" />-->
+<!--            <field name="state_dst" ref="accorderie_workflow_state_pos" />-->
+<!--            <field name="diagram_id" ref="accorderie_workflow_participer" />-->
+<!--        </record>-->
         <record id="accorderie_workflow_relation_init_pos" model="accorderie.workflow.relation">
             <field name="name">Publier une offre de service</field>
             <field name="body_html" type="html"><p>Vous souhaitez offrir vos services?<br />Cliquez ici pour publier votre offre en ligne.</p></field>
             <field name="state_src" ref="accorderie_workflow_state_init" />
-            <field name="state_dst" ref="accorderie_workflow_state_pos" />
+            <field name="state_dst" ref="accorderie_workflow_state_pos_individuelle" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
+<!--        <record id="accorderie_workflow_relation_init_pds" model="accorderie.workflow.relation">-->
+<!--            <field name="name">Publier une demande de service</field>-->
+<!--            <field name="body_html">Vous avez besoin d'un service? Faites part de votre besoin aux membres de l'Accorderie en créant une demande ici.</field>-->
+<!--            <field name="state_src" ref="accorderie_workflow_state_init" />-->
+<!--            <field name="state_dst" ref="accorderie_workflow_state_pds" />-->
+<!--            <field name="diagram_id" ref="accorderie_workflow_participer" />-->
+<!--        </record>-->
         <record id="accorderie_workflow_relation_init_pds" model="accorderie.workflow.relation">
             <field name="name">Publier une demande de service</field>
             <field name="body_html">Vous avez besoin d'un service? Faites part de votre besoin aux membres de l'Accorderie en créant une demande ici.</field>
             <field name="state_src" ref="accorderie_workflow_state_init" />
-            <field name="state_dst" ref="accorderie_workflow_state_pds" />
+            <field name="state_dst" ref="accorderie_workflow_state_pds_individuelle" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_init_saa" model="accorderie.workflow.relation">
@@ -69,14 +83,36 @@
             <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_nouveau" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
-        <record id="accorderie_workflow_relation_saa_offrir_demande_existante" model="accorderie.workflow.relation">
-            <field name="name">Demande existante</field>
-            <field name="body_html" type="html"><p>Créer une offre de service privée<br />(spécifiquement pour un autre accordeur).</p></field>
+        <record id="accorderie_workflow_relation_saa_offrir_demande" model="accorderie.workflow.relation">
+            <field name="name">Une demande existante</field>
+            <field name="body_html" type="html"><p>Offrir un service privé sur une demande existante.</p></field>
             <field name="icon">fa-plus-circle</field>
             <field name="state_src" ref="accorderie_workflow_state_saa_offrir" />
-            <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_nouveau" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_demande" />
             <field name="diagram_id" ref="accorderie_workflow_participer" />
-            <field name="not_implemented">True</field>
+        </record>
+        <record id="accorderie_workflow_relation_saa_offrir_demande_existante" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_saa_offrir_demande" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_demande_existante" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_saa_offrir_demande_existante_date" model="accorderie.workflow.relation">
+            <field name="state_src" ref="accorderie_workflow_state_saa_offrir_demande_existante" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_demande_existante_date" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_saa_offrir_demande_existante_date_temps_dure" model="accorderie.workflow.relation">
+            <field name="name">Date choisi</field>
+            <field name="is_dynamic">True</field>
+            <field name="state_src" ref="accorderie_workflow_state_saa_offrir_demande_existante_date" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_demande_existante_date_temps_duree" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
+        </record>
+        <record id="accorderie_workflow_relation_saa_offrir_demande_existante_date_temps_dure_form" model="accorderie.workflow.relation">
+            <field name="name">Temps choisi</field>
+            <field name="state_src" ref="accorderie_workflow_state_saa_offrir_demande_existante_date_temps_duree" />
+            <field name="state_dst" ref="accorderie_workflow_state_saa_offrir_demande_existante_date_temps_duree_form" />
+            <field name="diagram_id" ref="accorderie_workflow_participer" />
         </record>
         <record id="accorderie_workflow_relation_saa_offrir_existant" model="accorderie.workflow.relation">
             <field name="name">Une offre existante</field>

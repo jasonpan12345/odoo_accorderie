@@ -980,6 +980,30 @@ class AccorderieCanadaDdbController(http.Controller):
 
     @http.route(
         [
+            "/accorderie_canada_ddb/get_info/demande_service/<model('accorderie.membre'):membre_id>",
+        ],
+        type="json",
+        auth="user",
+        website=True,
+    )
+    def get_participer_workflow_data_demande_service(self, membre_id, **kw):
+        lst_mes_demande_de_service = [
+            {
+                "id": a.id,
+                # "html": a.description,
+                "right_html": self._transform_str_diff_time_creation(
+                    a.create_date
+                ),
+                "title": a.titre,
+            }
+            for a in membre_id.demande_service_ids
+        ]
+        return {
+            "data": {"ses_demandes_de_service": lst_mes_demande_de_service}
+        }
+
+    @http.route(
+        [
             "/accorderie_canada_ddb/get_info/list_membre",
         ],
         type="json",
@@ -1614,6 +1638,24 @@ class AccorderieCanadaDdbController(http.Controller):
                                         _logger.warning(
                                             "cannot find offre service"
                                         )
+                            elif model_field == "demande_service_id":
+                                if (
+                                    state_id.caract_service_offrir_recevoir
+                                    == "Service à offrir"
+                                ):
+                                    if membre_id.demande_service_ids:
+                                        value = membre_id.demande_service_ids[
+                                            0
+                                        ].id
+                                    else:
+                                        _logger.warning(
+                                            "cannot find demande service"
+                                        )
+                                else:
+                                    _logger.warning(
+                                        "Not supported, demande_service_id"
+                                        " search for 'service à recevoir'"
+                                    )
                             elif model_field == "echange_service_id":
                                 if (
                                     state_id.caract_service_offrir_recevoir
@@ -1650,18 +1692,26 @@ class AccorderieCanadaDdbController(http.Controller):
                                         _logger.warning(
                                             "cannot find offre service"
                                         )
-                            elif model_field == "date_name":
-                                # Valide in past, else in futur
+                            elif model_field == "date_service":
+                                # Valide in the past, else in futur
                                 if state_id.caract_valider_echange:
                                     value = (
-                                        datetime.today() - timedelta(days=3)
+                                        self.datetime_to_local(
+                                            datetime.today()
+                                        )
+                                        - timedelta(days=3)
                                     ).strftime("%Y-%m-%d")
                                 else:
                                     value = (
-                                        datetime.today() + timedelta(days=3)
+                                        self.datetime_to_local(
+                                            datetime.today()
+                                        )
+                                        + timedelta(days=3)
                                     ).strftime("%Y-%m-%d")
-                            elif model_field == "time_name":
-                                value = datetime.today().strftime("%H:%M")
+                            elif model_field == "time_service":
+                                value = self.datetime_to_local(
+                                    datetime.today()
+                                ).strftime("%H:%M")
                             else:
                                 _logger.warning(
                                     "Not supported dynamic associate url:"
@@ -1839,13 +1889,12 @@ class AccorderieCanadaDdbController(http.Controller):
                     "id"
                 )
 
-            # TODO bug why init.saa.recevoir.choix.existant.time.form use date_name and not date_service
             # TODO check date_service UI activated by animation (or by user click)
             # Assume date is in UTC from client
-            date_service = kw.get("date_service") or kw.get("date_name")
+            date_service = kw.get("date_service")
             if date_service:
                 date_echange = date_service
-                time_service = kw.get("time_service") or kw.get("time_name")
+                time_service = kw.get("time_service")
                 if time_service:
                     date_echange += " " + time_service
                     date_echange_float = datetime.strptime(
@@ -1923,6 +1972,7 @@ class AccorderieCanadaDdbController(http.Controller):
                 vals["frais_materiel"] = float(kw.get("frais_materiel"))
 
             # date_echange
+            # TODO support private offre/demande and unpublish it
             new_accorderie_echange_service = (
                 request.env["accorderie.echange.service"].sudo().create(vals)
             )
@@ -1964,6 +2014,25 @@ class AccorderieCanadaDdbController(http.Controller):
                 value_new_service["frais_materiel"] = float(
                     kw.get("frais_materiel")
                 )
+
+            date_service = kw.get("date_service")
+            time_service = kw.get("time_service")
+            if date_service or time_service:
+                date_echange = date_service
+                if time_service:
+                    date_echange += " " + time_service
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d %H:%M"
+                    )
+                else:
+                    date_echange_float = datetime.strptime(
+                        date_echange, "%Y-%m-%d"
+                    ).date()
+                if (
+                    new_accorderie_echange_service.date_echange
+                    != date_echange_float
+                ):
+                    value_new_service["date_echange"] = date_echange_float
             new_accorderie_echange_service.write(value_new_service)
             status["echange_service_id"] = new_accorderie_echange_service.id
             # Force update time per member
