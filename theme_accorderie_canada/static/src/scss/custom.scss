@@ -2891,13 +2891,15 @@ actualité
     background-color: $delta;
     border-radius: 7px;
     height: auto;
+    padding: 2rem;
 
     img {
       height: 300px;
       border-radius: 7px 7px 0 0;
     }
     div {
-      padding: 2rem;
+      width: 100%;
+      padding-bottom: .5rem;
       font-size: 1rem;
     }
   }
