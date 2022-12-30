@@ -3180,6 +3180,10 @@ actualité
   //}
   .chat_container {
     max-height: calc(94vh - 154px);
+
+    .right_cards_container {
+      display: none;
+    }
   }
   .chat_box {
     width: 100%;
@@ -3205,10 +3209,13 @@ actualité
       left: 1rem;
       right: 1rem;
     }
+    .chat_body {
+      margin-bottom: 139px;
+    }
 
     .chat_footer {
       position: fixed;
-      bottom: 10vh;
+      bottom: 65px;
       width: 100%;
       background-color: $bg-alpha;
       padding: 1rem;
