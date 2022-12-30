@@ -4138,7 +4138,7 @@
                                                 <br />
                                                 {{contact_info.full_name}}
                                             </span>
-                                            <div class="btn btn-primary ml-auto text-gamma debug_unimplemented">
+                                            <div class="btn btn-primary text-gamma debug_unimplemented">
 <!--                                                <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">-->
                                                     <i class="fa fa-thumbs-up" />
                                                     <!-- TODO faire apparaitre un formulaire pour demander des commentaires et informer l'autre utilisateur d'avoir accepter. Quel est la prochaine étape? -->
@@ -4146,7 +4146,7 @@
                                                     <span>Accepter</span>
 <!--                                                </a>-->
                                             </div>
-                                            <div class="btn btn-primary ml-auto text-gamma">
+                                            <div class="btn btn-primary text-gamma">
                                                 <a ng-href="{{get_href_participer_service_effectue(echange_service_info)}}">
                                                     <i class="fa fa-check" />
                                                     <span>Service effectué</span>
