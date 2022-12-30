@@ -4767,7 +4767,7 @@
                                                     <h2>{{state.title}}</h2>
                                                     {{state.description}}
                                                     <span ng-if="!_.isEmpty(state.date_last_update)"><br />Dernière mise à jour : {{state.date_last_update}}</span>
-                                                    <div class="s_btn text-left pt16 pb16" data-name="Buttons" t-if="not user_id._is_public()">
+                                                    <div class="s_btn text-left pt16 pb16 guide_buttons" data-name="Buttons" t-if="not user_id._is_public()">
                                                         <a href="{{state.fast_btn_url}}" ng-if="!_.isEmpty(state.fast_btn_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">{{state.fast_btn_title}}
                                                         </a>
                                                         <a href="{{state.fast_btn_guide_url}}" ng-if="!_.isEmpty(state.fast_btn_guide_url)" class="btn btn-primary" data-original-title="" title="" aria-describedby="tooltip300943">Démarrer guide

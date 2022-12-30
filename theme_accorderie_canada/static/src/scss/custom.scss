@@ -3449,3 +3449,20 @@ actualité
     }
   }
 }
+
+/*
+ section guide
+*/
+
+
+@media only screen and (max-width: 990px) {
+  .guide_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .btn {
+      margin: 0 !important;
+    }
+  }
+}
