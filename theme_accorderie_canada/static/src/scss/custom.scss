@@ -1273,8 +1273,7 @@ actualité
 @media only screen and (max-width: 500px) {
   .sub-navbar .nav {
     flex-direction: row;
-    background-color: $bg-alpha;
-    border-bottom: 1px solid grey;
+    /*
     padding: 0;
 
     .nav-item {
@@ -1282,7 +1281,7 @@ actualité
       padding: 0;
       font-size: 3.5vw;
       margin: auto;
-    }
+    }*/
   }
 }
 
